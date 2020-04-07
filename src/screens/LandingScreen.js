@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, ImageBackground} from 'react-native';
+import {View, StyleSheet, ImageBackground} from 'react-native';
 import {Content, Container, Text, Button} from 'native-base';
 import BgImage from '../assets/welcome-screen-bg1.png';
 import ColoredLines from '../components/ColoredLines';
