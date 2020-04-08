@@ -1,5 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import {Content, Container, Text, Button} from 'native-base';
 import BgImage from '../assets/welcome-screen-bg1.png';
 import ColoredLines from '../components/ColoredLines';
@@ -34,6 +39,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 50,
   },
+  buttonTransparent: {
+    ...commonStyles.buttonStyle,
+    paddingBottom: 0,
+    paddingTop: 0,
+    marginBottom: 0,
+  },
 });
 
 const LandingScreen = ({navigation}) => {
@@ -62,18 +73,24 @@ const LandingScreen = ({navigation}) => {
                 onPress={() => navigation.navigate('Question')}>
                 <Text>Fiks je eigen route</Text>
               </Button>
-              <Button
-                style={styles.buttonStyle}
-                transparent
-                onPress={() => navigation.navigate('Question')}>
-                <Text>Start zonder eigen route</Text>
-              </Button>
-              <Button
-                style={styles.buttonStyle}
-                transparent
-                onPress={() => navigation.navigate('ImportRoutes')}>
-                <Text>Heb je al een route? Importeer gegevens</Text>
-              </Button>
+              <View>
+                <Button
+                  style={styles.buttonTransparent}
+                  transparent
+                  onPress={() => navigation.navigate('Question')}>
+                  <Text style={commonStyles.buttonLabel}>
+                    Start zonder eigen route
+                  </Text>
+                </Button>
+                <Button
+                  style={styles.buttonTransparent}
+                  transparent
+                  onPress={() => navigation.navigate('ImportRoutes')}>
+                  <Text style={commonStyles.buttonLabel}>
+                    Heb je al een route? Importeer gegevens
+                  </Text>
+                </Button>
+              </View>
             </View>
           </View>
         </Content>
