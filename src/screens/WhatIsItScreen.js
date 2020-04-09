@@ -6,7 +6,6 @@ import Body from '../components/typography/Body';
 import Button from '../components/Button';
 import YouTube from 'react-native-youtube';
 import SimpleHeader from '../components/header/SimpleHeader';
-import commonStyles from '../lib/commonStyles';
 
 const styles = StyleSheet.create({
   contentContainer: {

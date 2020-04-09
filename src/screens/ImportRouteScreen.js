@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   margin: {
     marginBottom: 30,
   },
+  inputContainer: {alignItems: 'center', justifyContent: 'center'},
 });
 
 const ImportRouteScreen = ({navigation}) => {
@@ -41,7 +42,7 @@ const ImportRouteScreen = ({navigation}) => {
           pagina op jouw oude device en plak hem hieronder op jouw nieuwe
           device!
         </Body>
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+        <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             onChangeText={text => onChangeText(text)}
