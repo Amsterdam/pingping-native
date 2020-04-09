@@ -8,6 +8,7 @@ const Body = ({children, align = 'left', style}) => {
       fontFamily: 'Raleway',
       textAlign: align,
       fontSize: 15,
+      lineHeight: 25,
     },
   });
   return <Text style={{...styles.text, ...style}}>{children}</Text>;

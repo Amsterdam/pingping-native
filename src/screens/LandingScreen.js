@@ -65,7 +65,7 @@ const LandingScreen = ({navigation}) => {
               <Button
                 rounded
                 label="Fiks je eigen route"
-                onPress={() => navigation.navigate('Question')}
+                onPress={() => navigation.navigate('Privacy')}
               />
               <View>
                 <Button

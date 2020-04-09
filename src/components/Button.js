@@ -40,6 +40,16 @@ const Button = ({
       ...buttonBase,
       backgroundColor: 'gray',
     },
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
   });
 
   const generateStyles = () => {
@@ -68,6 +78,20 @@ const Button = ({
           ...styles.label,
           ...labelStyle,
           color: bordered ? appColors.primaryColor : '#fff',
+        };
+        break;
+      case 'white':
+        styles.button = {
+          backgroundColor: '#fff',
+          borderColor: bordered && '#cecece',
+          ...styles.button,
+          ...styles.shadow,
+          ...style,
+        };
+        styles.label = {
+          ...styles.label,
+          ...labelStyle,
+          color: '#000',
         };
         break;
       default:

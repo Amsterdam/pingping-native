@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {Children} from 'react';
 import {StatusBar} from 'react-native';
 import {Header, Left, Button, Icon} from 'native-base';
 import {appColors} from '../../lib/colors';
-import HeaderBackButton from './HeaderBackButton';
 
-const SimpleHeader = ({navigation, color = 'primary'}) => {
+const SimpleHeader = ({navigation, style, children, color = 'primary'}) => {
   const headerColor = () => {
     switch (color) {
       case 'primary':
@@ -18,14 +17,15 @@ const SimpleHeader = ({navigation, color = 'primary'}) => {
     }
   };
   return (
-    <Header style={{backgroundColor: headerColor()}} transparent noShadow>
+    <Header
+      style={{backgroundColor: headerColor(), ...style}}
+      transparent
+      noShadow>
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle="light-content"
       />
-      <Left>
-        <HeaderBackButton color={color} navigation={navigation} />
-      </Left>
+      {children}
     </Header>
   );
 };
