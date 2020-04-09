@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+  margin: {
+    marginBottom: 30,
+  },
 });
 
 const ImportRouteScreen = ({navigation}) => {
@@ -27,12 +30,12 @@ const ImportRouteScreen = ({navigation}) => {
     <Container>
       <SimpleHeader navigation={navigation} color="white" />
       <Content contentContainerStyle={styles.content}>
-        <Title>Gegevens Importeren</Title>
-        <Body>
+        <Title style={styles.margin}>Gegevens Importeren</Title>
+        <Body style={styles.margin}>
           Als je van device switcht wil je natuurlijk niet dat al jouw gegevens
           en prestaties op Ping Ping verloren gaan!
         </Body>
-        <Body>
+        <Body style={styles.margin}>
           Het is heel simpel om jouw gegevens te exporteren naar een nieuw
           device. Kopieer de UUID (Unieke link) vanuit de 'exporteer gegevens'
           pagina op jouw oude device en plak hem hieronder op jouw nieuwe

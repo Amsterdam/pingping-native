@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Text} from 'native-base';
 
-const Title = ({children, align}) => {
+const Title = ({children, align, style}) => {
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Heavitas',
@@ -12,7 +12,7 @@ const Title = ({children, align}) => {
     },
   });
 
-  return <Text style={styles.text}>{children}</Text>;
+  return <Text style={{...styles.text, ...style}}>{children}</Text>;
 };
 
 export default Title;

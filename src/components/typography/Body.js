@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Text} from 'native-base';
 
-const Body = ({children, align = 'left'}) => {
+const Body = ({children, align = 'left', style}) => {
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Raleway',
@@ -10,7 +10,7 @@ const Body = ({children, align = 'left'}) => {
       fontSize: 15,
     },
   });
-  return <Text style={styles.text}>{children}</Text>;
+  return <Text style={{...styles.text, ...style}}>{children}</Text>;
 };
 
 export default Body;
