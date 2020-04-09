@@ -47,7 +47,7 @@ const WhatIsItScreen = ({navigation}) => {
         />
         <View style={styles.textContainer}>
           <Title align="center">Wat is {'\n'}PING PING ?</Title>
-          <Text styles={styles.emoji}>🤷‍♀🤷‍♀</Text>
+          <Text styles={styles.emoji}>🤷‍♂🤷‍♀</Text>
           <Body align="center">
             Wij maken een persoonlijk routeplan die je gaat helpen je
             (financiële) basis op orde te hebben.

@@ -45,24 +45,32 @@ const PrivacyPolicyScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  extended: {
-    backgroundColor: appColors.headerColor,
-    height: 100,
-    minHeight: 100,
-    alignSelf: 'stretch',
-    padding: 100,
+  header: {
+    height: 200,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  headerButtonContainer: {
+    flex: 0,
+  },
+  title: {
+    color: '#fff',
+    letterSpacing: 5,
+    alignSelf: 'center',
+  },
+
+  button: {
+    marginBottom: 15,
+    marginTop: 15,
   },
   content: {
     marginTop: 150,
     paddingLeft: 25,
     paddingRight: 25,
   },
-  headerButtonContainer: {
-    flex: 0,
-  },
   absolute: {
     position: 'absolute',
-
     top: 225,
     left: 0,
     right: 0,
@@ -85,21 +93,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  title: {
-    color: '#fff',
-    letterSpacing: 5,
-    alignSelf: 'center',
-  },
-  header: {
-    height: 200,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-  },
-  button: {
-    marginBottom: 15,
-    marginTop: 15,
   },
 });
 
