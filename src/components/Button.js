@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
 import {appColors} from '../lib/colors';
 
@@ -60,9 +60,20 @@ const Button = ({
         ...style,
       };
       styles.label = {
+        textAlign: 'center',
         ...styles.transparentButtonLabel,
         ...labelStyle,
-        textAlign: 'center',
+      };
+      styles.disabled = {
+        ...styles.transparentButton,
+        ...styles.button,
+        ...styles.disabled,
+        ...style,
+        backgroundColor: transparent,
+      };
+      styles.disabledLabel = {
+        ...labelStyle,
+        color: '#cccccc',
       };
       return;
     }
@@ -109,7 +120,9 @@ const Button = ({
       bordered={bordered}
       disabled={disabled}
       onPress={onPress}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={disabled ? styles.disabledLabel : styles.label}>
+        {label}
+      </Text>
     </NativeBaseButton>
   );
 };

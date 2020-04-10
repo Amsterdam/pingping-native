@@ -38,11 +38,17 @@ const PrivacyPolicyScreen = ({navigation}) => {
           bordered
           style={styles.button}
         />
-        <Button rounded label="Accepteer" />
+        <Button
+          rounded
+          label="Accepteer"
+          onPress={() => navigation.navigate('Question')}
+        />
       </Content>
     </Container>
   );
 };
+
+export default PrivacyPolicyScreen;
 
 const styles = StyleSheet.create({
   header: {
@@ -95,5 +101,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default PrivacyPolicyScreen;
