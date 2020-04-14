@@ -6,8 +6,7 @@ import Body from '../components/typography/Body';
 import Button from '../components/Button';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
-import PrivacyEye from '../assets/privacy.png';
-import {appColors} from '../lib/colors';
+import ThumbsUp from '../assets/thumbs-up.png';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   return (
@@ -18,30 +17,25 @@ const PrivacyPolicyScreen = ({navigation}) => {
             <HeaderBackButton navigation={navigation} />
           </Left>
         </View>
-        <Title style={styles.title}>PRIVACY</Title>
+        <Title style={styles.title}>LEKKER</Title>
         <View style={styles.absolute}>
           <View style={styles.paper}>
-            <Image source={PrivacyEye} />
+            <Image source={ThumbsUp} />
           </View>
         </View>
       </HeaderTemplate>
       <Content contentContainerStyle={styles.content}>
-        <Body>
-          Om Ping Ping optimaal te laten functioneren verzamelen wij door het
-          proces heen informatie. Klik hieronder om meer kennis te krijgen over
-          welke informatie wij verzamelen en wat wij met deze informatie doen.
+        <Body style={{paddingBottom: 20}}>
+          Met de antwoorden die jij hebt gegeven hebben wij voor jou een
+          persoonlijke route samengesteld.
+        </Body>
+        <Body style={{paddingBottom: 100}}>
+          Bekijk wat jij moet doen om je basis op orde te hebben!
         </Body>
         <Button
           rounded
-          label="Privacy policy"
-          color="white"
-          bordered
-          style={styles.button}
-        />
-        <Button
-          rounded
-          label="Accepteer"
-          onPress={() => navigation.navigate('Question')}
+          label="Naar mijn Route"
+          onPress={() => navigation.navigate('RouteHome')}
         />
       </Content>
     </Container>
