@@ -1,13 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, Image} from 'react-native';
-import {Content, Container, Text, Left, Right} from 'native-base';
+import {View, StyleSheet, Image} from 'react-native';
+import {Content, Container, Text, Left} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import PrivacyEye from '../assets/privacy.png';
-import {appColors} from '../lib/colors';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   return (
