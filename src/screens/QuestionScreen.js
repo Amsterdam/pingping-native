@@ -22,7 +22,12 @@ const QuestionScreen = ({navigation}) => {
     <Container>
       <SimpleHeader navigation={navigation} color="white" />
       <Content contentContainerStyle={styles.content}>
-        <QuestionComponent question="Wat is je geboortedatum?" />
+        <QuestionComponent
+          question="Wat is je geboortedatum?"
+          answers={['ja', 'nee']}
+          type="binary"
+          navigation={navigation}
+        />
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => {}}
