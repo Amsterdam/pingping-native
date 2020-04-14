@@ -3,7 +3,13 @@ import {StatusBar} from 'react-native';
 import {Header, Left, Button, Icon} from 'native-base';
 import {appColors} from '../../lib/colors';
 
-const SimpleHeader = ({navigation, style, children, color = 'primary'}) => {
+const SimpleHeader = ({
+  navigation,
+  style,
+  children,
+  color = 'primary',
+  statusBarColor = 'light-content',
+}) => {
   const headerColor = () => {
     switch (color) {
       case 'primary':
@@ -23,7 +29,7 @@ const SimpleHeader = ({navigation, style, children, color = 'primary'}) => {
       noShadow>
       <StatusBar
         backgroundColor={appColors.headerColor}
-        barStyle="light-content"
+        barStyle={statusBarColor}
       />
       {children}
     </Header>
