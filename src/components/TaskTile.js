@@ -43,9 +43,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   progressLine: {
-    backgroundColor: '#000',
+    backgroundColor: appColors.accentColor,
+    height: 10,
+    flex: 1,
+  },
+  progressLineHidden: {
+    backgroundColor: '#fff',
     height: 10,
     flex: 1,
     borderRadius: 100,
@@ -54,11 +60,21 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 100,
-    backgroundColor: '#000',
+    backgroundColor: appColors.accentColor,
+    justifyContent: 'center',
+  },
+  progressBulletInner: {
+    width: 20,
+    height: 20,
+    borderRadius: 100,
+    backgroundColor: appColors.bullet,
+    borderColor: '#fff',
+    borderWidth: 2,
+    alignSelf: 'center',
   },
 });
 
-const TaskTile = ({benefit, navigation, benefits}) => {
+const TaskTile = ({navigation, index, tasksLength}) => {
   console.log(navigation.state);
   return (
     <View>
@@ -80,9 +96,19 @@ const TaskTile = ({benefit, navigation, benefits}) => {
         </View>
       </TouchableOpacity>
       <View style={styles.progressContainer}>
-        <View style={styles.progressLine} />
-        <View style={styles.progressBullet} />
-        <View style={styles.progressLine} />
+        <View
+          style={index === 0 ? styles.progressLineHidden : styles.progressLine}
+        />
+        <View style={styles.progressBullet}>
+          <View style={styles.progressBulletInner} />
+        </View>
+        <View
+          style={
+            index === tasksLength - 1
+              ? styles.progressLineHidden
+              : styles.progressLine
+          }
+        />
       </View>
     </View>
   );

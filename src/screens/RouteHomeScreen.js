@@ -19,6 +19,15 @@ const styles = StyleSheet.create({
   title: {fontSize: 30},
 });
 
+const tasks = [
+  {title: 'zorgverzekering aanvragen'},
+  {title: 'zorgverzekering aanvragen'},
+  {title: 'zorgverzekering aanvragen'},
+  {title: 'zorgverzekering aanvragen'},
+  {title: 'zorgverzekering aanvragen'},
+  {title: 'zorgverzekering aanvragen'},
+];
+
 const RouteHomeScreen = ({navigation}) => {
   return (
     <Container>
@@ -34,22 +43,14 @@ const RouteHomeScreen = ({navigation}) => {
       </HeaderTemplate>
       <Content>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <TaskTile
-            task={{title: 'zorgverzekering aanvragen'}}
-            navigation={navigation}
-          />
-          <TaskTile
-            task={{title: 'zorgverzekering aanvragen'}}
-            navigation={navigation}
-          />
-          <TaskTile
-            task={{title: 'zorgverzekering aanvragen'}}
-            navigation={navigation}
-          />
-          <TaskTile
-            task={{title: 'zorgverzekering aanvragen'}}
-            navigation={navigation}
-          />
+          {tasks.map((task, index) => (
+            <TaskTile
+              task={{title: 'zorgverzekering aanvragen'}}
+              navigation={navigation}
+              index={index}
+              tasksLength={tasks.length}
+            />
+          ))}
         </ScrollView>
       </Content>
     </Container>
