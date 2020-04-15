@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import {Content, Container, Text, Left, Right} from 'native-base';
+import {Content, Container} from 'native-base';
 import TaskTile from '../components/TaskTile';
 import Button from '../components/Button';
 import Title from '../components/typography/Title';
+import Body from '../components/typography/Body';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 
 const styles = StyleSheet.create({
@@ -17,15 +18,45 @@ const styles = StyleSheet.create({
 
   label: {fontSize: 14, fontFamily: 'raleway'},
   title: {fontSize: 30},
+  currentActionContainer: {marginTop: 20},
 });
 
 const tasks = [
-  {title: 'zorgverzekering aanvragen'},
-  {title: 'zorgverzekering aanvragen'},
-  {title: 'zorgverzekering aanvragen'},
-  {title: 'zorgverzekering aanvragen'},
-  {title: 'zorgverzekering aanvragen'},
-  {title: 'zorgverzekering aanvragen'},
+  {
+    title: 'zorgverzekering aanvragen',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+  },
+  {
+    title: 'zorgverzekering aanvragen',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+  },
+  {
+    title: 'zorgverzekering aanvragen',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+  },
+  {
+    title: 'zorgverzekering aanvragen',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+  },
+  {
+    title: 'zorgverzekering aanvragen',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+  },
 ];
 
 const RouteHomeScreen = ({navigation}) => {
@@ -45,13 +76,20 @@ const RouteHomeScreen = ({navigation}) => {
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {tasks.map((task, index) => (
             <TaskTile
-              task={{title: 'zorgverzekering aanvragen'}}
+              task={task}
               navigation={navigation}
               index={index}
               tasksLength={tasks.length}
             />
           ))}
         </ScrollView>
+        <View style={styles.currentActionContainer}>
+          <Title style={{fontSize: 20}}>Regel je woonadres</Title>
+          <Body>
+            Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
+          </Body>
+          <Button label="Regel je woonadres" rounded />
+        </View>
       </Content>
     </Container>
   );
