@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
   label: {fontSize: 14, fontFamily: 'raleway'},
   title: {fontSize: 30},
   currentActionContainer: {marginTop: 20},
-  taskTitle: {fontSize: 20},
+  taskTitle: {fontSize: 20, marginBottom: 20},
+  taskDescription: {marginBottom: 20},
 });
 
 const tasks = [
@@ -87,7 +88,7 @@ const RouteHomeScreen = ({navigation}) => {
         <ContentLayout>
           <View style={styles.currentActionContainer}>
             <Title style={styles.taskTitle}>Regel je woonadres</Title>
-            <Body>
+            <Body style={styles.taskDescription}>
               Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
             </Body>
             <Button label="Regel je woonadres" rounded />

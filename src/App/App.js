@@ -128,9 +128,9 @@ const MainTabs = createBottomTabNavigator({
       tabBarLabel: 'Je Routes',
       tabBarIcon: ({tintColor}) => (
         <Icon
-          name="qrcode"
+          name="route"
           style={{color: tintColor, paddingTop: 5}}
-          type="AntDesign"
+          type="FontAwesome5"
         />
       ),
     },
