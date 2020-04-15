@@ -4,7 +4,6 @@ import {Content, Container} from 'native-base';
 import {appColors} from '../lib/colors';
 import Button from '../components/Button';
 import SimpleHeader from '../components/header/SimpleHeader';
-import Title from '../components/typography/Title';
 import QuestionComponent from '../components/QuestionComponent';
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Content, Container, Text} from 'native-base';
+import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
@@ -21,8 +22,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   textContainer: {
-    flex: 1,
-    padding: 30,
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -45,7 +44,7 @@ const WhatIsItScreen = ({navigation}) => {
           loop // control whether the video should loop when ended
           style={styles.videoContainer}
         />
-        <View style={styles.textContainer}>
+        <ContentLayout style={styles.textContainer}>
           <Title align="center">Wat is {'\n'}PING PING ?</Title>
           <Text styles={styles.emoji}>🤷‍♂🤷‍♀</Text>
           <Body align="center">
@@ -78,7 +77,7 @@ const WhatIsItScreen = ({navigation}) => {
               onPress={() => navigation.navigate('ImportRoutes')}
             />
           </View>
-        </View>
+        </ContentLayout>
       </Content>
     </Container>
   );

@@ -5,7 +5,6 @@ import Button from '../components/Button';
 import Title from '../components/typography/Title';
 
 const styles = StyleSheet.create({
-  content: {flex: 1, padding: 20},
   questionContainer: {
     flex: 1,
   },

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
   },
-  taskLabel: {fontSize: 22, color: '#fff'},
+  taskLabel: {fontSize: 20, color: '#fff'},
   imageAndLabelContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -74,8 +74,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TaskTile = ({navigation, index, tasksLength}) => {
-  console.log(navigation.state);
+const TaskTile = ({navigation, task, index, tasksLength}) => {
   return (
     <View>
       <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
@@ -86,12 +85,14 @@ const TaskTile = ({navigation, index, tasksLength}) => {
             </View>
             <View>
               <View style={styles.labelContainer}>
-                <Title style={styles.label}>20 City Pings</Title>
+                <Title style={styles.label}>{`${
+                  task.cityPingValue
+                } City Pings`}</Title>
               </View>
             </View>
           </View>
           <View>
-            <Title style={styles.taskLabel}>Regel je woonadres</Title>
+            <Title style={styles.taskLabel}>{task.title}</Title>
           </View>
         </View>
       </TouchableOpacity>
