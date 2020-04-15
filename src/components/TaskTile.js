@@ -25,12 +25,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 30,
   },
-  favButtonContainer: {position: 'absolute', right: 15, bottom: 15},
-  tileImage: {
-    width: 140,
-    height: 145,
-    borderRadius: 20,
-    marginBottom: MARGIN,
+  labelContainer: {
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    padding: 10,
+    borderRadius: 100,
+  },
+  label: {
+    color: '#fff',
+    fontSize: 14,
+  },
+  taskLabel: {fontSize: 22, color: '#fff'},
+  imageAndLabelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  progressContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progressLine: {
+    backgroundColor: '#000',
+    height: 10,
+    flex: 1,
+    borderRadius: 100,
+  },
+  progressBullet: {
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+    backgroundColor: '#000',
   },
 });
 
@@ -40,68 +64,25 @@ const TaskTile = ({benefit, navigation, benefits}) => {
     <View>
       <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
         <View style={styles.tileContainer}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={styles.imageAndLabelContainer}>
             <View style={styles.imageContainer}>
               <Text>😙</Text>
             </View>
             <View>
-              <View
-                style={{
-                  backgroundColor: 'rgba(0,0,0,0.1)',
-                  padding: 10,
-                  borderRadius: 100,
-                }}>
-                <Title
-                  style={{
-                    color: '#fff',
-                    fontSize: 14,
-                  }}>
-                  20 City Pings
-                </Title>
+              <View style={styles.labelContainer}>
+                <Title style={styles.label}>20 City Pings</Title>
               </View>
             </View>
           </View>
           <View>
-            <Title style={{fontSize: 22, color: '#fff'}}>
-              Regel je woonadres
-            </Title>
+            <Title style={styles.taskLabel}>Regel je woonadres</Title>
           </View>
         </View>
       </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            marginLeft: 5,
-            marginRight: 5,
-            backgroundColor: '#000',
-            height: 10,
-            flex: 1,
-            borderRadius: 100,
-          }}
-        />
-        <View
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: 100,
-            backgroundColor: '#000',
-          }}
-        />
-        <View
-          style={{
-            marginLeft: 5,
-            marginRight: 5,
-            backgroundColor: '#000',
-            height: 10,
-            flex: 1,
-            borderRadius: 100,
-          }}
-        />
+      <View style={styles.progressContainer}>
+        <View style={styles.progressLine} />
+        <View style={styles.progressBullet} />
+        <View style={styles.progressLine} />
       </View>
     </View>
   );
