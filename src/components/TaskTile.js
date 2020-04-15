@@ -37,36 +37,73 @@ const styles = StyleSheet.create({
 const TaskTile = ({benefit, navigation, benefits}) => {
   console.log(navigation.state);
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
-      <View style={styles.tileContainer}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={styles.imageContainer}>
-            <Text>😙</Text>
-          </View>
-          <View>
-            <View
-              style={{
-                backgroundColor: 'rgba(0,0,0,0.1)',
-                padding: 10,
-                borderRadius: 100,
-              }}>
-              <Title
+    <View>
+      <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+        <View style={styles.tileContainer}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.imageContainer}>
+              <Text>😙</Text>
+            </View>
+            <View>
+              <View
                 style={{
-                  color: '#fff',
-                  fontSize: 14,
+                  backgroundColor: 'rgba(0,0,0,0.1)',
+                  padding: 10,
+                  borderRadius: 100,
                 }}>
-                20 City Pings
-              </Title>
+                <Title
+                  style={{
+                    color: '#fff',
+                    fontSize: 14,
+                  }}>
+                  20 City Pings
+                </Title>
+              </View>
             </View>
           </View>
+          <View>
+            <Title style={{fontSize: 22, color: '#fff'}}>
+              Regel je woonadres
+            </Title>
+          </View>
         </View>
-        <View>
-          <Title style={{fontSize: 22, color: '#fff'}}>
-            Regel je woonadres
-          </Title>
-        </View>
+      </TouchableOpacity>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <View
+          style={{
+            marginLeft: 5,
+            marginRight: 5,
+            backgroundColor: '#000',
+            height: 10,
+            flex: 1,
+            borderRadius: 100,
+          }}
+        />
+        <View
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 100,
+            backgroundColor: '#000',
+          }}
+        />
+        <View
+          style={{
+            marginLeft: 5,
+            marginRight: 5,
+            backgroundColor: '#000',
+            height: 10,
+            flex: 1,
+            borderRadius: 100,
+          }}
+        />
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
