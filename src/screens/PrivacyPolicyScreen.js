@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {Content, Container, Text, Left} from 'native-base';
+import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
@@ -24,25 +25,28 @@ const PrivacyPolicyScreen = ({navigation}) => {
           </View>
         </View>
       </HeaderTemplate>
-      <Content contentContainerStyle={styles.content}>
-        <Body>
-          Om Ping Ping optimaal te laten functioneren verzamelen wij door het
-          proces heen informatie. Klik hieronder om meer kennis te krijgen over
-          welke informatie wij verzamelen en wat wij met deze informatie doen.
-        </Body>
-        <Button
-          rounded
-          label="Privacy policy"
-          color="white"
-          bordered
-          style={styles.button}
-        />
-        <Button
-          rounded
-          label="Accepteer"
-          onPress={() => navigation.navigate('Question')}
-        />
-      </Content>
+      <ContentLayout style={styles.content}>
+        <Content>
+          <Body>
+            Om Ping Ping optimaal te laten functioneren verzamelen wij door het
+            proces heen informatie. Klik hieronder om meer kennis te krijgen
+            over welke informatie wij verzamelen en wat wij met deze informatie
+            doen.
+          </Body>
+          <Button
+            rounded
+            label="Privacy policy"
+            color="white"
+            bordered
+            style={styles.button}
+          />
+          <Button
+            rounded
+            label="Accepteer"
+            onPress={() => navigation.navigate('Question')}
+          />
+        </Content>
+      </ContentLayout>
     </Container>
   );
 };
@@ -71,8 +75,6 @@ const styles = StyleSheet.create({
   },
   content: {
     marginTop: 150,
-    paddingLeft: 25,
-    paddingRight: 25,
   },
   absolute: {
     position: 'absolute',

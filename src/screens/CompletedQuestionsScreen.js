@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions, Image} from 'react-native';
 import {Content, Container, Text, Left, Right} from 'native-base';
+import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
@@ -24,20 +25,22 @@ const PrivacyPolicyScreen = ({navigation}) => {
           </View>
         </View>
       </HeaderTemplate>
-      <Content contentContainerStyle={styles.content}>
-        <Body style={{paddingBottom: 20}}>
-          Met de antwoorden die jij hebt gegeven hebben wij voor jou een
-          persoonlijke route samengesteld.
-        </Body>
-        <Body style={{paddingBottom: 100}}>
-          Bekijk wat jij moet doen om je basis op orde te hebben!
-        </Body>
-        <Button
-          rounded
-          label="Naar mijn Route"
-          onPress={() => navigation.navigate('RouteHome')}
-        />
-      </Content>
+      <ContentLayout style={styles.content}>
+        <Content>
+          <Body style={{paddingBottom: 20}}>
+            Met de antwoorden die jij hebt gegeven hebben wij voor jou een
+            persoonlijke route samengesteld.
+          </Body>
+          <Body style={{paddingBottom: 100}}>
+            Bekijk wat jij moet doen om je basis op orde te hebben!
+          </Body>
+          <Button
+            rounded
+            label="Naar mijn Route"
+            onPress={() => navigation.navigate('RouteHome')}
+          />
+        </Content>
+      </ContentLayout>
     </Container>
   );
 };
@@ -66,8 +69,6 @@ const styles = StyleSheet.create({
   },
   content: {
     marginTop: 150,
-    paddingLeft: 25,
-    paddingRight: 25,
   },
   absolute: {
     position: 'absolute',

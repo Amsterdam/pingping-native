@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import {Content, Container} from 'native-base';
+import ContentLayout from '../components/layout/ContentLayout';
 import TaskTile from '../components/TaskTile';
 import Button from '../components/Button';
 import Title from '../components/typography/Title';
@@ -15,10 +16,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginBottom: 30,
   },
-
   label: {fontSize: 14, fontFamily: 'raleway'},
   title: {fontSize: 30},
   currentActionContainer: {marginTop: 20},
+  taskTitle: {fontSize: 20},
 });
 
 const tasks = [
@@ -83,13 +84,15 @@ const RouteHomeScreen = ({navigation}) => {
             />
           ))}
         </ScrollView>
-        <View style={styles.currentActionContainer}>
-          <Title style={{fontSize: 20}}>Regel je woonadres</Title>
-          <Body>
-            Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
-          </Body>
-          <Button label="Regel je woonadres" rounded />
-        </View>
+        <ContentLayout>
+          <View style={styles.currentActionContainer}>
+            <Title style={styles.taskTitle}>Regel je woonadres</Title>
+            <Body>
+              Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
+            </Body>
+            <Button label="Regel je woonadres" rounded />
+          </View>
+        </ContentLayout>
       </Content>
     </Container>
   );
