@@ -5,6 +5,7 @@ export const ppBaseColors = {
   PP_BABY_BLUE: '#bfe9ee',
   PP_DARK_BLUE: '#0d2036',
   PP_BULLET: '#99dce4',
+  PP_SUCCESS: '#24ba10',
 };
 
 export const ppLogoColors = [
@@ -15,7 +16,9 @@ export const ppLogoColors = [
 
 export const appColors = {
   primaryColor: ppBaseColors.PP_ORANGE,
+  secondary: ppBaseColors.PP_LIGHT_BLUE,
   headerColor: ppBaseColors.PP_DARK_BLUE,
   accentColor: ppBaseColors.PP_BABY_BLUE,
   bullet: ppBaseColors.PP_BULLET,
+  success: ppBaseColors.PP_SUCCESS,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, FlatList, findNodeHandle} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import TaskTile from '../components/TaskTile';
@@ -30,73 +30,131 @@ const tasks = [
       'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
     actionLabel: 'Regel je woonadres',
     cityPingValue: 20,
+    completed: true,
+    current: false,
   },
   {
-    title: 'zorgverzekering aanvragen',
+    title: 'zorgverzekering aanvragen1',
     description:
       'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
     actionLabel: 'Regel je woonadres',
     cityPingValue: 20,
+    completed: false,
+    current: false,
   },
   {
-    title: 'zorgverzekering aanvragen',
+    title: 'zorgverzekering aanvragen2',
     description:
       'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
     actionLabel: 'Regel je woonadres',
     cityPingValue: 20,
+    completed: false,
+    current: false,
   },
   {
-    title: 'zorgverzekering aanvragen',
+    title: 'zorgverzekering aanvragen3',
     description:
       'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
     actionLabel: 'Regel je woonadres',
     cityPingValue: 20,
+    completed: false,
+    current: false,
   },
   {
-    title: 'zorgverzekering aanvragen',
+    title: 'zorgverzekering aanvragen4',
     description:
       'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
     actionLabel: 'Regel je woonadres',
     cityPingValue: 20,
+    completed: false,
+    current: false,
+  },
+  {
+    title: 'zorgverzekering aanvragen5',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+    completed: false,
+    current: true,
+  },
+  {
+    title: 'zorgverzekering aanvragen6',
+    description:
+      'Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.',
+    actionLabel: 'Regel je woonadres',
+    cityPingValue: 20,
+    completed: false,
+    current: false,
   },
 ];
 
-const RouteHomeScreen = ({navigation}) => {
-  return (
-    <Container>
-      <HeaderTemplate style={styles.header} statusBarColor="dark-content">
-        <Title style={styles.title}>Je Route!</Title>
-        <Button
-          onPress={() => navigation.navigate('YourRoute')}
-          label="Bekijk je route"
-          transparent
-          labelStyle={styles.label}
-          style={styles.button}
-        />
-      </HeaderTemplate>
-      <Content>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {tasks.map((task, index) => (
-            <TaskTile
-              task={task}
-              navigation={navigation}
-              index={index}
-              tasksLength={tasks.length}
-            />
-          ))}
-        </ScrollView>
-        <ContentLayout>
-          <View style={styles.currentActionContainer}>
-            <Title style={styles.taskTitle}>Regel je woonadres</Title>
-            <Body style={styles.taskDescription}>
-              Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
-            </Body>
-            <Button label="Regel je woonadres" rounded />
-          </View>
-        </ContentLayout>
-      </Content>
-    </Container>
-  );
-};
+class RouteHomeScreen extends React.Component {
+  getItemLayout = (data, index) => ({length: 250, offset: 240 * index, index});
+
+  state = {ref: null};
+
+  onRefChange = node => {
+    this.setState({ref: node});
+  };
+
+  componentDidUpdate = () => {
+    setTimeout(() => {
+      const indexOfTask = tasks.findIndex(task => task.current === true);
+      if (this.state.ref && indexOfTask > 0) {
+        this.state.ref.scrollToIndex({
+          index: indexOfTask,
+          animated: true,
+        });
+      }
+    }, 500);
+  };
+
+  render() {
+    const {navigation} = this.props;
+    return (
+      <Container>
+        <HeaderTemplate style={styles.header} statusBarColor="dark-content">
+          <Title style={styles.title}>Je Route!</Title>
+          <Button
+            onPress={() => navigation.navigate('YourRoute')}
+            label="Bekijk je route"
+            transparent
+            labelStyle={styles.label}
+            style={styles.button}
+          />
+        </HeaderTemplate>
+        <Content>
+          <FlatList
+            data={tasks}
+            horizontal
+            ref={this.onRefChange}
+            getItemLayout={this.getItemLayout}
+            renderItem={({item, index}) => (
+              <TaskTile
+                task={item}
+                index={index}
+                navigation={navigation}
+                tasksLength={tasks.length}
+              />
+            )}
+            keyExtractor={item => item.title}
+          />
+
+          <ContentLayout>
+            <View style={styles.currentActionContainer}>
+              <Title style={styles.taskTitle}>Regel je woonadres</Title>
+              <Body style={styles.taskDescription}>
+                Je hebt eerst een adres nodig. Daarna kan je andere zaken
+                regelen.
+              </Body>
+              <Button label="Regel je woonadres" rounded />
+            </View>
+          </ContentLayout>
+        </Content>
+      </Container>
+    );
+  }
+}
 
 export default RouteHomeScreen;

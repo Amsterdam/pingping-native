@@ -10,12 +10,18 @@ const styles = StyleSheet.create({
   tileContainer: {
     marginTop: MARGIN,
     marginLeft: MARGIN,
-    backgroundColor: appColors.primaryColor,
+    backgroundColor: appColors.secondary,
     justifyContent: 'space-between',
     borderRadius: 8,
     height: 150,
     width: 250,
     padding: 14,
+  },
+  tileComplete: {
+    backgroundColor: appColors.success,
+  },
+  tileCurrent: {
+    backgroundColor: appColors.primaryColor,
   },
   imageContainer: {
     width: 50,
@@ -75,10 +81,20 @@ const styles = StyleSheet.create({
 });
 
 const TaskTile = ({navigation, task, index, tasksLength}) => {
+  const generateTileClass = () => {
+    if (task.completed) {
+      return {...styles.tileContainer, ...styles.tileComplete};
+    }
+    if (task.current) {
+      return {...styles.tileContainer, ...styles.tileCurrent};
+    }
+
+    return styles.tileContainer;
+  };
   return (
     <View>
       <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
-        <View style={styles.tileContainer}>
+        <View style={generateTileClass()}>
           <View style={styles.imageAndLabelContainer}>
             <View style={styles.imageContainer}>
               <Text>😙</Text>
