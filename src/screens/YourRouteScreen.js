@@ -73,7 +73,7 @@ const YourRouteScreen = ({navigation}) => {
           {navigation.state &&
             navigation.state.params &&
             navigation.state.params.tasks.map((task, index) => (
-              <View style={styles.routeNode}>
+              <View key={task.title} style={styles.routeNode}>
                 <ProgressLine
                   index={index}
                   tasksLength={navigation.state.params.tasks.length}
