@@ -64,7 +64,6 @@ const ProgressLine = ({index, tasksLength, vertical = false, success}) => {
   };
 
   const generateLineStyle = trailingLine => {
-    console.log(index, tasksLength - 1);
     if (index === 0 && !vertical && !trailingLine) {
       return styles.progressLineHidden;
     }
