@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, StyleSheet} from 'react-native';
 import Title from '../components/typography/Title';
+import ProgressLine from '../components/ProgressLine';
 import {Text} from 'native-base';
 import {appColors} from '../lib/colors';
 
@@ -112,21 +113,7 @@ const TaskTile = ({navigation, task, index, tasksLength}) => {
           </View>
         </View>
       </TouchableOpacity>
-      <View style={styles.progressContainer}>
-        <View
-          style={index === 0 ? styles.progressLineHidden : styles.progressLine}
-        />
-        <View style={styles.progressBullet}>
-          <View style={styles.progressBulletInner} />
-        </View>
-        <View
-          style={
-            index === tasksLength - 1
-              ? styles.progressLineHidden
-              : styles.progressLine
-          }
-        />
-      </View>
+      <ProgressLine index={index} tasksLength={tasksLength} />
     </View>
   );
 };

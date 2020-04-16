@@ -117,7 +117,11 @@ class RouteHomeScreen extends React.Component {
         <HeaderTemplate style={styles.header} statusBarColor="dark-content">
           <Title style={styles.title}>Je Route!</Title>
           <Button
-            onPress={() => navigation.navigate('YourRoute')}
+            onPress={() =>
+              navigation.navigate('YourRoute', {
+                tasks,
+              })
+            }
             label="Bekijk je route"
             transparent
             labelStyle={styles.label}
