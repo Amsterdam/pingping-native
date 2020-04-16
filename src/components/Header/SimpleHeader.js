@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {Header, Left, Button, Icon} from 'native-base';
+import {Header, Left} from 'native-base';
 import {appColors} from '../../lib/colors';
 import HeaderBackButton from './HeaderBackButton';
 

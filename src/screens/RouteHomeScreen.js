@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, FlatList, findNodeHandle} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import TaskTile from '../components/TaskTile';

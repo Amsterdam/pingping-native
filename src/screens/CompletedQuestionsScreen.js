@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, Image} from 'react-native';
-import {Content, Container, Text, Left, Right} from 'native-base';
+import {View, StyleSheet, Image} from 'react-native';
+import {Content, Container, Left} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -27,11 +27,11 @@ const PrivacyPolicyScreen = ({navigation}) => {
       </HeaderTemplate>
       <ContentLayout style={styles.content}>
         <Content>
-          <Body style={{paddingBottom: 20}}>
+          <Body style={styles.paragraph1}>
             Met de antwoorden die jij hebt gegeven hebben wij voor jou een
             persoonlijke route samengesteld.
           </Body>
-          <Body style={{paddingBottom: 100}}>
+          <Body style={styles.paragraph2}>
             Bekijk wat jij moet doen om je basis op orde te hebben!
           </Body>
           <Button
@@ -62,7 +62,12 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     alignSelf: 'center',
   },
-
+  paragraph1: {
+    paddingBottom: 20,
+  },
+  paragraph2: {
+    paddingBottom: 100,
+  },
   button: {
     marginBottom: 15,
     marginTop: 15,
