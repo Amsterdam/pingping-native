@@ -11,20 +11,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: Dimensions.get('window').width - 50,
   },
-  color1: {
-    backgroundColor: ppLogoColors.pp1,
-    height: LINE_HEIGHT,
-    flex: 1,
-    margin: LINE_MARGIN,
-  },
-  color2: {
-    backgroundColor: ppLogoColors.pp2,
-    height: LINE_HEIGHT,
-    flex: 1,
-    margin: LINE_MARGIN,
-  },
-  color3: {
-    backgroundColor: ppLogoColors.pp3,
+  line: {
     height: LINE_HEIGHT,
     flex: 1,
     margin: LINE_MARGIN,
@@ -34,9 +21,12 @@ const styles = StyleSheet.create({
 const ColoredLines = () => {
   return (
     <View style={styles.lineContainer}>
-      <View style={styles.color1} />
-      <View style={styles.color2} />
-      <View style={styles.color3} />
+      {ppLogoColors.map((color, i) => (
+        <View
+          key={color}
+          style={{...styles.line, backgroundColor: ppLogoColors[i]}}
+        />
+      ))}
     </View>
   );
 };

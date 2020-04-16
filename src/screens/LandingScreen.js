@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, ImageBackground} from 'react-native';
-import {Content, Container, Text, Button} from 'native-base';
+import {View, StyleSheet, ImageBackground} from 'react-native';
+import {Content, Container, Text} from 'native-base';
+import Button from '../components/Button';
 import BgImage from '../assets/welcome-screen-bg1.png';
 import ColoredLines from '../components/ColoredLines';
 import coloredTextPrinter from '../utils/coloredTextPrinter';
@@ -24,15 +25,19 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
-  buttonStyle: {
-    ...commonStyles.buttonStyle,
-  },
   whiteButton: {
-    ...commonStyles.buttonStyle,
     backgroundColor: '#fff',
   },
   buttonContainer: {
     marginTop: 50,
+  },
+  buttonTransparent: {
+    paddingBottom: 0,
+    paddingTop: 0,
+    marginBottom: 0,
+  },
+  buttonLabel: {
+    color: '#fff',
   },
 });
 
@@ -53,27 +58,31 @@ const LandingScreen = ({navigation}) => {
                 style={styles.whiteButton}
                 bordered
                 rounded
-                onPress={() => navigation.navigate('WhatIsIt')}>
-                <Text>Wat is pingping</Text>
-              </Button>
+                color="primary"
+                label="Wat is pingping"
+                onPress={() => navigation.navigate('WhatIsIt')}
+              />
               <Button
-                style={styles.buttonStyle}
                 rounded
-                onPress={() => navigation.navigate('Question')}>
-                <Text>Fiks je eigen route</Text>
-              </Button>
-              <Button
-                style={styles.buttonStyle}
-                transparent
-                onPress={() => navigation.navigate('Question')}>
-                <Text>Start zonder eigen route</Text>
-              </Button>
-              <Button
-                style={styles.buttonStyle}
-                transparent
-                onPress={() => navigation.navigate('ImportRoutes')}>
-                <Text>Heb je al een route? Importeer gegevens</Text>
-              </Button>
+                label="Fiks je eigen route"
+                onPress={() => navigation.navigate('Privacy')}
+              />
+              <View>
+                <Button
+                  style={styles.buttonTransparent}
+                  transparent
+                  labelStyle={styles.buttonLabel}
+                  label="Start zonder eigen route"
+                  onPress={() => navigation.navigate('Question')}
+                />
+                <Button
+                  style={styles.buttonTransparent}
+                  transparent
+                  labelStyle={styles.buttonLabel}
+                  label="Heb je al een route? Importeer gegevens"
+                  onPress={() => navigation.navigate('ImportRoutes')}
+                />
+              </View>
             </View>
           </View>
         </Content>

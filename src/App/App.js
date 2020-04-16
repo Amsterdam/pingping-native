@@ -20,8 +20,9 @@ import RewardScreen from '../screens/RewardScreen';
 import ClaimRewardScreen from '../screens/ClaimRewardScreen';
 import AccountHomeScreen from '../screens/AccountHomeScreen';
 import DeleteDataScreen from '../screens/DeleteDataScreen';
+import CompletedQuestionsScreen from '../screens/CompletedQuestionsScreen';
 
-const navOptionHandler = (navigation) => ({
+const navOptionHandler = navigation => ({
   headerShown: false,
 });
 
@@ -41,6 +42,10 @@ const InitialStack = createStackNavigator({
   },
   Question: {
     screen: QuestionScreen,
+    navigationOptions: navOptionHandler,
+  },
+  CompletedQuestions: {
+    screen: CompletedQuestionsScreen,
     navigationOptions: navOptionHandler,
   },
 });
@@ -123,9 +128,9 @@ const MainTabs = createBottomTabNavigator({
       tabBarLabel: 'Je Routes',
       tabBarIcon: ({tintColor}) => (
         <Icon
-          name="qrcode"
+          name="route"
           style={{color: tintColor, paddingTop: 5}}
-          type="AntDesign"
+          type="FontAwesome5"
         />
       ),
     },

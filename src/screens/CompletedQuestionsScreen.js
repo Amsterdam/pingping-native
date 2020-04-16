@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import {Content, Container, Text, Left} from 'native-base';
+import {Content, Container, Left} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
-import PrivacyEye from '../assets/privacy.png';
+import ThumbsUp from '../assets/thumbs-up.png';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   return (
@@ -18,32 +18,26 @@ const PrivacyPolicyScreen = ({navigation}) => {
             <HeaderBackButton navigation={navigation} />
           </Left>
         </View>
-        <Title style={styles.title}>PRIVACY</Title>
+        <Title style={styles.title}>LEKKER</Title>
         <View style={styles.absolute}>
           <View style={styles.paper}>
-            <Image source={PrivacyEye} />
+            <Image source={ThumbsUp} />
           </View>
         </View>
       </HeaderTemplate>
       <ContentLayout style={styles.content}>
         <Content>
-          <Body>
-            Om Ping Ping optimaal te laten functioneren verzamelen wij door het
-            proces heen informatie. Klik hieronder om meer kennis te krijgen
-            over welke informatie wij verzamelen en wat wij met deze informatie
-            doen.
+          <Body style={styles.paragraph1}>
+            Met de antwoorden die jij hebt gegeven hebben wij voor jou een
+            persoonlijke route samengesteld.
+          </Body>
+          <Body style={styles.paragraph2}>
+            Bekijk wat jij moet doen om je basis op orde te hebben!
           </Body>
           <Button
             rounded
-            label="Privacy policy"
-            color="white"
-            bordered
-            style={styles.button}
-          />
-          <Button
-            rounded
-            label="Accepteer"
-            onPress={() => navigation.navigate('Question')}
+            label="Naar mijn Route"
+            onPress={() => navigation.navigate('RouteHome')}
           />
         </Content>
       </ContentLayout>
@@ -68,7 +62,12 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     alignSelf: 'center',
   },
-
+  paragraph1: {
+    paddingBottom: 20,
+  },
+  paragraph2: {
+    paddingBottom: 100,
+  },
   button: {
     marginBottom: 15,
     marginTop: 15,

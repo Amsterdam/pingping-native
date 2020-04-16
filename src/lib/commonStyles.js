@@ -25,6 +25,16 @@ const commonStyles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 5,
   },
+  buttonLabel: {
+    textAlign: 'center',
+    fontSize: 14,
+  },
+  title: {
+    fontFamily: 'Heavitas',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 40,
+  },
 });
 
 export default commonStyles;
