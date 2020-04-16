@@ -16,6 +16,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 30,
   },
+  routeNameContainer: {
+    backgroundColor: appColors.secondary,
+    borderRadius: 5,
+  },
+  routeNameTitle: {
+    color: '#fff',
+    padding: 20,
+  },
   icon: {
     fontSize: 32,
   },
@@ -23,8 +31,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  title: {
+  headerTitle: {
     marginTop: 20,
+    paddingLeft: 20,
   },
   routeNode: {
     height: 125,
@@ -37,6 +46,9 @@ const styles = StyleSheet.create({
   },
   taskLabel: {
     fontSize: 20,
+  },
+  contentLayoutOverride: {
+    paddingBottom: 0,
   },
 });
 
@@ -51,12 +63,12 @@ const YourRouteScreen = ({navigation}) => {
             color="white"
           />
         </View>
-        <Title style={styles.title}>Je Route!</Title>
+        <Title style={styles.headerTitle}>Je Route!</Title>
       </HeaderTemplate>
-      <ContentLayout>
+      <ContentLayout style={styles.contentLayoutOverride}>
         <Content>
-          <View style={{backgroundColor: appColors.secondary, borderRadius: 5}}>
-            <Title style={{color: '#fff', padding: 20}}>Fiks de basis</Title>
+          <View style={styles.routeNameContainer}>
+            <Title style={styles.routeNameTitle}>Fiks de basis</Title>
           </View>
           {navigation.state &&
             navigation.state.params &&
