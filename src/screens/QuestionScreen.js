@@ -35,7 +35,7 @@ const QuestionScreen = ({navigation}) => {
         />
         <View style={styles.buttonContainer}>
           <Button
-            onPress={() => {}}
+            onPress={() => navigation.navigate('CompletedQuestions')}
             label="Volgende"
             transparent
             disabled={!state.answerSelected}

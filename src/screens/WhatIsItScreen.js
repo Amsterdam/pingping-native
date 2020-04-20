@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 200,
   },
-  buttonContainer: {
-    marginTop: 10,
-    marginBottom: 10,
-  },
   textContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
