@@ -94,7 +94,7 @@ const TaskTile = ({navigation, task, index, tasksLength}) => {
   };
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Task', {task})}>
         <View style={generateTileClass()}>
           <View style={styles.imageAndLabelContainer}>
             <View style={styles.imageContainer}>

@@ -112,6 +112,7 @@ class RouteHomeScreen extends React.Component {
 
   render() {
     const {navigation} = this.props;
+    const currentTask = tasks.filter(task => task.current === true)[0];
     return (
       <Container>
         <HeaderTemplate style={styles.header} statusBarColor="dark-content">
@@ -147,12 +148,19 @@ class RouteHomeScreen extends React.Component {
 
           <ContentLayout>
             <View style={styles.currentActionContainer}>
-              <Title style={styles.taskTitle}>Regel je woonadres</Title>
+              <Title style={styles.taskTitle}>{currentTask.title}</Title>
               <Body style={styles.taskDescription}>
-                Je hebt eerst een adres nodig. Daarna kan je andere zaken
-                regelen.
+                {currentTask.description}
               </Body>
-              <Button label="Regel je woonadres" rounded />
+              <Button
+                label="Regel je woonadres"
+                rounded
+                onPress={() =>
+                  navigation.navigate('Task', {
+                    task: currentTask,
+                  })
+                }
+              />
             </View>
           </ContentLayout>
         </Content>
