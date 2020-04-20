@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
-import {Content, Container} from 'native-base';
+import {StyleSheet, FlatList} from 'react-native';
+import {Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import RouteHeader from '../components/header/RouteHeader';
 import ExportImage from '../assets/export.png';
@@ -25,17 +25,15 @@ const AccountHomeScreen = ({navigation}) => {
   return (
     <Container>
       <RouteHeader title="Gegevens" />
-      <ContentLayout>
-        <Content contentContainerStyle={styles.content}>
-          <FlatList
-            data={buttons}
-            renderItem={({item}) => (
-              <AccountBlockButton button={item} navigation={navigation} />
-            )}
-            numColumns={2}
-            keyExtractor={item => item.title}
-          />
-        </Content>
+      <ContentLayout style={styles.content}>
+        <FlatList
+          data={buttons}
+          renderItem={({item}) => (
+            <AccountBlockButton button={item} navigation={navigation} />
+          )}
+          numColumns={2}
+          keyExtractor={item => item.title}
+        />
       </ContentLayout>
     </Container>
   );

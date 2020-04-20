@@ -24,7 +24,7 @@ const Button = ({
     button: {...buttonBase},
     label: {
       fontFamily: 'Heavitas',
-      fontSize: 18,
+      fontSize: 14,
     },
     transparentButton: {
       paddingBottom: 0,

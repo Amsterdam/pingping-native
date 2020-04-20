@@ -159,9 +159,9 @@ const MainTabs = createBottomTabNavigator({
       tabBarLabel: 'Gegevens',
       tabBarIcon: ({tintColor}) => (
         <Icon
-          name="qrcode"
+          name="dots-vertical"
           style={{color: tintColor, paddingTop: 5}}
-          type="AntDesign"
+          type="MaterialCommunityIcons"
         />
       ),
     },
