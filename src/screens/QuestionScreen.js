@@ -16,7 +16,12 @@ const styles = StyleSheet.create({
   },
 });
 
+const INITIAL_STATE = {
+  answerSelected: false,
+};
+
 const QuestionScreen = ({navigation}) => {
+  const [state, setState] = React.useState(INITIAL_STATE);
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="white" />
@@ -25,6 +30,7 @@ const QuestionScreen = ({navigation}) => {
           question="Wat is je geboortedatum?"
           answers={['ja', 'nee']}
           type="binary"
+          setState={setState}
           navigation={navigation}
         />
         <View style={styles.buttonContainer}>
@@ -32,7 +38,7 @@ const QuestionScreen = ({navigation}) => {
             onPress={() => {}}
             label="Volgende"
             transparent
-            disabled
+            disabled={!state.answerSelected}
             labelStyle={styles.label}
             style={styles.button}
           />
