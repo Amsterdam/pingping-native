@@ -20,6 +20,7 @@ import RewardScreen from '../screens/RewardScreen';
 import ClaimRewardScreen from '../screens/ClaimRewardScreen';
 import AccountHomeScreen from '../screens/AccountHomeScreen';
 import DeleteDataScreen from '../screens/DeleteDataScreen';
+import ExportDataScreen from '../screens/ExportDataScreen';
 import CompletedQuestionsScreen from '../screens/CompletedQuestionsScreen';
 
 const navOptionHandler = navigation => ({
@@ -98,12 +99,16 @@ const AccountStack = createStackNavigator({
     screen: AccountHomeScreen,
     navigationOptions: navOptionHandler,
   },
-  Privacy: {
+  ViewPrivacy: {
     screen: PrivacyPolicyScreen,
     navigationOptions: navOptionHandler,
   },
   DeleteData: {
     screen: DeleteDataScreen,
+    navigationOptions: navOptionHandler,
+  },
+  ExportData: {
+    screen: ExportDataScreen,
     navigationOptions: navOptionHandler,
   },
 });
