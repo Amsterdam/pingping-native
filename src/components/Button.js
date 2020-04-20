@@ -23,7 +23,7 @@ const Button = ({
   const styles = StyleSheet.create({
     button: {...buttonBase},
     label: {
-      fontFamily: 'Raleway',
+      fontFamily: 'Heavitas',
       fontSize: 18,
     },
     transparentButton: {
