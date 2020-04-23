@@ -21,7 +21,7 @@ const SimpleHeader = ({navigation, color = 'primary'}) => {
     <Header style={{backgroundColor: headerColor()}} transparent noShadow>
       <StatusBar
         backgroundColor={appColors.headerColor}
-        barStyle="light-content"
+        barStyle={color === 'primary' ? 'light-content' : 'dark-content'}
       />
       <Left>
         <HeaderBackButton color={color} navigation={navigation} />
