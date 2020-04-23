@@ -1,10 +1,9 @@
-import React, {Children} from 'react';
+import React from 'react';
 import {StatusBar} from 'react-native';
-import {Header, Left, Button, Icon} from 'native-base';
+import {Header} from 'native-base';
 import {appColors} from '../../lib/colors';
 
 const SimpleHeader = ({
-  navigation,
   style,
   children,
   color = 'primary',
