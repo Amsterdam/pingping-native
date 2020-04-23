@@ -7,6 +7,14 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: appColors.primaryColor,
     alignSelf: 'flex-start',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   icon: {
     fontSize: 24,
