@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 const KasboekHomeScreen = ({navigation}) => {
   return (
     <Container>
-      <RouteHeader title="Goals" />
+      <RouteHeader title="Zet je goals" />
       <Content>
         <View style={styles.container}>
           <View style={styles.innerContainer}>
