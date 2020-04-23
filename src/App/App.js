@@ -71,6 +71,7 @@ const RouteStack = createStackNavigator({
   },
   Tip: {
     screen: TipScreen,
+    navigationOptions: navOptionHandler,
   },
   navigationOptions: navOptionHandler,
 });

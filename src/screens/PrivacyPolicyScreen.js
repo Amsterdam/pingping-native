@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import {Content, Container, Text, Left} from 'native-base';
+import {Content, Container, Left} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -8,10 +8,12 @@ import Button from '../components/Button';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import PrivacyEye from '../assets/privacy.png';
+import OvalDefault from '../components/layout/OvalDefault';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   return (
     <Container>
+      <OvalDefault />
       <HeaderTemplate style={styles.header}>
         <View>
           <Left style={styles.headerButtonContainer}>

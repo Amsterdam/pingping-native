@@ -4,13 +4,15 @@ import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import TaskTile from '../components/TaskTile';
 import Button from '../components/Button';
+import FloatingActionButton from '../components/FloatingActionButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import HeaderTemplate from '../components/header/HeaderTemplate';
+import OvalDefault from '../components/layout/OvalDefault';
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
@@ -18,8 +20,13 @@ const styles = StyleSheet.create({
   },
   label: {fontSize: 14, fontFamily: 'raleway'},
   title: {fontSize: 30},
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+  },
   currentActionContainer: {marginTop: 20},
-  taskTitle: {fontSize: 20, marginBottom: 20},
+  taskTitle: {fontSize: 20, marginBottom: 20, flex: 1},
   taskDescription: {marginBottom: 20},
 });
 
@@ -115,6 +122,7 @@ class RouteHomeScreen extends React.Component {
     const currentTask = tasks.filter(task => task.current === true)[0];
     return (
       <Container>
+        <OvalDefault />
         <HeaderTemplate style={styles.header} statusBarColor="dark-content">
           <Title style={styles.title}>Je Route!</Title>
           <Button
@@ -148,7 +156,13 @@ class RouteHomeScreen extends React.Component {
 
           <ContentLayout>
             <View style={styles.currentActionContainer}>
-              <Title style={styles.taskTitle}>{currentTask.title}</Title>
+              <View style={styles.titleContainer}>
+                <Title style={styles.taskTitle}>{currentTask.title}</Title>
+                <FloatingActionButton
+                  onPress={() => navigation.navigate('Tip')}
+                />
+              </View>
+
               <Body style={styles.taskDescription}>
                 {currentTask.description}
               </Body>
