@@ -7,10 +7,11 @@ import Title from '../components/typography/Title';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import {appColors} from '../lib/colors';
 import ProgressLine from '../components/ProgressLine';
+import OvalDefault from '../components/layout/OvalDefault';
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
 const YourRouteScreen = ({navigation}) => {
   return (
     <Container>
+      <OvalDefault />
       <HeaderTemplate style={styles.header}>
         <View>
           <HeaderBackButton
