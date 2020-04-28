@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   button: {margin: 10},
   passwordContainer: {
     flexDirection: 'row',
-    height: 40,
+    alignItems: 'center',
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 50,
@@ -55,7 +55,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   icon: {marginRight: 30},
-  textInput: {flex: 1, paddingTop: 10, fontFamily: 'Heavitas'},
+  textInput: {
+    flex: 1,
+    fontFamily: 'Heavitas',
+    height: 50,
+    fontSize: 20,
+  },
 });
 
 const INITIAL_STATE = {
