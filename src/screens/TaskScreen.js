@@ -36,6 +36,7 @@ const TaskScreen = ({navigation}) => {
           videoId="ZG0vCfivpQ8" // The YouTube video ID
           play={false} // control playback of video with true/false
           loop // control whether the video should loop when ended
+          apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
           style={styles.videoContainer}
         />
         <ContentLayout style={styles.textContainer}>
