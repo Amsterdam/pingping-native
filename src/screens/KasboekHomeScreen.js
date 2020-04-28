@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   existingGoalsContainer: {
-    marginTop: 20,
+    marginTop: 40,
     alignSelf: 'stretch',
     justifyContent: 'center',
   },
@@ -97,11 +97,9 @@ const KasboekHomeScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-        <ContentLayout>
-          <View style={styles.existingGoalsContainer}>
-            <KasboekGoalItem />
-          </View>
-        </ContentLayout>
+        <View style={styles.existingGoalsContainer}>
+          <KasboekGoalItem />
+        </View>
       </Content>
     </Container>
   );

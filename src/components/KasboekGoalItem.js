@@ -6,6 +6,7 @@ import Title from './typography/Title';
 const styles = StyleSheet.create({
   goal: {
     backgroundColor: '#fff',
+    margin: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
