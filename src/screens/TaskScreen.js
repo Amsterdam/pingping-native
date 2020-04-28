@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
   },
+  descriptionContainer: {
+    justifyContent: 'space-around',
+    flex: 1,
+  },
 });
 
 const TaskScreen = ({navigation}) => {
@@ -41,7 +45,7 @@ const TaskScreen = ({navigation}) => {
         />
         <ContentLayout style={styles.textContainer}>
           <Title>{task.title}</Title>
-          <View style={{justifyContent: 'space-around', flex: 1}}>
+          <View style={styles.descriptionContainer}>
             <Body>{task.description}</Body>
             <View>
               <Button label="Gefikst!" rounded />

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Icon} from 'native-base';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
