@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   },
   taskLabel: {
     fontSize: 20,
+    marginLeft: 10,
   },
   contentLayoutOverride: {
     paddingBottom: 0,
