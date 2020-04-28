@@ -14,7 +14,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
   return (
     <Container>
       <OvalDefault />
-      <HeaderTemplate style={styles.header}>
+      <HeaderTemplate style={styles.header} color="primary">
         <View>
           <Left style={styles.headerButtonContainer}>
             <HeaderBackButton navigation={navigation} />

@@ -123,7 +123,7 @@ class RouteHomeScreen extends React.Component {
     return (
       <Container>
         <OvalDefault />
-        <HeaderTemplate style={styles.header} statusBarColor="dark-content">
+        <HeaderTemplate style={styles.header} color="white">
           <Title style={styles.title}>Je Route!</Title>
           <Button
             onPress={() =>

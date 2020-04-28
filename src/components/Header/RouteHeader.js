@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
 const RouteHeader = ({title = ''}) => {
   return (
-    <HeaderTemplate style={styles.header}>
+    <HeaderTemplate style={styles.header} color="primary">
       <Title style={styles.title}>{title}</Title>
     </HeaderTemplate>
   );

@@ -57,7 +57,7 @@ const YourRouteScreen = ({navigation}) => {
   return (
     <Container>
       <OvalDefault />
-      <HeaderTemplate style={styles.header}>
+      <HeaderTemplate style={styles.header} color="white">
         <View>
           <HeaderBackButton
             style={styles.icon}

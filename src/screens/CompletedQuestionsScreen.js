@@ -12,7 +12,7 @@ import ThumbsUp from '../assets/thumbs-up.png';
 const PrivacyPolicyScreen = ({navigation}) => {
   return (
     <Container>
-      <HeaderTemplate style={styles.header}>
+      <HeaderTemplate style={styles.header} color="primary">
         <View>
           <Left style={styles.headerButtonContainer}>
             <HeaderBackButton navigation={navigation} />
