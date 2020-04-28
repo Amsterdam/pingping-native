@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Header} from 'native-base';
 import {setHeaderColor} from '../../lib/colors';
-import StatusbarColor from './StatusbarColor';
+import DynamicStatusbar from './DynamicStatusbar';
 
 const SimpleHeader = ({style, children, color = 'primary'}) => {
   return (
@@ -10,7 +10,7 @@ const SimpleHeader = ({style, children, color = 'primary'}) => {
       style={{backgroundColor: setHeaderColor(color), ...style}}
       transparent
       noShadow>
-      <StatusbarColor color={color} />
+      <DynamicStatusbar color={color} />
       {children}
     </Header>
   );

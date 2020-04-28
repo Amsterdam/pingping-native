@@ -1,6 +1,6 @@
 import React from 'react';
-import StatusbarColor from './StatusbarColor';
-import {Header, Left, View} from 'native-base';
+import DynamicStatusbar from './DynamicStatusbar';
+import {Header} from 'native-base';
 import {setHeaderColor} from '../../lib/colors';
 import HeaderBackButton from './HeaderBackButton';
 
@@ -14,8 +14,7 @@ const SimpleHeader = ({navigation, color = 'primary'}) => {
       }}
       transparent
       noShadow>
-      <StatusbarColor color="white" />
-
+      <DynamicStatusbar color={color} />
       <HeaderBackButton color={color} navigation={navigation} />
     </Header>
   );

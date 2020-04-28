@@ -2,7 +2,7 @@ import React from 'react';
 import {StatusBar} from 'react-native';
 import {setHeaderColor} from '../../lib/colors';
 
-const StatusbarColor = ({color}) => {
+const DynamicStatusbar = ({color}) => {
   console.log(color);
   return (
     <StatusBar
@@ -12,4 +12,4 @@ const StatusbarColor = ({color}) => {
   );
 };
 
-export default StatusbarColor;
+export default DynamicStatusbar;

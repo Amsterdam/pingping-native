@@ -7,7 +7,7 @@ import BgImage from '../assets/welcome-screen-bg1.png';
 import ColoredLines from '../components/ColoredLines';
 import coloredTextPrinter from '../utils/coloredTextPrinter';
 import commonStyles from '../lib/commonStyles';
-import StatusbarColor from '../components/header/StatusbarColor';
+import DynamicStatusbar from '../components/header/DynamicStatusbar';
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -50,7 +50,7 @@ const LandingScreen = ({navigation}) => {
 
   return (
     <Container>
-      <StatusbarColor color="primary" contentColor="light-content" />
+      <DynamicStatusbar color="primary" contentColor="light-content" />
       <ImageBackground source={BgImage} style={styles.image}>
         <Content contentContainerStyle={styles.contentContainer}>
           <ColoredLines />
