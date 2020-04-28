@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {Header, Left} from 'native-base';
+import {Header, Left, View} from 'native-base';
 import {appColors} from '../../lib/colors';
 import HeaderBackButton from './HeaderBackButton';
 
@@ -18,14 +18,20 @@ const SimpleHeader = ({navigation, color = 'primary'}) => {
     }
   };
   return (
-    <Header style={{backgroundColor: headerColor()}} transparent noShadow>
+    <Header
+      style={{
+        backgroundColor: headerColor(),
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+      }}
+      transparent
+      noShadow>
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle={color === 'primary' ? 'light-content' : 'dark-content'}
       />
-      <Left>
-        <HeaderBackButton color={color} navigation={navigation} />
-      </Left>
+
+      <HeaderBackButton color={color} navigation={navigation} />
     </Header>
   );
 };

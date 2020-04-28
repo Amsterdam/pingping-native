@@ -61,12 +61,15 @@ const WhatIsItScreen = ({navigation}) => {
             <Button
               style={styles.buttonTransparent}
               transparent
+              rounded
               label="Start zonder eigen route"
               labelStyle={styles.label}
               onPress={() => navigation.navigate('Question')}
             />
+
             <Button
               style={styles.buttonTransparent}
+              rounded
               transparent
               labelStyle={styles.label}
               label="Heb je al een route? Importeer gegevens"

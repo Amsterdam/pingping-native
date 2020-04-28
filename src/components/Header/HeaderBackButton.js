@@ -5,7 +5,8 @@ const HeaderBackButton = ({navigation, style, color = 'primary'}) => {
   return (
     <Button transparent onPress={() => navigation.goBack()}>
       <Icon
-        name="arrow-back"
+        name="arrowleft"
+        type="AntDesign"
         style={{...style, color: color === 'white' ? '#000' : '#fff'}}
       />
     </Button>
