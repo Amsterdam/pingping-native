@@ -175,7 +175,7 @@ const MainApp = createSwitchNavigator(
     app: MainTabs,
     initial: InitialStack,
   },
-  {initialRouteName: 'initial'},
+  {initialRouteName: 'app'},
 );
 
 export default createAppContainer(MainApp);
