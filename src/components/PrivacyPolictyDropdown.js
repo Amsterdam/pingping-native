@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {Icon} from 'native-base';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
+import Title from './typography/Title';
+import Body from './typography/Body';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
@@ -83,7 +83,7 @@ const faqItems = [
   },
 ];
 
-const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
+const PrivacyPolicyDropdown = ({open, toggleOpen}) => {
   return (
     <View style={styles.policyContainer}>
       <TouchableWithoutFeedback style={styles.iconButton} onPress={toggleOpen}>
@@ -142,4 +142,4 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   );
 };
 
-export default PrivacyPolicyAccordion;
+export default PrivacyPolicyDropdown;

@@ -9,7 +9,7 @@ import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import PrivacyEye from '../assets/privacy.png';
 import OvalDefault from '../components/layout/OvalDefault';
-import PrivacyPolicyAccordion from '../components/privacyPolicyAccordion';
+import PrivacyPolicyAccordion from '../components/PrivacyPolictyDropdown';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const PrivacyPolicyScreen = ({navigation}) => {
