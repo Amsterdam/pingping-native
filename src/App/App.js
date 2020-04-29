@@ -117,19 +117,6 @@ const AccountStack = createStackNavigator({
 });
 
 const MainTabs = createBottomTabNavigator({
-  Kasboek: {
-    screen: KasboekStack,
-    navigationOptions: {
-      tabBarLabel: 'Kasboek',
-      tabBarIcon: ({tintColor}) => (
-        <Icon
-          name="home"
-          style={{color: tintColor, paddingTop: 5}}
-          type="AntDesign"
-        />
-      ),
-    },
-  },
   Routes: {
     screen: RouteStack,
     navigationOptions: {
@@ -139,6 +126,19 @@ const MainTabs = createBottomTabNavigator({
           name="route"
           style={{color: tintColor, paddingTop: 5}}
           type="FontAwesome5"
+        />
+      ),
+    },
+  },
+  Kasboek: {
+    screen: KasboekStack,
+    navigationOptions: {
+      tabBarLabel: 'Kasboek',
+      tabBarIcon: ({tintColor}) => (
+        <Icon
+          name="home"
+          style={{color: tintColor, paddingTop: 5}}
+          type="AntDesign"
         />
       ),
     },
@@ -173,7 +173,7 @@ const MainTabs = createBottomTabNavigator({
 
 const MainApp = () => {
   SplashScreen.hide();
-  const som = true;
+  const som = false;
   return createSwitchNavigator(
     {
       app: MainTabs,
