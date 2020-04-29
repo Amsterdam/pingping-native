@@ -7,6 +7,7 @@ export const ppBaseColors = {
   PP_BULLET: '#99dce4',
   PP_SUCCESS: '#24ba10',
   PP_WHITE: '#fff',
+  PP_GOLD: '#fb9f02',
 };
 
 export const ppLogoColors = [
