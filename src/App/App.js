@@ -23,6 +23,7 @@ import AccountHomeScreen from '../screens/AccountHomeScreen';
 import DeleteDataScreen from '../screens/DeleteDataScreen';
 import ExportDataScreen from '../screens/ExportDataScreen';
 import CompletedQuestionsScreen from '../screens/CompletedQuestionsScreen';
+import SplashScreen from 'react-native-splash-screen';
 
 const navOptionHandler = navigation => ({
   headerShown: false,
@@ -170,12 +171,16 @@ const MainTabs = createBottomTabNavigator({
   },
 });
 
-const MainApp = createSwitchNavigator(
-  {
-    app: MainTabs,
-    initial: InitialStack,
-  },
-  {initialRouteName: 'app'},
-);
+const MainApp = () => {
+  SplashScreen.hide();
+  const som = true;
+  return createSwitchNavigator(
+    {
+      app: MainTabs,
+      initial: InitialStack,
+    },
+    {initialRouteName: som ? 'initial' : 'app'},
+  );
+};
 
-export default createAppContainer(MainApp);
+export default createAppContainer(MainApp());

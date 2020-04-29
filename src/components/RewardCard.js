@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground, Image} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import Title from './typography/Title';
 import commonStyles from '../lib/commonStyles';
 import exampleImage from '../assets/hulpverhuizing.jpg';

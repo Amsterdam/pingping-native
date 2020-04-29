@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, ImageBackground} from 'react-native';
 import {Content, Container, Text} from 'native-base';
-import SplashScreen from 'react-native-splash-screen';
 import Button from '../components/Button';
 import BgImage from '../assets/welcome-screen-bg1.png';
 import ColoredLines from '../components/ColoredLines';
@@ -44,10 +43,6 @@ const styles = StyleSheet.create({
 });
 
 const LandingScreen = ({navigation}) => {
-  React.useEffect(() => {
-    SplashScreen.hide(); // We set the splashscreen to show in objective-c need to hide it here to prevent white flash
-  }, []);
-
   return (
     <Container>
       <DynamicStatusbar color="primary" contentColor="light-content" />
