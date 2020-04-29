@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TextInput, View, Dimensions} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import {appColors} from '../lib/colors';
 import ContentLayout from '../components/layout/ContentLayout';

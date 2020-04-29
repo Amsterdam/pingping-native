@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Content, Container, Text, Left, View} from 'native-base';
+import {Content, Container, View} from 'native-base';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';

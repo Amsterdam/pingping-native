@@ -1,5 +1,5 @@
 import React from 'react';
-import {Content, Container, Text} from 'native-base';
+import {Content, Container} from 'native-base';
 import {View, StyleSheet} from 'react-native';
 import YouTube from 'react-native-youtube';
 import SimpleHeader from '../components/header/SimpleHeader';

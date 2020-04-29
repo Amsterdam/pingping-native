@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import {Content, Container, Left} from 'native-base';
+import {Container, Left} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';

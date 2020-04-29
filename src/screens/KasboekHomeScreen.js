@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
 import RouteHeader from '../components/header/RouteHeader';
-import {Content, Container, Icon} from 'native-base';
+import {Content, Container} from 'native-base';
 import {ppBaseColors} from '../lib/colors';
 import Button from '../components/Button';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import ContentLayout from '../components/layout/ContentLayout';
 import KasboekGoalItem from '../components/KasboekGoalItem';
 
 const styles = StyleSheet.create({

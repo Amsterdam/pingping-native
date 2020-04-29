@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
