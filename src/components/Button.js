@@ -82,6 +82,7 @@ const Button = ({
         styles.button = {
           backgroundColor: appColors.primaryColor,
           borderColor: bordered && appColors.primaryColor,
+          ...styles.shadow,
           ...styles.button,
           ...style,
         };

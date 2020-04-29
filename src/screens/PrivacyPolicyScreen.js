@@ -9,46 +9,52 @@ import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import PrivacyEye from '../assets/privacy.png';
 import OvalDefault from '../components/layout/OvalDefault';
+import PrivacyPolicyAccordion from '../components/privacyPolicyAccordion';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const PrivacyPolicyScreen = ({navigation}) => {
+  const [open, setOpen] = React.useState(false);
+
+  const toggleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <Container>
       <OvalDefault />
-      <HeaderTemplate style={styles.header} color="primary">
-        <View>
-          <Left style={styles.headerButtonContainer}>
-            <HeaderBackButton navigation={navigation} />
-          </Left>
-        </View>
-        <Title style={styles.title}>PRIVACY</Title>
-        <View style={styles.absolute}>
-          <View style={styles.paper}>
-            <Image source={PrivacyEye} />
+      <ScrollView>
+        <HeaderTemplate style={styles.header} color="primary">
+          <View>
+            <Left style={styles.headerButtonContainer}>
+              <HeaderBackButton navigation={navigation} />
+            </Left>
           </View>
-        </View>
-      </HeaderTemplate>
-      <ContentLayout style={styles.content}>
-        <Content>
+          <Title style={styles.title}>PRIVACY</Title>
+          <View style={styles.absolute}>
+            <View style={styles.paper}>
+              <Image source={PrivacyEye} />
+            </View>
+          </View>
+        </HeaderTemplate>
+        <ContentLayout style={styles.content}>
           <Body>
             Om Ping Ping optimaal te laten functioneren verzamelen wij door het
             proces heen informatie. Klik hieronder om meer kennis te krijgen
             over welke informatie wij verzamelen en wat wij met deze informatie
             doen.
           </Body>
-          <Button
-            rounded
-            label="Privacy policy"
-            color="white"
-            bordered
+          <PrivacyPolicyAccordion
             style={styles.button}
+            open={open}
+            toggleOpen={toggleOpen}
           />
           <Button
             rounded
             label="Accepteer"
             onPress={() => navigation.navigate('Question')}
           />
-        </Content>
-      </ContentLayout>
+        </ContentLayout>
+      </ScrollView>
     </Container>
   );
 };
@@ -69,11 +75,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     letterSpacing: 5,
     alignSelf: 'center',
-  },
-
-  button: {
-    marginBottom: 15,
-    marginTop: 15,
   },
   content: {
     marginTop: 150,
