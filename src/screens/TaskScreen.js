@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const TaskScreen = ({navigation}) => {
-  const {task} = navigation.state.params;
+const TaskScreen = ({navigation, route}) => {
+  const {task} = route.params;
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="primary" />

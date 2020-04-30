@@ -5,11 +5,16 @@ import InitialStack from './stacks/InitialStack';
 import TabNavigator from './TabNavigator';
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = React.useState(true);
   SplashScreen.hide(); // hides the splashscreen after bundle load, prevents the flashing splashscreen bug
-  const isLoggedIn = false;
+
+  const setLogin = () => {
+    setLoggedIn(true);
+    console.log('should betrue');
+  };
   return (
     <NavigationContainer>
-      {isLoggedIn ? <TabNavigator /> : <InitialStack />}
+      {loggedIn ? <TabNavigator /> : <InitialStack setLogin={setLogin} />}
     </NavigationContainer>
   );
 }

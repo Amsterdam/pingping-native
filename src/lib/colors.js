@@ -27,7 +27,6 @@ export const appColors = {
 };
 
 export function setHeaderColor(color) {
-  console.log(color);
   switch (color) {
     case 'primary':
       return appColors.headerColor;
