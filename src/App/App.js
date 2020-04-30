@@ -6,12 +6,12 @@ import TabNavigator from './TabNavigator';
 
 export default function App() {
   SplashScreen.hide(); // hides the splashscreen after bundle load, prevents the flashing splashscreen bug
+
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   // here we should check if the user can skip onboarding yes/no
   const setLogin = () => {
     setLoggedIn(true);
-    console.log('should betrue');
   };
 
   return (
