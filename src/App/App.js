@@ -172,8 +172,8 @@ const MainTabs = createBottomTabNavigator({
 });
 
 const MainApp = () => {
-  SplashScreen.hide();
-  const som = false;
+  SplashScreen.hide(); // hides the splashscreen after bundle load, prevents the flashing splashscreen bug
+  const som = false; // insert code here to check if user has an acc
   return createSwitchNavigator(
     {
       app: MainTabs,

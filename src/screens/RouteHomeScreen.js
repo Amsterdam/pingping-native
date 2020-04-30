@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginBottom: 30,
   },
-  label: {fontSize: 14, fontFamily: 'raleway'},
+  label: {fontSize: 14, fontFamily: 'Raleway'},
   title: {fontSize: 30},
   titleContainer: {
     flexDirection: 'row',
