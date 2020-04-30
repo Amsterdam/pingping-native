@@ -9,7 +9,7 @@ import HeaderTemplate from '../components/header/HeaderTemplate';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import ThumbsUp from '../assets/thumbs-up.png';
 
-const PrivacyPolicyScreen = ({navigation}) => {
+const CompletedQuestionsScreen = ({navigation, setLogin}) => {
   return (
     <Container>
       <HeaderTemplate style={styles.header} color="primary">
@@ -34,18 +34,14 @@ const PrivacyPolicyScreen = ({navigation}) => {
           <Body style={styles.paragraph2}>
             Bekijk wat jij moet doen om je basis op orde te hebben!
           </Body>
-          <Button
-            rounded
-            label="Naar mijn Route"
-            onPress={() => navigation.navigate('RouteHome')}
-          />
+          <Button rounded label="Naar mijn Route" onPress={setLogin} />
         </Content>
       </ContentLayout>
     </Container>
   );
 };
 
-export default PrivacyPolicyScreen;
+export default CompletedQuestionsScreen;
 
 const styles = StyleSheet.create({
   header: {

@@ -9,17 +9,16 @@ import CompletedQuestionsScreen from '../../screens/CompletedQuestionsScreen';
 
 const Stack = createStackNavigator();
 
-const InitialStack = () => (
+const InitialStack = ({setLogin}) => (
   <Stack.Navigator initialRouteName="Landing" headerMode="none">
     <Stack.Screen name="Landing" component={LandingScreen} />
     <Stack.Screen name="WhatIsIt" component={WhatIsItScreen} />
-    <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} />
     <Stack.Screen name="ImportRoutes" component={ImportRoutesScreen} />
+    <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} />
     <Stack.Screen name="Question" component={QuestionScreen} />
-    <Stack.Screen
-      name="CompletedQuestions"
-      component={CompletedQuestionsScreen}
-    />
+    <Stack.Screen name="CompletedQuestions">
+      {props => <CompletedQuestionsScreen {...props} setLogin={setLogin} />}
+    </Stack.Screen>
   </Stack.Navigator>
 );
 
