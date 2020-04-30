@@ -25,10 +25,7 @@
     "react-native-splash-screen": "^3.2.0",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-youtube": "^2.0.0",
-    "react-navigation": "^4.3.7",
-    "react-navigation-stack": "^2.3.11",
-    "react-navigation-tabs": "^2.8.11"
+    "react-native-youtube": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
