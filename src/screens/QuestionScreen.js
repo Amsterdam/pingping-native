@@ -22,6 +22,7 @@ const INITIAL_STATE = {
 
 const QuestionScreen = ({navigation}) => {
   const [state, setState] = React.useState(INITIAL_STATE);
+
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="white" />

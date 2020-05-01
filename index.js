@@ -7,10 +7,10 @@ import {ApolloProvider} from '@apollo/client';
 
 const client = createClient();
 
-const App = () => (
+const PingPingNative = () => (
   <ApolloProvider client={client}>
     <RootApp />
   </ApolloProvider>
 );
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => PingPingNative);

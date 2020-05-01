@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const YourRouteScreen = ({navigation}) => {
+const YourRouteScreen = ({navigation, route}) => {
   return (
     <Container>
       <OvalDefault />
@@ -73,13 +73,12 @@ const YourRouteScreen = ({navigation}) => {
           <View style={styles.routeNameContainer}>
             <Title style={styles.routeNameTitle}>Fiks de basis</Title>
           </View>
-          {navigation.state &&
-            navigation.state.params &&
-            navigation.state.params.tasks.map((task, index) => (
+          {route.params &&
+            route.params.tasks.map((task, index) => (
               <View key={task.title} style={styles.routeNode}>
                 <ProgressLine
                   index={index}
-                  tasksLength={navigation.state.params.tasks.length}
+                  tasksLength={route.params.tasks.length}
                   vertical
                 />
                 <View style={styles.labelContainer}>
