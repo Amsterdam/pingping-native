@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 200,
   },
-  buttonContainer: {
-    marginTop: 10,
-    marginBottom: 10,
-  },
   textContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -42,6 +38,7 @@ const WhatIsItScreen = ({navigation}) => {
           videoId="ZG0vCfivpQ8" // The YouTube video ID
           play={false} // control playback of video with true/false
           loop // control whether the video should loop when ended
+          apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
           style={styles.videoContainer}
         />
         <ContentLayout style={styles.textContainer}>
@@ -65,12 +62,15 @@ const WhatIsItScreen = ({navigation}) => {
             <Button
               style={styles.buttonTransparent}
               transparent
+              rounded
               label="Start zonder eigen route"
               labelStyle={styles.label}
               onPress={() => navigation.navigate('Question')}
             />
+
             <Button
               style={styles.buttonTransparent}
+              rounded
               transparent
               labelStyle={styles.label}
               label="Heb je al een route? Importeer gegevens"

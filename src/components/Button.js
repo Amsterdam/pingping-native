@@ -23,8 +23,8 @@ const Button = ({
   const styles = StyleSheet.create({
     button: {...buttonBase},
     label: {
-      fontFamily: 'Raleway',
-      fontSize: 18,
+      fontFamily: 'Heavitas',
+      fontSize: 14,
     },
     transparentButton: {
       paddingBottom: 0,
@@ -82,6 +82,7 @@ const Button = ({
         styles.button = {
           backgroundColor: appColors.primaryColor,
           borderColor: bordered && appColors.primaryColor,
+          ...styles.shadow,
           ...styles.button,
           ...style,
         };

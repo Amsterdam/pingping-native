@@ -6,7 +6,6 @@ const Title = ({children, align = 'left', style}) => {
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Heavitas',
-      fontWeight: 'bold',
       textAlign: align,
       fontSize: 30,
     },

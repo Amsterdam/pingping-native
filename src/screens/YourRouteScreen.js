@@ -1,16 +1,17 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Content, Container, Text, Left, View} from 'native-base';
+import {Content, Container, View} from 'native-base';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import {appColors} from '../lib/colors';
 import ProgressLine from '../components/ProgressLine';
+import OvalDefault from '../components/layout/OvalDefault';
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
@@ -46,16 +47,18 @@ const styles = StyleSheet.create({
   },
   taskLabel: {
     fontSize: 20,
+    marginLeft: 10,
   },
   contentLayoutOverride: {
     paddingBottom: 0,
   },
 });
 
-const YourRouteScreen = ({navigation}) => {
+const YourRouteScreen = ({navigation, route}) => {
   return (
     <Container>
-      <HeaderTemplate style={styles.header}>
+      <OvalDefault />
+      <HeaderTemplate style={styles.header} color="white">
         <View>
           <HeaderBackButton
             style={styles.icon}
@@ -70,13 +73,12 @@ const YourRouteScreen = ({navigation}) => {
           <View style={styles.routeNameContainer}>
             <Title style={styles.routeNameTitle}>Fiks de basis</Title>
           </View>
-          {navigation.state &&
-            navigation.state.params &&
-            navigation.state.params.tasks.map((task, index) => (
+          {route.params &&
+            route.params.tasks.map((task, index) => (
               <View key={task.title} style={styles.routeNode}>
                 <ProgressLine
                   index={index}
-                  tasksLength={navigation.state.params.tasks.length}
+                  tasksLength={route.params.tasks.length}
                   vertical
                 />
                 <View style={styles.labelContainer}>

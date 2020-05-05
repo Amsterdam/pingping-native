@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const QuestionComponent = ({navigation, question, type, answers}) => {
+const QuestionComponent = ({navigation, question, type, answers, setState}) => {
   return (
     <View style={styles.questionContainer}>
       <Title style={styles.margin}>{question}</Title>
@@ -35,7 +35,7 @@ const QuestionComponent = ({navigation, question, type, answers}) => {
             rounded
             style={styles.whiteButton}
             color="primary"
-            onPress={() => navigation.navigate('CompletedQuestions')}
+            onPress={() => setState({answerSelected: true})}
           />
         ))}
     </View>

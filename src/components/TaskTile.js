@@ -17,6 +17,14 @@ const styles = StyleSheet.create({
     height: 150,
     width: 250,
     padding: 14,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   tileComplete: {
     backgroundColor: appColors.success,
@@ -94,7 +102,7 @@ const TaskTile = ({navigation, task, index, tasksLength}) => {
   };
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Task', {task})}>
         <View style={generateTileClass()}>
           <View style={styles.imageAndLabelContainer}>
             <View style={styles.imageContainer}>

@@ -6,6 +6,8 @@ export const ppBaseColors = {
   PP_DARK_BLUE: '#0d2036',
   PP_BULLET: '#99dce4',
   PP_SUCCESS: '#24ba10',
+  PP_WHITE: '#fff',
+  PP_GOLD: '#fb9f02',
 };
 
 export const ppLogoColors = [
@@ -21,4 +23,18 @@ export const appColors = {
   accentColor: ppBaseColors.PP_BABY_BLUE,
   bullet: ppBaseColors.PP_BULLET,
   success: ppBaseColors.PP_SUCCESS,
+  white: ppBaseColors.PP_WHITE,
 };
+
+export function setHeaderColor(color) {
+  switch (color) {
+    case 'primary':
+      return appColors.headerColor;
+
+    case 'white':
+      return appColors.white;
+
+    default:
+      return '#000';
+  }
+}

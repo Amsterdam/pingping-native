@@ -1,36 +1,16 @@
-import React, {Children} from 'react';
-import {StatusBar} from 'react-native';
-import {Header, Left, Button, Icon} from 'native-base';
-import {appColors} from '../../lib/colors';
+import React from 'react';
 
-const SimpleHeader = ({
-  navigation,
-  style,
-  children,
-  color = 'primary',
-  statusBarColor = 'light-content',
-}) => {
-  const headerColor = () => {
-    switch (color) {
-      case 'primary':
-        return appColors.headerColor;
+import {Header} from 'native-base';
+import {setHeaderColor} from '../../lib/colors';
+import DynamicStatusbar from './DynamicStatusbar';
 
-      case 'white':
-        return appColors.white;
-
-      default:
-        break;
-    }
-  };
+const SimpleHeader = ({style, children, color = 'primary'}) => {
   return (
     <Header
-      style={{backgroundColor: headerColor(), ...style}}
+      style={{backgroundColor: setHeaderColor(color), ...style}}
       transparent
       noShadow>
-      <StatusBar
-        backgroundColor={appColors.headerColor}
-        barStyle={statusBarColor}
-      />
+      <DynamicStatusbar color={color} />
       {children}
     </Header>
   );

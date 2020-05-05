@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 30,
+    position: 'relative',
+    width: Dimensions.get('window').width,
   },
 });
 

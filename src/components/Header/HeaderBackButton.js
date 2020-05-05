@@ -1,13 +1,14 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Button, Icon} from 'native-base';
 
 const HeaderBackButton = ({navigation, style, color = 'primary'}) => {
   return (
-    <Button transparent>
+    <Button transparent onPress={() => navigation.goBack()}>
       <Icon
-        name="arrow-back"
+        name="arrowleft"
+        type="AntDesign"
         style={{...style, color: color === 'white' ? '#000' : '#fff'}}
-        onPress={() => navigation.goBack()}
       />
     </Button>
   );
