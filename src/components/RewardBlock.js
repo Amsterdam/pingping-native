@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     margin: 3,
     width: (Dimensions.get('window').width - 100) / 2,
   },
+  disabled: {
+    opacity: 0.4,
+  },
   image: {
     marginBottom: 10,
   },
@@ -23,7 +26,12 @@ const styles = StyleSheet.create({
 
 const RewardBlock = ({reward}) => {
   return (
-    <View style={styles.rewardBlock}>
+    <View
+      style={
+        reward.acquired
+          ? styles.rewardBlock
+          : {...styles.rewardBlock, ...styles.disabled}
+      }>
       <Image source={reward.image} style={styles.image} />
       <Title style={styles.title}>{reward.title}</Title>
       <Body style={styles.points}>{reward.points} punten</Body>

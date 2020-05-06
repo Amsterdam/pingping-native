@@ -12,16 +12,19 @@ const routeRewards = [
     image: Trashcan,
     title: 'Inschrijving',
     points: '20',
+    acquired: true,
   },
   {
     image: Trashcan,
     title: 'Aangemeld',
     points: '20',
+    acquired: false,
   },
   {
     image: Trashcan,
     title: 'Zorgtoeslag',
     points: '20',
+    acquired: false,
   },
 ];
 
