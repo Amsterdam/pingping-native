@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Button, Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import MoneyBill from './svgComponents/MoneyBill';
 import CityPingsLogo from './svgComponents/CityPings';
 import {ppBaseColors} from '../lib/colors';
 
-const ModalPP = () => {
+const ModalPP = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(true);
+
+  const doNavigation = () => {
+    setModalVisible(false);
+    navigation.navigate('CityPings', {screen: 'CityPingsHome'});
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -19,6 +26,13 @@ const ModalPP = () => {
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
+            <Button
+              rounded
+              transparent
+              style={styles.closeButton}
+              onPress={() => setModalVisible(false)}>
+              <Icon name="close" type="AntDesign" style={styles.icon} />
+            </Button>
             <Title style={styles.mainTitle} align="center">
               Top! <Title>je hebt 20 City Pings verdiend</Title>
             </Title>
@@ -38,7 +52,7 @@ const ModalPP = () => {
             </Body>
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={doNavigation}>
               <Title style={styles.buttonLabel}>bekijk mijn citypings</Title>
             </TouchableOpacity>
           </View>
@@ -72,6 +86,15 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     padding: 35,
+    position: 'relative',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 0,
+  },
+  icon: {
+    fontSize: 24,
+    color: '#000',
   },
   mainTitle: {color: ppBaseColors.PP_GOLD},
   spacer: {marginVertical: 20},

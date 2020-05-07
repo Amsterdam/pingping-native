@@ -123,7 +123,7 @@ class RouteHomeScreen extends React.Component {
     const currentTask = tasks.filter(task => task.current === true)[0];
     return (
       <Container>
-        <Modal />
+        <Modal navigation={navigation} />
         <OvalDefault />
         <HeaderTemplate style={styles.header} color="white">
           <Title style={styles.title}>Je Route!</Title>
