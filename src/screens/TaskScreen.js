@@ -2,6 +2,8 @@ import React from 'react';
 import {Content, Container} from 'native-base';
 import {View, StyleSheet} from 'react-native';
 import YouTube from 'react-native-youtube';
+import {useMutation} from '@apollo/client';
+import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import SimpleHeader from '../components/header/SimpleHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
@@ -32,6 +34,22 @@ const styles = StyleSheet.create({
 
 const TaskScreen = ({navigation, route}) => {
   const {task} = route.params;
+  const [toggleModal] = useMutation(TOGGLE_MODAL);
+
+  const completeTask = () => {
+    // refetch queries here
+    // update completed status
+    // update points
+    // navigate to homescreen
+    // show modal
+    navigation.navigate('RouteHome');
+    toggleModal({
+      variables: {
+        pings: 20,
+      },
+    });
+  };
+
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="primary" />
@@ -48,7 +66,7 @@ const TaskScreen = ({navigation, route}) => {
           <View style={styles.descriptionContainer}>
             <Body>{task.description}</Body>
             <View>
-              <Button label="Gefikst!" rounded />
+              <Button label="Gefikst!" rounded onPress={completeTask} />
             </View>
           </View>
         </ContentLayout>

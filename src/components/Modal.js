@@ -1,28 +1,29 @@
-import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {useQuery, useMutation} from '@apollo/client';
 import {Button, Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import MoneyBill from './svgComponents/MoneyBill';
 import CityPingsLogo from './svgComponents/CityPings';
 import {ppBaseColors} from '../lib/colors';
+import GET_MODAL_STATE from '../apollo/Query/getModalState';
+import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 
 const ModalPP = ({navigation}) => {
-  const [modalVisible, setModalVisible] = useState(true);
+  const {
+    data: {modalOpen, pings},
+  } = useQuery(GET_MODAL_STATE);
+
+  const [toggleModal] = useMutation(TOGGLE_MODAL);
 
   const doNavigation = () => {
-    setModalVisible(false);
+    toggleModal();
     navigation.navigate('CityPings', {screen: 'CityPingsHome'});
   };
 
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-      }}>
+    <Modal animationType="slide" transparent={true} visible={modalOpen}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
@@ -30,25 +31,25 @@ const ModalPP = ({navigation}) => {
               rounded
               transparent
               style={styles.closeButton}
-              onPress={() => setModalVisible(false)}>
+              onPress={() => toggleModal()}>
               <Icon name="close" type="AntDesign" style={styles.icon} />
             </Button>
             <Title style={styles.mainTitle} align="center">
-              Top! <Title>je hebt 20 City Pings verdiend</Title>
+              Top! <Title>je hebt {pings} City Pings verdiend </Title>
             </Title>
             <MoneyBill style={styles.spacer} />
             <View style={styles.logoContainer}>
               <View style={styles.logoSubContainer}>
                 <CityPingsLogo />
-                <Title style={styles.cityPingsValue}>20</Title>
+                <Title style={styles.cityPingsValue}>{pings}</Title>
               </View>
               <Title align="center" style={styles.cityPingsLabel}>
                 City Pings
               </Title>
             </View>
             <Body align="center">
-              Gefeliciteerd, je hebt 20 City Pings verdiend. Hierdoor kan je
-              meteen je eerste reward verzilveren! Ga naar “claim je reward".
+              Gefeliciteerd, je hebt {pings} City Pings verdiend. Hierdoor kan
+              je meteen je eerste reward verzilveren! Ga naar “claim je reward".
             </Body>
           </View>
           <View style={styles.buttonContainer}>

@@ -1,11 +1,48 @@
-import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client';
+import {ApolloClient, HttpLink, InMemoryCache, gql} from '@apollo/client';
+import GET_MODAL_STATE from './Query/getModalState';
 
-function createClient() {
-  return new ApolloClient({
-    link: new HttpLink({
-      uri: 'http://172.20.10.4:4000',
-    }),
-    cache: new InMemoryCache(),
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: 'http://172.20.10.4:4000',
+  }),
+  cache: cache,
+  resolvers: {
+    Mutation: {
+      toggleModal: (_root, variables, {cache}) => {
+        const {modalOpen} = cache.readQuery({
+          query: GET_MODAL_STATE,
+        });
+        console.log(variables.pings);
+        cache.writeQuery({
+          query: gql`
+            {
+              modalOpen
+              pings
+            }
+          `,
+          data: {
+            modalOpen: !modalOpen,
+            pings: variables.pings,
+          },
+        });
+        return null;
+      },
+    },
+  },
+});
+
+function writeInitialData() {
+  cache.writeQuery({
+    query: GET_MODAL_STATE,
+    data: {
+      pings: 1,
+      modalOpen: false,
+    },
   });
 }
-export default createClient;
+
+writeInitialData();
+
+export default client;
