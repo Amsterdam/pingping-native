@@ -8,6 +8,7 @@ export const ppBaseColors = {
   PP_SUCCESS: '#24ba10',
   PP_WHITE: '#fff',
   PP_GOLD: '#fb9f02',
+  PP_GRAY: '#b9b9b9',
 };
 
 export const ppLogoColors = [
