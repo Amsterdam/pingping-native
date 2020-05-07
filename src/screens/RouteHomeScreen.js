@@ -9,6 +9,7 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import HeaderTemplate from '../components/header/HeaderTemplate';
 import OvalDefault from '../components/layout/OvalDefault';
+import Modal from '../components/Modal';
 
 const styles = StyleSheet.create({
   header: {
@@ -122,6 +123,7 @@ class RouteHomeScreen extends React.Component {
     const currentTask = tasks.filter(task => task.current === true)[0];
     return (
       <Container>
+        <Modal />
         <OvalDefault />
         <HeaderTemplate style={styles.header} color="white">
           <Title style={styles.title}>Je Route!</Title>
