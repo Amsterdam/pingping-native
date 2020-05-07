@@ -23,7 +23,11 @@ const ModalPP = ({navigation}) => {
   };
 
   return (
-    <Modal animationType="slide" transparent={true} visible={modalOpen}>
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalOpen}
+      statusBarTranslucent>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
@@ -37,7 +41,7 @@ const ModalPP = ({navigation}) => {
             <Title style={styles.mainTitle} align="center">
               Top! <Title>je hebt {pings} City Pings verdiend </Title>
             </Title>
-            <MoneyBill style={styles.spacer} />
+            <MoneyBill style={styles.moneyBill} />
             <View style={styles.logoContainer}>
               <View style={styles.logoSubContainer}>
                 <CityPingsLogo />
@@ -98,7 +102,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   mainTitle: {color: ppBaseColors.PP_GOLD},
-  spacer: {marginVertical: 20},
+  moneyBill: {marginVertical: 20, alignSelf: 'center'},
   logoContainer: {
     justifyContent: 'center',
     marginVertical: 20,
