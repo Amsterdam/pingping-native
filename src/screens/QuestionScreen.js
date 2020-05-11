@@ -45,7 +45,7 @@ const QuestionScreen = ({navigation}) => {
 
     answer = state.answerSelected;
     if (currentTask.type === 'DateOfBirth') {
-      answer = new Date(`${state.month}-${state.day}-${state.year}`).toString();
+      answer = `${state.year}-${state.month}-${state.day}`;
     }
     try {
       await updateTask({
