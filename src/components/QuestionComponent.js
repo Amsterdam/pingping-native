@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     height: 100,
   },
   picker: {height: 100, width: 150},
+  pickerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+  },
 });
 
 const QuestionComponent = ({
@@ -36,7 +41,8 @@ const QuestionComponent = ({
   month,
   day,
 }) => {
-  // refactor this
+  // refactor this component
+
   const getDays = () => {
     const days = [];
     for (let index = 1; index < 32; index++) {
@@ -47,18 +53,18 @@ const QuestionComponent = ({
   };
   const getMonths = () => {
     const months = [
-      'januari',
-      'februari',
-      'maart',
-      'april',
-      'mei',
-      'juni',
-      'juli',
-      'augustus',
-      'september',
-      'oktober',
-      'november',
-      'december',
+      {label: 'januari', value: '1'},
+      {label: 'februari', value: '2'},
+      {label: 'maart', value: '3'},
+      {label: 'april', value: '4'},
+      {label: 'mei', value: '5'},
+      {label: 'juni', value: '6'},
+      {label: 'juli', value: '7'},
+      {label: 'augustus', value: '8'},
+      {label: 'september', value: '9'},
+      {label: 'oktober', value: '10'},
+      {label: 'november', value: '11'},
+      {label: 'december', value: '12'},
     ];
     return months;
   };
@@ -70,6 +76,7 @@ const QuestionComponent = ({
     }
     return years;
   };
+
   return (
     <View style={styles.questionContainer}>
       <Title style={styles.margin}>{question}</Title>
@@ -89,12 +96,7 @@ const QuestionComponent = ({
           />
         ))}
       {type === 'DateOfBirth' && (
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignSelf: 'stretch',
-          }}>
+        <View style={styles.pickerContainer}>
           <Picker
             selectedValue={day}
             style={styles.dayPicker}
@@ -112,7 +114,11 @@ const QuestionComponent = ({
             }>
             <Picker.Item label="" value="" />
             {getMonths().map(month => (
-              <Picker.Item label={month} value={month} key={month} />
+              <Picker.Item
+                label={month.label}
+                value={month.value}
+                key={month}
+              />
             ))}
           </Picker>
           <Picker
