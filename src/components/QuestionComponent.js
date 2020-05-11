@@ -36,13 +36,13 @@ const QuestionComponent = ({
   month,
   day,
 }) => {
+  // refactor this
   const getDays = () => {
     const days = [];
     for (let index = 1; index < 32; index++) {
       const value = index.toString();
       days.push(<Picker.Item label={value} value={value} key={value} />);
     }
-    console.log(days);
     return days;
   };
   const getMonths = () => {
@@ -68,7 +68,6 @@ const QuestionComponent = ({
       const value = index.toString();
       years.push(<Picker.Item label={value} value={value} key={value} />);
     }
-    console.log(years);
     return years;
   };
   return (
@@ -118,7 +117,7 @@ const QuestionComponent = ({
           </Picker>
           <Picker
             selectedValue={year}
-            style={{height: 100, width: 150}}
+            style={styles.picker}
             onValueChange={(itemValue, itemIndex) =>
               setState({...state, year: itemValue})
             }>

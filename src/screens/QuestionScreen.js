@@ -20,13 +20,22 @@ const styles = StyleSheet.create({
 
 const INITIAL_STATE = {
   answerSelected: false,
+  day: '',
+  month: '',
+  year: '',
 };
 
 const QuestionScreen = ({navigation}) => {
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
   const currentTask = data && data.getStatus.currentTask;
-  console.log(state);
+  const checkDisabled = () => {
+    if (currentTask.type === 'DateOfBirth') {
+      return !state.day || !state.month || !state.year;
+    }
+    return !state.answerSelected;
+  };
+  // refactor this
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="white" />
@@ -50,7 +59,7 @@ const QuestionScreen = ({navigation}) => {
                 onPress={() => navigation.navigate('CompletedQuestions')}
                 label="Volgende"
                 transparent
-                disabled={!state.answerSelected}
+                disabled={checkDisabled()}
                 labelStyle={styles.label}
                 style={styles.button}
               />
