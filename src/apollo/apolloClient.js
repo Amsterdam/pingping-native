@@ -5,7 +5,7 @@ const cache = new InMemoryCache();
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'http://172.20.10.4:4000',
+    uri: 'http://localhost:4000',
   }),
   cache: cache,
   resolvers: {
