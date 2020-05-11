@@ -10,6 +10,9 @@ const REGISTER_DEVICE_MUTATION = gql`
       input: {deviceId: $deviceId, deviceOs: $deviceOs, deviceType: $deviceType}
     ) {
       accessToken
+      user {
+        id
+      }
       currentTask {
         title
         status
