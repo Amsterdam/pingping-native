@@ -1,12 +1,13 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Content, Container} from 'native-base';
-import {useQuery} from '@apollo/client';
+import {useQuery, useMutation} from '@apollo/client';
 import {appColors} from '../lib/colors';
 import Button from '../components/Button';
 import SimpleHeader from '../components/header/SimpleHeader';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
@@ -26,6 +27,7 @@ const INITIAL_STATE = {
 };
 
 const QuestionScreen = ({navigation}) => {
+  // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
   const currentTask = data && data.getStatus.currentTask;
@@ -35,7 +37,33 @@ const QuestionScreen = ({navigation}) => {
     }
     return !state.answerSelected;
   };
-  // refactor this
+
+  const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+
+  const submitAnswer = async () => {
+    let answer = '';
+
+    answer = state.answerSelected;
+    if (currentTask.type === 'DateOfBirth') {
+      answer = `${state.year}-${state.month}-${state.day}`;
+    }
+    try {
+      await updateTask({
+        variables: {
+          answer,
+          taskId: currentTask.taskId,
+        },
+        refetchQueries: [
+          {
+            query: GET_STATUS_QUERY,
+          },
+        ],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container>
       <SimpleHeader navigation={navigation} color="white" />
@@ -44,6 +72,7 @@ const QuestionScreen = ({navigation}) => {
           <React.Fragment>
             <QuestionComponent
               question={currentTask.title}
+              taskId={currentTask.taskId}
               answers={['ja', 'nee']}
               type={currentTask.type}
               setState={setState}
@@ -56,7 +85,7 @@ const QuestionScreen = ({navigation}) => {
             />
             <View style={styles.buttonContainer}>
               <Button
-                onPress={() => navigation.navigate('CompletedQuestions')}
+                onPress={() => submitAnswer()}
                 label="Volgende"
                 transparent
                 disabled={checkDisabled()}
