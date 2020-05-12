@@ -15,6 +15,7 @@ export default function App() {
   React.useEffect(() => {
     AsyncStorage.clear();
     async function getToken() {
+      console.log('tokening');
       try {
         const token = await AsyncStorage.getItem('@access_token');
         if (token !== null) {
@@ -29,6 +30,7 @@ export default function App() {
       }
     }
     async function register() {
+      console.log('registering');
       try {
         const deviceId = DeviceInfo.getUniqueId();
         const deviceType = DeviceInfo.getDeviceType();

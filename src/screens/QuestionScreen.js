@@ -42,11 +42,12 @@ const QuestionScreen = ({navigation}) => {
 
   const submitAnswer = async () => {
     let answer = '';
-
     answer = state.answerSelected;
     if (currentTask.type === 'DateOfBirth') {
       answer = `${state.year}-${state.month}-${state.day}`;
     }
+    console.log({answer, taskId: currentTask.taskId});
+    console.log(typeof answer, typeof currentTask.taskId);
     try {
       await updateTask({
         variables: {
@@ -59,6 +60,7 @@ const QuestionScreen = ({navigation}) => {
           },
         ],
       });
+      setState(INITIAL_STATE);
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +75,6 @@ const QuestionScreen = ({navigation}) => {
             <QuestionComponent
               question={currentTask.title}
               taskId={currentTask.taskId}
-              answers={['ja', 'nee']}
               type={currentTask.type}
               setState={setState}
               answerSelected={state.answerSelected}
@@ -85,7 +86,7 @@ const QuestionScreen = ({navigation}) => {
             />
             <View style={styles.buttonContainer}>
               <Button
-                onPress={() => submitAnswer()}
+                onPress={submitAnswer}
                 label="Volgende"
                 transparent
                 disabled={checkDisabled()}

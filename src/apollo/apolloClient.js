@@ -31,7 +31,7 @@ const client = new ApolloClient({
         const {modalOpen} = cache.readQuery({
           query: GET_MODAL_STATE,
         });
-        console.log(variables.pings);
+
         cache.writeQuery({
           query: gql`
             {
