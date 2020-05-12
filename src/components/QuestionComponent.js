@@ -83,8 +83,8 @@ const QuestionComponent = ({
       <View style={styles.illustration}>
         <Text>☠️</Text>
       </View>
-      {type === 'binary' &&
-        answers.map(answer => (
+      {type === 'YesOrNo' &&
+        ['ja', 'nee'].map(answer => (
           <Button
             key={answer}
             label={answer}
@@ -92,7 +92,7 @@ const QuestionComponent = ({
             rounded
             style={styles.whiteButton}
             color="primary"
-            onPress={() => setState({answerSelected: true})}
+            onPress={() => setState({answerSelected: answer})}
           />
         ))}
       {type === 'DateOfBirth' && (
