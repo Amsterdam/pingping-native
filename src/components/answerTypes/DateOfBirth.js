@@ -4,10 +4,9 @@ import {getDays, getMonths, getYears} from '../../utils/birthDayHelper';
 
 const styles = StyleSheet.create({
   dayPicker: {
-    width: 50,
-    height: 100,
+    flex: 1,
   },
-  picker: {height: 100, width: 150},
+  picker: {flex: 2},
   pickerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

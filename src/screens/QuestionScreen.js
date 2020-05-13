@@ -46,8 +46,6 @@ const QuestionScreen = ({navigation}) => {
     if (currentTask.type === 'DateOfBirth') {
       answer = `${state.year}-${state.month}-${state.day}`;
     }
-    console.log({answer, taskId: currentTask.taskId});
-    console.log(typeof answer, typeof currentTask.taskId);
     try {
       await updateTask({
         variables: {
