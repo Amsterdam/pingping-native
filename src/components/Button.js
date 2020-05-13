@@ -88,8 +88,8 @@ const Button = ({
         };
         styles.label = {
           ...styles.label,
-          ...labelStyle,
           color: bordered ? appColors.primaryColor : '#fff',
+          ...labelStyle,
         };
         break;
       case 'white':

@@ -51,7 +51,6 @@ const ImportRouteScreen = ({navigation}) => {
             <Button
               rounded
               disabled={!value}
-              labelStyle={styles.label}
               label="UUID Kopieren"
               onPress={() => console.log('copy this stuff')}
             />

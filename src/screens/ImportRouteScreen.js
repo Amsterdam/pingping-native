@@ -52,7 +52,6 @@ const ImportRouteScreen = ({navigation}) => {
             <Button
               rounded
               disabled={!value}
-              labelStyle={styles.label}
               label="Importeer gegevens"
               onPress={() => navigation.navigate('ImportRoutes')}
             />
