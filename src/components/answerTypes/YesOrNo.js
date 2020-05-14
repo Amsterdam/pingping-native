@@ -22,7 +22,6 @@ const YesOrNo = ({answers, state, setState}) => {
       label={answer}
       bordered
       rounded
-      test={console.log(answer === state.selectedAnswer)}
       style={
         answer === state.answerSelected
           ? styles.activeButton

@@ -30,6 +30,7 @@ const QuestionScreen = ({navigation}) => {
   // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
+  const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
   const checkDisabled = () => {
     if (currentTask.type === 'DateOfBirth') {
@@ -37,9 +38,7 @@ const QuestionScreen = ({navigation}) => {
     }
     return !state.answerSelected;
   };
-
-  const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
-
+  console.log(data);
   const submitAnswer = async () => {
     let answer = '';
     answer = state.answerSelected;

@@ -13,9 +13,9 @@ export default function App() {
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 
   React.useEffect(() => {
+    // clear token for testin purposes
     AsyncStorage.clear();
     async function getToken() {
-      console.log('tokening');
       try {
         const token = await AsyncStorage.getItem('@access_token');
         if (token !== null) {
@@ -30,7 +30,6 @@ export default function App() {
       }
     }
     async function register() {
-      console.log('registering');
       try {
         const deviceId = DeviceInfo.getUniqueId();
         const deviceType = DeviceInfo.getDeviceType();
