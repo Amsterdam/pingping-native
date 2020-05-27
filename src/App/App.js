@@ -7,6 +7,7 @@ import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation'
 import InitialStack from './stacks/InitialStack';
 import TabNavigator from './TabNavigator';
 import DeviceInfo from 'react-native-device-info';
+import PushNotificationService from '../services/PushNotificationService';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -65,7 +66,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {loggedIn ? <TabNavigator /> : <InitialStack setLogin={setLogin} />}
+      {loggedIn ? (
+        <PushNotificationService>
+          <TabNavigator />
+        </PushNotificationService>
+      ) : (
+        <InitialStack setLogin={setLogin} />
+      )}
     </NavigationContainer>
   );
 }
