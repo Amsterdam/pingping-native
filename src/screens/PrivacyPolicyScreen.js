@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {Container, Left} from 'native-base';
+import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -14,9 +15,23 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   const [open, setOpen] = React.useState(false);
+  const [policyAccepted, setPolicy] = React.useState(true);
+
+  useEffect(() => {
+    async function policyCheck() {
+      const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
+      setPolicy(acceptedPolicy);
+    }
+    policyCheck();
+  }, []);
 
   const toggleOpen = () => {
     setOpen(!open);
+  };
+
+  const doAcceptPolicy = async () => {
+    await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
+    navigation.navigate('Question');
   };
 
   return (
@@ -48,11 +63,10 @@ const PrivacyPolicyScreen = ({navigation}) => {
             open={open}
             toggleOpen={toggleOpen}
           />
-          <Button
-            rounded
-            label="Accepteer"
-            onPress={() => navigation.navigate('Question')}
-          />
+
+          {!policyAccepted && (
+            <Button rounded label="Accepteer" onPress={doAcceptPolicy} />
+          )}
         </ContentLayout>
       </ScrollView>
     </Container>
