@@ -38,7 +38,7 @@ const QuestionScreen = ({navigation}) => {
     }
     return !state.answerSelected;
   };
-  console.log(data);
+
   const submitAnswer = async () => {
     let answer = '';
     answer = state.answerSelected;
@@ -46,7 +46,7 @@ const QuestionScreen = ({navigation}) => {
       answer = `${state.year}-${state.month}-${state.day}`;
     }
     try {
-      await updateTask({
+      const taskResp = await updateTask({
         variables: {
           answer,
           taskId: currentTask.taskId,
@@ -57,9 +57,11 @@ const QuestionScreen = ({navigation}) => {
           },
         ],
       });
+      console.log(taskResp);
       setState(INITIAL_STATE);
     } catch (error) {
       console.log(error);
+      navigation.navigate('CompletedQuestions');
     }
   };
 
