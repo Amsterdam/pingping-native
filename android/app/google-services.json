@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "571357170102",
+    "firebase_url": "https://pingpingnative-8ea7b.firebaseio.com",
+    "project_id": "pingpingnative-8ea7b",
+    "storage_bucket": "pingpingnative-8ea7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571357170102:android:f087455b7f233b2afd9917",
+        "android_client_info": {
+          "package_name": "com.pingpingnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571357170102-0im7o71j52q59qotm4bvtgrggmfcbbpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl0EXDyDz3Tac9SoAsviv5JL1DyKhi8n8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571357170102-0im7o71j52q59qotm4bvtgrggmfcbbpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
