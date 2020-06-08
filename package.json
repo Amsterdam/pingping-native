@@ -47,8 +47,11 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFiles": [
+      "./jestSetupFile.js"
+    ],
     "transformIgnorePatterns": [
-      "/node_modules/@react-native-community/async-storage/(?!(lib)) | node_modules/(?!(react-[a-z, -]*|react-native|native-base-[a-z, -]*|react-native-[a-z, -]*)/)"
+      "/node_modules/@react-native-community/async-storage/(?!(lib)) | node_modules/(?!(react-[a-z, -]*|react-native|native-base-[a-z, -]*|react-native-[a-z, -]*)/) "
     ]
   }
 }

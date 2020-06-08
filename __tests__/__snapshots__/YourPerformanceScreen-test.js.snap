@@ -1,0 +1,549 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "#0d2036",
+        }
+      }
+    >
+      <View
+        noShadow={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "transparent",
+              "borderBottomWidth": 0.5,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 64,
+              "justifyContent": "center",
+              "left": 0,
+              "paddingLeft": 6,
+              "paddingRight": 10,
+              "paddingTop": 18,
+              "right": 0,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+              "top": 0,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#0d2036",
+              "justifyContent": "flex-start",
+            },
+          ]
+        }
+        transparent={true}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          forwardedRef={[Function]}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 45,
+              "justifyContent": "center",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 6,
+              "paddingRight": 6,
+              "paddingTop": 6,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                  Object {
+                    "color": "#007aff",
+                    "fontSize": 24,
+                    "marginLeft": 16,
+                    "marginRight": 16,
+                    "paddingTop": 2,
+                  },
+                  Object {
+                    "color": "#fff",
+                  },
+                ],
+                Object {
+                  "fontFamily": "anticon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            type="AntDesign"
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#0d2036",
+        "padding": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#fff",
+            "fontFamily": "Heavitas",
+            "fontSize": 30,
+            "paddingBottom": 20,
+            "textAlign": "left",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      prestaties
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <RNSVGSvgView
+          align="xMidYMid"
+          bbHeight={54}
+          bbWidth={44}
+          focusable={false}
+          height={54}
+          meetOrSlice={0}
+          minX={0}
+          minY={0}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderWidth": 0,
+              },
+              Object {
+                "marginRight": 10,
+              },
+              Object {
+                "flex": 0,
+                "height": 54,
+                "width": 44,
+              },
+            ]
+          }
+          vbHeight={54}
+          vbWidth={44}
+          width={44}
+        >
+          <RNSVGGroup>
+            <RNSVGGroup
+              fill={4294680320}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            >
+              <RNSVGPath
+                d="M11.716 46a1.03 1.03 0 01-1.029-1.031V27.393H5.028A1.03 1.03 0 014 26.361v-.001c0-.571.46-1.033 1.028-1.033h5.66V0h13.298C24.139.003 37 .434 37 13.696S24.137 27.39 24.008 27.392H12.744v17.575c0 .57-.46 1.033-1.028 1.033zm1.028-20.673h11.242c.424-.011 10.957-.41 10.957-11.631 0-11.264-10.531-11.62-10.98-11.63h-11.22l.001 23.261z"
+              />
+              <RNSVGPath
+                d="M18.716 54a1.03 1.03 0 01-1.029-1.031V35.393h-5.659A1.029 1.029 0 0111 34.362v-.002c0-.57.46-1.032 1.028-1.032h5.66V8h13.298C31.139 8.003 44 8.434 44 21.696S31.137 35.391 31.008 35.393H19.744v17.574c0 .57-.46 1.033-1.028 1.033zm1.028-20.673h11.242c.424-.011 10.957-.41 10.957-11.631 0-11.264-10.531-11.62-10.98-11.63h-11.22l.001 23.261z"
+              />
+              <RNSVGPath
+                d="M30.952 43H1.048C.47 43 0 42.553 0 42s.469-1 1.048-1h29.904c.579 0 1.048.447 1.048 1s-.469 1-1.048 1z"
+              />
+            </RNSVGGroup>
+          </RNSVGGroup>
+        </RNSVGSvgView>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#fb9f02",
+                "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          80
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 30,
+        "position": "relative",
+        "width": 750,
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "acquired": true,
+            "image": Object {
+              "testUri": "../../../src/assets/trashcan.png",
+            },
+            "points": "20",
+            "title": "Inschrijving",
+          },
+          Object {
+            "acquired": false,
+            "image": Object {
+              "testUri": "../../../src/assets/trashcan.png",
+            },
+            "points": "20",
+            "title": "Aangemeld",
+          },
+          Object {
+            "acquired": false,
+            "image": Object {
+              "testUri": "../../../src/assets/trashcan.png",
+            },
+            "points": "20",
+            "title": "Zorgtoeslag",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderColor": "#000",
+                  "borderWidth": 1,
+                  "justifyContent": "center",
+                  "margin": 3,
+                  "padding": 15,
+                  "width": 325,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/trashcan.png",
+                  }
+                }
+                style={
+                  Object {
+                    "marginBottom": 10,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontFamily": "Heavitas",
+                      "fontSize": 12,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Inschrijving
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#fb9f02",
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                20
+                 punten
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderColor": "#000",
+                  "borderWidth": 1,
+                  "justifyContent": "center",
+                  "margin": 3,
+                  "opacity": 0.4,
+                  "padding": 15,
+                  "width": 325,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/trashcan.png",
+                  }
+                }
+                style={
+                  Object {
+                    "marginBottom": 10,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontFamily": "Heavitas",
+                      "fontSize": 12,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Aangemeld
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#fb9f02",
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                20
+                 punten
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderColor": "#000",
+                  "borderWidth": 1,
+                  "justifyContent": "center",
+                  "margin": 3,
+                  "opacity": 0.4,
+                  "padding": 15,
+                  "width": 325,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/trashcan.png",
+                  }
+                }
+                style={
+                  Object {
+                    "marginBottom": 10,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontFamily": "Heavitas",
+                      "fontSize": 12,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Zorgtoeslag
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#fb9f02",
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                20
+                 punten
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
