@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 600,
+        "left": undefined,
+        "position": "absolute",
+        "right": 300,
+        "top": undefined,
+        "zIndex": undefined,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={328}
+      bbWidth={328}
+      focusable={false}
+      height={328}
+      meetOrSlice={0}
+      minX={39}
+      minY={39}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "flex": 0,
+            "height": 328,
+            "width": 328,
+          },
+        ]
+      }
+      vbHeight={328}
+      vbWidth={328}
+      width={328}
+    >
+      <RNSVGGroup>
+        <RNSVGCircle
+          cx={203}
+          cy={203}
+          fill={null}
+          opacity={0.401}
+          propList={
+            Array [
+              "fill",
+              "stroke",
+              "strokeWidth",
+            ]
+          }
+          r={149}
+          stroke={4281187530}
+          strokeWidth={30}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": undefined,
+        "left": 350,
+        "position": "absolute",
+        "right": undefined,
+        "top": 400,
+        "zIndex": undefined,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={328}
+      bbWidth={328}
+      focusable={false}
+      height={328}
+      meetOrSlice={0}
+      minX={39}
+      minY={39}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "flex": 0,
+            "height": 328,
+            "width": 328,
+          },
+        ]
+      }
+      vbHeight={328}
+      vbWidth={328}
+      width={328}
+    >
+      <RNSVGGroup>
+        <RNSVGCircle
+          cx={203}
+          cy={203}
+          fill={null}
+          opacity={0.401}
+          propList={
+            Array [
+              "fill",
+              "stroke",
+              "strokeWidth",
+            ]
+          }
+          r={149}
+          stroke={4294526287}
+          strokeWidth={30}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#0d2036",
+            }
+          }
+        >
+          <View
+            noShadow={true}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "transparent",
+                  "borderBottomWidth": 0.5,
+                  "elevation": 0,
+                  "flexDirection": "row",
+                  "height": 64,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "paddingLeft": 6,
+                  "paddingRight": 10,
+                  "paddingTop": 18,
+                  "right": 0,
+                  "shadowColor": null,
+                  "shadowOffset": null,
+                  "shadowOpacity": null,
+                  "shadowRadius": null,
+                  "top": 0,
+                },
+                Object {
+                  "alignItems": "flex-start",
+                  "backgroundColor": "#0d2036",
+                  "flexDirection": "column",
+                  "height": 200,
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+            transparent={true}
+          >
+            <View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "flex-start",
+                      "alignSelf": "center",
+                      "flex": 1,
+                    },
+                    Object {
+                      "flex": 0,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  forwardedRef={[Function]}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": null,
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": null,
+                      "borderColor": null,
+                      "borderLeftWidth": null,
+                      "borderRadius": 5,
+                      "borderRightWidth": null,
+                      "borderTopWidth": null,
+                      "borderWidth": undefined,
+                      "elevation": 0,
+                      "flexDirection": "row",
+                      "height": 45,
+                      "justifyContent": "space-between",
+                      "marginLeft": -3,
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingLeft": 4,
+                      "paddingRight": 6,
+                      "paddingTop": 6,
+                      "shadowColor": null,
+                      "shadowOffset": null,
+                      "shadowOpacity": null,
+                      "shadowRadius": null,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontSize": 30,
+                          },
+                          Object {
+                            "color": "#007aff",
+                            "fontSize": 34,
+                            "marginLeft": 1,
+                            "marginRight": 2,
+                            "marginTop": 0,
+                            "paddingTop": 1,
+                          },
+                          Object {
+                            "color": "#fff",
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "anticon",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                    type="AntDesign"
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "color": "#fff",
+                    "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "letterSpacing": 5,
+                    "textAlign": "left",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              PRIVACY
+            </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "bottom": 0,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 225,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fff",
+                    "elevation": 5,
+                    "height": 50,
+                    "justifyContent": "center",
+                    "padding": 100,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 3.84,
+                    "width": 50,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/privacy.png",
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </RCTSafeAreaView>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginTop": 150,
+            "padding": 30,
+            "position": "relative",
+            "width": 750,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "fontFamily": "Raleway",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "textAlign": "left",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Om Ping Ping optimaal te laten functioneren verzamelen wij door het proces heen informatie. Klik hieronder om meer kennis te krijgen over welke informatie wij verzamelen en wat wij met deze informatie doen.
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 57,
+              "elevation": 5,
+              "marginBottom": 15,
+              "marginTop": 15,
+              "padding": 10,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.25,
+              "shadowRadius": 3.84,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "padding": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              Privacy Policy
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "fontSize": 16,
+                      "marginLeft": 8,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

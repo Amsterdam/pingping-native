@@ -1,8 +1,18 @@
 import React from 'react';
 import RouteHomeScreen from '../src/screens/RouteHomeScreen';
+import {InMemoryCache} from '@apollo/client';
 import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import GET_MODAL_STATE from '../src/apollo/Query/getModalState';
+
+const cache = new InMemoryCache({addTypename: false});
+cache.writeQuery({
+  query: GET_MODAL_STATE,
+  data: {
+    pings: 1,
+    modalOpen: false,
+  },
+});
 
 const stateMock = {
   request: {
@@ -15,7 +25,7 @@ const stateMock = {
 test('renders correctly', () => {
   const tree = renderer
     .create(
-      <MockedProvider mocks={[stateMock]} addTypename={false}>
+      <MockedProvider mocks={[stateMock]} cache={cache} addTypename={false}>
         <RouteHomeScreen />
       </MockedProvider>,
     )

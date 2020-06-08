@@ -1,0 +1,2421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    statusBarTranslucent={true}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(1,1,1,0.8)",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderRadius": 20,
+            "elevation": 5,
+            "justifyContent": "center",
+            "margin": 20,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.25,
+            "shadowRadius": 3.84,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "padding": 35,
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            forwardedRef={[Function]}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderBottomWidth": null,
+                "borderColor": "#007aff",
+                "borderLeftWidth": null,
+                "borderRadius": 57,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": undefined,
+                "elevation": 0,
+                "flexDirection": "row",
+                "height": 45,
+                "justifyContent": "space-between",
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingTop": 6,
+                "position": "absolute",
+                "right": 0,
+                "shadowColor": null,
+                "shadowOffset": null,
+                "shadowOpacity": null,
+                "shadowRadius": null,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#007aff",
+                      "fontSize": 24,
+                      "marginLeft": 16,
+                      "marginRight": 16,
+                      "paddingTop": 2,
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontSize": 24,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#fb9f02",
+                  "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Top! 
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              je hebt 
+              1
+               City Pings verdiend 
+            </Text>
+          </Text>
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={75.002}
+            bbWidth={198}
+            focusable={false}
+            height={75.002}
+            meetOrSlice={0}
+            minX={0}
+            minY={-0.001}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginVertical": 20,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 75,
+                  "width": 198,
+                },
+              ]
+            }
+            vbHeight={75.002}
+            vbWidth={198}
+            width={198}
+          >
+            <RNSVGGroup>
+              <RNSVGPath
+                d="M25 43h48a5 5 0 110 10H25a5 5 0 110-10z"
+                fill={4290641880}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M89.5.5h71c20.435 0 37 16.565 37 37h0c0 20.435-16.565 37-37 37h-71c-20.435 0-37-16.565-37-37h0c0-20.435 16.565-37 37-37z"
+                fill={4290641880}
+                propList={
+                  Array [
+                    "fill",
+                    "stroke",
+                  ]
+                }
+                stroke={4288124823}
+              />
+              <RNSVGPath
+                d="M189 19.986a9.243 9.243 0 01-.5.014c-5.247 0-9.5-4.477-9.5-10H71c0 5.523-4.253 10-9.5 10-.168 0-.334-.005-.5-.014v35.028c.166-.01.332-.014.5-.014 5.247 0 9.5 4.477 9.5 10h108c0-5.523 4.253-10 9.5-10 .168 0 .334.005.5.014V19.986zm4.257-19.98A4.501 4.501 0 01198 4.5v66a4.5 4.5 0 01-4.743 4.494c-.085.004-.17.006-.257.006H57c-.086 0-.172-.002-.257-.006A4.5 4.5 0 0152 70.5v-66A4.5 4.5 0 0156.744.006C56.828.002 56.913 0 57 0h136c.086 0 .172.002.257.006z"
+                fill={4283881867}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGCircle
+                cx={125.5}
+                cy={37.5}
+                fill={4283881867}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                r={17.5}
+              />
+              <RNSVGPath
+                d="M5 23h48a5 5 0 010 10H5a5 5 0 010-10z"
+                fill={4283881867}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <View
+            style={
+              Object {
+                "justifyContent": "center",
+                "marginVertical": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginVertical": 20,
+                }
+              }
+            >
+              <RNSVGSvgView
+                align="xMidYMid"
+                bbHeight={54}
+                bbWidth={44}
+                focusable={false}
+                height={54}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 54,
+                      "width": 44,
+                    },
+                  ]
+                }
+                vbHeight={54}
+                vbWidth={44}
+                width={44}
+              >
+                <RNSVGGroup>
+                  <RNSVGGroup
+                    fill={4294680320}
+                    propList={
+                      Array [
+                        "fill",
+                      ]
+                    }
+                  >
+                    <RNSVGPath
+                      d="M11.716 46a1.03 1.03 0 01-1.029-1.031V27.393H5.028A1.03 1.03 0 014 26.361v-.001c0-.571.46-1.033 1.028-1.033h5.66V0h13.298C24.139.003 37 .434 37 13.696S24.137 27.39 24.008 27.392H12.744v17.575c0 .57-.46 1.033-1.028 1.033zm1.028-20.673h11.242c.424-.011 10.957-.41 10.957-11.631 0-11.264-10.531-11.62-10.98-11.63h-11.22l.001 23.261z"
+                    />
+                    <RNSVGPath
+                      d="M18.716 54a1.03 1.03 0 01-1.029-1.031V35.393h-5.659A1.029 1.029 0 0111 34.362v-.002c0-.57.46-1.032 1.028-1.032h5.66V8h13.298C31.139 8.003 44 8.434 44 21.696S31.137 35.391 31.008 35.393H19.744v17.574c0 .57-.46 1.033-1.028 1.033zm1.028-20.673h11.242c.424-.011 10.957-.41 10.957-11.631 0-11.264-10.531-11.62-10.98-11.63h-11.22l.001 23.261z"
+                    />
+                    <RNSVGPath
+                      d="M30.952 43H1.048C.47 43 0 42.553 0 42s.469-1 1.048-1h29.904c.579 0 1.048.447 1.048 1s-.469 1-1.048 1z"
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "color": "#fb9f02",
+                      "fontFamily": "Heavitas",
+                      "fontSize": 50,
+                      "marginLeft": 20,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                1
+              </Text>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "color": "#b9b9b9",
+                    "fontFamily": "Heavitas",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              City Pings
+            </Text>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Raleway",
+                  "fontSize": 15,
+                  "lineHeight": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Gefeliciteerd, je hebt 
+            1
+             City Pings verdiend. Hierdoor kan je meteen je eerste reward verzilveren! Ga naar “claim je reward".
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#fb9f02",
+              "borderBottomLeftRadius": 20,
+              "borderBottomRightRadius": 20,
+              "marginTop": 50,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "color": "#fff",
+                    "fontFamily": "Heavitas",
+                    "fontSize": 18,
+                    "padding": 20,
+                    "textAlign": "left",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              bekijk mijn citypings
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <View
+    style={
+      Object {
+        "bottom": 600,
+        "left": undefined,
+        "position": "absolute",
+        "right": 300,
+        "top": undefined,
+        "zIndex": undefined,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={328}
+      bbWidth={328}
+      focusable={false}
+      height={328}
+      meetOrSlice={0}
+      minX={39}
+      minY={39}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "flex": 0,
+            "height": 328,
+            "width": 328,
+          },
+        ]
+      }
+      vbHeight={328}
+      vbWidth={328}
+      width={328}
+    >
+      <RNSVGGroup>
+        <RNSVGCircle
+          cx={203}
+          cy={203}
+          fill={null}
+          opacity={0.401}
+          propList={
+            Array [
+              "fill",
+              "stroke",
+              "strokeWidth",
+            ]
+          }
+          r={149}
+          stroke={4281187530}
+          strokeWidth={30}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": undefined,
+        "left": 350,
+        "position": "absolute",
+        "right": undefined,
+        "top": 400,
+        "zIndex": undefined,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={328}
+      bbWidth={328}
+      focusable={false}
+      height={328}
+      meetOrSlice={0}
+      minX={39}
+      minY={39}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          Object {
+            "flex": 0,
+            "height": 328,
+            "width": 328,
+          },
+        ]
+      }
+      vbHeight={328}
+      vbWidth={328}
+      width={328}
+    >
+      <RNSVGGroup>
+        <RNSVGCircle
+          cx={203}
+          cy={203}
+          fill={null}
+          opacity={0.401}
+          propList={
+            Array [
+              "fill",
+              "stroke",
+              "strokeWidth",
+            ]
+          }
+          r={149}
+          stroke={4294526287}
+          strokeWidth={30}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        noShadow={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "transparent",
+              "borderBottomWidth": 0.5,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 64,
+              "justifyContent": "center",
+              "left": 0,
+              "paddingLeft": 6,
+              "paddingRight": 10,
+              "paddingTop": 18,
+              "right": 0,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+              "top": 0,
+            },
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+              "marginBottom": 30,
+            },
+          ]
+        }
+        transparent={true}
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Je Route!
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          forwardedRef={[Function]}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 45,
+              "justifyContent": "center",
+              "marginBottom": 5,
+              "opacity": 1,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 0,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#007aff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "fontWeight": "600",
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                },
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Raleway",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Bekijk je route
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      automaticallyAdjustContentInsets={false}
+      contentContainerStyle={
+        Array [
+          Object {
+            "padding": undefined,
+          },
+          undefined,
+        ]
+      }
+      contentInset={
+        Object {
+          "bottom": 0,
+        }
+      }
+      enableAutomaticScroll={true}
+      enableOnAndroid={false}
+      enableResetScrollToCoords={true}
+      extraHeight={75}
+      extraScrollHeight={0}
+      getScrollResponder={[Function]}
+      handleOnScroll={[Function]}
+      keyboardDismissMode="interactive"
+      keyboardOpeningTime={250}
+      keyboardShouldPersistTaps="handled"
+      keyboardSpace={0}
+      onScroll={[Function]}
+      resetKeyboardSpace={[Function]}
+      resetScrollToCoords={
+        Object {
+          "x": 0,
+          "y": 0,
+        }
+      }
+      scrollEventThrottle={1}
+      scrollForExtraHeightOnAndroid={[Function]}
+      scrollIntoView={[Function]}
+      scrollToEnd={[Function]}
+      scrollToFocusedInput={[Function]}
+      scrollToPosition={[Function]}
+      showsVerticalScrollIndicator={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        }
+      }
+      update={[Function]}
+      viewIsInsideTabBar={false}
+    >
+      <View>
+        <RCTScrollView
+          data={
+            Array [
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": true,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen1",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen2",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen3",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen4",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": true,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen5",
+              },
+              Object {
+                "actionLabel": "Regel je woonadres",
+                "cityPingValue": 20,
+                "completed": false,
+                "current": false,
+                "description": "Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.",
+                "title": "zorgverzekering aanvragen6",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          getItemLayout={[Function]}
+          horizontal={true}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          stickyHeaderIndices={Array []}
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#24ba10",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#fff",
+                        "borderRadius": 100,
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#2dbcca",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#2dbcca",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#2dbcca",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#2dbcca",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen4
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#fb9f00",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen5
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#2dbcca",
+                        "borderRadius": 8,
+                        "elevation": 5,
+                        "height": 150,
+                        "justifyContent": "space-between",
+                        "marginLeft": 10,
+                        "marginTop": 10,
+                        "padding": 14,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                        "width": 250,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flexDirection": "row",
+                          "justifyContent": "space-between",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#fff",
+                            "borderRadius": 30,
+                            "height": 50,
+                            "justifyContent": "center",
+                            "width": 50,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            }
+                          }
+                          uppercase={false}
+                        >
+                          😙
+                        </Text>
+                      </View>
+                      <View>
+                        <View
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0,0,0,0.1)",
+                              "borderRadius": 100,
+                              "padding": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#000",
+                                  "fontFamily": "System",
+                                  "fontSize": 16,
+                                },
+                                Object {
+                                  "color": "#fff",
+                                  "fontFamily": "Heavitas",
+                                  "fontSize": 14,
+                                  "textAlign": "left",
+                                },
+                              ]
+                            }
+                            uppercase={false}
+                          >
+                            20 City Pings
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#000",
+                              "fontFamily": "System",
+                              "fontSize": 16,
+                            },
+                            Object {
+                              "color": "#fff",
+                              "fontFamily": "Heavitas",
+                              "fontSize": 20,
+                              "textAlign": "left",
+                            },
+                          ]
+                        }
+                        uppercase={false}
+                      >
+                        zorgverzekering aanvragen6
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#bfe9ee",
+                        "borderRadius": 100,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "width": 40,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#99dce4",
+                          "borderColor": "#fff",
+                          "borderRadius": 100,
+                          "borderWidth": 2,
+                          "height": 20,
+                          "width": 20,
+                        }
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#fff",
+                        "borderRadius": 100,
+                        "flex": 1,
+                        "height": 10,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </RCTScrollView>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "padding": 30,
+              "position": "relative",
+              "width": 750,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "flex": 1,
+                      "fontFamily": "Heavitas",
+                      "fontSize": 20,
+                      "marginBottom": 20,
+                      "textAlign": "left",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                zorgverzekering aanvragen5
+              </Text>
+              <View
+                accessible={true}
+                focusable={true}
+                forwardedRef={[Function]}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "flex-start",
+                    "backgroundColor": "#fb9f00",
+                    "borderBottomWidth": null,
+                    "borderColor": "#007aff",
+                    "borderLeftWidth": null,
+                    "borderRadius": 57,
+                    "borderRightWidth": null,
+                    "borderTopWidth": null,
+                    "borderWidth": undefined,
+                    "elevation": 5,
+                    "flexDirection": "row",
+                    "height": 45,
+                    "justifyContent": "space-between",
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingTop": 6,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 3.84,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                          "marginLeft": 16,
+                          "marginRight": 16,
+                          "paddingTop": 2,
+                        },
+                        Object {
+                          "fontSize": 24,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "FontAwesome",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  type="FontAwesome"
+                >
+                  
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Raleway",
+                    "fontSize": 15,
+                    "lineHeight": 25,
+                    "marginBottom": 20,
+                    "textAlign": "left",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen.
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              forwardedRef={[Function]}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#fb9f00",
+                  "borderBottomWidth": null,
+                  "borderColor": false,
+                  "borderLeftWidth": null,
+                  "borderRadius": 57,
+                  "borderRightWidth": null,
+                  "borderTopWidth": null,
+                  "borderWidth": undefined,
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 45,
+                  "justifyContent": "center",
+                  "marginBottom": 5,
+                  "opacity": 1,
+                  "paddingBottom": 6,
+                  "paddingTop": 6,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 3.84,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "color": "#fff",
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
+                    },
+                    Object {
+                      "color": "#fff",
+                      "fontFamily": "Heavitas",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Regel je woonadres
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+</View>
+`;

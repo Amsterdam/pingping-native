@@ -1,9 +1,8 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   policyContainer: {
@@ -86,16 +85,18 @@ const faqItems = [
 const PrivacyPolicyDropdown = ({open, toggleOpen}) => {
   return (
     <View style={styles.policyContainer}>
-      <TouchableWithoutFeedback style={styles.iconButton} onPress={toggleOpen}>
-        <Title style={styles.title}>Privacy Policy</Title>
-        <Icon
-          name={open ? 'caretup' : 'caretdown'}
-          type="AntDesign"
-          color="#000"
-          style={styles.icon}
-        />
+      <TouchableWithoutFeedback onPress={toggleOpen}>
+        <View style={styles.iconButton}>
+          <Title style={styles.title}>Privacy Policy</Title>
+          <Icon
+            name={open ? 'caretup' : 'caretdown'}
+            type="AntDesign"
+            color="#000"
+            style={styles.icon}
+          />
+        </View>
       </TouchableWithoutFeedback>
-      {open && (
+      {open ? (
         <View style={styles.paddingPolicy}>
           <Body align="justify">
             We staan voor gelijkwaardigheid en gelijke kansen voor alle
@@ -137,6 +138,8 @@ const PrivacyPolicyDropdown = ({open, toggleOpen}) => {
 
           <Body align="justify" />
         </View>
+      ) : (
+        <></>
       )}
     </View>
   );
