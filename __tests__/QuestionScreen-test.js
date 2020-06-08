@@ -4,6 +4,8 @@ import QuestionScreen from '../src/screens/QuestionScreen';
 
 import renderer from 'react-test-renderer';
 
+jest.useFakeTimers();
+
 test('renders correctly', () => {
   const tree = renderer
     .create(

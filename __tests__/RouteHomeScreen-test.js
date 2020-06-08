@@ -22,6 +22,9 @@ const stateMock = {
     data: {modalOpen: true, pings: 2},
   },
 };
+
+jest.useFakeTimers();
+
 test('renders correctly', () => {
   const tree = renderer
     .create(
