@@ -37,6 +37,7 @@
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
+    "@testing-library/react": "^10.2.1",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
@@ -45,6 +46,9 @@
     "react-test-renderer": "16.11.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "/node_modules/@react-native-community/async-storage/(?!(lib)) | node_modules/(?!(react-[a-z, -]*|react-native|native-base-[a-z, -]*|react-native-[a-z, -]*)/)"
+    ]
   }
 }
