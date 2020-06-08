@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+        }
+      }
+    >
+      <View
+        noShadow={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "transparent",
+              "borderBottomWidth": 0.5,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 64,
+              "justifyContent": "center",
+              "left": 0,
+              "paddingLeft": 6,
+              "paddingRight": 10,
+              "paddingTop": 18,
+              "right": 0,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+              "top": 0,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#fff",
+              "justifyContent": "flex-start",
+            },
+          ]
+        }
+        transparent={true}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          forwardedRef={[Function]}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 0,
+              "flexDirection": "row",
+              "height": 45,
+              "justifyContent": "center",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 6,
+              "paddingRight": 6,
+              "paddingTop": 6,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                  Object {
+                    "color": "#007aff",
+                    "fontSize": 24,
+                    "marginLeft": 16,
+                    "marginRight": 16,
+                    "paddingTop": 2,
+                  },
+                  Object {
+                    "color": "#000",
+                  },
+                ],
+                Object {
+                  "fontFamily": "anticon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            type="AntDesign"
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      automaticallyAdjustContentInsets={false}
+      contentContainerStyle={
+        Array [
+          Object {
+            "padding": undefined,
+          },
+          undefined,
+        ]
+      }
+      contentInset={
+        Object {
+          "bottom": 0,
+        }
+      }
+      enableAutomaticScroll={true}
+      enableOnAndroid={false}
+      enableResetScrollToCoords={true}
+      extraHeight={75}
+      extraScrollHeight={0}
+      getScrollResponder={[Function]}
+      handleOnScroll={[Function]}
+      keyboardDismissMode="interactive"
+      keyboardOpeningTime={250}
+      keyboardShouldPersistTaps="handled"
+      keyboardSpace={0}
+      onScroll={[Function]}
+      resetKeyboardSpace={[Function]}
+      resetScrollToCoords={
+        Object {
+          "x": 0,
+          "y": 0,
+        }
+      }
+      scrollEventThrottle={1}
+      scrollForExtraHeightOnAndroid={[Function]}
+      scrollIntoView={[Function]}
+      scrollToEnd={[Function]}
+      scrollToFocusedInput={[Function]}
+      scrollToPosition={[Function]}
+      showsVerticalScrollIndicator={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        }
+      }
+      update={[Function]}
+      viewIsInsideTabBar={false}
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "padding": 30,
+              "position": "relative",
+              "width": 750,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "marginBottom": 30,
+                  "textAlign": "left",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Jouw eigen gegevens
+          </Text>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "marginBottom": 10,
+              }
+            }
+          >
+            <Text>
+              👆😌
+            </Text>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Raleway",
+                  "fontSize": 15,
+                  "lineHeight": 25,
+                  "marginBottom": 30,
+                  "textAlign": "left",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Wij van PingPing gebruiken de door jouw ingevulde gegevens alleen om jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw gegevens verkopen aan andere partijen.
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Raleway",
+                  "fontSize": 15,
+                  "lineHeight": 25,
+                  "marginBottom": 30,
+                  "textAlign": "left",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Wil je toch graag je inloggegevens verwijderen? Druk simpelweg op de knop hieronder om je gegevens uit ons systeem te halen. Hierdoor gaat je voortgang verloren.
+          </Text>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              forwardedRef={[Function]}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#f9454f",
+                  "borderBottomWidth": null,
+                  "borderColor": false,
+                  "borderLeftWidth": null,
+                  "borderRadius": 57,
+                  "borderRightWidth": null,
+                  "borderTopWidth": null,
+                  "borderWidth": undefined,
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 45,
+                  "justifyContent": "center",
+                  "marginBottom": 5,
+                  "opacity": 1,
+                  "paddingBottom": 6,
+                  "paddingTop": 6,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 3.84,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "color": "#fff",
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
+                    },
+                    Object {
+                      "color": "#fff",
+                      "fontFamily": "Heavitas",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Verwijder mijn gegevens
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+</View>
+`;

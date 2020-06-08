@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, ScrollView} from 'react-native';
 import {Container, Left} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -11,7 +11,6 @@ import HeaderBackButton from '../components/header/HeaderBackButton';
 import PrivacyEye from '../assets/privacy.png';
 import OvalDefault from '../components/layout/OvalDefault';
 import PrivacyPolicyAccordion from '../components/PrivacyPolictyDropdown';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   const [open, setOpen] = React.useState(false);
@@ -64,8 +63,10 @@ const PrivacyPolicyScreen = ({navigation}) => {
             toggleOpen={toggleOpen}
           />
 
-          {!policyAccepted && (
+          {!policyAccepted ? (
             <Button rounded label="Accepteer" onPress={doAcceptPolicy} />
+          ) : (
+            <></>
           )}
         </ContentLayout>
       </ScrollView>
