@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Picker, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Picker} from '@react-native-community/picker';
 import {getDays, getMonths, getYears} from '../../utils/birthDayHelper';
 
 const styles = StyleSheet.create({

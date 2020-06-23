@@ -14,7 +14,7 @@ export default function App() {
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 
   React.useEffect(() => {
-    // clear token for testin purposes
+    // clear token for testing purposes
     AsyncStorage.clear();
     async function getToken() {
       try {
