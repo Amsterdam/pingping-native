@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import {View, StyleSheet, ImageBackground} from 'react-native';
 import {Content, Container, Text} from 'native-base';
 import Button from '../components/Button';
@@ -43,6 +44,23 @@ const styles = StyleSheet.create({
 });
 
 const LandingScreen = ({navigation}) => {
+  const [policyAccepted, setPolicy] = React.useState(false);
+
+  useEffect(() => {
+    async function policyCheck() {
+      const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
+      setPolicy(acceptedPolicy);
+    }
+    const unsubscribe = navigation.addListener('focus', () => {
+      policyCheck();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const doNavigation = screenName => () => {
+    navigation.navigate(screenName);
+  };
   return (
     <Container>
       <DynamicStatusbar color="primary" contentColor="light-content" />
@@ -62,27 +80,28 @@ const LandingScreen = ({navigation}) => {
                 rounded
                 color="primary"
                 label="Wat is pingping"
-                onPress={() => navigation.navigate('WhatIsIt')}
+                onPress={doNavigation('WhatIsIt')}
               />
               <Button
                 rounded
                 label="Fiks je eigen route"
-                onPress={() => navigation.navigate('Privacy')}
+                onPress={doNavigation(policyAccepted ? 'Question' : 'Privacy')}
               />
+              {console.log(policyAccepted)}
               <View>
                 <Button
                   style={styles.buttonTransparent}
                   transparent
                   labelStyle={styles.buttonLabel}
                   label="Start zonder eigen route"
-                  onPress={() => navigation.navigate('Question')}
+                  onPress={doNavigation('Question')}
                 />
                 <Button
                   style={styles.buttonTransparent}
                   transparent
                   labelStyle={styles.buttonLabel}
                   label="Heb je al een route? Importeer gegevens"
-                  onPress={() => navigation.navigate('ImportRoutes')}
+                  onPress={doNavigation('ImportRoutes')}
                 />
               </View>
             </View>
