@@ -50,7 +50,10 @@ export default function App() {
           },
         });
         await AsyncStorage.setItem('@access_token', accessToken);
-        const items = [['@access_token', accessToken], ['@userId', id]];
+        const items = [
+          ['@access_token', accessToken],
+          ['@userId', id],
+        ];
         AsyncStorage.multiSet(items);
       } catch (error) {
         console.log(error);
