@@ -2,15 +2,22 @@ import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 
-const SvgComponent = props => {
+const SvgComponent = ({
+  left,
+  right,
+  bottom,
+  top,
+  zIndex = 0,
+  color = '#000',
+}) => {
   const styles = StyleSheet.create({
     ovalStyle: {
       position: 'absolute',
-      right: props.right,
-      bottom: props.bottom,
-      left: props.left,
-      top: props.top,
-      zIndex: props.zIndex,
+      right: right,
+      bottom: bottom,
+      left: left,
+      top: top,
+      zIndex: zIndex,
     },
   });
   return (
@@ -19,7 +26,7 @@ const SvgComponent = props => {
         <Circle
           opacity={0.401}
           fill="none"
-          stroke={props.color}
+          stroke={color}
           strokeWidth={30}
           cx={203}
           cy={203}

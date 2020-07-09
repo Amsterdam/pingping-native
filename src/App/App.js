@@ -6,8 +6,8 @@ import {useMutation} from '@apollo/client';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import InitialStack from './stacks/InitialStack';
 import TabNavigator from './TabNavigator';
-import DeviceInfo from 'react-native-device-info';
 import PushNotificationService from '../services/PushNotificationService';
+import _registerDevice from '../utils/registerDevice';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -24,39 +24,10 @@ export default function App() {
           setLoggedIn(true);
           return null;
         }
-        register();
+        _registerDevice(registerDevice);
         SplashScreen.hide();
       } catch (e) {
         // error reading value
-      }
-    }
-    async function register() {
-      try {
-        const deviceId = DeviceInfo.getUniqueId();
-        const deviceType = DeviceInfo.getDeviceType();
-        const deviceOs = await DeviceInfo.getSystemName();
-        const {
-          data: {
-            registerDevice: {
-              accessToken,
-              user: {id},
-            },
-          },
-        } = await registerDevice({
-          variables: {
-            deviceId,
-            deviceType,
-            deviceOs,
-          },
-        });
-        await AsyncStorage.setItem('@access_token', accessToken);
-        const items = [
-          ['@access_token', accessToken],
-          ['@userId', id],
-        ];
-        AsyncStorage.multiSet(items);
-      } catch (error) {
-        console.log(error);
       }
     }
     getToken();
