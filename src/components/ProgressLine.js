@@ -63,7 +63,7 @@ const ProgressLine = ({index, tasksLength, vertical = false, success}) => {
     return styles.progressContainer;
   };
 
-  const generateLineStyle = trailingLine => {
+  const generateLineStyle = (trailingLine) => {
     if (index === 0 && !vertical && !trailingLine) {
       return styles.progressLineHidden;
     }

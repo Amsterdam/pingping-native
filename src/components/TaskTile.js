@@ -110,9 +110,10 @@ const TaskTile = ({navigation, task, index, tasksLength}) => {
             </View>
             <View>
               <View style={styles.labelContainer}>
-                <Title style={styles.label}>{`${
-                  task.cityPingValue
-                } City Pings`}</Title>
+                <Title
+                  style={
+                    styles.label
+                  }>{`${task.cityPingValue} City Pings`}</Title>
               </View>
             </View>
           </View>
