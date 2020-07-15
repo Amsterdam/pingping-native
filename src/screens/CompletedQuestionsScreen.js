@@ -1,30 +1,18 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
-import {Content, Container, Left} from 'native-base';
+import {StyleSheet} from 'react-native';
+import {Content, Container} from 'native-base';
+import ImageHeader from '../components/header/ImageHeader';
 import ContentLayout from '../components/layout/ContentLayout';
-import Title from '../components/typography/Title';
+
 import Body from '../components/typography/Body';
 import Button from '../components/Button';
-import HeaderTemplate from '../components/header/HeaderTemplate';
-import HeaderBackButton from '../components/header/HeaderBackButton';
-import ThumbsUp from '../assets/thumbs-up.png';
+
+import thumbsUp from '../assets/thumbs-up.png';
 
 const CompletedQuestionsScreen = ({navigation, setLogin}) => {
   return (
     <Container>
-      <HeaderTemplate style={styles.header} color="primary">
-        <View>
-          <Left style={styles.headerButtonContainer}>
-            <HeaderBackButton navigation={navigation} />
-          </Left>
-        </View>
-        <Title style={styles.title}>LEKKER</Title>
-        <View style={styles.absolute}>
-          <View style={styles.paper}>
-            <Image source={ThumbsUp} />
-          </View>
-        </View>
-      </HeaderTemplate>
+      <ImageHeader navigation={navigation} imageToDisplay={thumbsUp} />
       <ContentLayout style={styles.content}>
         <Content>
           <Body style={styles.paragraph1}>
