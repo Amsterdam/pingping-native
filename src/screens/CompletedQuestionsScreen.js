@@ -12,7 +12,11 @@ import thumbsUp from '../assets/thumbs-up.png';
 const CompletedQuestionsScreen = ({navigation, setLogin}) => {
   return (
     <Container>
-      <ImageHeader navigation={navigation} imageToDisplay={thumbsUp} />
+      <ImageHeader
+        navigation={navigation}
+        imageToDisplay={thumbsUp}
+        title="LEKKER"
+      />
       <ContentLayout style={styles.content}>
         <Content>
           <Body style={styles.paragraph1}>

@@ -35,7 +35,11 @@ const PrivacyPolicyScreen = ({navigation}) => {
     <Container>
       <OvalDefault />
       <ScrollView>
-        <ImageHeader navigation={navigation} imageToDisplay={privacyImage} />
+        <ImageHeader
+          navigation={navigation}
+          imageToDisplay={privacyImage}
+          title="PRIVACY"
+        />
         <ContentLayout style={styles.content}>
           <Body>
             Om Ping Ping optimaal te laten functioneren verzamelen wij door het

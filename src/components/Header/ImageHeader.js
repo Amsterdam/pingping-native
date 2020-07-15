@@ -5,7 +5,7 @@ import HeaderTemplate from './HeaderTemplate';
 import HeaderBackButton from './HeaderBackButton';
 import Title from '../typography/Title';
 
-const ImageHeader = ({navigation, imageToDisplay}) => {
+const ImageHeader = ({navigation, imageToDisplay, title}) => {
   console.log(imageToDisplay);
   return (
     <HeaderTemplate style={styles.header} color="primary">
@@ -14,7 +14,7 @@ const ImageHeader = ({navigation, imageToDisplay}) => {
           <HeaderBackButton navigation={navigation} />
         </Left>
       </View>
-      <Title style={styles.title}>PRIVACY</Title>
+      <Title style={styles.title}>{title}</Title>
       <View style={styles.absolute}>
         <View style={styles.paper}>
           <Image source={imageToDisplay} />
