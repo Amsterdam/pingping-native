@@ -1,16 +1,55 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
-import {Container, Left} from 'native-base';
+import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
+import {Header, Container, Button, Text, Content} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
-import ContentLayout from '../components/layout/ContentLayout';
+import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/Button';
-import ImageHeader from '../components/header/ImageHeader';
-import privacyImage from '../assets/privacy.png';
-import OvalDefault from '../components/layout/OvalDefault';
-import PrivacyPolicyAccordion from '../components/PrivacyPolictyDropdown';
+import FloppyDisk from '../assets/svg/FloppyDisk';
+import {appColors} from '../lib/colors';
+import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
 
-const PrivacyPolicyScreen = ({navigation}) => {
+const styles = StyleSheet.create({
+  viewContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: appColors.background,
+    padding: 15,
+  },
+  title: {
+    fontWeight: '400',
+    fontSize: 28,
+    color: appColors.text,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  onboardingText: {
+    textAlign: 'center',
+    color: appColors.subText,
+    fontSize: 14,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    width: Dimensions.get('window').width,
+    justifyContent: 'space-between',
+  },
+  button: {
+    backgroundColor: appColors.primary,
+  },
+  buttonLabel: {
+    fontWeight: 'bold',
+  },
+  header: {
+    backgroundColor: appColors.background,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
+});
+
+const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
   const [open, setOpen] = React.useState(false);
   const [policyAccepted, setPolicy] = React.useState(true);
 
@@ -33,37 +72,36 @@ const PrivacyPolicyScreen = ({navigation}) => {
 
   return (
     <Container>
-      <OvalDefault />
-      <ScrollView>
-        <ImageHeader
-          navigation={navigation}
-          imageToDisplay={privacyImage}
-          title="PRIVACY"
-        />
-        <ContentLayout style={styles.content}>
-          <Body>
-            Om Ping Ping optimaal te laten functioneren verzamelen wij door het
-            proces heen informatie. Klik hieronder om meer kennis te krijgen
-            over welke informatie wij verzamelen en wat wij met deze informatie
-            doen.
-          </Body>
-          <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
-
-          {!policyAccepted ? (
-            <Button rounded label="Accepteer" onPress={doAcceptPolicy} />
-          ) : (
-            <></>
-          )}
-        </ContentLayout>
-      </ScrollView>
+      <Content>
+        <Header style={styles.header} transparent noShadow>
+          <StatusBar barStyle="dark-content" />
+          <Title style={styles.headerTitle}>PRIVACY</Title>
+        </Header>
+        <View style={styles.viewContainer}>
+          <View>
+            <FloppyDisk />
+          </View>
+          <View>
+            <Title style={styles.title}>PRIVACY</Title>
+            <Body style={styles.onboardingText}>
+              Om Ping Ping optimaal te laten functioneren verzamelen wij door
+              het proces heen informatie. Klik hieronder om meer kennis te
+              krijgen over welke informatie wij verzamelen en wat wij met deze
+              informatie doen.
+            </Body>
+            <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              style={styles.button}
+              onPress={() => console.log('pressed')}>
+              <Text style={styles.buttonLabel}>Accepteren</Text>
+            </Button>
+          </View>
+        </View>
+      </Content>
     </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  content: {
-    marginTop: 150,
-  },
-});
-
-export default PrivacyPolicyScreen;
+export default OnboardingItem;

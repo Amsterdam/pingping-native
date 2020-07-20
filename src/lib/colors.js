@@ -18,13 +18,15 @@ export const ppLogoColors = [
 ];
 
 export const appColors = {
-  primaryColor: ppBaseColors.PP_ORANGE,
+  primary: ppBaseColors.PP_ORANGE,
   secondary: ppBaseColors.PP_LIGHT_BLUE,
   headerColor: ppBaseColors.PP_DARK_BLUE,
   accentColor: ppBaseColors.PP_BABY_BLUE,
   bullet: ppBaseColors.PP_BULLET,
   success: ppBaseColors.PP_SUCCESS,
   white: ppBaseColors.PP_WHITE,
+  background: ppBaseColors.PP_WHITE,
+  greyedOut: ppBaseColors.PP_GRAY,
 };
 
 export function setHeaderColor(color) {

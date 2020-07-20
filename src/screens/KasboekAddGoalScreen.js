@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     alignSelf: 'stretch',
-    borderColor: appColors.primaryColor,
+    borderColor: appColors.primary,
     borderWidth: 1,
     borderRadius: 50,
     marginBottom: 10,
@@ -91,7 +91,7 @@ const KasboekAddGoalScreen = ({navigation}) => {
                   />
                   <TextInput
                     style={styles.textInput}
-                    onChangeText={text => setState({...state, amount: text})}
+                    onChangeText={(text) => setState({...state, amount: text})}
                     value={state.amount}
                     autoFocus
                     keyboardType={'numeric'}
@@ -100,13 +100,15 @@ const KasboekAddGoalScreen = ({navigation}) => {
                 <Body>Goal titel:</Body>
                 <TextInput
                   style={styles.input}
-                  onChangeText={text => setState({...state, goal: text})}
+                  onChangeText={(text) => setState({...state, goal: text})}
                   value={state.goal}
                 />
                 <Body>Goal beschrijving:</Body>
                 <TextInput
                   style={styles.input}
-                  onChangeText={text => setState({...state, description: text})}
+                  onChangeText={(text) =>
+                    setState({...state, description: text})
+                  }
                   value={state.description}
                 />
               </View>

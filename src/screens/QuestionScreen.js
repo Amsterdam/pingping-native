@@ -11,7 +11,7 @@ import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
-  label: {fontSize: 20, color: appColors.primaryColor},
+  label: {fontSize: 20, color: appColors.primary},
   button: {alignSelf: 'flex-end'},
 
   buttonContainer: {

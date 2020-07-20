@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.success,
   },
   tileCurrent: {
-    backgroundColor: appColors.primaryColor,
+    backgroundColor: appColors.primary,
   },
   imageContainer: {
     width: 50,
