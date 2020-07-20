@@ -61,7 +61,7 @@ const QuestionScreen = ({navigation}) => {
       setState(INITIAL_STATE);
     } catch (error) {
       console.log(error);
-      navigation.navigate('CompletedQuestions');
+      navigation.navigate('NotificationDecisionScreen');
     }
   };
 

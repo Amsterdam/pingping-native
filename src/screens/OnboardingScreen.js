@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     color: appColors.greyedOut,
+    fontSize: 12,
   },
 });
 
@@ -71,7 +72,7 @@ class OnboardingScreen extends React.Component {
 
           <Right>
             <TouchableOpacity onPress={() => navigation.navigate('auth')}>
-              <Text style={styles.buttonLabel}>Inloggen</Text>
+              <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>
           </Right>
         </Header>

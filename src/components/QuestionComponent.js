@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   questionContainer: {
     flex: 1,
   },
+  title: {
+    textAlign: 'center',
+  },
   whiteButton: {
     backgroundColor: '#fff',
   },
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
 const QuestionComponent = ({question, type, setState, state}) => {
   return (
     <View style={styles.questionContainer}>
-      <Title style={styles.margin}>{question}</Title>
+      <Title style={styles.title}>{question}</Title>
       <View style={styles.illustration}>
         <Text>☠️</Text>
       </View>

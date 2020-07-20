@@ -91,11 +91,11 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
             </Body>
             <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
           </View>
-          <View style={styles.buttonContainer}>
-            <Button style={styles.button} onPress={doAcceptPolicy}>
-              <Text style={styles.buttonLabel}>Accepteren</Text>
-            </Button>
-          </View>
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button style={styles.button} onPress={doAcceptPolicy}>
+            <Text style={styles.buttonLabel}>Accepteren</Text>
+          </Button>
         </View>
       </Content>
     </Container>

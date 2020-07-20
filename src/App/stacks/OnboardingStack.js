@@ -4,6 +4,7 @@ import OnboardingScreen from '../../screens/OnboardingScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import WelcomeScreen from '../../screens/WelcomeScreen';
 import QuestionScreen from '../../screens/QuestionScreen';
+import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,10 @@ const OnboardingStack = ({setLogin}) => (
     <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
     <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
     <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
+    <Stack.Screen
+      name="NotificationDecisionScreen"
+      component={NotificationDecisionScreen}
+    />
   </Stack.Navigator>
 );
 
