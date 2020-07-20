@@ -80,15 +80,15 @@ const Button = ({
     switch (color) {
       case 'primary':
         styles.button = {
-          backgroundColor: appColors.primaryColor,
-          borderColor: bordered && appColors.primaryColor,
+          backgroundColor: appColors.primary,
+          borderColor: bordered && appColors.primary,
           ...styles.shadow,
           ...styles.button,
           ...style,
         };
         styles.label = {
           ...styles.label,
-          color: bordered ? appColors.primaryColor : '#fff',
+          color: bordered ? appColors.primary : '#fff',
           ...labelStyle,
         };
         break;

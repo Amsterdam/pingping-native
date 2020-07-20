@@ -16,13 +16,13 @@ export default class PushNotificationManager extends React.Component {
 
     const platform = Platform.OS;
 
-    Notifications.events().registerRemoteNotificationsRegistered(event => {
+    Notifications.events().registerRemoteNotificationsRegistered((event) => {
       // TODO: Send the token to my server so it could send back push notifications...
       console.log('Device Token Received', event.deviceToken);
       registerDeviceInBackend(event.deviceToken, platform);
     });
     Notifications.events().registerRemoteNotificationsRegistrationFailed(
-      event => {
+      (event) => {
         console.error(event);
       },
     );
@@ -42,9 +42,7 @@ export default class PushNotificationManager extends React.Component {
       (notification, completion, action) => {
         console.log('Notification opened by device user', notification.payload);
         console.log(
-          `Notification opened with an action identifier: ${
-            action.identifier
-          } and response text: ${action.text}`,
+          `Notification opened with an action identifier: ${action.identifier} and response text: ${action.text}`,
         );
         completion();
       },
@@ -60,13 +58,13 @@ export default class PushNotificationManager extends React.Component {
     );
 
     Notifications.getInitialNotification()
-      .then(notification => {
+      .then((notification) => {
         console.log(
           'Initial notification was:',
           notification ? notification.payload : 'N/A',
         );
       })
-      .catch(err => console.error('getInitialNotifiation() failed', err));
+      .catch((err) => console.error('getInitialNotifiation() failed', err));
   };
 
   render() {

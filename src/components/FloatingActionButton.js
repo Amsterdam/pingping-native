@@ -5,7 +5,7 @@ import {appColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: appColors.primaryColor,
+    backgroundColor: appColors.primary,
     alignSelf: 'flex-start',
     shadowColor: '#000',
     shadowOffset: {

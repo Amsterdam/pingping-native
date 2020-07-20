@@ -8,28 +8,19 @@ import {faqItems} from '../lib/faqItems';
 const styles = StyleSheet.create({
   policyContainer: {
     backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 57,
     marginBottom: 15,
     marginTop: 15,
-
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    borderColor: '#000',
+    borderWidth: 1,
   },
   iconButton: {
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: 10,
   },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     textAlign: 'center',
   },
   icon: {
@@ -44,7 +35,7 @@ const styles = StyleSheet.create({
   faqFontSize: {fontSize: 12},
 });
 
-const PrivacyPolicyDropdown = ({open, toggleOpen}) => {
+const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   return (
     <View style={styles.policyContainer}>
       <TouchableWithoutFeedback onPress={toggleOpen}>
@@ -107,4 +98,4 @@ const PrivacyPolicyDropdown = ({open, toggleOpen}) => {
   );
 };
 
-export default PrivacyPolicyDropdown;
+export default PrivacyPolicyAccordion;

@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 import {useMutation} from '@apollo/client';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
-import InitialStack from './stacks/InitialStack';
+import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
 import _registerDevice from '../utils/registerDevice';
@@ -15,7 +15,7 @@ export default function App() {
 
   React.useEffect(() => {
     // clear token for testing purposes
-    AsyncStorage.clear();
+    // AsyncStorage.clear();
     async function getToken() {
       try {
         const token = await AsyncStorage.getItem('@access_token');
@@ -28,11 +28,11 @@ export default function App() {
         SplashScreen.hide();
       } catch (e) {
         // error reading value
+        console.log(e);
       }
     }
     getToken();
   }, [registerDevice]);
-
   // here we should check if the user can skip onboarding yes/no
   const setLogin = async () => {
     setLoggedIn(true);
@@ -45,7 +45,7 @@ export default function App() {
           <TabNavigator />
         </PushNotificationService>
       ) : (
-        <InitialStack setLogin={setLogin} />
+        <OnboardingStack setLogin={setLogin} />
       )}
     </NavigationContainer>
   );

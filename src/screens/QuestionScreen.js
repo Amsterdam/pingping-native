@@ -11,7 +11,7 @@ import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
-  label: {fontSize: 20, color: appColors.primaryColor},
+  label: {fontSize: 20, color: appColors.primary},
   button: {alignSelf: 'flex-end'},
 
   buttonContainer: {
@@ -30,6 +30,7 @@ const QuestionScreen = ({navigation}) => {
   // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
+  console.log({STATUSQ: error});
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
   const checkDisabled = () => {
@@ -57,11 +58,11 @@ const QuestionScreen = ({navigation}) => {
           },
         ],
       });
-      console.log(taskResp);
+      console.log({taskResp});
       setState(INITIAL_STATE);
     } catch (error) {
       console.log(error);
-      navigation.navigate('CompletedQuestions');
+      navigation.navigate('NotificationDecisionScreen');
     }
   };
 

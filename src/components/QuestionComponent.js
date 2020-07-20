@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {View} from 'native-base';
-import Button from '../components/Button';
 import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';
@@ -9,6 +8,9 @@ import YesOrNo from './answerTypes/YesOrNo';
 const styles = StyleSheet.create({
   questionContainer: {
     flex: 1,
+  },
+  title: {
+    textAlign: 'center',
   },
   whiteButton: {
     backgroundColor: '#fff',
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
 const QuestionComponent = ({question, type, setState, state}) => {
   return (
     <View style={styles.questionContainer}>
-      <Title style={styles.margin}>{question}</Title>
+      <Title style={styles.title}>{question}</Title>
       <View style={styles.illustration}>
         <Text>☠️</Text>
       </View>

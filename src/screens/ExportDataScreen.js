@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     alignSelf: 'stretch',
-    borderColor: appColors.primaryColor,
+    borderColor: appColors.primary,
     borderWidth: 1,
     borderRadius: 50,
     marginBottom: 10,
@@ -45,7 +45,7 @@ const ImportRouteScreen = ({navigation}) => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              onChangeText={text => onChangeText(text)}
+              onChangeText={(text) => onChangeText(text)}
               value={value}
             />
             <Button
