@@ -32,7 +32,6 @@ export default function App() {
     }
     getToken();
   }, [registerDevice]);
-
   // here we should check if the user can skip onboarding yes/no
   const setLogin = async () => {
     setLoggedIn(true);

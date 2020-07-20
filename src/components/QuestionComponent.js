@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {View} from 'native-base';
-import Button from '../components/Button';
 import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';

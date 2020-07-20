@@ -14,10 +14,9 @@ const OnboardingStack = ({setLogin}) => (
     <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
     <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
     <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
-    <Stack.Screen
-      name="NotificationDecisionScreen"
-      component={NotificationDecisionScreen}
-    />
+    <Stack.Screen name="NotificationDecisionScreen">
+      {(props) => <NotificationDecisionScreen {...props} setLogin={setLogin} />}
+    </Stack.Screen>
   </Stack.Navigator>
 );
 
