@@ -2,7 +2,6 @@ import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default async function registerDevice(registerDeviceCallback) {
-  console.log('doin');
   try {
     const deviceId = DeviceInfo.getUniqueId();
     const deviceType = DeviceInfo.getDeviceType();
@@ -30,6 +29,6 @@ export default async function registerDevice(registerDeviceCallback) {
     ];
     return AsyncStorage.multiSet(items);
   } catch (error) {
-    console.log(error);
+    console.log({error});
   }
 }

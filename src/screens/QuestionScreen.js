@@ -30,6 +30,7 @@ const QuestionScreen = ({navigation}) => {
   // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
+  console.log({STATUSQ: error});
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
   const checkDisabled = () => {
@@ -57,7 +58,7 @@ const QuestionScreen = ({navigation}) => {
           },
         ],
       });
-      console.log(taskResp);
+      console.log({taskResp});
       setState(INITIAL_STATE);
     } catch (error) {
       console.log(error);
