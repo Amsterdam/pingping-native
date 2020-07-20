@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PrivacyPolicyScreen = ({navigation}) => {
+const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
   const [open, setOpen] = React.useState(false);
   const [policyAccepted, setPolicy] = React.useState(true);
 
@@ -72,11 +72,11 @@ const PrivacyPolicyScreen = ({navigation}) => {
 
   return (
     <Container>
+      <Header style={styles.header} transparent noShadow>
+        <StatusBar barStyle="dark-content" />
+        <Title style={styles.headerTitle}>PRIVACY</Title>
+      </Header>
       <Content>
-        <Header style={styles.header} transparent noShadow>
-          <StatusBar barStyle="dark-content" />
-          <Title style={styles.headerTitle}>PRIVACY</Title>
-        </Header>
         <View style={styles.viewContainer}>
           <View>
             <FloppyDisk />
