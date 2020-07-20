@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
+const PrivacyPolicyScreen = ({navigation}) => {
   const [open, setOpen] = React.useState(false);
   const [policyAccepted, setPolicy] = React.useState(true);
 
@@ -67,7 +67,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
 
   const doAcceptPolicy = async () => {
     await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
-    navigation.navigate('Question');
+    navigation.navigate('WelcomeScreen');
   };
 
   return (
@@ -92,9 +92,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
             <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
           </View>
           <View style={styles.buttonContainer}>
-            <Button
-              style={styles.button}
-              onPress={() => console.log('pressed')}>
+            <Button style={styles.button} onPress={doAcceptPolicy}>
               <Text style={styles.buttonLabel}>Accepteren</Text>
             </Button>
           </View>
@@ -104,4 +102,4 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
   );
 };
 
-export default OnboardingItem;
+export default PrivacyPolicyScreen;
