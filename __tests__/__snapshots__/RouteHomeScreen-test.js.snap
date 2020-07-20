@@ -446,7 +446,7 @@ exports[`renders correctly 1`] = `
         "position": "absolute",
         "right": 300,
         "top": undefined,
-        "zIndex": undefined,
+        "zIndex": 0,
       }
     }
   >
@@ -504,7 +504,7 @@ exports[`renders correctly 1`] = `
         "position": "absolute",
         "right": undefined,
         "top": 400,
-        "zIndex": undefined,
+        "zIndex": 0,
       }
     }
   >

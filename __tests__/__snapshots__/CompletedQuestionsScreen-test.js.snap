@@ -53,7 +53,9 @@ exports[`renders correctly 1`] = `
         }
         transparent={true}
       >
-        <View>
+        <View
+          style={Object {}}
+        >
           <View
             style={
               Array [
@@ -82,10 +84,9 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "alignSelf": null,
                   "backgroundColor": "transparent",
                   "borderBottomWidth": null,
-                  "borderColor": null,
+                  "borderColor": "#007aff",
                   "borderLeftWidth": null,
                   "borderRadius": 5,
                   "borderRightWidth": null,
@@ -95,11 +96,8 @@ exports[`renders correctly 1`] = `
                   "flexDirection": "row",
                   "height": 45,
                   "justifyContent": "space-between",
-                  "marginLeft": -3,
                   "opacity": 1,
                   "paddingBottom": 6,
-                  "paddingLeft": 4,
-                  "paddingRight": 6,
                   "paddingTop": 6,
                   "shadowColor": null,
                   "shadowOffset": null,
@@ -123,11 +121,10 @@ exports[`renders correctly 1`] = `
                       },
                       Object {
                         "color": "#007aff",
-                        "fontSize": 34,
-                        "marginLeft": 1,
-                        "marginRight": 2,
-                        "marginTop": 0,
-                        "paddingTop": 1,
+                        "fontSize": 24,
+                        "marginLeft": 16,
+                        "marginRight": 16,
+                        "paddingTop": 2,
                       },
                       Object {
                         "color": "#fff",
@@ -172,35 +169,41 @@ exports[`renders correctly 1`] = `
         </Text>
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "bottom": 0,
-              "justifyContent": "center",
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 225,
-            }
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "bottom": 0,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 225,
+              },
+            ]
           }
         >
           <View
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "elevation": 5,
-                "height": 50,
-                "justifyContent": "center",
-                "padding": 100,
-                "shadowColor": "#000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {},
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "elevation": 5,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "padding": 100,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 3.84,
+                  "width": 50,
                 },
-                "shadowOpacity": 0.25,
-                "shadowRadius": 3.84,
-                "width": 50,
-              }
+              ]
             }
           >
             <Image
