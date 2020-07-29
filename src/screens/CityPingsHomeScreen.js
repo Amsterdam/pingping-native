@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
   textStyle: {
     color: '#fff',
   },
+  shadowRemover: {
+    elevation: 0,
+  },
 });
 
 const TAB_STYLE = {
@@ -59,7 +62,9 @@ const CityPingsHomeScreen = ({navigation}) => {
           <CitypingsChip value={20} />
         </View>
       </Header>
-      <Tabs tabBarUnderlineStyle={styles.tabBarUnderlineStyle}>
+      <Tabs
+        tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
+        tabContainerStyle={styles.shadowRemover}>
         <Tab heading="Rewards" {...TAB_STYLE}>
           <Content>
             <ContentLayout>
