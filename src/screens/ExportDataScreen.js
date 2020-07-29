@@ -1,20 +1,18 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {Content, Container} from 'native-base';
-import {appColors} from '../lib/colors';
 import ContentLayout from '../components/layout/ContentLayout';
 import SimpleHeader from '../components/header/SimpleHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/Button';
+import Button from '../components/OnboardingButton';
 
 const styles = StyleSheet.create({
   input: {
     height: 40,
     alignSelf: 'stretch',
-    borderColor: appColors.primary,
+    borderColor: '#000',
     borderWidth: 1,
-    borderRadius: 50,
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,

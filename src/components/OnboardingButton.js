@@ -16,11 +16,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: appColors.white,
   },
+  disabled: {
+    ...buttonBase,
+    backgroundColor: 'gray',
+  },
 });
 
 const OnboardingButton = ({label, disabled, onPress}) => {
   return (
-    <Button style={styles.button} disabled={disabled} onPress={onPress}>
+    <Button
+      style={!disabled ? styles.button : styles.disabled}
+      disabled={disabled}
+      onPress={onPress}>
       <Text style={styles.label}>{label}</Text>
     </Button>
   );
