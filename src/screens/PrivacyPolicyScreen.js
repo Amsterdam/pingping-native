@@ -31,14 +31,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
-  },
-  button: {
-    backgroundColor: appColors.primary,
-  },
-  buttonLabel: {
-    fontWeight: 'bold',
   },
   header: {
     backgroundColor: appColors.background,
@@ -47,6 +39,9 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 14,
     color: appColors.primary,
+  },
+  content: {
+    flexGrow: 1,
   },
 });
 
@@ -77,7 +72,7 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
         <StatusBar barStyle="dark-content" />
         <Title style={styles.headerTitle}>PRIVACY</Title>
       </Header>
-      <Content>
+      <Content contentContainerStyle={styles.content}>
         <View style={styles.viewContainer}>
           <View>
             <FloppyDisk />
@@ -91,10 +86,10 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
               informatie doen.
             </Body>
           </View>
-        </View>
-        <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
-        <View style={styles.buttonContainer}>
-          <Button onPress={doAcceptPolicy} label="Accepteren" />
+          <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
+          <View style={styles.buttonContainer}>
+            <Button onPress={doAcceptPolicy} label="Accepteren" />
+          </View>
         </View>
       </Content>
     </Container>

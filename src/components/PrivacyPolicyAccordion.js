@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     margin: 15,
     borderColor: '#000',
     borderWidth: 1,
+    alignSelf: 'stretch',
   },
   iconButton: {
     flexDirection: 'row',
