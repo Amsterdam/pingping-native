@@ -277,8 +277,7 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignSelf": "stretch",
-                  "borderColor": "#fb9f00",
-                  "borderRadius": 50,
+                  "borderColor": "#000",
                   "borderWidth": 1,
                   "height": 40,
                   "marginBottom": 10,
@@ -303,20 +302,18 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "alignSelf": "stretch",
                   "backgroundColor": "gray",
                   "borderBottomWidth": null,
                   "borderColor": "#007aff",
                   "borderLeftWidth": null,
-                  "borderRadius": 57,
+                  "borderRadius": 10,
                   "borderRightWidth": null,
                   "borderTopWidth": null,
                   "borderWidth": undefined,
                   "elevation": 2,
                   "flexDirection": "row",
                   "height": 45,
-                  "justifyContent": "center",
-                  "marginBottom": 5,
+                  "justifyContent": "space-between",
                   "opacity": 1,
                   "paddingBottom": 6,
                   "paddingTop": 6,
@@ -329,16 +326,24 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "color": "#fff",
-                    "fontFamily": "System",
-                    "fontSize": 16.5,
-                    "marginLeft": 0,
-                    "marginRight": 0,
-                    "paddingLeft": 16,
-                    "paddingRight": 16,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "color": "#fff",
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
+                    },
+                    Object {
+                      "color": "#fff",
+                      "fontFamily": "Heavitas",
+                      "fontSize": 14,
+                      "paddingTop": 3,
+                    },
+                  ]
                 }
                 uppercase={false}
               >

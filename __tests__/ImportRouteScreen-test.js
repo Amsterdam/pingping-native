@@ -1,10 +1,10 @@
 import React from 'react';
-import ImportRouteScreen from '../src/screens/ImportRouteScreen';
+import ImportDataScreen from '../src/screens/ImportDataScreen';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 
 test('renders correctly', () => {
-  const tree = renderer.create(<ImportRouteScreen />).toJSON();
+  const tree = renderer.create(<ImportDataScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });

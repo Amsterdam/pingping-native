@@ -72,7 +72,7 @@ class OnboardingScreen extends React.Component {
 
           <Right>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ImportRouteScreen')}>
+              onPress={() => navigation.navigate('ImportDataScreen')}>
               <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>
           </Right>

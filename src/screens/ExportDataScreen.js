@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   inputContainer: {alignItems: 'center', justifyContent: 'center'},
 });
 
-const ImportRouteScreen = ({navigation}) => {
+const ImportDataScreen = ({navigation}) => {
   const [value, onChangeText] = React.useState('');
   return (
     <Container>
@@ -59,4 +59,4 @@ const ImportRouteScreen = ({navigation}) => {
   );
 };
 
-export default ImportRouteScreen;
+export default ImportDataScreen;

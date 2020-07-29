@@ -59,7 +59,7 @@ const DeleteDataScreen = ({navigation}) => {
               delete
               style={styles.deleteButton}
               label="Verwijder mijn gegevens"
-              onPress={() => navigation.navigate('ImportRoutes')}
+              onPress={() => navigation.navigate('ImportDataScreen')}
             />
           </View>
         </ContentLayout>

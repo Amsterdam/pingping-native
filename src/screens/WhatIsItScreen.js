@@ -74,7 +74,7 @@ const WhatIsItScreen = ({navigation}) => {
               transparent
               labelStyle={styles.label}
               label="Heb je al een route? Importeer gegevens"
-              onPress={() => navigation.navigate('ImportRoutes')}
+              onPress={() => navigation.navigate('ImportDataScreen')}
             />
           </View>
         </ContentLayout>
