@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container, Text, Content} from 'native-base';
+import {Header, Container, Content} from 'native-base';
 import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../components/typography/Title';

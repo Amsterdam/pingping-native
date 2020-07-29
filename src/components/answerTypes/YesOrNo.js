@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 
 const YesOrNo = ({answers, state, setState}) => {
-  return answers.map(answer => (
+  return answers.map((answer) => (
     <Button
       key={answer}
       label={answer}

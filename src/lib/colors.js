@@ -9,13 +9,8 @@ export const ppBaseColors = {
   PP_WHITE: '#fff',
   PP_GOLD: '#fb9f02',
   PP_GRAY: '#b9b9b9',
+  PP_LIGHT_GRAY: '#e9e9e9',
 };
-
-export const ppLogoColors = [
-  ppBaseColors.PP_PINK,
-  ppBaseColors.PP_ORANGE,
-  ppBaseColors.PP_LIGHT_BLUE,
-];
 
 export const appColors = {
   primary: ppBaseColors.PP_ORANGE,
