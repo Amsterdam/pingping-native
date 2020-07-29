@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       emulateUnlessSupported={true}
       style={
         Object {
-          "backgroundColor": "#fff",
+          "backgroundColor": "transparent",
         }
       }
     >
@@ -43,89 +43,101 @@ exports[`renders correctly 1`] = `
               "top": 0,
             },
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#fff",
-              "justifyContent": "flex-start",
+              "alignItems": "center",
             },
           ]
         }
         transparent={true}
       >
         <View
-          accessible={true}
-          focusable={true}
-          forwardedRef={[Function]}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "center",
+              "alignItems": "flex-start",
               "alignSelf": "center",
-              "backgroundColor": "transparent",
-              "borderBottomWidth": null,
-              "borderColor": "#007aff",
-              "borderLeftWidth": null,
-              "borderRadius": 5,
-              "borderRightWidth": null,
-              "borderTopWidth": null,
-              "borderWidth": undefined,
-              "elevation": 0,
+              "flex": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#fb9f00",
+                "fontFamily": "Heavitas",
+                "fontSize": 14,
+                "textAlign": "left",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          PRIVACY
+        </Text>
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "alignSelf": "center",
+              "flex": 1,
               "flexDirection": "row",
-              "height": 45,
-              "justifyContent": "center",
-              "opacity": 1,
-              "paddingBottom": 6,
-              "paddingLeft": 6,
-              "paddingRight": 6,
-              "paddingTop": 6,
-              "shadowColor": null,
-              "shadowOffset": null,
-              "shadowOpacity": null,
-              "shadowRadius": null,
+              "justifyContent": "flex-end",
             }
           }
         >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
+          <View>
+            <View
+              animated={true}
+              animationConfig={
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
+                  "bounciness": 0,
+                }
+              }
+              animationType="spring"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0.1}
+              style={
                 Array [
                   Object {
-                    "color": "#000",
-                    "fontSize": 30,
+                    "backgroundColor": "#e9e9e9",
+                    "borderColor": "#2dbcca",
+                    "borderRadius": 4,
+                    "borderWidth": 0,
+                    "overflow": "hidden",
+                    "width": 50,
                   },
+                  undefined,
+                ]
+              }
+              useNativeDriver={false}
+            >
+              <View
+                style={
                   Object {
-                    "color": "#007aff",
-                    "fontSize": 24,
-                    "marginLeft": 16,
-                    "marginRight": 16,
-                    "paddingTop": 2,
-                  },
-                  Object {
-                    "color": "#000",
-                  },
-                ],
-                Object {
-                  "fontFamily": "anticon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-            type="AntDesign"
-          >
-            
-          </Text>
+                    "backgroundColor": "#2dbcca",
+                    "height": 10,
+                    "transform": Array [
+                      Object {
+                        "translateX": -1.7763568394002505e-15,
+                      },
+                      Object {
+                        "translateX": -22.5,
+                      },
+                      Object {
+                        "scaleX": 0.10009000000000001,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+          </View>
         </View>
       </View>
     </RCTSafeAreaView>

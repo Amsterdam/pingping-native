@@ -1,6 +1,14 @@
 import React from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
-import {Content, Container, Header, Right, Left} from 'native-base';
+import {
+  Content,
+  Container,
+  Header,
+  Right,
+  Left,
+  Button as NbButton,
+  Icon,
+} from 'native-base';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
 import {appColors, ppBaseColors} from '../lib/colors';
@@ -24,6 +32,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: 'flex-end',
   },
+  icon: {
+    color: '#000',
+    fontSize: 32,
+  },
 });
 
 const INITIAL_STATE = {
@@ -40,6 +52,7 @@ const QuestionScreen = ({navigation}) => {
   console.log({STATUSQ: error});
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
+
   const checkDisabled = () => {
     if (currentTask.type === 'DateOfBirth') {
       return !state.day || !state.month || !state.year;
@@ -77,7 +90,11 @@ const QuestionScreen = ({navigation}) => {
     <Container>
       <Header style={styles.header} transparent noShadow>
         <StatusBar barStyle="dark-content" />
-        <Left />
+        <Left>
+          <NbButton transparent onPress={() => navigation.goBack()}>
+            <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
+          </NbButton>
+        </Left>
         <Title style={styles.headerTitle}>PRIVACY</Title>
         <Right>
           <View>
