@@ -71,7 +71,8 @@ class OnboardingScreen extends React.Component {
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
 
           <Right>
-            <TouchableOpacity onPress={() => navigation.navigate('auth')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ImportRouteScreen')}>
               <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>
           </Right>

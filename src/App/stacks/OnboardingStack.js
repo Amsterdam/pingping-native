@@ -5,6 +5,7 @@ import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import WelcomeScreen from '../../screens/WelcomeScreen';
 import QuestionScreen from '../../screens/QuestionScreen';
 import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
+import ImportRouteScreen from '../../screens/ImportRouteScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const OnboardingStack = ({setLogin}) => (
     <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
     <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
     <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
+    <Stack.Screen name="ImportRouteScreen" component={ImportRouteScreen} />
     <Stack.Screen name="NotificationDecisionScreen">
       {(props) => <NotificationDecisionScreen {...props} setLogin={setLogin} />}
     </Stack.Screen>

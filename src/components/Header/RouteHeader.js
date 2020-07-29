@@ -6,13 +6,13 @@ import Title from '../../components/typography/Title';
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: 15,
   },
   title: {
     color: '#fff',
-    fontSize: 36,
+    fontSize: 14,
   },
 });
 

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container, Content} from 'native-base';
+import {StyleSheet, View, StatusBar} from 'react-native';
+import {Header, Container, Left, Content, Right} from 'native-base';
 import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../components/typography/Title';
@@ -8,6 +8,7 @@ import Body from '../components/typography/Body';
 import FloppyDisk from '../assets/svg/FloppyDisk';
 import {appColors} from '../lib/colors';
 import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
+import HeaderBackButton from '../components/header/HeaderBackButton';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -70,7 +71,13 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
     <Container>
       <Header style={styles.header} transparent noShadow>
         <StatusBar barStyle="dark-content" />
+        <Left>
+          {policyAccepted && (
+            <HeaderBackButton color="white" navigation={navigation} />
+          )}
+        </Left>
         <Title style={styles.headerTitle}>PRIVACY</Title>
+        <Right />
       </Header>
       <Content contentContainerStyle={styles.content}>
         <View style={styles.viewContainer}>
@@ -87,9 +94,11 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
             </Body>
           </View>
           <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
-          <View style={styles.buttonContainer}>
-            <Button onPress={doAcceptPolicy} label="Accepteren" />
-          </View>
+          {!policyAccepted && (
+            <View style={styles.buttonContainer}>
+              <Button onPress={doAcceptPolicy} label="Accepteren" />
+            </View>
+          )}
         </View>
       </Content>
     </Container>
