@@ -53,6 +53,8 @@ const DeleteDataScreen = ({navigation}) => {
           <View style={styles.inputContainer}>
             <Button
               deleteButton
+              iconName="delete"
+              iconType="AntDesign"
               label="Verwijder mijn gegevens"
               onPress={() => console.log('Show delete alert')}
             />

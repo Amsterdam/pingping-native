@@ -49,7 +49,9 @@ const ImportDataScreen = ({navigation}) => {
             <Button
               rounded
               disabled={!value}
-              label="UUID Kopieren"
+              label="Token Kopieren"
+              iconType="AntDesign"
+              iconName="copy1"
               onPress={() => console.log('copy this stuff')}
             />
           </View>
