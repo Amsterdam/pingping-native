@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
   <Tab.Navigator
+    initialRouteName="Routes"
     tabBarOptions={{
       labelStyle: {fontFamily: 'Raleway'},
     }}>
