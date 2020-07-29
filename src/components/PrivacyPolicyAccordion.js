@@ -8,8 +8,7 @@ import {faqItems} from '../lib/faqItems';
 const styles = StyleSheet.create({
   policyContainer: {
     backgroundColor: '#fff',
-    marginBottom: 15,
-    marginTop: 15,
+    margin: 15,
     borderColor: '#000',
     borderWidth: 1,
   },

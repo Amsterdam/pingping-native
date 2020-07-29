@@ -15,7 +15,7 @@ export default function App() {
 
   React.useEffect(() => {
     // clear token for testing purposes
-    // AsyncStorage.clear();
+    AsyncStorage.clear();
     async function getToken() {
       try {
         const token = await AsyncStorage.getItem('@access_token');

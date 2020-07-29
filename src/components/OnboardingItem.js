@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
-import {Text, Button} from 'native-base';
+import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
@@ -53,9 +53,9 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
             isLastItem
               ? navigation.navigate('PrivacyPolicyScreen')
               : buttonAction.scrollBy(1)
-          }>
-          <Text style={styles.buttonLabel}>{view.buttonLabel}</Text>
-        </Button>
+          }
+          label={view.buttonLabel}
+        />
       </View>
     </View>
   );

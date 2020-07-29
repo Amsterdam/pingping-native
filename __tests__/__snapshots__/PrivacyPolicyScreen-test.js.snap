@@ -621,91 +621,90 @@ exports[`renders correctly 1`] = `
             >
               Om Ping Ping optimaal te laten functioneren verzamelen wij door het proces heen informatie. Klik hieronder om meer kennis te krijgen over welke informatie wij verzamelen en wat wij met deze informatie doen.
             </Text>
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
-                  "marginBottom": 15,
-                  "marginTop": 15,
-                }
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "#000",
+              "borderWidth": 1,
+              "margin": 15,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 10,
               }
-            >
-              <View
-                accessible={true}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
+            }
+          >
+            <Text
+              style={
+                Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "space-between",
-                    "padding": 10,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "System",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "fontFamily": "Heavitas",
-                        "fontSize": 12,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                  uppercase={false}
-                >
-                  Privacy Policy
-                </Text>
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#000",
-                          "fontSize": 30,
-                        },
-                        Object {
-                          "color": "#000",
-                          "fontSize": 30,
-                        },
-                        Object {
-                          "fontSize": 16,
-                          "marginLeft": 8,
-                        },
-                      ],
-                      Object {
-                        "fontFamily": "anticon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                  type="AntDesign"
-                >
-                  
-                </Text>
-              </View>
-            </View>
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 12,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              Privacy Policy
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "fontSize": 16,
+                      "marginLeft": 8,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -735,7 +734,7 @@ exports[`renders correctly 1`] = `
                 "borderBottomWidth": null,
                 "borderColor": "#007aff",
                 "borderLeftWidth": null,
-                "borderRadius": 5,
+                "borderRadius": 10,
                 "borderRightWidth": null,
                 "borderTopWidth": null,
                 "borderWidth": undefined,
@@ -767,7 +766,10 @@ exports[`renders correctly 1`] = `
                     "paddingRight": 16,
                   },
                   Object {
-                    "fontWeight": "bold",
+                    "color": "#fff",
+                    "fontFamily": "Heavitas",
+                    "fontSize": 14,
+                    "paddingTop": 3,
                   },
                 ]
               }

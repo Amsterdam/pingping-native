@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container, Button, Text, Content} from 'native-base';
+import {Header, Container, Text, Content} from 'native-base';
+import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -89,13 +90,11 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
               krijgen over welke informatie wij verzamelen en wat wij met deze
               informatie doen.
             </Body>
-            <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
           </View>
         </View>
+        <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
         <View style={styles.buttonContainer}>
-          <Button style={styles.button} onPress={doAcceptPolicy}>
-            <Text style={styles.buttonLabel}>Accepteren</Text>
-          </Button>
+          <Button onPress={doAcceptPolicy} label="Accepteren" />
         </View>
       </Content>
     </Container>

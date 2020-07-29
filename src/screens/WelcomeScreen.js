@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container, Button, Text, Content} from 'native-base';
+import {Header, Container} from 'native-base';
+import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    width: Dimensions.get('window').width,
     justifyContent: 'space-between',
   },
   button: {
@@ -67,10 +67,9 @@ const WelcomeScreen = ({navigation}) => {
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            style={styles.button}
-            onPress={() => navigation.navigate('QuestionScreen')}>
-            <Text style={styles.buttonLabel}>Start</Text>
-          </Button>
+            onPress={() => navigation.navigate('QuestionScreen')}
+            label="start"
+          />
         </View>
       </View>
     </Container>
