@@ -6,7 +6,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import SimpleHeader from '../components/header/SimpleHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/Button';
+import Button from '../components/OnboardingButton';
 import {ppBaseColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
@@ -27,9 +27,6 @@ const styles = StyleSheet.create({
   emojiContainer: {
     alignItems: 'center',
     marginBottom: 10,
-  },
-  deleteButton: {
-    backgroundColor: ppBaseColors.PP_PINK,
   },
 });
 
@@ -55,11 +52,9 @@ const DeleteDataScreen = ({navigation}) => {
           </Body>
           <View style={styles.inputContainer}>
             <Button
-              rounded
-              delete
-              style={styles.deleteButton}
+              deleteButton
               label="Verwijder mijn gegevens"
-              onPress={() => navigation.navigate('ImportDataScreen')}
+              onPress={() => console.log('Show delete alert')}
             />
           </View>
         </ContentLayout>

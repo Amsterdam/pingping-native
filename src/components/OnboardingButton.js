@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button, Text} from 'native-base';
-import {appColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../lib/colors';
 
 const buttonBase = {
   backgroundColor: appColors.primary,
@@ -20,12 +20,19 @@ const styles = StyleSheet.create({
     ...buttonBase,
     backgroundColor: 'gray',
   },
+  deleteButton: {
+    backgroundColor: ppBaseColors.PP_PINK,
+  },
 });
 
-const OnboardingButton = ({label, disabled, onPress}) => {
+const OnboardingButton = ({label, disabled, onPress, deleteButton = false}) => {
   return (
     <Button
-      style={!disabled ? styles.button : styles.disabled}
+      style={[
+        styles.button,
+        !disabled && styles.disabled,
+        deleteButton && styles.deleteButton,
+      ]}
       disabled={disabled}
       onPress={onPress}>
       <Text style={styles.label}>{label}</Text>
