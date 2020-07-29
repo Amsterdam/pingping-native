@@ -1,12 +1,11 @@
 import React from 'react';
-import {StatusBar, View, StyleSheet, Dimensions} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
+import Title from '../components/typography/Title';
 import RewardCard from '../components/RewardCard';
 import {appColors} from '../lib/colors';
-import Title from '../components/typography/Title';
-import CityPingCoin from '../assets/svg/CityPingCoin';
-import {ppBaseColors} from '../lib/colors';
+import CitypingsChip from '../components/CitypingsChip';
 import YourPerformanceScreen from '../components/YourPerformanceOverview';
 
 const styles = StyleSheet.create({
@@ -21,27 +20,31 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'left',
   },
-  cpBalance: {
-    backgroundColor: ppBaseColors.PP_DARK_BLUE,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
-    borderRadius: 5,
-  },
-  cpLabel: {
-    color: '#fff',
-    fontSize: 12,
-    paddingTop: 5,
-  },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  coin: {
-    marginRight: 5,
+  tabBarUnderlineStyle: {
+    width: 100,
+    marginHorizontal: 60,
+    backgroundColor: '#fff',
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+  tabStyle: {
+    backgroundColor: appColors.primary,
+  },
+  textStyle: {
+    color: '#fff',
   },
 });
+
+const TAB_STYLE = {
+  tabStyle: styles.tabStyle,
+  activeTabStyle: styles.tabStyle,
+  textStyle: styles.textStyle,
+  activeTextStyle: styles.textStyle,
+};
 
 const CityPingsHomeScreen = ({navigation}) => {
   return (
@@ -53,40 +56,18 @@ const CityPingsHomeScreen = ({navigation}) => {
         />
         <View style={styles.headerContainer}>
           <Title style={styles.title}>Rewards</Title>
-          <View style={styles.cpBalance}>
-            <CityPingCoin style={styles.coin} />
-            <Title style={styles.cpLabel}>20 CityPings</Title>
-          </View>
+          <CitypingsChip value={20} />
         </View>
       </Header>
-      <Tabs
-        tabBarUnderlineStyle={{
-          width: 100,
-          marginHorizontal: 60,
-          backgroundColor: '#fff',
-          borderTopRightRadius: 10,
-          borderTopLeftRadius: 10,
-        }}>
-        <Tab
-          heading="Rewards"
-          tabStyle={{
-            backgroundColor: appColors.primary,
-          }}
-          activeTabStyle={{backgroundColor: appColors.primary}}
-          textStyle={{color: '#fff'}}
-          activeTextStyle={{color: '#fff'}}>
+      <Tabs tabBarUnderlineStyle={styles.tabBarUnderlineStyle}>
+        <Tab heading="Rewards" {...TAB_STYLE}>
           <Content>
             <ContentLayout>
               <RewardCard navigation={navigation} />
             </ContentLayout>
           </Content>
         </Tab>
-        <Tab
-          heading="Mijn prestaties"
-          tabStyle={{backgroundColor: appColors.primary}}
-          activeTabStyle={{backgroundColor: appColors.primary}}
-          textStyle={{color: '#fff'}}
-          activeTextStyle={{color: '#fff'}}>
+        <Tab heading="Mijn prestaties" {...TAB_STYLE}>
           <YourPerformanceScreen />
         </Tab>
       </Tabs>

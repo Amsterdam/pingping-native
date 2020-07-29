@@ -22,6 +22,7 @@ export const appColors = {
   white: ppBaseColors.PP_WHITE,
   background: ppBaseColors.PP_WHITE,
   greyedOut: ppBaseColors.PP_GRAY,
+  subtleGrey: ppBaseColors.PP_LIGHT_GRAY,
 };
 
 export function setHeaderColor(color) {
