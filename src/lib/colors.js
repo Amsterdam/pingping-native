@@ -10,6 +10,7 @@ export const ppBaseColors = {
   PP_GOLD: '#fb9f02',
   PP_GRAY: '#b9b9b9',
   PP_LIGHT_GRAY: '#e9e9e9',
+  PP_BACKGROUND: '#f7fbff',
 };
 
 export const appColors = {
@@ -23,6 +24,7 @@ export const appColors = {
   background: ppBaseColors.PP_WHITE,
   greyedOut: ppBaseColors.PP_GRAY,
   subtleGrey: ppBaseColors.PP_LIGHT_GRAY,
+  almostNotBlue: ppBaseColors.PP_BACKGROUND,
 };
 
 export function setHeaderColor(color) {

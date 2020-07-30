@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   tabBarUnderlineStyle: {
     width: 100,
-    marginHorizontal: 60,
+    marginHorizontal: 55,
     backgroundColor: '#fff',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#fff',
+    fontFamily: 'Heavitas',
+    fontSize: 12,
+  },
+  activeTextStyle: {
+    color: '#fff',
+    fontFamily: 'Heavitas',
+    fontSize: 14,
   },
   shadowRemover: {
     elevation: 0,
@@ -46,7 +53,8 @@ const TAB_STYLE = {
   tabStyle: styles.tabStyle,
   activeTabStyle: styles.tabStyle,
   textStyle: styles.textStyle,
-  activeTextStyle: styles.textStyle,
+  activeTextStyle: styles.activeTextStyle,
+  backgroundColor: appColors.almostNotBlue,
 };
 
 const CityPingsHomeScreen = ({navigation}) => {
