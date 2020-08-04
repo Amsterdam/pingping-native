@@ -5,9 +5,9 @@ import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
 import exampleImage from '../assets/hulpverhuizing.jpg';
 import {ppBaseColors, appColors} from '../lib/colors';
-import * as Progress from 'react-native-progress';
-import CityPingCoin from '../assets/svg/CityPingCoin';
 import CitypingsChip from '../components/CitypingsChip';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import CityPingsBalance from './CityPingsBalance';
 
 const BORDER_RADIUS = 5;
 
@@ -45,53 +45,30 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     marginBottom: 5,
   },
-  savings: {
-    color: appColors.subtleGrey,
-  },
-  balanceContainer: {
-    marginTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  saldo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
 });
 
 const RewardCard = ({navigation}) => {
   return (
     <View style={styles.paper}>
-      <View>
-        <View style={styles.imageContainer}>
-          <Image source={exampleImage} style={styles.image} />
-          <View style={styles.overlayTop}>
-            <CitypingsChip value={100} />
-          </View>
-        </View>
-        <View style={styles.descriptionContainer}>
-          <Body style={styles.rewardType}>Reward</Body>
-          <Title style={styles.description}>Dagje Artis</Title>
-          <Body>
-            Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
-          </Body>
-          <View style={styles.balanceContainer}>
-            <View style={styles.saldo}>
-              <CityPingCoin />
-              <Body style={styles.savings}> 20 / 100</Body>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('RewardDetailModal')}>
+        <View>
+          <View style={styles.imageContainer}>
+            <Image source={exampleImage} style={styles.image} />
+            <View style={styles.overlayTop}>
+              <CitypingsChip value={100} />
             </View>
-            <Progress.Bar
-              progress={0.1}
-              width={50}
-              color={appColors.secondary}
-              unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-              borderWidth={0}
-              height={10}
-            />
+          </View>
+          <View style={styles.descriptionContainer}>
+            <Body style={styles.rewardType}>Reward</Body>
+            <Title style={styles.description}>Dagje Artis</Title>
+            <Body>
+              Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
+            </Body>
+            <CityPingsBalance />
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
