@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   buttonContainer: {
-    marginTop: 20,
+    paddingHorizontal: 40,
+    marginVertical: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -68,6 +69,7 @@ function RewardDetailModal({navigation}) {
         <View style={styles.contentContainer}>
           <Body style={styles.label}>Rewards</Body>
           <Title style={styles.title}>Dagje naar artis met je vrienden</Title>
+          <CityPingsBalance />
           <Body style={styles.description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             gravida augue leo, vitae bibendum ipsum rhoncus eget. Etiam nec
@@ -77,15 +79,12 @@ function RewardDetailModal({navigation}) {
             Praesent id tortor sed odio convallis imperdiet at id ex. Integer
             ultricies tincidunt eros, sed pulvinar nisl consectetur eget.
           </Body>
-          <CityPingsBalance />
-          <View style={styles.buttonContainer}>
-            <Body stlye={styles.balanceIndicatorText}>
-              Nog even doorsparen !
-            </Body>
-            <Button style={styles.button} disabled label="Claim" />
-          </View>
         </View>
       </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Body stlye={styles.balanceIndicatorText}>Nog even doorsparen !</Body>
+        <Button style={styles.button} disabled label="Claim" />
+      </View>
     </Container>
   );
 }
