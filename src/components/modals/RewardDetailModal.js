@@ -8,6 +8,7 @@ import {appColors} from '../../lib/colors';
 import CitypingsChip from '../CitypingsChip';
 import CityPingsBalance from '../CityPingsBalance';
 import IconButton from '../IconButton';
+import Button from '../OnboardingButton';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -40,6 +41,12 @@ const styles = StyleSheet.create({
   description: {
     marginTop: 20,
   },
+  buttonContainer: {
+    marginTop: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 });
 
 function RewardDetailModal({navigation}) {
@@ -71,6 +78,12 @@ function RewardDetailModal({navigation}) {
             ultricies tincidunt eros, sed pulvinar nisl consectetur eget.
           </Body>
           <CityPingsBalance />
+          <View style={styles.buttonContainer}>
+            <Body stlye={styles.balanceIndicatorText}>
+              Nog even doorsparen !
+            </Body>
+            <Button style={styles.button} disabled label="Claim" />
+          </View>
         </View>
       </ScrollView>
     </Container>
