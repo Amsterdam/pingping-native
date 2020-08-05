@@ -1,12 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
-import exampleImage from '../assets/hulpverhuizing.jpg';
+import exampleImage from '../assets/exampleImage.png';
 import {ppBaseColors, appColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import CityPingsBalance from './CityPingsBalance';
 
 const BORDER_RADIUS = 5;

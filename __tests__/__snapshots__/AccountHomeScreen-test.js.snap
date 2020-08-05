@@ -47,7 +47,6 @@ exports[`renders correctly 1`] = `
               "backgroundColor": "#0d2036",
               "flexDirection": "column",
               "justifyContent": "center",
-              "margin": 15,
             },
           ]
         }

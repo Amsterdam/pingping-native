@@ -6,7 +6,7 @@ import Title from '../components/typography/Title';
 import RewardCard from '../components/RewardCard';
 import {appColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
-import YourPerformanceScreen from '../components/YourPerformanceOverview';
+import YourPerformanceOverview from '../components/YourPerformanceOverview';
 
 const styles = StyleSheet.create({
   header: {
@@ -81,7 +81,7 @@ const CityPingsHomeScreen = ({navigation}) => {
           </Content>
         </Tab>
         <Tab heading="Mijn prestaties" {...TAB_STYLE}>
-          <YourPerformanceScreen />
+          <YourPerformanceOverview />
         </Tab>
       </Tabs>
     </Container>

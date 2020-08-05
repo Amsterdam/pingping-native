@@ -48,8 +48,8 @@ const INITIAL_STATE = {
 const QuestionScreen = ({navigation}) => {
   // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
-  const {data, loading, error} = useQuery(GET_STATUS_QUERY);
-  console.log({STATUSQ: error});
+  const {data} = useQuery(GET_STATUS_QUERY);
+
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
 

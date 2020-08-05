@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
-import exampleImage from '../../assets/hulpverhuizing.jpg';
+import exampleImage from '../../assets/exampleImage.png';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
 import Body from '../typography/Body';

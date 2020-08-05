@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Header, Right, Container, Button, Text, Left} from 'native-base';
+import {Header, Right, Container, Left} from 'native-base';
 import {StyleSheet, StatusBar} from 'react-native';
 import {appColors, ppBaseColors} from '../lib/colors';
 import OnboardingItem from '../components/OnboardingItem';

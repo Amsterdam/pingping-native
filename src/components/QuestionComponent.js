@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {View} from 'native-base';
 import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';

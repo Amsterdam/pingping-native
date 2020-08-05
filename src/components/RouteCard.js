@@ -3,7 +3,7 @@ import {View, StyleSheet, Image} from 'react-native';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
-import exampleImage from '../assets/hulpverhuizing.jpg';
+import exampleImage from '../assets/exampleImage.png';
 import {ppBaseColors, appColors} from '../lib/colors';
 import * as Progress from 'react-native-progress';
 import CitypingsChip from '../components/CitypingsChip';

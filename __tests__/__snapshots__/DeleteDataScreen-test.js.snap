@@ -296,57 +296,99 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "alignSelf": "stretch",
                   "backgroundColor": "#f9454f",
                   "borderBottomWidth": null,
-                  "borderColor": false,
+                  "borderColor": "#007aff",
                   "borderLeftWidth": null,
-                  "borderRadius": 57,
+                  "borderRadius": 10,
                   "borderRightWidth": null,
                   "borderTopWidth": null,
                   "borderWidth": undefined,
-                  "elevation": 5,
+                  "elevation": 2,
                   "flexDirection": "row",
                   "height": 45,
-                  "justifyContent": "center",
-                  "marginBottom": 5,
+                  "justifyContent": "space-between",
                   "opacity": 1,
                   "paddingBottom": 6,
                   "paddingTop": 6,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 2,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.25,
-                  "shadowRadius": 3.84,
+                  "shadowColor": undefined,
+                  "shadowOffset": undefined,
+                  "shadowOpacity": undefined,
+                  "shadowRadius": undefined,
                 }
               }
             >
-              <Text
+              <View
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#fff",
-                      "fontFamily": "System",
-                      "fontSize": 16.5,
-                      "marginLeft": 0,
-                      "marginRight": 0,
-                      "paddingLeft": 16,
-                      "paddingRight": 16,
-                    },
-                    Object {
-                      "color": "#fff",
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                    },
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
                 }
-                uppercase={false}
               >
-                Verwijder mijn gegevens
-              </Text>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                          "marginLeft": 16,
+                          "marginRight": 16,
+                          "paddingTop": 2,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "anticon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  type="AntDesign"
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Heavitas",
+                        "fontSize": 14,
+                        "paddingTop": 3,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Verwijder mijn gegevens
+                </Text>
+              </View>
             </View>
           </View>
         </View>

@@ -324,31 +324,40 @@ exports[`renders correctly 1`] = `
                 }
               }
             >
-              <Text
+              <View
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#fff",
-                      "fontFamily": "System",
-                      "fontSize": 16.5,
-                      "marginLeft": 0,
-                      "marginRight": 0,
-                      "paddingLeft": 16,
-                      "paddingRight": 16,
-                    },
-                    Object {
-                      "color": "#fff",
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                      "paddingTop": 3,
-                    },
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
                 }
-                uppercase={false}
               >
-                Importeer gegevens
-              </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Heavitas",
+                        "fontSize": 14,
+                        "paddingTop": 3,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Importeer gegevens
+                </Text>
+              </View>
             </View>
           </View>
         </View>

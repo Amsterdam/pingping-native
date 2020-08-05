@@ -324,31 +324,77 @@ exports[`renders correctly 1`] = `
                 }
               }
             >
-              <Text
+              <View
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#fff",
-                      "fontFamily": "System",
-                      "fontSize": 16.5,
-                      "marginLeft": 0,
-                      "marginRight": 0,
-                      "paddingLeft": 16,
-                      "paddingRight": 16,
-                    },
-                    Object {
-                      "color": "#fff",
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                      "paddingTop": 3,
-                    },
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
                 }
-                uppercase={false}
               >
-                UUID Kopieren
-              </Text>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                        Object {
+                          "color": "#a9a9a9",
+                          "fontSize": 24,
+                          "marginLeft": 16,
+                          "marginRight": 16,
+                          "paddingTop": 2,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "anticon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  type="AntDesign"
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Heavitas",
+                        "fontSize": 14,
+                        "paddingTop": 3,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Token Kopieren
+                </Text>
+              </View>
             </View>
           </View>
         </View>

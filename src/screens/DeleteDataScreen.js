@@ -7,7 +7,6 @@ import SimpleHeader from '../components/header/SimpleHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
-import {ppBaseColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
   input: {

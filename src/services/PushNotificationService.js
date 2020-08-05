@@ -1,6 +1,10 @@
 import React from 'react';
-import {Platform, View} from 'react-native';
+import {Platform, View, StyleSheet} from 'react-native';
 import {Notifications} from 'react-native-notifications';
+
+const styles = StyleSheet.create({
+  container: {flex: 1},
+});
 
 export default class PushNotificationManager extends React.Component {
   componentDidMount() {
@@ -69,6 +73,6 @@ export default class PushNotificationManager extends React.Component {
 
   render() {
     const {children} = this.props;
-    return <View style={{flex: 1}}>{children}</View>;
+    return <View style={styles.container}>{children}</View>;
   }
 }

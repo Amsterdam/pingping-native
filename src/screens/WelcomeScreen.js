@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
 import {Header, Container} from 'native-base';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';

@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
   deleteButton: {
     backgroundColor: ppBaseColors.PP_PINK,
   },
+  innerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 const OnboardingButton = ({
@@ -46,7 +50,7 @@ const OnboardingButton = ({
       ]}
       disabled={disabled}
       onPress={onPress}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.innerContainer}>
         {iconName && iconType && (
           <Icon name={iconName} type={iconType} style={styles.icon} />
         )}
