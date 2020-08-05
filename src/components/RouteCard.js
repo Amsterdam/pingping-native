@@ -6,10 +6,10 @@ import commonStyles from '../lib/commonStyles';
 import exampleImage from '../assets/hulpverhuizing.jpg';
 import {ppBaseColors, appColors} from '../lib/colors';
 import * as Progress from 'react-native-progress';
-import CityPingCoin from '../assets/svg/CityPingCoin';
 import CitypingsChip from '../components/CitypingsChip';
 
 const BORDER_RADIUS = 5;
+const MARGIN = 15;
 
 const styles = StyleSheet.create({
   paper: {
@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
+    marginVertical: 10,
   },
   imageContainer: {
     position: 'relative',
-    height: 150,
+    height: 125,
     borderRadius: BORDER_RADIUS,
   },
   image: {
@@ -32,18 +33,16 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: BORDER_RADIUS,
   },
   overlayTop: {position: 'absolute', padding: 15, top: 0, right: 10},
-  overlayBottom: {position: 'absolute', padding: 15, bottom: 0},
-  overlayText: {color: '#fff', ...commonStyles.textShadow},
-  ribbon: {height: 10, backgroundColor: ppBaseColors.PP_LIGHT_BLUE},
   descriptionContainer: {
     padding: 20,
   },
-  description: {
+  title: {
     fontSize: 20,
+    marginBottom: MARGIN,
   },
   rewardType: {
     color: appColors.primary,
-    marginBottom: 5,
+    marginBottom: 20,
   },
   savings: {
     color: appColors.subtleGrey,
@@ -72,14 +71,13 @@ const RewardCard = ({navigation}) => {
         </View>
         <View style={styles.descriptionContainer}>
           <Body style={styles.rewardType}>Reward</Body>
-          <Title style={styles.description}>Dagje Artis</Title>
-          <Body>
+          <Title style={styles.title}>Dagje Artis</Title>
+          <Body style={styles.description}>
             Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
           </Body>
           <View style={styles.balanceContainer}>
             <View style={styles.saldo}>
-              <CityPingCoin />
-              <Body style={styles.savings}> 20 / 100</Body>
+              <Body style={styles.savings}> 5 stappen</Body>
             </View>
             <Progress.Bar
               progress={0.1}
