@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#f7fbff',
   },
 });
 
@@ -32,7 +33,7 @@ const AccountHomeScreen = ({navigation}) => {
             <AccountBlockButton button={item} navigation={navigation} />
           )}
           numColumns={2}
-          keyExtractor={item => item.title}
+          keyExtractor={(item) => item.title}
         />
       </ContentLayout>
     </Container>

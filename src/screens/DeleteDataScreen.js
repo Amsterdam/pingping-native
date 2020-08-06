@@ -3,11 +3,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import {appColors} from '../lib/colors';
 import ContentLayout from '../components/layout/ContentLayout';
-import SimpleHeader from '../components/header/SimpleHeader';
+import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/Button';
-import {ppBaseColors} from '../lib/colors';
+import Button from '../components/OnboardingButton';
 
 const styles = StyleSheet.create({
   input: {
@@ -28,15 +27,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  deleteButton: {
-    backgroundColor: ppBaseColors.PP_PINK,
-  },
 });
 
 const DeleteDataScreen = ({navigation}) => {
   return (
     <Container>
-      <SimpleHeader navigation={navigation} color="white" />
+      <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
       <Content>
         <ContentLayout>
           <Title style={styles.margin}>Jouw eigen gegevens</Title>
@@ -55,11 +51,11 @@ const DeleteDataScreen = ({navigation}) => {
           </Body>
           <View style={styles.inputContainer}>
             <Button
-              rounded
-              delete
-              style={styles.deleteButton}
+              deleteButton
+              iconName="delete"
+              iconType="AntDesign"
               label="Verwijder mijn gegevens"
-              onPress={() => navigation.navigate('ImportRoutes')}
+              onPress={() => console.log('Show delete alert')}
             />
           </View>
         </ContentLayout>

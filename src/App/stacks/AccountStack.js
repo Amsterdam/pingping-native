@@ -1,8 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import AccountHomeScreen from '../../screens/AccountHomeScreen';
-import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreenOld';
+import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import DeleteDataScreen from '../../screens/DeleteDataScreen';
 import ExportDataScreen from '../../screens/ExportDataScreen';
 

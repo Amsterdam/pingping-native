@@ -1,6 +1,7 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container} from 'native-base';
+import {StyleSheet, View} from 'react-native';
+import {Container} from 'native-base';
+import SimpleHeader from '../components/header/SimpleHeader';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -37,23 +38,12 @@ const styles = StyleSheet.create({
   buttonLabel: {
     fontWeight: 'bold',
   },
-  header: {
-    backgroundColor: appColors.background,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
-  },
 });
 
 const WelcomeScreen = ({navigation}) => {
   return (
     <Container>
-      <Header style={styles.header} transparent noShadow>
-        <StatusBar barStyle="dark-content" />
-        <Title style={styles.headerTitle}>WELKOM!</Title>
-      </Header>
+      <SimpleHeader title="Welkom!" />
       <View style={styles.viewContainer}>
         <View>
           <GuyBehindComputer />

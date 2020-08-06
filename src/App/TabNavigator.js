@@ -1,34 +1,51 @@
 import React from 'react';
 import {Icon} from 'native-base';
-import KasboekStack from './stacks/KasboekStack';
 import RouteStack from './stacks/RouteStack';
 import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
+// import KasboekStack from './stacks/KasboekStack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {appColors} from '../lib/colors';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
   <Tab.Navigator
+    initialRouteName="Routes"
     tabBarOptions={{
       labelStyle: {fontFamily: 'Raleway'},
+      activeTintColor: appColors.primary,
     }}>
     <Tab.Screen
-      name="Routes"
-      component={RouteStack}
+      name="CityPings"
+      component={CityPingsStack}
       options={{
-        tabBarLabel: 'Je Routes',
+        tabBarLabel: 'Citypings',
         tabBarIcon: ({color, size}) => (
           <Icon
-            name="home"
-            type="AntDesign"
-            style={{color: color}}
-            size={size}
+            name="price-ribbon"
+            type="Entypo"
+            style={{color: color, fontSize: size}}
           />
         ),
       }}
     />
+
     <Tab.Screen
+      name="Routes"
+      component={RouteStack}
+      options={{
+        tabBarLabel: 'Life Events',
+        tabBarIcon: ({color, size}) => (
+          <Icon
+            name="stars"
+            type="MaterialIcons"
+            style={{color: color, fontSize: size}}
+          />
+        ),
+      }}
+    />
+    {/* <Tab.Screen
       name="Kasboek"
       component={KasboekStack}
       options={{
@@ -37,27 +54,12 @@ const TabNavigator = () => (
           <Icon
             name="piggy-bank"
             type="FontAwesome5"
-            style={{color: color}}
+            style={{color: color,fontSize: size}}
             size={size}
           />
         ),
       }}
-    />
-    <Tab.Screen
-      name="CityPings"
-      component={CityPingsStack}
-      options={{
-        tabBarLabel: 'Citypings',
-        tabBarIcon: ({color, size}) => (
-          <Icon
-            name="qrcode"
-            type="AntDesign"
-            style={{color: color}}
-            size={size}
-          />
-        ),
-      }}
-    />
+    /> */}
     <Tab.Screen
       name="Account"
       component={AccountStack}
@@ -65,9 +67,9 @@ const TabNavigator = () => (
         tabBarLabel: 'Gegevens',
         tabBarIcon: ({color, size}) => (
           <Icon
-            name="dots-vertical"
-            type="MaterialCommunityIcons"
-            style={{color: color}}
+            name="user-circle"
+            type="FontAwesome"
+            style={{color: color, fontSize: size}}
             size={size}
           />
         ),

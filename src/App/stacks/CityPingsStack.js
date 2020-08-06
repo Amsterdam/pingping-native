@@ -1,19 +1,32 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
-import YourPerformanceScreen from '../../screens/YourPerformanceScreen';
-import RewardScreen from '../../screens/RewardScreen';
-import ClaimRewardScreen from '../../screens/ClaimRewardScreen';
+import RewardDetailModal from '../../components/modals/RewardDetailModal';
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
+const RootStack = createStackNavigator();
 
-const CityPingsStack = () => (
-  <Stack.Navigator initialRouteName="CityPingsHomeScreen" headerMode="none">
-    <Stack.Screen name="CityPingsHome" component={CityPingsHomeScreen} />
-    <Stack.Screen name="YourPerformance" component={YourPerformanceScreen} />
-    <Stack.Screen name="Reward" component={RewardScreen} />
-    <Stack.Screen name="ClaimReward" component={ClaimRewardScreen} />
-  </Stack.Navigator>
+const CityPingsStackScreen = () => (
+  <MainStack.Navigator initialRouteName="CityPingsHomeScreen" headerMode="none">
+    <MainStack.Screen name="CityPingsHome" component={CityPingsHomeScreen} />
+  </MainStack.Navigator>
 );
 
-export default CityPingsStack;
+function RootStackScreen() {
+  return (
+    <RootStack.Navigator mode="modal">
+      <RootStack.Screen
+        name="Main"
+        component={CityPingsStackScreen}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="RewardDetailModal"
+        component={RewardDetailModal}
+        options={{headerShown: false}}
+      />
+    </RootStack.Navigator>
+  );
+}
+
+export default RootStackScreen;

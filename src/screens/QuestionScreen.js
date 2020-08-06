@@ -1,21 +1,40 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Content, Container} from 'native-base';
+import {StyleSheet, View, StatusBar} from 'react-native';
+import {
+  Content,
+  Container,
+  Header,
+  Right,
+  Left,
+  Button as NbButton,
+  Icon,
+} from 'native-base';
+import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
-import {appColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../lib/colors';
 import Button from '../components/Button';
-import SimpleHeader from '../components/header/SimpleHeader';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
+import * as Progress from 'react-native-progress';
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
   label: {fontSize: 20, color: appColors.primary},
   button: {alignSelf: 'flex-end'},
-
+  header: {
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
   buttonContainer: {
     justifyContent: 'flex-end',
+  },
+  icon: {
+    color: '#000',
+    fontSize: 32,
   },
 });
 
@@ -29,10 +48,11 @@ const INITIAL_STATE = {
 const QuestionScreen = ({navigation}) => {
   // refactor this
   const [state, setState] = React.useState(INITIAL_STATE);
-  const {data, loading, error} = useQuery(GET_STATUS_QUERY);
-  console.log({STATUSQ: error});
+  const {data} = useQuery(GET_STATUS_QUERY);
+
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const currentTask = data && data.getStatus.currentTask;
+
   const checkDisabled = () => {
     if (currentTask.type === 'DateOfBirth') {
       return !state.day || !state.month || !state.year;
@@ -68,7 +88,27 @@ const QuestionScreen = ({navigation}) => {
 
   return (
     <Container>
-      <SimpleHeader navigation={navigation} color="white" />
+      <Header style={styles.header} transparent noShadow>
+        <StatusBar barStyle="dark-content" />
+        <Left>
+          <NbButton transparent onPress={() => navigation.goBack()}>
+            <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
+          </NbButton>
+        </Left>
+        <Title style={styles.headerTitle}>PRIVACY</Title>
+        <Right>
+          <View>
+            <Progress.Bar
+              progress={0.1}
+              width={50}
+              color={appColors.secondary}
+              unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
+              borderWidth={0}
+              height={10}
+            />
+          </View>
+        </Right>
+      </Header>
       <Content contentContainerStyle={styles.content}>
         {data && (
           <React.Fragment>

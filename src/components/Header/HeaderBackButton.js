@@ -2,7 +2,7 @@
 import React from 'react';
 import {Button, Icon} from 'native-base';
 
-const HeaderBackButton = ({navigation, style, color = 'primary'}) => {
+const HeaderBackButton = ({navigation, style, color = 'white'}) => {
   return (
     <Button transparent onPress={() => navigation.goBack()}>
       <Icon

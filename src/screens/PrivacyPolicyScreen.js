@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Dimensions, StatusBar} from 'react-native';
-import {Header, Container, Text, Content} from 'native-base';
+import {StyleSheet, View} from 'react-native';
+import {Container, Content} from 'native-base';
+import LabeledHeader from '../components/header/LabeledHeader';
 import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../components/typography/Title';
@@ -8,6 +9,7 @@ import Body from '../components/typography/Body';
 import FloppyDisk from '../assets/svg/FloppyDisk';
 import {appColors} from '../lib/colors';
 import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
+import SimpleHeader from '../components/header/SimpleHeader';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -31,22 +33,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
   },
-  button: {
-    backgroundColor: appColors.primary,
-  },
-  buttonLabel: {
-    fontWeight: 'bold',
-  },
-  header: {
-    backgroundColor: appColors.background,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
+  content: {
+    flexGrow: 1,
   },
 });
 
@@ -73,11 +62,12 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
 
   return (
     <Container>
-      <Header style={styles.header} transparent noShadow>
-        <StatusBar barStyle="dark-content" />
-        <Title style={styles.headerTitle}>PRIVACY</Title>
-      </Header>
-      <Content>
+      {policyAccepted ? (
+        <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
+      ) : (
+        <SimpleHeader title="Privacy" />
+      )}
+      <Content contentContainerStyle={styles.content}>
         <View style={styles.viewContainer}>
           <View>
             <FloppyDisk />
@@ -91,10 +81,12 @@ const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
               informatie doen.
             </Body>
           </View>
-        </View>
-        <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
-        <View style={styles.buttonContainer}>
-          <Button onPress={doAcceptPolicy} label="Accepteren" />
+          <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
+          {!policyAccepted && (
+            <View style={styles.buttonContainer}>
+              <Button onPress={doAcceptPolicy} label="Accepteren" />
+            </View>
+          )}
         </View>
       </Content>
     </Container>

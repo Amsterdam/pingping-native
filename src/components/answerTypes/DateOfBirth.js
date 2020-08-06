@@ -34,7 +34,7 @@ const DateOfBirth = ({setState, state}) => {
           setState({...state, month: itemValue})
         }>
         <Picker.Item label="" value="" />
-        {getMonths().map(month => (
+        {getMonths().map((month) => (
           <Picker.Item label={month.label} value={month.value} key={month} />
         ))}
       </Picker>

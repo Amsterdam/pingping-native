@@ -11,7 +11,6 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
 import Bell from '../assets/svg/Bell';
-import {set} from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -64,9 +63,9 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
       <Header style={styles.header} transparent noShadow>
         <StatusBar barStyle="dark-content" />
         <Left />
-        <Title style={styles.headerTitle}>Introductie</Title>
+        <Title style={styles.headerTitle}>Notificaties</Title>
         <Right>
-          <TouchableOpacity onPress={() => navigation.navigate('auth')}>
+          <TouchableOpacity onPress={setLogin}>
             <Title style={styles.headerSubButton}>Overslaan</Title>
           </TouchableOpacity>
         </Right>
@@ -83,7 +82,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           </Body>
         </View>
         <View style={styles.buttonContainer}>
-          <Button style={styles.button} onPress={() => setLogin()}>
+          <Button style={styles.button} onPress={setLogin}>
             <Text style={styles.buttonLabel}>Accepteren</Text>
           </Button>
         </View>

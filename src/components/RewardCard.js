@@ -1,24 +1,36 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Title from './typography/Title';
+import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
-import exampleImage from '../assets/hulpverhuizing.jpg';
-import {ppBaseColors} from '../lib/colors';
+import exampleImage from '../assets/exampleImage.png';
+import {ppBaseColors, appColors} from '../lib/colors';
+import CitypingsChip from '../components/CitypingsChip';
+import CityPingsBalance from './CityPingsBalance';
+
+const BORDER_RADIUS = 5;
 
 const styles = StyleSheet.create({
   paper: {
     ...commonStyles.shadow,
     backgroundColor: '#fff',
     alignSelf: 'stretch',
+    borderRadius: BORDER_RADIUS,
   },
-  imageContainer: {position: 'relative', height: 300},
+  imageContainer: {
+    position: 'relative',
+    height: 150,
+    borderRadius: BORDER_RADIUS,
+  },
   image: {
     flex: 1,
     width: '100%',
     position: 'relative',
     height: '100%',
+    borderTopRightRadius: BORDER_RADIUS,
+    borderTopLeftRadius: BORDER_RADIUS,
   },
-  overlayTop: {position: 'absolute', padding: 15, top: 0},
+  overlayTop: {position: 'absolute', padding: 15, top: 0, right: 10},
   overlayBottom: {position: 'absolute', padding: 15, bottom: 0},
   overlayText: {color: '#fff', ...commonStyles.textShadow},
   ribbon: {height: 10, backgroundColor: ppBaseColors.PP_LIGHT_BLUE},
@@ -28,33 +40,34 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 20,
   },
+  rewardType: {
+    color: appColors.primary,
+    marginBottom: 5,
+  },
 });
 
 const RewardCard = ({navigation}) => {
   return (
     <View style={styles.paper}>
-      <View>
-        <View style={styles.imageContainer}>
-          <Image source={exampleImage} style={styles.image} />
-          <View style={styles.overlayTop}>
-            <Title style={styles.overlayText}>
-              Meelopen met jongeren- adviseur t.w.v. €50
-            </Title>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('RewardDetailModal')}>
+        <View>
+          <View style={styles.imageContainer}>
+            <Image source={exampleImage} style={styles.image} />
+            <View style={styles.overlayTop}>
+              <CitypingsChip value={100} />
+            </View>
           </View>
-          <View style={styles.overlayBottom}>
-            <Title style={styles.overlayText}>80/20</Title>
-            <Title style={styles.overlayText}>CityPings</Title>
+          <View style={styles.descriptionContainer}>
+            <Body style={styles.rewardType}>Reward</Body>
+            <Title style={styles.description}>Dagje Artis</Title>
+            <Body>
+              Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
+            </Body>
+            <CityPingsBalance />
           </View>
         </View>
-        <View style={styles.ribbon} />
-        <View style={styles.descriptionContainer}>
-          <Title style={styles.description}>
-            Deze reward kun je inwisselen bij een jongerenpunt bij jou in de
-            buurt! Je maakt samen met een jongerenadviseur een afspraak om een
-            dagje mee te lopen.
-          </Title>
-        </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

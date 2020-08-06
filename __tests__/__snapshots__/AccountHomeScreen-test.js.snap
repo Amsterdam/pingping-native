@@ -43,11 +43,10 @@ exports[`renders correctly 1`] = `
               "top": 0,
             },
             Object {
-              "alignItems": "flex-start",
+              "alignItems": "center",
               "backgroundColor": "#0d2036",
               "flexDirection": "column",
-              "justifyContent": "flex-start",
-              "margin": 15,
+              "justifyContent": "center",
             },
           ]
         }
@@ -64,7 +63,7 @@ exports[`renders correctly 1`] = `
               Object {
                 "color": "#fff",
                 "fontFamily": "Heavitas",
-                "fontSize": 36,
+                "fontSize": 14,
                 "textAlign": "left",
               },
             ]
@@ -80,6 +79,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "backgroundColor": "#f7fbff",
         "flex": 1,
         "justifyContent": "center",
         "padding": 30,
@@ -161,12 +161,20 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
+                  "backgroundColor": "#fff",
+                  "borderRadius": 10,
+                  "elevation": 1,
                   "justifyContent": "center",
-                  "margin": 3,
+                  "margin": 8,
                   "opacity": 1,
                   "padding": 20,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.18,
+                  "shadowRadius": 1,
                   "width": 325,
                 }
               }
@@ -179,7 +187,9 @@ exports[`renders correctly 1`] = `
                 }
                 style={
                   Object {
-                    "marginBottom": 10,
+                    "marginBottom": 20,
+                    "maxHeight": 40,
+                    "maxWidth": 40,
                   }
                 }
               />
@@ -194,7 +204,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "fontFamily": "Heavitas",
                       "fontSize": 14,
-                      "textAlign": "left",
+                      "textAlign": "center",
                     },
                   ]
                 }
@@ -216,12 +226,20 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
+                  "backgroundColor": "#fff",
+                  "borderRadius": 10,
+                  "elevation": 1,
                   "justifyContent": "center",
-                  "margin": 3,
+                  "margin": 8,
                   "opacity": 1,
                   "padding": 20,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.18,
+                  "shadowRadius": 1,
                   "width": 325,
                 }
               }
@@ -234,7 +252,9 @@ exports[`renders correctly 1`] = `
                 }
                 style={
                   Object {
-                    "marginBottom": 10,
+                    "marginBottom": 20,
+                    "maxHeight": 40,
+                    "maxWidth": 40,
                   }
                 }
               />
@@ -249,7 +269,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "fontFamily": "Heavitas",
                       "fontSize": 14,
-                      "textAlign": "left",
+                      "textAlign": "center",
                     },
                   ]
                 }
@@ -284,12 +304,20 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
+                  "backgroundColor": "#fff",
+                  "borderRadius": 10,
+                  "elevation": 1,
                   "justifyContent": "center",
-                  "margin": 3,
+                  "margin": 8,
                   "opacity": 1,
                   "padding": 20,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 1,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.18,
+                  "shadowRadius": 1,
                   "width": 325,
                 }
               }
@@ -302,7 +330,9 @@ exports[`renders correctly 1`] = `
                 }
                 style={
                   Object {
-                    "marginBottom": 10,
+                    "marginBottom": 20,
+                    "maxHeight": 40,
+                    "maxWidth": 40,
                   }
                 }
               />
@@ -317,7 +347,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "fontFamily": "Heavitas",
                       "fontSize": 14,
-                      "textAlign": "left",
+                      "textAlign": "center",
                     },
                   ]
                 }

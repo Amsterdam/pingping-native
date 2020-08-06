@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Header, Right, Container, Button, Text, Left} from 'native-base';
+import {Header, Right, Container, Left} from 'native-base';
 import {StyleSheet, StatusBar} from 'react-native';
 import {appColors, ppBaseColors} from '../lib/colors';
 import OnboardingItem from '../components/OnboardingItem';
@@ -71,7 +71,8 @@ class OnboardingScreen extends React.Component {
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
 
           <Right>
-            <TouchableOpacity onPress={() => navigation.navigate('auth')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ImportDataScreen')}>
               <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>
           </Right>
