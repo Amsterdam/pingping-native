@@ -79,11 +79,11 @@ const RouteHomeScreen = ({navigation}) => {
         contentContainerStyle={styles.content}>
         <ContentLayout>
           <Title style={styles.title}>Aanbevolen</Title>
-          <RouteCard />
+          <RouteCard navigation={navigation} />
           <Title style={styles.subTitle}>Andere life events</Title>
-          <RouteCard />
-          <RouteCard />
-          <RouteCard />
+          <RouteCard navigation={navigation} />
+          <RouteCard navigation={navigation} />
+          <RouteCard navigation={navigation} />
         </ContentLayout>
       </Content>
       <View style={styles.underLayer} />

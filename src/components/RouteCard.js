@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
@@ -59,39 +59,42 @@ const styles = StyleSheet.create({
   },
 });
 
-const RewardCard = ({navigation}) => {
+const RouteCard = ({navigation}) => {
   return (
     <View style={styles.paper}>
-      <View>
-        <View style={styles.imageContainer}>
-          <Image source={exampleImage} style={styles.image} />
-          <View style={styles.overlayTop}>
-            <CitypingsChip value={100} />
-          </View>
-        </View>
-        <View style={styles.descriptionContainer}>
-          <Body style={styles.rewardType}>Reward</Body>
-          <Title style={styles.title}>Dagje Artis</Title>
-          <Body style={styles.description}>
-            Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
-          </Body>
-          <View style={styles.balanceContainer}>
-            <View style={styles.saldo}>
-              <Body style={styles.savings}> 5 stappen</Body>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('LifeEventDetailsScreen')}>
+        <View>
+          <View style={styles.imageContainer}>
+            <Image source={exampleImage} style={styles.image} />
+            <View style={styles.overlayTop}>
+              <CitypingsChip value={100} />
             </View>
-            <Progress.Bar
-              progress={0.1}
-              width={50}
-              color={appColors.secondary}
-              unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-              borderWidth={0}
-              height={10}
-            />
+          </View>
+          <View style={styles.descriptionContainer}>
+            <Body style={styles.rewardType}>Reward</Body>
+            <Title style={styles.title}>Fiks je basis</Title>
+            <Body style={styles.description}>
+              Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
+            </Body>
+            <View style={styles.balanceContainer}>
+              <View style={styles.saldo}>
+                <Body style={styles.savings}> 5 stappen</Body>
+              </View>
+              <Progress.Bar
+                progress={0.1}
+                width={50}
+                color={appColors.secondary}
+                unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
+                borderWidth={0}
+                height={10}
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default RewardCard;
+export default RouteCard;
