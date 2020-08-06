@@ -4,7 +4,7 @@ import {Header} from 'native-base';
 import {setHeaderColor} from '../../lib/colors';
 import DynamicStatusbar from './DynamicStatusbar';
 
-const SimpleHeader = ({style, children, color = 'primary'}) => {
+const HeaderTemplate = ({style, children, color = 'primary'}) => {
   return (
     <Header
       style={{backgroundColor: setHeaderColor(color), ...style}}
@@ -16,4 +16,4 @@ const SimpleHeader = ({style, children, color = 'primary'}) => {
   );
 };
 
-export default SimpleHeader;
+export default HeaderTemplate;

@@ -74,7 +74,6 @@ const steps = [
   'Digid aanvragen',
   'Zorgverzekering regelen',
   'Zorgtoeslag aanvragen',
-  'Zorgtoeslag aanvragen',
   'Inkomen',
   'Inschrijven woning',
 ];
@@ -120,7 +119,7 @@ function LifeEventDetailsScreen({navigation}) {
         </ContentLayout>
         <View>
           {steps.map((step, index) => (
-            <RouteTaskRow step={step} index={index + 1} />
+            <RouteTaskRow key={step} step={step} index={index + 1} />
           ))}
         </View>
         <View style={styles.tipsChip}>

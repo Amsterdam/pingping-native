@@ -1,16 +1,12 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import SimpleHeader from '../components/header/SimpleHeader';
+import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import {Content, Container} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import OvalDefault from '../components/layout/OvalDefault';
 
 const styles = StyleSheet.create({
-  title: {
-    marginBottom: 25,
-  },
   subTitle: {
     fontSize: 18,
     marginBottom: 10,
@@ -23,11 +19,9 @@ const styles = StyleSheet.create({
 const TipScreen = ({navigation}) => {
   return (
     <Container>
-      <OvalDefault />
-      <SimpleHeader navigation={navigation} color="white" />
+      <LabeledHeader title="Tips" navigation={navigation} />
       <ContentLayout>
         <Content>
-          <Title style={styles.title}>Tips</Title>
           <View style={styles.paragraphContainer}>
             <Title style={styles.subTitle}>Hoeveel abonnementen heb jij?</Title>
             <Body>

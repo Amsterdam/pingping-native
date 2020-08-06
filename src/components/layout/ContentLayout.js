@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const SimpleHeader = ({children, style}) => {
+const ContentLayout = ({children, style}) => {
   return <View style={{...styles.container, ...style}}>{children}</View>;
 };
 
-export default SimpleHeader;
+export default ContentLayout;

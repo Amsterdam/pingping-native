@@ -63,7 +63,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
       <Header style={styles.header} transparent noShadow>
         <StatusBar barStyle="dark-content" />
         <Left />
-        <Title style={styles.headerTitle}>Introductie</Title>
+        <Title style={styles.headerTitle}>Notificaties</Title>
         <Right>
           <TouchableOpacity onPress={setLogin}>
             <Title style={styles.headerSubButton}>Overslaan</Title>

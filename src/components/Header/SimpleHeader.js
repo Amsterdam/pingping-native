@@ -1,22 +1,26 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Header} from 'native-base';
-import DynamicStatusbar from './DynamicStatusbar';
-import {setHeaderColor} from '../../lib/colors';
-import HeaderBackButton from './HeaderBackButton';
+import {StyleSheet, StatusBar} from 'react-native';
+import {Header, Left, Right} from 'native-base';
+import Title from '../typography/Title';
+import {appColors} from '../../lib/colors';
 
-const SimpleHeader = ({navigation, color = 'primary'}) => {
+const SimpleHeader = ({title}) => {
   const styles = StyleSheet.create({
     header: {
-      backgroundColor: setHeaderColor(color),
-      justifyContent: 'flex-start',
-      alignItems: 'flex-start',
+      backgroundColor: appColors.background,
+      alignItems: 'center',
+    },
+    headerTitle: {
+      fontSize: 14,
+      color: appColors.primary,
     },
   });
   return (
     <Header style={styles.header} transparent noShadow>
-      <DynamicStatusbar color={color} />
-      <HeaderBackButton color={color} navigation={navigation} />
+      <StatusBar barStyle="dark-content" />
+      <Left />
+      <Title style={styles.headerTitle}>{title}</Title>
+      <Right />
     </Header>
   );
 };

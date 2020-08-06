@@ -2,10 +2,10 @@ import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
-import SimpleHeader from '../components/header/SimpleHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
+import LabeledHeader from '../components/header/LabeledHeader';
 
 const styles = StyleSheet.create({
   input: {
@@ -27,7 +27,7 @@ const ImportDataScreen = ({navigation}) => {
   const [value, onChangeText] = React.useState('');
   return (
     <Container>
-      <SimpleHeader navigation={navigation} color="white" />
+      <LabeledHeader navigation={navigation} title="INLOGGEN" />
       <Content>
         <ContentLayout>
           <Title style={styles.margin}>Gegevens Importeren</Title>
