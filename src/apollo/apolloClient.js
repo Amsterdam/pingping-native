@@ -4,7 +4,7 @@ import {setContext} from '@apollo/link-context';
 import GET_MODAL_STATE from './Query/getModalState';
 import unfetch from 'unfetch';
 
-const cache = new InMemoryCache();
+const inMemoryCache = new InMemoryCache();
 
 const authLink = setContext(async (_, {headers}) => {
   // get the authentication token from local storage if it exists
@@ -26,7 +26,7 @@ const httpLink = createHttpLink({
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: cache,
+  cache: inMemoryCache,
   resolvers: {
     Mutation: {
       toggleModal: (_root, variables, {cache}) => {
@@ -53,7 +53,7 @@ const client = new ApolloClient({
 });
 
 function writeInitialData() {
-  cache.writeQuery({
+  inMemoryCache.writeQuery({
     query: GET_MODAL_STATE,
     data: {
       pings: 1,

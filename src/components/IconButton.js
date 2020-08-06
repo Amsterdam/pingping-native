@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Icon, Button} from 'native-base';
-import colors, {appColors} from '../lib/colors';
+import {appColors} from '../lib/colors';
 
 const IconButton = ({
   iconName,
