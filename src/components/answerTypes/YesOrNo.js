@@ -16,22 +16,36 @@ const styles = StyleSheet.create({
 });
 
 const YesOrNo = ({answers, state, setState}) => {
-  return answers.map((answer) => (
-    <Button
-      key={answer}
-      label={answer}
-      bordered
-      rounded
-      style={
-        answer === state.answerSelected
-          ? styles.activeButton
-          : styles.whiteButton
-      }
-      labelStyle={answer === state.answerSelected && styles.activeText}
-      color="primary"
-      onPress={() => setState({answerSelected: answer})}
-    />
-  ));
+  return (
+    <React.Fragment>
+      <Button
+        label={answers.yes}
+        bordered
+        rounded
+        style={
+          answers.yes === state.answerSelected
+            ? styles.activeButton
+            : styles.whiteButton
+        }
+        labelStyle={answers.yes === state.answerSelected && styles.activeText}
+        color="primary"
+        onPress={() => setState({answerSelected: answers.yes})}
+      />
+      <Button
+        label={answers.no}
+        bordered
+        rounded
+        style={
+          answers.no === state.answerSelected
+            ? styles.activeButton
+            : styles.whiteButton
+        }
+        labelStyle={answers.no === state.answerSelected && styles.activeText}
+        color="primary"
+        onPress={() => setState({answerSelected: answers.no})}
+      />
+    </React.Fragment>
+  );
 };
 
 export default YesOrNo;

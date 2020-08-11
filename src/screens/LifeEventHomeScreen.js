@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     zIndex: -1,
     elevation: 0,
-    backgroundColor: '#fff',
+    backgroundColor: appColors.almostNotBlue,
     top: 100, // replace this with a percentage of the screenheight to be responsive
     bottom: 0,
     left: 0,

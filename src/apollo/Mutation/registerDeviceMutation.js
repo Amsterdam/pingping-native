@@ -13,14 +13,6 @@ const REGISTER_DEVICE_MUTATION = gql`
       user {
         id
       }
-      currentTask {
-        title
-        status
-        taskId
-        answer
-        description
-        icon
-      }
     }
   }
 `;

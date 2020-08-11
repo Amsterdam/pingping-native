@@ -4,31 +4,43 @@ import {View, StyleSheet} from 'react-native';
 import YouTube from 'react-native-youtube';
 import {useMutation} from '@apollo/client';
 import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
-import SimpleHeader from '../components/header/SimpleHeader';
+import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import Button from '../components/Button';
+import Button from '../components/OnboardingButton';
 import Body from '../components/typography/Body';
+import {appColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
   videoContainer: {
     alignSelf: 'stretch',
-    height: 200,
+    height: 300,
   },
-  buttonContainer: {
-    marginTop: 10,
-    marginBottom: 10,
-  },
+
   textContainer: {
     flex: 1,
   },
   descriptionContainer: {
     justifyContent: 'space-around',
     flex: 1,
+  },
+  buttonContainer: {
+    paddingHorizontal: 40,
+    marginVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  buttonHelp: {
+    backgroundColor: appColors.greyedOut,
+    flex: 1,
+    marginRight: 10,
+    justifyContent: 'center',
   },
 });
 
@@ -42,7 +54,7 @@ const TaskScreen = ({navigation, route}) => {
     // update points
     // navigate to homescreen
     // show modal
-    navigation.navigate('RouteHome');
+    navigation.navigate('LifeEventHomeScreen');
     toggleModal({
       variables: {
         pings: 20,
@@ -52,7 +64,7 @@ const TaskScreen = ({navigation, route}) => {
 
   return (
     <Container>
-      <SimpleHeader navigation={navigation} color="primary" />
+      <LabeledHeader filledHeader navigation={navigation} title="" />
       <Content contentContainerStyle={styles.contentContainer}>
         <YouTube
           videoId="ZG0vCfivpQ8" // The YouTube video ID
@@ -65,12 +77,13 @@ const TaskScreen = ({navigation, route}) => {
           <Title>{task.title}</Title>
           <View style={styles.descriptionContainer}>
             <Body>{task.description}</Body>
-            <View>
-              <Button label="Gefikst!" rounded onPress={completeTask} />
-            </View>
           </View>
         </ContentLayout>
       </Content>
+      <View style={styles.buttonContainer}>
+        <Button style={styles.buttonHelp} label="Hulp nodig?" />
+        <Button label="Gelukt!" onPress={completeTask} />
+      </View>
     </Container>
   );
 };

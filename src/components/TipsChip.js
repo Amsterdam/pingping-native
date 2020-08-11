@@ -30,7 +30,7 @@ const TipsChip = ({navigation}) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate('Tip')}>
+      onPress={() => navigation.navigate('TipScreen')}>
       <Icon
         name="lightbulb-on-outline"
         type="MaterialCommunityIcons"

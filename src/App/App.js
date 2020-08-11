@@ -10,7 +10,7 @@ import PushNotificationService from '../services/PushNotificationService';
 import _registerDevice from '../utils/registerDevice';
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 
   React.useEffect(() => {

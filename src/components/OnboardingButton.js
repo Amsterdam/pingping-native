@@ -40,6 +40,7 @@ const OnboardingButton = ({
   deleteButton = false,
   iconName = null,
   iconType = null,
+  style = {},
 }) => {
   return (
     <Button
@@ -47,6 +48,7 @@ const OnboardingButton = ({
         styles.button,
         disabled && styles.disabled,
         deleteButton && styles.deleteButton,
+        style,
       ]}
       disabled={disabled}
       onPress={onPress}>

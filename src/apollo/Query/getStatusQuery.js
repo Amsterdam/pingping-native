@@ -3,15 +3,32 @@ import {gql} from '@apollo/client';
 const GET_STATUS_QUERY = gql`
   query getStatus {
     getStatus {
+      user {
+        balance
+      }
       currentTask {
-        title
-        answer
-        taskId
         status
-        description
-        icon
-        type
-        progressPercentile
+        task {
+          taskId
+          title
+          description
+          media
+          choices
+          type
+          progressPercentile
+        }
+      }
+      previousTask {
+        status
+        task {
+          taskId
+          title
+          description
+          media
+          choices
+          type
+          progressPercentile
+        }
       }
     }
   }

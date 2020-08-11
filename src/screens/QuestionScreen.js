@@ -51,7 +51,7 @@ const QuestionScreen = ({navigation}) => {
   const {data} = useQuery(GET_STATUS_QUERY);
 
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
-  const currentTask = data && data.getStatus.currentTask;
+  const currentTask = data && data.getStatus.currentTask.task;
 
   const checkDisabled = () => {
     if (currentTask.type === 'DateOfBirth') {
@@ -113,9 +113,7 @@ const QuestionScreen = ({navigation}) => {
         {data && (
           <React.Fragment>
             <QuestionComponent
-              question={currentTask.title}
-              taskId={currentTask.taskId}
-              type={currentTask.type}
+              currentTask={currentTask}
               setState={setState}
               answerSelected={state.answerSelected}
               day={state.day}

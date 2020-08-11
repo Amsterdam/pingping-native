@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.primary,
     height: 100,
   },
+  container: {backgroundColor: appColors.almostNotBlue},
   title: {
     color: '#fff',
     fontSize: 24,
@@ -59,7 +60,7 @@ const TAB_STYLE = {
 
 const CityPingsHomeScreen = ({navigation}) => {
   return (
-    <Container>
+    <Container style={styles.container}>
       <Header style={styles.header} transparent noShadow hasTabs>
         <StatusBar
           backgroundColor={appColors.primary}
@@ -74,7 +75,7 @@ const CityPingsHomeScreen = ({navigation}) => {
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         tabContainerStyle={styles.shadowRemover}>
         <Tab heading="Rewards" {...TAB_STYLE}>
-          <Content>
+          <Content style={{backgroundColor: appColors.almostNotBlue}}>
             <ContentLayout>
               <RewardCard navigation={navigation} />
             </ContentLayout>

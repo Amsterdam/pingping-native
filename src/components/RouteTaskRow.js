@@ -33,9 +33,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const RouteTaskRow = ({step, index}) => {
+const RouteTaskRow = ({step, index, navigation}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('TaskScreen', {
+          task: {title: step, description: '1231231'},
+        })
+      }>
       <View style={[styles.container, index % 2 === 0 && styles.background]}>
         <View style={styles.circleStepIndicator}>
           <Title style={styles.label}>{index}</Title>

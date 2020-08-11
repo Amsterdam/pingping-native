@@ -24,15 +24,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const QuestionComponent = ({question, type, setState, state}) => {
+const QuestionComponent = ({currentTask, setState, state}) => {
   return (
     <View style={styles.questionContainer}>
-      <Title style={styles.title}>{question}</Title>
+      <Title style={styles.title}>{currentTask.question}</Title>
       <View style={styles.illustration} />
-      {type === 'YesOrNo' && (
-        <YesOrNo state={state} setState={setState} answers={['ja', 'nee']} />
+      {currentTask.type === 'YesOrNo' && (
+        <YesOrNo
+          state={state}
+          setState={setState}
+          answers={currentTask.choices}
+        />
       )}
-      {type === 'DateOfBirth' && (
+      {currentTask.type === 'DateOfBirth' && (
         <DateOfBirth setState={setState} state={state} />
       )}
     </View>
