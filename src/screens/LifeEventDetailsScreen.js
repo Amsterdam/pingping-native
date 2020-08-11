@@ -119,7 +119,12 @@ function LifeEventDetailsScreen({navigation}) {
         </ContentLayout>
         <View>
           {steps.map((step, index) => (
-            <RouteTaskRow key={step} step={step} index={index + 1} />
+            <RouteTaskRow
+              key={step}
+              step={step}
+              index={index + 1}
+              navigation={navigation}
+            />
           ))}
         </View>
         <View style={styles.tipsChip}>

@@ -14,8 +14,8 @@ const RouteStack = () => (
       name="LifeEventDetailsScreen"
       component={LifeEventDetailsScreen}
     />
-    <Stack.Screen name="Task" component={TaskScreen} />
-    <Stack.Screen name="Tip" component={TipScreen} />
+    <Stack.Screen name="TaskScreen" component={TaskScreen} />
+    <Stack.Screen name="TipScreen" component={TipScreen} />
   </Stack.Navigator>
 );
 

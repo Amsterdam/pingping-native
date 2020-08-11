@@ -7,13 +7,14 @@ import ExportImage from '../assets/export.png';
 import WarningImage from '../assets/warning.png';
 import TrashImage from '../assets/trashcan.png';
 import AccountBlockButton from '../components/AccountBlockButton';
+import {appColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f7fbff',
+    backgroundColor: appColors.almostNotBlue,
   },
 });
 
