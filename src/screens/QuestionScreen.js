@@ -99,7 +99,7 @@ const QuestionScreen = ({navigation}) => {
         <Right>
           <View>
             <Progress.Bar
-              progress={0.1}
+              progress={0.4}
               width={50}
               color={appColors.secondary}
               unfilledColor={ppBaseColors.PP_LIGHT_GRAY}

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 const QuestionComponent = ({currentTask, setState, state}) => {
   return (
     <View style={styles.questionContainer}>
-      <Title style={styles.title}>{currentTask.question}</Title>
+      <Title style={styles.title}>{currentTask.title}</Title>
       <View style={styles.illustration} />
       {currentTask.type === 'YesOrNo' && (
         <YesOrNo
@@ -38,6 +38,10 @@ const QuestionComponent = ({currentTask, setState, state}) => {
       )}
       {currentTask.type === 'DateOfBirth' && (
         <DateOfBirth setState={setState} state={state} />
+      )}
+      {currentTask.type === 'MultipleChoice' && (
+        // <DateOfBirth setState={setState} state={state} />
+        <></>
       )}
     </View>
   );
