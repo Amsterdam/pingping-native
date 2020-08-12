@@ -15,7 +15,8 @@ const GET_STATUS_QUERY = gql`
           media
           choices
           type
-          progressPercentile
+          progress
+          headerTitle
         }
       }
       previousTask {
@@ -27,7 +28,8 @@ const GET_STATUS_QUERY = gql`
           media
           choices
           type
-          progressPercentile
+          progress
+          headerTitle
         }
       }
     }

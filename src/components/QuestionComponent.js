@@ -39,9 +39,12 @@ const QuestionComponent = ({currentTask, setState, state}) => {
       {currentTask.type === 'DateOfBirth' && (
         <DateOfBirth setState={setState} state={state} />
       )}
-      {currentTask.type === 'MultipleChoice' && (
-        // <DateOfBirth setState={setState} state={state} />
-        <></>
+      {currentTask.type === 'MultipleChoices' && (
+        <YesOrNo
+          state={state}
+          setState={setState}
+          answers={currentTask.choices}
+        />
       )}
     </View>
   );
