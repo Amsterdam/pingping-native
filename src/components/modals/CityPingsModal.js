@@ -2,15 +2,15 @@ import React from 'react';
 import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {useQuery, useMutation} from '@apollo/client';
 import {Button, Icon} from 'native-base';
-import Title from './typography/Title';
-import Body from './typography/Body';
-import MoneyBill from './svgComponents/MoneyBill';
-import CityPingsLogo from './svgComponents/CityPings';
-import {ppBaseColors} from '../lib/colors';
-import GET_MODAL_STATE from '../apollo/Query/getModalState';
-import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
+import Title from '../typography/Title';
+import Body from '../typography/Body';
+import MoneyBill from '../svgComponents/MoneyBill';
+import CityPingsLogo from '../svgComponents/CityPings';
+import {ppBaseColors} from '../../lib/colors';
+import GET_MODAL_STATE from '../../apollo/Query/getModalState';
+import TOGGLE_MODAL from '../../apollo/Mutation/toggleModal';
 
-const ModalPP = ({navigation}) => {
+const CityPingsModal = ({navigation}) => {
   const {
     data: {modalOpen, pings},
   } = useQuery(GET_MODAL_STATE);
@@ -134,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ModalPP;
+export default CityPingsModal;

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Content, Container} from 'native-base';
+import PropTypes from 'prop-types';
 import {appColors} from '../lib/colors';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
+import DeleteDataModal from '../components/modals/DeleteDataModal';
 
 const styles = StyleSheet.create({
   input: {
@@ -29,7 +31,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeleteDataScreen = ({navigation}) => {
+const DeleteDataScreen = ({navigation, setLogin}) => {
+  const [open, setOpen] = useState(false);
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
@@ -55,13 +58,24 @@ const DeleteDataScreen = ({navigation}) => {
               iconName="delete"
               iconType="AntDesign"
               label="Verwijder mijn gegevens"
-              onPress={() => console.log('Show delete alert')}
+              onPress={() => setOpen(true)}
             />
           </View>
         </ContentLayout>
       </Content>
+      <DeleteDataModal
+        open={open}
+        setOpen={setOpen}
+        setLogin={setLogin}
+        navigation={navigation}
+      />
     </Container>
   );
+};
+
+DeleteDataScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  setLogin: PropTypes.func.isRequired,
 };
 
 export default DeleteDataScreen;

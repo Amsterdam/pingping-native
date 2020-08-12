@@ -24,6 +24,7 @@ const YesOrNo = ({answers, state, setState}) => {
       buttonArray.push(
         <Button
           label={value}
+          key={key}
           bordered
           rounded
           style={

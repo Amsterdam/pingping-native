@@ -42,7 +42,7 @@ export default function App() {
     <NavigationContainer>
       {loggedIn ? (
         <PushNotificationService>
-          <TabNavigator />
+          <TabNavigator setLogin={setLoggedIn} />
         </PushNotificationService>
       ) : (
         <OnboardingStack setLogin={setLogin} />

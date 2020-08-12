@@ -3,7 +3,7 @@ import {StyleSheet, StatusBar, Animated, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import Modal from '../components/Modal';
+import Modal from '../components/modals/CityPingsModal';
 import {appColors} from '../lib/colors';
 import RouteCard from '../components/RouteCard';
 

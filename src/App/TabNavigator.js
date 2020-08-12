@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon} from 'native-base';
+import PropTypes from 'prop-types';
 import RouteStack from './stacks/RouteStack';
 import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
@@ -9,7 +10,7 @@ import {appColors} from '../lib/colors';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => (
+const TabNavigator = ({setLogin}) => (
   <Tab.Navigator
     initialRouteName="Routes"
     tabBarOptions={{
@@ -62,7 +63,6 @@ const TabNavigator = () => (
     /> */}
     <Tab.Screen
       name="Account"
-      component={AccountStack}
       options={{
         tabBarLabel: 'Gegevens',
         tabBarIcon: ({color, size}) => (
@@ -73,9 +73,14 @@ const TabNavigator = () => (
             size={size}
           />
         ),
-      }}
-    />
+      }}>
+      {(props) => <AccountStack {...props} setLogin={setLogin} />}
+    </Tab.Screen>
   </Tab.Navigator>
 );
+
+TabNavigator.propTypes = {
+  setLogin: PropTypes.func.isRequired,
+};
 
 export default TabNavigator;
