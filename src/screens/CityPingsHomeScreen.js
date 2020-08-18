@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -92,6 +92,7 @@ const CityPingsHomeScreen = ({navigation}) => {
         <Tab heading="Rewards" {...TAB_STYLE}>
           <Content style={{backgroundColor: appColors.almostNotBlue}}>
             <ContentLayout>
+              {loading && <ActivityIndicator />}
               {data &&
                 data.getAvailableRewards.map((reward) => (
                   <RewardCard
