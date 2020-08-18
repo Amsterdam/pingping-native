@@ -21,15 +21,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const CityPingsBalance = () => {
+const CityPingsBalance = ({price, balance}) => {
   return (
     <View style={styles.balanceContainer}>
       <View style={styles.saldo}>
         <CityPingCoin />
-        <Body style={styles.savings}> 20 / 100 CityPings</Body>
+        <Body style={styles.savings}>
+          {balance} / {price} CityPings
+        </Body>
       </View>
       <Progress.Bar
-        progress={0.1}
+        progress={balance / price}
         width={50}
         color={appColors.secondary}
         unfilledColor={ppBaseColors.PP_LIGHT_GRAY}

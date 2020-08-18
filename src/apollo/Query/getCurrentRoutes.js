@@ -3,6 +3,8 @@ import {gql} from '@apollo/client';
 const GET_CURRENT_ROUTES_QUERY = gql`
   query GET_CURRENT_ROUTES_QUERY {
     getCurrentRoutes {
+      progress
+      status
       route {
         routeId
         title
@@ -17,8 +19,6 @@ const GET_CURRENT_ROUTES_QUERY = gql`
           description
         }
       }
-      progress
-      status
       tasks {
         status
         task {

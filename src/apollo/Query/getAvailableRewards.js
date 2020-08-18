@@ -2,7 +2,7 @@ import {gql} from '@apollo/client';
 
 const GET_AVAILABLE_REWARDS_QUERY = gql`
   query GET_AVAILABLE_REWARDS_QUERY {
-    getAvailableRoutes {
+    getAvailableRewards {
       rewardId
       title
       description

@@ -58,6 +58,16 @@ const RouteHomeScreen = ({navigation}) => {
     outputRange: [0, -HEADER_HEIGHT],
   });
 
+  //   const [getStatus, status] = useLazyQuery(GET_STATUS_QUERY);
+
+  //   React.useEffect(() => {
+  //     const unsubscribe = navigation.addListener('focus', () => {
+  //       getStatus();
+  //     });
+
+  //     return unsubscribe;
+  //   }, [navigation, getStatus]);
+
   return (
     <Container style={styles.container}>
       <Modal navigation={navigation} />

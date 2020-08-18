@@ -1,12 +1,14 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
+import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import RewardCard from '../components/RewardCard';
 import {appColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import YourPerformanceOverview from '../components/YourPerformanceOverview';
+import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 
 const styles = StyleSheet.create({
   header: {
@@ -59,6 +61,19 @@ const TAB_STYLE = {
 };
 
 const CityPingsHomeScreen = ({navigation}) => {
+  const [
+    getAvailableRewards,
+    {data, refetch, loading, error, client},
+  ] = useLazyQuery(GET_AVAILABLE_REWARDS);
+
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getAvailableRewards();
+    });
+
+    return unsubscribe;
+  }, [navigation, getAvailableRewards]);
+
   return (
     <Container style={styles.container}>
       <Header style={styles.header} transparent noShadow hasTabs>
@@ -68,7 +83,7 @@ const CityPingsHomeScreen = ({navigation}) => {
         />
         <View style={styles.headerContainer}>
           <Title style={styles.title}>Rewards</Title>
-          <CitypingsChip value={20} />
+          <CitypingsChip value={0} />
         </View>
       </Header>
       <Tabs
@@ -77,7 +92,14 @@ const CityPingsHomeScreen = ({navigation}) => {
         <Tab heading="Rewards" {...TAB_STYLE}>
           <Content style={{backgroundColor: appColors.almostNotBlue}}>
             <ContentLayout>
-              <RewardCard navigation={navigation} />
+              {data &&
+                data.getAvailableRewards.map((reward) => (
+                  <RewardCard
+                    navigation={navigation}
+                    reward={reward}
+                    key={reward.rewardId}
+                  />
+                ))}
             </ContentLayout>
           </Content>
         </Tab>

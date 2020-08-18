@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
+import {useMutation} from '@apollo/client';
+import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
 import exampleImage from '../../assets/exampleImage.png';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
@@ -50,7 +52,23 @@ const styles = StyleSheet.create({
   },
 });
 
-function RewardDetailModal({navigation}) {
+function RewardDetailModal({navigation, route}) {
+  const {balance, price, title, description, rewardId} = route.params;
+  const available = balance >= price;
+  const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
+
+  const doClaimReward = async () => {
+    try {
+      const claimResponse = await claimReward({
+        variables: {
+          rewardId,
+        },
+      });
+    } catch (error) {
+      //error toast
+    }
+  };
+
   return (
     <Container>
       <ScrollView>
@@ -63,27 +81,26 @@ function RewardDetailModal({navigation}) {
               onPress={() => navigation.goBack()}
               size="L"
             />
-            <CitypingsChip value={20} />
+            <CitypingsChip value={price} />
           </View>
         </View>
         <View style={styles.contentContainer}>
           <Body style={styles.label}>Rewards</Body>
-          <Title style={styles.title}>Dagje naar artis met je vrienden</Title>
-          <CityPingsBalance />
-          <Body style={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            gravida augue leo, vitae bibendum ipsum rhoncus eget. Etiam nec
-            purus ut libero hendrerit interdum vitae at turpis. Fusce consequat
-            metus lacus, vitae sodales erat sodales nec. Vestibulum varius ex ac
-            tellus euismod, et sollicitudin neque commodo. Sed sed enim ligula.
-            Praesent id tortor sed odio convallis imperdiet at id ex. Integer
-            ultricies tincidunt eros, sed pulvinar nisl consectetur eget.
-          </Body>
+          <Title style={styles.title}>{title}</Title>
+          <CityPingsBalance balance={balance} price={price} />
+          <Body style={styles.description}>{description}</Body>
         </View>
       </ScrollView>
       <View style={styles.buttonContainer}>
-        <Body stlye={styles.balanceIndicatorText}>Nog even doorsparen !</Body>
-        <Button style={styles.button} disabled label="Claim" />
+        <Body stlye={styles.balanceIndicatorText}>
+          {available ? 'Lets go!' : 'Nog even doorsparen !'}
+        </Body>
+        <Button
+          style={styles.button}
+          disabled={!available}
+          label="Claim"
+          onPress={doClaimReward}
+        />
       </View>
     </Container>
   );

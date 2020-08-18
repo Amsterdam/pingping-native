@@ -46,25 +46,35 @@ const styles = StyleSheet.create({
   },
 });
 
-const RewardCard = ({navigation}) => {
+const RewardCard = ({
+  navigation,
+  reward: {price, description, title, rewardId},
+}) => {
+  const balance = 10;
   return (
     <View style={styles.paper}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('RewardDetailModal')}>
+        onPress={() =>
+          navigation.navigate('RewardDetailModal', {
+            price,
+            balance,
+            description,
+            title,
+            rewardId,
+          })
+        }>
         <View>
           <View style={styles.imageContainer}>
             <Image source={exampleImage} style={styles.image} />
             <View style={styles.overlayTop}>
-              <CitypingsChip value={100} />
+              <CitypingsChip value={price} />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
             <Body style={styles.rewardType}>Reward</Body>
-            <Title style={styles.description}>Dagje Artis</Title>
-            <Body>
-              Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
-            </Body>
-            <CityPingsBalance />
+            <Title style={styles.description}>{title}</Title>
+            <Body>{description}</Body>
+            <CityPingsBalance price={price} balance={balance} />
           </View>
         </View>
       </TouchableOpacity>
