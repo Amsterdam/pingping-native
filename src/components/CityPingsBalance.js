@@ -7,6 +7,7 @@ import Body from './typography/Body';
 
 const styles = StyleSheet.create({
   savings: {
+    marginLeft: 5,
     color: appColors.greyedOut,
   },
   balanceContainer: {
