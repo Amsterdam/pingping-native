@@ -1,8 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Text} from 'native-base';
+import {StyleSheet, Text} from 'react-native';
 
-const Body = ({children, align = 'left', style}) => {
+const Body = ({
+  children,
+  align = 'left',
+  style,
+  numberOfLines,
+  ellipsizeMode,
+}) => {
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Raleway',
@@ -11,7 +16,14 @@ const Body = ({children, align = 'left', style}) => {
       lineHeight: 25,
     },
   });
-  return <Text style={{...styles.text, ...style}}>{children}</Text>;
+  return (
+    <Text
+      style={{...styles.text, ...style}}
+      numberOfLines={numberOfLines}
+      ellipsizeMode={ellipsizeMode}>
+      {children}
+    </Text>
+  );
 };
 
 export default Body;

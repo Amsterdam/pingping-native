@@ -73,7 +73,9 @@ const RewardCard = ({
           <View style={styles.descriptionContainer}>
             <Body style={styles.rewardType}>Reward</Body>
             <Title style={styles.description}>{title}</Title>
-            <Body>{description}</Body>
+            <Body numberOfLines={3} ellipsizeMode="tail">
+              {description}
+            </Body>
             <CityPingsBalance price={price} balance={balance} />
           </View>
         </View>
