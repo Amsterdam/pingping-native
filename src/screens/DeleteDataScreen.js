@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import PropTypes from 'prop-types';
+import {useMutation} from '@apollo/client';
+import AsyncStorage from '@react-native-community/async-storage';
 import {appColors} from '../lib/colors';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -9,6 +11,7 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
+import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 
 const styles = StyleSheet.create({
   input: {
@@ -33,6 +36,20 @@ const styles = StyleSheet.create({
 
 const DeleteDataScreen = ({navigation, setLogin}) => {
   const [open, setOpen] = useState(false);
+  const [deleteUser] = useMutation(DELETE_USER_MUTATION);
+
+  const doDeleteUser = async () => {
+    try {
+      await deleteUser({
+        variables: {
+          confirm: 'asda',
+        },
+      });
+      await AsyncStorage.removeItem('@acceptedPolicy');
+      setLogin(false);
+    } catch (error) {}
+  };
+
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
@@ -68,6 +85,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
         setOpen={setOpen}
         setLogin={setLogin}
         navigation={navigation}
+        doDeleteUser={doDeleteUser}
       />
     </Container>
   );

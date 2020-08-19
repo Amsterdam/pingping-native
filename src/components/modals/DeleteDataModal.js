@@ -2,20 +2,14 @@ import React from 'react';
 import {Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
-import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import OnboardingButton from '../OnboardingButton';
 import {appColors} from '../../lib/colors';
 
-const DeleteDataModal = ({navigation, open, setOpen, setLogin}) => {
+const DeleteDataModal = ({open, setOpen, doDeleteUser}) => {
   function closeModal() {
     setOpen(false);
-  }
-
-  async function doDelete() {
-    await AsyncStorage.removeItem('@acceptedPolicy');
-    setLogin(false);
   }
 
   return (
@@ -51,7 +45,7 @@ const DeleteDataModal = ({navigation, open, setOpen, setLogin}) => {
                 iconType="AntDesign"
                 style={[styles.button, styles.removeButton]}
                 label="Verwijder mijn gegevens"
-                onPress={doDelete}
+                onPress={doDeleteUser}
               />
             </View>
           </View>
