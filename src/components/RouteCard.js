@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RouteCard = ({navigation}) => {
+const RouteCard = ({navigation, route}) => {
   return (
     <View style={styles.paper}>
       <TouchableOpacity
@@ -68,21 +68,24 @@ const RouteCard = ({navigation}) => {
           <View style={styles.imageContainer}>
             <Image source={exampleImage} style={styles.image} />
             <View style={styles.overlayTop}>
-              <CitypingsChip value={100} />
+              <CitypingsChip value={route.totalPoints} />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
-            <Body style={styles.rewardType}>Reward</Body>
-            <Title style={styles.title}>Fiks je basis</Title>
-            <Body style={styles.description}>
-              Gezellig met vrienden een dagje weg! Artis, altijd gezellig.
-            </Body>
+            <Body style={styles.rewardType}>{route.targetAudience}</Body>
+            <Title style={styles.title}>{route.title}</Title>
+            <Body style={styles.description}>{route.description}</Body>
             <View style={styles.balanceContainer}>
               <View style={styles.saldo}>
-                <Body style={styles.savings}> 5 stappen</Body>
+                <Body
+                  style={styles.savings}
+                  ellipsizeMode="tail"
+                  numberOfLines={3}>
+                  {route.numberOfSteps} stappen
+                </Body>
               </View>
               <Progress.Bar
-                progress={0.1}
+                progress={route.progress}
                 width={50}
                 color={appColors.secondary}
                 unfilledColor={ppBaseColors.PP_LIGHT_GRAY}

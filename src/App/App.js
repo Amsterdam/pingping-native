@@ -10,12 +10,12 @@ import PushNotificationService from '../services/PushNotificationService';
 import _registerDevice from '../utils/registerDevice';
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 
   React.useEffect(() => {
     // clear token for testing purposes
-    AsyncStorage.clear();
+    // AsyncStorage.clear();
     async function getToken() {
       try {
         const token = await AsyncStorage.getItem('@access_token');

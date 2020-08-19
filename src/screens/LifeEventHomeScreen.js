@@ -1,6 +1,14 @@
 import React from 'react';
-import {StyleSheet, StatusBar, Animated, View} from 'react-native';
+import {
+  StyleSheet,
+  StatusBar,
+  Animated,
+  View,
+  ActivityIndicator,
+} from 'react-native';
 import {Content, Container} from 'native-base';
+import {useLazyQuery} from '@apollo/client';
+import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Modal from '../components/modals/CityPingsModal';
@@ -58,15 +66,79 @@ const RouteHomeScreen = ({navigation}) => {
     outputRange: [0, -HEADER_HEIGHT],
   });
 
-  //   const [getStatus, status] = useLazyQuery(GET_STATUS_QUERY);
+  const [getRoutes, routes] = useLazyQuery(GET_ROUTES);
+  console.log(routes);
 
-  //   React.useEffect(() => {
-  //     const unsubscribe = navigation.addListener('focus', () => {
-  //       getStatus();
-  //     });
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getRoutes();
+    });
 
-  //     return unsubscribe;
-  //   }, [navigation, getStatus]);
+    return unsubscribe;
+  }, [navigation, getRoutes]);
+
+  function compareProgress(a, b) {
+    return (
+      (a.progress === null) - (b.progress === null) ||
+      +(a.progress > b.progress) ||
+      -(a.progress < b.progress)
+    );
+  }
+
+  const renderRoutes = () => {
+    const {
+      availableRoutes,
+      currentRoutes,
+      archivedRoutes,
+    } = routes.data.getRoutes;
+
+    const suggestedRoutes = [];
+    const otherRoutes = [];
+    const mergedRoutes = [...availableRoutes, ...currentRoutes];
+    mergedRoutes.forEach((route) => {
+      if (route.isSuggested) {
+        return suggestedRoutes.push(route);
+      }
+      return otherRoutes.push(route);
+    });
+
+    suggestedRoutes.sort(compareProgress);
+    otherRoutes.sort(compareProgress);
+
+    return (
+      <React.Fragment>
+        {suggestedRoutes.length > 0 && (
+          <React.Fragment>
+            <Title style={styles.title}>Aanbevolen</Title>
+            {suggestedRoutes.map((route) => (
+              <RouteCard
+                navigation={navigation}
+                route={route}
+                key={route.routeId}
+              />
+            ))}
+          </React.Fragment>
+        )}
+        {otherRoutes.length > 0 && (
+          <React.Fragment>
+            <Title
+              style={
+                suggestedRoutes.length > 0 ? styles.subTitle : styles.title
+              }>
+              Andere life events
+            </Title>
+            {otherRoutes.map((route) => (
+              <RouteCard
+                navigation={navigation}
+                route={route}
+                key={route.routeId}
+              />
+            ))}
+          </React.Fragment>
+        )}
+      </React.Fragment>
+    );
+  };
 
   return (
     <Container style={styles.container}>
@@ -88,12 +160,8 @@ const RouteHomeScreen = ({navigation}) => {
         scrollEventThrottle={16}
         contentContainerStyle={styles.content}>
         <ContentLayout>
-          <Title style={styles.title}>Aanbevolen</Title>
-          <RouteCard navigation={navigation} />
-          <Title style={styles.subTitle}>Andere life events</Title>
-          <RouteCard navigation={navigation} />
-          <RouteCard navigation={navigation} />
-          <RouteCard navigation={navigation} />
+          {routes.loading && <ActivityIndicator />}
+          {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>
       <View style={styles.underLayer} />
