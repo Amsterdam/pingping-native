@@ -1,7 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../lib/colors';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const CIRCLE_RADIUS = 30;
 
@@ -21,6 +23,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 15,
   },
+  circleDisabled: {
+    backgroundColor: appColors.subtleGrey,
+  },
   label: {
     color: '#fff',
     fontSize: 14,
@@ -28,24 +33,43 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
   },
+  disabled: {
+    color: appColors.subtleGrey,
+    fontSize: 16,
+  },
   background: {
     backgroundColor: 'rgba(191, 233, 238, 0.3)',
   },
+  icon: {
+    color: '#fff',
+    fontSize: 12,
+  },
 });
 
-const RouteTaskRow = ({step, index, navigation}) => {
+const RouteTaskRow = ({task: {task, status}, index, navigation}) => {
+  const isCompleted = status === 'Completed';
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate('TaskScreen', {
-          task: {title: step, description: '1231231'},
+          task: {title: task.title, description: task.description},
         })
       }>
       <View style={[styles.container, index % 2 === 0 && styles.background]}>
-        <View style={styles.circleStepIndicator}>
-          <Title style={styles.label}>{index}</Title>
+        <View
+          style={[
+            styles.circleStepIndicator,
+            isCompleted && styles.circleDisabled,
+          ]}>
+          {isCompleted ? (
+            <Icon name="check" type="Entypo" style={styles.icon} />
+          ) : (
+            <Title style={styles.label}>{index}</Title>
+          )}
         </View>
-        <Title style={styles.title}>{step}</Title>
+        <Title style={isCompleted ? styles.disabled : styles.title}>
+          {task.title}
+        </Title>
       </View>
     </TouchableOpacity>
   );

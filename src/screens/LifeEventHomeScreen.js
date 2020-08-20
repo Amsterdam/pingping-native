@@ -67,7 +67,6 @@ const RouteHomeScreen = ({navigation}) => {
   });
 
   const [getRoutes, routes] = useLazyQuery(GET_ROUTES);
-  console.log(routes);
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -78,11 +77,7 @@ const RouteHomeScreen = ({navigation}) => {
   }, [navigation, getRoutes]);
 
   function compareProgress(a, b) {
-    return (
-      (a.progress === null) - (b.progress === null) ||
-      +(a.progress > b.progress) ||
-      -(a.progress < b.progress)
-    );
+    return b.progress - a.progress;
   }
 
   const renderRoutes = () => {
@@ -110,11 +105,11 @@ const RouteHomeScreen = ({navigation}) => {
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
             <Title style={styles.title}>Aanbevolen</Title>
-            {suggestedRoutes.map((route) => (
+            {suggestedRoutes.map((lifeEvent) => (
               <RouteCard
                 navigation={navigation}
-                route={route}
-                key={route.routeId}
+                lifeEvent={lifeEvent}
+                key={lifeEvent.routeId}
               />
             ))}
           </React.Fragment>
@@ -127,11 +122,11 @@ const RouteHomeScreen = ({navigation}) => {
               }>
               Andere life events
             </Title>
-            {otherRoutes.map((route) => (
+            {otherRoutes.map((lifeEvent) => (
               <RouteCard
                 navigation={navigation}
-                route={route}
-                key={route.routeId}
+                lifeEvent={lifeEvent}
+                key={lifeEvent.routeId}
               />
             ))}
           </React.Fragment>

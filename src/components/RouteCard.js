@@ -59,33 +59,48 @@ const styles = StyleSheet.create({
   },
 });
 
-const RouteCard = ({navigation, route}) => {
+const RouteCard = ({
+  navigation,
+  lifeEvent: {
+    routeId,
+    totalPoints,
+    targetAudience,
+    title,
+    description,
+    numberOfSteps,
+    progress,
+  },
+}) => {
   return (
     <View style={styles.paper}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('LifeEventDetailsScreen')}>
+        onPress={() =>
+          navigation.navigate('LifeEventDetailsScreen', {
+            routeId,
+          })
+        }>
         <View>
           <View style={styles.imageContainer}>
             <Image source={exampleImage} style={styles.image} />
             <View style={styles.overlayTop}>
-              <CitypingsChip value={route.totalPoints} />
+              <CitypingsChip value={totalPoints} />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
-            <Body style={styles.rewardType}>{route.targetAudience}</Body>
-            <Title style={styles.title}>{route.title}</Title>
-            <Body style={styles.description}>{route.description}</Body>
+            <Body style={styles.rewardType}>{targetAudience}</Body>
+            <Title style={styles.title}>{title}</Title>
+            <Body style={styles.description}>{description}</Body>
             <View style={styles.balanceContainer}>
               <View style={styles.saldo}>
                 <Body
                   style={styles.savings}
                   ellipsizeMode="tail"
                   numberOfLines={3}>
-                  {route.numberOfSteps} stappen
+                  {numberOfSteps} stappen
                 </Body>
               </View>
               <Progress.Bar
-                progress={route.progress}
+                progress={progress}
                 width={50}
                 color={appColors.secondary}
                 unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
