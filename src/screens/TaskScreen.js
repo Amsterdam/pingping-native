@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {Content, Container} from 'native-base';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {useMutation} from '@apollo/client';
 import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
+import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
 import {appColors} from '../lib/colors';
-import {ScrollView} from 'react-native-gesture-handler';
 import WebViewModal from '../components/modals/WebViewModal';
 
 const styles = StyleSheet.create({
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 });
 
 const TaskScreen = ({navigation, route}) => {
-  const {task} = route.params;
+  const {task, routeId} = route.params;
   const [toggleModal] = useMutation(TOGGLE_MODAL);
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
@@ -63,12 +63,12 @@ const TaskScreen = ({navigation, route}) => {
     // update points
     // navigate to homescreen
     // show modal
-    navigation.navigate('LifeEventHomeScreen');
-    toggleModal({
-      variables: {
-        pings: 20,
-      },
-    });
+    navigation.goBack();
+    // toggleModal({
+    //   variables: {
+    //     pings: 20,
+    //   },
+    // });
   };
 
   const linkPressed = (event, href) => {
@@ -83,7 +83,11 @@ const TaskScreen = ({navigation, route}) => {
   return (
     <React.Fragment>
       <Container>
-        <LabeledHeader filledHeader navigation={navigation} title="" />
+        <LabeledHeader
+          filledHeader
+          navigation={navigation}
+          title={task.headerTitle}
+        />
         <Content contentContainerStyle={styles.contentContainer}>
           <YouTube
             videoId="ZG0vCfivpQ8" // The YouTube video ID

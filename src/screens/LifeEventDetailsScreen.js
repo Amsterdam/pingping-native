@@ -106,7 +106,25 @@ function LifeEventDetailsScreen({navigation, route}) {
       title,
       description,
     } = data.getRoute;
-    console.log(data.getRoute);
+
+    const startTasks = () => {
+      const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
+      const taskList = [];
+      if (tasksToDo.length > 0) {
+        tasksToDo.forEach((task) => {
+          taskList.push(task.task);
+        });
+
+        navigation.navigate('TaskScreen', {
+          routeId,
+          task: {
+            ...taskList[0],
+          },
+        });
+      }
+      return;
+    };
+
     return (
       <Container>
         <ScrollView>
@@ -144,6 +162,7 @@ function LifeEventDetailsScreen({navigation, route}) {
           <View>
             {tasks.map((task, index) => (
               <RouteTaskRow
+                routeId={routeId}
                 key={task.task.taskId}
                 task={task}
                 index={index + 1}
@@ -157,7 +176,7 @@ function LifeEventDetailsScreen({navigation, route}) {
         </ScrollView>
         <View style={styles.buttonContainer}>
           <Body stlye={styles.balanceIndicatorText}>Begin bij het begin</Body>
-          <Button style={styles.button} disabled label="Let's Go" />
+          <Button style={styles.button} label="Let's Go" onPress={startTasks} />
         </View>
       </Container>
     );

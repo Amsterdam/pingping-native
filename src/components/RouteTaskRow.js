@@ -46,15 +46,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const RouteTaskRow = ({task: {task, status}, index, navigation}) => {
+const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
   const isCompleted = status === 'Completed';
+
+  const doNavigate = () => {
+    navigation.navigate('TaskScreen', {
+      routeId,
+      task: {
+        ...task,
+      },
+    });
+  };
+
   return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('TaskScreen', {
-          task: {title: task.title, description: task.description},
-        })
-      }>
+    <TouchableOpacity onPress={doNavigate}>
       <View style={[styles.container, index % 2 === 0 && styles.background]}>
         <View
           style={[

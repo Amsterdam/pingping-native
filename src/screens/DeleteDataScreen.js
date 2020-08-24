@@ -42,7 +42,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
     try {
       await deleteUser({
         variables: {
-          confirm: 'asda',
+          confirm: 'delete',
         },
       });
       await AsyncStorage.removeItem('@acceptedPolicy');

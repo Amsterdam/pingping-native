@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
 const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId},
+  balance = 0,
 }) => {
-  const balance = 10;
   return (
     <View style={styles.paper}>
       <TouchableOpacity
