@@ -72,12 +72,14 @@ const QuestionScreen = ({navigation}) => {
 
     const submitAnswer = async () => {
       let answer = '';
+
       answer = state.answerSelected;
+
       if (currentTask.type === 'DateOfBirth') {
         answer = `${state.year}-${state.month}-${state.day}`;
       }
       try {
-        const taskResp = await updateTask({
+        await updateTask({
           variables: {
             answer,
             taskId: currentTask.taskId,
@@ -88,10 +90,9 @@ const QuestionScreen = ({navigation}) => {
             },
           ],
         });
-        console.log({taskResp});
         setState(INITIAL_STATE);
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
+        console.log(e);
       }
     };
 
@@ -111,7 +112,7 @@ const QuestionScreen = ({navigation}) => {
           <Right>
             <View>
               <Progress.Bar
-                progress={0.4}
+                progress={data.getStatus.currentTask.task.progress}
                 width={50}
                 color={appColors.secondary}
                 unfilledColor={ppBaseColors.PP_LIGHT_GRAY}

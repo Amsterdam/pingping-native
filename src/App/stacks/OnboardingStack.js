@@ -10,7 +10,7 @@ import ImportDataScreen from '../../screens/ImportDataScreen';
 const Stack = createStackNavigator();
 
 const OnboardingStack = ({setLogin}) => (
-  <Stack.Navigator initialRouteName="Landing" headerMode="none">
+  <Stack.Navigator initialRouteName="OnboardingScreen" headerMode="none">
     <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
     <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
     <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PrivacyPolicyScreen = ({view, buttonAction, isLastItem, navigation}) => {
+const PrivacyPolicyScreen = ({navigation}) => {
   const [open, setOpen] = React.useState(false);
   const [policyAccepted, setPolicy] = React.useState(true);
 

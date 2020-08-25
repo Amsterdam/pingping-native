@@ -39,6 +39,13 @@ const styles = StyleSheet.create({
 });
 
 const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
+  const navigator = () => {
+    if (isLastItem) {
+      return navigation.navigate('PrivacyPolicyScreen');
+    }
+    return buttonAction.scrollBy(1);
+  };
+
   return (
     <View style={styles.viewContainer}>
       <View>{view.svg}</View>
@@ -49,11 +56,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
       <View style={styles.buttonContainer}>
         <Button
           style={styles.button}
-          onPress={() =>
-            isLastItem
-              ? navigation.navigate('PrivacyPolicyScreen')
-              : buttonAction.scrollBy(1)
-          }
+          onPress={navigator}
           label={view.buttonLabel}
         />
       </View>
