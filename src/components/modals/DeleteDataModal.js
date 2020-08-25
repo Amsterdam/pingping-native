@@ -7,7 +7,7 @@ import Body from '../typography/Body';
 import OnboardingButton from '../OnboardingButton';
 import {appColors} from '../../lib/colors';
 
-const DeleteDataModal = ({open, setOpen, doDeleteUser}) => {
+const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
   function closeModal() {
     setOpen(false);
   }
@@ -39,6 +39,8 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser}) => {
                 style={styles.button}
                 label="Niet verwijderen"
                 onPress={closeModal}
+                loading={loading}
+                disabled={loading}
               />
               <OnboardingButton
                 iconName="delete"
@@ -46,6 +48,8 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser}) => {
                 style={[styles.button, styles.removeButton]}
                 label="Verwijder mijn gegevens"
                 onPress={doDeleteUser}
+                loading={loading}
+                disabled={loading}
               />
             </View>
           </View>

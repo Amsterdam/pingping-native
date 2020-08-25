@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Button, Text, Icon} from 'native-base';
 import {appColors, ppBaseColors} from '../lib/colors';
 
@@ -41,6 +41,7 @@ const OnboardingButton = ({
   iconName = null,
   iconType = null,
   style = {},
+  loading = false,
 }) => {
   return (
     <Button
@@ -56,7 +57,11 @@ const OnboardingButton = ({
         {iconName && iconType && (
           <Icon name={iconName} type={iconType} style={styles.icon} />
         )}
-        <Text style={styles.label}>{label}</Text>
+        {loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.label}>{label}</Text>
+        )}
       </View>
     </Button>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -39,8 +40,12 @@ const styles = StyleSheet.create({
 });
 
 const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
-  const navigator = () => {
+  const navigator = async () => {
     if (isLastItem) {
+      const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
+      if (acceptedPolicy) {
+        return navigation.navigate('WelcomeScreen');
+      }
       return navigation.navigate('PrivacyPolicyScreen');
     }
     return buttonAction.scrollBy(1);

@@ -11,60 +11,61 @@ import GET_MODAL_STATE from '../../apollo/Query/getModalState';
 import TOGGLE_MODAL from '../../apollo/Mutation/toggleModal';
 
 const CityPingsModal = ({navigation}) => {
-  const {
-    data: {modalOpen, pings},
-  } = useQuery(GET_MODAL_STATE);
-
+  const {data} = useQuery(GET_MODAL_STATE);
   const [toggleModal] = useMutation(TOGGLE_MODAL);
 
   const doNavigation = () => {
     toggleModal();
     navigation.navigate('CityPings', {screen: 'CityPingsHome'});
   };
-
-  return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalOpen}
-      statusBarTranslucent>
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <View style={styles.modalContainer}>
-            <Button
-              rounded
-              transparent
-              style={styles.closeButton}
-              onPress={() => toggleModal()}>
-              <Icon name="close" type="AntDesign" style={styles.icon} />
-            </Button>
-            <Title style={styles.mainTitle} align="center">
-              Top! <Title>je hebt {pings} City Pings verdiend </Title>
-            </Title>
-            <MoneyBill style={styles.moneyBill} />
-            <View style={styles.logoContainer}>
-              <View style={styles.logoSubContainer}>
-                <CityPingsLogo />
-                <Title style={styles.cityPingsValue}>{pings}</Title>
-              </View>
-              <Title align="center" style={styles.cityPingsLabel}>
-                City Pings
+  if (data) {
+    const {modalOpen, pings} = data;
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalOpen}
+        statusBarTranslucent>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <View style={styles.modalContainer}>
+              <Button
+                rounded
+                transparent
+                style={styles.closeButton}
+                onPress={() => toggleModal()}>
+                <Icon name="close" type="AntDesign" style={styles.icon} />
+              </Button>
+              <Title style={styles.mainTitle} align="center">
+                Top! <Title>je hebt {pings} City Pings verdiend </Title>
               </Title>
+              <MoneyBill style={styles.moneyBill} />
+              <View style={styles.logoContainer}>
+                <View style={styles.logoSubContainer}>
+                  <CityPingsLogo />
+                  <Title style={styles.cityPingsValue}>{pings}</Title>
+                </View>
+                <Title align="center" style={styles.cityPingsLabel}>
+                  City Pings
+                </Title>
+              </View>
+              <Body align="center">
+                Gefeliciteerd, je hebt {pings} City Pings verdiend. Hierdoor kan
+                je meteen je eerste reward verzilveren! Ga naar “claim je
+                reward".
+              </Body>
             </View>
-            <Body align="center">
-              Gefeliciteerd, je hebt {pings} City Pings verdiend. Hierdoor kan
-              je meteen je eerste reward verzilveren! Ga naar “claim je reward".
-            </Body>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={doNavigation}>
-              <Title style={styles.buttonLabel}>bekijk mijn citypings</Title>
-            </TouchableOpacity>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={doNavigation}>
+                <Title style={styles.buttonLabel}>bekijk mijn citypings</Title>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
-    </Modal>
-  );
+      </Modal>
+    );
+  }
+  return <React.Fragment />;
 };
 
 const styles = StyleSheet.create({

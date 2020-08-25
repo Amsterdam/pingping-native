@@ -2,50 +2,66 @@ import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-import {useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
-import _registerDevice from '../utils/registerDevice';
+import registerDeviceHelper from '../utils/registerDevice';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
+  const {data, error, loading} = useQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'no-cache',
+  });
 
   React.useEffect(() => {
     // clear token for testing purposes
     // AsyncStorage.clear();
     async function getToken() {
-      try {
-        const token = await AsyncStorage.getItem('@access_token');
-        if (token !== null) {
-          SplashScreen.hide(); // hides the splashscreen after bundle load, prevents the flashing splashscreen bug
-          setLoggedIn(true);
-          return null;
+      const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
+      if (!token) {
+        await registerDeviceHelper(registerDevice); // REGISTER DEVICE IF THERE IS NO TOKEN
+        console.log('GETTING TOKEN');
+        return;
+      }
+      if (!data && error) {
+        ('NO IDEA HOW I GOT HERE');
+        registerDeviceHelper(registerDevice); // IF I HAVE A TOKEN BUT IT IS NOT CORRECT, GET A NEW ONE
+        return;
+      }
+      if (data && data.getStatus && !error && !loading) {
+        if (data.getStatus.currentTask) {
+          console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
+          SplashScreen.hide(); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, SEND ME TO THE ONBOARDING
+          return;
         }
-        _registerDevice(registerDevice);
         SplashScreen.hide();
-      } catch (e) {
-        // error reading value
-        console.log(e);
+        return setLogin(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
       }
     }
     getToken();
-  }, [registerDevice]);
+  }, [registerDevice, data, error, loading, loggedIn]);
+
   // here we should check if the user can skip onboarding yes/no
   const setLogin = async () => {
     setLoggedIn(true);
+  };
+
+  const setLogOut = async () => {
+    setLoggedIn(false);
   };
 
   return (
     <NavigationContainer>
       {loggedIn ? (
         <PushNotificationService>
-          <TabNavigator setLogin={setLoggedIn} />
+          <TabNavigator setLogin={setLogOut} />
         </PushNotificationService>
       ) : (
-        <OnboardingStack setLogin={setLogin} />
+        <OnboardingStack setLogin={setLoggedIn} />
       )}
     </NavigationContainer>
   );

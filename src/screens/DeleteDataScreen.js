@@ -36,18 +36,24 @@ const styles = StyleSheet.create({
 
 const DeleteDataScreen = ({navigation, setLogin}) => {
   const [open, setOpen] = useState(false);
-  const [deleteUser] = useMutation(DELETE_USER_MUTATION);
+  const [loading, setLoading] = useState(false);
+  const [deleteUser, {client}] = useMutation(DELETE_USER_MUTATION);
 
   const doDeleteUser = async () => {
+    setLoading(true);
     try {
       await deleteUser({
         variables: {
           confirm: 'delete',
         },
       });
+      client.resetStore();
       await AsyncStorage.clear();
       setLogin(false);
-    } catch (error) {}
+    } catch (e) {
+      setLoading(false);
+      console.log(e);
+    }
   };
 
   return (
@@ -86,6 +92,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
         setLogin={setLogin}
         navigation={navigation}
         doDeleteUser={doDeleteUser}
+        loading={loading}
       />
     </Container>
   );
