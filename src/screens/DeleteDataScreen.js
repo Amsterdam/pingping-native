@@ -45,7 +45,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
           confirm: 'delete',
         },
       });
-      await AsyncStorage.removeItem('@acceptedPolicy');
+      await AsyncStorage.clear();
       setLogin(false);
     } catch (error) {}
   };
