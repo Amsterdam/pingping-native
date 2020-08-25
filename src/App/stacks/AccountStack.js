@@ -8,19 +8,19 @@ import ExportDataScreen from '../../screens/ExportDataScreen';
 
 const Stack = createStackNavigator();
 
-const AccountStack = ({setLogin}) => (
+const AccountStack = ({setLogOut}) => (
   <Stack.Navigator initialRouteName="AccountHome" headerMode="none">
     <Stack.Screen name="AccountHome" component={AccountHomeScreen} />
     <Stack.Screen name="ViewPrivacy" component={PrivacyPolicyScreen} />
     <Stack.Screen name="DeleteData">
-      {(props) => <DeleteDataScreen {...props} setLogin={setLogin} />}
+      {(props) => <DeleteDataScreen {...props} setLogOut={setLogOut} />}
     </Stack.Screen>
     <Stack.Screen name="ExportData" component={ExportDataScreen} />
   </Stack.Navigator>
 );
 
 AccountStack.propTypes = {
-  setLogin: PropTypes.func.isRequired,
+  setLogOut: PropTypes.func.isRequired,
 };
 
 export default AccountStack;

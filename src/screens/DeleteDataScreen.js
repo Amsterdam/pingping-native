@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeleteDataScreen = ({navigation, setLogin}) => {
+const DeleteDataScreen = ({navigation, setLogOut}) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [deleteUser, {client}] = useMutation(DELETE_USER_MUTATION);
@@ -49,7 +49,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
       });
       client.resetStore();
       await AsyncStorage.clear();
-      setLogin(false);
+      setLogOut();
     } catch (e) {
       setLoading(false);
       console.log(e);
@@ -89,7 +89,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
       <DeleteDataModal
         open={open}
         setOpen={setOpen}
-        setLogin={setLogin}
+        setLogOut={setLogOut}
         navigation={navigation}
         doDeleteUser={doDeleteUser}
         loading={loading}
@@ -100,7 +100,7 @@ const DeleteDataScreen = ({navigation, setLogin}) => {
 
 DeleteDataScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
-  setLogin: PropTypes.func.isRequired,
+  setLogOut: PropTypes.func.isRequired,
 };
 
 export default DeleteDataScreen;

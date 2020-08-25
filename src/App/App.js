@@ -45,7 +45,6 @@ export default function App() {
     getToken();
   }, [registerDevice, data, error, loading, loggedIn]);
 
-  // here we should check if the user can skip onboarding yes/no
   const setLogin = async () => {
     setLoggedIn(true);
   };
@@ -58,7 +57,7 @@ export default function App() {
     <NavigationContainer>
       {loggedIn ? (
         <PushNotificationService>
-          <TabNavigator setLogin={setLogOut} />
+          <TabNavigator setLogOut={setLogOut} />
         </PushNotificationService>
       ) : (
         <OnboardingStack setLogin={setLoggedIn} />

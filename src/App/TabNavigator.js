@@ -10,7 +10,7 @@ import {appColors} from '../lib/colors';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = ({setLogin}) => (
+const TabNavigator = ({setLogOut}) => (
   <Tab.Navigator
     initialRouteName="Routes"
     tabBarOptions={{
@@ -74,13 +74,13 @@ const TabNavigator = ({setLogin}) => (
           />
         ),
       }}>
-      {(props) => <AccountStack {...props} setLogin={setLogin} />}
+      {(props) => <AccountStack {...props} setLogOut={setLogOut} />}
     </Tab.Screen>
   </Tab.Navigator>
 );
 
 TabNavigator.propTypes = {
-  setLogin: PropTypes.func.isRequired,
+  setLogOut: PropTypes.func.isRequired,
 };
 
 export default TabNavigator;

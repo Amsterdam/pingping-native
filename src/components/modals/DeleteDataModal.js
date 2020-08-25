@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
 
 DeleteDataModal.propTypes = {
   navigation: PropTypes.object.isRequired,
-  setLogin: PropTypes.func.isRequired,
 };
 
 export default DeleteDataModal;
