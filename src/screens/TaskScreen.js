@@ -6,6 +6,7 @@ import HTML from 'react-native-render-html';
 import {useMutation} from '@apollo/client';
 import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
+import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
@@ -54,15 +55,25 @@ const styles = StyleSheet.create({
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
   const [toggleModal] = useMutation(TOGGLE_MODAL);
+  const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
 
-  const completeTask = () => {
+  const doCompleteTask = async () => {
     // refetch queries here
     // update completed status
     // update points
     // navigate to homescreen
     // show modal
+    await completeTask({
+      variables: {taskId: task.taskId},
+      refetchQueries: [
+        {
+          query: GET_ROUTE_QUERY,
+          variables: {routeId},
+        },
+      ],
+    });
     navigation.goBack();
     // toggleModal({
     //   variables: {
@@ -113,7 +124,7 @@ const TaskScreen = ({navigation, route}) => {
         </Content>
         <View style={styles.buttonContainer}>
           <Button style={styles.buttonHelp} label="Hulp nodig?" />
-          <Button label="Gelukt!" onPress={completeTask} />
+          <Button label="Gelukt!" onPress={doCompleteTask} />
         </View>
       </Container>
 

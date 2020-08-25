@@ -1,8 +1,9 @@
 import {ApolloClient, createHttpLink, InMemoryCache, gql} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
-import GET_MODAL_STATE from './Query/getModalState';
 import unfetch from 'unfetch';
+import GET_MODAL_STATE from './Query/getModalState';
+import {API_URL} from '../lib/initialSettings';
 
 const inMemoryCache = new InMemoryCache();
 
@@ -20,7 +21,7 @@ const authLink = setContext(async (_, {headers}) => {
 });
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000',
+  uri: API_URL,
   fetch: unfetch,
 });
 
