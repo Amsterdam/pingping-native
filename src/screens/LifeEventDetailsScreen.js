@@ -106,9 +106,8 @@ function LifeEventDetailsScreen({navigation, route}) {
       title,
       description,
     } = data.getRoute;
-
+    const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
     const startTasks = () => {
-      const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
       const taskList = [];
       if (tasksToDo.length > 0) {
         tasksToDo.forEach((task) => {
@@ -175,8 +174,22 @@ function LifeEventDetailsScreen({navigation, route}) {
           </View>
         </ScrollView>
         <View style={styles.buttonContainer}>
-          <Body stlye={styles.balanceIndicatorText}>Begin bij het begin</Body>
-          <Button style={styles.button} label="Let's Go" onPress={startTasks} />
+          {tasksToDo.length === 0 ? (
+            <Body stlye={styles.balanceIndicatorText}>
+              Je hebt alle taken afgerond
+            </Body>
+          ) : (
+            <React.Fragment>
+              <Body stlye={styles.balanceIndicatorText}>
+                Begin bij het begin
+              </Body>
+              <Button
+                style={styles.button}
+                label="Let's Go"
+                onPress={startTasks}
+              />
+            </React.Fragment>
+          )}
         </View>
       </Container>
     );

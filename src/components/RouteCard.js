@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {BASE_URL} from '../lib/initialSettings';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
-import exampleImage from '../assets/exampleImage.png';
 import {ppBaseColors, appColors} from '../lib/colors';
 import * as Progress from 'react-native-progress';
 import CitypingsChip from '../components/CitypingsChip';
@@ -69,6 +69,7 @@ const RouteCard = ({
     description,
     numberOfSteps,
     progress,
+    coverImageUrl,
   },
 }) => {
   return (
@@ -81,7 +82,10 @@ const RouteCard = ({
         }>
         <View>
           <View style={styles.imageContainer}>
-            <Image source={exampleImage} style={styles.image} />
+            <Image
+              source={{uri: `${BASE_URL}${coverImageUrl}`}}
+              style={styles.image}
+            />
             <View style={styles.overlayTop}>
               <CitypingsChip value={totalPoints} />
             </View>
