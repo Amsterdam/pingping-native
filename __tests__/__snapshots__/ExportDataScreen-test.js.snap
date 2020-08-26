@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       emulateUnlessSupported={true}
       style={
         Object {
-          "backgroundColor": "#fff",
+          "backgroundColor": "#0d2036",
         }
       }
     >
@@ -43,90 +43,146 @@ exports[`renders correctly 1`] = `
               "top": 0,
             },
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#fff",
-              "justifyContent": "flex-start",
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#0d2036",
             },
           ]
         }
         transparent={true}
       >
         <View
-          accessible={true}
-          focusable={true}
-          forwardedRef={[Function]}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "transparent",
-              "borderBottomWidth": null,
-              "borderColor": "#007aff",
-              "borderLeftWidth": null,
-              "borderRadius": 5,
-              "borderRightWidth": null,
-              "borderTopWidth": null,
-              "borderWidth": undefined,
-              "elevation": 0,
-              "flexDirection": "row",
-              "height": 45,
-              "justifyContent": "center",
-              "opacity": 1,
-              "paddingBottom": 6,
-              "paddingLeft": 6,
-              "paddingRight": 6,
-              "paddingTop": 6,
-              "shadowColor": null,
-              "shadowOffset": null,
-              "shadowOpacity": null,
-              "shadowRadius": null,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "center",
+                "flex": 1,
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
           }
         >
-          <Text
-            allowFontScaling={false}
+          <View
+            accessible={true}
+            focusable={true}
+            forwardedRef={[Function]}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
+              Object {
+                "alignItems": "center",
+                "alignSelf": null,
+                "backgroundColor": "transparent",
+                "borderBottomWidth": null,
+                "borderColor": null,
+                "borderLeftWidth": null,
+                "borderRadius": 5,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": undefined,
+                "elevation": 0,
+                "flexDirection": "row",
+                "height": 45,
+                "justifyContent": "space-between",
+                "marginLeft": -3,
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingLeft": 4,
+                "paddingRight": 6,
+                "paddingTop": 6,
+                "shadowColor": null,
+                "shadowOffset": null,
+                "shadowOpacity": null,
+                "shadowRadius": null,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
                 Array [
                   Object {
-                    "color": "#000",
-                    "fontSize": 30,
+                    "color": undefined,
+                    "fontSize": 12,
                   },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#007aff",
+                      "fontSize": 34,
+                      "marginLeft": 1,
+                      "marginRight": 2,
+                      "marginTop": 0,
+                      "paddingTop": 1,
+                    },
+                    Object {
+                      "color": "#fff",
+                    },
+                  ],
                   Object {
-                    "color": "#007aff",
-                    "fontSize": 24,
-                    "marginLeft": 16,
-                    "marginRight": 16,
-                    "paddingTop": 2,
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                   },
-                  Object {
-                    "color": "#000",
-                  },
-                ],
-                Object {
-                  "fontFamily": "anticon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-            type="AntDesign"
-          >
-            
-          </Text>
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
+          </View>
         </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#fff",
+                "fontFamily": "Heavitas",
+                "fontSize": 14,
+                "marginTop": 5,
+                "textAlign": "left",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Profiel
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
+          }
+        />
       </View>
     </RCTSafeAreaView>
   </View>
@@ -222,43 +278,27 @@ exports[`renders correctly 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontFamily": "System",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "marginBottom": 30,
-                  "textAlign": "left",
-                },
-              ]
+              Object {
+                "fontFamily": "Raleway",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginBottom": 30,
+                "textAlign": "left",
+              }
             }
-            uppercase={false}
           >
             Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en prestaties op Ping Ping verloren gaan!
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontFamily": "System",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "marginBottom": 30,
-                  "textAlign": "left",
-                },
-              ]
+              Object {
+                "fontFamily": "Raleway",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginBottom": 30,
+                "textAlign": "left",
+              }
             }
-            uppercase={false}
           >
             Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Kopieer de UUID (Universally Unique Identifier) hieronder en plak hem in de 'importeer gegevens' pagina op jouw nieuwe device!
           </Text>

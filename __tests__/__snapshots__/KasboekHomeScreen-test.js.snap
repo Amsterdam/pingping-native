@@ -177,21 +177,13 @@ exports[`renders correctly 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "fontFamily": "Raleway",
-                    "fontSize": 15,
-                    "lineHeight": 25,
-                    "textAlign": "left",
-                  },
-                ]
+                Object {
+                  "fontFamily": "Raleway",
+                  "fontSize": 15,
+                  "lineHeight": 25,
+                  "textAlign": "left",
+                }
               }
-              uppercase={false}
             >
               Je hebt nog geen goals opgesteld
             </Text>
@@ -215,21 +207,13 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "System",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "fontFamily": "Raleway",
-                        "fontSize": 15,
-                        "lineHeight": 25,
-                        "textAlign": "left",
-                      },
-                    ]
+                    Object {
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    }
                   }
-                  uppercase={false}
                 >
                   Nieuwe goals
                 </Text>
@@ -262,21 +246,13 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "System",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "fontFamily": "Raleway",
-                        "fontSize": 15,
-                        "lineHeight": 25,
-                        "textAlign": "left",
-                      },
-                    ]
+                    Object {
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    }
                   }
-                  uppercase={false}
                 >
                   Bijna afgerond
                 </Text>
@@ -309,21 +285,13 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontFamily": "System",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "fontFamily": "Raleway",
-                        "fontSize": 15,
-                        "lineHeight": 25,
-                        "textAlign": "left",
-                      },
-                    ]
+                    Object {
+                      "fontFamily": "Raleway",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                      "textAlign": "left",
+                    }
                   }
-                  uppercase={false}
                 >
                   afgerond
                 </Text>

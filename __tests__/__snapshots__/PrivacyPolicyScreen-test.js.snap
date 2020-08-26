@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       emulateUnlessSupported={true}
       style={
         Object {
-          "backgroundColor": "#fff",
+          "backgroundColor": "#0d2036",
         }
       }
     >
@@ -44,7 +44,10 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "alignItems": "center",
-              "backgroundColor": "#fff",
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#0d2036",
             },
           ]
         }
@@ -52,11 +55,16 @@ exports[`renders correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "alignSelf": "center",
-              "flex": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "center",
+                "flex": 1,
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
           }
         >
           <View
@@ -121,7 +129,7 @@ exports[`renders correctly 1`] = `
                       "paddingTop": 1,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#fff",
                     },
                   ],
                   Object {
@@ -147,26 +155,32 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fb9f00",
+                "color": "#fff",
                 "fontFamily": "Heavitas",
                 "fontSize": 14,
+                "marginTop": 5,
                 "textAlign": "left",
               },
             ]
           }
           uppercase={false}
         >
-          PRIVACY
+          Privacy
         </Text>
         <View
           style={
-            Object {
-              "alignItems": "flex-end",
-              "alignSelf": "center",
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "flex-end",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
           }
         />
       </View>
@@ -703,22 +717,14 @@ exports[`renders correctly 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": undefined,
-                    "fontFamily": "Raleway",
-                    "fontSize": 14,
-                    "lineHeight": 25,
-                    "textAlign": "center",
-                  },
-                ]
+                Object {
+                  "color": undefined,
+                  "fontFamily": "Raleway",
+                  "fontSize": 14,
+                  "lineHeight": 25,
+                  "textAlign": "center",
+                }
               }
-              uppercase={false}
             >
               Om Ping Ping optimaal te laten functioneren verzamelen wij door het proces heen informatie. Klik hieronder om meer kennis te krijgen over welke informatie wij verzamelen en wat wij met deze informatie doen.
             </Text>

@@ -18,8 +18,6 @@ export default function App() {
   });
 
   React.useEffect(() => {
-    // clear token for testing purposes
-    // AsyncStorage.clear();
     async function getToken() {
       const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
       if (!token) {
@@ -34,6 +32,7 @@ export default function App() {
       }
       if (data && data.getStatus && !error && !loading) {
         if (data.getStatus.currentTask) {
+          // check if decision is made
           console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
           SplashScreen.hide(); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, SEND ME TO THE ONBOARDING
           return;
