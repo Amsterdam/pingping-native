@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 32,
   },
+  flex: {flex: 1},
 });
 
 const INITIAL_STATE = {
@@ -100,7 +101,7 @@ const QuestionScreen = ({navigation}) => {
       <Container>
         <Header style={styles.header} transparent noShadow>
           <StatusBar barStyle="dark-content" />
-          <Left>
+          <Left style={styles.flex}>
             <NbButton transparent onPress={() => navigation.goBack()}>
               <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
             </NbButton>

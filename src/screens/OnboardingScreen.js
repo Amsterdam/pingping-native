@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Header, Right, Container, Left} from 'native-base';
+import {Header, Right, Container, Left, Body} from 'native-base';
 import {StyleSheet, StatusBar} from 'react-native';
 import {appColors, ppBaseColors} from '../lib/colors';
 import OnboardingItem from '../components/OnboardingItem';
@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     color: appColors.greyedOut,
     fontSize: 12,
   },
+  flex: {
+    flex: 1,
+  },
 });
 
 class OnboardingScreen extends React.Component {
@@ -67,9 +70,8 @@ class OnboardingScreen extends React.Component {
       <Container>
         <Header style={styles.header} transparent noShadow>
           <StatusBar barStyle="dark-content" />
-          <Left />
+          <Left style={styles.flex} />
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
-
           <Right>
             <TouchableOpacity
               onPress={() => navigation.navigate('ImportDataScreen')}>
