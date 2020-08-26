@@ -26,7 +26,7 @@ export default function App() {
         return;
       }
       if (!data && error) {
-        ('NO IDEA HOW I GOT HERE');
+        console.log('NO IDEA HOW I GOT HERE');
         registerDeviceHelper(registerDevice); // IF I HAVE A TOKEN BUT IT IS NOT CORRECT, GET A NEW ONE
         return;
       }
@@ -34,12 +34,12 @@ export default function App() {
         if (data.getStatus.currentTask) {
           // check if decision is made
           console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
-          SplashScreen.hide(); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, SEND ME TO THE ONBOARDING
-          return;
+          return; // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
         }
-        SplashScreen.hide();
+
         return setLogin(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
       }
+      SplashScreen.hide();
     }
     getToken();
   }, [registerDevice, data, error, loading, loggedIn]);

@@ -77,16 +77,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const steps = [
-  'Regel je woonadres',
-  'Bankrekening openen',
-  'Digid aanvragen',
-  'Zorgverzekering regelen',
-  'Zorgtoeslag aanvragen',
-  'Inkomen',
-  'Inschrijven woning',
-];
-
 function LifeEventDetailsScreen({navigation, route}) {
   const {routeId} = route.params;
   const {data, loading, error} = useQuery(GET_ROUTE_QUERY, {
@@ -105,6 +95,7 @@ function LifeEventDetailsScreen({navigation, route}) {
       tasks,
       title,
       description,
+      //   coverImageUrl,
     } = data.getRoute;
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
     const startTasks = () => {
