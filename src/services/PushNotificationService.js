@@ -1,13 +1,12 @@
 import React, {useCallback, useEffect} from 'react';
 import {Platform, View} from 'react-native';
 import {Notifications} from 'react-native-notifications';
-import {useMutation} from '@apollo/client';
-import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 
 const platform = Platform.OS;
 
 const PushNotificationManager = ({children}) => {
   useEffect(() => {
+    Notifications.registerRemoteNotifications();
     registerNotificationEvents();
     platform === 'ios' && Notifications.ios.setBadgeCount(0);
   }, [registerNotificationEvents]);

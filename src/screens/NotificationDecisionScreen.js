@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: appColors.primary,
   },
+  flex: {
+    flex: 1,
+  },
 });
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
@@ -102,8 +105,11 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
   return (
     <Container>
       <Header style={styles.header} transparent noShadow>
-        <StatusBar barStyle="dark-content" />
-        <Left />
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={appColors.background}
+        />
+        <Left style={styles.flex} />
         <Title style={styles.headerTitle}>Notificaties</Title>
         <Right>
           <TouchableOpacity onPress={declineNotifications}>

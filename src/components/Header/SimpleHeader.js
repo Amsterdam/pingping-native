@@ -17,7 +17,10 @@ const SimpleHeader = ({title}) => {
   });
   return (
     <Header style={styles.header} transparent noShadow>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={appColors.background}
+      />
       <Title style={styles.headerTitle}>{title}</Title>
     </Header>
   );

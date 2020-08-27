@@ -100,7 +100,10 @@ const QuestionScreen = ({navigation}) => {
     return (
       <Container>
         <Header style={styles.header} transparent noShadow>
-          <StatusBar barStyle="dark-content" />
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={appColors.background}
+          />
           <Left style={styles.flex}>
             <NbButton transparent onPress={() => navigation.goBack()}>
               <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
