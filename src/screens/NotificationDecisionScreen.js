@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -6,11 +6,16 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+import {useMutation} from '@apollo/client';
 import {Header, Container, Button, Text, Left, Right} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
 import Bell from '../assets/svg/Bell';
+import {Notifications} from 'react-native-notifications';
+import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
+import Loading from '../components/LoadingComponent';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -58,6 +63,42 @@ const styles = StyleSheet.create({
 });
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
+  const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
+  const [loading, setLoading] = useState(false);
+
+  const acceptNotifications = async () => {
+    Notifications.registerRemoteNotifications();
+    Notifications.events().registerRemoteNotificationsRegistered(
+      async (event) => {
+        await doRegister('Approved', event.deviceToken);
+      },
+    );
+  };
+
+  const declineNotifications = async () => {
+    await doRegister('Declined', '');
+  };
+
+  const doRegister = async (decision, token) => {
+    setLoading(true);
+    try {
+      await registerNotifications({
+        variables: {
+          deviceToken: token,
+          notificationStatus: decision,
+        },
+        refetchQueries: [
+          {
+            query: GET_STATUS_QUERY,
+          },
+        ],
+      });
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   return (
     <Container>
       <Header style={styles.header} transparent noShadow>
@@ -65,7 +106,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         <Left />
         <Title style={styles.headerTitle}>Notificaties</Title>
         <Right>
-          <TouchableOpacity onPress={setLogin}>
+          <TouchableOpacity onPress={declineNotifications}>
             <Title style={styles.headerSubButton}>Overslaan</Title>
           </TouchableOpacity>
         </Right>
@@ -82,11 +123,12 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           </Body>
         </View>
         <View style={styles.buttonContainer}>
-          <Button style={styles.button} onPress={setLogin}>
+          <Button style={styles.button} onPress={acceptNotifications}>
             <Text style={styles.buttonLabel}>Accepteren</Text>
           </Button>
         </View>
       </View>
+      {loading && <Loading />}
     </Container>
   );
 };

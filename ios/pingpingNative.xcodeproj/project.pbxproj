@@ -87,6 +87,7 @@
 		E8C58E31E3C8ED7093129FFF /* Pods-pingpingNative-pingpingNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingpingNative-pingpingNativeTests.release.xcconfig"; path = "Target Support Files/Pods-pingpingNative-pingpingNativeTests/Pods-pingpingNative-pingpingNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F5C9113F24F7E1E600C564B2 /* pingpingNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = pingpingNative.entitlements; path = pingpingNative/pingpingNative.entitlements; sourceTree = "<group>"; };
 		FE246028E556476CB5EBC79D /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		FE80586588557B9FBBCB3074 /* libPods-pingpingNative-pingpingNativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pingpingNative-pingpingNativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE923F6429BE42568DE0D877 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 		13B07FAE1A68108700A75B9A /* pingpingNative */ = {
 			isa = PBXGroup;
 			children = (
+				F5C9113F24F7E1E600C564B2 /* pingpingNative.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -785,6 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = pingpingNative/pingpingNative.entitlements;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DJNJHG547Z;
 				ENABLE_BITCODE = NO;
@@ -813,6 +816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = pingpingNative/pingpingNative.entitlements;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DJNJHG547Z;
 				INFOPLIST_FILE = pingpingNative/Info.plist;
