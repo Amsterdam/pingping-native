@@ -29,7 +29,10 @@ const LabeledHeader = ({navigation, filledHeader = false, title = 'none'}) => {
       style={[styles.header, filledHeader && styles.filledHeader]}
       transparent
       noShadow>
-      <StatusBar barStyle={filledHeader ? 'light-content' : 'dark-content'} />
+      <StatusBar
+        barStyle={filledHeader ? 'light-content' : 'dark-content'}
+        backgroundColor={appColors.headerColor}
+      />
       <Left style={styles.flex}>
         <HeaderBackButton
           color={filledHeader ? 'black' : 'white'}

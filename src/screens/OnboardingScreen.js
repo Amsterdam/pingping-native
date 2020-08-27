@@ -69,7 +69,10 @@ class OnboardingScreen extends React.Component {
     return (
       <Container>
         <Header style={styles.header} transparent noShadow>
-          <StatusBar barStyle="dark-content" />
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={appColors.background}
+          />
           <Left style={styles.flex} />
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
           <Right>
