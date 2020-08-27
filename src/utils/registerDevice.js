@@ -6,8 +6,6 @@ export default async function registerDevice(registerDeviceCallback) {
     const deviceId = DeviceInfo.getUniqueId();
     const deviceType = DeviceInfo.getDeviceType();
     const deviceOs = await DeviceInfo.getSystemName();
-    // const deviceToken = await DeviceInfo.getDeviceToken();
-    // add devicetoken for push notifications
     const {
       data: {
         registerDevice: {

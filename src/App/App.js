@@ -18,6 +18,7 @@ export default function App() {
   });
 
   React.useEffect(() => {
+    SplashScreen.hide();
     async function getToken() {
       const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
       if (!token) {
@@ -31,15 +32,17 @@ export default function App() {
         return;
       }
       if (data && data.getStatus && !error && !loading) {
-        if (data.getStatus.currentTask) {
+        if (
+          data.getStatus.currentTask ||
+          data.getStatus.device.notificationStatus === 'Initial'
+        ) {
           // check if decision is made
           console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
           return; // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
         }
 
-        return setLogin(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
+        return setLogin(); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
       }
-      SplashScreen.hide();
     }
     getToken();
   }, [registerDevice, data, error, loading, loggedIn]);

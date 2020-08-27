@@ -6,6 +6,11 @@ const GET_STATUS_QUERY = gql`
       user {
         balance
       }
+      device {
+        id
+        token
+        notificationStatus
+      }
       currentTask {
         status
         task {
