@@ -22,7 +22,6 @@ const CityPingsHomeScreen = ({navigation}) => {
       getAvailableRewards();
       getStatus();
     });
-
     return unsubscribe;
   }, [navigation, getAvailableRewards, getStatus]);
 

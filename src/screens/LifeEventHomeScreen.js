@@ -72,7 +72,6 @@ const RouteHomeScreen = ({navigation}) => {
     const unsubscribe = navigation.addListener('focus', () => {
       getRoutes();
     });
-
     return unsubscribe;
   }, [navigation, getRoutes]);
 
