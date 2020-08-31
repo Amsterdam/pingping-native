@@ -4,6 +4,7 @@ import {View} from 'native-base';
 import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';
+import MultipleChoice from './answerTypes/MultipleChoice';
 
 const styles = StyleSheet.create({
   questionContainer: {
@@ -40,7 +41,7 @@ const QuestionComponent = ({currentTask, setState, state}) => {
         <DateOfBirth setState={setState} state={state} />
       )}
       {currentTask.type === 'MultipleChoices' && (
-        <YesOrNo
+        <MultipleChoice
           state={state}
           setState={setState}
           answers={currentTask.choices}

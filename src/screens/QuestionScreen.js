@@ -46,6 +46,7 @@ const INITIAL_STATE = {
   day: '',
   month: '',
   year: '',
+  choices: [],
 };
 
 const QuestionScreen = ({navigation}) => {
@@ -68,6 +69,9 @@ const QuestionScreen = ({navigation}) => {
       if (currentTask.type === 'DateOfBirth') {
         return !state.day || !state.month || !state.year;
       }
+      if (currentTask.type === 'MultipleChoices') {
+        return state.choices.length < 1;
+      }
       return !state.answerSelected;
     };
 
@@ -76,9 +80,17 @@ const QuestionScreen = ({navigation}) => {
 
       answer = state.answerSelected;
 
-      if (currentTask.type === 'DateOfBirth') {
-        answer = `${state.year}-${state.month}-${state.day}`;
+      switch (currentTask.type) {
+        case 'DateOfBirth':
+          answer = `${state.year}-${state.month}-${state.day}`;
+          break;
+        case 'MultipleChoices':
+          answer = state.choices.join();
+          break;
+        default:
+          break;
       }
+
       try {
         await updateTask({
           variables: {
