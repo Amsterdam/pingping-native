@@ -21,13 +21,13 @@ export default function App() {
     SplashScreen.hide();
     async function getToken() {
       const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
-      if (!token) {
+      if (!token && !loading) {
         await registerDeviceHelper(registerDevice); // REGISTER DEVICE IF THERE IS NO TOKEN
         console.log('GETTING TOKEN');
         return;
       }
       if (!data && error) {
-        console.log('NO IDEA HOW I GOT HERE');
+        console.log('My token is invalid or not linked to user');
         registerDeviceHelper(registerDevice); // IF I HAVE A TOKEN BUT IT IS NOT CORRECT, GET A NEW ONE
         return;
       }

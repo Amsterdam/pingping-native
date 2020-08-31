@@ -54,13 +54,15 @@ const OnboardingButton = ({
       disabled={disabled}
       onPress={onPress}>
       <View style={styles.innerContainer}>
-        {iconName && iconType && (
-          <Icon name={iconName} type={iconType} style={styles.icon} />
-        )}
         {loading ? (
           <ActivityIndicator />
         ) : (
-          <Text style={styles.label}>{label}</Text>
+          <React.Fragment>
+            {iconName && iconType && (
+              <Icon name={iconName} type={iconType} style={styles.icon} />
+            )}
+            <Text style={styles.label}>{label}</Text>
+          </React.Fragment>
         )}
       </View>
     </Button>

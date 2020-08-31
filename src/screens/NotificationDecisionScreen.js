@@ -79,7 +79,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
   };
 
   const declineNotifications = async () => {
-    await doRegister('Declined', '');
+    await doRegister('Declined', 'null');
   };
 
   const doRegister = async (decision, token) => {
