@@ -19,6 +19,7 @@ export default function App() {
 
   React.useEffect(() => {
     SplashScreen.hide();
+    // ****important**** before we do anything else we need to check here if the device is connected to the internet
     async function getToken() {
       const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
       if (!token && !loading) {
