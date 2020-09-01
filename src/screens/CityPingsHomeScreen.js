@@ -15,7 +15,9 @@ const CityPingsHomeScreen = ({navigation}) => {
   const [getAvailableRewards, availableRewards] = useLazyQuery(
     GET_AVAILABLE_REWARDS,
   );
-  const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY);
+  const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'network-only',
+  });
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
