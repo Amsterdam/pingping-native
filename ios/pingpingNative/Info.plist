@@ -39,6 +39,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string />
+	<key>NSCameraUsageDescription</key>
+	<string>PingPing would like to use your camera to scan QR-Code</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

@@ -1,13 +1,15 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {Content, Container} from 'native-base';
+import {useMutation} from '@apollo/client';
 import EXPORT_USER_MUTATION from '../apollo/Mutation/exportUserMutation';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
-import {useMutation} from '@apollo/client';
+import QRCode from 'react-native-qrcode-svg';
+import {appColors} from '../lib/colors';
 
 const styles = StyleSheet.create({
   input: {
@@ -23,10 +25,18 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   inputContainer: {alignItems: 'center', justifyContent: 'center'},
+  qrContainer: {
+    alignItems: 'center',
+  },
+  qrCode: {
+    borderWidth: 5,
+    padding: 10,
+    borderRadius: 5,
+    borderColor: appColors.primary,
+  },
 });
 
 const ImportDataScreen = ({navigation}) => {
-  const [value, onChangeText] = React.useState('');
   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
 
   return (
@@ -41,23 +51,14 @@ const ImportDataScreen = ({navigation}) => {
           </Body>
           <Body style={styles.margin}>
             Het is heel simpel om jouw gegevens te exporteren naar een nieuw
-            device. Kopieer de UUID (Universally Unique Identifier) hieronder en
-            plak hem in de 'importeer gegevens' pagina op jouw nieuwe device!
+            device. Open op je nieuwe device de app en klik rechtsboven op
+            inloggen. Vervolgens scan je de onderstaande QRCode en zo simpel is
+            het!
           </Body>
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => onChangeText(text)}
-              value={value}
-            />
-            <Button
-              rounded
-              disabled={!value}
-              label="Token Kopieren"
-              iconType="AntDesign"
-              iconName="copy1"
-              onPress={() => console.log('copy this stuff')}
-            />
+          <View style={styles.qrContainer}>
+            <View style={styles.qrCode}>
+              <QRCode value="http://awesome.link.qr" size={200} />
+            </View>
           </View>
         </ContentLayout>
       </Content>

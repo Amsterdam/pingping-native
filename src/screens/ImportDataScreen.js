@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/OnboardingButton';
+import QrScanner from '../components/QrScanner';
 import LabeledHeader from '../components/header/LabeledHeader';
 
 const styles = StyleSheet.create({
@@ -20,11 +20,9 @@ const styles = StyleSheet.create({
   margin: {
     marginBottom: 30,
   },
-  inputContainer: {alignItems: 'center', justifyContent: 'center'},
 });
 
 const ImportDataScreen = ({navigation}) => {
-  const [value, onChangeText] = React.useState('');
   return (
     <Container>
       <LabeledHeader navigation={navigation} title="INLOGGEN" />
@@ -36,24 +34,12 @@ const ImportDataScreen = ({navigation}) => {
             gegevens en prestaties op Ping Ping verloren gaan!
           </Body>
           <Body style={styles.margin}>
-            Het is heel simpel om jouw gegevens te exporteren naar een nieuw
-            device. Kopieer de UUID (Unieke link) vanuit de 'exporteer gegevens'
-            pagina op jouw oude device en plak hem hieronder op jouw nieuwe
-            device!
+            Het is heel simpel om jouw gegevens te importeren van je oude naar
+            je nieuwe device. Open de app op je oude device en ga naar account,
+            klik daar op exporteer gegevens en scan de QR-code met je nieuwe
+            device.
           </Body>
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => onChangeText(text)}
-              value={value}
-            />
-            <Button
-              rounded
-              disabled={!value}
-              label="Importeer gegevens"
-              onPress={() => console.log('import this stuff')}
-            />
-          </View>
+          <QrScanner />
         </ContentLayout>
       </Content>
     </Container>
