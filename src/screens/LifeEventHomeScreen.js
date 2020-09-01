@@ -66,7 +66,9 @@ const RouteHomeScreen = ({navigation}) => {
     outputRange: [0, -HEADER_HEIGHT],
   });
 
-  const [getRoutes, routes] = useLazyQuery(GET_ROUTES);
+  const [getRoutes, routes] = useLazyQuery(GET_ROUTES, {
+    fetchPolicy: 'network-only',
+  });
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
