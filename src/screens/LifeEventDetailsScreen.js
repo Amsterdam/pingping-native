@@ -97,7 +97,9 @@ function LifeEventDetailsScreen({navigation, route}) {
       description,
       //   coverImageUrl,
     } = data.getRoute;
+
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
+
     const startTasks = () => {
       const taskList = [];
       if (tasksToDo.length > 0) {
@@ -164,6 +166,7 @@ function LifeEventDetailsScreen({navigation, route}) {
             <TipsChip navigation={navigation} tips={tips} />
           </View>
         </ScrollView>
+
         <View style={styles.buttonContainer}>
           {tasksToDo.length === 0 ? (
             <Body stlye={styles.balanceIndicatorText}>
@@ -172,7 +175,9 @@ function LifeEventDetailsScreen({navigation, route}) {
           ) : (
             <React.Fragment>
               <Body stlye={styles.balanceIndicatorText}>
-                Begin bij het begin
+                {numberOfSteps === tasksToDo.length
+                  ? 'Begin bij het begin'
+                  : 'Ga verder'}
               </Body>
               <Button
                 style={styles.button}
