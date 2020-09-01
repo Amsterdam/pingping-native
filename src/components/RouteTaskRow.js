@@ -54,6 +54,7 @@ const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
       routeId,
       task: {
         ...task,
+        status,
       },
     });
   };

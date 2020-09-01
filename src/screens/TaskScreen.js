@@ -59,6 +59,8 @@ const TaskScreen = ({navigation, route}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
 
+  console.log(task);
+
   const doCompleteTask = async () => {
     // refetch queries here
     // update completed status
@@ -91,6 +93,8 @@ const TaskScreen = ({navigation, route}) => {
     setWebviewOpen(false);
   };
 
+  const taskStatus = task.status === 'Completed';
+
   return (
     <React.Fragment>
       <Container>
@@ -122,9 +126,26 @@ const TaskScreen = ({navigation, route}) => {
             </ScrollView>
           </ContentLayout>
         </Content>
+        {taskStatus && (
+          <Title
+            style={{fontSize: 14, color: appColors.primary}}
+            align="center">
+            Je {task.headerTitle} is gefikst
+          </Title>
+        )}
         <View style={styles.buttonContainer}>
-          <Button style={styles.buttonHelp} label="Hulp nodig?" />
-          <Button label="Gelukt!" onPress={doCompleteTask} />
+          {taskStatus ? (
+            <Button
+              style={styles.buttonHelp}
+              label="terug"
+              onPress={() => navigation.goBack()}
+            />
+          ) : (
+            <React.Fragment>
+              <Button style={styles.buttonHelp} label="Hulp nodig?" />
+              <Button label="Gelukt!" onPress={doCompleteTask} />
+            </React.Fragment>
+          )}
         </View>
       </Container>
 

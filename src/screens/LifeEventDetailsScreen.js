@@ -102,7 +102,7 @@ function LifeEventDetailsScreen({navigation, route}) {
       const taskList = [];
       if (tasksToDo.length > 0) {
         tasksToDo.forEach((task) => {
-          taskList.push(task.task);
+          taskList.push({...task.task, status: task.status});
         });
 
         navigation.navigate('TaskScreen', {
