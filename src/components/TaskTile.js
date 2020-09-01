@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {TouchableOpacity, View, StyleSheet} from 'react-native';
 import Title from '../components/typography/Title';
 import ProgressLine from '../components/ProgressLine';
@@ -127,4 +127,4 @@ const TaskTile = ({navigation, task, index, tasksLength}) => {
   );
 };
 
-export default TaskTile;
+export default memo(TaskTile);

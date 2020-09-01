@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Title from './typography/Title';
 import Body from './typography/Body';
@@ -84,4 +84,4 @@ const RewardCard = ({
   );
 };
 
-export default RewardCard;
+export default memo(RewardCard);

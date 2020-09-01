@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../lib/colors';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const CIRCLE_RADIUS = 30;
 
@@ -81,4 +80,4 @@ const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
   );
 };
 
-export default RouteTaskRow;
+export default memo(RouteTaskRow);

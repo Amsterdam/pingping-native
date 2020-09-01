@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {BASE_URL} from '../lib/initialSettings';
 import Title from './typography/Title';
@@ -119,4 +119,4 @@ const RouteCard = ({
   );
 };
 
-export default RouteCard;
+export default memo(RouteCard);
