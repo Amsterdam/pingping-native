@@ -1,44 +1,48 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {StyleSheet, Dimensions, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
-import {Text} from 'native-base';
+import Button from './OnboardingButton';
+import {appColors, ppBaseColors} from '../lib/colors';
+import Loading from './LoadingComponent';
 
 const styles = StyleSheet.create({
   mainContainer: {
     alignItems: 'center',
   },
   cameraContainerStyle: {
-    height: Dimensions.get('window').width - 50,
-    width: Dimensions.get('window').width - 50,
-    borderRadius: 500,
+    height: Dimensions.get('window').width - 100,
+    width: Dimensions.get('window').width - 100,
+    borderRadius: 5,
+    borderColor: appColors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
     overflow: 'hidden',
-  },
-  buttonStyle: {
-    marginTop: 10,
+    borderWidth: 3,
   },
 });
 
-const QrScanner = ({onSuccess, setState, scanning}) => {
+const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
   return (
     <View style={styles.mainContainer}>
-      <QRCodeScanner
-        onRead={this.onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.off}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
+      {scanning ? (
+        <React.Fragment>
+          <QRCodeScanner
+            onRead={onSuccess}
+            flashMode={RNCamera.Constants.FlashMode.off}
+            containerStyle={styles.cameraContainerStyle}
+            showMarker
+            markerStyle={{borderColor: ppBaseColors.PP_PINK}}
+          />
+          {loading && <Loading />}
+        </React.Fragment>
+      ) : (
+        <Button
+          style={styles.button}
+          onPress={() => setScanning(true)}
+          label="Opnieuw scannen"
+        />
+      )}
     </View>
   );
 };

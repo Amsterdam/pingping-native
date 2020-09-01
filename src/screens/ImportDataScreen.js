@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -6,6 +6,8 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import QrScanner from '../components/QrScanner';
 import LabeledHeader from '../components/header/LabeledHeader';
+import IMPORT_USER_MUTATION from '../apollo/Mutation/importUserMutation';
+import {useMutation} from '@apollo/client';
 
 const styles = StyleSheet.create({
   input: {
@@ -23,6 +25,24 @@ const styles = StyleSheet.create({
 });
 
 const ImportDataScreen = ({navigation}) => {
+  const [importUser] = useMutation(IMPORT_USER_MUTATION);
+  const [scanning, setScanning] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const onSuccess = async (e) => {
+    const exportToken = e.data;
+    setScanning(false);
+    setLoading(true);
+    try {
+      await importUser({variables: {exportToken}});
+      setScanning(false);
+      setLoading(false);
+    } catch (error) {
+      setScanning(true);
+      console.log('error');
+    }
+  };
+
   return (
     <Container>
       <LabeledHeader navigation={navigation} title="INLOGGEN" />
@@ -39,7 +59,12 @@ const ImportDataScreen = ({navigation}) => {
             klik daar op exporteer gegevens en scan de QR-code met je nieuwe
             device.
           </Body>
-          <QrScanner />
+          <QrScanner
+            onSuccess={onSuccess}
+            scanning={scanning}
+            setScanning={setScanning}
+            loading={loading}
+          />
         </ContentLayout>
       </Content>
     </Container>
