@@ -7,6 +7,7 @@ import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
+import {useMutation} from '@apollo/client';
 
 const styles = StyleSheet.create({
   input: {
@@ -26,6 +27,8 @@ const styles = StyleSheet.create({
 
 const ImportDataScreen = ({navigation}) => {
   const [value, onChangeText] = React.useState('');
+  const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
+
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Profiel" />

@@ -156,7 +156,7 @@ const RouteHomeScreen = ({navigation}) => {
         scrollEventThrottle={16}
         contentContainerStyle={styles.content}>
         <ContentLayout>
-          {routes.loading && <ActivityIndicator />}
+          {!routes.data && <ActivityIndicator />}
           {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>
