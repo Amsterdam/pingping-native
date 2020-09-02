@@ -14,12 +14,13 @@ export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
   const {data, error, loading} = useQuery(GET_STATUS_QUERY, {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
   });
 
   React.useEffect(() => {
     SplashScreen.hide();
     // ****important**** before we do anything else we need to check here if the device is connected to the internet
+    console.log('doing stuff');
     async function getToken() {
       const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
       if (!token && !loading) {

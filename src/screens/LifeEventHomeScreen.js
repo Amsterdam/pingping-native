@@ -67,7 +67,7 @@ const RouteHomeScreen = ({navigation}) => {
   });
 
   const [getRoutes, routes] = useLazyQuery(GET_ROUTES, {
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'cache-and-network',
   });
 
   React.useEffect(() => {

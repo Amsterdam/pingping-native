@@ -16,7 +16,7 @@ const CityPingsHomeScreen = ({navigation}) => {
     GET_AVAILABLE_REWARDS,
   );
   const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'cache-and-network',
   });
 
   React.useEffect(() => {

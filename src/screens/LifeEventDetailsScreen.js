@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import {Container} from 'native-base';
 import {useQuery} from '@apollo/client';
+import ProgressBar from '../components/ProgressBar';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import exampleImage from '../assets/exampleImage.png';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors, ppBaseColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
-import * as Progress from 'react-native-progress';
 import IconButton from '../components/IconButton';
 import Button from '../components/OnboardingButton';
 import TipsChip from '../components/TipsChip';
@@ -139,14 +139,7 @@ function LifeEventDetailsScreen({navigation, route}) {
               <View style={styles.saldo}>
                 <Body style={styles.savings}> {numberOfSteps} stappen</Body>
               </View>
-              <Progress.Bar
-                progress={progress}
-                width={50}
-                color={appColors.secondary}
-                unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-                borderWidth={0}
-                height={10}
-              />
+              <ProgressBar progress={progress} />
             </View>
             <Body style={styles.description}>{description}</Body>
             <Title style={styles.subtitle}>De Route</Title>

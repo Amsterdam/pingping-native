@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import ProgressBar from './ProgressBar';
 import {BASE_URL} from '../lib/initialSettings';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
 import {ppBaseColors, appColors} from '../lib/colors';
-import * as Progress from 'react-native-progress';
 import CitypingsChip from '../components/CitypingsChip';
 
 const BORDER_RADIUS = 5;
@@ -103,7 +103,7 @@ const RouteCard = ({
                   {numberOfSteps} stappen
                 </Body>
               </View>
-              <Progress.Bar
+              <ProgressBar
                 progress={progress}
                 width={50}
                 color={appColors.secondary}

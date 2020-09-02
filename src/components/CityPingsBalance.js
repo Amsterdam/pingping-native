@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import * as Progress from 'react-native-progress';
+import ProgressBar from './ProgressBar';
 import CityPingCoin from '../assets/svg/CityPingCoin';
 import {appColors, ppBaseColors} from '../lib/colors';
 import Body from './typography/Body';
@@ -31,14 +31,7 @@ const CityPingsBalance = ({price, balance}) => {
           {balance} / {price} CityPings
         </Body>
       </View>
-      <Progress.Bar
-        progress={balance / price}
-        width={50}
-        color={appColors.secondary}
-        unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-        borderWidth={0}
-        height={10}
-      />
+      <ProgressBar progress={balance / price} />
     </View>
   );
 };

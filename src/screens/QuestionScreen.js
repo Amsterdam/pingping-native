@@ -16,7 +16,8 @@ import Button from '../components/Button';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
-import * as Progress from 'react-native-progress';
+import ProgressBar from '../components/ProgressBar';
+import Loading from '../components/LoadingComponent';
 
 // write a transition component
 
@@ -55,8 +56,11 @@ const QuestionScreen = ({navigation}) => {
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
 
-  if (loading || error) {
-    return <Text>Loading</Text>;
+  if (error) {
+    return <Text>Something went very wrong</Text>;
+  }
+  if (loading) {
+    return <Loading />;
   }
 
   if (data && !data.getStatus.currentTask) {
@@ -127,13 +131,15 @@ const QuestionScreen = ({navigation}) => {
 
           <Right>
             <View>
-              <Progress.Bar
+              <ProgressBar
                 progress={data.getStatus.currentTask.task.progress}
                 width={50}
                 color={appColors.secondary}
                 unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
                 borderWidth={0}
                 height={10}
+                useNativeDriver
+                animationType="timing"
               />
             </View>
           </Right>
