@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 // import {useMutation} from '@apollo/client';
 // import EXPORT_USER_MUTATION from '../apollo/Mutation/exportUserMutation';
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ImportDataScreen = ({navigation}) => {
+const ExportDataScreen = ({navigation}) => {
   //   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
 
   return (
@@ -65,4 +66,8 @@ const ImportDataScreen = ({navigation}) => {
   );
 };
 
-export default ImportDataScreen;
+ExportDataScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
+export default ExportDataScreen;

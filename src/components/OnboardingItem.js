@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
+import PropTypes from 'prop-types';
 import AsyncStorage from '@react-native-community/async-storage';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
@@ -67,6 +68,13 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
       </View>
     </View>
   );
+};
+
+OnboardingItem.propTypes = {
+  view: PropTypes.object.isRequired,
+  buttonAction: PropTypes.object,
+  isLastItem: PropTypes.bool.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default OnboardingItem;

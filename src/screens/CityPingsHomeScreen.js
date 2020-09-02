@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View, ActivityIndicator} from 'react-native';
+import PropTypes from 'prop-types';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -117,6 +118,10 @@ const TAB_STYLE = {
   textStyle: styles.textStyle,
   activeTextStyle: styles.activeTextStyle,
   backgroundColor: appColors.almostNotBlue,
+};
+
+CityPingsHomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default CityPingsHomeScreen;

@@ -7,6 +7,7 @@ import {
   Dimensions,
   ActivityIndicator,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useQuery} from '@apollo/client';
 import ProgressBar from '../components/ProgressBar';
@@ -185,5 +186,9 @@ function LifeEventDetailsScreen({navigation, route}) {
   }
   return <ActivityIndicator />;
 }
+LifeEventDetailsScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
+};
 
 export default LifeEventDetailsScreen;

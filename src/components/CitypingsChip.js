@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import CityPingCoin from '../assets/svg/CityPingCoin';
 import Title from '../components/typography/Title';
@@ -30,6 +31,14 @@ const CitypingsChip = ({value = 0}) => {
       <Title style={styles.cpLabel}>{value} CityPings</Title>
     </View>
   );
+};
+
+CitypingsChip.propTypes = {
+  value: PropTypes.number,
+};
+
+CitypingsChip.defaultProps = {
+  value: 0,
 };
 
 export default CitypingsChip;

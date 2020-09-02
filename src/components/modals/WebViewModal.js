@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
 import WebView from 'react-native-webview';
 import Title from '../typography/Title';
@@ -55,5 +56,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
+CityPingsModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  urlToVisit: PropTypes.string.isRequired,
+  webViewOpen: PropTypes.bool.isRequired,
+};
 
 export default CityPingsModal;

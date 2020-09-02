@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../lib/colors';
@@ -78,6 +79,13 @@ const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
       </View>
     </TouchableOpacity>
   );
+};
+
+RouteTaskRow.propTypes = {
+  task: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  navigation: PropTypes.object.isRequired,
+  routeId: PropTypes.string.isRequired,
 };
 
 export default memo(RouteTaskRow);

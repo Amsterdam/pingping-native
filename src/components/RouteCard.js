@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 import ProgressBar from './ProgressBar';
 import {BASE_URL} from '../lib/initialSettings';
 import Title from './typography/Title';
@@ -117,6 +118,11 @@ const RouteCard = ({
       </TouchableOpacity>
     </View>
   );
+};
+
+RouteCard.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  lifeEvent: PropTypes.object.isRequired,
 };
 
 export default memo(RouteCard);

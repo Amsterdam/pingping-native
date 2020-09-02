@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Content, Container} from 'native-base';
 import {View, StyleSheet, ScrollView} from 'react-native';
+import PropTypes from 'prop-types';
+import {Content, Container} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {useMutation} from '@apollo/client';
@@ -156,6 +157,11 @@ const TaskScreen = ({navigation, route}) => {
       />
     </React.Fragment>
   );
+};
+
+TaskScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
 };
 
 export default TaskScreen;

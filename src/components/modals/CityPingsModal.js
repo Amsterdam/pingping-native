@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {useQuery, useMutation} from '@apollo/client';
 import {Button, Icon} from 'native-base';
@@ -134,5 +135,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+CityPingsModal.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default CityPingsModal;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
@@ -96,6 +97,11 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
       )}
     </View>
   );
+};
+
+PrivacyPolicyAccordion.propTypes = {
+  open: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
 };
 
 export default PrivacyPolicyAccordion;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
+import PropTypes from 'prop-types';
 import {Content, Container, Icon} from 'native-base';
 import SimpleHeader from '../components/header/SimpleHeader';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -119,6 +120,10 @@ const KasboekAddGoalScreen = ({navigation}) => {
       </ContentLayout>
     </Container>
   );
+};
+
+KasboekAddGoalScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default KasboekAddGoalScreen;

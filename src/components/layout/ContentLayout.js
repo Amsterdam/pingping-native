@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
+import PropTypes from 'prop-types';
+import {Content} from 'native-base';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,6 +14,15 @@ const styles = StyleSheet.create({
 
 const ContentLayout = ({children, style}) => {
   return <View style={{...styles.container, ...style}}>{children}</View>;
+};
+
+ContentLayout.propTypes = {
+  children: PropTypes.any.isRequired,
+  style: PropTypes.object,
+};
+
+ContentLayout.defaultProps = {
+  style: {},
 };
 
 export default ContentLayout;

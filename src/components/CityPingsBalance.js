@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {View, StyleSheet} from 'react-native';
 import ProgressBar from './ProgressBar';
 import CityPingCoin from '../assets/svg/CityPingCoin';
@@ -34,6 +35,11 @@ const CityPingsBalance = ({price, balance}) => {
       <ProgressBar progress={balance / price} />
     </View>
   );
+};
+
+CityPingsBalance.propTypes = {
+  price: PropTypes.number.isRequired,
+  balance: PropTypes.number.isRequired,
 };
 
 export default CityPingsBalance;

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
+import PropTypes from 'prop-types';
 import {Container, Content} from 'native-base';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Button from '../components/OnboardingButton';
@@ -91,6 +92,10 @@ const PrivacyPolicyScreen = ({navigation}) => {
       </Content>
     </Container>
   );
+};
+
+PrivacyPolicyScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default PrivacyPolicyScreen;

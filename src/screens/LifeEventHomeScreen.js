@@ -6,6 +6,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
 import GET_ROUTES from '../apollo/Query/getRoutes';
@@ -163,6 +164,10 @@ const RouteHomeScreen = ({navigation}) => {
       <View style={styles.underLayer} />
     </Container>
   );
+};
+
+RouteHomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default RouteHomeScreen;

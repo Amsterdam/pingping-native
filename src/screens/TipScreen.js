@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import PropTypes from 'prop-types';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import {Content, Container} from 'native-base';
@@ -57,6 +58,10 @@ const TipScreen = ({navigation}) => {
       </ContentLayout>
     </Container>
   );
+};
+
+TipScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default TipScreen;

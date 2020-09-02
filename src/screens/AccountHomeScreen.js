@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, FlatList} from 'react-native';
+import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import RouteHeader from '../components/header/RouteHeader';
@@ -39,6 +40,10 @@ const AccountHomeScreen = ({navigation}) => {
       </ContentLayout>
     </Container>
   );
+};
+
+AccountHomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default AccountHomeScreen;

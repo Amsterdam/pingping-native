@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../lib/colors';
@@ -39,6 +40,10 @@ const TipsChip = ({navigation}) => {
       <Title style={styles.title}>Tips</Title>
     </TouchableOpacity>
   );
+};
+
+TipsChip.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default TipsChip;

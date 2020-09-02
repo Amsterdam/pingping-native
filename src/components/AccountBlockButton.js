@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity, Image, Dimensions} from 'react-native';
 import Title from '../components/typography/Title';
 
@@ -38,6 +39,11 @@ const AccountBlockButton = ({button, navigation}) => {
       <Title style={styles.title}>{button.title}</Title>
     </TouchableOpacity>
   );
+};
+
+AccountBlockButton.propTypes = {
+  button: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default AccountBlockButton;

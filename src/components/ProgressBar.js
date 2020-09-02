@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Bar} from 'react-native-progress';
 import {appColors, ppBaseColors} from '../lib/colors';
 
@@ -15,6 +16,10 @@ const ProgressBar = ({progress}) => {
       animationType="timing"
     />
   );
+};
+
+ProgressBar.propTypes = {
+  progress: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;

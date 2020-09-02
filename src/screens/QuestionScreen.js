@@ -9,6 +9,7 @@ import {
   Button as NbButton,
   Icon,
 } from 'native-base';
+import PropTypes from 'prop-types';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
 import {appColors, ppBaseColors} from '../lib/colors';
@@ -174,6 +175,10 @@ const QuestionScreen = ({navigation}) => {
     );
   }
   return <></>;
+};
+
+QuestionScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default QuestionScreen;

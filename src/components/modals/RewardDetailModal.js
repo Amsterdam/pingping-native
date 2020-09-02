@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {useMutation} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
@@ -106,5 +107,10 @@ function RewardDetailModal({navigation, route}) {
     </Container>
   );
 }
+
+RewardDetailModal.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
+};
 
 export default RewardDetailModal;

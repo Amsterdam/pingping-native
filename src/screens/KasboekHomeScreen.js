@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
+import PropTypes from 'prop-types';
 import RouteHeader from '../components/header/RouteHeader';
 import {Content, Container} from 'native-base';
 import {ppBaseColors} from '../lib/colors';
@@ -102,6 +103,10 @@ const KasboekHomeScreen = ({navigation}) => {
       </Content>
     </Container>
   );
+};
+
+KasboekHomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default KasboekHomeScreen;

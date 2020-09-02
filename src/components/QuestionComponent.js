@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import {View} from 'native-base';
 import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
@@ -49,6 +50,12 @@ const QuestionComponent = ({currentTask, setState, state}) => {
       )}
     </View>
   );
+};
+
+QuestionComponent.propTypes = {
+  currentTask: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
 };
 
 export default QuestionComponent;

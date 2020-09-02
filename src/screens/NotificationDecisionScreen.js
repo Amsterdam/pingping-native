@@ -6,6 +6,7 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
 import {Header, Container, Button, Text, Left, Right} from 'native-base';
 import Title from '../components/typography/Title';
@@ -137,6 +138,11 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
       {loading && <Loading />}
     </Container>
   );
+};
+
+NotificationDecisionScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  setLogin: PropTypes.func.isRequired,
 };
 
 export default NotificationDecisionScreen;

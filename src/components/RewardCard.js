@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../lib/commonStyles';
@@ -82,6 +83,12 @@ const RewardCard = ({
       </TouchableOpacity>
     </View>
   );
+};
+
+RewardCard.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  reward: PropTypes.object.isRequired,
+  balance: PropTypes.number.isRequired,
 };
 
 export default memo(RewardCard);

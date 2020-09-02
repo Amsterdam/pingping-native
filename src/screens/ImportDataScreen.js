@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
@@ -69,6 +70,10 @@ const ImportDataScreen = ({navigation}) => {
       </Content>
     </Container>
   );
+};
+
+ImportDataScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default ImportDataScreen;

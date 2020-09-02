@@ -110,6 +110,10 @@ const styles = StyleSheet.create({
 
 DeleteDataModal.propTypes = {
   navigation: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  doDeleteUser: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default DeleteDataModal;

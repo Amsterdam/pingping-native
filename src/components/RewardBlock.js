@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Image, Dimensions} from 'react-native';
+import PropTypes from 'prop-types';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {ppBaseColors} from '../lib/colors';
@@ -46,6 +47,10 @@ const RewardBlock = ({reward}) => {
       <Body style={styles.points}>{reward.points} punten</Body>
     </View>
   );
+};
+
+RewardBlock.propTypes = {
+  reward: PropTypes.object.isRequired,
 };
 
 export default RewardBlock;
