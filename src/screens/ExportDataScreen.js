@@ -1,13 +1,12 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Content, Container} from 'native-base';
-import {useMutation} from '@apollo/client';
-import EXPORT_USER_MUTATION from '../apollo/Mutation/exportUserMutation';
+// import {useMutation} from '@apollo/client';
+// import EXPORT_USER_MUTATION from '../apollo/Mutation/exportUserMutation';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/OnboardingButton';
 import QRCode from 'react-native-qrcode-svg';
 import {appColors} from '../lib/colors';
 
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
 });
 
 const ImportDataScreen = ({navigation}) => {
-  const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
+  //   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
 
   return (
     <Container>

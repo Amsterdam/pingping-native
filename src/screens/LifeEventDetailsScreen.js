@@ -14,7 +14,7 @@ import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import exampleImage from '../assets/exampleImage.png';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import IconButton from '../components/IconButton';
 import Button from '../components/OnboardingButton';
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
 function LifeEventDetailsScreen({navigation, route}) {
   const {routeId} = route.params;
-  const {data, loading, error} = useQuery(GET_ROUTE_QUERY, {
+  const {data} = useQuery(GET_ROUTE_QUERY, {
     variables: {
       routeId,
     },

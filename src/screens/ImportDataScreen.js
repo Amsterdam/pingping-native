@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Content, Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';

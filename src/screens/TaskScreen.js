@@ -4,7 +4,7 @@ import {View, StyleSheet, ScrollView} from 'react-native';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {useMutation} from '@apollo/client';
-import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
+// import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
+  completedTagLine: {fontSize: 14, color: appColors.primary},
 });
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
-  const [toggleModal] = useMutation(TOGGLE_MODAL);
+  //   const [toggleModal] = useMutation(TOGGLE_MODAL);
   const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
@@ -127,9 +128,7 @@ const TaskScreen = ({navigation, route}) => {
           </ContentLayout>
         </Content>
         {taskStatus && (
-          <Title
-            style={{fontSize: 14, color: appColors.primary}}
-            align="center">
+          <Title style={styles.completedTagLine} align="center">
             Je {task.headerTitle} is gefikst
           </Title>
         )}

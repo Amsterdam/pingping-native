@@ -85,7 +85,7 @@ const RouteHomeScreen = ({navigation}) => {
     const {
       availableRoutes,
       currentRoutes,
-      archivedRoutes,
+      //   archivedRoutes,
     } = routes.data.getRoutes;
 
     const suggestedRoutes = [];

@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
-import {Platform, View} from 'react-native';
+import {Platform} from 'react-native';
+import {Container} from 'native-base';
 import {Notifications} from 'react-native-notifications';
 
 const platform = Platform.OS;
@@ -45,7 +46,7 @@ const PushNotificationManager = ({children}) => {
       },
     );
   }, []);
-  return <View style={{flex: 1}}>{children}</View>;
+  return <Container>{children}</Container>;
 };
 
 export default PushNotificationManager;

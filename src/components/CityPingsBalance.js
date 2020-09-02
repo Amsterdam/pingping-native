@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import ProgressBar from './ProgressBar';
 import CityPingCoin from '../assets/svg/CityPingCoin';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors} from '../lib/colors';
 import Body from './typography/Body';
 
 const styles = StyleSheet.create({

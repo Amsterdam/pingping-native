@@ -64,6 +64,7 @@ function RewardDetailModal({navigation, route}) {
           rewardId,
         },
       });
+      console.log(claimResponse);
     } catch (error) {
       //error toast
     }
