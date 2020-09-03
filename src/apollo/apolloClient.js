@@ -53,14 +53,21 @@ const client = new ApolloClient({
   },
 });
 
-function writeInitialData() {
-  inMemoryCache.writeQuery({
+async function writeInitialData() {
+  await inMemoryCache.writeQuery({
     query: GET_MODAL_STATE,
     data: {
       pings: 1,
       modalOpen: false,
     },
   });
+  return;
+}
+
+export async function resetStore() {
+  await client.clearStore();
+  await writeInitialData();
+  await client.reFetchObservableQueries();
 }
 
 writeInitialData();

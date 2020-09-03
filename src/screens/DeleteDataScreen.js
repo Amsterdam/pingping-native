@@ -12,6 +12,7 @@ import Body from '../components/typography/Body';
 import Button from '../components/OnboardingButton';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
+import {resetStore} from '../apollo/apolloClient';
 
 const styles = StyleSheet.create({
   input: {
@@ -47,7 +48,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
           confirm: 'delete',
         },
       });
-      client.resetStore();
+      resetStore();
       await AsyncStorage.clear();
       setLogOut();
     } catch (e) {

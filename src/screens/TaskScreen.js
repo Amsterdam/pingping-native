@@ -5,7 +5,7 @@ import {Content, Container} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {useMutation} from '@apollo/client';
-// import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
+import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
-  //   const [toggleModal] = useMutation(TOGGLE_MODAL);
+  const [toggleModal] = useMutation(TOGGLE_MODAL);
   const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
@@ -79,11 +79,11 @@ const TaskScreen = ({navigation, route}) => {
       ],
     });
     navigation.goBack();
-    // toggleModal({
-    //   variables: {
-    //     pings: 20,
-    //   },
-    // });
+    toggleModal({
+      variables: {
+        pings: 20,
+      },
+    });
   };
 
   const linkPressed = (event, href) => {
