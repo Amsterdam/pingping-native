@@ -19,6 +19,7 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import ProgressBar from '../components/ProgressBar';
 import Loading from '../components/LoadingComponent';
+import * as Animatable from 'react-native-animatable';
 
 // write a transition component
 
@@ -56,6 +57,7 @@ const QuestionScreen = ({navigation}) => {
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+  const animationRef = React.useRef(null);
 
   if (error) {
     return <Text>Something went very wrong</Text>;
@@ -108,6 +110,7 @@ const QuestionScreen = ({navigation}) => {
             },
           ],
         });
+        animationRef.current?.bounceInRight();
         setState(INITIAL_STATE);
       } catch (e) {
         console.log(e);
@@ -147,7 +150,13 @@ const QuestionScreen = ({navigation}) => {
         </Header>
         <Content contentContainerStyle={styles.content}>
           {data && (
-            <React.Fragment>
+            <Animatable.View
+              style={{flex: 1}}
+              easing="linear"
+              duration={800}
+              ref={animationRef}
+              animation="bounceInRight"
+              useNativeDriver>
               <QuestionComponent
                 currentTask={currentTask}
                 setState={setState}
@@ -168,7 +177,7 @@ const QuestionScreen = ({navigation}) => {
                   style={styles.button}
                 />
               </View>
-            </React.Fragment>
+            </Animatable.View>
           )}
         </Content>
       </Container>
