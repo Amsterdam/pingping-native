@@ -8,9 +8,11 @@ import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
 import userStatus from '../utils/authUtils';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import Loading from '../components/LoadingComponent';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [onboarder, setOnboarder] = React.useState(false);
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
   const {data, error, loading} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
@@ -18,7 +20,7 @@ export default function App() {
 
   React.useEffect(() => {
     SplashScreen.hide();
-    userStatus(registerDevice, data, error, loading, setLogin);
+    userStatus(registerDevice, data, error, loading, setLogin, setOnboarder);
   }, [registerDevice, data, error, loading, loggedIn]);
 
   const setLogin = async () => {
@@ -27,17 +29,22 @@ export default function App() {
 
   const setLogOut = async () => {
     setLoggedIn(false);
+    setOnboarder(true);
   };
 
-  return (
-    <NavigationContainer>
-      {loggedIn ? (
+  const renderApp = () => {
+    if (loggedIn) {
+      return (
         <PushNotificationService>
           <TabNavigator setLogOut={setLogOut} />
         </PushNotificationService>
-      ) : (
-        <OnboardingStack setLogin={setLoggedIn} />
-      )}
-    </NavigationContainer>
-  );
+      );
+    }
+    if (onboarder) {
+      return <OnboardingStack setLogin={setLoggedIn} />;
+    }
+    return <Loading />;
+  };
+
+  return <NavigationContainer>{renderApp()}</NavigationContainer>;
 }
