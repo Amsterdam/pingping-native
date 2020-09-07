@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, View, StatusBar, Text} from 'react-native';
+import React, {useRef} from 'react';
+import {StyleSheet, View, StatusBar, Text, Animated} from 'react-native';
 import {
   Content,
   Container,
@@ -56,6 +56,16 @@ const QuestionScreen = ({navigation}) => {
   const [state, setState] = React.useState(INITIAL_STATE);
   const {data, loading, error} = useQuery(GET_STATUS_QUERY);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      useNativeDriver: true,
+      toValue: 1,
+      duration: 800,
+    }).start();
+  };
 
   if (error) {
     return <Text>Something went very wrong</Text>;
@@ -70,6 +80,7 @@ const QuestionScreen = ({navigation}) => {
 
   if (data && data.getStatus.currentTask) {
     const currentTask = data && data.getStatus.currentTask.task;
+    fadeIn();
     const checkDisabled = () => {
       if (currentTask.type === 'DateOfBirth') {
         return !state.day || !state.month || !state.year;
@@ -81,6 +92,7 @@ const QuestionScreen = ({navigation}) => {
     };
 
     const submitAnswer = async () => {
+      fadeAnim.setValue(0);
       let answer = '';
 
       answer = state.answerSelected;
@@ -147,7 +159,11 @@ const QuestionScreen = ({navigation}) => {
         </Header>
         <Content contentContainerStyle={styles.content}>
           {data && (
-            <React.Fragment>
+            <Animated.View
+              style={{
+                flex: 1,
+                opacity: fadeAnim, // Bind opacity to animated value
+              }}>
               <QuestionComponent
                 currentTask={currentTask}
                 setState={setState}
@@ -168,7 +184,7 @@ const QuestionScreen = ({navigation}) => {
                   style={styles.button}
                 />
               </View>
-            </React.Fragment>
+            </Animated.View>
           )}
         </Content>
       </Container>
