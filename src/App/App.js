@@ -6,7 +6,7 @@ import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation'
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
-import userStatus from '../utils/userStatus';
+import userStatus from '../utils/authUtils';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
 export default function App() {
