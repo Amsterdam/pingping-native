@@ -5,6 +5,7 @@ import {
   Animated,
   View,
   ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
@@ -70,6 +71,13 @@ const RouteHomeScreen = ({navigation}) => {
   const [getRoutes, routes] = useLazyQuery(GET_ROUTES, {
     fetchPolicy: 'cache-and-network',
   });
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    routes.refetch();
+    setRefreshing(false);
+  };
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -155,7 +163,15 @@ const RouteHomeScreen = ({navigation}) => {
           scrollY.setValue(e.nativeEvent.contentOffset.y);
         }}
         scrollEventThrottle={16}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={appColors.primary}
+            style={{backgroundColor: appColors.headerColor}}
+          />
+        }>
         <ContentLayout>
           {!routes.data && <ActivityIndicator />}
           {routes.data && renderRoutes()}

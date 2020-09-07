@@ -1,5 +1,11 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View, ActivityIndicator} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  RefreshControl,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
@@ -19,6 +25,13 @@ const CityPingsHomeScreen = ({navigation}) => {
   const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    me.refetch();
+    setRefreshing(false);
+  };
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -47,7 +60,15 @@ const CityPingsHomeScreen = ({navigation}) => {
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         tabContainerStyle={styles.shadowRemover}>
         <Tab heading="Rewards" {...TAB_STYLE}>
-          <Content style={{backgroundColor: appColors.almostNotBlue}}>
+          <Content
+            style={{backgroundColor: appColors.almostNotBlue}}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+                tintColor={appColors.primary}
+              />
+            }>
             <ContentLayout>
               {availableRewards.loading && <ActivityIndicator />}
               {availableRewards.data &&
