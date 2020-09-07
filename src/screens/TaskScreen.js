@@ -61,8 +61,6 @@ const TaskScreen = ({navigation, route}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
 
-  console.log(task);
-
   const doCompleteTask = async () => {
     // refetch queries here
     // update completed status
