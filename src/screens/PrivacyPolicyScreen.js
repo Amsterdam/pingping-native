@@ -63,10 +63,10 @@ const PrivacyPolicyScreen = ({navigation}) => {
   };
 
   const doAcceptPolicy = async () => {
-    await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
     setLoading(true);
     try {
       await doRegisterDevice(registerDevice);
+      await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
       const token = await AsyncStorage.getItem('@access_token');
       if (token) {
         setLoading(false);
