@@ -3,36 +3,6 @@ import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Button, Text, Icon} from 'native-base';
 import {appColors, ppBaseColors} from '../lib/colors';
 
-const buttonBase = {
-  backgroundColor: appColors.primary,
-  borderRadius: 10,
-};
-
-const styles = StyleSheet.create({
-  button: {...buttonBase},
-  label: {
-    paddingTop: 3,
-    fontFamily: 'Heavitas',
-    fontSize: 14,
-    color: appColors.white,
-  },
-  icon: {
-    color: '#fff',
-    fontSize: 24,
-  },
-  disabled: {
-    ...buttonBase,
-    backgroundColor: 'gray',
-  },
-  deleteButton: {
-    backgroundColor: ppBaseColors.PP_PINK,
-  },
-  innerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-});
-
 const OnboardingButton = ({
   label,
   disabled = false,
@@ -68,5 +38,35 @@ const OnboardingButton = ({
     </Button>
   );
 };
+
+const buttonBase = {
+  backgroundColor: appColors.primary,
+  borderRadius: 10,
+};
+
+const styles = StyleSheet.create({
+  button: {...buttonBase},
+  label: {
+    paddingTop: 3,
+    fontFamily: 'Heavitas',
+    fontSize: 14,
+    color: appColors.white,
+  },
+  icon: {
+    color: '#fff',
+    fontSize: 24,
+  },
+  disabled: {
+    ...buttonBase,
+    backgroundColor: 'gray',
+  },
+  deleteButton: {
+    backgroundColor: ppBaseColors.PP_PINK,
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+});
 
 export default OnboardingButton;

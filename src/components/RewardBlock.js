@@ -5,6 +5,21 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {ppBaseColors} from '../lib/colors';
 
+const RewardBlock = ({reward}) => {
+  return (
+    <View
+      style={
+        reward.acquired
+          ? styles.rewardBlock
+          : {...styles.rewardBlock, ...styles.disabled}
+      }>
+      <Image source={reward.image} style={styles.image} />
+      <Title style={styles.title}>{reward.title}</Title>
+      <Body style={styles.points}>{reward.points} punten</Body>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   rewardBlock: {
     justifyContent: 'center',
@@ -33,22 +48,6 @@ const styles = StyleSheet.create({
   title: {fontSize: 12},
   points: {color: ppBaseColors.PP_GOLD},
 });
-
-const RewardBlock = ({reward}) => {
-  return (
-    <View
-      style={
-        reward.acquired
-          ? styles.rewardBlock
-          : {...styles.rewardBlock, ...styles.disabled}
-      }>
-      <Image source={reward.image} style={styles.image} />
-      <Title style={styles.title}>{reward.title}</Title>
-      <Body style={styles.points}>{reward.points} punten</Body>
-    </View>
-  );
-};
-
 RewardBlock.propTypes = {
   reward: PropTypes.object.isRequired,
 };

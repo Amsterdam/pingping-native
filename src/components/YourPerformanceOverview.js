@@ -25,15 +25,6 @@ const routeRewards = [
   },
 ];
 
-const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f7fbff',
-  },
-});
-
 const YourPerformanceScreen = ({navigation}) => {
   return (
     <ContentLayout style={styles.content}>
@@ -46,5 +37,14 @@ const YourPerformanceScreen = ({navigation}) => {
     </ContentLayout>
   );
 };
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7fbff',
+  },
+});
 
 export default YourPerformanceScreen;

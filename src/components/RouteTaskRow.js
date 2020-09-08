@@ -7,6 +7,41 @@ import {appColors} from '../lib/colors';
 
 const CIRCLE_RADIUS = 30;
 
+const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
+  const isCompleted = status === 'Completed';
+
+  const doNavigate = () => {
+    navigation.navigate('TaskScreen', {
+      routeId,
+      task: {
+        ...task,
+        status,
+      },
+    });
+  };
+
+  return (
+    <TouchableOpacity onPress={doNavigate}>
+      <View style={[styles.container, index % 2 === 0 && styles.background]}>
+        <View
+          style={[
+            styles.circleStepIndicator,
+            isCompleted && styles.circleDisabled,
+          ]}>
+          {isCompleted ? (
+            <Icon name="check" type="Entypo" style={styles.icon} />
+          ) : (
+            <Title style={styles.label}>{index}</Title>
+          )}
+        </View>
+        <Title style={isCompleted ? styles.disabled : styles.title}>
+          {task.title}
+        </Title>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -45,41 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 });
-
-const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
-  const isCompleted = status === 'Completed';
-
-  const doNavigate = () => {
-    navigation.navigate('TaskScreen', {
-      routeId,
-      task: {
-        ...task,
-        status,
-      },
-    });
-  };
-
-  return (
-    <TouchableOpacity onPress={doNavigate}>
-      <View style={[styles.container, index % 2 === 0 && styles.background]}>
-        <View
-          style={[
-            styles.circleStepIndicator,
-            isCompleted && styles.circleDisabled,
-          ]}>
-          {isCompleted ? (
-            <Icon name="check" type="Entypo" style={styles.icon} />
-          ) : (
-            <Title style={styles.label}>{index}</Title>
-          )}
-        </View>
-        <Title style={isCompleted ? styles.disabled : styles.title}>
-          {task.title}
-        </Title>
-      </View>
-    </TouchableOpacity>
-  );
-};
 
 RouteTaskRow.propTypes = {
   task: PropTypes.object.isRequired,

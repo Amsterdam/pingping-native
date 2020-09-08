@@ -20,48 +20,6 @@ import ErrorComponent from '../components/ErrorComponent';
 
 const HEADER_HEIGHT = 200;
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: appColors.headerColor,
-  },
-  header: {
-    flexDirection: 'column',
-    backgroundColor: appColors.headerColor,
-    height: HEADER_HEIGHT,
-    left: 0,
-    top: 0,
-    right: 0,
-    position: 'absolute',
-  },
-  title: {
-    color: '#fff',
-    fontSize: 24,
-    textAlign: 'left',
-  },
-  subTitle: {
-    color: '#000',
-    marginVertical: 20,
-    fontSize: 24,
-    textAlign: 'left',
-  },
-  content: {
-    position: 'absolute',
-    top: 25,
-    paddingBottom: 75,
-  },
-  underLayer: {
-    position: 'absolute',
-    flex: 1,
-    zIndex: -1,
-    elevation: 0,
-    backgroundColor: appColors.almostNotBlue,
-    top: 100, // replace this with a percentage of the screenheight to be responsive
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-});
-
 const RouteHomeScreen = ({navigation}) => {
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -186,6 +144,48 @@ const RouteHomeScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: appColors.headerColor,
+  },
+  header: {
+    flexDirection: 'column',
+    backgroundColor: appColors.headerColor,
+    height: HEADER_HEIGHT,
+    left: 0,
+    top: 0,
+    right: 0,
+    position: 'absolute',
+  },
+  title: {
+    color: '#fff',
+    fontSize: 24,
+    textAlign: 'left',
+  },
+  subTitle: {
+    color: '#000',
+    marginVertical: 20,
+    fontSize: 24,
+    textAlign: 'left',
+  },
+  content: {
+    position: 'absolute',
+    top: 25,
+    paddingBottom: 75,
+  },
+  underLayer: {
+    position: 'absolute',
+    flex: 1,
+    zIndex: -1,
+    elevation: 0,
+    backgroundColor: appColors.almostNotBlue,
+    top: 100, // replace this with a percentage of the screenheight to be responsive
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+});
 
 RouteHomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

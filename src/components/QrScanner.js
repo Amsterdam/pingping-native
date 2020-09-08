@@ -7,22 +7,6 @@ import Button from './OnboardingButton';
 import {appColors, ppBaseColors} from '../lib/colors';
 import Loading from './LoadingComponent';
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    alignItems: 'center',
-  },
-  cameraContainerStyle: {
-    height: Dimensions.get('window').width - 100,
-    width: Dimensions.get('window').width - 100,
-    borderRadius: 5,
-    borderColor: appColors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
-    borderWidth: 3,
-  },
-});
-
 const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
   return (
     <View style={styles.mainContainer}>
@@ -47,6 +31,22 @@ const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    alignItems: 'center',
+  },
+  cameraContainerStyle: {
+    height: Dimensions.get('window').width - 100,
+    width: Dimensions.get('window').width - 100,
+    borderRadius: 5,
+    borderColor: appColors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
+    borderWidth: 3,
+  },
+});
 
 QrScanner.propTypes = {
   onSuccess: PropTypes.func.isRequired,

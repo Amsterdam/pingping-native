@@ -25,60 +25,6 @@ import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/ErrorComponent';
 
 const screenHeight = Dimensions.get('window').height;
-
-const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: screenHeight * 0.3,
-  },
-  imageContainer: {
-    position: 'relative',
-  },
-  imageOverlay: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 20,
-    position: 'absolute',
-    top: 80,
-  },
-  contentContainer: {
-    paddingHorizontal: 40,
-    paddingVertical: 20,
-  },
-  label: {
-    color: appColors.primary,
-  },
-  title: {
-    marginVertical: 20,
-  },
-  description: {
-    marginTop: 20,
-  },
-  buttonContainer: {
-    paddingHorizontal: 40,
-    marginVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  balanceContainer: {
-    marginTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  subtitle: {
-    marginTop: 40,
-    fontSize: 22,
-  },
-  tipsChip: {
-    position: 'absolute',
-    top: screenHeight * 0.28,
-    right: 25,
-  },
-});
-
 function LifeEventDetailsScreen({navigation, route}) {
   const {routeId} = route.params;
   const {data, error, refetch} = useQuery(GET_ROUTE_QUERY, {
@@ -191,6 +137,60 @@ function LifeEventDetailsScreen({navigation, route}) {
   }
   return <ActivityIndicator />;
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    height: screenHeight * 0.3,
+  },
+  imageContainer: {
+    position: 'relative',
+  },
+  imageOverlay: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    position: 'absolute',
+    top: 80,
+  },
+  contentContainer: {
+    paddingHorizontal: 40,
+    paddingVertical: 20,
+  },
+  label: {
+    color: appColors.primary,
+  },
+  title: {
+    marginVertical: 20,
+  },
+  description: {
+    marginTop: 20,
+  },
+  buttonContainer: {
+    paddingHorizontal: 40,
+    marginVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  balanceContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  subtitle: {
+    marginTop: 40,
+    fontSize: 22,
+  },
+  tipsChip: {
+    position: 'absolute',
+    top: screenHeight * 0.28,
+    right: 25,
+  },
+});
+
 LifeEventDetailsScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,

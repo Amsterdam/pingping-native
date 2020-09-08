@@ -35,24 +35,6 @@ const onboardingViews = [
   },
 ];
 
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: appColors.background,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
-  },
-  buttonLabel: {
-    color: appColors.greyedOut,
-    fontSize: 12,
-  },
-  flex: {
-    flex: 1,
-  },
-});
-
 class OnboardingScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -101,6 +83,24 @@ class OnboardingScreen extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: appColors.background,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
+  buttonLabel: {
+    color: appColors.greyedOut,
+    fontSize: 12,
+  },
+  flex: {
+    flex: 1,
+  },
+});
 
 OnboardingScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

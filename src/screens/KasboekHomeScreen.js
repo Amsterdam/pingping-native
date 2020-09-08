@@ -9,6 +9,48 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import KasboekGoalItem from '../components/KasboekGoalItem';
 
+const KasboekHomeScreen = ({navigation}) => {
+  return (
+    <Container>
+      <RouteHeader title="Zet je goals" />
+      <Content>
+        <View style={styles.container}>
+          <View style={styles.innerContainer}>
+            <Title>0 Goals</Title>
+            <Body>Je hebt nog geen goals opgesteld</Body>
+            <View style={styles.statusContainer}>
+              <View style={styles.statusBox}>
+                <Body>Nieuwe goals</Body>
+                <Title>0</Title>
+              </View>
+              <View style={styles.statusBox}>
+                <Body>Bijna afgerond</Body>
+                <Title>0</Title>
+              </View>
+              <View style={styles.statusBox}>
+                <Body>afgerond</Body>
+                <Title>0</Title>
+              </View>
+            </View>
+          </View>
+          <View style={styles.absolute}>
+            <View style={styles.button}>
+              <Button
+                label="zet nieuwe goal"
+                rounded
+                onPress={() => navigation.navigate('KasboekAddGoal')}
+              />
+            </View>
+          </View>
+        </View>
+        <View style={styles.existingGoalsContainer}>
+          <KasboekGoalItem />
+        </View>
+      </Content>
+    </Container>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: ppBaseColors.PP_DARK_BLUE,
@@ -62,48 +104,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-const KasboekHomeScreen = ({navigation}) => {
-  return (
-    <Container>
-      <RouteHeader title="Zet je goals" />
-      <Content>
-        <View style={styles.container}>
-          <View style={styles.innerContainer}>
-            <Title>0 Goals</Title>
-            <Body>Je hebt nog geen goals opgesteld</Body>
-            <View style={styles.statusContainer}>
-              <View style={styles.statusBox}>
-                <Body>Nieuwe goals</Body>
-                <Title>0</Title>
-              </View>
-              <View style={styles.statusBox}>
-                <Body>Bijna afgerond</Body>
-                <Title>0</Title>
-              </View>
-              <View style={styles.statusBox}>
-                <Body>afgerond</Body>
-                <Title>0</Title>
-              </View>
-            </View>
-          </View>
-          <View style={styles.absolute}>
-            <View style={styles.button}>
-              <Button
-                label="zet nieuwe goal"
-                rounded
-                onPress={() => navigation.navigate('KasboekAddGoal')}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={styles.existingGoalsContainer}>
-          <KasboekGoalItem />
-        </View>
-      </Content>
-    </Container>
-  );
-};
 
 KasboekHomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

@@ -10,15 +10,6 @@ import TrashImage from '../assets/trashcan.png';
 import AccountBlockButton from '../components/AccountBlockButton';
 import {appColors} from '../lib/colors';
 
-const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: appColors.almostNotBlue,
-  },
-});
-
 const AccountHomeScreen = ({navigation}) => {
   const buttons = [
     {title: 'Exporteer gegevens', image: ExportImage, route: 'ExportData'},
@@ -41,6 +32,15 @@ const AccountHomeScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: appColors.almostNotBlue,
+  },
+});
 
 AccountHomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

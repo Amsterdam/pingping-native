@@ -6,6 +6,20 @@ import CityPingCoin from '../assets/svg/CityPingCoin';
 import {appColors} from '../lib/colors';
 import Body from './typography/Body';
 
+const CityPingsBalance = ({price, balance}) => {
+  return (
+    <View style={styles.balanceContainer}>
+      <View style={styles.saldo}>
+        <CityPingCoin />
+        <Body style={styles.savings}>
+          {balance} / {price} CityPings
+        </Body>
+      </View>
+      <ProgressBar progress={balance / price} />
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   savings: {
     marginLeft: 5,
@@ -22,20 +36,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-const CityPingsBalance = ({price, balance}) => {
-  return (
-    <View style={styles.balanceContainer}>
-      <View style={styles.saldo}>
-        <CityPingCoin />
-        <Body style={styles.savings}>
-          {balance} / {price} CityPings
-        </Body>
-      </View>
-      <ProgressBar progress={balance / price} />
-    </View>
-  );
-};
 
 CityPingsBalance.propTypes = {
   price: PropTypes.number.isRequired,

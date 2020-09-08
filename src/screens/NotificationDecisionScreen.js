@@ -18,54 +18,6 @@ import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotifica
 import Loading from '../components/LoadingComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
-const styles = StyleSheet.create({
-  viewContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    backgroundColor: appColors.background,
-    paddingHorizontal: 25,
-  },
-  title: {
-    fontWeight: '400',
-    fontSize: 26,
-    color: appColors.text,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  onboardingText: {
-    textAlign: 'center',
-    color: appColors.subText,
-    fontSize: 14,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
-  },
-  button: {
-    backgroundColor: appColors.primary,
-  },
-  headerSubButton: {
-    color: appColors.greyedOut,
-    fontSize: 12,
-  },
-  buttonLabel: {
-    fontWeight: 'bold',
-  },
-  header: {
-    backgroundColor: appColors.background,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
-  },
-  flex: {
-    flex: 1,
-  },
-});
-
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
   const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
   const [loading, setLoading] = useState(false);
@@ -141,6 +93,54 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  viewContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: appColors.background,
+    paddingHorizontal: 25,
+  },
+  title: {
+    fontWeight: '400',
+    fontSize: 26,
+    color: appColors.text,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  onboardingText: {
+    textAlign: 'center',
+    color: appColors.subText,
+    fontSize: 14,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    width: Dimensions.get('window').width,
+    justifyContent: 'space-between',
+  },
+  button: {
+    backgroundColor: appColors.primary,
+  },
+  headerSubButton: {
+    color: appColors.greyedOut,
+    fontSize: 12,
+  },
+  buttonLabel: {
+    fontWeight: 'bold',
+  },
+  header: {
+    backgroundColor: appColors.background,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
+  flex: {
+    flex: 1,
+  },
+});
 
 NotificationDecisionScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

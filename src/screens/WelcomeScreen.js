@@ -10,6 +10,32 @@ import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
 import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
 
+const WelcomeScreen = ({navigation}) => {
+  return (
+    <Container>
+      <SimpleHeader title="Welkom!" />
+      <View style={styles.viewContainer}>
+        <View>
+          <GuyBehindComputer />
+        </View>
+        <View>
+          <Title style={styles.title}>WELKOM OP PING PING</Title>
+          <Body style={styles.onboardingText}>
+            Voor je aan de slag kan hebben we wat informatie van jouw nodig om
+            de juiste content aan te bieden….
+          </Body>
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={() => navigation.navigate('QuestionScreen')}
+            label="start"
+          />
+        </View>
+      </View>
+    </Container>
+  );
+};
+
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
@@ -41,32 +67,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-const WelcomeScreen = ({navigation}) => {
-  return (
-    <Container>
-      <SimpleHeader title="Welkom!" />
-      <View style={styles.viewContainer}>
-        <View>
-          <GuyBehindComputer />
-        </View>
-        <View>
-          <Title style={styles.title}>WELKOM OP PING PING</Title>
-          <Body style={styles.onboardingText}>
-            Voor je aan de slag kan hebben we wat informatie van jouw nodig om
-            de juiste content aan te bieden….
-          </Body>
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={() => navigation.navigate('QuestionScreen')}
-            label="start"
-          />
-        </View>
-      </View>
-    </Container>
-  );
-};
 
 WelcomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

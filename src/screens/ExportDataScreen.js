@@ -11,31 +11,6 @@ import Body from '../components/typography/Body';
 import QRCode from 'react-native-qrcode-svg';
 import {appColors} from '../lib/colors';
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: '#000',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  margin: {
-    marginBottom: 30,
-  },
-  inputContainer: {alignItems: 'center', justifyContent: 'center'},
-  qrContainer: {
-    alignItems: 'center',
-  },
-  qrCode: {
-    borderWidth: 5,
-    padding: 10,
-    borderRadius: 5,
-    borderColor: appColors.primary,
-  },
-});
-
 const ExportDataScreen = ({navigation}) => {
   //   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
 
@@ -65,6 +40,31 @@ const ExportDataScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    alignSelf: 'stretch',
+    borderColor: '#000',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  margin: {
+    marginBottom: 30,
+  },
+  inputContainer: {alignItems: 'center', justifyContent: 'center'},
+  qrContainer: {
+    alignItems: 'center',
+  },
+  qrCode: {
+    borderWidth: 5,
+    padding: 10,
+    borderRadius: 5,
+    borderColor: appColors.primary,
+  },
+});
 
 ExportDataScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

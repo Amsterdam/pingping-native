@@ -1,6 +1,14 @@
 import React from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
 
+const Loading = () => {
+  return (
+    <View style={styles.acitivityContainer}>
+      <ActivityIndicator size="large" color="#6C63FF" />
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   acitivityContainer: {
     position: 'absolute',
@@ -14,13 +22,5 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
 });
-
-const Loading = () => {
-  return (
-    <View style={styles.acitivityContainer}>
-      <ActivityIndicator size="large" color="#6C63FF" />
-    </View>
-  );
-};
 
 export default Loading;

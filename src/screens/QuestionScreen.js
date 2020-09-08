@@ -21,29 +21,6 @@ import ProgressBar from '../components/ProgressBar';
 import Loading from '../components/LoadingComponent';
 import * as Animatable from 'react-native-animatable';
 
-// write a transition component
-
-const styles = StyleSheet.create({
-  content: {flex: 1, padding: 20},
-  label: {fontSize: 20, color: appColors.primary},
-  button: {alignSelf: 'flex-end'},
-  header: {
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
-  },
-  buttonContainer: {
-    justifyContent: 'flex-end',
-  },
-  icon: {
-    color: '#000',
-    fontSize: 32,
-  },
-  flex: {flex: 1},
-});
-
 const INITIAL_STATE = {
   answerSelected: false,
   day: '',
@@ -186,6 +163,27 @@ const QuestionScreen = ({navigation}) => {
   }
   return <></>;
 };
+
+const styles = StyleSheet.create({
+  content: {flex: 1, padding: 20},
+  label: {fontSize: 20, color: appColors.primary},
+  button: {alignSelf: 'flex-end'},
+  header: {
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
+  buttonContainer: {
+    justifyContent: 'flex-end',
+  },
+  icon: {
+    color: '#000',
+    fontSize: 32,
+  },
+  flex: {flex: 1},
+});
 
 QuestionScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

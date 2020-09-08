@@ -7,16 +7,6 @@ import {Content, Container} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 
-const styles = StyleSheet.create({
-  subTitle: {
-    fontSize: 18,
-    marginBottom: 10,
-  },
-  paragraphContainer: {
-    marginBottom: 25,
-  },
-});
-
 const TipScreen = ({navigation}) => {
   return (
     <Container>
@@ -59,6 +49,16 @@ const TipScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  subTitle: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  paragraphContainer: {
+    marginBottom: 25,
+  },
+});
 
 TipScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

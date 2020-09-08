@@ -14,27 +14,6 @@ import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import {resetStore} from '../apollo/apolloClient';
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: appColors.primary,
-    borderWidth: 1,
-    borderRadius: 50,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  margin: {
-    marginBottom: 30,
-  },
-  inputContainer: {alignItems: 'center', justifyContent: 'center'},
-  emojiContainer: {
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-});
-
 const DeleteDataScreen = ({navigation, setLogOut}) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -98,6 +77,27 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    alignSelf: 'stretch',
+    borderColor: appColors.primary,
+    borderWidth: 1,
+    borderRadius: 50,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  margin: {
+    marginBottom: 30,
+  },
+  inputContainer: {alignItems: 'center', justifyContent: 'center'},
+  emojiContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+});
 
 DeleteDataScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

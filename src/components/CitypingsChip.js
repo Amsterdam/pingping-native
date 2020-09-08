@@ -5,6 +5,15 @@ import CityPingCoin from '../assets/svg/CityPingCoin';
 import Title from '../components/typography/Title';
 import {ppBaseColors} from '../lib/colors';
 
+const CitypingsChip = ({value = 0}) => {
+  return (
+    <View style={styles.cpBalance}>
+      <CityPingCoin style={styles.coin} />
+      <Title style={styles.cpLabel}>{value} CityPings</Title>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   cpBalance: {
     backgroundColor: ppBaseColors.PP_DARK_BLUE,
@@ -23,15 +32,6 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 });
-
-const CitypingsChip = ({value = 0}) => {
-  return (
-    <View style={styles.cpBalance}>
-      <CityPingCoin style={styles.coin} />
-      <Title style={styles.cpLabel}>{value} CityPings</Title>
-    </View>
-  );
-};
 
 CitypingsChip.propTypes = {
   value: PropTypes.number,

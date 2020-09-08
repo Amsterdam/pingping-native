@@ -10,21 +10,6 @@ import LabeledHeader from '../components/header/LabeledHeader';
 import IMPORT_USER_MUTATION from '../apollo/Mutation/importUserMutation';
 import {useMutation} from '@apollo/client';
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: '#000',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  margin: {
-    marginBottom: 30,
-  },
-});
-
 const ImportDataScreen = ({navigation}) => {
   const [importUser] = useMutation(IMPORT_USER_MUTATION);
   const [scanning, setScanning] = useState(true);
@@ -71,6 +56,21 @@ const ImportDataScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    alignSelf: 'stretch',
+    borderColor: '#000',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  margin: {
+    marginBottom: 30,
+  },
+});
 
 ImportDataScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

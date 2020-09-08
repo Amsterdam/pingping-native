@@ -7,25 +7,6 @@ import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';
 import MultipleChoice from './answerTypes/MultipleChoice';
 
-const styles = StyleSheet.create({
-  questionContainer: {
-    flex: 1,
-    marginTop: 50,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  whiteButton: {
-    backgroundColor: '#fff',
-  },
-  illustration: {
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 100,
-  },
-});
-
 const QuestionComponent = ({currentTask, setState, state}) => {
   return (
     <View style={styles.questionContainer}>
@@ -51,6 +32,25 @@ const QuestionComponent = ({currentTask, setState, state}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  questionContainer: {
+    flex: 1,
+    marginTop: 50,
+  },
+  title: {
+    textAlign: 'center',
+  },
+  whiteButton: {
+    backgroundColor: '#fff',
+  },
+  illustration: {
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 100,
+  },
+});
 
 QuestionComponent.propTypes = {
   currentTask: PropTypes.object.isRequired,

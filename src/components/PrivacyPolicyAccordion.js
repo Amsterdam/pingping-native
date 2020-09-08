@@ -6,36 +6,6 @@ import Title from './typography/Title';
 import Body from './typography/Body';
 import {faqItems} from '../lib/faqItems';
 
-const styles = StyleSheet.create({
-  policyContainer: {
-    backgroundColor: '#fff',
-    margin: 15,
-    borderColor: '#000',
-    borderWidth: 1,
-    alignSelf: 'stretch',
-  },
-  iconButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-  },
-  title: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  icon: {
-    fontSize: 16,
-    marginLeft: 8,
-  },
-  paddingPolicy: {
-    padding: 20,
-  },
-  faqTitle: {marginTop: 10, marginBottom: 10},
-  faqItemContainer: {marginTop: 5, marginBottom: 5},
-  faqFontSize: {fontSize: 12},
-});
-
 const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   return (
     <View style={styles.policyContainer}>
@@ -98,6 +68,36 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  policyContainer: {
+    backgroundColor: '#fff',
+    margin: 15,
+    borderColor: '#000',
+    borderWidth: 1,
+    alignSelf: 'stretch',
+  },
+  iconButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  title: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  icon: {
+    fontSize: 16,
+    marginLeft: 8,
+  },
+  paddingPolicy: {
+    padding: 20,
+  },
+  faqTitle: {marginTop: 10, marginBottom: 10},
+  faqItemContainer: {marginTop: 5, marginBottom: 5},
+  faqFontSize: {fontSize: 12},
+});
 
 PrivacyPolicyAccordion.propTypes = {
   open: PropTypes.bool.isRequired,

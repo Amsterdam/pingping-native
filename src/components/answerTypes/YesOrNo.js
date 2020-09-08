@@ -3,20 +3,6 @@ import {StyleSheet} from 'react-native';
 import Button from '../Button';
 import {ppBaseColors} from '../../lib/colors';
 
-const styles = StyleSheet.create({
-  whiteButton: {
-    backgroundColor: '#fff',
-    marginBottom: 20,
-  },
-  activeButton: {
-    backgroundColor: ppBaseColors.PP_ORANGE,
-    marginBottom: 20,
-  },
-  activeText: {
-    color: '#fff',
-  },
-});
-
 const YesOrNo = ({answers, state, setState}) => {
   function mapButtons() {
     const buttonArray = [];
@@ -43,5 +29,19 @@ const YesOrNo = ({answers, state, setState}) => {
 
   return <React.Fragment>{mapButtons()}</React.Fragment>;
 };
+
+const styles = StyleSheet.create({
+  whiteButton: {
+    backgroundColor: '#fff',
+    marginBottom: 20,
+  },
+  activeButton: {
+    backgroundColor: ppBaseColors.PP_ORANGE,
+    marginBottom: 20,
+  },
+  activeText: {
+    color: '#fff',
+  },
+});
 
 export default YesOrNo;

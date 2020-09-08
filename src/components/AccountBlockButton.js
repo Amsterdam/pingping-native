@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity, Image, Dimensions} from 'react-native';
 import Title from '../components/typography/Title';
 
+const AccountBlockButton = ({button, navigation}) => {
+  return (
+    <TouchableOpacity
+      style={styles.accountMainButton}
+      onPress={() => navigation.navigate(button.route)}>
+      <Image source={button.image} style={styles.image} />
+      <Title style={styles.title}>{button.title}</Title>
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
   accountMainButton: {
     backgroundColor: '#fff',
@@ -29,17 +40,6 @@ const styles = StyleSheet.create({
   },
   title: {fontSize: 14, textAlign: 'center'},
 });
-
-const AccountBlockButton = ({button, navigation}) => {
-  return (
-    <TouchableOpacity
-      style={styles.accountMainButton}
-      onPress={() => navigation.navigate(button.route)}>
-      <Image source={button.image} style={styles.image} />
-      <Title style={styles.title}>{button.title}</Title>
-    </TouchableOpacity>
-  );
-};
 
 AccountBlockButton.propTypes = {
   button: PropTypes.object.isRequired,

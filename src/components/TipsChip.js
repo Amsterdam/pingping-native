@@ -5,6 +5,21 @@ import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../lib/colors';
 
+const TipsChip = ({navigation}) => {
+  return (
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate('TipScreen')}>
+      <Icon
+        name="lightbulb-on-outline"
+        type="MaterialCommunityIcons"
+        style={styles.icon}
+      />
+      <Title style={styles.title}>Tips</Title>
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: appColors.primary,
@@ -26,21 +41,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
-
-const TipsChip = ({navigation}) => {
-  return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate('TipScreen')}>
-      <Icon
-        name="lightbulb-on-outline"
-        type="MaterialCommunityIcons"
-        style={styles.icon}
-      />
-      <Title style={styles.title}>Tips</Title>
-    </TouchableOpacity>
-  );
-};
 
 TipsChip.propTypes = {
   navigation: PropTypes.object.isRequired,

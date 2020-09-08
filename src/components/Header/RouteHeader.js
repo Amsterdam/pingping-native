@@ -3,6 +3,14 @@ import HeaderTemplate from '../header/HeaderTemplate';
 import {StyleSheet} from 'react-native';
 import Title from '../../components/typography/Title';
 
+const RouteHeader = ({title = ''}) => {
+  return (
+    <HeaderTemplate style={styles.header} color="primary">
+      <Title style={styles.title}>{title}</Title>
+    </HeaderTemplate>
+  );
+};
+
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'column',
@@ -14,13 +22,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
-
-const RouteHeader = ({title = ''}) => {
-  return (
-    <HeaderTemplate style={styles.header} color="primary">
-      <Title style={styles.title}>{title}</Title>
-    </HeaderTemplate>
-  );
-};
 
 export default RouteHeader;

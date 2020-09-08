@@ -15,45 +15,6 @@ import Button from '../components/OnboardingButton';
 import {appColors} from '../lib/colors';
 import WebViewModal from '../components/modals/WebViewModal';
 
-const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  videoContainer: {
-    alignSelf: 'stretch',
-    height: 300,
-  },
-
-  textContainer: {
-    flex: 1,
-  },
-  descriptionContainer: {
-    justifyContent: 'space-around',
-    flex: 1,
-  },
-  buttonContainer: {
-    paddingHorizontal: 40,
-    marginVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  buttonHelp: {
-    backgroundColor: appColors.greyedOut,
-    flex: 1,
-    marginRight: 10,
-    justifyContent: 'center',
-  },
-  htmlFontStyle: {
-    fontFamily: 'Raleway',
-    fontSize: 15,
-    lineHeight: 25,
-  },
-  completedTagLine: {fontSize: 14, color: appColors.primary},
-});
-
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
   const [toggleModal] = useMutation(TOGGLE_MODAL);
@@ -156,6 +117,45 @@ const TaskScreen = ({navigation, route}) => {
     </React.Fragment>
   );
 };
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  videoContainer: {
+    alignSelf: 'stretch',
+    height: 300,
+  },
+
+  textContainer: {
+    flex: 1,
+  },
+  descriptionContainer: {
+    justifyContent: 'space-around',
+    flex: 1,
+  },
+  buttonContainer: {
+    paddingHorizontal: 40,
+    marginVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  buttonHelp: {
+    backgroundColor: appColors.greyedOut,
+    flex: 1,
+    marginRight: 10,
+    justifyContent: 'center',
+  },
+  htmlFontStyle: {
+    fontFamily: 'Raleway',
+    fontSize: 15,
+    lineHeight: 25,
+  },
+  completedTagLine: {fontSize: 14, color: appColors.primary},
+});
 
 TaskScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

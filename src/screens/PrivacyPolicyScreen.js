@@ -16,38 +16,10 @@ import {doRegisterDevice} from '../utils/authUtils';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import Loading from '../components/LoadingComponent';
 
-const styles = StyleSheet.create({
-  viewContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    backgroundColor: appColors.background,
-    padding: 15,
-  },
-  title: {
-    fontWeight: '400',
-    fontSize: 28,
-    color: appColors.text,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  onboardingText: {
-    textAlign: 'center',
-    color: appColors.subText,
-    fontSize: 14,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-  },
-  content: {
-    flexGrow: 1,
-  },
-});
-
 const PrivacyPolicyScreen = ({navigation}) => {
   const [open, setOpen] = useState(false);
   const [policyAccepted, setPolicy] = useState(true);
-  const [registerDevice, {client}] = useMutation(REGISTER_DEVICE_MUTATION);
+  const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -110,6 +82,34 @@ const PrivacyPolicyScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  viewContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: appColors.background,
+    padding: 15,
+  },
+  title: {
+    fontWeight: '400',
+    fontSize: 28,
+    color: appColors.text,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  onboardingText: {
+    textAlign: 'center',
+    color: appColors.subText,
+    fontSize: 14,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+  },
+  content: {
+    flexGrow: 1,
+  },
+});
 
 PrivacyPolicyScreen.propTypes = {
   navigation: PropTypes.object.isRequired,

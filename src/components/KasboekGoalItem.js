@@ -3,6 +3,21 @@ import {View, StyleSheet} from 'react-native';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 
+const KasboekGoalItem = () => {
+  return (
+    <View style={styles.goal}>
+      <Icon
+        name="piggy-bank"
+        type="FontAwesome5"
+        color="#000"
+        style={styles.goalIcon}
+      />
+
+      <Title style={styles.title}>{'€ 100 verjaardagsfeestje'}</Title>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   goal: {
     backgroundColor: '#fff',
@@ -30,20 +45,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
 });
-
-const KasboekGoalItem = () => {
-  return (
-    <View style={styles.goal}>
-      <Icon
-        name="piggy-bank"
-        type="FontAwesome5"
-        color="#000"
-        style={styles.goalIcon}
-      />
-
-      <Title style={styles.title}>{'€ 100 verjaardagsfeestje'}</Title>
-    </View>
-  );
-};
 
 export default KasboekGoalItem;

@@ -7,6 +7,36 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
 
+const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
+  const navigator = async () => {
+    if (isLastItem) {
+      const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
+      if (acceptedPolicy) {
+        return navigation.navigate('WelcomeScreen');
+      }
+      return navigation.navigate('PrivacyPolicyScreen');
+    }
+    return buttonAction.scrollBy(1);
+  };
+
+  return (
+    <View style={styles.viewContainer}>
+      <View>{view.svg}</View>
+      <View>
+        <Title style={styles.title}>{view.title}</Title>
+        <Body style={styles.onboardingText}>{view.text}</Body>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          style={styles.button}
+          onPress={navigator}
+          label={view.buttonLabel}
+        />
+      </View>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
@@ -39,36 +69,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
-  const navigator = async () => {
-    if (isLastItem) {
-      const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
-      if (acceptedPolicy) {
-        return navigation.navigate('WelcomeScreen');
-      }
-      return navigation.navigate('PrivacyPolicyScreen');
-    }
-    return buttonAction.scrollBy(1);
-  };
-
-  return (
-    <View style={styles.viewContainer}>
-      <View>{view.svg}</View>
-      <View>
-        <Title style={styles.title}>{view.title}</Title>
-        <Body style={styles.onboardingText}>{view.text}</Body>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          style={styles.button}
-          onPress={navigator}
-          label={view.buttonLabel}
-        />
-      </View>
-    </View>
-  );
-};
 
 OnboardingItem.propTypes = {
   view: PropTypes.object.isRequired,

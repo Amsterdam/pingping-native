@@ -3,20 +3,6 @@ import {View, StyleSheet, Platform} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import {getDays, getMonths, getYears} from '../../utils/birthDayHelper';
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignSelf: 'stretch',
-  },
-  pickerContainer: {flex: 1},
-  pickerAndroid: {
-    borderWidth: 1,
-    borderRadius: 5,
-    marginRight: 5,
-  },
-});
-
 const DateOfBirth = ({setState, state}) => {
   const isIos = Platform.OS === 'ios';
   return (
@@ -58,5 +44,19 @@ const DateOfBirth = ({setState, state}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+  },
+  pickerContainer: {flex: 1},
+  pickerAndroid: {
+    borderWidth: 1,
+    borderRadius: 5,
+    marginRight: 5,
+  },
+});
 
 export default DateOfBirth;

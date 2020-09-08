@@ -14,45 +14,6 @@ import IconButton from '../IconButton';
 import Button from '../OnboardingButton';
 
 const screenHeight = Dimensions.get('window').height;
-
-const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: screenHeight * 0.3,
-  },
-  imageContainer: {
-    position: 'relative',
-  },
-  imageOverlay: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 20,
-    position: 'absolute',
-    top: 80,
-  },
-  contentContainer: {
-    paddingHorizontal: 40,
-    paddingVertical: 20,
-  },
-  label: {
-    color: appColors.primary,
-  },
-  title: {
-    marginVertical: 20,
-  },
-  description: {
-    marginTop: 20,
-  },
-  buttonContainer: {
-    paddingHorizontal: 40,
-    marginVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-});
-
 function RewardDetailModal({navigation, route}) {
   const {balance, price, title, description, rewardId} = route.params;
   const available = balance >= price;
@@ -107,6 +68,44 @@ function RewardDetailModal({navigation, route}) {
     </Container>
   );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    height: screenHeight * 0.3,
+  },
+  imageContainer: {
+    position: 'relative',
+  },
+  imageOverlay: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    position: 'absolute',
+    top: 80,
+  },
+  contentContainer: {
+    paddingHorizontal: 40,
+    paddingVertical: 20,
+  },
+  label: {
+    color: appColors.primary,
+  },
+  title: {
+    marginVertical: 20,
+  },
+  description: {
+    marginTop: 20,
+  },
+  buttonContainer: {
+    paddingHorizontal: 40,
+    marginVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+});
 
 RewardDetailModal.propTypes = {
   navigation: PropTypes.object.isRequired,

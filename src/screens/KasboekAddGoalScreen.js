@@ -9,61 +9,6 @@ import Body from '../components/typography/Body';
 import {appColors} from '../lib/colors';
 import Button from '../components/Button';
 
-const styles = StyleSheet.create({
-  paper: {
-    backgroundColor: '#fff',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    padding: 15,
-    margin: 10,
-    marginTop: 30,
-    borderRadius: 20,
-  },
-  subTitle: {
-    fontSize: 18,
-  },
-  inputContainer: {
-    alignSelf: 'stretch',
-    padding: 10,
-  },
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: appColors.primary,
-    borderWidth: 1,
-    borderRadius: 50,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  button: {margin: 10},
-  passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderRadius: 50,
-    borderColor: '#000',
-    paddingBottom: 10,
-  },
-  icon: {marginRight: 30},
-  textInput: {
-    flex: 1,
-    fontFamily: 'Heavitas',
-    height: 50,
-    fontSize: 20,
-  },
-});
-
 const INITIAL_STATE = {
   amount: 0,
   goal: '',
@@ -121,6 +66,61 @@ const KasboekAddGoalScreen = ({navigation}) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  paper: {
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    padding: 15,
+    margin: 10,
+    marginTop: 30,
+    borderRadius: 20,
+  },
+  subTitle: {
+    fontSize: 18,
+  },
+  inputContainer: {
+    alignSelf: 'stretch',
+    padding: 10,
+  },
+  input: {
+    height: 40,
+    alignSelf: 'stretch',
+    borderColor: appColors.primary,
+    borderWidth: 1,
+    borderRadius: 50,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  button: {margin: 10},
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 50,
+    borderColor: '#000',
+    paddingBottom: 10,
+  },
+  icon: {marginRight: 30},
+  textInput: {
+    flex: 1,
+    fontFamily: 'Heavitas',
+    height: 50,
+    fontSize: 20,
+  },
+});
 
 KasboekAddGoalScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
