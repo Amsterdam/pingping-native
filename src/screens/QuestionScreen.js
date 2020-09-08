@@ -151,7 +151,7 @@ const QuestionScreen = ({navigation}) => {
         <Content contentContainerStyle={styles.content}>
           {data && (
             <Animatable.View
-              style={{flex: 1}}
+              style={styles.flex}
               easing="linear"
               duration={800}
               ref={animationRef}

@@ -22,6 +22,7 @@ import Button from '../components/OnboardingButton';
 import TipsChip from '../components/TipsChip';
 import RouteTaskRow from '../components/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
+import ErrorComponent from '../components/ErrorComponent';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -80,11 +81,15 @@ const styles = StyleSheet.create({
 
 function LifeEventDetailsScreen({navigation, route}) {
   const {routeId} = route.params;
-  const {data} = useQuery(GET_ROUTE_QUERY, {
+  const {data, error, refetch} = useQuery(GET_ROUTE_QUERY, {
     variables: {
       routeId,
     },
   });
+
+  if (error) {
+    return <ErrorComponent functionToRetry={refetch} />;
+  }
 
   if (data && data.getRoute) {
     const {

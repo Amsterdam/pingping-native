@@ -17,6 +17,7 @@ import CitypingsChip from '../components/CitypingsChip';
 import YourPerformanceOverview from '../components/YourPerformanceOverview';
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import ErrorComponent from '../components/ErrorComponent';
 
 const CityPingsHomeScreen = ({navigation}) => {
   const [getAvailableRewards, availableRewards] = useLazyQuery(
@@ -27,12 +28,6 @@ const CityPingsHomeScreen = ({navigation}) => {
   });
   const [refreshing, setRefreshing] = React.useState(false);
 
-  const onRefresh = () => {
-    setRefreshing(true);
-    me.refetch();
-    setRefreshing(false);
-  };
-
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       getAvailableRewards();
@@ -40,6 +35,21 @@ const CityPingsHomeScreen = ({navigation}) => {
     });
     return unsubscribe;
   }, [navigation, getAvailableRewards, getStatus]);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    me.refetch();
+    setRefreshing(false);
+  };
+
+  const retry = async () => {
+    await availableRewards.refetch();
+    await me.refetch();
+  };
+
+  if (availableRewards.error || me.error) {
+    return <ErrorComponent functionToRetry={retry} />;
+  }
 
   const balance =
     me.data && me.data.getStatus && me.data.getStatus.user.balance; // maybe move this part to either localstate or the tabnavigator

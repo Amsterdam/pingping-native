@@ -16,6 +16,7 @@ import Title from '../components/typography/Title';
 import Modal from '../components/modals/CityPingsModal';
 import {appColors} from '../lib/colors';
 import RouteCard from '../components/RouteCard';
+import ErrorComponent from '../components/ErrorComponent';
 
 const HEADER_HEIGHT = 200;
 
@@ -62,6 +63,13 @@ const styles = StyleSheet.create({
 });
 
 const RouteHomeScreen = ({navigation}) => {
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getRoutes();
+    });
+    return unsubscribe;
+  }, [navigation, getRoutes]);
+
   const scrollY = new Animated.Value(0);
   const translateY = scrollY.interpolate({
     inputRange: [0, HEADER_HEIGHT],
@@ -73,18 +81,15 @@ const RouteHomeScreen = ({navigation}) => {
   });
   const [refreshing, setRefreshing] = React.useState(false);
 
+  if (routes.error) {
+    return <ErrorComponent functionToRetry={routes.refetch} />;
+  }
+
   const onRefresh = () => {
     setRefreshing(true);
     routes.refetch();
     setRefreshing(false);
   };
-
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      getRoutes();
-    });
-    return unsubscribe;
-  }, [navigation, getRoutes]);
 
   function compareProgress(a, b) {
     return b.progress - a.progress;
