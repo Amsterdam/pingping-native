@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import {StyleSheet, View, StatusBar, Text} from 'react-native';
 import {
   Content,
@@ -54,10 +54,11 @@ const INITIAL_STATE = {
 
 const QuestionScreen = ({navigation}) => {
   // refactor this
-  const [state, setState] = React.useState(INITIAL_STATE);
-  const {data, loading, error} = useQuery(GET_STATUS_QUERY);
+  const [state, setState] = useState(INITIAL_STATE);
+  const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
+  const [loadingQuestion, setLoadingQuestion] = useState(false);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
-  const animationRef = React.useRef(null);
+  const animationRef = useRef(null);
 
   if (error) {
     return <Text>Something went very wrong</Text>;
@@ -97,23 +98,22 @@ const QuestionScreen = ({navigation}) => {
         default:
           break;
       }
-
+      setLoadingQuestion(true);
       try {
         await updateTask({
           variables: {
             answer,
             taskId: currentTask.taskId,
           },
-          refetchQueries: [
-            {
-              query: GET_STATUS_QUERY,
-            },
-          ],
         });
-        animationRef.current?.fadeIn();
         setState(INITIAL_STATE);
+        await refetch();
+        console.log('waiting');
+        setLoadingQuestion(false);
+        animationRef.current?.fadeIn();
       } catch (e) {
         console.log(e);
+        setLoadingQuestion(false);
       }
     };
 
@@ -179,6 +179,7 @@ const QuestionScreen = ({navigation}) => {
               </View>
             </Animatable.View>
           )}
+          {loadingQuestion && <Loading />}
         </Content>
       </Container>
     );
