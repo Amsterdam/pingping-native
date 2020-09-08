@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Content} from 'native-base';
+import {useMutation} from '@apollo/client';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -11,6 +12,9 @@ import FloppyDisk from '../assets/svg/FloppyDisk';
 import {appColors} from '../lib/colors';
 import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
 import SimpleHeader from '../components/header/SimpleHeader';
+import {doRegisterDevice} from '../utils/authUtils';
+import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
+import Loading from '../components/LoadingComponent';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -41,8 +45,10 @@ const styles = StyleSheet.create({
 });
 
 const PrivacyPolicyScreen = ({navigation}) => {
-  const [open, setOpen] = React.useState(false);
-  const [policyAccepted, setPolicy] = React.useState(true);
+  const [open, setOpen] = useState(false);
+  const [policyAccepted, setPolicy] = useState(true);
+  const [registerDevice, {client}] = useMutation(REGISTER_DEVICE_MUTATION);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function policyCheck() {
@@ -57,8 +63,18 @@ const PrivacyPolicyScreen = ({navigation}) => {
   };
 
   const doAcceptPolicy = async () => {
-    await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
-    navigation.navigate('WelcomeScreen');
+    setLoading(true);
+    try {
+      await doRegisterDevice(registerDevice);
+      await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
+      const token = await AsyncStorage.getItem('@access_token');
+      if (token) {
+        setLoading(false);
+        navigation.navigate('WelcomeScreen');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -90,6 +106,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
           )}
         </View>
       </Content>
+      {loading && <Loading />}
     </Container>
   );
 };

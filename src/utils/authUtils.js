@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
 
-async function doRegisterDevice(registerDeviceCallback) {
+export async function doRegisterDevice(registerDeviceCallback) {
   try {
     const deviceId = DeviceInfo.getUniqueId();
     const deviceType = DeviceInfo.getDeviceType();
@@ -31,35 +31,24 @@ async function doRegisterDevice(registerDeviceCallback) {
   }
 }
 
-export default async function userStatus(
-  registerDevice,
-  data,
-  error,
-  loading,
-  setLogin,
-  setOnboarder,
-) {
-  const token = await AsyncStorage.getItem('@access_token'); // GET ACCESS TOKEN
-
-  if (!data && error) {
-    console.log('My token is invalid or not linked to user');
-    setOnboarder(true);
-    return await doRegisterDevice(registerDevice); // IF I HAVE A TOKEN BUT IT IS NOT CORRECT, GET A NEW ONE
-  }
-
-  if (!token && !loading) {
-    console.log('GETTING TOKEN');
-    return await doRegisterDevice(registerDevice); // REGISTER DEVICE IF THERE IS NO TOKEN
-  }
-
-  if (data && data.getStatus && !error && !loading) {
-    if (
-      data.getStatus.currentTask ||
-      data.getStatus.device.notificationStatus === 'Initial'
-    ) {
-      console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
-      return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
+const userStatus = async (refetch, setLoggedIn, setOnboarder) => {
+  try {
+    const me = await refetch();
+    if (me && me.data) {
+      if (
+        me.data.getStatus.currentTask ||
+        me.data.getStatus.device.notificationStatus === 'Initial'
+      ) {
+        console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
+        return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
+      }
+      return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
     }
-    return setLogin(); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
+    setOnboarder(true);
+  } catch (e) {
+    console.log({e});
+    setOnboarder(true);
   }
-}
+};
+
+export default userStatus;

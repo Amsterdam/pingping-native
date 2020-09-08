@@ -77,6 +77,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         await doRegister('Approved', event.deviceToken);
       },
     );
+    setLogin(true);
   };
 
   const declineNotifications = async () => {
@@ -97,6 +98,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           },
         ],
       });
+      setLogin(true);
     } catch (error) {
       setLoading(false);
       console.log(error);

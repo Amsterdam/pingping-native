@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
+
 import SimpleHeader from '../components/header/SimpleHeader';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
