@@ -10,17 +10,17 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Loading from '../components/LoadingComponent';
 
 export default function App() {
+  React.useEffect(() => {
+    SplashScreen.hide();
+    userStatus(refetch, setLoggedIn, setOnboarder);
+  }, [refetch]);
+
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
 
   const {data, error, loading, refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });
-
-  React.useEffect(() => {
-    SplashScreen.hide();
-    userStatus(refetch, setLoggedIn, setOnboarder);
-  }, [refetch]);
 
   const setLogin = async () => {
     setLoggedIn(true);

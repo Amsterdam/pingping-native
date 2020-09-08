@@ -20,14 +20,6 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/ErrorComponent';
 
 const CityPingsHomeScreen = ({navigation}) => {
-  const [getAvailableRewards, availableRewards] = useLazyQuery(
-    GET_AVAILABLE_REWARDS,
-  );
-  const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
-    fetchPolicy: 'cache-and-network',
-  });
-  const [refreshing, setRefreshing] = React.useState(false);
-
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       getAvailableRewards();
@@ -35,6 +27,14 @@ const CityPingsHomeScreen = ({navigation}) => {
     });
     return unsubscribe;
   }, [navigation, getAvailableRewards, getStatus]);
+
+  const [getAvailableRewards, availableRewards] = useLazyQuery(
+    GET_AVAILABLE_REWARDS,
+  );
+  const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'cache-and-network',
+  });
+  const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = () => {
     setRefreshing(true);

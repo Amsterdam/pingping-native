@@ -17,11 +17,6 @@ import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation'
 import Loading from '../components/LoadingComponent';
 
 const PrivacyPolicyScreen = ({navigation}) => {
-  const [open, setOpen] = useState(false);
-  const [policyAccepted, setPolicy] = useState(true);
-  const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     async function policyCheck() {
       const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
@@ -29,6 +24,11 @@ const PrivacyPolicyScreen = ({navigation}) => {
     }
     policyCheck();
   }, []);
+
+  const [open, setOpen] = useState(false);
+  const [policyAccepted, setPolicy] = useState(true);
+  const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
+  const [loading, setLoading] = useState(false);
 
   const toggleOpen = () => {
     setOpen(!open);
