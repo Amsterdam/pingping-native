@@ -110,7 +110,7 @@ const QuestionScreen = ({navigation}) => {
             },
           ],
         });
-        animationRef.current?.bounceInRight();
+        animationRef.current?.fadeIn();
         setState(INITIAL_STATE);
       } catch (e) {
         console.log(e);
@@ -155,7 +155,7 @@ const QuestionScreen = ({navigation}) => {
               easing="linear"
               duration={800}
               ref={animationRef}
-              animation="bounceInRight"
+              animation="fadeIn"
               useNativeDriver>
               <QuestionComponent
                 currentTask={currentTask}

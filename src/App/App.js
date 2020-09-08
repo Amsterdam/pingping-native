@@ -1,8 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-import {useMutation, useQuery} from '@apollo/client';
-import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
+import {useQuery, useLazyQuery} from '@apollo/client';
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
@@ -13,15 +12,15 @@ import Loading from '../components/LoadingComponent';
 export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
-  const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
-  const {data, error, loading} = useQuery(GET_STATUS_QUERY, {
+
+  const {data, error, loading, refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });
 
   React.useEffect(() => {
     SplashScreen.hide();
-    userStatus(registerDevice, data, error, loading, setLogin, setOnboarder);
-  }, [registerDevice, data, error, loading, loggedIn]);
+    userStatus(refetch, setLoggedIn, setOnboarder);
+  }, [refetch]);
 
   const setLogin = async () => {
     setLoggedIn(true);
@@ -41,7 +40,7 @@ export default function App() {
       );
     }
     if (onboarder) {
-      return <OnboardingStack setLogin={setLoggedIn} />;
+      return <OnboardingStack setLogin={setLogin} />;
     }
     return <Loading />;
   };

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 const DeleteDataScreen = ({navigation, setLogOut}) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [deleteUser, {client}] = useMutation(DELETE_USER_MUTATION);
+  const [deleteUser] = useMutation(DELETE_USER_MUTATION);
 
   const doDeleteUser = async () => {
     setLoading(true);
@@ -48,9 +48,9 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
           confirm: 'delete',
         },
       });
-      resetStore();
       await AsyncStorage.clear();
       setLogOut();
+      resetStore();
     } catch (e) {
       setLoading(false);
       console.log(e);
