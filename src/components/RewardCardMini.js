@@ -14,11 +14,8 @@ const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId},
   balance,
-  toggleModal = () => {},
 }) => {
   const doNavigation = () => {
-    toggleModal();
-
     navigation.navigate('CityPings', {
       screen: 'RewardDetailModal',
       initial: false,
@@ -88,7 +85,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   description: {
-    fontSize: 20,
+    fontSize: 14,
   },
   rewardType: {
     color: appColors.primary,
@@ -99,11 +96,6 @@ const styles = StyleSheet.create({
 RewardCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
-  toggleModal: PropTypes.func,
-};
-
-RewardCard.propTypes = {
-  toggleModal: () => {},
 };
 
 export default memo(RewardCard);

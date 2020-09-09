@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
 import RewardDetailModal from '../../components/modals/RewardDetailModal';
+import CityPingsModalScreen from '../../components/modals/CityPingsModalScreen';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -23,6 +24,11 @@ function RootStackScreen() {
       <RootStack.Screen
         name="RewardDetailModal"
         component={RewardDetailModal}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="CityPingsModalScreen"
+        component={CityPingsModalScreen}
         options={{headerShown: false}}
       />
     </RootStack.Navigator>

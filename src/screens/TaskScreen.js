@@ -41,11 +41,16 @@ const TaskScreen = ({navigation, route}) => {
           (task) => task.status !== 'Completed',
         ).length === 0;
       routeDone &&
-        toggleModal({
-          variables: {
-            pings: routeResponse.data.getRoute.totalPoints,
-          },
+        navigation.navigate('CityPings', {
+          screen: 'CityPingsModalScreen',
+          params: {pings: routeResponse.data.getRoute.totalPoints},
+          initial: false,
         });
+      // toggleModal({
+      //   variables: {
+      //     pings: routeResponse.data.getRoute.totalPoints,
+      //   },
+      // });
       /*-------*/
       setLoading(false);
       navigation.goBack();
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     alignSelf: 'stretch',
-    height: 300,
+    height: 200,
   },
 
   textContainer: {
