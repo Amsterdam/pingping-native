@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
-import {useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
@@ -14,35 +14,45 @@ import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
 import {appColors} from '../lib/colors';
 import WebViewModal from '../components/modals/WebViewModal';
+import Loading from '../components/LoadingComponent';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
   const [toggleModal] = useMutation(TOGGLE_MODAL);
   const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
+  const {refetch} = useQuery(GET_ROUTE_QUERY, {
+    variables: {routeId},
+  });
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const doCompleteTask = async () => {
-    // refetch queries here
-    // update completed status
-    // update points
-    // navigate to homescreen
-    // show modal
-    await completeTask({
-      variables: {taskId: task.taskId},
-      refetchQueries: [
-        {
-          query: GET_ROUTE_QUERY,
-          variables: {routeId},
-        },
-      ],
-    });
-    navigation.goBack();
-    toggleModal({
-      variables: {
-        pings: 20,
-      },
-    });
+    setLoading(true);
+    try {
+      await completeTask({
+        variables: {taskId: task.taskId},
+      });
+
+      /* This code checks if the route is done in order to show the celebration modal yes/no */
+      const routeResponse = await refetch();
+      const routeDone =
+        routeResponse?.data?.getRoute?.tasks.filter(
+          (task) => task.status !== 'Completed',
+        ).length === 0;
+      routeDone &&
+        toggleModal({
+          variables: {
+            pings: routeResponse.data.getRoute.totalPoints,
+          },
+        });
+      /*-------*/
+      setLoading(false);
+      navigation.goBack();
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   const linkPressed = (event, href) => {
@@ -106,6 +116,7 @@ const TaskScreen = ({navigation, route}) => {
             </React.Fragment>
           )}
         </View>
+        {loading && <Loading />}
       </Container>
 
       <WebViewModal

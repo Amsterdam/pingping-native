@@ -1,10 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import Body from './typography/Body';
 
 const Loading = () => {
+  const [loading, setLoading] = useState(false);
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    var timer1 = setTimeout(() => {
+      setLoading(true);
+    }, 250);
+    var timer2 = setTimeout(() => {
+      setShowText(true);
+    }, 3000);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
+  if (!loading) {
+    return <></>;
+  }
   return (
     <View style={styles.acitivityContainer}>
       <ActivityIndicator size="large" color="#6C63FF" />
+      {showText && (
+        <React.Fragment>
+          <Body>Het laden duurt langer dan normaal</Body>
+          <Body>Nog even wachten</Body>
+        </React.Fragment>
+      )}
     </View>
   );
 };

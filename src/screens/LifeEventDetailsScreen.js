@@ -23,6 +23,7 @@ import TipsChip from '../components/TipsChip';
 import RouteTaskRow from '../components/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/ErrorComponent';
+import Loading from '../components/LoadingComponent';
 
 const screenHeight = Dimensions.get('window').height;
 function LifeEventDetailsScreen({navigation, route}) {
@@ -128,7 +129,7 @@ function LifeEventDetailsScreen({navigation, route}) {
       </Container>
     );
   }
-  return <ActivityIndicator />;
+  return <Loading />;
 }
 
 const styles = StyleSheet.create({

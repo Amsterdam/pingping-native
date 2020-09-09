@@ -14,6 +14,7 @@ const MARGIN = 15;
 
 const RouteCard = ({
   navigation,
+  toggleModal = () => {},
   lifeEvent: {
     routeId,
     totalPoints,
@@ -25,14 +26,15 @@ const RouteCard = ({
     coverImageUrl,
   },
 }) => {
+  const doNavigation = () => {
+    toggleModal();
+    navigation.navigate('LifeEventDetailsScreen', {
+      routeId,
+    });
+  };
   return (
     <View style={styles.paper}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('LifeEventDetailsScreen', {
-            routeId,
-          })
-        }>
+      <TouchableOpacity onPress={doNavigation}>
         <View>
           <View style={styles.imageContainer}>
             <Image
@@ -123,6 +125,11 @@ const styles = StyleSheet.create({
 RouteCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   lifeEvent: PropTypes.object.isRequired,
+  toggleModal: PropTypes.func,
+};
+
+RouteCard.defaultProps = {
+  toggleModal: () => {},
 };
 
 export default memo(RouteCard);

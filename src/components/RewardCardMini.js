@@ -7,41 +7,51 @@ import commonStyles from '../lib/commonStyles';
 import exampleImage from '../assets/exampleImage.png';
 import {ppBaseColors, appColors} from '../lib/colors';
 import CitypingsChip from '../components/CitypingsChip';
-import CityPingsBalance from './CityPingsBalance';
 
 const BORDER_RADIUS = 5;
 
 const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId},
-  balance = 0,
+  balance,
+  toggleModal = () => {},
 }) => {
+  const doNavigation = () => {
+    toggleModal();
+
+    navigation.navigate('CityPings', {
+      screen: 'RewardDetailModal',
+      initial: false,
+      params: {
+        price,
+        balance,
+        description,
+        title,
+        rewardId,
+      },
+    });
+  };
+
   return (
     <View style={styles.paper}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('RewardDetailModal', {
-            price,
-            balance,
-            description,
-            title,
-            rewardId,
-          })
-        }>
+      <TouchableOpacity onPress={doNavigation}>
         <View>
           <View style={styles.imageContainer}>
             <Image source={exampleImage} style={styles.image} />
             <View style={styles.overlayTop}>
-              <CitypingsChip value={price} />
+              <CitypingsChip value={price} mini />
             </View>
           </View>
           <View style={styles.descriptionContainer}>
-            <Body style={styles.rewardType}>Reward</Body>
-            <Title style={styles.description}>{title}</Title>
-            <Body numberOfLines={3} ellipsizeMode="tail">
+            <Title
+              style={styles.description}
+              numberOfLines={2}
+              ellipsizeMode="tail">
+              {title}
+            </Title>
+            <Body numberOfLines={2} ellipsizeMode="tail">
               {description}
             </Body>
-            <CityPingsBalance price={price} balance={balance} />
           </View>
         </View>
       </TouchableOpacity>
@@ -55,10 +65,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
+    width: '45%',
   },
   imageContainer: {
     position: 'relative',
-    height: 150,
+    height: 100,
     borderRadius: BORDER_RADIUS,
   },
   image: {
@@ -88,11 +99,11 @@ const styles = StyleSheet.create({
 RewardCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
-  balance: PropTypes.number,
+  toggleModal: PropTypes.func,
 };
 
-RewardCard.defaultProps = {
-  balance: 0,
+RewardCard.propTypes = {
+  toggleModal: () => {},
 };
 
 export default memo(RewardCard);

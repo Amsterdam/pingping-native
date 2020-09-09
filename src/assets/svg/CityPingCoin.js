@@ -1,9 +1,15 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Svg, {Path} from 'react-native-svg';
 
 function CityPingCoin(props) {
   return (
-    <Svg width={16} height={16} viewBox="0 0 16 16" fill="none" {...props}>
+    <Svg
+      width={props.width}
+      height={props.height}
+      viewBox="0 0 16 16"
+      fill="none"
+      {...props}>
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -31,5 +37,15 @@ function CityPingCoin(props) {
     </Svg>
   );
 }
+
+CityPingCoin.propTypes = {
+  height: PropTypes.number,
+  width: PropTypes.number,
+};
+
+CityPingCoin.defaultProps = {
+  height: 16,
+  width: 16,
+};
 
 export default CityPingCoin;
