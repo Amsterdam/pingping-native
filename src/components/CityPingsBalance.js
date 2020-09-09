@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {View, StyleSheet} from 'react-native';
 import ProgressBar from './ProgressBar';
 import CityPingCoin from '../assets/svg/CityPingCoin';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import Body from './typography/Body';
 
 const CityPingsBalance = ({price, balance}) => {

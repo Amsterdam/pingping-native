@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import OnboardingButton from '../OnboardingButton';
-import {appColors} from '../../lib/colors';
+import {appColors} from '../../config/colors';
 
 const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
   function closeModal() {

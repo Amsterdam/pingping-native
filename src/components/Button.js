@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const buttonBase = {
   alignSelf: 'stretch',

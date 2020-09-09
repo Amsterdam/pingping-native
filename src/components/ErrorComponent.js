@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {RefreshControl} from 'react-native';
 import {Content, Container, Title} from 'native-base';
 import PropTypes from 'prop-types';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import ContentLayout from './layout/ContentLayout';
 
 const ErrorComponent = ({functionToRetry}) => {

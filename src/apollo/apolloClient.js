@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
 import GET_MODAL_STATE from './Query/getModalState';
-import {API_URL} from '../lib/initialSettings';
+import {API_URL} from '../config/initialSettings';
 
 const inMemoryCache = new InMemoryCache();
 

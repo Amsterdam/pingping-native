@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../config/colors';
 import Button from '../components/Button';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';

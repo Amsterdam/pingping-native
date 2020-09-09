@@ -14,7 +14,7 @@ import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Modal from '../components/modals/CityPingsModal';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import RouteCard from '../components/RouteCard';
 import ErrorComponent from '../components/ErrorComponent';
 

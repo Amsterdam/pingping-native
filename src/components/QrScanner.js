@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import Button from './OnboardingButton';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../config/colors';
 import Loading from './LoadingComponent';
 
 const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {

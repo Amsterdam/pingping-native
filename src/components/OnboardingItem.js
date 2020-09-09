@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
   const navigator = async () => {

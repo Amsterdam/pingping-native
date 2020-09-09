@@ -12,7 +12,7 @@ import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import WebViewModal from '../components/modals/WebViewModal';
 import Loading from '../components/LoadingComponent';
 

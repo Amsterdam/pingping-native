@@ -15,7 +15,7 @@ import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import exampleImage from '../assets/exampleImage.png';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import IconButton from '../components/IconButton';
 import Button from '../components/OnboardingButton';

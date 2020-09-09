@@ -6,7 +6,7 @@ import SimpleHeader from '../components/header/SimpleHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import Button from '../components/Button';
 
 const INITIAL_STATE = {

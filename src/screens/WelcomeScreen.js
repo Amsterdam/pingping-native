@@ -7,7 +7,7 @@ import SimpleHeader from '../components/header/SimpleHeader';
 import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
 
 const WelcomeScreen = ({navigation}) => {

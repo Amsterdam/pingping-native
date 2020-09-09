@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Bar} from 'react-native-progress';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../config/colors';
 
 const ProgressBar = ({progress}) => {
   return (

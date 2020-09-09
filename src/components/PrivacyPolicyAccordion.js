@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
 import Body from './typography/Body';
-import {faqItems} from '../lib/faqItems';
+import {faqItems} from '../helpers/faqItems';
 
 const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   return (

@@ -7,7 +7,7 @@ import exampleImage from '../../assets/exampleImage.png';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
 import Body from '../typography/Body';
-import {appColors} from '../../lib/colors';
+import {appColors} from '../../config/colors';
 import CitypingsChip from '../CitypingsChip';
 import CityPingsBalance from '../CityPingsBalance';
 import IconButton from '../IconButton';

@@ -9,7 +9,7 @@ import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import QRCode from 'react-native-qrcode-svg';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const ExportDataScreen = ({navigation}) => {
   //   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);

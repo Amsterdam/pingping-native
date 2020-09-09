@@ -9,10 +9,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import FloppyDisk from '../assets/svg/FloppyDisk';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
 import SimpleHeader from '../components/header/SimpleHeader';
-import {doRegisterDevice} from '../utils/authUtils';
+import {doRegisterDevice} from '../helpers/autHelper';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import Loading from '../components/LoadingComponent';
 

@@ -8,7 +8,7 @@ import ExportImage from '../assets/export.png';
 import WarningImage from '../assets/warning.png';
 import TrashImage from '../assets/trashcan.png';
 import AccountBlockButton from '../components/AccountBlockButton';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const AccountHomeScreen = ({navigation}) => {
   const buttons = [

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import CityPingCoin from '../assets/svg/CityPingCoin';
 import Title from '../components/typography/Title';
-import {ppBaseColors} from '../lib/colors';
+import {ppBaseColors} from '../config/colors';
 
 const CitypingsChip = ({value = 0, mini = false}) => {
   return (

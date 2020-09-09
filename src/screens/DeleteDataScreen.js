@@ -4,7 +4,7 @@ import {Content, Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';

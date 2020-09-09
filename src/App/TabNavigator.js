@@ -6,7 +6,7 @@ import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
 // import KasboekStack from './stacks/KasboekStack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const Tab = createBottomTabNavigator();
 

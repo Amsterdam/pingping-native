@@ -3,7 +3,7 @@ import {StyleSheet, StatusBar} from 'react-native';
 import {Header, Left, Right} from 'native-base';
 import Title from '../typography/Title';
 import HeaderBackButton from './HeaderBackButton';
-import {appColors} from '../../lib/colors';
+import {appColors} from '../../config/colors';
 
 const LabeledHeader = ({navigation, filledHeader = false, title = 'none'}) => {
   const styles = StyleSheet.create({

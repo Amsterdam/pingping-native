@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Platform} from 'react-native';
 import {Picker} from '@react-native-community/picker';
-import {getDays, getMonths, getYears} from '../../utils/birthDayHelper';
+import {getDays, getMonths, getYears} from '../../helpers/birthDayHelper';
 
 const DateOfBirth = ({setState, state}) => {
   const isIos = Platform.OS === 'ios';

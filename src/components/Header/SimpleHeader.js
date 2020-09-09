@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, StatusBar} from 'react-native';
 import {Header} from 'native-base';
 import Title from '../typography/Title';
-import {appColors} from '../../lib/colors';
+import {appColors} from '../../config/colors';
 
 const SimpleHeader = ({title}) => {
   const styles = StyleSheet.create({

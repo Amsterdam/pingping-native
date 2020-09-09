@@ -11,7 +11,7 @@ import {useMutation} from '@apollo/client';
 import {Header, Container, Button, Text, Left, Right} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import Bell from '../assets/svg/Bell';
 import {Notifications} from 'react-native-notifications';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';

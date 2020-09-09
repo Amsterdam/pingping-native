@@ -12,7 +12,7 @@ import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import RewardCard from '../components/RewardCard';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import YourPerformanceOverview from '../components/YourPerformanceOverview';
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
 import WebView from 'react-native-webview';
 import Title from '../typography/Title';
-import {appColors} from '../../lib/colors';
+import {appColors} from '../../config/colors';
 
 const CityPingsModal = ({closeModal, urlToVisit, webViewOpen}) => {
   return (

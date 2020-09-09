@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Header, Right, Container, Left} from 'native-base';
 import {StyleSheet, StatusBar} from 'react-native';
-import {appColors, ppBaseColors} from '../lib/colors';
+import {appColors, ppBaseColors} from '../config/colors';
 import OnboardingItem from '../components/OnboardingItem';
 import Title from '../components/typography/Title';
 import Vault from '../assets/svg/Vault';

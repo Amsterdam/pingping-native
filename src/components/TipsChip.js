@@ -3,7 +3,7 @@ import {TouchableOpacity, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from './typography/Title';
-import {appColors} from '../lib/colors';
+import {appColors} from '../config/colors';
 
 const TipsChip = ({navigation}) => {
   return (

@@ -3,7 +3,7 @@ import {View, StyleSheet, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
 import RouteHeader from '../components/header/RouteHeader';
 import {Content, Container} from 'native-base';
-import {ppBaseColors} from '../lib/colors';
+import {ppBaseColors} from '../config/colors';
 import Button from '../components/Button';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';

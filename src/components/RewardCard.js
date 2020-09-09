@@ -3,9 +3,9 @@ import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
-import commonStyles from '../lib/commonStyles';
+import commonStyles from '../config/commonStyles';
 import exampleImage from '../assets/exampleImage.png';
-import {ppBaseColors, appColors} from '../lib/colors';
+import {ppBaseColors, appColors} from '../config/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import CityPingsBalance from './CityPingsBalance';
 

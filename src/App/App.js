@@ -5,7 +5,7 @@ import {useQuery} from '@apollo/client';
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
-import userStatus from '../utils/authUtils';
+import userStatus from '../helpers/autHelper';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Loading from '../components/LoadingComponent';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Button from '../Button';
-import {ppBaseColors} from '../../lib/colors';
+import {ppBaseColors} from '../../config/colors';
 
 const YesOrNo = ({answers, state, setState}) => {
   function mapButtons() {
