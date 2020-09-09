@@ -7,8 +7,16 @@ import {appColors} from '../lib/colors';
 
 const CIRCLE_RADIUS = 30;
 
-const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
+const RouteTaskRow = ({
+  task: {task, status},
+  index,
+  navigation,
+  routeId,
+  tasksToDo,
+}) => {
   const isCompleted = status === 'Completed';
+  const isCurrentTask =
+    tasksToDo.length > 0 && tasksToDo[0].task.taskId === task.taskId;
 
   const doNavigate = () => {
     navigation.navigate('TaskScreen', {
@@ -23,6 +31,7 @@ const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
         <View
           style={[
             styles.circleStepIndicator,
+            isCurrentTask && styles.circleActive,
             isCompleted && styles.circleDisabled,
           ]}>
           {isCompleted ? (
@@ -57,6 +66,9 @@ const styles = StyleSheet.create({
   },
   circleDisabled: {
     backgroundColor: appColors.subtleGrey,
+  },
+  circleActive: {
+    backgroundColor: appColors.primary,
   },
   label: {
     color: '#fff',

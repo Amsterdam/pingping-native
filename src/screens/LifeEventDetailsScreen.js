@@ -96,6 +96,7 @@ function LifeEventDetailsScreen({navigation, route}) {
                 task={task}
                 index={index + 1}
                 navigation={navigation}
+                tasksToDo={tasksToDo}
               />
             ))}
           </View>
