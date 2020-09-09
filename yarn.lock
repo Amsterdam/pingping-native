@@ -6620,6 +6620,11 @@ react-native-camera@^3.37.0:
   dependencies:
     prop-types "^15.6.2"
 
+react-native-confetti-cannon@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-confetti-cannon/-/react-native-confetti-cannon-1.5.1.tgz#c4f15b8ccb2823fb4785d6896743865be6df58a4"
+  integrity sha512-4yjnIqMsPFiiicVkICGVZqC+ZZiXmryQ4wxHSRbRtaYv4QuK/IWccXXA/wJq72kiefuh41cakG1HVEu8AgflQQ==
+
 react-native-device-info@^5.5.7:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.6.1.tgz#3ae88d8659b7b64d204dbfc39f69126b769363d4"

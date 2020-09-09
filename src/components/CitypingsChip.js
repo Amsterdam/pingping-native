@@ -5,11 +5,13 @@ import CityPingCoin from '../assets/svg/CityPingCoin';
 import Title from '../components/typography/Title';
 import {ppBaseColors} from '../lib/colors';
 
-const CitypingsChip = ({value = 0}) => {
+const CitypingsChip = ({value = 0, mini = false}) => {
   return (
     <View style={styles.cpBalance}>
       <CityPingCoin style={styles.coin} />
-      <Title style={styles.cpLabel}>{value} CityPings</Title>
+      <Title style={styles.cpLabel}>{`${value} ${
+        mini ? '' : 'CityPings'
+      }`}</Title>
     </View>
   );
 };
@@ -35,10 +37,12 @@ const styles = StyleSheet.create({
 
 CitypingsChip.propTypes = {
   value: PropTypes.number,
+  mini: PropTypes.bool,
 };
 
 CitypingsChip.defaultProps = {
   value: 0,
+  mini: false,
 };
 
 export default CitypingsChip;

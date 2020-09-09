@@ -1,68 +1,138 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Modal, StyleSheet, View, Animated, StatusBar} from 'react-native';
+import {Content, Container} from 'native-base';
 import {useQuery, useMutation} from '@apollo/client';
-import {Button, Icon} from 'native-base';
+import ContentLayout from '../layout/ContentLayout';
+import GET_ROUTES from '../../apollo/Query/getRoutes';
+import ConfettiCannon from 'react-native-confetti-cannon';
+import GET_AVAILABLE_REWARDS from '../../apollo/Query/getAvailableRewards';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
-import MoneyBill from '../svgComponents/MoneyBill';
-import CityPingsLogo from '../svgComponents/CityPings';
-import {ppBaseColors} from '../../lib/colors';
+import {appColors} from '../../lib/colors';
 import GET_MODAL_STATE from '../../apollo/Query/getModalState';
 import TOGGLE_MODAL from '../../apollo/Mutation/toggleModal';
+import CitypingsChip from '../CitypingsChip';
+import commonStyles from '../../lib/commonStyles';
+import CityPingsCoin from '../../assets/svg/CityPingCoin';
+import RouteCard from '../RouteCard';
+import RewardCardMini from '../RewardCardMini';
+import ChevronButton from '../ChevronButton';
+
+const HEADER_HEIGHT = 200;
+const BORDER_RADIUS = 5;
 
 const CityPingsModal = ({navigation}) => {
   const {data} = useQuery(GET_MODAL_STATE);
+  const routeData = useQuery(GET_ROUTES);
+  const rewardData = useQuery(GET_AVAILABLE_REWARDS);
   const [toggleModal] = useMutation(TOGGLE_MODAL);
+  const scrollY = new Animated.Value(0);
+  const translateY = scrollY.interpolate({
+    inputRange: [0, HEADER_HEIGHT],
+    outputRange: [0, -HEADER_HEIGHT],
+  });
 
-  const doNavigation = () => {
+  const doNavigate = (stack) => () => {
     toggleModal();
-    navigation.navigate('CityPings', {screen: 'CityPingsHome'});
+    navigation.navigate(stack);
   };
-  if (data) {
+
+  if (data && data.modalOpen) {
     const {modalOpen, pings} = data;
+    const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
+    const availableRewards = rewardData?.data?.getAvailableRewards;
     return (
       <Modal
         animationType="slide"
-        transparent={true}
         visible={modalOpen}
-        statusBarTranslucent>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View style={styles.modalContainer}>
-              <Button
-                rounded
-                transparent
-                style={styles.closeButton}
-                onPress={() => toggleModal()}>
-                <Icon name="close" type="AntDesign" style={styles.icon} />
-              </Button>
-              <Title style={styles.mainTitle} align="center">
-                Top! <Title>je hebt {pings} City Pings verdiend </Title>
-              </Title>
-              <MoneyBill style={styles.moneyBill} />
-              <View style={styles.logoContainer}>
-                <View style={styles.logoSubContainer}>
-                  <CityPingsLogo />
-                  <Title style={styles.cityPingsValue}>{pings}</Title>
-                </View>
-                <Title align="center" style={styles.cityPingsLabel}>
-                  City Pings
-                </Title>
+        presentationStyle="formSheet">
+        <Container style={styles.container}>
+          <StatusBar
+            backgroundColor={appColors.headerColor}
+            barStyle="light-content"
+          />
+
+          <Animated.View
+            style={[styles.header, {transform: [{translateY: translateY}]}]}
+            transparent
+            noShadow
+          />
+
+          <Content
+            onScroll={(e) => {
+              scrollY.setValue(e.nativeEvent.contentOffset.y);
+            }}
+            scrollEventThrottle={16}
+            contentContainerStyle={styles.content}>
+            <ContentLayout>
+              <View style={styles.headerContainer}>
+                <Title style={styles.title}>GOED BEZIG!</Title>
+                <CitypingsChip value={pings} />
               </View>
-              <Body align="center">
-                Gefeliciteerd, je hebt {pings} City Pings verdiend. Hierdoor kan
-                je meteen je eerste reward verzilveren! Ga naar “claim je
-                reward".
-              </Body>
-            </View>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity onPress={doNavigation}>
-                <Title style={styles.buttonLabel}>bekijk mijn citypings</Title>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+              <View style={styles.paper}>
+                <Body style={styles.celebrationBoxTitle} align="center">
+                  Je hebt weer een aantal CityPings verdiend!
+                </Body>
+                <View style={styles.coinContainer}>
+                  <CityPingsCoin height={30} width={30} />
+                </View>
+                <Title>{pings}</Title>
+              </View>
+
+              {availableRewards?.length > 0 && (
+                <View style={styles.blockContainer}>
+                  <View style={styles.rowFlex}>
+                    <Title style={styles.subTitle}>Verzilveren</Title>
+                    <ChevronButton onPress={doNavigate('CityPings')} />
+                  </View>
+                  <View style={styles.rowFlex}>
+                    {availableRewards.map((reward) => (
+                      <>
+                        <RewardCardMini
+                          navigation={navigation}
+                          reward={reward}
+                          key={reward.rewardId}
+                        />
+                        <RewardCardMini
+                          navigation={navigation}
+                          reward={reward}
+                          key={reward.rewardId}
+                        />
+                      </>
+                    ))}
+                  </View>
+                </View>
+              )}
+
+              {availableRoutes?.length > 0 && (
+                <View style={styles.blockContainer}>
+                  <View style={styles.rowFlex}>
+                    <Title style={styles.subTitle}>Nieuwe Route</Title>
+                    <ChevronButton onPress={doNavigate('Routes')} />
+                  </View>
+                  <View>
+                    {availableRoutes.map((lifeEvent) => (
+                      <RouteCard
+                        navigation={navigation}
+                        lifeEvent={lifeEvent}
+                        key={lifeEvent.routeId}
+                      />
+                    ))}
+                  </View>
+                </View>
+              )}
+            </ContentLayout>
+          </Content>
+          <View style={styles.underLayer} />
+        </Container>
+        <ConfettiCannon
+          count={300}
+          origin={{x: 0, y: 0}}
+          explosionSpeed={500}
+          fallSpeed={10000}
+          fadeOut
+        />
       </Modal>
     );
   }
@@ -70,69 +140,72 @@ const CityPingsModal = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+  container: {
+    backgroundColor: appColors.primary,
   },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  modalContainer: {
-    padding: 35,
-    position: 'relative',
-  },
-  closeButton: {
+  header: {
+    flexDirection: 'column',
+    backgroundColor: appColors.primary,
+    height: HEADER_HEIGHT,
+    left: 0,
+    top: 0,
+    right: 0,
     position: 'absolute',
+  },
+  title: {
+    color: '#fff',
+    fontSize: 24,
+    textAlign: 'left',
+  },
+  coinContainer: {
+    marginVertical: 15,
+  },
+  subTitle: {
+    color: '#000',
+    marginVertical: 10,
+    fontSize: 24,
+    textAlign: 'left',
+  },
+  celebrationBoxTitle: {
+    fontSize: 16,
+  },
+  content: {
+    position: 'absolute',
+    top: 25,
+    paddingBottom: 75,
+  },
+  underLayer: {
+    position: 'absolute',
+    flex: 1,
+    zIndex: -1,
+    elevation: 0,
+    backgroundColor: appColors.almostNotBlue,
+    top: 100, // replace this with a percentage of the screenheight to be responsive
+    bottom: 0,
+    left: 0,
     right: 0,
   },
-  icon: {
-    fontSize: 24,
-    color: '#000',
-  },
-  mainTitle: {color: ppBaseColors.PP_GOLD},
-  moneyBill: {marginVertical: 20, alignSelf: 'center'},
-  logoContainer: {
-    justifyContent: 'center',
-    marginVertical: 20,
-  },
-  logoSubContainer: {
+  headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 20,
   },
-  cityPingsValue: {
-    color: ppBaseColors.PP_GOLD,
-    fontSize: 50,
-    marginLeft: 20,
-  },
-  cityPingsLabel: {color: ppBaseColors.PP_GRAY, fontSize: 20},
-  buttonContainer: {
-    backgroundColor: ppBaseColors.PP_GOLD,
-    marginTop: 50,
+  paper: {
+    ...commonStyles.shadow,
+    backgroundColor: '#fff',
     alignSelf: 'stretch',
+    borderRadius: BORDER_RADIUS,
+    marginVertical: 20,
+    padding: 15,
     alignItems: 'center',
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
   },
-  buttonLabel: {
-    fontSize: 18,
-    color: '#fff',
-    padding: 20,
+  rowFlex: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  blockContainer: {
+    marginBottom: 20,
   },
 });
 

@@ -14,6 +14,7 @@ import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
 import {appColors} from '../lib/colors';
 import WebViewModal from '../components/modals/WebViewModal';
+import Loading from '../components/LoadingComponent';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
@@ -24,8 +25,10 @@ const TaskScreen = ({navigation, route}) => {
   });
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const doCompleteTask = async () => {
+    setLoading(true);
     try {
       await completeTask({
         variables: {taskId: task.taskId},
@@ -44,9 +47,10 @@ const TaskScreen = ({navigation, route}) => {
           },
         });
       /*-------*/
-
+      setLoading(false);
       navigation.goBack();
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -112,6 +116,7 @@ const TaskScreen = ({navigation, route}) => {
             </React.Fragment>
           )}
         </View>
+        {loading && <Loading />}
       </Container>
 
       <WebViewModal
