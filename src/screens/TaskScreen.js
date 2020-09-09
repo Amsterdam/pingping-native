@@ -43,7 +43,7 @@ const TaskScreen = ({navigation, route}) => {
       routeDone &&
         toggleModal({
           variables: {
-            pings: 20,
+            pings: routeResponse.data.getRoute.totalPoints,
           },
         });
       /*-------*/
