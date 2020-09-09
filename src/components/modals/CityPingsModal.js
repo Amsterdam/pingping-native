@@ -29,22 +29,31 @@ const CityPingsModal = ({navigation}) => {
   const rewardData = useQuery(GET_AVAILABLE_REWARDS);
   const me = useQuery(GET_STATUS_QUERY);
   const [toggleModal] = useMutation(TOGGLE_MODAL);
+
   const scrollY = new Animated.Value(0);
   const translateY = scrollY.interpolate({
     inputRange: [0, HEADER_HEIGHT],
     outputRange: [0, -HEADER_HEIGHT],
   });
 
+  console.log(scrollY);
+
   const doNavigate = (stack) => () => {
     toggleModal();
     navigation.navigate(stack);
   };
+  const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
+  const availableRewards = rewardData?.data?.getAvailableRewards;
+  const balance = me.data?.getStatus?.user?.balance;
 
-  if (data && data.modalOpen) {
+  if (
+    data &&
+    data.modalOpen &&
+    balance &&
+    availableRewards &&
+    availableRoutes
+  ) {
     const {modalOpen, pings} = data;
-    const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
-    const availableRewards = rewardData?.data?.getAvailableRewards;
-    const balance = me.data?.getStatus?.user?.balance;
 
     return (
       <Modal
@@ -114,6 +123,7 @@ const CityPingsModal = ({navigation}) => {
                     {availableRoutes.map((lifeEvent) => (
                       <RouteCard
                         navigation={navigation}
+                        toggleModal={toggleModal}
                         lifeEvent={lifeEvent}
                         key={lifeEvent.routeId}
                       />
