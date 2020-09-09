@@ -13,19 +13,28 @@ const BORDER_RADIUS = 5;
 const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId},
+  balance,
+  toggleModal = () => {},
 }) => {
+  const doNavigation = () => {
+    toggleModal();
+
+    navigation.navigate('CityPings', {
+      screen: 'RewardDetailModal',
+      initial: false,
+      params: {
+        price,
+        balance,
+        description,
+        title,
+        rewardId,
+      },
+    });
+  };
+
   return (
     <View style={styles.paper}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('RewardDetailModal', {
-            price,
-
-            description,
-            title,
-            rewardId,
-          })
-        }>
+      <TouchableOpacity onPress={doNavigation}>
         <View>
           <View style={styles.imageContainer}>
             <Image source={exampleImage} style={styles.image} />
@@ -90,6 +99,11 @@ const styles = StyleSheet.create({
 RewardCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
+  toggleModal: PropTypes.func,
+};
+
+RewardCard.propTypes = {
+  toggleModal: () => {},
 };
 
 export default memo(RewardCard);

@@ -18,6 +18,7 @@ import CityPingsCoin from '../../assets/svg/CityPingCoin';
 import RouteCard from '../RouteCard';
 import RewardCardMini from '../RewardCardMini';
 import ChevronButton from '../ChevronButton';
+import GET_STATUS_QUERY from '../../apollo/Query/getStatusQuery';
 
 const HEADER_HEIGHT = 200;
 const BORDER_RADIUS = 5;
@@ -26,6 +27,7 @@ const CityPingsModal = ({navigation}) => {
   const {data} = useQuery(GET_MODAL_STATE);
   const routeData = useQuery(GET_ROUTES);
   const rewardData = useQuery(GET_AVAILABLE_REWARDS);
+  const me = useQuery(GET_STATUS_QUERY);
   const [toggleModal] = useMutation(TOGGLE_MODAL);
   const scrollY = new Animated.Value(0);
   const translateY = scrollY.interpolate({
@@ -42,6 +44,8 @@ const CityPingsModal = ({navigation}) => {
     const {modalOpen, pings} = data;
     const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
     const availableRewards = rewardData?.data?.getAvailableRewards;
+    const balance = me.data?.getStatus?.user?.balance;
+
     return (
       <Modal
         animationType="slide"
@@ -68,7 +72,7 @@ const CityPingsModal = ({navigation}) => {
             <ContentLayout>
               <View style={styles.headerContainer}>
                 <Title style={styles.title}>GOED BEZIG!</Title>
-                <CitypingsChip value={pings} />
+                <CitypingsChip value={balance} />
               </View>
               <View style={styles.paper}>
                 <Body style={styles.celebrationBoxTitle} align="center">
@@ -88,18 +92,13 @@ const CityPingsModal = ({navigation}) => {
                   </View>
                   <View style={styles.rowFlex}>
                     {availableRewards.map((reward) => (
-                      <>
-                        <RewardCardMini
-                          navigation={navigation}
-                          reward={reward}
-                          key={reward.rewardId}
-                        />
-                        <RewardCardMini
-                          navigation={navigation}
-                          reward={reward}
-                          key={reward.rewardId}
-                        />
-                      </>
+                      <RewardCardMini
+                        navigation={navigation}
+                        toggleModal={toggleModal}
+                        reward={reward}
+                        key={reward.rewardId}
+                        balance={balance}
+                      />
                     ))}
                   </View>
                 </View>

@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
 
 CityPingsBalance.propTypes = {
   price: PropTypes.number.isRequired,
-  balance: PropTypes.number.isRequired,
+  balance: PropTypes.number,
+};
+
+CityPingsBalance.defaultProps = {
+  balance: 0,
 };
 
 export default CityPingsBalance;
