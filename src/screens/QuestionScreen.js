@@ -86,7 +86,6 @@ const QuestionScreen = ({navigation}) => {
         });
         setState(INITIAL_STATE);
         await refetch();
-        console.log('waiting');
         setLoadingQuestion(false);
         animationRef.current?.fadeIn();
       } catch (e) {
