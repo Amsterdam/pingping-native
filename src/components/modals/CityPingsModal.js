@@ -36,8 +36,6 @@ const CityPingsModal = ({navigation}) => {
     outputRange: [0, -HEADER_HEIGHT],
   });
 
-  console.log(scrollY);
-
   const doNavigate = (stack) => () => {
     toggleModal();
     navigation.navigate(stack);
