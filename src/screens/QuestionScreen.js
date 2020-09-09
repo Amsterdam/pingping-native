@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {StyleSheet, View, StatusBar, Text} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
 import {
   Content,
   Container,
@@ -10,6 +10,7 @@ import {
   Icon,
 } from 'native-base';
 import PropTypes from 'prop-types';
+import * as Animatable from 'react-native-animatable';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
 import {appColors, ppBaseColors} from '../lib/colors';
@@ -19,7 +20,7 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import ProgressBar from '../components/ProgressBar';
 import Loading from '../components/LoadingComponent';
-import * as Animatable from 'react-native-animatable';
+import ErrorComponent from '../components/ErrorComponent';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -38,7 +39,7 @@ const QuestionScreen = ({navigation}) => {
   const animationRef = useRef(null);
 
   if (error) {
-    return <Text>Something went very wrong</Text>;
+    return <ErrorComponent functionToRetry={refetch} />;
   }
   if (loading) {
     return <Loading />;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-import {useQuery, useLazyQuery} from '@apollo/client';
+import {useQuery} from '@apollo/client';
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';

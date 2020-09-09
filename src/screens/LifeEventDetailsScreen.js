@@ -53,19 +53,11 @@ function LifeEventDetailsScreen({navigation, route}) {
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
 
     const startTasks = () => {
-      const taskList = [];
-      if (tasksToDo.length > 0) {
-        tasksToDo.forEach((task) => {
-          taskList.push({...task.task, status: task.status});
-        });
+      navigation.navigate('TaskScreen', {
+        routeId,
+        task: {...tasksToDo[0].task, status: tasksToDo[0].status},
+      });
 
-        navigation.navigate('TaskScreen', {
-          routeId,
-          task: {
-            ...taskList[0],
-          },
-        });
-      }
       return;
     };
 

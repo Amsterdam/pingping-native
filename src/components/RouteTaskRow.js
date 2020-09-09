@@ -13,10 +13,7 @@ const RouteTaskRow = ({task: {task, status}, index, navigation, routeId}) => {
   const doNavigate = () => {
     navigation.navigate('TaskScreen', {
       routeId,
-      task: {
-        ...task,
-        status,
-      },
+      task: {...task, status},
     });
   };
 
