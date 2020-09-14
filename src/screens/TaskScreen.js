@@ -87,7 +87,7 @@ const TaskScreen = ({navigation, route}) => {
             apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
             style={styles.videoContainer}
           />
-          <ContentLayout style={styles.textContainer}>
+          <View style={styles.textContainer}>
             <ScrollView>
               <Title>{task.title}</Title>
               <View style={styles.descriptionContainer}>
@@ -100,7 +100,7 @@ const TaskScreen = ({navigation, route}) => {
                 />
               </View>
             </ScrollView>
-          </ContentLayout>
+          </View>
         </Content>
         {taskStatus && (
           <Title style={styles.completedTagLine} align="center">
@@ -147,6 +147,8 @@ const styles = StyleSheet.create({
 
   textContainer: {
     flex: 1,
+    paddingHorizontal: 30,
+    paddingTop: 20,
   },
   descriptionContainer: {
     justifyContent: 'space-around',
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 40,
-    marginVertical: 20,
+    marginVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Button from '../Button';
 import {ppBaseColors} from '../../config/colors';
 
@@ -36,7 +36,7 @@ const MultipleChoice = ({answers, state, setState}) => {
     return buttonArray;
   }
 
-  return <React.Fragment>{mapButtons()}</React.Fragment>;
+  return <View>{mapButtons()}</View>;
 };
 
 const styles = StyleSheet.create({

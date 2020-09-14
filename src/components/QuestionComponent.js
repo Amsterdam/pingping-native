@@ -9,27 +9,28 @@ import MultipleChoice from './answerTypes/MultipleChoice';
 
 const QuestionComponent = ({currentTask, setState, state}) => {
   return (
-    <View style={styles.questionContainer}>
+    <>
       <Title style={styles.title}>{currentTask.title}</Title>
-      <View style={styles.illustration} />
-      {currentTask.type === 'YesOrNo' && (
-        <YesOrNo
-          state={state}
-          setState={setState}
-          answers={currentTask.choices}
-        />
-      )}
-      {currentTask.type === 'DateOfBirth' && (
-        <DateOfBirth setState={setState} state={state} />
-      )}
-      {currentTask.type === 'MultipleChoices' && (
-        <MultipleChoice
-          state={state}
-          setState={setState}
-          answers={currentTask.choices}
-        />
-      )}
-    </View>
+      <View style={styles.questionContainer}>
+        {currentTask.type === 'YesOrNo' && (
+          <YesOrNo
+            state={state}
+            setState={setState}
+            answers={currentTask.choices}
+          />
+        )}
+        {currentTask.type === 'DateOfBirth' && (
+          <DateOfBirth setState={setState} state={state} />
+        )}
+        {currentTask.type === 'MultipleChoices' && (
+          <MultipleChoice
+            state={state}
+            setState={setState}
+            answers={currentTask.choices}
+          />
+        )}
+      </View>
+    </>
   );
 };
 
@@ -37,18 +38,13 @@ const styles = StyleSheet.create({
   questionContainer: {
     flex: 1,
     marginTop: 50,
+    justifyContent: 'space-evenly',
   },
   title: {
     textAlign: 'center',
   },
   whiteButton: {
     backgroundColor: '#fff',
-  },
-  illustration: {
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 100,
   },
 });
 
