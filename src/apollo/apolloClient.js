@@ -4,6 +4,7 @@ import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
 import GET_MODAL_STATE from './Query/getModalState';
 import {API_URL} from '../config/initialSettings';
+import GET_QUESTIONNAIRE_MODAL from './Query/getQuestionnaireModal';
 
 const inMemoryCache = new InMemoryCache();
 
@@ -49,6 +50,19 @@ const client = new ApolloClient({
         });
         return null;
       },
+      questionnaireModal: (_root, variables, {cache}) => {
+        cache.writeQuery({
+          query: gql`
+            {
+              questionnaireModalOpen
+            }
+          `,
+          data: {
+            questionnaireModalOpen: variables.questionnaireModalOpen,
+          },
+        });
+        return null;
+      },
     },
   },
 });
@@ -61,6 +75,13 @@ async function writeInitialData() {
       modalOpen: false,
     },
   });
+  await inMemoryCache.writeQuery({
+    query: GET_QUESTIONNAIRE_MODAL,
+    data: {
+      questionnaireModalOpen: false,
+    },
+  });
+
   return;
 }
 

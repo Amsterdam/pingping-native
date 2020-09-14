@@ -17,6 +17,7 @@ import Modal from '../components/modals/CityPingsModal';
 import {appColors} from '../config/colors';
 import RouteCard from '../components/RouteCard';
 import ErrorComponent from '../components/ErrorComponent';
+import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
 
 const HEADER_HEIGHT = 200;
 
@@ -141,6 +142,7 @@ const RouteHomeScreen = ({navigation}) => {
         </ContentLayout>
       </Content>
       <View style={styles.underLayer} />
+      <RouteQuestionaireModal navigation={navigation} />
     </Container>
   );
 };
