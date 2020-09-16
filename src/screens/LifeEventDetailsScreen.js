@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Dimensions,
-  ActivityIndicator,
-} from 'react-native';
+import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
+import {BASE_URL} from '../config/initialSettings';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useQuery} from '@apollo/client';
 import ProgressBar from '../components/ProgressBar';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
-import exampleImage from '../assets/exampleImage.png';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
@@ -48,7 +41,7 @@ function LifeEventDetailsScreen({navigation, route}) {
       tasks,
       title,
       description,
-      //   coverImageUrl,
+      coverImageUrl,
     } = data.getRoute;
 
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
@@ -66,7 +59,10 @@ function LifeEventDetailsScreen({navigation, route}) {
       <Container>
         <ScrollView>
           <View style={styles.imageContainer}>
-            <Image source={exampleImage} style={styles.image} />
+            <Image
+              source={{uri: `${BASE_URL}${coverImageUrl}`}}
+              style={styles.image}
+            />
             <View style={styles.imageOverlay}>
               <IconButton
                 iconName="arrow-left"

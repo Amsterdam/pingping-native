@@ -13,11 +13,11 @@ import {useQuery, useMutation} from '@apollo/client';
 import {Content, Container} from 'native-base';
 import Button from '../OnboardingButton';
 import ContentLayout from '../layout/ContentLayout';
-import exampleImage from '../../assets/exampleImage.png';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import IconButton from '../IconButton';
 import {appColors} from '../../config/colors';
+import {BASE_URL} from '../../config/initialSettings';
 import QUESTIONNAIRE_MODAL from '../../apollo/Mutation/questionnaireModal';
 import GET_QUESTIONNAIRE_MODAL from '../../apollo/Query/getQuestionnaireModal';
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../../apollo/Mutation/submitRouteFeedback';
@@ -55,7 +55,7 @@ const RouteQuestionaireModal = ({navigation}) => {
   };
 
   if (data && data.questionnaireModalOpen) {
-    const {questionnaireModalOpen} = data;
+    const {questionnaireModalOpen, coverImageUrl} = data;
     return (
       <Modal
         animationType="slide"
@@ -68,7 +68,10 @@ const RouteQuestionaireModal = ({navigation}) => {
           />
           <Content contentContainerStyle={styles.content}>
             <View style={styles.imageContainer}>
-              <Image source={exampleImage} style={styles.image} />
+              <Image
+                source={{uri: `${BASE_URL}${coverImageUrl}`}}
+                style={styles.image}
+              />
               <View style={styles.imageOverlay}>
                 <IconButton
                   iconName="close"

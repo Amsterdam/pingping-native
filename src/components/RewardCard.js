@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../config/commonStyles';
-import exampleImage from '../assets/exampleImage.png';
+import {BASE_URL} from '../config/initialSettings';
 import {ppBaseColors, appColors} from '../config/colors';
 import CitypingsChip from '../components/CitypingsChip';
 import CityPingsBalance from './CityPingsBalance';
@@ -13,7 +13,7 @@ const BORDER_RADIUS = 5;
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId},
+  reward: {price, description, title, rewardId, imageUrl},
   balance = 0,
 }) => {
   return (
@@ -25,12 +25,16 @@ const RewardCard = ({
             balance,
             description,
             title,
+            imageUrl,
             rewardId,
           })
         }>
         <View>
           <View style={styles.imageContainer}>
-            <Image source={exampleImage} style={styles.image} />
+            <Image
+              source={{uri: `${BASE_URL}${imageUrl}`}}
+              style={styles.image}
+            />
             <View style={styles.overlayTop}>
               <CitypingsChip value={price} />
             </View>

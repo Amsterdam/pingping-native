@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {useMutation} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
-import exampleImage from '../../assets/exampleImage.png';
+import {BASE_URL} from '../../config/initialSettings';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
 import Body from '../typography/Body';
@@ -15,7 +15,7 @@ import Button from '../OnboardingButton';
 
 const screenHeight = Dimensions.get('window').height;
 function RewardDetailModal({navigation, route}) {
-  const {balance, price, title, description, rewardId} = route.params;
+  const {balance, price, title, description, rewardId, imageUrl} = route.params;
   const available = balance >= price;
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
 
@@ -36,7 +36,10 @@ function RewardDetailModal({navigation, route}) {
     <Container>
       <ScrollView>
         <View style={styles.imageContainer}>
-          <Image source={exampleImage} style={styles.image} />
+          <Image
+            source={{uri: `${BASE_URL}${imageUrl}`}}
+            style={styles.image}
+          />
           <View style={styles.imageOverlay}>
             <IconButton
               iconName="close"

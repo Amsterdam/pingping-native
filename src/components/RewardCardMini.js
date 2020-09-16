@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../config/commonStyles';
-import exampleImage from '../assets/exampleImage.png';
 import {ppBaseColors, appColors} from '../config/colors';
+import {BASE_URL} from '../config/initialSettings';
 import CitypingsChip from '../components/CitypingsChip';
 
 const BORDER_RADIUS = 5;
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId},
+  reward: {price, description, title, rewardId, imageUrl},
   balance,
 }) => {
   const doNavigation = () => {
@@ -25,6 +25,7 @@ const RewardCard = ({
         description,
         title,
         rewardId,
+        imageUrl,
       },
     });
   };
@@ -34,7 +35,10 @@ const RewardCard = ({
       <TouchableOpacity onPress={doNavigation}>
         <View>
           <View style={styles.imageContainer}>
-            <Image source={exampleImage} style={styles.image} />
+            <Image
+              source={{uri: `${BASE_URL}${imageUrl}`}}
+              style={styles.image}
+            />
             <View style={styles.overlayTop}>
               <CitypingsChip value={price} mini />
             </View>
