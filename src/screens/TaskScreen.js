@@ -5,11 +5,9 @@ import {Content, Container} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {useMutation, useQuery} from '@apollo/client';
-import TOGGLE_MODAL from '../apollo/Mutation/toggleModal';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import LabeledHeader from '../components/header/LabeledHeader';
-import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
 import {appColors} from '../config/colors';
@@ -18,7 +16,6 @@ import Loading from '../components/LoadingComponent';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
-  const [toggleModal] = useMutation(TOGGLE_MODAL);
   const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
   const {refetch} = useQuery(GET_ROUTE_QUERY, {
     variables: {routeId},
@@ -46,12 +43,6 @@ const TaskScreen = ({navigation, route}) => {
           params: {pings: routeResponse.data.getRoute.totalPoints},
           initial: false,
         });
-      // toggleModal({
-      //   variables: {
-      //     pings: routeResponse.data.getRoute.totalPoints,
-      //   },
-      // });
-      /*-------*/
       setLoading(false);
       navigation.goBack();
     } catch (error) {

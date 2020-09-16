@@ -277,6 +277,7 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 39J4LQT4VN;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -591,6 +592,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = pingpingNative/pingpingNative.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 39J4LQT4VN;
 				ENABLE_BITCODE = NO;
@@ -607,6 +610,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.gemeente.pingpingNative;
 				PRODUCT_NAME = pingpingNative;
+				PROVISIONING_PROFILE_SPECIFIER = "PingPing app store";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -620,6 +624,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = pingpingNative/pingpingNative.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 39J4LQT4VN;
 				INFOPLIST_FILE = pingpingNative/Info.plist;
@@ -631,6 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.gemeente.pingpingNative;
 				PRODUCT_NAME = pingpingNative;
+				PROVISIONING_PROFILE_SPECIFIER = "PingPing app store";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

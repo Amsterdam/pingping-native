@@ -55,6 +55,7 @@ const client = new ApolloClient({
           query: gql`
             {
               questionnaireModalOpen
+              routeId
             }
           `,
           data: {
@@ -79,6 +80,7 @@ async function writeInitialData() {
     query: GET_QUESTIONNAIRE_MODAL,
     data: {
       questionnaireModalOpen: false,
+      routeId: '',
     },
   });
 

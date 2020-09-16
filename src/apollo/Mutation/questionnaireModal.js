@@ -1,8 +1,14 @@
 import {gql} from '@apollo/client';
 
 const QUESTIONNAIRE_MODAL = gql`
-  mutation questionnaireModal($questionnaireModalOpen: Boolean!) {
-    questionnaireModal(questionnaireModalOpen: $questionnaireModalOpen) @client
+  mutation questionnaireModal(
+    $questionnaireModalOpen: Boolean!
+    $routeId: String!
+  ) {
+    questionnaireModal(
+      questionnaireModalOpen: $questionnaireModalOpen
+      routeId: $routeId
+    ) @client
   }
 `;
 

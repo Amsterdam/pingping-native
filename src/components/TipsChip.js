@@ -5,11 +5,15 @@ import {Icon} from 'native-base';
 import Title from './typography/Title';
 import {appColors} from '../config/colors';
 
-const TipsChip = ({navigation}) => {
+const TipsChip = ({navigation, tips}) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate('TipScreen')}>
+      onPress={() =>
+        navigation.navigate('TipScreen', {
+          tips,
+        })
+      }>
       <Icon
         name="lightbulb-on-outline"
         type="MaterialCommunityIcons"

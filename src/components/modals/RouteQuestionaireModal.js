@@ -28,8 +28,8 @@ const RouteQuestionaireModal = ({navigation}) => {
   const [questionnaireModal] = useMutation(QUESTIONNAIRE_MODAL);
   const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
   const {data} = useQuery(GET_QUESTIONNAIRE_MODAL);
-  const [routeName, onChangeRouteName] = React.useState('');
-  const [description, onChangeDescription] = React.useState('');
+  const [feedback, setFeedback] = React.useState('');
+  const [taskName, setTaskName] = React.useState('');
 
   const closeModal = async () => {
     await questionnaireModal({
@@ -43,8 +43,9 @@ const RouteQuestionaireModal = ({navigation}) => {
     try {
       await submitFeedback({
         variables: {
-          routeName,
-          description,
+          routeId: data.routeId,
+          taskName,
+          feedback,
         },
       });
       closeModal();
@@ -98,22 +99,23 @@ const RouteQuestionaireModal = ({navigation}) => {
               <View style={styles.inputContainer}>
                 <TextInput
                   style={styles.textInput}
-                  onChangeText={(text) => onChangeRouteName(text)}
-                  value={routeName}
+                  onChangeText={(text) => setTaskName(text)}
+                  value={taskName}
                   placeholder="Route naam"
                 />
               </View>
               <View style={styles.inputContainer}>
                 <TextInput
                   style={styles.inputContainerMultiline}
-                  onChangeText={(text) => onChangeDescription(text)}
-                  value={description}
+                  onChangeText={(text) => setFeedback(text)}
+                  value={feedback}
                   placeholder="Wat denk jij nodig te hebben?"
                   multiline
                 />
               </View>
               <Button
                 style={styles.button}
+                disabled={!taskName || !feedback}
                 onPress={doSubmit}
                 label="Verzenden"
               />
