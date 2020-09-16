@@ -51,6 +51,30 @@ const TaskScreen = ({navigation, route}) => {
     }
   };
 
+  const renderMedia = (media) => {
+    switch (media.type) {
+      case 'YouTube':
+        return (
+          <YouTube
+            videoId={task.media.value} // The YouTube video ID
+            play={false} // control playback of video with true/false
+            loop={false} // control whether the video should loop when ended
+            apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
+            style={styles.videoContainer}
+          />
+        );
+      case 'Image':
+        return (
+          <Image
+            source={{uri: task.media.value}}
+            style={styles.imageContainer}
+          />
+        );
+      default:
+        break;
+    }
+  };
+
   const linkPressed = (event, href) => {
     setUrlToVisit(href);
     setWebviewOpen(true);
@@ -71,19 +95,7 @@ const TaskScreen = ({navigation, route}) => {
           title={task.headerTitle}
         />
         <Content contentContainerStyle={styles.contentContainer}>
-          {task?.media?.type === 'YouTube' && (
-            <YouTube
-              videoId={task.media.value} // The YouTube video ID
-              play={false} // control playback of video with true/false
-              loop // control whether the video should loop when ended
-              apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
-              style={styles.videoContainer}
-            />
-          )}
-
-          {task?.media?.type === 'Image' && (
-            <Image source={{uri: task.media.value}} style={styles.image} />
-          )}
+          {task?.media && renderMedia(task.media)}
 
           <View style={styles.textContainer}>
             <ScrollView>
@@ -142,7 +154,10 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 200,
   },
-
+  imageContainer: {
+    alignSelf: 'stretch',
+    height: 200,
+  },
   textContainer: {
     flex: 1,
     paddingHorizontal: 30,
