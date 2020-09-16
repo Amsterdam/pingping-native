@@ -17,7 +17,6 @@ const GET_STATUS_QUERY = gql`
           taskId
           title
           description
-          media
           choices
           type
           progress
@@ -30,7 +29,6 @@ const GET_STATUS_QUERY = gql`
           taskId
           title
           description
-          media
           choices
           type
           progress

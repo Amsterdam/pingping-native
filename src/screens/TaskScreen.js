@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView, Image} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import YouTube from 'react-native-youtube';
@@ -71,15 +71,20 @@ const TaskScreen = ({navigation, route}) => {
           title={task.headerTitle}
         />
         <Content contentContainerStyle={styles.contentContainer}>
-          {task.media.type === 'YouTube' && (
+          {task?.media?.type === 'YouTube' && (
             <YouTube
-              videoId="ZG0vCfivpQ8" // The YouTube video ID
+              videoId={task.media.value} // The YouTube video ID
               play={false} // control playback of video with true/false
               loop // control whether the video should loop when ended
               apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
               style={styles.videoContainer}
             />
           )}
+
+          {task?.media?.type === 'Image' && (
+            <Image source={{uri: task.media.value}} style={styles.image} />
+          )}
+
           <View style={styles.textContainer}>
             <ScrollView>
               <Title>{task.title}</Title>
