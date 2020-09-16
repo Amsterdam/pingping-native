@@ -23,7 +23,10 @@ const ROUTES_ATTRIBUTES = gql`
         title
         headerTitle
         description
-        media
+        media {
+          type
+          value
+        }
         choices
         progress
       }
