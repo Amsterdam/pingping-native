@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {ppBaseColors} from '../config/colors';
+import {BASE_URL} from '../config/initialSettings';
 
 const RewardBlock = ({reward}) => {
   return (
     <View
       style={
-        reward.acquired
+        reward.status === 'Earned'
           ? styles.rewardBlock
           : {...styles.rewardBlock, ...styles.disabled}
       }>
-      <Image source={reward.image} style={styles.image} />
+      <Image source={{uri: `${BASE_URL}${reward.icon}`}} style={styles.image} />
       <Title style={styles.title}>{reward.title}</Title>
       <Body style={styles.points}>{reward.points} punten</Body>
     </View>
