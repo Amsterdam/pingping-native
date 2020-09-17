@@ -61,6 +61,8 @@ const TaskScreen = ({navigation, route}) => {
             loop={false} // control whether the video should loop when ended
             apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
             style={styles.videoContainer}
+            onError={(e) => console.log(e)}
+            resumePlayAndroid={false}
           />
         );
       case 'Image':
