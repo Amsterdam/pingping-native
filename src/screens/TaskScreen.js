@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
-  completedTagLine: {fontSize: 14, color: appColors.primary},
+  completedTagLine: {fontSize: 14, color: appColors.primary, marginTop: 10},
 });
 
 TaskScreen.propTypes = {
