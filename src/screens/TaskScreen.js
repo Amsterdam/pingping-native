@@ -89,66 +89,54 @@ const TaskScreen = ({navigation, route}) => {
   const taskStatus = task.status === 'Completed';
 
   return (
-    <React.Fragment>
-      <Container>
-        <LabeledHeader
-          filledHeader
-          navigation={navigation}
-          title={task.headerTitle}
-        />
-        <Content contentContainerStyle={styles.contentContainer}>
-          {task?.media && renderMedia(task.media)}
-
-          <View style={styles.textContainer}>
-            <ScrollView>
-              <Title>{task.title}</Title>
-              <View style={styles.descriptionContainer}>
-                <HTML
-                  html={task.description}
-                  baseFontStyle={styles.htmlFontStyle}
-                  onLinkPress={(event, href) => {
-                    linkPressed(event, href);
-                  }}
-                />
-              </View>
-            </ScrollView>
-          </View>
-        </Content>
-        {taskStatus && (
-          <Title style={styles.completedTagLine} align="center">
-            Je {task.headerTitle} is gefikst
-          </Title>
-        )}
-        <View style={styles.buttonContainer}>
-          {taskStatus ? (
-            <Button
-              style={styles.buttonHelp}
-              label="terug"
-              onPress={() => navigation.goBack()}
+    <Container>
+      <LabeledHeader
+        filledHeader
+        navigation={navigation}
+        title={task.headerTitle}
+      />
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        {task?.media && renderMedia(task.media)}
+        <View style={styles.textContainer}>
+          <Title>{task.title}</Title>
+          <View style={styles.descriptionContainer}>
+            <HTML
+              html={task.description}
+              baseFontStyle={styles.htmlFontStyle}
+              onLinkPress={(event, href) => {
+                linkPressed(event, href);
+              }}
             />
-          ) : (
-            <React.Fragment>
-              <Button style={styles.buttonHelp} label="Hulp nodig?" />
-              <Button label="Gelukt!" onPress={doCompleteTask} />
-            </React.Fragment>
-          )}
+          </View>
         </View>
-        {loading && <Loading />}
-      </Container>
+      </ScrollView>
 
+      {taskStatus ? (
+        <Title style={styles.completedTagLine} align="center">
+          Je {task.headerTitle} is gefikst
+        </Title>
+      ) : (
+        <View style={styles.buttonContainer}>
+          <React.Fragment>
+            <Button style={styles.buttonHelp} label="Hulp nodig?" />
+            <Button label="Gelukt!" onPress={doCompleteTask} />
+          </React.Fragment>
+        </View>
+      )}
+
+      {loading && <Loading />}
       <WebViewModal
         urlToVisit={urlToVisit}
         closeModal={closeModal}
         webViewOpen={webViewOpen}
         setWebviewOpen={setWebviewOpen}
       />
-    </React.Fragment>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
     alignItems: 'center',
     backgroundColor: '#fff',
   },
@@ -161,14 +149,10 @@ const styles = StyleSheet.create({
     height: 200,
   },
   textContainer: {
-    flex: 1,
-    paddingHorizontal: 30,
+    paddingHorizontal: 15,
     paddingTop: 20,
   },
-  descriptionContainer: {
-    justifyContent: 'space-around',
-    flex: 1,
-  },
+  descriptionContainer: {},
   buttonContainer: {
     paddingHorizontal: 40,
     marginVertical: 10,
@@ -187,7 +171,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
-  completedTagLine: {fontSize: 14, color: appColors.primary, marginTop: 10},
+  completedTagLine: {
+    fontSize: 14,
+    color: appColors.primary,
+
+    padding: 15,
+  },
 });
 
 TaskScreen.propTypes = {
