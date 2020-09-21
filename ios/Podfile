@@ -74,12 +74,3 @@ target 'pingpingNative' do
     flipper_post_install(installer)
   end
 end
-
-target 'pingpingNative-tvOS' do
-  # Pods for pingpingNative-tvOS
-
-  target 'pingpingNative-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
