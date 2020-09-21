@@ -4,6 +4,9 @@ import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 import HeaderBackButton from './HeaderBackButton';
 
+// The build up of this header fixes an issue on smaller android devices
+// When playing youtube videos
+
 const TaskHeader = ({title, navigation}) => {
   return (
     <SafeAreaView style={styles.safeArea}>

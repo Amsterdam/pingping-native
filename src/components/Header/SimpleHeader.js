@@ -1,29 +1,39 @@
 import React from 'react';
-import {StyleSheet, StatusBar} from 'react-native';
-import {Header} from 'native-base';
+import HeaderTemplate from './HeaderTemplate';
+import {StyleSheet} from 'react-native';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 
-const SimpleHeader = ({title}) => {
-  const styles = StyleSheet.create({
-    header: {
-      backgroundColor: appColors.background,
-      alignItems: 'center',
-    },
-    headerTitle: {
-      fontSize: 14,
-      color: appColors.primary,
-    },
-  });
+const SimpleHeader = ({title = '', color = 'primary'}) => {
   return (
-    <Header style={styles.header} transparent noShadow>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={appColors.background}
-      />
-      <Title style={styles.headerTitle}>{title}</Title>
-    </Header>
+    <HeaderTemplate style={styles.header} color={color}>
+      <Title
+        style={[
+          styles.title,
+          color === 'primary' && styles.titleWhite,
+          color === 'white' && styles.titleWhite,
+        ]}>
+        {title}
+      </Title>
+    </HeaderTemplate>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 14,
+  },
+  titlePrimary: {
+    color: appColors.primary,
+  },
+  titleWhite: {
+    color: appColors.white,
+  },
+});
 
 export default SimpleHeader;

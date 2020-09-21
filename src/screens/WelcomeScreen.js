@@ -13,7 +13,7 @@ import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
 const WelcomeScreen = ({navigation}) => {
   return (
     <Container>
-      <SimpleHeader title="Welkom!" />
+      <SimpleHeader title="Welkom!" color="white" />
       <View style={styles.viewContainer}>
         <View>
           <GuyBehindComputer />

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, ScrollView, StyleSheet, Dimensions} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import {useMutation} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
 import ImageOverlayHeader from '../header/ImageOverlayHeader';
@@ -11,7 +11,6 @@ import {appColors} from '../../config/colors';
 import CityPingsBalance from '../CityPingsBalance';
 import Button from '../OnboardingButton';
 
-const screenHeight = Dimensions.get('window').height;
 function RewardDetailModal({navigation, route}) {
   const {balance, price, title, description, rewardId, imageUrl} = route.params;
   const available = balance >= price;

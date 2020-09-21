@@ -3,7 +3,7 @@ import {StyleSheet, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import ContentLayout from '../components/layout/ContentLayout';
-import RouteHeader from '../components/header/RouteHeader';
+import SimpleHeader from '../components/header/SimpleHeader';
 import ExportImage from '../assets/export.png';
 import WarningImage from '../assets/warning.png';
 import TrashImage from '../assets/trashcan.png';
@@ -18,7 +18,7 @@ const AccountHomeScreen = ({navigation}) => {
   ];
   return (
     <Container>
-      <RouteHeader title="Gegevens" />
+      <SimpleHeader title="Gegevens" />
       <ContentLayout style={styles.content}>
         <FlatList
           data={buttons}
