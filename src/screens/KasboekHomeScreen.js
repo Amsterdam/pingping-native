@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
-import RouteHeader from '../components/header/RouteHeader';
+import SimpleHeader from '../components/header/SimpleHeader';
 import {Content, Container} from 'native-base';
 import {ppBaseColors} from '../config/colors';
 import Button from '../components/Button';
@@ -12,7 +12,7 @@ import KasboekGoalItem from '../components/KasboekGoalItem';
 const KasboekHomeScreen = ({navigation}) => {
   return (
     <Container>
-      <RouteHeader title="Zet je goals" />
+      <SimpleHeader title="Zet je goals" />
       <Content>
         <View style={styles.container}>
           <View style={styles.innerContainer}>

@@ -19,7 +19,7 @@ const Title = ({
 
   return (
     <Text
-      style={{...styles.text, ...style}}
+      style={[styles.text, style]}
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}>
       {children}

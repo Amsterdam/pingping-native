@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, StyleSheet, ScrollView, Image, SafeAreaView} from 'react-native';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
+import TaskHeader from '../components/header/TaskHeader';
 import {useMutation, useQuery} from '@apollo/client';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
-import LabeledHeader from '../components/header/LabeledHeader';
+import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Button from '../components/OnboardingButton';
 import {appColors} from '../config/colors';
@@ -89,67 +90,52 @@ const TaskScreen = ({navigation, route}) => {
   const taskStatus = task.status === 'Completed';
 
   return (
-    <React.Fragment>
-      <Container>
-        <LabeledHeader
-          filledHeader
-          navigation={navigation}
-          title={task.headerTitle}
-        />
-        <Content contentContainerStyle={styles.contentContainer}>
-          {task?.media && renderMedia(task.media)}
+    <Container>
+      <TaskHeader navigation={navigation} title={task.headerTitle} />
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        {task?.media && renderMedia(task.media)}
+        <ContentLayout>
+          <Title>{task.title}</Title>
+          <HTML
+            html={task.description}
+            baseFontStyle={styles.htmlFontStyle}
+            onLinkPress={(event, href) => {
+              linkPressed(event, href);
+            }}
+          />
+        </ContentLayout>
+      </ScrollView>
 
-          <View style={styles.textContainer}>
-            <ScrollView>
-              <Title>{task.title}</Title>
-              <View style={styles.descriptionContainer}>
-                <HTML
-                  html={task.description}
-                  baseFontStyle={styles.htmlFontStyle}
-                  onLinkPress={(event, href) => {
-                    linkPressed(event, href);
-                  }}
-                />
-              </View>
-            </ScrollView>
-          </View>
-        </Content>
-        {taskStatus && (
+      {taskStatus ? (
+        <View style={styles.completedTagLineContainer}>
           <Title style={styles.completedTagLine} align="center">
             Je {task.headerTitle} is gefikst
           </Title>
-        )}
-        <View style={styles.buttonContainer}>
-          {taskStatus ? (
-            <Button
-              style={styles.buttonHelp}
-              label="terug"
-              onPress={() => navigation.goBack()}
-            />
-          ) : (
-            <React.Fragment>
-              <Button style={styles.buttonHelp} label="Hulp nodig?" />
-              <Button label="Gelukt!" onPress={doCompleteTask} />
-            </React.Fragment>
-          )}
         </View>
-        {loading && <Loading />}
-      </Container>
+      ) : (
+        <View style={styles.buttonContainer}>
+          <React.Fragment>
+            <Button style={styles.buttonHelp} label="Hulp nodig?" />
+            <Button label="Gelukt!" onPress={doCompleteTask} />
+          </React.Fragment>
+        </View>
+      )}
 
+      {loading && <Loading />}
       <WebViewModal
         urlToVisit={urlToVisit}
         closeModal={closeModal}
         webViewOpen={webViewOpen}
         setWebviewOpen={setWebviewOpen}
       />
-    </React.Fragment>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
     alignItems: 'center',
+    width: '100%',
     backgroundColor: '#fff',
   },
   videoContainer: {
@@ -161,13 +147,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   textContainer: {
-    flex: 1,
-    paddingHorizontal: 30,
-    paddingTop: 20,
-  },
-  descriptionContainer: {
-    justifyContent: 'space-around',
-    flex: 1,
+    alignSelf: 'stretch',
   },
   buttonContainer: {
     paddingHorizontal: 40,
@@ -187,7 +167,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
-  completedTagLine: {fontSize: 14, color: appColors.primary, marginTop: 10},
+  completedTagLineContainer: {
+    padding: 10,
+  },
+  completedTagLine: {
+    fontSize: 14,
+    color: appColors.primary,
+  },
 });
 
 TaskScreen.propTypes = {
