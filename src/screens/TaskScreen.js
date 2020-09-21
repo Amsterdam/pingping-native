@@ -99,22 +99,23 @@ const TaskScreen = ({navigation, route}) => {
         {task?.media && renderMedia(task.media)}
         <View style={styles.textContainer}>
           <Title>{task.title}</Title>
-          <View style={styles.descriptionContainer}>
-            <HTML
-              html={task.description}
-              baseFontStyle={styles.htmlFontStyle}
-              onLinkPress={(event, href) => {
-                linkPressed(event, href);
-              }}
-            />
-          </View>
+
+          <HTML
+            html={task.description}
+            baseFontStyle={styles.htmlFontStyle}
+            onLinkPress={(event, href) => {
+              linkPressed(event, href);
+            }}
+          />
         </View>
       </ScrollView>
 
       {taskStatus ? (
-        <Title style={styles.completedTagLine} align="center">
-          Je {task.headerTitle} is gefikst
-        </Title>
+        <View style={styles.completedTagLineContainer}>
+          <Title style={styles.completedTagLine} align="center">
+            Je {task.headerTitle} is gefikst
+          </Title>
+        </View>
       ) : (
         <View style={styles.buttonContainer}>
           <React.Fragment>
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingTop: 20,
   },
-  descriptionContainer: {},
   buttonContainer: {
     paddingHorizontal: 40,
     marginVertical: 10,
@@ -171,11 +171,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
+  completedTagLineContainer: {
+    padding: 10,
+  },
   completedTagLine: {
     fontSize: 14,
     color: appColors.primary,
-
-    padding: 15,
   },
 });
 
