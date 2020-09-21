@@ -23,9 +23,11 @@ const BORDER_RADIUS = 5;
 
 const CityPingsModal = ({navigation, route}) => {
   const {pings} = route.params;
-  const routeData = useQuery(GET_ROUTES);
-  const rewardData = useQuery(GET_AVAILABLE_REWARDS);
-  const me = useQuery(GET_STATUS_QUERY);
+  const routeData = useQuery(GET_ROUTES, {fetchPolicy: 'cache-and-network'});
+  const rewardData = useQuery(GET_AVAILABLE_REWARDS, {
+    fetchPolicy: 'cache-and-network',
+  });
+  const me = useQuery(GET_STATUS_QUERY, {fetchPolicy: 'cache-and-network'});
 
   const scrollY = new Animated.Value(0);
   const translateY = scrollY.interpolate({
@@ -37,7 +39,7 @@ const CityPingsModal = ({navigation, route}) => {
   const availableRewards = rewardData?.data?.getAvailableRewards;
   const balance = me.data?.getStatus?.user?.balance;
 
-  if (balance && availableRewards && availableRoutes) {
+  if (me.data && availableRewards && availableRoutes) {
     return (
       <Container style={styles.container}>
         <StatusBar
@@ -126,8 +128,8 @@ const CityPingsModal = ({navigation, route}) => {
         <View style={styles.underLayer} />
         <ConfettiCannon
           count={300}
-          origin={{x: 0, y: 0}}
-          explosionSpeed={500}
+          origin={{x: 0, y: -100}}
+          explosionSpeed={250}
           fallSpeed={10000}
           fadeOut
         />
