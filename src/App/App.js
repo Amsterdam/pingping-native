@@ -18,9 +18,9 @@ export default function App() {
       console.log(netInfoState);
       if (netInfoState.isConnected && netInfoState.isInternetReachable) {
         setConnected(true);
+        userStatus(refetch, setLoggedIn, setOnboarder);
       }
     });
-    userStatus(refetch, setLoggedIn, setOnboarder);
   }, [refetch]);
 
   const [loggedIn, setLoggedIn] = React.useState(false);
