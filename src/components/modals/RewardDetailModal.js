@@ -61,21 +61,6 @@ function RewardDetailModal({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: screenHeight * 0.3,
-  },
-  imageContainer: {
-    position: 'relative',
-  },
-  imageOverlay: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 20,
-    position: 'absolute',
-    top: 80,
-  },
   contentContainer: {
     paddingHorizontal: 40,
     paddingVertical: 20,

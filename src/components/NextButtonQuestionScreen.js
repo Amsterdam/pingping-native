@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
 import {Button} from 'native-base';
 import {appColors} from '../config/colors';
@@ -40,6 +41,11 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
       </Text>
     </Button>
   );
+};
+
+NextButtonQuestionScreen.propTypes = {
+  nextButtonDisabled: PropTypes.bool.isRequired,
+  submitAnswer: PropTypes.func.isRequired,
 };
 
 export default NextButtonQuestionScreen;
