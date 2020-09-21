@@ -14,7 +14,7 @@ const TipScreen = ({navigation, route}) => {
       <LabeledHeader title="Tips" navigation={navigation} />
       <ContentLayout>
         <Content>
-          {tips.length > 0 &&
+          {tips?.length > 0 &&
             tips.map((tip) => (
               <View style={styles.paragraphContainer} key={tip.title}>
                 <Title style={styles.subTitle}>{tip.title}</Title>
