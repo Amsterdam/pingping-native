@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import Button from '../Button';
-import {ppBaseColors} from '../../config/colors';
 
 const YesOrNo = ({answers, state, setState}) => {
   function mapButtons() {
@@ -11,15 +10,7 @@ const YesOrNo = ({answers, state, setState}) => {
         <Button
           label={value}
           key={key}
-          bordered
-          rounded
-          style={
-            key === state.answerSelected
-              ? styles.activeButton
-              : styles.whiteButton
-          }
-          labelStyle={key === state.answerSelected && styles.activeText}
-          color="primary"
+          active={key === state.answerSelected}
           onPress={() => setState({answerSelected: key})}
         />,
       );
@@ -29,19 +20,5 @@ const YesOrNo = ({answers, state, setState}) => {
 
   return <View>{mapButtons()}</View>;
 };
-
-const styles = StyleSheet.create({
-  whiteButton: {
-    backgroundColor: '#fff',
-    marginBottom: 20,
-  },
-  activeButton: {
-    backgroundColor: ppBaseColors.PP_ORANGE,
-    marginBottom: 20,
-  },
-  activeText: {
-    color: '#fff',
-  },
-});
 
 export default YesOrNo;

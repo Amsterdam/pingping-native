@@ -1,129 +1,43 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
-import {appColors} from '../config/colors';
+import {appColors, ppBaseColors} from '../config/colors';
+import commonStyles from '../config/commonStyles';
 
-const buttonBase = {
-  alignSelf: 'stretch',
-  justifyContent: 'center',
-  marginBottom: 5,
-};
+const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    marginBottom: 20,
+    ...commonStyles.shadow,
+    borderColor: appColors.primary,
+  },
+  activeButton: {
+    backgroundColor: ppBaseColors.PP_ORANGE,
+    marginBottom: 20,
+  },
+  activeText: {
+    color: '#fff',
+  },
+  label: {
+    paddingTop: 3,
+    fontFamily: 'Heavitas',
+    fontSize: 14,
+    color: appColors.primary,
+  },
+});
 
-const Button = ({
-  rounded = false,
-  transparent = false,
-  bordered = false,
-  disabled = false,
-  onPress = () => {},
-  style = {},
-  labelStyle = {},
-  color = 'primary',
-  label = 'no label',
-}) => {
-  const styles = StyleSheet.create({
-    button: {...buttonBase},
-    label: {
-      fontFamily: 'Heavitas',
-      fontSize: 14,
-    },
-    transparentButton: {
-      paddingBottom: 0,
-      paddingTop: 0,
-      paddingLeft: 0,
-      paddingRight: 0,
-    },
-    transparentButtonLabel: {
-      fontSize: 15,
-      color: '#000',
-    },
-    disabled: {
-      ...buttonBase,
-      backgroundColor: 'gray',
-    },
-    shadow: {
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-    },
-  });
-
-  const generateStyles = () => {
-    if (transparent) {
-      styles.button = {
-        ...styles.transparentButton,
-        ...styles.button,
-        ...style,
-      };
-      styles.label = {
-        textAlign: 'center',
-        ...styles.transparentButtonLabel,
-        ...labelStyle,
-      };
-      styles.disabled = {
-        ...styles.transparentButton,
-        ...styles.button,
-        ...styles.disabled,
-        ...style,
-        backgroundColor: transparent,
-      };
-      styles.disabledLabel = {
-        ...labelStyle,
-        color: '#cccccc',
-      };
-      return;
-    }
-    switch (color) {
-      case 'primary':
-        styles.button = {
-          backgroundColor: appColors.primary,
-          borderColor: bordered && appColors.primary,
-          ...styles.shadow,
-          ...styles.button,
-          ...style,
-        };
-        styles.label = {
-          ...styles.label,
-          color: bordered ? appColors.primary : '#fff',
-          ...labelStyle,
-        };
-        break;
-      case 'white':
-        styles.button = {
-          backgroundColor: '#fff',
-          borderColor: bordered && '#cecece',
-          ...styles.button,
-          ...styles.shadow,
-          ...style,
-        };
-        styles.label = {
-          ...styles.label,
-          ...labelStyle,
-          color: '#000',
-        };
-        break;
-      default:
-        break;
-    }
-  };
-
-  generateStyles();
-
+const Button = ({onPress = () => {}, label = 'no label', active = false}) => {
+  console.log(active);
   return (
     <NativeBaseButton
-      style={!disabled ? styles.button : styles.disabled}
-      rounded={rounded}
-      transparent={transparent}
-      bordered={bordered}
-      disabled={disabled}
+      style={[styles.button, active && styles.activeButton]}
+      rounded
+      transparent
+      bordered
       onPress={onPress}>
-      <Text style={disabled ? styles.disabledLabel : styles.label}>
-        {label}
-      </Text>
+      <Text style={[styles.label, active && styles.activeText]}>{label}</Text>
     </NativeBaseButton>
   );
 };

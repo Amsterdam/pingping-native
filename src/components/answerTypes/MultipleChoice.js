@@ -22,11 +22,7 @@ const MultipleChoice = ({answers, state, setState}) => {
         <Button
           label={value}
           key={key}
-          bordered
-          rounded
-          style={
-            choices.includes(key) ? styles.activeButton : styles.whiteButton
-          }
+          active={choices.includes(key)}
           labelStyle={choices.includes(key) && styles.activeText}
           color="primary"
           onPress={() => addChoice(key)}

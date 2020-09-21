@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {StyleSheet, View, StatusBar} from 'react-native';
+import {StyleSheet, View, StatusBar, Text} from 'react-native';
 import {
   Content,
   Container,
@@ -14,7 +14,7 @@ import * as Animatable from 'react-native-animatable';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
 import {appColors, ppBaseColors} from '../config/colors';
-import Button from '../components/Button';
+import NextButtonQuestionScreen from '../components/NextButtonQuestionScreen';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
@@ -51,6 +51,7 @@ const QuestionScreen = ({navigation}) => {
 
   if (data && data.getStatus.currentTask) {
     const currentTask = data && data.getStatus.currentTask.task;
+
     const checkDisabled = () => {
       if (currentTask.type === 'DateOfBirth') {
         return !state.day || !state.month || !state.year;
@@ -94,6 +95,7 @@ const QuestionScreen = ({navigation}) => {
       }
     };
 
+    const nextButtonDisabled = checkDisabled();
     return (
       <Container>
         <Header style={styles.header} transparent noShadow>
@@ -145,13 +147,9 @@ const QuestionScreen = ({navigation}) => {
                 navigation={navigation}
               />
               <View style={styles.buttonContainer}>
-                <Button
-                  onPress={submitAnswer}
-                  label="Volgende"
-                  transparent
-                  disabled={checkDisabled()}
-                  labelStyle={styles.label}
-                  style={styles.button}
+                <NextButtonQuestionScreen
+                  nextButtonDisabled={nextButtonDisabled}
+                  submitAnswer={submitAnswer}
                 />
               </View>
             </Animatable.View>
@@ -166,8 +164,6 @@ const QuestionScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
-  label: {fontSize: 20, color: appColors.primary},
-  button: {alignSelf: 'flex-end'},
   header: {
     alignItems: 'center',
   },
