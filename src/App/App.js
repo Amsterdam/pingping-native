@@ -15,10 +15,13 @@ export default function App() {
   React.useEffect(() => {
     SplashScreen.hide();
     NetInfo.addEventListener((netInfoState) => {
-      console.log(netInfoState);
+      console.log(netInfoState); // don't forget to remove this
+      // here we check if there is an internect connection
+      // if we have an internet connection we will move with executing functions
+      // otherwise we present the user with a no connections screen
       if (netInfoState.isConnected && netInfoState.isInternetReachable) {
         setConnected(true);
-        userStatus(refetch, setLoggedIn, setOnboarder);
+        userStatus(refetch, setLoggedIn, setOnboarder); // this function controls the AuthState of the app, onboarder/loggedin
       }
     });
   }, [refetch]);
