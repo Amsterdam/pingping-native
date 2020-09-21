@@ -7,7 +7,6 @@ import GET_ACHIEVEMENTS_QUERY from '../apollo/Query/getAchievements';
 
 const YourPerformanceScreen = () => {
   const {data} = useQuery(GET_ACHIEVEMENTS_QUERY);
-  console.log(data);
   return (
     <ContentLayout style={styles.content}>
       <FlatList

@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
 });
 
 const Button = ({onPress = () => {}, label = 'no label', active = false}) => {
-  console.log(active);
   return (
     <NativeBaseButton
       style={[styles.button, active && styles.activeButton]}
