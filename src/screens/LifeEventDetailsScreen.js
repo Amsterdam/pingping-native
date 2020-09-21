@@ -1,16 +1,14 @@
 import React from 'react';
-import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
-import {BASE_URL} from '../config/initialSettings';
+import {View, ScrollView, Dimensions, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useQuery} from '@apollo/client';
+import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import ProgressBar from '../components/ProgressBar';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
-import CitypingsChip from '../components/CitypingsChip';
-import IconButton from '../components/IconButton';
 import Button from '../components/OnboardingButton';
 import TipsChip from '../components/TipsChip';
 import RouteTaskRow from '../components/RouteTaskRow';
@@ -58,21 +56,11 @@ function LifeEventDetailsScreen({navigation, route}) {
     return (
       <Container>
         <ScrollView>
-          <View style={styles.imageContainer}>
-            <Image
-              source={{uri: `${BASE_URL}${coverImageUrl}`}}
-              style={styles.image}
-            />
-            <View style={styles.imageOverlay}>
-              <IconButton
-                iconName="arrow-left"
-                iconType="MaterialCommunityIcons"
-                onPress={() => navigation.goBack()}
-                size="L"
-              />
-              <CitypingsChip value={totalPoints} />
-            </View>
-          </View>
+          <ImageOverlayHeader
+            navigation={navigation}
+            cityPings={totalPoints}
+            imageUrl={coverImageUrl}
+          />
           <ContentLayout>
             <Body style={styles.label}>{targetAudience}</Body>
             <Title style={styles.title}>{title}</Title>
@@ -129,21 +117,6 @@ function LifeEventDetailsScreen({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: screenHeight * 0.3,
-  },
-  imageContainer: {
-    position: 'relative',
-  },
-  imageOverlay: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 20,
-    position: 'absolute',
-    top: 80,
-  },
   contentContainer: {
     paddingHorizontal: 40,
     paddingVertical: 20,

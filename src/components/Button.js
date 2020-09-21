@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../config/colors';
@@ -39,6 +40,12 @@ const Button = ({onPress = () => {}, label = 'no label', active = false}) => {
       <Text style={[styles.label, active && styles.activeText]}>{label}</Text>
     </NativeBaseButton>
   );
+};
+
+Button.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
 };
 
 export default Button;

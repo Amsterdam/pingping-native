@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, ScrollView, StyleSheet, Dimensions} from 'react-native';
+import {View, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {useMutation} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
-import {BASE_URL} from '../../config/initialSettings';
+import ImageOverlayHeader from '../header/ImageOverlayHeader';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
-import CitypingsChip from '../CitypingsChip';
 import CityPingsBalance from '../CityPingsBalance';
-import IconButton from '../IconButton';
 import Button from '../OnboardingButton';
 
 const screenHeight = Dimensions.get('window').height;
@@ -35,21 +33,11 @@ function RewardDetailModal({navigation, route}) {
   return (
     <Container>
       <ScrollView>
-        <View style={styles.imageContainer}>
-          <Image
-            source={{uri: `${BASE_URL}${imageUrl}`}}
-            style={styles.image}
-          />
-          <View style={styles.imageOverlay}>
-            <IconButton
-              iconName="close"
-              iconType="MaterialIcons"
-              onPress={() => navigation.goBack()}
-              size="L"
-            />
-            <CitypingsChip value={price} />
-          </View>
-        </View>
+        <ImageOverlayHeader
+          navigation={navigation}
+          imageUrl={imageUrl}
+          cityPings={price}
+        />
         <View style={styles.contentContainer}>
           <Body style={styles.label}>Rewards</Body>
           <Title style={styles.title}>{title}</Title>
