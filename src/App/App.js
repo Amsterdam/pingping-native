@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import SplashScreen from 'react-native-splash-screen';
+import RNBootSplash from 'react-native-bootsplash';
 import {useQuery} from '@apollo/client';
 import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
@@ -11,7 +11,7 @@ import Loading from '../components/LoadingComponent';
 
 export default function App() {
   React.useEffect(() => {
-    SplashScreen.hide();
+    RNBootSplash.hide({duration: 250});
     userStatus(refetch, setLoggedIn, setOnboarder);
   }, [refetch]);
 

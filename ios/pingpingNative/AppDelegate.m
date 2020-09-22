@@ -3,8 +3,8 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import "RNSplashScreen.h"
 #import "RNNotifications.h"
+#import "RNBootSplash.h" // <- add the header import
 
 #if DEBUG
 #import <FlipperKit/FlipperClient.h>
@@ -46,7 +46,7 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   [RNNotifications startMonitorNotifications];
-  [RNSplashScreen show];
+  [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView]; // <- initialization using the storyboard file name
   return YES;
 }
 
