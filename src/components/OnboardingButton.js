@@ -12,6 +12,7 @@ const OnboardingButton = ({
   iconType = null,
   style = {},
   loading = false,
+  testid,
 }) => {
   return (
     <Button
@@ -21,6 +22,7 @@ const OnboardingButton = ({
         deleteButton && styles.deleteButton,
         style,
       ]}
+      testID={testid}
       disabled={disabled}
       onPress={onPress}>
       <View style={styles.innerContainer}>

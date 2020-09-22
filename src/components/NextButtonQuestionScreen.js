@@ -28,6 +28,7 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
   return (
     <Button
       onPress={submitAnswer}
+      testID="Next-Button"
       transparent
       disabled={nextButtonDisabled}
       style={styles.nextButton}>

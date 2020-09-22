@@ -29,6 +29,7 @@ const WelcomeScreen = ({navigation}) => {
           <Button
             onPress={() => navigation.navigate('QuestionScreen')}
             label="start"
+            testid="Start-Button"
           />
         </View>
       </View>

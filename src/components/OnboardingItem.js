@@ -30,6 +30,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
         <Button
           style={styles.button}
           onPress={navigator}
+          testid={view.testid}
           label={view.buttonLabel}
         />
       </View>

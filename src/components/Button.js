@@ -29,9 +29,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({onPress = () => {}, label = 'no label', active = false}) => {
+const Button = ({
+  onPress = () => {},
+  label = 'no label',
+  active = false,
+  testid,
+}) => {
   return (
     <NativeBaseButton
+      testID={testid}
       style={[styles.button, active && styles.activeButton]}
       rounded
       transparent

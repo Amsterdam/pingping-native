@@ -16,6 +16,7 @@
 		7484840326B1410F9BAA3E6A /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9671884E2F494DD7807C82A8 /* Raleway-Regular.ttf */; };
 		BA4D86A484C141C09AEBB65D /* Heavitas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C92DC371D234AF6ACE99281 /* Heavitas.ttf */; };
 		EA07F86D1BCF8E6BBBD130F8 /* libPods-pingpingNative-pingpingNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE80586588557B9FBBCB3074 /* libPods-pingpingNative-pingpingNativeTests.a */; };
+		F5A7F0DE251A19E600AACBEA /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E1EB09DDF61D622FFDDB6DDF /* Pods-pingpingNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingpingNative.release.xcconfig"; path = "Target Support Files/Pods-pingpingNative/Pods-pingpingNative.release.xcconfig"; sourceTree = "<group>"; };
 		E8C58E31E3C8ED7093129FFF /* Pods-pingpingNative-pingpingNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingpingNative-pingpingNativeTests.release.xcconfig"; path = "Target Support Files/Pods-pingpingNative-pingpingNativeTests/Pods-pingpingNative-pingpingNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = pingpingNative/BootSplash.storyboard; sourceTree = "<group>"; };
 		F5C9113F24F7E1E600C564B2 /* pingpingNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = pingpingNative.entitlements; path = pingpingNative/pingpingNative.entitlements; sourceTree = "<group>"; };
 		FE246028E556476CB5EBC79D /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		FE80586588557B9FBBCB3074 /* libPods-pingpingNative-pingpingNativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pingpingNative-pingpingNativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */,
 			);
 			name = pingpingNative;
 			sourceTree = "<group>";
@@ -129,7 +132,6 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				CDD208249896D2018C804A63 /* libPods-pingpingNative.a */,
 				FE80586588557B9FBBCB3074 /* libPods-pingpingNative-pingpingNativeTests.a */,
-
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A7F0DE251A19E600AACBEA /* BootSplash.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				BA4D86A484C141C09AEBB65D /* Heavitas.ttf in Resources */,
