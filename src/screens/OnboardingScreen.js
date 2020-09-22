@@ -18,6 +18,7 @@ const onboardingViews = [
       'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
     svg: <GuyBehindComputer />,
     buttonLabel: 'Volgende',
+    testid: 'What-Button',
   },
   {
     title: 'WAT IS PING PING',
@@ -25,6 +26,7 @@ const onboardingViews = [
       'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
     svg: <Vault />,
     buttonLabel: 'Volgende',
+    testid: 'How-Button',
   },
   {
     title: 'Wat is PING PING',
@@ -32,6 +34,7 @@ const onboardingViews = [
       'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
     svg: <BackPack />,
     buttonLabel: 'Volgende',
+    testid: 'Where-Button',
   },
 ];
 
@@ -49,7 +52,7 @@ class OnboardingScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     return (
-      <Container>
+      <Container testID="Welcome-Screen">
         <Header style={styles.header} transparent noShadow>
           <StatusBar
             barStyle="dark-content"
@@ -59,6 +62,7 @@ class OnboardingScreen extends React.Component {
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
           <Right>
             <TouchableOpacity
+              testID="Log-In-Button"
               onPress={() => navigation.navigate('ImportDataScreen')}>
               <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>

@@ -11,7 +11,7 @@ const SimpleHeader = ({title = '', color = 'primary'}) => {
         style={[
           styles.title,
           color === 'primary' && styles.titleWhite,
-          color === 'white' && styles.titleWhite,
+          color === 'white' && styles.titlePrimary,
         ]}>
         {title}
       </Title>

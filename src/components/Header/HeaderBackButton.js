@@ -4,7 +4,10 @@ import {Button, Icon} from 'native-base';
 
 const HeaderBackButton = ({navigation, style, color = 'white'}) => {
   return (
-    <Button transparent onPress={() => navigation.goBack()}>
+    <Button
+      transparent
+      onPress={() => navigation.goBack()}
+      testID="Header-Back-Button">
       <Icon
         name="arrowleft"
         type="AntDesign"

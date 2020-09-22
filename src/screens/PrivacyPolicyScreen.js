@@ -54,7 +54,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
       {policyAccepted ? (
         <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
       ) : (
-        <SimpleHeader title="Privacy" />
+        <SimpleHeader title="Privacy" color="white" />
       )}
       <Content contentContainerStyle={styles.content}>
         <View style={styles.viewContainer}>
@@ -73,7 +73,11 @@ const PrivacyPolicyScreen = ({navigation}) => {
           <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
           {!policyAccepted && (
             <View style={styles.buttonContainer}>
-              <Button onPress={doAcceptPolicy} label="Accepteren" />
+              <Button
+                testid="Privacy-Button"
+                onPress={doAcceptPolicy}
+                label="Accepteren"
+              />
             </View>
           )}
         </View>
