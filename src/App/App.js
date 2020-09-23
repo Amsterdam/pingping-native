@@ -13,7 +13,7 @@ import ErrorComponent from '../components/ErrorComponent';
 
 export default function App() {
   React.useEffect(() => {
-    RNBootSplash.hide({duration: 250});
+    RNBootSplash.hide({duration: 500});
     NetInfo.addEventListener((netInfoState) => {
       console.log(netInfoState); // don't forget to remove this
       // here we check if there is an internect connection
@@ -29,7 +29,6 @@ export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
   const [connected, setConnected] = React.useState(false);
-
   const {refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });

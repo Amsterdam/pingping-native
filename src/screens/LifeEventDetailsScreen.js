@@ -26,7 +26,14 @@ function LifeEventDetailsScreen({navigation, route}) {
   });
 
   if (error) {
-    return <ErrorComponent functionToRetry={refetch} />;
+    return (
+      <ErrorComponent
+        functionToRetry={refetch}
+        error="somethingWentWrong"
+        label="terug"
+        onPress={() => navigation.goBack()}
+      />
+    );
   }
 
   if (data && data.getRoute) {

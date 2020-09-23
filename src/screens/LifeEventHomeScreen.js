@@ -41,7 +41,14 @@ const RouteHomeScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   if (routes.error) {
-    return <ErrorComponent functionToRetry={routes.refetch} />;
+    return (
+      <ErrorComponent
+        functionToRetry={routes.refetch}
+        error="somethingWentWrong"
+        label="terug"
+        onPress={() => navigation.goBack()}
+      />
+    );
   }
 
   const onRefresh = () => {
