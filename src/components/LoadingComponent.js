@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {appColors} from '../config/colors';
 import Body from './typography/Body';
 
 const Loading = () => {
@@ -24,7 +25,7 @@ const Loading = () => {
   }
   return (
     <View style={styles.acitivityContainer}>
-      <ActivityIndicator size="large" color="#6C63FF" />
+      <ActivityIndicator size="large" color={appColors.primary} />
       {showText && (
         <React.Fragment>
           <Body>Het laden duurt langer dan normaal</Body>

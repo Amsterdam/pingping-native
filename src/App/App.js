@@ -13,23 +13,24 @@ import ErrorComponent from '../components/ErrorComponent';
 
 export default function App() {
   React.useEffect(() => {
-    RNBootSplash.hide({duration: 250});
+    RNBootSplash.hide({duration: 700});
     NetInfo.addEventListener((netInfoState) => {
-      console.log(netInfoState); // don't forget to remove this
       // here we check if there is an internect connection
       // if we have an internet connection we will move with executing functions
       // otherwise we present the user with a no connections screen
-      if (netInfoState.isConnected && netInfoState.isInternetReachable) {
+      if (netInfoState.isInternetReachable === true) {
         setConnected(true);
         userStatus(refetch, setLoggedIn, setOnboarder); // this function controls the AuthState of the app, onboarder/loggedin
+      }
+      if (netInfoState.isInternetReachable === false) {
+        setConnected(false);
       }
     });
   }, [refetch]);
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
-  const [connected, setConnected] = React.useState(false);
-
+  const [connected, setConnected] = React.useState(null);
   const {refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });
@@ -44,7 +45,7 @@ export default function App() {
   };
 
   const renderApp = () => {
-    if (!connected) {
+    if (connected === false) {
       return (
         <ErrorComponent
           functionToRetry={refetch}

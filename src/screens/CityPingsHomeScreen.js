@@ -48,7 +48,14 @@ const CityPingsHomeScreen = ({navigation}) => {
   };
 
   if (availableRewards.error || me.error) {
-    return <ErrorComponent functionToRetry={retry} />;
+    return (
+      <ErrorComponent
+        functionToRetry={retry}
+        error="somethingWentWrong"
+        label="terug"
+        onPress={() => navigation.goBack()}
+      />
+    );
   }
 
   const balance =

@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
 
 ErrorComponent.propTypes = {
   functionToRetry: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  error: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default ErrorComponent;
