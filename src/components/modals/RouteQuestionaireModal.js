@@ -10,6 +10,7 @@ import {
   TextInput,
   StatusBar,
 } from 'react-native';
+import {Toast, Root} from 'native-base';
 import {useQuery, useMutation} from '@apollo/client';
 import Button from '../OnboardingButton';
 import ContentLayout from '../layout/ContentLayout';
@@ -50,6 +51,12 @@ const RouteQuestionaireModal = ({navigation}) => {
       });
       closeModal();
     } catch (error) {
+      Toast.show({
+        text:
+          'Het is op dit moment nog niet mogelijk om feedback achter te laten',
+        textStyle: {fontFamily: 'Raleway'},
+        style: {backgroundColor: '#000', borderRadius: 10},
+      }); // change the error message once complete
       console.log(error);
     }
   };
@@ -62,65 +69,67 @@ const RouteQuestionaireModal = ({navigation}) => {
         visible={questionnaireModalOpen}
         presentationStyle="overFullScreen"
         statusBarTranslucent>
-        <StatusBar
-          backgroundColor={appColors.headerColor}
-          barStyle="light-content"
-        />
-        <ScrollView contentContainerStyle={styles.content}>
-          <View style={styles.imageContainer}>
-            <Image source={VaultImage} style={styles.image} />
-            <View style={styles.imageOverlay}>
-              <IconButton
-                iconName="close"
-                iconType="MaterialIcons"
-                onPress={closeModal}
-                size="L"
+        <Root>
+          <StatusBar
+            backgroundColor={appColors.headerColor}
+            barStyle="light-content"
+          />
+          <ScrollView contentContainerStyle={styles.content}>
+            <View style={styles.imageContainer}>
+              <Image source={VaultImage} style={styles.image} />
+              <View style={styles.imageOverlay}>
+                <IconButton
+                  iconName="close"
+                  iconType="MaterialIcons"
+                  onPress={closeModal}
+                  size="L"
+                />
+              </View>
+            </View>
+            <ContentLayout>
+              <View style={styles.textContainer}>
+                <Title>FIKS JE BASIS</Title>
+                <Body>
+                  We hebben er samen voorgezorgd dat jij je basis op orde hebt.
+                  Nu hoef je je daar geen zorgen meer om te maken en kan je weer
+                  terug naar leuke dingen doen.
+                </Body>
+              </View>
+              <View style={styles.textContainer}>
+                <Title>DE ROUTE</Title>
+                <Body>
+                  Wij zouden graag input van jou willen hebben over wat voor
+                  andere routes je graag in de pingping app zou willen zien.
+                  Wanneer de route is afgestemd kan hij uiteindelijk in de app
+                  verschijnen.
+                </Body>
+              </View>
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.textInput}
+                  onChangeText={(text) => setTaskName(text)}
+                  value={taskName}
+                  placeholder="Route naam"
+                />
+              </View>
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.inputContainerMultiline}
+                  onChangeText={(text) => setFeedback(text)}
+                  value={feedback}
+                  placeholder="Wat denk jij nodig te hebben?"
+                  multiline
+                />
+              </View>
+              <Button
+                style={styles.button}
+                disabled={!taskName || !feedback}
+                onPress={doSubmit}
+                label="Verzenden"
               />
-            </View>
-          </View>
-          <ContentLayout>
-            <View style={styles.textContainer}>
-              <Title>FIKS JE BASIS</Title>
-              <Body>
-                We hebben er samen voorgezorgd dat jij je basis op orde hebt. Nu
-                hoef je je daar geen zorgen meer om te maken en kan je weer
-                terug naar leuke dingen doen.
-              </Body>
-            </View>
-            <View style={styles.textContainer}>
-              <Title>DE ROUTE</Title>
-              <Body>
-                Wij zouden graag input van jou willen hebben over wat voor
-                andere routes je graag in de pingping app zou willen zien.
-                Wanneer de route is afgestemd kan hij uiteindelijk in de app
-                verschijnen.
-              </Body>
-            </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.textInput}
-                onChangeText={(text) => setTaskName(text)}
-                value={taskName}
-                placeholder="Route naam"
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.inputContainerMultiline}
-                onChangeText={(text) => setFeedback(text)}
-                value={feedback}
-                placeholder="Wat denk jij nodig te hebben?"
-                multiline
-              />
-            </View>
-            <Button
-              style={styles.button}
-              disabled={!taskName || !feedback}
-              onPress={doSubmit}
-              label="Verzenden"
-            />
-          </ContentLayout>
-        </ScrollView>
+            </ContentLayout>
+          </ScrollView>
+        </Root>
       </Modal>
     );
   }
