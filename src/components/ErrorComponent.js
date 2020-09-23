@@ -23,7 +23,12 @@ const errorTypes = {
   },
 };
 
-const ErrorComponent = ({functionToRetry, error, navigation}) => {
+const ErrorComponent = ({
+  functionToRetry = () => {},
+  label = '',
+  error = 'somethingWentWrong',
+  onPress = () => {},
+}) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = () => {
@@ -54,7 +59,7 @@ const ErrorComponent = ({functionToRetry, error, navigation}) => {
           <Body align="center">{errorType.body}</Body>
         </View>
 
-        <Button label="terug" onPress={() => navigation.goBack()} />
+        <Button label={label} onPress={onPress} />
       </Content>
     </Container>
   );

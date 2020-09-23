@@ -43,7 +43,8 @@ const QuestionScreen = ({navigation}) => {
       <ErrorComponent
         functionToRetry={refetch}
         error="somethingWentWrong"
-        navigation={navigation}
+        label="terug"
+        onPress={() => navigation.goBack()}
       />
     );
   }

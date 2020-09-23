@@ -246,6 +246,8 @@ PODS:
     - React
   - react-native-camera/RN (3.37.0):
     - React
+  - react-native-netinfo (5.9.7):
+    - React-Core
   - react-native-notifications (3.2.2):
     - React
   - react-native-safe-area-context (3.0.6):
@@ -361,6 +363,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-camera (from `../node_modules/react-native-camera`)
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-notifications (from `../node_modules/react-native-notifications`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -438,6 +441,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
   react-native-notifications:
     :path: "../node_modules/react-native-notifications"
   react-native-safe-area-context:
@@ -516,6 +521,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
   react-native-camera: 584d595599f45ba537e2c6fca05fb7173ccfaf59
+  react-native-netinfo: 250dc0ca126512f618a8a2ca6a936577e1f66586
   react-native-notifications: 3d1c66c8a3eb1857577f283f9f6e9aa505f16346
   react-native-safe-area-context: e22a8ca00f758273d2408953965cb8db67da7925
   react-native-webview: 6edf4d6f71b9161fc3e96083726a538ee395304d
