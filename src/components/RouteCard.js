@@ -30,6 +30,7 @@ const RouteCard = ({
       routeId,
     });
   };
+
   return (
     <View style={styles.paper}>
       <TouchableOpacity onPress={doNavigation}>

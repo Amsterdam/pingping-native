@@ -4,20 +4,20 @@ import {
   Modal,
   StyleSheet,
   View,
-  StatusBar,
+  ScrollView,
   Image,
   Dimensions,
   TextInput,
+  StatusBar,
 } from 'react-native';
 import {useQuery, useMutation} from '@apollo/client';
-import {Content, Container} from 'native-base';
 import Button from '../OnboardingButton';
 import ContentLayout from '../layout/ContentLayout';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import IconButton from '../IconButton';
 import {appColors} from '../../config/colors';
-import {BASE_URL} from '../../config/initialSettings';
+import VaultImage from '../../assets/vault.png';
 import QUESTIONNAIRE_MODAL from '../../apollo/Mutation/questionnaireModal';
 import GET_QUESTIONNAIRE_MODAL from '../../apollo/Query/getQuestionnaireModal';
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../../apollo/Mutation/submitRouteFeedback';
@@ -43,7 +43,7 @@ const RouteQuestionaireModal = ({navigation}) => {
     try {
       await submitFeedback({
         variables: {
-          routeId: data.routeId,
+          routeId: taskName,
           taskName,
           feedback,
         },
@@ -55,76 +55,72 @@ const RouteQuestionaireModal = ({navigation}) => {
   };
 
   if (data && data.questionnaireModalOpen) {
-    const {questionnaireModalOpen, coverImageUrl} = data;
+    const {questionnaireModalOpen} = data;
     return (
       <Modal
         animationType="slide"
         visible={questionnaireModalOpen}
-        presentationStyle="formSheet">
-        <Container style={styles.container}>
-          <StatusBar
-            backgroundColor={appColors.headerColor}
-            barStyle="light-content"
-          />
-          <Content contentContainerStyle={styles.content}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={{uri: `${BASE_URL}${coverImageUrl}`}}
-                style={styles.image}
+        presentationStyle="overFullScreen"
+        statusBarTranslucent>
+        <StatusBar
+          backgroundColor={appColors.headerColor}
+          barStyle="light-content"
+        />
+        <ScrollView contentContainerStyle={styles.content}>
+          <View style={styles.imageContainer}>
+            <Image source={VaultImage} style={styles.image} />
+            <View style={styles.imageOverlay}>
+              <IconButton
+                iconName="close"
+                iconType="MaterialIcons"
+                onPress={closeModal}
+                size="L"
               />
-              <View style={styles.imageOverlay}>
-                <IconButton
-                  iconName="close"
-                  iconType="MaterialIcons"
-                  onPress={closeModal}
-                  size="L"
-                />
-              </View>
             </View>
-            <ContentLayout>
-              <View style={styles.textContainer}>
-                <Title>FIKS JE BASIS</Title>
-                <Body>
-                  We hebben er samen voorgezorgd dat jij je basis op orde hebt.
-                  Nu hoef je je daar geen zorgen meer om te maken en kan je weer
-                  terug naar leuke dingen doen.
-                </Body>
-              </View>
-              <View style={styles.textContainer}>
-                <Title>DE ROUTE</Title>
-                <Body>
-                  Wij zouden graag input van jou willen hebben over wat voor
-                  andere routes je graag in de pingping app zou willen zien.
-                  Wanneer de route is afgestemd kan hij uiteindelijk in de app
-                  verschijnen.
-                </Body>
-              </View>
-              <View style={styles.inputContainer}>
-                <TextInput
-                  style={styles.textInput}
-                  onChangeText={(text) => setTaskName(text)}
-                  value={taskName}
-                  placeholder="Route naam"
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <TextInput
-                  style={styles.inputContainerMultiline}
-                  onChangeText={(text) => setFeedback(text)}
-                  value={feedback}
-                  placeholder="Wat denk jij nodig te hebben?"
-                  multiline
-                />
-              </View>
-              <Button
-                style={styles.button}
-                disabled={!taskName || !feedback}
-                onPress={doSubmit}
-                label="Verzenden"
+          </View>
+          <ContentLayout>
+            <View style={styles.textContainer}>
+              <Title>FIKS JE BASIS</Title>
+              <Body>
+                We hebben er samen voorgezorgd dat jij je basis op orde hebt. Nu
+                hoef je je daar geen zorgen meer om te maken en kan je weer
+                terug naar leuke dingen doen.
+              </Body>
+            </View>
+            <View style={styles.textContainer}>
+              <Title>DE ROUTE</Title>
+              <Body>
+                Wij zouden graag input van jou willen hebben over wat voor
+                andere routes je graag in de pingping app zou willen zien.
+                Wanneer de route is afgestemd kan hij uiteindelijk in de app
+                verschijnen.
+              </Body>
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.textInput}
+                onChangeText={(text) => setTaskName(text)}
+                value={taskName}
+                placeholder="Route naam"
               />
-            </ContentLayout>
-          </Content>
-        </Container>
+            </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.inputContainerMultiline}
+                onChangeText={(text) => setFeedback(text)}
+                value={feedback}
+                placeholder="Wat denk jij nodig te hebben?"
+                multiline
+              />
+            </View>
+            <Button
+              style={styles.button}
+              disabled={!taskName || !feedback}
+              onPress={doSubmit}
+              label="Verzenden"
+            />
+          </ContentLayout>
+        </ScrollView>
       </Modal>
     );
   }
@@ -151,7 +147,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 20,
     position: 'absolute',
-    top: 80,
+    top: 50,
   },
   textInput: {
     height: 40,

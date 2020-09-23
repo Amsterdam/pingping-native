@@ -80,7 +80,6 @@ async function writeInitialData() {
     query: GET_QUESTIONNAIRE_MODAL,
     data: {
       questionnaireModalOpen: false,
-      routeId: '',
     },
   });
 

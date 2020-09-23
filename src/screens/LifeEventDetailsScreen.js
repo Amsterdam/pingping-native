@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ScrollView, Dimensions, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
-import {useQuery} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import ProgressBar from '../components/ProgressBar';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
@@ -14,6 +14,7 @@ import TipsChip from '../components/TipsChip';
 import RouteTaskRow from '../components/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/ErrorComponent';
+import QUESTIONNAIRE_MODAL from '../apollo/Mutation/questionnaireModal';
 import Loading from '../components/LoadingComponent';
 
 const screenHeight = Dimensions.get('window').height;
@@ -24,6 +25,15 @@ function LifeEventDetailsScreen({navigation, route}) {
       routeId,
     },
   });
+  const [openQuestionnaireModal] = useMutation(QUESTIONNAIRE_MODAL);
+
+  const numberOfSteps = data?.getRoute?.numberOfSteps;
+
+  React.useEffect(() => {
+    if (numberOfSteps === 0) {
+      openQuestionnaireModal({variables: {questionnaireModalOpen: true}});
+    }
+  }, [numberOfSteps, openQuestionnaireModal]);
 
   if (error) {
     return (
