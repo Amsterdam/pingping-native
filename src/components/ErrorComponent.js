@@ -8,6 +8,21 @@ import AstronautSitting from '../assets/svg/AstronautSitting';
 import Body from './typography/Body';
 import Button from './OnboardingButton';
 
+const errorTypes = {
+  somethingWentWrong: {
+    title: 'Oeps... Er is iets fout gegaan',
+    body:
+      'A wild error appeared. It’s super effective. Zo te zien er is iets fout gegaan. Ga terug of probeer de app opnieuw op te starten. Sorry voor het ongemak.',
+    illustration: <ErrorIllustration />,
+  },
+  connectionProblem: {
+    title: 'Slechte verbinding',
+    body:
+      'Daar zit je dan zonder internet. Maak opnieuw verbinding met het internet of probeer het later nog eens.',
+    illustration: <AstronautSitting />,
+  },
+};
+
 const ErrorComponent = ({functionToRetry, error, navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
 
@@ -17,12 +32,7 @@ const ErrorComponent = ({functionToRetry, error, navigation}) => {
     setRefreshing(false);
   };
 
-  const illustrations = {
-    error: ErrorIllustration,
-    noConnection: AstronautSitting,
-  };
-
-  const IllusstrationName = illustrations[error.type];
+  const errorType = errorTypes[error];
 
   return (
     <Container>
@@ -35,13 +45,13 @@ const ErrorComponent = ({functionToRetry, error, navigation}) => {
             tintColor={appColors.primary}
           />
         }>
-        <IllusstrationName />
+        {errorType.illustration}
 
         <View style={styles.textContainer}>
           <Title style={styles.title} numberOfLines={2}>
-            {error.title}
+            {errorType.title}
           </Title>
-          <Body align="center">{error.body}</Body>
+          <Body align="center">{errorType.body}</Body>
         </View>
 
         <Button label="terug" onPress={() => navigation.goBack()} />

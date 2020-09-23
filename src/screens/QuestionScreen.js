@@ -21,7 +21,6 @@ import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import ProgressBar from '../components/ProgressBar';
 import Loading from '../components/LoadingComponent';
 import ErrorComponent from '../components/ErrorComponent';
-import {errorTypes, ErrorTypes} from '../config/appContent';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -43,7 +42,7 @@ const QuestionScreen = ({navigation}) => {
     return (
       <ErrorComponent
         functionToRetry={refetch}
-        error={errorTypes.somethingWentWrong}
+        error="somethingWentWrong"
         navigation={navigation}
       />
     );
