@@ -17,7 +17,6 @@ export default function App() {
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
-
   const {refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });

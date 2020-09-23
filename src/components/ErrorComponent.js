@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import {RefreshControl} from 'react-native';
+import {RefreshControl, View, StyleSheet} from 'react-native';
 import {Content, Container, Title} from 'native-base';
 import PropTypes from 'prop-types';
 import {appColors} from '../config/colors';
-import ContentLayout from './layout/ContentLayout';
+import ErrorIllustration from '../assets/svg/ErrorIllustration';
+import AstronautSitting from '../assets/svg/AstronautSitting';
+import Body from './typography/Body';
+import Button from './OnboardingButton';
 
-const ErrorComponent = ({functionToRetry}) => {
+const ErrorComponent = ({functionToRetry, error, navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = () => {
@@ -13,9 +16,18 @@ const ErrorComponent = ({functionToRetry}) => {
     functionToRetry();
     setRefreshing(false);
   };
+
+  const illustrations = {
+    error: ErrorIllustration,
+    noConnection: AstronautSitting,
+  };
+
+  const IllusstrationName = illustrations[error.type];
+
   return (
     <Container>
       <Content
+        contentContainerStyle={styles.container}
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
@@ -23,15 +35,26 @@ const ErrorComponent = ({functionToRetry}) => {
             tintColor={appColors.primary}
           />
         }>
-        <ContentLayout>
-          <Title>
-            Er ging iets mis, sleep naar beneden om het opnieuw te proberen
+        <IllusstrationName />
+
+        <View style={styles.textContainer}>
+          <Title style={styles.title} numberOfLines={2}>
+            {error.title}
           </Title>
-        </ContentLayout>
+          <Body align="center">{error.body}</Body>
+        </View>
+
+        <Button label="terug" onPress={() => navigation.goBack()} />
       </Content>
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {justifyContent: 'space-evenly', alignItems: 'center', flex: 1},
+  textContainer: {alignItems: 'center', padding: 30},
+  title: {fontSize: 30, marginBottom: 24},
+});
 
 ErrorComponent.propTypes = {
   functionToRetry: PropTypes.func.isRequired,
