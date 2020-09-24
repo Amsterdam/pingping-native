@@ -15,27 +15,28 @@ const PushNotificationManager = ({children}) => {
   const registerNotificationEvents = useCallback(async () => {
     Notifications.events().registerNotificationReceivedForeground(
       (notification, completion) => {
-        console.log('Notification Received - Foreground', notification.payload);
-
-        completion({alert: true, sound: true, badge: false});
+        console.log('GOT FOREGROUND NOTIFICAITON');
+        completion({
+          alert: true,
+          sound: true,
+          badge: true,
+        });
       },
     );
 
-    if (platform !== 'ios') {
-      Notifications.getInitialNotification()
-        .then((notification, completion) => {
-          if (notification) {
-            console.log('GOT INITIAL NOTIFICATION');
-            completion({alert: true, sound: true, badge: false});
-          }
-        })
-        .catch((err) => console.error('getInitialNotifiation() failed', err));
-    }
+    Notifications.getInitialNotification()
+      .then((notification) => {
+        if (notification) {
+          console.log('GOT INITIAL NOTIFICATION');
+          console.log({notification});
+        }
+      })
+      .catch((err) => console.error('getInitialNotifiation() failed', err));
 
     Notifications.events().registerNotificationOpened(
-      (notification, completion, action) => {
-        console.log('Notification opened by device user');
-        completion({alert: true, sound: true, badge: false});
+      (notification, completion) => {
+        console.log('opened Notifcation');
+        completion();
       },
     );
 
@@ -46,6 +47,7 @@ const PushNotificationManager = ({children}) => {
       },
     );
   }, []);
+
   return <Container>{children}</Container>;
 };
 
