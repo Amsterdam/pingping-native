@@ -23,7 +23,7 @@ const onboardingViews = [
   {
     title: 'WAT IS PING PING',
     text:
-      'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
+      'Met elke stap die je afrondt kom je dichter bij je doel en verdien je city pings',
     svg: <Vault />,
     buttonLabel: 'Volgende',
     testid: 'How-Button',
@@ -31,7 +31,7 @@ const onboardingViews = [
   {
     title: 'Wat is PING PING',
     text:
-      'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
+      'Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings',
     svg: <BackPack />,
     buttonLabel: 'Volgende',
     testid: 'Where-Button',

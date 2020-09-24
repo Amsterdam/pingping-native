@@ -79,8 +79,8 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         <View>
           <Title style={styles.title}>NOTIFICATIES</Title>
           <Body style={styles.onboardingText}>
-            Zou je notificaties willen ontvangen voor toekomstige life events
-            waar aan je herinnert wilt worden?
+            Wil je een berichtje krijgen als je een actie in de route nog moet
+            doen of als er een nieuwe route is toegevoegd?
           </Body>
         </View>
         <View style={styles.buttonContainer}>
