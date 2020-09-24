@@ -47,15 +47,15 @@ const RouteCard = ({
           <View style={styles.descriptionContainer}>
             <Body style={styles.rewardType}>{targetAudience}</Body>
             <Title style={styles.title}>{title}</Title>
-            <Body style={styles.description}>{description}</Body>
+            <Body
+              style={styles.description}
+              ellipsizeMode="tail"
+              numberOfLines={3}>
+              {description}
+            </Body>
             <View style={styles.balanceContainer}>
               <View style={styles.saldo}>
-                <Body
-                  style={styles.savings}
-                  ellipsizeMode="tail"
-                  numberOfLines={3}>
-                  {numberOfSteps} stappen
-                </Body>
+                <Body style={styles.savings}>{numberOfSteps} stappen</Body>
               </View>
               <ProgressBar
                 progress={progress}
