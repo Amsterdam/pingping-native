@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, TouchableOpacity, Image, Dimensions} from 'react-native';
+import {StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Title from '../components/typography/Title';
 
 const AccountBlockButton = ({button, navigation}) => {
@@ -18,11 +18,10 @@ const styles = StyleSheet.create({
   accountMainButton: {
     backgroundColor: '#fff',
     borderRadius: 10,
+    width: '45%',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    margin: 8,
-    width: (Dimensions.get('window').width - 100) / 2,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

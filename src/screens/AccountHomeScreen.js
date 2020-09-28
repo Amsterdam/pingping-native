@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, FlatList} from 'react-native';
+import {StyleSheet, FlatList, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
-import ContentLayout from '../components/layout/ContentLayout';
+
 import SimpleHeader from '../components/header/SimpleHeader';
 import ExportImage from '../assets/export.png';
 import WarningImage from '../assets/warning.png';
@@ -17,27 +17,29 @@ const AccountHomeScreen = ({navigation}) => {
     {title: 'Verwijder gegevens', image: TrashImage, route: 'DeleteData'},
   ];
   return (
-    <Container>
+    <Container style={styles.container}>
       <SimpleHeader title="Gegevens" />
-      <ContentLayout style={styles.content}>
-        <FlatList
-          data={buttons}
-          renderItem={({item}) => (
-            <AccountBlockButton button={item} navigation={navigation} />
-          )}
-          numColumns={2}
-          keyExtractor={(item) => item.title}
-        />
-      </ContentLayout>
+      <FlatList
+        data={buttons}
+        contentContainerStyle={styles.container}
+        columnWrapperStyle={styles.flatListColumn}
+        renderItem={({item}) => (
+          <AccountBlockButton button={item} navigation={navigation} />
+        )}
+        numColumns={2}
+        keyExtractor={(item) => item.title}
+      />
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  flatListColumn: {
+    justifyContent: 'space-between',
+    paddingHorizontal: 25,
+    paddingVertical: 10,
+  },
+  container: {
     backgroundColor: appColors.almostNotBlue,
   },
 });
