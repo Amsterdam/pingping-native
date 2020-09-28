@@ -79,8 +79,8 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         <View>
           <Title style={styles.title}>NOTIFICATIES</Title>
           <Body style={styles.onboardingText}>
-            Wil je een berichtje krijgen als je een actie in de route nog moet
-            doen of als er een nieuwe route is toegevoegd?
+            Wil je een berichtje krijgen voor een actie die je nog moet doen of
+            als er een nieuwe route is toegevoegd?
           </Body>
         </View>
         <View style={styles.buttonContainer}>

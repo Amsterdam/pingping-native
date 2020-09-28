@@ -24,7 +24,7 @@ const onboardingViews = [
     title: 'WAT IS PING PING',
     text:
       'Met elke stap die je afrondt kom je dichter bij je doel en verdien je city pings',
-    svg: <Vault />,
+    svg: <BackPack />,
     buttonLabel: 'Volgende',
     testid: 'How-Button',
   },
@@ -32,7 +32,7 @@ const onboardingViews = [
     title: 'Wat is PING PING',
     text:
       'Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings',
-    svg: <BackPack />,
+    svg: <Vault />,
     buttonLabel: 'Volgende',
     testid: 'Where-Button',
   },

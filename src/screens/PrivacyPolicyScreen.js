@@ -64,10 +64,9 @@ const PrivacyPolicyScreen = ({navigation}) => {
           <View>
             <Title style={styles.title}>PRIVACY</Title>
             <Body style={styles.onboardingText}>
-              Om Ping Ping optimaal te laten functioneren verzamelen wij door
-              het proces heen informatie. Klik hieronder om meer kennis te
-              krijgen over welke informatie wij verzamelen en wat wij met deze
-              informatie doen.
+              Om Ping Ping optimaal te laten functioneren verzamelen wij
+              informatie. Klik hieronder om meer hierover te lezen. Wij slaan zo
+              min mogelijk informatie op.
             </Body>
           </View>
           <PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />

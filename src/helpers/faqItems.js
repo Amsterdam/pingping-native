@@ -6,7 +6,7 @@ export const faqItems = [
       'Geboortemaand/jaar, adres, bankrekening, DigiD, Zorgverzekering, Zorgtoeslag, Inschrijving Woningnet.',
   },
   {
-    question: 'Waarom slaan wij jouw gegevens op?',
+    question: 'Waarom slaan jullie mijn gegevens op?',
     answer:
       'Omdat dit makkelijker is voor jou om de app te gebruiken. Dan hoef je niet elke keer alles opnieuw in te vullen.',
   },
