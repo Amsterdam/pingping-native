@@ -8,12 +8,13 @@ const Title = ({
   style,
   numberOfLines,
   ellipsizeMode,
+  fontSize = 30,
 }) => {
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Heavitas',
       textAlign: align,
-      fontSize: 30,
+      fontSize: fontSize,
     },
   });
 

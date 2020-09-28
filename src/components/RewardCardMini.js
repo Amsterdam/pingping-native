@@ -1,12 +1,11 @@
 import React, {memo} from 'react';
-import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import commonStyles from '../config/commonStyles';
 import {ppBaseColors, appColors} from '../config/colors';
-import {BASE_URL} from '../config/initialSettings';
-import CitypingsChip from '../components/CitypingsChip';
+import Card from './Card';
 
 const BORDER_RADIUS = 5;
 
@@ -31,65 +30,30 @@ const RewardCard = ({
   };
 
   return (
-    <View style={styles.paper}>
-      <TouchableOpacity onPress={doNavigation}>
-        <View>
-          <View style={styles.imageContainer}>
-            <Image
-              source={{uri: `${BASE_URL}${imageUrl}`}}
-              style={styles.image}
-            />
-            <View style={styles.overlayTop}>
-              <CitypingsChip value={price} mini />
-            </View>
-          </View>
-          <View style={styles.descriptionContainer}>
-            <Title
-              style={styles.description}
-              numberOfLines={2}
-              ellipsizeMode="tail">
-              {title}
-            </Title>
-            <Body numberOfLines={2} ellipsizeMode="tail">
-              {description}
-            </Body>
-          </View>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <Card
+      onPress={doNavigation}
+      imageUrl={imageUrl}
+      pings={price}
+      style={styles.card}
+      mini>
+      <View style={styles.descriptionContainer}>
+        <Title style={styles.cardFont} numberOfLines={2} ellipsizeMode="tail">
+          {title}
+        </Title>
+        <Body numberOfLines={2} ellipsizeMode="tail" style={styles.cardFont}>
+          {description}
+        </Body>
+      </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  paper: {
-    ...commonStyles.shadow,
-    backgroundColor: '#fff',
-    alignSelf: 'stretch',
-    borderRadius: BORDER_RADIUS,
+  card: {
     width: '45%',
   },
-  imageContainer: {
-    position: 'relative',
-    height: 100,
-    borderRadius: BORDER_RADIUS,
-  },
-  image: {
-    flex: 1,
-    width: '100%',
-    position: 'relative',
-    height: '100%',
-    borderTopRightRadius: BORDER_RADIUS,
-    borderTopLeftRadius: BORDER_RADIUS,
-  },
-  overlayTop: {position: 'absolute', padding: 15, top: 0, right: 10},
-  overlayBottom: {position: 'absolute', padding: 15, bottom: 0},
-  overlayText: {color: '#fff', ...commonStyles.textShadow},
-  ribbon: {height: 10, backgroundColor: ppBaseColors.PP_LIGHT_BLUE},
-  descriptionContainer: {
-    padding: 20,
-  },
-  description: {
-    fontSize: 14,
+  cardFont: {
+    fontSize: 12,
   },
   rewardType: {
     color: appColors.primary,
