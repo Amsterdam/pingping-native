@@ -8,29 +8,35 @@ import YesOrNo from './answerTypes/YesOrNo';
 import MultipleChoice from './answerTypes/MultipleChoice';
 
 const QuestionComponent = ({currentTask, setState, state}) => {
-  return (
-    <>
-      <Title style={styles.title}>{currentTask.title}</Title>
-      <View style={styles.questionContainer}>
-        {currentTask.type === 'YesOrNo' && (
+  const renderQuestionType = () => {
+    switch (currentTask.type) {
+      case 'YesOrNo':
+        return (
           <YesOrNo
             state={state}
             setState={setState}
             answers={currentTask.choices}
           />
-        )}
-        {currentTask.type === 'DateOfBirth' && (
-          <DateOfBirth setState={setState} state={state} />
-        )}
-        {currentTask.type === 'MultipleChoices' && (
+        );
+      case 'DateOfBirth':
+        return <DateOfBirth setState={setState} state={state} />;
+      case 'MultipleChoices':
+        return (
           <MultipleChoice
             state={state}
             setState={setState}
             answers={currentTask.choices}
           />
-        )}
-      </View>
-    </>
+        );
+      default:
+        break;
+    }
+  };
+  return (
+    <React.Fragment>
+      <Title style={styles.title}>{currentTask.title}</Title>
+      <View style={styles.questionContainer}>{renderQuestionType()}</View>
+    </React.Fragment>
   );
 };
 
