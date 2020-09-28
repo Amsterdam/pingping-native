@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Modal, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {
+  Modal,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import WebView from 'react-native-webview';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 
 const CityPingsModal = ({closeModal, urlToVisit, webViewOpen}) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleWebViewNavigationStateChange = (newNavState) => {
+    setLoading(newNavState.loading);
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -19,7 +31,16 @@ const CityPingsModal = ({closeModal, urlToVisit, webViewOpen}) => {
             <Title style={styles.buttonLabel}>SLUITEN</Title>
           </TouchableOpacity>
           <View style={styles.webView}>
-            <WebView source={{uri: urlToVisit}} />
+            <WebView
+              source={{uri: urlToVisit}}
+              onNavigationStateChange={handleWebViewNavigationStateChange}
+            />
+            {loading && (
+              <ActivityIndicator
+                color={appColors.primary}
+                style={styles.activivityIndicator}
+              />
+            )}
           </View>
         </View>
       </View>
@@ -39,6 +60,13 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 35,
     backgroundColor: '#fff',
+  },
+  activivityIndicator: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   closeButton: {
     justifyContent: 'center',
