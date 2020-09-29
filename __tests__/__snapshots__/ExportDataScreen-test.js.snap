@@ -106,6 +106,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="Header-Back-Button"
           >
             <Text
               allowFontScaling={false}
@@ -155,11 +156,14 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fff",
                 "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+              Object {
+                "color": "#fff",
                 "fontSize": 14,
                 "marginTop": 5,
-                "textAlign": "left",
               },
             ]
           }
@@ -250,7 +254,7 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "flex": 1,
-              "padding": 30,
+              "padding": 25,
               "position": "relative",
               "width": 750,
             }
@@ -267,8 +271,10 @@ exports[`renders correctly 1`] = `
                 Object {
                   "fontFamily": "Heavitas",
                   "fontSize": 30,
-                  "marginBottom": 30,
                   "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
                 },
               ]
             }
@@ -279,7 +285,7 @@ exports[`renders correctly 1`] = `
           <Text
             style={
               Object {
-                "fontFamily": "Raleway",
+                "fontFamily": "Raleway-Regular",
                 "fontSize": 15,
                 "lineHeight": 25,
                 "marginBottom": 30,
@@ -292,7 +298,7 @@ exports[`renders correctly 1`] = `
           <Text
             style={
               Object {
-                "fontFamily": "Raleway",
+                "fontFamily": "Raleway-Regular",
                 "fontSize": 15,
                 "lineHeight": 25,
                 "marginBottom": 30,
@@ -300,141 +306,100 @@ exports[`renders correctly 1`] = `
               }
             }
           >
-            Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Kopieer de UUID (Universally Unique Identifier) hieronder en plak hem in de 'importeer gegevens' pagina op jouw nieuwe device!
+            Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Open op je nieuwe device de app en klik rechtsboven op inloggen. Vervolgens scan je de onderstaande QRCode en zo simpel is het!
           </Text>
           <View
             style={
               Object {
                 "alignItems": "center",
-                "justifyContent": "center",
               }
             }
           >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              rejectResponderTermination={true}
-              style={
-                Object {
-                  "alignSelf": "stretch",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
-                  "height": 40,
-                  "marginBottom": 10,
-                  "paddingLeft": 10,
-                  "paddingRight": 10,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            />
             <View
-              accessible={true}
-              focusable={true}
-              forwardedRef={[Function]}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "gray",
-                  "borderBottomWidth": null,
-                  "borderColor": "#007aff",
-                  "borderLeftWidth": null,
-                  "borderRadius": 10,
-                  "borderRightWidth": null,
-                  "borderTopWidth": null,
-                  "borderWidth": undefined,
-                  "elevation": 2,
-                  "flexDirection": "row",
-                  "height": 45,
-                  "justifyContent": "space-between",
-                  "opacity": 1,
-                  "paddingBottom": 6,
-                  "paddingTop": 6,
-                  "shadowColor": undefined,
-                  "shadowOffset": undefined,
-                  "shadowOpacity": undefined,
-                  "shadowRadius": undefined,
+                  "borderColor": "#fb9f00",
+                  "borderRadius": 5,
+                  "borderWidth": 5,
+                  "padding": 10,
                 }
               }
             >
-              <View
+              <RNSVGSvgView
+                align="xMidYMid"
+                bbHeight={200}
+                bbWidth={200}
+                focusable={false}
+                height={200}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 200,
+                      "width": 200,
+                    },
+                  ]
                 }
+                vbHeight={200}
+                vbWidth={200}
+                width={200}
               >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#000",
-                          "fontSize": 30,
-                        },
-                        Object {
-                          "color": "#a9a9a9",
-                          "fontSize": 24,
-                          "marginLeft": 16,
-                          "marginRight": 16,
-                          "paddingTop": 2,
-                        },
-                        Object {
-                          "color": "#fff",
-                          "fontSize": 24,
-                        },
-                      ],
-                      Object {
-                        "fontFamily": "anticon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                  type="AntDesign"
-                >
-                  
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontFamily": "System",
-                        "fontSize": 16.5,
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                      },
-                      Object {
-                        "color": "#fff",
-                        "fontFamily": "Heavitas",
-                        "fontSize": 14,
-                        "paddingTop": 3,
-                      },
-                    ]
-                  }
-                  uppercase={false}
-                >
-                  Token Kopieren
-                </Text>
-              </View>
+                <RNSVGGroup>
+                  <RNSVGDefs>
+                    <RNSVGLinearGradient
+                      gradient={
+                        Array [
+                          0,
+                          -65536,
+                          1,
+                          -16711681,
+                        ]
+                      }
+                      gradientTransform={null}
+                      gradientUnits={0}
+                      name="grad"
+                      x1="0%"
+                      x2="100%"
+                      y1="0%"
+                      y2="100%"
+                    />
+                  </RNSVGDefs>
+                  <RNSVGGroup>
+                    <RNSVGRect
+                      fill={4294967295}
+                      height={200}
+                      propList={
+                        Array [
+                          "fill",
+                        ]
+                      }
+                      width={200}
+                      x={-0}
+                      y={-0}
+                    />
+                  </RNSVGGroup>
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M0 4 L56 4 M72 4 L112 4 M128 4 L136 4 M144 4 L200 4 M0 12 L8 12 M48 12 L56 12 M72 12 L80 12 M88 12 L136 12 M144 12 L152 12 M192 12 L200 12 M0 20 L8 20 M16 20 L40 20 M48 20 L56 20 M64 20 L104 20 M120 20 L128 20 M144 20 L152 20 M160 20 L184 20 M192 20 L200 20 M0 28 L8 28 M16 28 L40 28 M48 28 L56 28 M64 28 L80 28 M104 28 L120 28 M144 28 L152 28 M160 28 L184 28 M192 28 L200 28 M0 36 L8 36 M16 36 L40 36 M48 36 L56 36 M64 36 L96 36 M104 36 L112 36 M128 36 L136 36 M144 36 L152 36 M160 36 L184 36 M192 36 L200 36 M0 44 L8 44 M48 44 L56 44 M64 44 L88 44 M104 44 L112 44 M120 44 L128 44 M144 44 L152 44 M192 44 L200 44 M0 52 L56 52 M64 52 L72 52 M80 52 L88 52 M96 52 L104 52 M112 52 L120 52 M128 52 L136 52 M144 52 L200 52 M64 60 L72 60 M96 60 L104 60 M112 60 L136 60 M0 68 L8 68 M16 68 L56 68 M88 68 L96 68 M104 68 L112 68 M144 68 L184 68 M16 76 L24 76 M40 76 L48 76 M56 76 L72 76 M80 76 L88 76 M104 76 L112 76 M128 76 L136 76 M152 76 L160 76 M184 76 L192 76 M0 84 L8 84 M24 84 L32 84 M40 84 L56 84 M72 84 L96 84 M104 84 L128 84 M136 84 L176 84 M184 84 L200 84 M0 92 L16 92 M32 92 L48 92 M56 92 L72 92 M88 92 L96 92 M128 92 L160 92 M192 92 L200 92 M8 100 L16 100 M32 100 L64 100 M104 100 L120 100 M136 100 L168 100 M176 100 L200 100 M0 108 L16 108 M24 108 L32 108 M40 108 L48 108 M64 108 L72 108 M96 108 L104 108 M112 108 L120 108 M136 108 L144 108 M152 108 L160 108 M168 108 L176 108 M184 108 L192 108 M0 116 L8 116 M16 116 L24 116 M40 116 L72 116 M80 116 L88 116 M120 116 L136 116 M144 116 L160 116 M168 116 L176 116 M184 116 L200 116 M0 124 L8 124 M32 124 L40 124 M56 124 L64 124 M72 124 L88 124 M96 124 L104 124 M112 124 L144 124 M168 124 L176 124 M192 124 L200 124 M0 132 L8 132 M16 132 L40 132 M48 132 L64 132 M72 132 L80 132 M96 132 L168 132 M176 132 L184 132 M64 140 L80 140 M112 140 L136 140 M160 140 L184 140 M0 148 L56 148 M72 148 L112 148 M128 148 L136 148 M144 148 L152 148 M160 148 L200 148 M0 156 L8 156 M48 156 L56 156 M64 156 L96 156 M128 156 L136 156 M160 156 L176 156 M0 164 L8 164 M16 164 L40 164 M48 164 L56 164 M64 164 L96 164 M120 164 L200 164 M0 172 L8 172 M16 172 L40 172 M48 172 L56 172 M64 172 L72 172 M96 172 L112 172 M136 172 L152 172 M160 172 L168 172 M176 172 L200 172 M0 180 L8 180 M16 180 L40 180 M48 180 L56 180 M64 180 L72 180 M80 180 L88 180 M104 180 L120 180 M128 180 L136 180 M152 180 L160 180 M176 180 L184 180 M192 180 L200 180 M0 188 L8 188 M48 188 L56 188 M72 188 L88 188 M96 188 L112 188 M120 188 L144 188 M152 188 L176 188 M192 188 L200 188 M0 196 L56 196 M64 196 L72 196 M80 196 L88 196 M96 196 L104 196 M112 196 L120 196 M136 196 L144 196 M152 196 L200 196 "
+                      propList={
+                        Array [
+                          "stroke",
+                          "strokeWidth",
+                        ]
+                      }
+                      stroke={4278190080}
+                      strokeWidth={8}
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
             </View>
           </View>
         </View>

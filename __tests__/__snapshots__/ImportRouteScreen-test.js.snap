@@ -104,6 +104,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="Header-Back-Button"
           >
             <Text
               allowFontScaling={false}
@@ -153,11 +154,14 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fb9f00",
                 "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+              Object {
+                "color": "#fb9f00",
                 "fontSize": 14,
                 "marginTop": 5,
-                "textAlign": "left",
               },
             ]
           }
@@ -248,7 +252,7 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "flex": 1,
-              "padding": 30,
+              "padding": 25,
               "position": "relative",
               "width": 750,
             }
@@ -265,8 +269,10 @@ exports[`renders correctly 1`] = `
                 Object {
                   "fontFamily": "Heavitas",
                   "fontSize": 30,
-                  "marginBottom": 30,
                   "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
                 },
               ]
             }
@@ -277,7 +283,7 @@ exports[`renders correctly 1`] = `
           <Text
             style={
               Object {
-                "fontFamily": "Raleway",
+                "fontFamily": "Raleway-Regular",
                 "fontSize": 15,
                 "lineHeight": 25,
                 "marginBottom": 30,
@@ -290,7 +296,7 @@ exports[`renders correctly 1`] = `
           <Text
             style={
               Object {
-                "fontFamily": "Raleway",
+                "fontFamily": "Raleway-Regular",
                 "fontSize": 15,
                 "lineHeight": 25,
                 "marginBottom": 30,
@@ -298,104 +304,80 @@ exports[`renders correctly 1`] = `
               }
             }
           >
-            Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Kopieer de UUID (Unieke link) vanuit de 'exporteer gegevens' pagina op jouw oude device en plak hem hieronder op jouw nieuwe device!
+            Het is heel simpel om jouw gegevens te importeren van je oude naar je nieuwe device. Open de app op je oude device en ga naar account, klik daar op exporteer gegevens en scan de QR-code met je nieuwe device.
           </Text>
           <View
             style={
               Object {
                 "alignItems": "center",
-                "justifyContent": "center",
               }
             }
           >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              rejectResponderTermination={true}
-              style={
-                Object {
-                  "alignSelf": "stretch",
-                  "borderColor": "#000",
-                  "borderWidth": 1,
-                  "height": 40,
-                  "marginBottom": 10,
-                  "paddingLeft": 10,
-                  "paddingRight": 10,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            />
             <View
-              accessible={true}
-              focusable={true}
-              forwardedRef={[Function]}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
               style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "gray",
-                  "borderBottomWidth": null,
-                  "borderColor": "#007aff",
-                  "borderLeftWidth": null,
-                  "borderRadius": 10,
-                  "borderRightWidth": null,
-                  "borderTopWidth": null,
-                  "borderWidth": undefined,
-                  "elevation": 2,
-                  "flexDirection": "row",
-                  "height": 45,
-                  "justifyContent": "space-between",
-                  "opacity": 1,
-                  "paddingBottom": 6,
-                  "paddingTop": 6,
-                  "shadowColor": undefined,
-                  "shadowOffset": undefined,
-                  "shadowOpacity": undefined,
-                  "shadowRadius": undefined,
-                }
+                Array [
+                  Object {
+                    "flex": 1,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "borderColor": "#fb9f00",
+                    "borderRadius": 5,
+                    "borderWidth": 3,
+                    "height": 650,
+                    "justifyContent": "center",
+                    "overflow": "hidden",
+                    "width": 650,
+                  },
+                ]
               }
             >
               <View
                 style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flex": 2,
+                      "justifyContent": "center",
+                      "width": 750,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+              <View
+                style={
                   Object {
                     "alignItems": "center",
-                    "flexDirection": "row",
+                    "flex": 1,
+                    "justifyContent": "center",
                   }
                 }
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontFamily": "System",
-                        "fontSize": 16.5,
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                      },
-                      Object {
-                        "color": "#fff",
-                        "fontFamily": "Heavitas",
-                        "fontSize": 14,
-                        "paddingTop": 3,
-                      },
-                    ]
+                    Object {
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
                   }
-                  uppercase={false}
                 >
-                  Importeer gegevens
+                  ...
                 </Text>
               </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flex": 2,
+                      "justifyContent": "center",
+                      "width": 750,
+                    },
+                    undefined,
+                  ]
+                }
+              />
             </View>
           </View>
         </View>

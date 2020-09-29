@@ -5,12 +5,13 @@ import QuestionScreen from '../src/screens/QuestionScreen';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
+const navigation = {navigate: jest.fn()};
 
 test('renders correctly', () => {
   const tree = renderer
     .create(
       <MockedProvider mocks={[]}>
-        <QuestionScreen />
+        <QuestionScreen navigation={navigation} />
       </MockedProvider>,
     )
     .toJSON();

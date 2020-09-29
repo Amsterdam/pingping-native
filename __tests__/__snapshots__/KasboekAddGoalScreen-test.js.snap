@@ -45,6 +45,8 @@ exports[`renders correctly 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#fff",
+              "flexDirection": "column",
+              "justifyContent": "center",
             },
           ]
         }
@@ -59,15 +61,25 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fb9f00",
                 "fontFamily": "Heavitas",
-                "fontSize": 14,
+                "fontSize": 30,
                 "textAlign": "left",
               },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                false,
+                Object {
+                  "color": "#fb9f00",
+                },
+              ],
             ]
           }
           uppercase={false}
-        />
+        >
+          
+        </Text>
       </View>
     </RCTSafeAreaView>
   </View>
@@ -75,7 +87,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "flex": 1,
-        "padding": 30,
+        "padding": 25,
         "position": "relative",
         "width": 750,
       }
@@ -154,6 +166,7 @@ exports[`renders correctly 1`] = `
                   "fontSize": 30,
                   "textAlign": "left",
                 },
+                undefined,
               ]
             }
             uppercase={false}
@@ -193,8 +206,11 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 18,
+                      "fontSize": 30,
                       "textAlign": "left",
+                    },
+                    Object {
+                      "fontSize": 18,
                     },
                   ]
                 }
@@ -276,7 +292,7 @@ exports[`renders correctly 1`] = `
                 <Text
                   style={
                     Object {
-                      "fontFamily": "Raleway",
+                      "fontFamily": "Raleway-Regular",
                       "fontSize": 15,
                       "lineHeight": 25,
                       "textAlign": "left",
@@ -306,7 +322,7 @@ exports[`renders correctly 1`] = `
                 <Text
                   style={
                     Object {
-                      "fontFamily": "Raleway",
+                      "fontFamily": "Raleway-Regular",
                       "fontSize": 15,
                       "lineHeight": 25,
                       "textAlign": "left",
@@ -351,19 +367,18 @@ exports[`renders correctly 1`] = `
                   "alignItems": "center",
                   "alignSelf": "stretch",
                   "backgroundColor": "#fb9f00",
-                  "borderBottomWidth": null,
-                  "borderColor": false,
-                  "borderLeftWidth": null,
+                  "borderBottomWidth": 1,
+                  "borderColor": "#fb9f00",
+                  "borderLeftWidth": 1,
                   "borderRadius": 57,
-                  "borderRightWidth": null,
-                  "borderTopWidth": null,
-                  "borderWidth": undefined,
+                  "borderRightWidth": 1,
+                  "borderTopWidth": 1,
+                  "borderWidth": 1,
                   "elevation": 5,
                   "flexDirection": "row",
                   "height": 45,
                   "justifyContent": "center",
-                  "margin": 10,
-                  "marginBottom": 5,
+                  "marginBottom": 20,
                   "opacity": 1,
                   "paddingBottom": 6,
                   "paddingTop": 6,
@@ -382,7 +397,7 @@ exports[`renders correctly 1`] = `
                   Array [
                     Object {
                       "backgroundColor": "transparent",
-                      "color": "#fff",
+                      "color": "#007aff",
                       "fontFamily": "System",
                       "fontSize": 16.5,
                       "marginLeft": 0,
@@ -391,9 +406,13 @@ exports[`renders correctly 1`] = `
                       "paddingRight": 16,
                     },
                     Object {
-                      "color": "#fff",
+                      "color": "#fb9f00",
                       "fontFamily": "Heavitas",
                       "fontSize": 14,
+                      "paddingTop": 3,
+                    },
+                    Object {
+                      "color": "#fff",
                     },
                   ]
                 }

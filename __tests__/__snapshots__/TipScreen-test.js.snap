@@ -104,6 +104,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="Header-Back-Button"
           >
             <Text
               allowFontScaling={false}
@@ -153,11 +154,14 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fb9f00",
                 "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+              Object {
+                "color": "#fb9f00",
                 "fontSize": 14,
                 "marginTop": 5,
-                "textAlign": "left",
               },
             ]
           }
@@ -188,7 +192,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "flex": 1,
-        "padding": 30,
+        "padding": 25,
         "position": "relative",
         "width": 750,
       }
@@ -253,140 +257,7 @@ exports[`renders correctly 1`] = `
         update={[Function]}
         viewIsInsideTabBar={false}
       >
-        <View>
-          <View
-            style={
-              Object {
-                "marginBottom": 25,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "fontFamily": "Heavitas",
-                    "fontSize": 18,
-                    "marginBottom": 10,
-                    "textAlign": "left",
-                  },
-                ]
-              }
-              uppercase={false}
-            >
-              Hoeveel abonnementen heb jij?
-            </Text>
-            <Text
-              style={
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "textAlign": "left",
-                }
-              }
-            >
-              Automatische afschrijvingen kunnen handig zijn, maar ook gevaarlijk! Als je niet gebruik maakt van abonnementen zoals de sportschool, swapfiets of zoiets, stop dan je abonnement. Zo loopt het niet door en bespaar je geld.
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "marginBottom": 25,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "fontFamily": "Heavitas",
-                    "fontSize": 18,
-                    "marginBottom": 10,
-                    "textAlign": "left",
-                  },
-                ]
-              }
-              uppercase={false}
-            >
-              Zet je eigen goal om te sparen!
-            </Text>
-            <Text
-              style={
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "textAlign": "left",
-                }
-              }
-            >
-              Een handige manier om te sparen; de 52 weken challenge! Spaar in de eerste week 1euro en spaar vervolgens elke week een euro meer. Hou je dit 52 weken vol dan heb je op een makkelijke manier 1378 euro gespaard in een jaar!
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "marginBottom": 25,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "fontFamily": "Heavitas",
-                    "fontSize": 18,
-                    "marginBottom": 10,
-                    "textAlign": "left",
-                  },
-                ]
-              }
-              uppercase={false}
-            >
-              Spaar je eigen risico
-            </Text>
-            <Text
-              style={
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "textAlign": "left",
-                }
-              }
-            >
-              Ga bij je Zorgverzekeraar na of je je eigen risico verspreid over het jaar kunt betalen. Moet je gebruik maken van je verzekering omdat je ziektekosten hebt, dan sta je niet voor verassingen. Maak je geen gebruik van ziektekosten dan kun je je betaalde eigen risico over dat jaar terugkrijgen! Een fijn spaarpotje!
-            </Text>
-          </View>
-          <Text
-            style={
-              Object {
-                "fontFamily": "Raleway",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "textAlign": "left",
-              }
-            }
-          >
-            Kom je er niet uit? Vraag om hulp in de!
-          </Text>
-        </View>
+        <View />
       </RCTScrollView>
     </RCTSafeAreaView>
   </View>

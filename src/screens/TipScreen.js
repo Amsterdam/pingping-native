@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 
 TipScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
 };
 
 export default TipScreen;

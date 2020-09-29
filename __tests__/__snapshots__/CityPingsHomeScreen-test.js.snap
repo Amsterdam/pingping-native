@@ -75,8 +75,12 @@ exports[`renders correctly 1`] = `
                   "fontSize": 16,
                 },
                 Object {
-                  "color": "#fff",
                   "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#fff",
                   "fontSize": 24,
                   "textAlign": "left",
                 },
@@ -195,18 +199,20 @@ exports[`renders correctly 1`] = `
                     "fontSize": 16,
                   },
                   Object {
-                    "color": "#fff",
                     "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#fff",
                     "fontSize": 12,
                     "paddingTop": 5,
-                    "textAlign": "left",
                   },
                 ]
               }
               uppercase={false}
             >
-              0
-               CityPings
+              0 CityPings
             </Text>
           </View>
         </View>
@@ -490,6 +496,13 @@ exports[`renders correctly 1`] = `
                 keyboardShouldPersistTaps="handled"
                 keyboardSpace={0}
                 onScroll={[Function]}
+                refreshControl={
+                  <RefreshControlMock
+                    onRefresh={[Function]}
+                    refreshing={false}
+                    tintColor="#fb9f00"
+                  />
+                }
                 resetKeyboardSpace={[Function]}
                 resetScrollToCoords={
                   Object {
@@ -518,12 +531,13 @@ exports[`renders correctly 1`] = `
                 update={[Function]}
                 viewIsInsideTabBar={false}
               >
+                <RCTRefreshControl />
                 <View>
                   <View
                     style={
                       Object {
                         "flex": 1,
-                        "padding": 30,
+                        "padding": 25,
                         "position": "relative",
                         "width": 750,
                       }

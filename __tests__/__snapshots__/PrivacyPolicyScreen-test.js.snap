@@ -106,6 +106,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="Header-Back-Button"
           >
             <Text
               allowFontScaling={false}
@@ -155,11 +156,14 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fff",
                 "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+              Object {
+                "color": "#fff",
                 "fontSize": 14,
                 "marginTop": 5,
-                "textAlign": "left",
               },
             ]
           }
@@ -702,8 +706,12 @@ exports[`renders correctly 1`] = `
                     "fontSize": 16,
                   },
                   Object {
-                    "color": undefined,
                     "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": undefined,
                     "fontSize": 28,
                     "fontWeight": "400",
                     "marginBottom": 20,
@@ -719,14 +727,14 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "color": undefined,
-                  "fontFamily": "Raleway",
+                  "fontFamily": "Raleway-Regular",
                   "fontSize": 14,
                   "lineHeight": 25,
                   "textAlign": "center",
                 }
               }
             >
-              Om Ping Ping optimaal te laten functioneren verzamelen wij door het proces heen informatie. Klik hieronder om meer kennis te krijgen over welke informatie wij verzamelen en wat wij met deze informatie doen.
+              Om Ping Ping optimaal te laten functioneren verzamelen wij informatie. Klik hieronder om meer hierover te lezen. Wij slaan zo min mogelijk informatie op.
             </Text>
           </View>
           <View
@@ -769,6 +777,10 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
+                      "fontSize": 30,
+                      "textAlign": "left",
+                    },
+                    Object {
                       "fontSize": 12,
                       "textAlign": "center",
                     },

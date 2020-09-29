@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
       emulateUnlessSupported={true}
       style={
         Object {
-          "backgroundColor": "#fff",
+          "backgroundColor": "#0d2036",
         }
       }
     >
@@ -43,90 +43,150 @@ exports[`renders correctly 1`] = `
               "top": 0,
             },
             Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#fff",
-              "justifyContent": "flex-start",
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#0d2036",
             },
           ]
         }
         transparent={true}
       >
         <View
-          accessible={true}
-          focusable={true}
-          forwardedRef={[Function]}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "transparent",
-              "borderBottomWidth": null,
-              "borderColor": "#007aff",
-              "borderLeftWidth": null,
-              "borderRadius": 5,
-              "borderRightWidth": null,
-              "borderTopWidth": null,
-              "borderWidth": undefined,
-              "elevation": 0,
-              "flexDirection": "row",
-              "height": 45,
-              "justifyContent": "center",
-              "opacity": 1,
-              "paddingBottom": 6,
-              "paddingLeft": 6,
-              "paddingRight": 6,
-              "paddingTop": 6,
-              "shadowColor": null,
-              "shadowOffset": null,
-              "shadowOpacity": null,
-              "shadowRadius": null,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "center",
+                "flex": 1,
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
           }
         >
-          <Text
-            allowFontScaling={false}
+          <View
+            accessible={true}
+            focusable={true}
+            forwardedRef={[Function]}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
+              Object {
+                "alignItems": "center",
+                "alignSelf": null,
+                "backgroundColor": "transparent",
+                "borderBottomWidth": null,
+                "borderColor": null,
+                "borderLeftWidth": null,
+                "borderRadius": 5,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": undefined,
+                "elevation": 0,
+                "flexDirection": "row",
+                "height": 45,
+                "justifyContent": "space-between",
+                "marginLeft": -3,
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingLeft": 4,
+                "paddingRight": 6,
+                "paddingTop": 6,
+                "shadowColor": null,
+                "shadowOffset": null,
+                "shadowOpacity": null,
+                "shadowRadius": null,
+              }
+            }
+            testID="Header-Back-Button"
+          >
+            <Text
+              allowFontScaling={false}
+              style={
                 Array [
                   Object {
-                    "color": "#000",
-                    "fontSize": 30,
+                    "color": undefined,
+                    "fontSize": 12,
                   },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#007aff",
+                      "fontSize": 34,
+                      "marginLeft": 1,
+                      "marginRight": 2,
+                      "marginTop": 0,
+                      "paddingTop": 1,
+                    },
+                    Object {
+                      "color": "#fff",
+                    },
+                  ],
                   Object {
-                    "color": "#007aff",
-                    "fontSize": 24,
-                    "marginLeft": 16,
-                    "marginRight": 16,
-                    "paddingTop": 2,
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                   },
-                  Object {
-                    "color": "#000",
-                  },
-                ],
-                Object {
-                  "fontFamily": "anticon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-            type="AntDesign"
-          >
-            
-          </Text>
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
+          </View>
         </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "fontFamily": "Heavitas",
+                "fontSize": 30,
+                "textAlign": "left",
+              },
+              Object {
+                "color": "#fff",
+                "fontSize": 14,
+                "marginTop": 5,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Privacy
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
+          }
+        />
       </View>
     </RCTSafeAreaView>
   </View>
@@ -194,7 +254,7 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "flex": 1,
-              "padding": 30,
+              "padding": 25,
               "position": "relative",
               "width": 750,
             }
@@ -211,8 +271,10 @@ exports[`renders correctly 1`] = `
                 Object {
                   "fontFamily": "Heavitas",
                   "fontSize": 30,
-                  "marginBottom": 30,
                   "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
                 },
               ]
             }
@@ -234,43 +296,27 @@ exports[`renders correctly 1`] = `
           </View>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontFamily": "System",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "marginBottom": 30,
-                  "textAlign": "left",
-                },
-              ]
+              Object {
+                "fontFamily": "Raleway-Regular",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginBottom": 30,
+                "textAlign": "left",
+              }
             }
-            uppercase={false}
           >
             Wij van PingPing gebruiken de door jouw ingevulde gegevens alleen om jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw gegevens verkopen aan andere partijen.
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontFamily": "System",
-                  "fontSize": 16,
-                },
-                Object {
-                  "fontFamily": "Raleway",
-                  "fontSize": 15,
-                  "lineHeight": 25,
-                  "marginBottom": 30,
-                  "textAlign": "left",
-                },
-              ]
+              Object {
+                "fontFamily": "Raleway-Regular",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginBottom": 30,
+                "textAlign": "left",
+              }
             }
-            uppercase={false}
           >
             Wil je toch graag je inloggegevens verwijderen? Druk simpelweg op de knop hieronder om je gegevens uit ons systeem te halen. Hierdoor gaat je voortgang verloren.
           </Text>
@@ -395,5 +441,347 @@ exports[`renders correctly 1`] = `
       </View>
     </RCTScrollView>
   </RCTSafeAreaView>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    statusBarTranslucent={true}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(1,1,1,0.8)",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderRadius": 5,
+            "elevation": 5,
+            "justifyContent": "center",
+            "margin": 20,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.25,
+            "shadowRadius": 3.84,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "padding": 35,
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            forwardedRef={[Function]}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderBottomWidth": null,
+                "borderColor": "#007aff",
+                "borderLeftWidth": null,
+                "borderRadius": 57,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": undefined,
+                "elevation": 0,
+                "flexDirection": "row",
+                "height": 45,
+                "justifyContent": "space-between",
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingTop": 6,
+                "position": "absolute",
+                "right": 0,
+                "shadowColor": null,
+                "shadowOffset": null,
+                "shadowOpacity": null,
+                "shadowRadius": null,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#007aff",
+                      "fontSize": 24,
+                      "marginLeft": 16,
+                      "marginRight": 16,
+                      "paddingTop": 2,
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontSize": 24,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "anticon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              type="AntDesign"
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 25,
+                },
+              ]
+            }
+            uppercase={false}
+          >
+            Gegevens Verwijderen
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontFamily": "Raleway-Regular",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginBottom": 20,
+                "textAlign": "left",
+              }
+            }
+          >
+            Weet je zeker dat je jouw gegevens wilt verwijderen? Wanneer je de gegevens hebt verwijdered is er geen mogelijkheid meer om deze terug te halen..
+          </Text>
+          <View>
+            <View
+              accessible={true}
+              focusable={true}
+              forwardedRef={[Function]}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fb9f00",
+                  "borderBottomWidth": null,
+                  "borderColor": "#007aff",
+                  "borderLeftWidth": null,
+                  "borderRadius": 10,
+                  "borderRightWidth": null,
+                  "borderTopWidth": null,
+                  "borderWidth": undefined,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 45,
+                  "justifyContent": "center",
+                  "marginVertical": 5,
+                  "opacity": 1,
+                  "paddingBottom": 6,
+                  "paddingTop": 6,
+                  "shadowColor": undefined,
+                  "shadowOffset": undefined,
+                  "shadowOpacity": undefined,
+                  "shadowRadius": undefined,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Heavitas",
+                        "fontSize": 14,
+                        "paddingTop": 3,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Niet verwijderen
+                </Text>
+              </View>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              forwardedRef={[Function]}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#e9e9e9",
+                  "borderBottomWidth": null,
+                  "borderColor": "#007aff",
+                  "borderLeftWidth": null,
+                  "borderRadius": 10,
+                  "borderRightWidth": null,
+                  "borderTopWidth": null,
+                  "borderWidth": undefined,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 45,
+                  "justifyContent": "center",
+                  "marginVertical": 5,
+                  "opacity": 1,
+                  "paddingBottom": 6,
+                  "paddingTop": 6,
+                  "shadowColor": undefined,
+                  "shadowOffset": undefined,
+                  "shadowOpacity": undefined,
+                  "shadowRadius": undefined,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                          "marginLeft": 16,
+                          "marginRight": 16,
+                          "paddingTop": 2,
+                        },
+                        Object {
+                          "color": "#fff",
+                          "fontSize": 24,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "anticon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  type="AntDesign"
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontFamily": "Heavitas",
+                        "fontSize": 14,
+                        "paddingTop": 3,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Verwijder mijn gegevens
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
 </View>
 `;

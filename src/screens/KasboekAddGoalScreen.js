@@ -59,7 +59,13 @@ const KasboekAddGoalScreen = ({navigation}) => {
                 />
               </View>
             </View>
-            <Button label="Goal opslaan" rounded style={styles.button} />
+            <Button
+              label="Goal opslaan"
+              rounded
+              style={styles.button}
+              onPress={() => {}}
+              active={true}
+            />
           </View>
         </Content>
       </ContentLayout>

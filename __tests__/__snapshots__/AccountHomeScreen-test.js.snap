@@ -3,11 +3,16 @@
 exports[`renders correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#fff",
-      "flex": 1,
-      "height": 1334,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "backgroundColor": "#f7fbff",
+      },
+    ]
   }
 >
   <View>
@@ -61,11 +66,19 @@ exports[`renders correctly 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "color": "#fff",
                 "fontFamily": "Heavitas",
-                "fontSize": 14,
+                "fontSize": 30,
                 "textAlign": "left",
               },
+              Array [
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#fff",
+                },
+                false,
+              ],
             ]
           }
           uppercase={false}
@@ -75,291 +88,305 @@ exports[`renders correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
-        "alignItems": "center",
         "backgroundColor": "#f7fbff",
-        "flex": 1,
-        "justifyContent": "center",
-        "padding": 30,
-        "position": "relative",
-        "width": 750,
       }
     }
+    data={
+      Array [
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/export.png",
+          },
+          "route": "ExportData",
+          "title": "Exporteer gegevens",
+        },
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/warning.png",
+          },
+          "route": "ViewPrivacy",
+          "title": "Privacy",
+        },
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/trashcan.png",
+          },
+          "route": "DeleteData",
+          "title": "Verwijder gegevens",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
   >
-    <RCTScrollView
-      data={
-        Array [
-          Object {
-            "image": Object {
-              "testUri": "../../../src/assets/export.png",
-            },
-            "route": "ExportData",
-            "title": "Exporteer gegevens",
-          },
-          Object {
-            "image": Object {
-              "testUri": "../../../src/assets/warning.png",
-            },
-            "route": "ViewPrivacy",
-            "title": "Privacy",
-          },
-          Object {
-            "image": Object {
-              "testUri": "../../../src/assets/trashcan.png",
-            },
-            "route": "DeleteData",
-            "title": "Verwijder gegevens",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View>
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
         <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
+          style={
+            Array [
               Object {
                 "flexDirection": "row",
+              },
+              Object {
+                "justifyContent": "space-between",
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 10,
+                "elevation": 1,
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.18,
+                "shadowRadius": 1,
+                "width": "45%",
               }
             }
           >
-            <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
+            <Image
+              source={
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "borderRadius": 10,
-                  "elevation": 1,
-                  "justifyContent": "center",
-                  "margin": 8,
-                  "opacity": 1,
-                  "padding": 20,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 1,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.18,
-                  "shadowRadius": 1,
-                  "width": 325,
+                  "testUri": "../../../src/assets/export.png",
                 }
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/export.png",
-                  }
-                }
-                style={
-                  Object {
-                    "marginBottom": 20,
-                    "maxHeight": 40,
-                    "maxWidth": 40,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                      "textAlign": "center",
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Exporteer gegevens
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "borderRadius": 10,
-                  "elevation": 1,
-                  "justifyContent": "center",
-                  "margin": 8,
-                  "opacity": 1,
-                  "padding": 20,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 1,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.18,
-                  "shadowRadius": 1,
-                  "width": 325,
+                  "marginBottom": 20,
+                  "maxHeight": 40,
+                  "maxWidth": 40,
                 }
               }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/warning.png",
-                  }
-                }
-                style={
-                  Object {
-                    "marginBottom": 20,
-                    "maxHeight": 40,
-                    "maxWidth": 40,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                      "textAlign": "center",
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Privacy
-              </Text>
-            </View>
+              Exporteer gegevens
+            </Text>
           </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
           <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "flexDirection": "row",
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 10,
+                "elevation": 1,
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.18,
+                "shadowRadius": 1,
+                "width": "45%",
               }
             }
           >
-            <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
+            <Image
+              source={
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "borderRadius": 10,
-                  "elevation": 1,
-                  "justifyContent": "center",
-                  "margin": 8,
-                  "opacity": 1,
-                  "padding": 20,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 1,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.18,
-                  "shadowRadius": 1,
-                  "width": 325,
+                  "testUri": "../../../src/assets/warning.png",
                 }
               }
+              style={
+                Object {
+                  "marginBottom": 20,
+                  "maxHeight": 40,
+                  "maxWidth": 40,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/trashcan.png",
-                  }
-                }
-                style={
-                  Object {
-                    "marginBottom": 20,
-                    "maxHeight": 40,
-                    "maxWidth": 40,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontFamily": "Heavitas",
-                      "fontSize": 14,
-                      "textAlign": "center",
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Verwijder gegevens
-              </Text>
-            </View>
+              Privacy
+            </Text>
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              Object {
+                "justifyContent": "space-between",
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 10,
+                "elevation": 1,
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.18,
+                "shadowRadius": 1,
+                "width": "45%",
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/assets/trashcan.png",
+                }
+              }
+              style={
+                Object {
+                  "marginBottom": 20,
+                  "maxHeight": 40,
+                  "maxWidth": 40,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "fontFamily": "Heavitas",
+                    "fontSize": 30,
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              uppercase={false}
+            >
+              Verwijder gegevens
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;

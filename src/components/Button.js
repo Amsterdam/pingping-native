@@ -51,7 +51,11 @@ const Button = ({
 Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
+  active: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  active: true,
 };
 
 export default Button;
