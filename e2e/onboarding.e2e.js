@@ -1,3 +1,5 @@
+import {testIDs} from './modulesTestIDs';
+
 describe('Onboarding Screen', () => {
   jest.useFakeTimers();
 
@@ -5,28 +7,22 @@ describe('Onboarding Screen', () => {
     await device.reloadReactNative();
   });
 
-  it('should have welcome screen elements', async () => {
-    await expect(element(by.id('Welcome-Screen'))).toBeVisible();
-    await expect(element(by.id('Log-In-Button'))).toBeVisible();
-    await expect(element(by.id('Block-Button'))).toExist();
-  });
-
   it('should open login screen', async () => {
     await device.launchApp({permissions: {camera: 'YES'}});
-    await element(by.id('Log-In-Button')).tap();
-    await expect(element(by.text('Gegevens Importeren'))).toBeVisible();
-    await element(by.id('Header-Back-Button')).tap();
-    await expect(element(by.id('Welcome-Screen'))).toBeVisible();
+    await element(by.id(testIDs.ONBOARDING.LOG_IN_BUTTON)).tap();
+    await expect(element(by.id(testIDs.IMPORT_DATA.SCREEN))).toBeVisible();
+    await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
+    await expect(element(by.id(testIDs.ONBOARDING.SCREEN))).toBeVisible();
   });
 
   it('should walk through the onboarding steps', async () => {
-    await element(by.id('What-Button')).tap();
-    await element(by.id('How-Button')).tap();
-    await element(by.id('Where-Button')).tap();
-    await expect(element(by.text('Privacy'))).toBeVisible();
-    await element(by.id('Privacy-Button')).tap();
-    await element(by.id('Start-Button')).tap();
-    await element(by.id('yes-Button')).tap();
-    await element(by.id('Next-Button')).tap();
+    await element(by.id(testIDs.ONBOARDING.WHAT_BUTTON)).tap();
+    await element(by.id(testIDs.ONBOARDING.HOW_BUTTON)).tap();
+    await element(by.id(testIDs.ONBOARDING.WHERE_BUTTON)).tap();
+    await expect(element(by.id(testIDs.PRIVACY.SCREEN))).toBeVisible();
+    await element(by.id(testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON)).tap();
+    await element(by.id(testIDs.WELCOME.START_BUTTON)).tap();
+    // await element(by.id(testIDs.QUESTION.YES_BUTTON)).tap();
+    // await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
   });
 });

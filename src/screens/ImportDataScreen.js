@@ -9,6 +9,7 @@ import QrScanner from '../components/QrScanner';
 import LabeledHeader from '../components/header/LabeledHeader';
 import IMPORT_USER_MUTATION from '../apollo/Mutation/importUserMutation';
 import {useMutation} from '@apollo/client';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const ImportDataScreen = ({navigation}) => {
   const [importUser] = useMutation(IMPORT_USER_MUTATION);
@@ -30,7 +31,7 @@ const ImportDataScreen = ({navigation}) => {
   };
 
   return (
-    <Container>
+    <Container testID={testIDs.IMPORT_DATA.SCREEN}>
       <LabeledHeader navigation={navigation} title="INLOGGEN" />
       <Content>
         <ContentLayout>

@@ -15,6 +15,7 @@ import SimpleHeader from '../components/header/SimpleHeader';
 import {doRegisterDevice} from '../helpers/autHelper';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import Loading from '../components/LoadingComponent';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   useEffect(() => {
@@ -50,7 +51,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
   };
 
   return (
-    <Container>
+    <Container testID={testIDs.PRIVACY.SCREEN}>
       {policyAccepted ? (
         <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
       ) : (
@@ -73,7 +74,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
           {!policyAccepted && (
             <View style={styles.buttonContainer}>
               <Button
-                testid="Privacy-Button"
+                testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
                 onPress={doAcceptPolicy}
                 label="Accepteren"
               />

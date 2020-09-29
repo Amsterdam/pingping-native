@@ -10,6 +10,7 @@ import BackPack from '../assets/svg/BackPack';
 import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
 import Swiper from 'react-native-swiper';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const onboardingViews = [
   {
@@ -18,7 +19,7 @@ const onboardingViews = [
       'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
     svg: <GuyBehindComputer />,
     buttonLabel: 'Volgende',
-    testid: 'What-Button',
+    testid: testIDs.ONBOARDING.WHAT_BUTTON,
   },
   {
     title: 'WAT IS PING PING',
@@ -26,7 +27,7 @@ const onboardingViews = [
       'Met elke stap die je afrondt kom je dichter bij je doel en verdien je city pings',
     svg: <BackPack />,
     buttonLabel: 'Volgende',
-    testid: 'How-Button',
+    testid: testIDs.ONBOARDING.HOW_BUTTON,
   },
   {
     title: 'Wat is PING PING',
@@ -34,7 +35,7 @@ const onboardingViews = [
       'Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings',
     svg: <Vault />,
     buttonLabel: 'Volgende',
-    testid: 'Where-Button',
+    testid: testIDs.ONBOARDING.WHERE_BUTTON,
   },
 ];
 
@@ -52,7 +53,7 @@ class OnboardingScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     return (
-      <Container testID="Welcome-Screen">
+      <Container testID={testIDs.ONBOARDING.SCREEN}>
         <Header style={styles.header} transparent noShadow>
           <StatusBar
             barStyle="dark-content"
@@ -62,7 +63,7 @@ class OnboardingScreen extends React.Component {
           <Title style={styles.headerTitle}>INTRODUCTIE</Title>
           <Right>
             <TouchableOpacity
-              testID="Log-In-Button"
+              testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
               onPress={() => navigation.navigate('ImportDataScreen')}>
               <Title style={styles.buttonLabel}>Inloggen</Title>
             </TouchableOpacity>

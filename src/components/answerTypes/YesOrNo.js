@@ -12,7 +12,7 @@ const YesOrNo = ({answers, state, setState}) => {
           key={key}
           active={key === state.answerSelected}
           onPress={() => setState({answerSelected: key})}
-          testid={`${key}-Button`}
+          testid={`${key}_BUTTON`.toUpperCase()}
         />,
       );
     }

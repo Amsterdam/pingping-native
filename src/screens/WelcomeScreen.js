@@ -9,10 +9,11 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
 import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const WelcomeScreen = ({navigation}) => {
   return (
-    <Container>
+    <Container testID={testIDs.WELCOME.SCREEN}>
       <SimpleHeader title="Welkom!" color="white" />
       <View style={styles.viewContainer}>
         <View>
@@ -29,7 +30,7 @@ const WelcomeScreen = ({navigation}) => {
           <Button
             onPress={() => navigation.navigate('QuestionScreen')}
             label="start"
-            testid="Start-Button"
+            testid={testIDs.WELCOME.START_BUTTON}
           />
         </View>
       </View>

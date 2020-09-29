@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
 import {Button} from 'native-base';
 import {appColors} from '../config/colors';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const styles = StyleSheet.create({
   nextButtonLabel: {
@@ -28,7 +29,7 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
   return (
     <Button
       onPress={submitAnswer}
-      testID="Next-Button"
+      testID={testIDs.QUESTION.NEXT_QUESTION_BUTTON}
       transparent
       disabled={nextButtonDisabled}
       style={styles.nextButton}>
