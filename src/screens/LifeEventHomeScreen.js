@@ -18,6 +18,7 @@ import {appColors} from '../config/colors';
 import RouteCard from '../components/RouteCard';
 import ErrorComponent from '../components/ErrorComponent';
 import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const HEADER_HEIGHT = 200;
 
@@ -117,7 +118,7 @@ const RouteHomeScreen = ({navigation}) => {
   };
 
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} testID={testIDs.LIFE_EVENTS.SCREEN}>
       <Modal navigation={navigation} />
       <StatusBar
         backgroundColor={appColors.headerColor}

@@ -17,6 +17,7 @@ import {Notifications} from 'react-native-notifications';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import Loading from '../components/LoadingComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
   const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
@@ -58,7 +59,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
   };
 
   return (
-    <Container>
+    <Container testID={testIDs.NOTIFICATON.SCREEN}>
       <Header style={styles.header} transparent noShadow>
         <StatusBar
           barStyle="dark-content"
@@ -67,7 +68,9 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         <Left style={styles.flex} />
         <Title style={styles.headerTitle}>Notificaties</Title>
         <Right>
-          <TouchableOpacity onPress={declineNotifications}>
+          <TouchableOpacity
+            onPress={declineNotifications}
+            testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
             <Title style={styles.headerSubButton}>Overslaan</Title>
           </TouchableOpacity>
         </Right>
@@ -84,7 +87,10 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           </Body>
         </View>
         <View style={styles.buttonContainer}>
-          <Button style={styles.button} onPress={acceptNotifications}>
+          <Button
+            style={styles.button}
+            onPress={acceptNotifications}
+            testid={testIDs.NOTIFICATON.ACCEPT_BUTTON}>
             <Text style={styles.buttonLabel}>Accepteren</Text>
           </Button>
         </View>

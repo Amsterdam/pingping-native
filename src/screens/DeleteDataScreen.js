@@ -13,6 +13,7 @@ import Button from '../components/OnboardingButton';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import {resetStore} from '../apollo/apolloClient';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const DeleteDataScreen = ({navigation, setLogOut}) => {
   const [open, setOpen] = useState(false);
@@ -37,7 +38,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
   };
 
   return (
-    <Container>
+    <Container testID={testIDs.DELETE_DATA.SCREEN}>
       <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
       <Content>
         <ContentLayout>
@@ -62,6 +63,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
               iconType="AntDesign"
               label="Verwijder mijn gegevens"
               onPress={() => setOpen(true)}
+              testid={testIDs.DELETE_DATA.DELETE_BUTTON}
             />
           </View>
         </ContentLayout>

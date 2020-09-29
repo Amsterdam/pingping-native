@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Platform} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import {getDays, getMonths, getYears} from '../../helpers/birthDayHelper';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const DateOfBirth = ({setState, state}) => {
   const isIos = Platform.OS === 'ios';
@@ -9,6 +10,7 @@ const DateOfBirth = ({setState, state}) => {
     <View style={styles.container}>
       <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
         <Picker
+          testID={testIDs.QUESTION.PICKER_DAY}
           selectedValue={state.day}
           onValueChange={(itemValue, itemIndex) =>
             setState({...state, day: itemValue})
@@ -20,6 +22,7 @@ const DateOfBirth = ({setState, state}) => {
 
       <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
         <Picker
+          testID={testIDs.QUESTION.PICKER_MONTH}
           selectedValue={state.month}
           onValueChange={(itemValue, itemIndex) =>
             setState({...state, month: itemValue})
@@ -33,6 +36,7 @@ const DateOfBirth = ({setState, state}) => {
 
       <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
         <Picker
+          testID={testIDs.QUESTION.PICKER_YEAR}
           selectedValue={state.year}
           onValueChange={(itemValue, itemIndex) =>
             setState({...state, year: itemValue})

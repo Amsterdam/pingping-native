@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, FlatList, Dimensions} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 
@@ -9,15 +9,31 @@ import WarningImage from '../assets/warning.png';
 import TrashImage from '../assets/trashcan.png';
 import AccountBlockButton from '../components/AccountBlockButton';
 import {appColors} from '../config/colors';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const AccountHomeScreen = ({navigation}) => {
   const buttons = [
-    {title: 'Exporteer gegevens', image: ExportImage, route: 'ExportData'},
-    {title: 'Privacy', image: WarningImage, route: 'ViewPrivacy'},
-    {title: 'Verwijder gegevens', image: TrashImage, route: 'DeleteData'},
+    {
+      title: 'Exporteer gegevens',
+      image: ExportImage,
+      route: 'ExportData',
+      testID: testIDs.ACCOUNT.EXPORT_DATA_BUTTON,
+    },
+    {
+      title: 'Privacy',
+      image: WarningImage,
+      route: 'ViewPrivacy',
+      testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
+    },
+    {
+      title: 'Verwijder gegevens',
+      image: TrashImage,
+      route: 'DeleteData',
+      testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
+    },
   ];
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} testID={testIDs.ACCOUNT.SCREEN}>
       <SimpleHeader title="Gegevens" />
       <FlatList
         data={buttons}

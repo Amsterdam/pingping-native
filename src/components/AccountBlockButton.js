@@ -6,6 +6,7 @@ import Title from '../components/typography/Title';
 const AccountBlockButton = ({button, navigation}) => {
   return (
     <TouchableOpacity
+      testID={button.testID}
       style={styles.accountMainButton}
       onPress={() => navigation.navigate(button.route)}>
       <Image source={button.image} style={styles.image} />

@@ -1,11 +1,12 @@
 import React from 'react';
 import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import RouteStack from './stacks/RouteStack';
 import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
+import {testIDs} from '../../e2e/modulesTestIDs';
 // import KasboekStack from './stacks/KasboekStack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {appColors} from '../config/colors';
 
 const Tab = createBottomTabNavigator();
@@ -64,6 +65,7 @@ const TabNavigator = ({setLogOut}) => (
     <Tab.Screen
       name="Account"
       options={{
+        tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
         tabBarLabel: 'Gegevens',
         tabBarIcon: ({color, size}) => (
           <Icon

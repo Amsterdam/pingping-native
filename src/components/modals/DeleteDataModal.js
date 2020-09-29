@@ -6,6 +6,7 @@ import Title from '../typography/Title';
 import Body from '../typography/Body';
 import OnboardingButton from '../OnboardingButton';
 import {appColors} from '../../config/colors';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
   function closeModal() {
@@ -18,7 +19,7 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
       transparent={true}
       visible={open}
       statusBarTranslucent>
-      <View style={styles.centeredView}>
+      <View style={styles.centeredView} testID={testIDs.DELETE_DATA.MODAL}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
             <Button
@@ -50,6 +51,7 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
                 onPress={doDeleteUser}
                 loading={loading}
                 disabled={loading}
+                testid={testIDs.DELETE_DATA.DELETE_DATA_MODAL_BUTTON}
               />
             </View>
           </View>

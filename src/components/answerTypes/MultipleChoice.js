@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Button from '../Button';
 import {ppBaseColors} from '../../config/colors';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const MultipleChoice = ({answers, state, setState}) => {
   let choices = [...state.choices];
@@ -26,6 +27,7 @@ const MultipleChoice = ({answers, state, setState}) => {
           labelStyle={choices.includes(key) && styles.activeText}
           color="primary"
           onPress={addChoice(key)}
+          testid={testIDs.QUESTION.MULTIPLE_CHOICE_OPTION}
         />,
       );
     }
