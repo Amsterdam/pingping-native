@@ -6,14 +6,14 @@ import {ppBaseColors} from '../../config/colors';
 const MultipleChoice = ({answers, state, setState}) => {
   let choices = [...state.choices];
 
-  function addChoice(choice) {
+  const addChoice = (choice) => () => {
     if (choices.includes(choice)) {
       choices = choices.filter((e) => e !== choice);
       return setState({...state, choices});
     }
     choices.push(choice);
     return setState({...state, choices});
-  }
+  };
 
   function mapButtons() {
     const buttonArray = [];
@@ -25,7 +25,7 @@ const MultipleChoice = ({answers, state, setState}) => {
           active={choices.includes(key)}
           labelStyle={choices.includes(key) && styles.activeText}
           color="primary"
-          onPress={() => addChoice(key)}
+          onPress={addChoice(key)}
         />,
       );
     }
