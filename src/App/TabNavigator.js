@@ -14,7 +14,7 @@ const TabNavigator = ({setLogOut}) => (
   <Tab.Navigator
     initialRouteName="Routes"
     tabBarOptions={{
-      labelStyle: {fontFamily: 'Raleway'},
+      labelStyle: {fontFamily: 'Raleway-Regular'},
       activeTintColor: appColors.primary,
     }}>
     <Tab.Screen

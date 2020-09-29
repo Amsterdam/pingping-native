@@ -6,7 +6,7 @@ import {appColors} from '../config/colors';
 
 const styles = StyleSheet.create({
   nextButtonLabel: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Raleway-Regular',
     fontSize: 18,
   },
   nextButton: {

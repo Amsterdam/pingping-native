@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   htmlFontStyle: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Raleway-Regular',
     fontSize: 15,
     lineHeight: 25,
   },

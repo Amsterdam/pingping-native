@@ -10,7 +10,7 @@ const Body = ({
 }) => {
   const styles = StyleSheet.create({
     text: {
-      fontFamily: 'Raleway',
+      fontFamily: 'Raleway-Regular',
       textAlign: align,
       fontSize: 15,
       lineHeight: 25,

@@ -56,7 +56,7 @@ const RouteQuestionaireModal = ({navigation}) => {
       Toast.show({
         text:
           'Het is op dit moment nog niet mogelijk om feedback achter te laten',
-        textStyle: {fontFamily: 'Raleway'},
+        textStyle: {fontFamily: 'Raleway-Regular'},
         style: {backgroundColor: '#000', borderRadius: 10},
       }); // change the error message once complete
       console.log(error);
