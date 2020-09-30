@@ -13,6 +13,7 @@ const GET_STATUS_QUERY = gql`
       }
       currentTask {
         status
+        answer
         task {
           taskId
           title

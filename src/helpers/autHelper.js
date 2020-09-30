@@ -35,10 +35,7 @@ const userStatus = async (refetch, setLoggedIn, setOnboarder) => {
   try {
     const me = await refetch();
     if (me && me.data) {
-      if (
-        me.data.getStatus.currentTask ||
-        me.data.getStatus.device.notificationStatus === 'Initial'
-      ) {
+      if (me.data.getStatus.device.notificationStatus === 'Initial') {
         console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
         return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
       }

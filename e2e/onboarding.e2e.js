@@ -17,16 +17,16 @@ describe('Onboarding Screen', () => {
     await element(by.id(testIDs.WELCOME.START_BUTTON)).tap();
   };
 
-  const setBirthDate = async () => {
+  const setBirthDate = async (day, month, year) => {
     await expect(element(by.id(testIDs.QUESTION.PICKER_DAY))).toBeVisible();
-    await element(by.id(testIDs.QUESTION.PICKER_DAY)).setColumnToValue(0, '1');
+    await element(by.id(testIDs.QUESTION.PICKER_DAY)).setColumnToValue(0, day);
     await element(by.id(testIDs.QUESTION.PICKER_MONTH)).setColumnToValue(
       0,
-      'januari',
+      month,
     );
     await element(by.id(testIDs.QUESTION.PICKER_YEAR)).setColumnToValue(
       0,
-      '1990',
+      year,
     );
     await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
   };
@@ -42,6 +42,10 @@ describe('Onboarding Screen', () => {
     await element(by.id(testIDs.QUESTION.YES_BUTTON)).tap();
     await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
   };
+  const pressCity = async (city) => {
+    await element(by.id(`${city}_BUTTON`)).tap();
+    await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
+  };
 
   it('should open login screen', async () => {
     await device.launchApp({permissions: {camera: 'YES'}});
@@ -54,10 +58,16 @@ describe('Onboarding Screen', () => {
   it('should walk through the onboarding steps and answer all questions with yes and then delete the account', async () => {
     await device.launchApp({permissions: {notifications: 'YES'}});
     await walkthroughOnboarding();
-    await pressMultipleChoiceOption(1);
-    await setBirthDate();
+    await pressCity('AMSTERDAM');
+    await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
+    await pressCity('DENHAAG');
+    await setBirthDate('10', 'oktober', '2010');
+    await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
+    await setBirthDate('12', 'december', '2012');
     await pressYesAndNext();
     await pressYesAndNext();
+    await pressYesAndNext();
+    await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
     await pressYesAndNext();
     await pressYesAndNext();
     await pressYesAndNext();

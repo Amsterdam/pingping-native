@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
 import {
   Content,
@@ -18,9 +18,13 @@ import NextButtonQuestionScreen from '../components/NextButtonQuestionScreen';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
+import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
 import ProgressBar from '../components/ProgressBar';
 import Loading from '../components/LoadingComponent';
 import ErrorComponent from '../components/ErrorComponent';
+import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
+import {questionTypes} from '../config/questionTypes';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -36,7 +40,17 @@ const QuestionScreen = ({navigation}) => {
   const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
   const [loadingQuestion, setLoadingQuestion] = useState(false);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+  const [revertTask] = useMutation(REVERT_TASK_MUTATION);
   const animationRef = useRef(null);
+  const current = data?.getStatus?.currentTask;
+  const currentTask = current?.task;
+  const previousTask = data?.getStatus?.previousTask?.task;
+
+  useEffect(() => {
+    if (current?.answer) {
+      setRevertedQuestionValues(currentTask, current, setState);
+    }
+  }, [currentTask, current]);
 
   if (error) {
     return (
@@ -52,18 +66,16 @@ const QuestionScreen = ({navigation}) => {
     return <Loading />;
   }
 
-  if (data && !data.getStatus.currentTask) {
+  if (data && !currentTask) {
     navigation.navigate('NotificationDecisionScreen');
   }
 
-  if (data && data.getStatus.currentTask) {
-    const currentTask = data && data.getStatus.currentTask.task;
-
+  if (data && currentTask) {
     const checkDisabled = () => {
-      if (currentTask.type === 'DateOfBirth') {
+      if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
         return !state.day || !state.month || !state.year;
       }
-      if (currentTask.type === 'MultipleChoices') {
+      if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
         return state.choices.length < 1;
       }
       return !state.answerSelected;
@@ -71,14 +83,12 @@ const QuestionScreen = ({navigation}) => {
 
     const submitAnswer = async () => {
       let answer = '';
-
       answer = state.answerSelected;
-
       switch (currentTask.type) {
-        case 'DateOfBirth':
+        case questionTypes.DATE_OF_BIRTH:
           answer = `${state.year}-${state.month}-${state.day}`;
           break;
-        case 'MultipleChoices':
+        case questionTypes.MULTIPLE_CHOICES:
           answer = state.choices.join();
           break;
         default:
@@ -102,6 +112,24 @@ const QuestionScreen = ({navigation}) => {
       }
     };
 
+    const doRevertTask = async () => {
+      console.log(previousTask);
+      setLoadingQuestion(true);
+      if (!previousTask?.taskId) {
+        return navigation.goBack();
+      }
+      try {
+        await revertTask({
+          variables: {taskId: previousTask.taskId},
+        });
+        await refetch();
+        setLoadingQuestion(false);
+        animationRef.current?.fadeIn();
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
     const nextButtonDisabled = checkDisabled();
     return (
       <Container>
@@ -111,7 +139,10 @@ const QuestionScreen = ({navigation}) => {
             backgroundColor={appColors.background}
           />
           <Left style={styles.flex}>
-            <NbButton transparent onPress={() => navigation.goBack()}>
+            <NbButton
+              transparent
+              onPress={doRevertTask}
+              testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
               <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
             </NbButton>
           </Left>

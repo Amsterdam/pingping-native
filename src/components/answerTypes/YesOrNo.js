@@ -11,7 +11,7 @@ const YesOrNo = ({answers, state, setState}) => {
           label={value}
           key={key}
           active={key === state.answerSelected}
-          onPress={() => setState({answerSelected: key})}
+          onPress={() => setState({...state, answerSelected: key})}
           testid={`${key}_BUTTON`.toUpperCase()}
         />,
       );

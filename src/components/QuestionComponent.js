@@ -6,11 +6,12 @@ import Title from '../components/typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';
 import MultipleChoice from './answerTypes/MultipleChoice';
+import {questionTypes} from '../config/questionTypes';
 
 const QuestionComponent = ({currentTask, setState, state}) => {
   const renderQuestionType = () => {
     switch (currentTask.type) {
-      case 'YesOrNo':
+      case questionTypes.YES_OR_NO:
         return (
           <YesOrNo
             state={state}
@@ -18,9 +19,9 @@ const QuestionComponent = ({currentTask, setState, state}) => {
             answers={currentTask.choices}
           />
         );
-      case 'DateOfBirth':
+      case questionTypes.DATE_OF_BIRTH:
         return <DateOfBirth setState={setState} state={state} />;
-      case 'MultipleChoices':
+      case questionTypes.MULTIPLE_CHOICES:
         return (
           <MultipleChoice
             state={state}
