@@ -22,6 +22,7 @@ function RewardDetailModal({navigation, route}) {
       text: 'Het is op dit moment nog niet mogelijk om een reward te claimen',
       textStyle: {fontFamily: 'Raleway-Regular'},
       style: {backgroundColor: '#000', borderRadius: 10},
+      duration: 2000,
     }); // change the error message once complete
     try {
       const claimResponse = await claimReward({
