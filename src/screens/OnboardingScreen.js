@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Header, Right, Container, Left} from 'native-base';
 import {StyleSheet, StatusBar} from 'react-native';
@@ -11,6 +11,8 @@ import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
 import Swiper from 'react-native-swiper';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import {useQuery} from '@apollo/client';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
 const onboardingViews = [
   {
@@ -39,55 +41,68 @@ const onboardingViews = [
   },
 ];
 
-class OnboardingScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.swiperRef = React.createRef();
-  }
+const OnboardingScreen = ({navigation}) => {
+  const [swiper, setSwiper] = useState(null);
+  const [guided, setGuided] = useState(false);
+  const swiperRef = useRef(null);
+  const {data, loading, error} = useQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'network-only',
+  });
 
-  componentDidMount = () => {
-    this.setState({swiper: this.swiperRef});
-  };
+  useEffect(() => {
+    setSwiper(swiperRef);
+    const guideUser = () => {
+      // if the user has completed all onboardingtasks, current tasks should be null
+      // we send the user to the notification decisionscreen
+      if (!data.getStatus.currentTask) {
+        console.log('sending n');
+        navigation.navigate('NotificationDecisionScreen');
+      }
+      // if the user has already completed an onboarding tasks we do not have
+      // to show the user the onboarding again, we send this user to the question screen
+      if (data.getStatus.previousTask && data.getStatus.currentTask) {
+        navigation.navigate('QuestionScreen');
+      }
+      setGuided(true); // this is used as an hack because react native navigation keeps screens mounted and we only want to guide the user once
+    };
+    data && !guided && guideUser();
+  }, [swiper, data, navigation, guided]);
 
-  state = {};
-  render() {
-    const {navigation} = this.props;
-    return (
-      <Container testID={testIDs.ONBOARDING.SCREEN}>
-        <Header style={styles.header} transparent noShadow>
-          <StatusBar
-            barStyle="dark-content"
-            backgroundColor={appColors.background}
+  return (
+    <Container testID={testIDs.ONBOARDING.SCREEN}>
+      <Header style={styles.header} transparent noShadow>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={appColors.background}
+        />
+        <Left style={styles.flex} />
+        <Title style={styles.headerTitle}>INTRODUCTIE</Title>
+        <Right>
+          <TouchableOpacity
+            testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
+            onPress={() => navigation.navigate('ImportDataScreen')}>
+            <Title style={styles.buttonLabel}>Inloggen</Title>
+          </TouchableOpacity>
+        </Right>
+      </Header>
+      <Swiper
+        loop={false}
+        dotColor={ppBaseColors.PP_GRAY}
+        activeDotColor={appColors.primary}
+        ref={swiperRef}>
+        {onboardingViews.map((view, index) => (
+          <OnboardingItem
+            view={view}
+            key={view.title}
+            buttonAction={swiperRef?.current}
+            navigation={navigation}
+            isLastItem={onboardingViews.length - 1 === index}
           />
-          <Left style={styles.flex} />
-          <Title style={styles.headerTitle}>INTRODUCTIE</Title>
-          <Right>
-            <TouchableOpacity
-              testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
-              onPress={() => navigation.navigate('ImportDataScreen')}>
-              <Title style={styles.buttonLabel}>Inloggen</Title>
-            </TouchableOpacity>
-          </Right>
-        </Header>
-        <Swiper
-          loop={false}
-          dotColor={ppBaseColors.PP_GRAY}
-          activeDotColor={appColors.primary}
-          ref={this.swiperRef}>
-          {onboardingViews.map((view, index) => (
-            <OnboardingItem
-              view={view}
-              key={view.title}
-              buttonAction={this.swiperRef.current}
-              navigation={navigation}
-              isLastItem={onboardingViews.length - 1 === index}
-            />
-          ))}
-        </Swiper>
-      </Container>
-    );
-  }
-}
+        ))}
+      </Swiper>
+    </Container>
+  );
+};
 
 const styles = StyleSheet.create({
   header: {
