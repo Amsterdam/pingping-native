@@ -18,7 +18,7 @@ const onboardingViews = [
   {
     title: 'WAT IS PING PING',
     text:
-      'Wij maken een persoonlijk routeplan die je gaat helpen je (financiële) basis op orde te hebben',
+      'Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings!',
     svg: <GuyBehindComputer />,
     buttonLabel: 'Volgende',
     testid: testIDs.ONBOARDING.WHAT_BUTTON,
