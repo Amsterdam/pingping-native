@@ -66,11 +66,15 @@ describe('Onboarding Screen', () => {
     await setBirthDate('12', 'december', '2012');
     await pressYesAndNext();
     await pressYesAndNext();
+    await device.launchApp({permissions: {notifications: 'YES'}});
     await pressYesAndNext();
     await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
     await pressYesAndNext();
     await pressYesAndNext();
     await pressYesAndNext();
+    await device.reloadReactNative();
+    await pressYesAndNext();
+    await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
     await pressYesAndNext();
     await pressMultipleChoiceOption(1);
     await pressYesAndNext();
