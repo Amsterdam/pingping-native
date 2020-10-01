@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, Image, SafeAreaView} from 'react-native';
+import {View, StyleSheet, ScrollView, Image} from 'react-native';
 import PropTypes from 'prop-types';
-import {Container} from 'native-base';
+import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import TaskHeader from '../components/header/TaskHeader';
@@ -88,47 +88,62 @@ const TaskScreen = ({navigation, route}) => {
     setWebviewOpen(false);
   };
 
+  const needHelp = () => {
+    Toast.show({
+      text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
+      textStyle: {fontFamily: 'Raleway-Regular'},
+      style: {backgroundColor: '#000', borderRadius: 10},
+      duration: 2000,
+    }); // change the error message once complete
+  };
+
   const taskStatus = task.status === 'Completed';
 
   return (
     <Container>
-      <TaskHeader navigation={navigation} title={task.headerTitle} />
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        {task?.media && renderMedia(task.media)}
-        <ContentLayout>
-          <Title>{task.title}</Title>
-          <HTML
-            html={task.description}
-            baseFontStyle={styles.htmlFontStyle}
-            onLinkPress={(event, href) => {
-              linkPressed(event, href);
-            }}
-          />
-        </ContentLayout>
-      </ScrollView>
+      <Root>
+        <TaskHeader navigation={navigation} title={task.headerTitle} />
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          {task?.media && renderMedia(task.media)}
+          <ContentLayout>
+            <Title>{task.title}</Title>
+            <HTML
+              html={task.description}
+              baseFontStyle={styles.htmlFontStyle}
+              onLinkPress={(event, href) => {
+                linkPressed(event, href);
+              }}
+            />
+          </ContentLayout>
+        </ScrollView>
 
-      {taskStatus ? (
-        <View style={styles.completedTagLineContainer}>
-          <Title style={styles.completedTagLine} align="center">
-            Je {task.headerTitle} is gefikst
-          </Title>
-        </View>
-      ) : (
-        <View style={styles.buttonContainer}>
-          <React.Fragment>
-            <Button style={styles.buttonHelp} label="Hulp nodig?" />
-            <Button label="Gelukt!" onPress={doCompleteTask} />
-          </React.Fragment>
-        </View>
-      )}
+        {taskStatus ? (
+          <View style={styles.completedTagLineContainer}>
+            <Title style={styles.completedTagLine} align="center">
+              Je {task.headerTitle} is gefikst
+            </Title>
+          </View>
+        ) : (
+          <View style={styles.buttonContainer}>
+            <React.Fragment>
+              <Button
+                style={styles.buttonHelp}
+                label="Hulp nodig?"
+                onPress={needHelp}
+              />
+              <Button label="Gelukt!" onPress={doCompleteTask} />
+            </React.Fragment>
+          </View>
+        )}
 
-      {loading && <Loading />}
-      <WebViewModal
-        urlToVisit={urlToVisit}
-        closeModal={closeModal}
-        webViewOpen={webViewOpen}
-        setWebviewOpen={setWebviewOpen}
-      />
+        {loading && <Loading />}
+        <WebViewModal
+          urlToVisit={urlToVisit}
+          closeModal={closeModal}
+          webViewOpen={webViewOpen}
+          setWebviewOpen={setWebviewOpen}
+        />
+      </Root>
     </Container>
   );
 };
