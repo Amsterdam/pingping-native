@@ -24,6 +24,7 @@ const TaskScreen = ({navigation, route}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   const doCompleteTask = async () => {
     setLoading(true);
@@ -57,15 +58,21 @@ const TaskScreen = ({navigation, route}) => {
     switch (media.type) {
       case 'YouTube':
         return (
-          <YouTube
-            videoId={task.media.value} // The YouTube video ID
-            play={false} // control playback of video with true/false
-            loop={false} // control whether the video should loop when ended
-            apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
-            style={styles.videoContainer}
-            onError={(e) => console.log(e)}
-            resumePlayAndroid={false}
-          />
+          <View style={styles.videoContainer}>
+            <YouTube
+              videoId={task.media.value} // The YouTube video ID
+              play={false} // control playback of video with true/false
+              loop={false} // control whether the video should loop when ended
+              apiKey="AIzaSyBqyTzXy2qEPvGLXDxZ4En_rP6krgVvtFk"
+              style={[
+                styles.videoContainer,
+                !videoReady && styles.videoNotReady,
+              ]}
+              onError={(e) => console.log(e)}
+              onReady={() => setVideoReady(true)}
+              resumePlayAndroid={false}
+            />
+          </View>
         );
       case 'Image':
         return (
@@ -157,6 +164,10 @@ const styles = StyleSheet.create({
   videoContainer: {
     alignSelf: 'stretch',
     height: 200,
+    backgroundColor: 'black',
+  },
+  videoNotReady: {
+    display: 'none',
   },
   imageContainer: {
     alignSelf: 'stretch',
