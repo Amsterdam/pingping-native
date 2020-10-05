@@ -72,7 +72,7 @@ function LifeEventDetailsScreen({navigation, route}) {
 
     return (
       <Container>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <ImageOverlayHeader
             navigation={navigation}
             cityPings={totalPoints}
