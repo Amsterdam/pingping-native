@@ -8,7 +8,7 @@ import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
-import GuyBehindComputer from '../assets/svg/GuyBehindComputer';
+import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import {testIDs} from '../../e2e/modulesTestIDs';
 
 const WelcomeScreen = ({navigation}) => {
@@ -17,7 +17,7 @@ const WelcomeScreen = ({navigation}) => {
       <SimpleHeader title="Welkom!" color="white" />
       <View style={styles.viewContainer}>
         <View>
-          <GuyBehindComputer />
+          <WelcomeIllustration />
         </View>
         <View>
           <Title style={styles.title}>WELKOM OP PING PING</Title>
