@@ -1,16 +1,26 @@
 import React from 'react';
-import {View, Image, Dimensions, StyleSheet} from 'react-native';
+import {View, Dimensions, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import CitypingsChip from '../CitypingsChip';
+import ProgressiveImage from '../ProgressiveImage';
 import IconButton from '../IconButton';
 import {BASE_URL} from '../../config/initialSettings';
 
 const screenHeight = Dimensions.get('window').height;
 
-const ImageOverlayHeader = ({navigation, imageUrl, cityPings}) => {
+const ImageOverlayHeader = ({
+  navigation,
+  imageUrl,
+  cityPings,
+  thumbnailUrl,
+}) => {
   return (
     <View style={styles.imageContainer}>
-      <Image source={{uri: `${BASE_URL}${imageUrl}`}} style={styles.image} />
+      <ProgressiveImage
+        source={{uri: `${BASE_URL}${imageUrl}`}}
+        thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
+        style={styles.image}
+      />
       <View style={styles.imageOverlay}>
         <IconButton
           iconName="arrow-left"

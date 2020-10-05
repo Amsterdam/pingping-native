@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import ProgressiveImage from '../components/ProgressiveImage';
 import commonStyles from '../config/commonStyles';
 import CitypingsChip from './CitypingsChip';
 import {BASE_URL} from '../config/initialSettings';
@@ -10,6 +11,7 @@ const Card = ({
   onPress = () => {},
   children,
   imageUrl = '',
+  thumbnailUrl,
   pings = 0,
   style = {},
   mini = false,
@@ -19,8 +21,9 @@ const Card = ({
       <TouchableOpacity onPress={onPress}>
         <View>
           <View style={styles.imageContainer}>
-            <Image
+            <ProgressiveImage
               source={{uri: `${BASE_URL}${imageUrl}`}}
+              thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
               style={styles.image}
             />
             <View style={styles.overlayTop}>
@@ -50,7 +53,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     width: '100%',
-    position: 'relative',
     height: '100%',
     borderTopRightRadius: BORDER_RADIUS,
     borderTopLeftRadius: BORDER_RADIUS,
