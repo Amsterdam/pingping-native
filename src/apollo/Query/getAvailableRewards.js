@@ -7,6 +7,7 @@ const GET_AVAILABLE_REWARDS_QUERY = gql`
       title
       description
       imageUrl
+      thumbnailUrl
       price
       status
     }

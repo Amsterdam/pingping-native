@@ -6,6 +6,7 @@ const ROUTES_ATTRIBUTES = gql`
     title
     description
     coverImageUrl
+    thumbnailUrl
     isSuggested
     numberOfSteps
     totalPoints
