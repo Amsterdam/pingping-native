@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, Image} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  ActivityIndicator,
+  Image,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
@@ -59,6 +65,12 @@ const TaskScreen = ({navigation, route}) => {
       case 'YouTube':
         return (
           <View style={styles.videoContainer}>
+            {!videoReady && (
+              <ActivityIndicator
+                color={appColors.primary}
+                style={styles.activivityIndicator}
+              />
+            )}
             <YouTube
               videoId={task.media.value} // The YouTube video ID
               play={false} // control playback of video with true/false
@@ -165,6 +177,13 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 200,
     backgroundColor: 'black',
+  },
+  activivityIndicator: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   videoNotReady: {
     display: 'none',
