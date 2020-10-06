@@ -19,6 +19,7 @@ import RouteCard from '../components/RouteCard';
 import ErrorComponent from '../components/ErrorComponent';
 import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import EmptyContentNotifier from '../components/EmptyContentNotifier';
 
 const HEADER_HEIGHT = 200;
 
@@ -96,23 +97,23 @@ const RouteHomeScreen = ({navigation}) => {
             ))}
           </React.Fragment>
         )}
-        {otherRoutes.length > 0 && (
-          <React.Fragment>
-            <Title
-              style={
-                suggestedRoutes.length > 0 ? styles.subTitle : styles.title
-              }>
-              Andere life events
-            </Title>
-            {otherRoutes.map((lifeEvent) => (
-              <RouteCard
-                navigation={navigation}
-                lifeEvent={lifeEvent}
-                key={lifeEvent.routeId}
-              />
-            ))}
-          </React.Fragment>
-        )}
+
+        <React.Fragment>
+          <Title
+            style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
+            Andere life events
+          </Title>
+          {otherRoutes.length === '0' && (
+            <EmptyContentNotifier text="In de toekomst zullen er nieuwe routes worden toegevoegd. So stay tuned." />
+          )}
+          {otherRoutes.map((lifeEvent) => (
+            <RouteCard
+              navigation={navigation}
+              lifeEvent={lifeEvent}
+              key={lifeEvent.routeId}
+            />
+          ))}
+        </React.Fragment>
       </React.Fragment>
     );
   };
