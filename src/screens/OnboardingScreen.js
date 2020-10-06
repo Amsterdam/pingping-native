@@ -7,7 +7,7 @@ import OnboardingItem from '../components/OnboardingItem';
 import Title from '../components/typography/Title';
 import Vault from '../assets/svg/Vault';
 import BackPack from '../assets/svg/BackPack';
-import MapIllustration from '../assets/svg/MapIllustration';
+import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import Swiper from 'react-native-swiper';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {testIDs} from '../../e2e/modulesTestIDs';
@@ -19,7 +19,7 @@ const onboardingViews = [
     title: 'WAT IS PING PING',
     text:
       'Maak je persoonlijke routeplan om je (financiële) basis op orde te hebben.',
-    svg: <MapIllustration />,
+    svg: <WelcomeIllustration />,
     buttonLabel: 'Volgende',
     testid: testIDs.ONBOARDING.WHAT_BUTTON,
   },
