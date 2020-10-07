@@ -20,6 +20,8 @@ const RouteCard = ({
     numberOfSteps,
     progress,
     coverImageUrl,
+    thumbnailUrl,
+    mainColor,
   },
 }) => {
   const doNavigation = () => {
@@ -29,7 +31,12 @@ const RouteCard = ({
   };
 
   return (
-    <Card onPress={doNavigation} pings={totalPoints} imageUrl={coverImageUrl}>
+    <Card
+      onPress={doNavigation}
+      pings={totalPoints}
+      imageUrl={coverImageUrl}
+      thumbnailUrl={thumbnailUrl}
+      mainColor={mainColor}>
       <Body style={styles.rewardType}>{targetAudience}</Body>
       <Title style={styles.title}>{title}</Title>
       <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>

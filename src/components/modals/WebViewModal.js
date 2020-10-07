@@ -11,7 +11,7 @@ import WebView from 'react-native-webview';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 
-const CityPingsModal = ({closeModal, urlToVisit, webViewOpen}) => {
+const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
   const [loading, setLoading] = useState(false);
 
   const handleWebViewNavigationStateChange = (newNavState) => {
@@ -85,10 +85,10 @@ const styles = StyleSheet.create({
   },
 });
 
-CityPingsModal.propTypes = {
+WebViewModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   urlToVisit: PropTypes.string.isRequired,
   webViewOpen: PropTypes.bool.isRequired,
 };
 
-export default CityPingsModal;
+export default WebViewModal;

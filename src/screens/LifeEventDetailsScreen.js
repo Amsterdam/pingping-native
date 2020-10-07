@@ -56,7 +56,9 @@ function LifeEventDetailsScreen({navigation, route}) {
       tasks,
       title,
       description,
+      thumbnailUrl,
       coverImageUrl,
+      mainColor,
     } = data.getRoute;
 
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
@@ -77,6 +79,8 @@ function LifeEventDetailsScreen({navigation, route}) {
             navigation={navigation}
             cityPings={totalPoints}
             imageUrl={coverImageUrl}
+            thumbnailUrl={thumbnailUrl}
+            mainColor={mainColor}
           />
           <ContentLayout>
             <Body style={styles.label}>{targetAudience}</Body>

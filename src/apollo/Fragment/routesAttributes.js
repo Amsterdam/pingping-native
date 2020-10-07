@@ -7,6 +7,7 @@ const ROUTES_ATTRIBUTES = gql`
     description
     coverImageUrl
     thumbnailUrl
+    mainColor
     isSuggested
     numberOfSteps
     totalPoints

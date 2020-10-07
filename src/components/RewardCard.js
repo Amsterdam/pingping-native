@@ -9,7 +9,7 @@ import {appColors} from '../config/colors';
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl},
+  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
   balance = 0,
 }) => {
   const doNavigation = () => {
@@ -20,11 +20,16 @@ const RewardCard = ({
       title,
       imageUrl,
       rewardId,
+      thumbnailUrl,
     });
   };
 
   return (
-    <Card onPress={doNavigation} pings={price} imageUrl={imageUrl}>
+    <Card
+      onPress={doNavigation}
+      pings={price}
+      imageUrl={imageUrl}
+      thumbnailUrl={thumbnailUrl}>
       <View style={styles.descriptionContainer}>
         <Body style={styles.rewardType}>Reward</Body>
         <Title style={styles.description}>{title}</Title>

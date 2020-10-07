@@ -10,9 +10,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     top: 0,
   },
-  container: {
-    backgroundColor: appColors.almostNotBlue,
-  },
 });
 
 function ProgressiveImage(props) {
@@ -33,10 +30,10 @@ function ProgressiveImage(props) {
     }).start();
   };
 
-  const {thumbnailSource, source, style} = props;
+  const {thumbnailSource, source, style, mainColor = 'black'} = props;
 
   return (
-    <View style={[styles.container, style]}>
+    <View style={[{backgroundColor: mainColor}, style]}>
       <Animated.Image
         {...props}
         source={thumbnailSource}

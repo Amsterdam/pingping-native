@@ -3,15 +3,12 @@ import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from './typography/Title';
 import Body from './typography/Body';
-import commonStyles from '../config/commonStyles';
-import {ppBaseColors, appColors} from '../config/colors';
+import {appColors} from '../config/colors';
 import Card from './Card';
-
-const BORDER_RADIUS = 5;
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl},
+  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
   balance,
 }) => {
   const doNavigation = () => {
@@ -34,6 +31,7 @@ const RewardCard = ({
       onPress={doNavigation}
       imageUrl={imageUrl}
       pings={price}
+      thumbnailUrl={thumbnailUrl}
       style={styles.card}
       mini>
       <View style={styles.descriptionContainer}>

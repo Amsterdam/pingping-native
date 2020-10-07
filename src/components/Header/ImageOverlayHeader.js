@@ -13,12 +13,14 @@ const ImageOverlayHeader = ({
   imageUrl,
   cityPings,
   thumbnailUrl,
+  mainColor,
 }) => {
   return (
     <View style={styles.imageContainer}>
       <ProgressiveImage
         source={{uri: `${BASE_URL}${imageUrl}`}}
         thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
+        mainColor={mainColor}
         style={styles.image}
       />
       <View style={styles.imageOverlay}>

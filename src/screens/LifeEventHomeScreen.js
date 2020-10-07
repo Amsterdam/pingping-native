@@ -13,7 +13,6 @@ import {useLazyQuery} from '@apollo/client';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import Modal from '../components/modals/CityPingsModal';
 import {appColors} from '../config/colors';
 import RouteCard from '../components/RouteCard';
 import ErrorComponent from '../components/ErrorComponent';
@@ -120,7 +119,6 @@ const RouteHomeScreen = ({navigation}) => {
 
   return (
     <Container style={styles.container} testID={testIDs.LIFE_EVENTS.SCREEN}>
-      <Modal navigation={navigation} />
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle="light-content"

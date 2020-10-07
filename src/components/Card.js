@@ -15,6 +15,7 @@ const Card = ({
   pings = 0,
   style = {},
   mini = false,
+  mainColor,
 }) => {
   return (
     <View style={[styles.paper, style]}>
@@ -24,6 +25,7 @@ const Card = ({
             <ProgressiveImage
               source={{uri: `${BASE_URL}${imageUrl}`}}
               thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
+              mainColor={mainColor}
               style={styles.image}
             />
             <View style={styles.overlayTop}>

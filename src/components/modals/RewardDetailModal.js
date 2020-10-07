@@ -13,7 +13,15 @@ import CityPingsBalance from '../CityPingsBalance';
 import Button from '../OnboardingButton';
 
 function RewardDetailModal({navigation, route}) {
-  const {balance, price, title, description, rewardId, imageUrl} = route.params;
+  const {
+    balance,
+    price,
+    title,
+    description,
+    rewardId,
+    imageUrl,
+    thumbnailUrl,
+  } = route.params;
   const available = balance >= price;
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
 
@@ -44,6 +52,7 @@ function RewardDetailModal({navigation, route}) {
             navigation={navigation}
             imageUrl={imageUrl}
             cityPings={price}
+            thumbnailUrl={thumbnailUrl}
           />
           <View style={styles.contentContainer}>
             <Body style={styles.label}>Rewards</Body>
