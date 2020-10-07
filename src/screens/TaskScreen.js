@@ -46,17 +46,19 @@ const TaskScreen = ({navigation, route}) => {
           (task) => task.status !== 'Completed',
         ).length === 0;
       if (routeDone) {
+        setLoading(false);
         return navigation.navigate('CityPings', {
           screen: 'CityPingsModalScreen',
           params: {pings: routeResponse.data.getRoute.totalPoints},
           initial: false,
         });
       }
-      setLoading(false);
+
       return navigation.goBack();
     } catch (error) {
-      setLoading(false);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
