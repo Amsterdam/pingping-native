@@ -37,6 +37,7 @@ export const testIDs = {
   },
   LIFE_EVENTS: {
     SCREEN: 'LIFE_EVENTS_SCREEN',
+    LIFE_EVENT_CARD: ' LIFE_EVENT_CARD',
   },
   ACCOUNT: {
     SCREEN: 'ACCOUNT_SCREEN',
