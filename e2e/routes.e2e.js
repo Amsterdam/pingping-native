@@ -4,6 +4,7 @@ import {
   walkthroughOnboarding,
   answerOnboardingQuestions,
   skipNotifications,
+  deleteAccount,
 } from './testHelpers';
 
 describe('Onboarding Screen', () => {
@@ -21,5 +22,13 @@ describe('Onboarding Screen', () => {
     await answerOnboardingQuestions();
     await skipNotifications();
     await expect(element(by.id(testIDs.LIFE_EVENTS.SCREEN))).toBeVisible();
+    try {
+      await element(by.id(testIDs.LIFE_EVENTS.LIFE_EVENT_CARD))
+        .atIndex(0)
+        .tap();
+    } catch (error) {
+      console.error(error);
+      await deleteAccount();
+    }
   });
 });

@@ -6,6 +6,7 @@ import Title from './typography/Title';
 import Body from './typography/Body';
 import {ppBaseColors, appColors} from '../config/colors';
 import Card from './Card';
+import {testIDs} from '../../e2e/modulesTestIDs';
 
 const MARGIN = 15;
 
@@ -36,7 +37,8 @@ const RouteCard = ({
       pings={totalPoints}
       imageUrl={coverImageUrl}
       thumbnailUrl={thumbnailUrl}
-      mainColor={mainColor}>
+      mainColor={mainColor}
+      testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}>
       <Body style={styles.rewardType}>{targetAudience}</Body>
       <Title style={styles.title}>{title}</Title>
       <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>

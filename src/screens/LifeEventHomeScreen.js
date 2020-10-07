@@ -119,6 +119,10 @@ const RouteHomeScreen = ({navigation}) => {
 
   return (
     <Container style={styles.container} testID={testIDs.LIFE_EVENTS.SCREEN}>
+      <View
+        style={styles.underLayer}
+        testID={testIDs.LIFE_EVENTS.ANIMATED_VIEW}
+      />
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle="light-content"
@@ -148,7 +152,6 @@ const RouteHomeScreen = ({navigation}) => {
           {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>
-      <View style={styles.underLayer} />
       <RouteQuestionaireModal navigation={navigation} />
     </Container>
   );
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
   underLayer: {
     position: 'absolute',
     flex: 1,
-    zIndex: -1,
+    zIndex: -5,
     elevation: 0,
     backgroundColor: appColors.almostNotBlue,
     top: 100, // replace this with a percentage of the screenheight to be responsive

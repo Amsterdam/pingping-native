@@ -38,6 +38,17 @@ export const setBirthDate = async (day, month, year) => {
   await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
 };
 
+export const deleteAccount = async () => {
+  await element(by.id(testIDs.ACCOUNT.TAB_BUTTON)).tap();
+  await expect(element(by.id(testIDs.ACCOUNT.SCREEN))).toBeVisible();
+  await element(by.id(testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON)).tap();
+  await expect(element(by.id(testIDs.DELETE_DATA.SCREEN))).toBeVisible();
+  await element(by.id(testIDs.DELETE_DATA.DELETE_BUTTON)).tap();
+  await expect(element(by.id(testIDs.DELETE_DATA.MODAL))).toBeVisible();
+  await element(by.id(testIDs.DELETE_DATA.DELETE_DATA_MODAL_BUTTON)).tap();
+  await expect(element(by.id(testIDs.ONBOARDING.SCREEN))).toBeVisible();
+};
+
 export const pressMultipleChoiceOption = async (index) => {
   await element(by.id(testIDs.QUESTION.MULTIPLE_CHOICE_OPTION))
     .atIndex(index)

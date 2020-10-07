@@ -49,13 +49,6 @@ describe('Onboarding Screen', () => {
     await pressYesAndNext();
     await skipNotifications();
     await expect(element(by.id(testIDs.LIFE_EVENTS.SCREEN))).toBeVisible();
-    await element(by.id(testIDs.ACCOUNT.TAB_BUTTON)).tap();
-    await expect(element(by.id(testIDs.ACCOUNT.SCREEN))).toBeVisible();
-    await element(by.id(testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON)).tap();
-    await expect(element(by.id(testIDs.DELETE_DATA.SCREEN))).toBeVisible();
-    await element(by.id(testIDs.DELETE_DATA.DELETE_BUTTON)).tap();
-    await expect(element(by.id(testIDs.DELETE_DATA.MODAL))).toBeVisible();
-    await element(by.id(testIDs.DELETE_DATA.DELETE_DATA_MODAL_BUTTON)).tap();
-    await expect(element(by.id(testIDs.ONBOARDING.SCREEN))).toBeVisible();
+    await deleteAccount();
   });
 });

@@ -16,9 +16,10 @@ const Card = ({
   style = {},
   mini = false,
   mainColor,
+  testID = '',
 }) => {
   return (
-    <View style={[styles.paper, style]}>
+    <View style={[styles.paper, style]} testID={testID}>
       <TouchableOpacity onPress={onPress}>
         <View>
           <View style={styles.imageContainer}>
