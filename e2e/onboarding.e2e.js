@@ -7,6 +7,7 @@ import {
   pressYesAndNext,
   pressMultipleChoiceOption,
   skipNotifications,
+  deleteAccount,
 } from './testHelpers';
 
 describe('Onboarding Screen', () => {
