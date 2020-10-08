@@ -47,7 +47,7 @@ const RouteHomeScreen = ({navigation}) => {
         functionToRetry={routes.refetch}
         error="somethingWentWrong"
         label="terug"
-        onPress={() => navigation.goBack()}
+        onPress={() => routes.refetch()}
       />
     );
   }

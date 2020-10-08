@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {RefreshControl, View, StyleSheet} from 'react-native';
-import {Content, Container, Title} from 'native-base';
+import {Content, Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {appColors} from '../config/colors';
 import ErrorIllustration from '../assets/svg/ErrorIllustration';
 import AstronautSitting from '../assets/svg/AstronautSitting';
+import Title from './typography/Title';
 import Body from './typography/Body';
 import Button from './OnboardingButton';
 
@@ -53,7 +54,7 @@ const ErrorComponent = ({
         {errorType.illustration}
 
         <View style={styles.textContainer}>
-          <Title style={styles.title} numberOfLines={2}>
+          <Title style={styles.title} align="center" numberOfLines={2}>
             {errorType.title}
           </Title>
           <Body align="center">{errorType.body}</Body>
