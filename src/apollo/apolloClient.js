@@ -29,7 +29,6 @@ const authLink = setContext(async (_, {headers}) => {
 });
 
 const errorLink = onError(({graphQLErrors, networkError}) => {
-  console.log('checking');
   if (graphQLErrors) {
     graphQLErrors.map(({message, locations, path}) => {
       console.log({message, locations, path});
