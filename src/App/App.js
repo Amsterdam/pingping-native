@@ -31,7 +31,7 @@ export default function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
   const [connected, setConnected] = React.useState(null);
-  const {refetch} = useQuery(GET_STATUS_QUERY, {
+  const {refetch, error} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
   });
 
@@ -50,6 +50,16 @@ export default function App() {
         <ErrorComponent
           functionToRetry={refetch}
           error="connectionProblem"
+          label="Probeer opnieuw"
+          onPress={() => refetch()}
+        />
+      );
+    }
+    if (error && loggedIn) {
+      return (
+        <ErrorComponent
+          functionToRetry={refetch}
+          error="somethingWentWrong"
           label="Probeer opnieuw"
           onPress={() => refetch()}
         />
