@@ -31,12 +31,10 @@ const authLink = setContext(async (_, {headers}) => {
 const errorLink = onError(({graphQLErrors, networkError}) => {
   if (graphQLErrors) {
     graphQLErrors.map(({message, locations, path}) => {
-      console.log({message, locations, path});
       return Sentry.captureMessage(message);
     });
   }
   if (networkError) {
-    console.log({networkError});
     Sentry.captureException(networkError);
   }
 });

@@ -55,7 +55,6 @@ const OnboardingScreen = ({navigation}) => {
       // if the user has completed all onboardingtasks, current tasks should be null
       // we send the user to the notification decisionscreen
       if (!data.getStatus.currentTask) {
-        console.log('sending n');
         navigation.navigate('NotificationDecisionScreen');
       }
       // if the user has already completed an onboarding tasks we do not have
