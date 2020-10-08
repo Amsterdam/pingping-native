@@ -47,9 +47,9 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
             <Text>👆😌</Text>
           </View>
           <Body style={styles.margin}>
-            Wij van PingPing gebruiken de door jouw ingevulde gegevens alleen om
-            jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw
-            gegevens verkopen aan andere partijen.
+            Wij van Ping Ping gebruiken de door jouw ingevulde gegevens alleen
+            om jouw route te bepalen en de app te verbeteren. Wij zullen nooit
+            jouw gegevens verkopen aan andere partijen.
           </Body>
           <Body style={styles.margin}>
             Wil je toch graag je inloggegevens verwijderen? Druk simpelweg op de

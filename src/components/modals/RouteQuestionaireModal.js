@@ -104,7 +104,7 @@ const RouteQuestionaireModal = ({navigation}) => {
                   <Title>DE ROUTE</Title>
                   <Body>
                     Wij zouden graag input van jou willen hebben over wat voor
-                    andere routes je graag in de pingping app zou willen zien.
+                    andere routes je graag in de Ping Ping app zou willen zien.
                     Wanneer de route is afgestemd kan hij uiteindelijk in de app
                     verschijnen.
                   </Body>
