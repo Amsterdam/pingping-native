@@ -33,6 +33,7 @@ export default function App() {
   const [connected, setConnected] = React.useState(null);
   const {refetch, error} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-and-network',
+    skip: 'true',
   });
 
   const setLogin = async () => {

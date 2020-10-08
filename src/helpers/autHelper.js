@@ -33,7 +33,12 @@ export async function doRegisterDevice(registerDeviceCallback) {
 
 const userStatus = async (refetch, setLoggedIn, setOnboarder) => {
   try {
-    const me = await refetch();
+    let me = {};
+    const token = await AsyncStorage.getItem('@access_token');
+
+    if (token !== null) {
+      me = await refetch();
+    }
     if (me && me.data) {
       if (me.data.getStatus.device.notificationStatus === 'Initial') {
         console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');

@@ -45,8 +45,8 @@ const OnboardingScreen = ({navigation}) => {
   const [swiper, setSwiper] = useState(null);
   const [guided, setGuided] = useState(false);
   const swiperRef = useRef(null);
-  const {data, loading, error} = useQuery(GET_STATUS_QUERY, {
-    fetchPolicy: 'network-only',
+  const {data} = useQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'cache-only',
   });
 
   useEffect(() => {
