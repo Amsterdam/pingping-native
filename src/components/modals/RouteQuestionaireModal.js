@@ -32,7 +32,7 @@ const RouteQuestionaireModal = ({navigation}) => {
   const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
   const {data} = useQuery(GET_QUESTIONNAIRE_MODAL);
   const [feedback, setFeedback] = React.useState('');
-  const [taskName, setTaskName] = React.useState('');
+  const [routeName, setRouteName] = React.useState('');
 
   const closeModal = async () => {
     await questionnaireModal({
@@ -46,9 +46,8 @@ const RouteQuestionaireModal = ({navigation}) => {
     try {
       await submitFeedback({
         variables: {
-          routeId: taskName,
-          taskName,
-          feedback,
+          routeName: routeName,
+          feedback: feedback,
         },
       });
       closeModal();
@@ -78,7 +77,9 @@ const RouteQuestionaireModal = ({navigation}) => {
             barStyle="light-content"
           />
           <KeyboardAvoidingView behavior="position" style={styles.container}>
-            <ScrollView contentContainerStyle={styles.content}>
+            <ScrollView
+              contentContainerStyle={styles.content}
+              keyboardShouldPersistTaps={'handled'}>
               <View style={styles.imageContainer}>
                 <Image source={VaultImage} style={styles.image} />
                 <View style={styles.imageOverlay}>
@@ -111,9 +112,9 @@ const RouteQuestionaireModal = ({navigation}) => {
                 <View style={styles.inputContainer}>
                   <TextInput
                     style={styles.textInput}
-                    onChangeText={(text) => setTaskName(text)}
+                    onChangeText={(text) => setRouteName(text)}
                     placeholderTextColor={appColors.greyedOut}
-                    value={taskName}
+                    value={routeName}
                     placeholder="Route naam"
                   />
                 </View>
@@ -130,7 +131,7 @@ const RouteQuestionaireModal = ({navigation}) => {
                 </View>
                 <Button
                   style={styles.button}
-                  disabled={!taskName || !feedback}
+                  disabled={!routeName || !feedback}
                   onPress={doSubmit}
                   label="Verzenden"
                 />
