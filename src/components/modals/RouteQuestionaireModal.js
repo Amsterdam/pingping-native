@@ -77,9 +77,7 @@ const RouteQuestionaireModal = ({navigation}) => {
             backgroundColor={appColors.headerColor}
             barStyle="light-content"
           />
-          <KeyboardAvoidingView
-            behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
-            style={styles.container}>
+          <KeyboardAvoidingView behavior="position" style={styles.container}>
             <ScrollView contentContainerStyle={styles.content}>
               <View style={styles.imageContainer}>
                 <Image source={VaultImage} style={styles.image} />
@@ -114,6 +112,7 @@ const RouteQuestionaireModal = ({navigation}) => {
                   <TextInput
                     style={styles.textInput}
                     onChangeText={(text) => setTaskName(text)}
+                    placeholderTextColor={appColors.greyedOut}
                     value={taskName}
                     placeholder="Route naam"
                   />
@@ -125,6 +124,8 @@ const RouteQuestionaireModal = ({navigation}) => {
                     value={feedback}
                     placeholder="Wat denk jij nodig te hebben?"
                     multiline
+                    scrollEnabled={false}
+                    numberOfLines={6}
                   />
                 </View>
                 <Button
@@ -146,6 +147,7 @@ const RouteQuestionaireModal = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: appColors.background,
+    flex: 1,
   },
   textContainer: {
     marginBottom: 25,
@@ -166,6 +168,7 @@ const styles = StyleSheet.create({
     top: 50,
   },
   textInput: {
+    color: 'black',
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
@@ -175,10 +178,11 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   inputContainerMultiline: {
-    height: 125,
     borderColor: 'gray',
     borderWidth: 1,
     padding: 5,
+    height: 100,
+    color: 'black',
   },
   button: {
     justifyContent: 'center',

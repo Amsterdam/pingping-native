@@ -86,7 +86,7 @@ const RouteHomeScreen = ({navigation}) => {
       <React.Fragment>
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
-            <Title style={styles.title}>Aanbevolen</Title>
+            <Title style={styles.title}>Aanbevolen Routes</Title>
             {suggestedRoutes.map((lifeEvent) => (
               <RouteCard
                 navigation={navigation}
@@ -100,7 +100,7 @@ const RouteHomeScreen = ({navigation}) => {
         <React.Fragment>
           <Title
             style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
-            Andere life events
+            Andere Routes
           </Title>
           {otherRoutes.length === '0' && (
             <EmptyContentNotifier text="In de toekomst zullen er nieuwe routes worden toegevoegd. So stay tuned." />

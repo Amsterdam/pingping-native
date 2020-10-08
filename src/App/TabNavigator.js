@@ -37,7 +37,7 @@ const TabNavigator = ({setLogOut}) => (
       name="Routes"
       component={RouteStack}
       options={{
-        tabBarLabel: 'Life Events',
+        tabBarLabel: 'Routes',
         tabBarIcon: ({color, size}) => (
           <Icon
             name="stars"
