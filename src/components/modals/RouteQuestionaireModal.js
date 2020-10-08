@@ -26,13 +26,13 @@ import GET_QUESTIONNAIRE_MODAL from '../../apollo/Query/getQuestionnaireModal';
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../../apollo/Mutation/submitRouteFeedback';
 
 const screenHeight = Dimensions.get('window').height;
+const INITIAL_STATE = {feedback: '', routeName: ''};
 
 const RouteQuestionaireModal = ({navigation}) => {
   const [questionnaireModal] = useMutation(QUESTIONNAIRE_MODAL);
   const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
   const {data} = useQuery(GET_QUESTIONNAIRE_MODAL);
-  const [feedback, setFeedback] = React.useState('');
-  const [routeName, setRouteName] = React.useState('');
+  const [state, setState] = React.useState(INITIAL_STATE);
 
   const closeModal = async () => {
     await questionnaireModal({
@@ -46,15 +46,15 @@ const RouteQuestionaireModal = ({navigation}) => {
     try {
       await submitFeedback({
         variables: {
-          routeName: routeName,
-          feedback: feedback,
+          routeName: state.routeName,
+          feedback: state.feedback,
         },
       });
+      setState(INITIAL_STATE);
       closeModal();
     } catch (error) {
       Toast.show({
-        text:
-          'Het is op dit moment nog niet mogelijk om feedback achter te laten',
+        text: 'Er is iets mis gegaan, je feedback is niet verstuurd',
         textStyle: {fontFamily: 'Raleway-Regular'},
         style: {backgroundColor: '#000', borderRadius: 10},
         duration: 2000,
@@ -112,17 +112,21 @@ const RouteQuestionaireModal = ({navigation}) => {
                 <View style={styles.inputContainer}>
                   <TextInput
                     style={styles.textInput}
-                    onChangeText={(text) => setRouteName(text)}
+                    onChangeText={(text) =>
+                      setState({...state, routeName: text})
+                    }
                     placeholderTextColor={appColors.greyedOut}
-                    value={routeName}
+                    value={state.routeName}
                     placeholder="Route naam"
                   />
                 </View>
                 <View style={styles.inputContainer}>
                   <TextInput
                     style={styles.inputContainerMultiline}
-                    onChangeText={(text) => setFeedback(text)}
-                    value={feedback}
+                    onChangeText={(text) =>
+                      setState({...state, feedback: text})
+                    }
+                    value={state.feedback}
                     placeholder="Wat denk jij nodig te hebben?"
                     multiline
                     scrollEnabled={false}
@@ -131,7 +135,7 @@ const RouteQuestionaireModal = ({navigation}) => {
                 </View>
                 <Button
                   style={styles.button}
-                  disabled={!routeName || !feedback}
+                  disabled={!state.routeName || !state.feedback}
                   onPress={doSubmit}
                   label="Verzenden"
                 />
