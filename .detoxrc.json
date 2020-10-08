@@ -7,7 +7,7 @@
       "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/pingpingNative.app",
       "build": "xcodebuild -workspace ios/pingpingNative.xcworkspace -scheme pingpingNative -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
       "device": {
-        "type": "iPhone 8"
+        "type": "iPhone 11"
       }
     },
     "android": {
