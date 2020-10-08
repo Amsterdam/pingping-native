@@ -1,10 +1,17 @@
 import {ApolloClient, createHttpLink, InMemoryCache, gql} from '@apollo/client';
+import {onError} from '@apollo/client/link/error';
+import * as Sentry from '@sentry/react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
 import GET_MODAL_STATE from './Query/getModalState';
 import {API_URL} from '../config/initialSettings';
 import GET_QUESTIONNAIRE_MODAL from './Query/getQuestionnaireModal';
+
+Sentry.init({
+  dsn:
+    'https://a302605b019943859ae466e19980c244@o458828.ingest.sentry.io/5457049',
+});
 
 const inMemoryCache = new InMemoryCache();
 
@@ -21,13 +28,27 @@ const authLink = setContext(async (_, {headers}) => {
   };
 });
 
+const errorLink = onError(({graphQLErrors, networkError}) => {
+  console.log('checking');
+  if (graphQLErrors) {
+    graphQLErrors.map(({message, locations, path}) => {
+      console.log({message, locations, path});
+      return Sentry.captureMessage(message);
+    });
+  }
+  if (networkError) {
+    console.log({networkError});
+    Sentry.captureException(networkError);
+  }
+});
+
 const httpLink = createHttpLink({
   uri: API_URL,
   fetch: unfetch,
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: authLink.concat(errorLink).concat(httpLink),
   cache: inMemoryCache,
   resolvers: {
     Mutation: {

@@ -13,7 +13,7 @@
     "test-ios": "detox test -c ios"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.0-rc.8",
+    "@apollo/client": "^3.2.2",
     "@apollo/link-context": "^2.0.0-beta.3",
     "@react-native-community/async-storage": "^1.10.0",
     "@react-native-community/masked-view": "^0.1.7",
@@ -22,6 +22,7 @@
     "@react-navigation/bottom-tabs": "^5.2.8",
     "@react-navigation/native": "^5.1.7",
     "@react-navigation/stack": "^5.2.14",
+    "@sentry/react-native": "^1.8.2",
     "native-base": "^2.13.12",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
