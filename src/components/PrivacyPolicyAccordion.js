@@ -45,7 +45,7 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
             bijvoorbeeld hoe vaak je de app gebruikt en of het lukt om de route
             af te maken. Zo proberen wij te begrijpen of de app werkt en als het
             nodig is te verbeteren. Deze gegevens slaan we zonder jouw
-            persoonsgegevens op. Praktische vragen over jouw privacy
+            persoonsgegevens op.
           </Body>
           <Body style={styles.faqTitle}>
             Praktische vragen over jouw privacy:
