@@ -154,13 +154,6 @@ const QuestionScreen = ({navigation}) => {
             <View>
               <ProgressBar
                 progress={data.getStatus.currentTask.task.progress}
-                width={50}
-                color={appColors.secondary}
-                unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-                borderWidth={0}
-                height={10}
-                useNativeDriver
-                animationType="timing"
               />
             </View>
           </Right>

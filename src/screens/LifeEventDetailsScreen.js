@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useMutation, useQuery} from '@apollo/client';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import ProgressBar from '../components/ProgressBar';
+import TrophyOrProgress from '../components/TrophyOrProgress';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -89,7 +89,7 @@ function LifeEventDetailsScreen({navigation, route}) {
               <View style={styles.saldo}>
                 <Body style={styles.savings}> {numberOfSteps} stappen</Body>
               </View>
-              <ProgressBar progress={progress} />
+              <TrophyOrProgress progress={progress} />
             </View>
             <Body style={styles.description}>{description}</Body>
             <Title style={styles.subtitle}>De Route</Title>

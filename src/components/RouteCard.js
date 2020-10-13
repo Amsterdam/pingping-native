@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import ProgressBar from './ProgressBar';
 import Title from './typography/Title';
 import Body from './typography/Body';
-import {ppBaseColors, appColors} from '../config/colors';
+import {appColors} from '../config/colors';
 import Card from './Card';
+import TrophyOrProgress from './TrophyOrProgress';
 import {testIDs} from '../../e2e/modulesTestIDs';
 
 const MARGIN = 15;
@@ -48,14 +48,7 @@ const RouteCard = ({
         <View style={styles.saldo}>
           <Body style={styles.savings}>{numberOfSteps} stappen</Body>
         </View>
-        <ProgressBar
-          progress={progress}
-          width={50}
-          color={appColors.secondary}
-          unfilledColor={ppBaseColors.PP_LIGHT_GRAY}
-          borderWidth={0}
-          height={10}
-        />
+        <TrophyOrProgress progress={progress} />
       </View>
     </Card>
   );
@@ -74,7 +67,7 @@ const styles = StyleSheet.create({
     color: appColors.subtleGrey,
   },
   balanceContainer: {
-    marginTop: 10,
+    marginTop: 25,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
