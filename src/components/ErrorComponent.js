@@ -15,20 +15,31 @@ const errorTypes = {
     body:
       'A wild error appeared. It’s super effective. Zo te zien er is iets fout gegaan. Ga terug of probeer de app opnieuw op te starten. Sorry voor het ongemak.',
     illustration: <ErrorIllustration />,
+    label: 'Terug',
   },
   connectionProblem: {
     title: 'Slechte verbinding',
     body:
       'Daar zit je dan zonder internet. Maak opnieuw verbinding met het internet of probeer het later nog eens.',
     illustration: <AstronautSitting />,
+    label: 'Probeer opnieuw',
+  },
+  backEndProblem: {
+    title: 'Het ligt niet aan jou, het ligt aan ons',
+    body:
+      'Er gaat iets niet helemaal goed aan onze kant, we zijn druk bezig met het oplossen van het probleem. Probeer later weer gebruik te maken van Ping Ping.',
+    illustration: <AstronautSitting />,
+    label: 'Probeer opnieuw',
   },
 };
 
 const ErrorComponent = ({
+  disconnected = false,
+  backEndIssue = false,
+  somethingWentWrong = false,
   functionToRetry = () => {},
-  label = '',
-  error = 'somethingWentWrong',
   onPress = () => {},
+  deafultLabelOverRide = '',
 }) => {
   const [refreshing, setRefreshing] = useState(false);
 
@@ -38,7 +49,19 @@ const ErrorComponent = ({
     setRefreshing(false);
   };
 
-  const errorType = errorTypes[error];
+  const determineErrorType = () => {
+    if (disconnected) {
+      return errorTypes.connectionProblem;
+    }
+    if (backEndIssue) {
+      return errorTypes.backEndProblem;
+    }
+    if (somethingWentWrong) {
+      return errorTypes.somethingWentWrong;
+    }
+  };
+
+  const errorType = determineErrorType();
 
   return (
     <Container>
@@ -54,13 +77,16 @@ const ErrorComponent = ({
         {errorType.illustration}
 
         <View style={styles.textContainer}>
-          <Title style={styles.title} align="center" numberOfLines={2}>
+          <Title style={styles.title} align="center" numberOfLines={3}>
             {errorType.title}
           </Title>
           <Body align="center">{errorType.body}</Body>
         </View>
 
-        <Button label={label} onPress={onPress} />
+        <Button
+          label={deafultLabelOverRide ? deafultLabelOverRide : errorType.label}
+          onPress={() => onPress()}
+        />
       </Content>
     </Container>
   );
@@ -73,10 +99,19 @@ const styles = StyleSheet.create({
 });
 
 ErrorComponent.propTypes = {
+  disconnected: PropTypes.bool,
+  backEndIssue: PropTypes.bool,
+  somethingWentWrong: PropTypes.bool,
   functionToRetry: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
-  error: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  deafultLabelOverRide: PropTypes.string,
+};
+
+ErrorComponent.defaultProps = {
+  somethingWentWrong: false,
+  disconnected: false,
+  backEndIssue: false,
+  deafultLabelOverRide: '',
 };
 
 export default ErrorComponent;

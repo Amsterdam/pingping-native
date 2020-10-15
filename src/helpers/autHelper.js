@@ -31,26 +31,36 @@ export async function doRegisterDevice(registerDeviceCallback) {
   }
 }
 
-const userStatus = async (refetch, setLoggedIn, setOnboarder) => {
+const userStatus = async (
+  refetch,
+  setLoggedIn,
+  setOnboarder,
+  setBackEndIssue,
+  setSomethingWentWrong,
+) => {
   try {
-    let me = {};
     const token = await AsyncStorage.getItem('@access_token');
-
-    if (token !== null) {
-      me = await refetch();
+    if (token === null) {
+      return setOnboarder(true); // I AM A NEW USER
     }
+    let me = await refetch();
+    setBackEndIssue(false); // clear any errors from previous retries
+    setSomethingWentWrong(false); // clear any errors from previous retries
     if (me && me.data) {
       if (me.data.getStatus.device.notificationStatus === 'Initial') {
-        console.log('I AM LOGGED IN AND NEED TO GO TO ONBOARDING');
         return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
       }
       return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
     }
-    setOnboarder(true);
-  } catch (e) {
-    console.log({e});
-    setOnboarder(true);
+  } catch (error) {
+    console.log(error);
+    if (error.message === 'unauthorized') {
+      return await AsyncStorage.clear(); // Token is not valid, clear all.
+    }
+    if (error.message === 'undefined') {
+      return setBackEndIssue(true);
+    }
+    return setSomethingWentWrong(true);
   }
 };
-
 export default userStatus;

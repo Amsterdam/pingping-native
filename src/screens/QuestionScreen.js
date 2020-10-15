@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 import NextButtonQuestionScreen from '../components/NextButtonQuestionScreen';
 import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -56,12 +56,12 @@ const QuestionScreen = ({navigation}) => {
     return (
       <ErrorComponent
         functionToRetry={refetch}
-        error="somethingWentWrong"
-        label="terug"
+        somethingWentWrong
         onPress={() => navigation.goBack()}
       />
     );
   }
+
   if (loading) {
     return <Loading />;
   }

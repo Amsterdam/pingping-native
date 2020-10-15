@@ -45,9 +45,9 @@ const RouteHomeScreen = ({navigation}) => {
     return (
       <ErrorComponent
         functionToRetry={routes.refetch}
-        error="somethingWentWrong"
-        label="terug"
-        onPress={() => routes.refetch()}
+        somethingWentWrong
+        onPress={routes.refetch}
+        deafultLabelOverRide="Probeer Opnieuw"
       />
     );
   }

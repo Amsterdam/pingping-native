@@ -51,9 +51,9 @@ const CityPingsHomeScreen = ({navigation}) => {
     return (
       <ErrorComponent
         functionToRetry={retry}
-        error="somethingWentWrong"
-        label="terug"
-        onPress={() => navigation.goBack()}
+        somethingWentWrong
+        deafultLabelOverRide="Probeer Opnieuw"
+        onPress={availableRewards.refetch}
       />
     );
   }

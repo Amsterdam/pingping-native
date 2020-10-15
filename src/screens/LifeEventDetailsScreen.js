@@ -39,9 +39,8 @@ function LifeEventDetailsScreen({navigation, route}) {
     return (
       <ErrorComponent
         functionToRetry={refetch}
-        error="somethingWentWrong"
-        label="terug"
-        onPress={() => navigation.goBack()}
+        somethingWentWrong
+        onPress={navigation.goBack}
       />
     );
   }

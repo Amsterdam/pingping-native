@@ -20,19 +20,21 @@ export default function App() {
       // otherwise we present the user with a no connections screen
       if (netInfoState.isInternetReachable === true) {
         setConnected(true);
-        userStatus(refetch, setLoggedIn, setOnboarder); // this function controls the AuthState of the app, onboarder/loggedin
+        checkUserStatus(); // this function controls the AuthState of the app, onboarder/loggedin
       }
       if (netInfoState.isInternetReachable === false) {
         setConnected(false);
       }
     });
-  }, [refetch]);
+  }, [checkUserStatus]);
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [onboarder, setOnboarder] = React.useState(false);
   const [connected, setConnected] = React.useState(null);
-  const {refetch, error} = useQuery(GET_STATUS_QUERY, {
-    fetchPolicy: 'cache-and-network',
+  const [backEndIssue, setBackEndIssue] = React.useState(false);
+  const [somethingWentWrong, setSomethingWentWrong] = React.useState(false);
+  const {refetch} = useQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'network-only',
     skip: 'true',
   });
 
@@ -45,24 +47,26 @@ export default function App() {
     setOnboarder(true);
   };
 
+  const checkUserStatus = React.useCallback(() => {
+    userStatus(
+      refetch,
+      setLoggedIn,
+      setOnboarder,
+      setBackEndIssue,
+      setSomethingWentWrong,
+    );
+  }, [refetch]);
+
   const renderApp = () => {
-    if (connected === false) {
+    if (connected === false || somethingWentWrong || backEndIssue) {
       return (
         <ErrorComponent
-          functionToRetry={refetch}
-          error="connectionProblem"
-          label="Probeer opnieuw"
-          onPress={() => refetch()}
-        />
-      );
-    }
-    if (error && loggedIn) {
-      return (
-        <ErrorComponent
-          functionToRetry={refetch}
-          error="somethingWentWrong"
-          label="Probeer opnieuw"
-          onPress={() => refetch()}
+          functionToRetry={checkUserStatus}
+          onPress={checkUserStatus}
+          disconnected={!connected}
+          backEndIssue={backEndIssue}
+          somethingWentWrong={somethingWentWrong}
+          deafultLabelOverRide="Probeer Opnieuw"
         />
       );
     }
