@@ -86,7 +86,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
             als er een nieuwe route is toegevoegd?
           </Body>
         </View>
-        <View style={styles.buttonContainer}>
+        <View>
           <Button
             style={styles.button}
             onPress={acceptNotifications}
@@ -119,11 +119,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: appColors.subText,
     fontSize: 14,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
   },
   button: {
     backgroundColor: appColors.primary,
