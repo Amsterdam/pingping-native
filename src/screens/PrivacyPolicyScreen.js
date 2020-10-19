@@ -12,7 +12,7 @@ import FloppyDisk from '../assets/svg/FloppyDisk';
 import {appColors} from '../config/colors';
 import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
 import SimpleHeader from '../components/header/SimpleHeader';
-import {doRegisterDevice} from '../helpers/autHelper';
+import {doRegisterDevice} from '../helpers/authHelper';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import Loading from '../components/LoadingComponent';
 import {testIDs} from '../../e2e/modulesTestIDs';

@@ -15,7 +15,7 @@ const Card = ({
   pings = 0,
   style = {},
   mini = false,
-  mainColor,
+  mainColor = '',
   testID = '',
   disabled = false,
   disabledString = '',
@@ -80,6 +80,7 @@ Card.propTypes = {
   mainColor: PropTypes.string,
   testID: PropTypes.string,
   disabledString: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 };
 
 Card.defaultProps = {

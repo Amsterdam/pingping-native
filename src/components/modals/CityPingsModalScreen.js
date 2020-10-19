@@ -17,9 +17,9 @@ import RouteCard from '../RouteCard';
 import RewardCardMini from '../RewardCardMini';
 import ChevronButton from '../ChevronButton';
 import GET_STATUS_QUERY from '../../apollo/Query/getStatusQuery';
+import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const HEADER_HEIGHT = 200;
-const BORDER_RADIUS = 5;
 
 const CityPingsModal = ({navigation, route}) => {
   const {pings} = route.params;

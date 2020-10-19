@@ -35,7 +35,6 @@ const INITIAL_STATE = {
 };
 
 const QuestionScreen = ({navigation}) => {
-  // refactor this
   const [state, setState] = useState(INITIAL_STATE);
   const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
   const [loadingQuestion, setLoadingQuestion] = useState(false);
