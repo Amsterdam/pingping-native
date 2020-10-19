@@ -38,7 +38,8 @@ const RouteCard = ({
       imageUrl={coverImageUrl}
       thumbnailUrl={thumbnailUrl}
       mainColor={mainColor}
-      testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}>
+      testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}
+      disabled={numberOfSteps === 0}>
       <Body style={styles.rewardType}>{targetAudience}</Body>
       <Title style={styles.title}>{title}</Title>
       <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>

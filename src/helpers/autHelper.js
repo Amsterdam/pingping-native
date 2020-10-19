@@ -63,4 +63,5 @@ const userStatus = async (
     return setSomethingWentWrong(true);
   }
 };
+
 export default userStatus;

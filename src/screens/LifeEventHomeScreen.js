@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: '#000',
-    marginVertical: 20,
+    marginVertical: 10,
     fontSize: 24,
     textAlign: 'left',
   },
