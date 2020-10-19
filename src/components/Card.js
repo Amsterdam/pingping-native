@@ -77,9 +77,9 @@ Card.propTypes = {
   style: PropTypes.object,
   mini: PropTypes.bool,
   disabled: PropTypes.bool,
-  mainColor: PropTypes.string.isRequired,
-  testID: PropTypes.string.isRequired,
-  disabledString: PropTypes.string.isRequired,
+  mainColor: PropTypes.string,
+  testID: PropTypes.string,
+  disabledString: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -87,6 +87,9 @@ Card.defaultProps = {
   style: {},
   mini: false,
   disabled: false,
+  testID: '',
+  mainColor: '',
+  disabledString: '',
 };
 
 export default Card;
