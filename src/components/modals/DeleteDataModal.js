@@ -42,6 +42,7 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
                 onPress={closeModal}
                 loading={loading}
                 disabled={loading}
+                full
               />
               <OnboardingButton
                 iconName="delete"
@@ -52,6 +53,7 @@ const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
                 loading={loading}
                 disabled={loading}
                 testid={testIDs.DELETE_DATA.DELETE_DATA_MODAL_BUTTON}
+                full
               />
             </View>
           </View>

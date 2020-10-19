@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     paddingLeft: 0,
     paddingRight: 0,
-    justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
   },
   nextButtonDisabled: {
     color: appColors.greyedOut,

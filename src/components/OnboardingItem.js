@@ -26,7 +26,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
         <Title style={styles.title}>{view.title}</Title>
         <Body style={styles.onboardingText}>{view.text}</Body>
       </View>
-      <View style={styles.buttonContainer}>
+      <View>
         <Button
           style={styles.button}
           onPress={navigator}
@@ -57,11 +57,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: appColors.subText,
     fontSize: 16,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
   },
   button: {
     backgroundColor: appColors.primary,

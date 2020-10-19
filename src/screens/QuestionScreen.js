@@ -176,12 +176,11 @@ const QuestionScreen = ({navigation}) => {
                 state={state}
                 navigation={navigation}
               />
-              <View style={styles.buttonContainer}>
-                <NextButtonQuestionScreen
-                  nextButtonDisabled={nextButtonDisabled}
-                  submitAnswer={submitAnswer}
-                />
-              </View>
+
+              <NextButtonQuestionScreen
+                nextButtonDisabled={nextButtonDisabled}
+                submitAnswer={submitAnswer}
+              />
             </Animatable.View>
           )}
           {loadingQuestion && <Loading />}
@@ -201,9 +200,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: appColors.primary,
   },
-  buttonContainer: {
-    justifyContent: 'flex-end',
-  },
+
   icon: {
     color: '#000',
     fontSize: 32,

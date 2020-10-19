@@ -4,15 +4,16 @@ import {Button, Text, Icon} from 'native-base';
 import {appColors, ppBaseColors} from '../config/colors';
 
 const OnboardingButton = ({
-  label,
+  label = '',
   disabled = false,
-  onPress,
+  onPress = () => {},
   deleteButton = false,
   iconName = null,
   iconType = null,
   style = {},
   loading = false,
-  testid,
+  testid = '',
+  full = false,
 }) => {
   return (
     <Button
@@ -22,6 +23,7 @@ const OnboardingButton = ({
         deleteButton && styles.deleteButton,
         style,
       ]}
+      full={full}
       testID={testid}
       disabled={disabled}
       onPress={onPress}>
