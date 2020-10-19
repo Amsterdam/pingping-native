@@ -13,7 +13,7 @@ import {appColors} from '../../config/colors';
 import GET_MODAL_STATE from '../../apollo/Query/getModalState';
 import TOGGLE_MODAL from '../../apollo/Mutation/toggleModal';
 import CitypingsChip from '../CitypingsChip';
-import commonStyles from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
 import CityPingsCoin from '../../assets/svg/CityPingCoin';
 import RouteCard from '../RouteCard';
 import RewardCardMini from '../RewardCardMini';

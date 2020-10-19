@@ -11,7 +11,7 @@ import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import CitypingsChip from '../CitypingsChip';
-import commonStyles from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
 import CityPingsCoin from '../../assets/svg/CityPingCoin';
 import RouteCard from '../RouteCard';
 import RewardCardMini from '../RewardCardMini';

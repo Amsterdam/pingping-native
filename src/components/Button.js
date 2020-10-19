@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../config/colors';
-import commonStyles from '../config/commonStyles';
+import {commonStyles} from '../config/commonStyles';
 
 const styles = StyleSheet.create({
   button: {

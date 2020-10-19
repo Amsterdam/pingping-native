@@ -1,36 +1,25 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import ProgressiveImage from '../components/ProgressiveImage';
-import commonStyles from '../config/commonStyles';
 import CitypingsChip from './CitypingsChip';
 import {BASE_URL} from '../config/initialSettings';
-import Title from './typography/Title';
-
-const BORDER_RADIUS = 5;
+import {commonStyles, BORDER_RADIUS} from '../config/commonStyles';
+import CardDisabledOverlay from '../components/CardDisabledOverlay';
 
 const Card = ({
   onPress = () => {},
   children,
   imageUrl = '',
-  thumbnailUrl,
+  thumbnailUrl = '',
   pings = 0,
   style = {},
   mini = false,
   mainColor,
   testID = '',
   disabled = false,
+  disabledString = '',
 }) => {
-  const disabledOverlay = () => {
-    return (
-      <View style={styles.disabledStyle}>
-        <View style={styles.disabledBox}>
-          <Title style={styles.disabledText}>
-            Deze route is nog niet beschikbaar
-          </Title>
-        </View>
-      </View>
-    );
-  };
   return (
     <View style={[styles.paper, style]} testID={testID}>
       <TouchableOpacity onPress={onPress}>
@@ -49,7 +38,8 @@ const Card = ({
           <View style={styles.descriptionContainer}>{children}</View>
         </View>
       </TouchableOpacity>
-      {disabled && disabledOverlay()}
+
+      {disabled && <CardDisabledOverlay disabledString={disabledString} />}
     </View>
   );
 };
@@ -61,29 +51,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
     marginVertical: 10,
-  },
-  disabledStyle: {
-    backgroundColor: 'rgba(255,255,255,0.7)',
-    position: 'absolute',
-    right: 0,
-    left: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  disabledText: {
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  disabledBox: {
-    ...commonStyles.shadow,
-    borderRadius: BORDER_RADIUS,
-    backgroundColor: '#fff',
-    padding: 20,
-    width: '70%',
   },
   imageContainer: {
     position: 'relative',
@@ -102,5 +69,24 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+Card.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  thumbnailUrl: PropTypes.string.isRequired,
+  pings: PropTypes.number,
+  style: PropTypes.object,
+  mini: PropTypes.bool,
+  disabled: PropTypes.bool,
+  mainColor: PropTypes.string.isRequired,
+  testID: PropTypes.string.isRequired,
+  disabledString: PropTypes.string.isRequired,
+};
+
+Card.defaultProps = {
+  pings: 0,
+  style: {},
+  mini: false,
+  disabled: false,
+};
 
 export default Card;

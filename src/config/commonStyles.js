@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const commonStyles = StyleSheet.create({
+export const commonStyles = StyleSheet.create({
   logoFont: {
     fontSize: 50,
     letterSpacing: 3,
@@ -49,4 +49,4 @@ const commonStyles = StyleSheet.create({
   },
 });
 
-export default commonStyles;
+export const BORDER_RADIUS = 5;

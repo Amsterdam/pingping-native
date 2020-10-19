@@ -39,7 +39,8 @@ const RouteCard = ({
       thumbnailUrl={thumbnailUrl}
       mainColor={mainColor}
       testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}
-      disabled={numberOfSteps === 0}>
+      disabled={numberOfSteps === 0}
+      disabledString="Deze route is nog niet beschikbaar">
       <Body style={styles.rewardType}>{targetAudience}</Body>
       <Title style={styles.title}>{title}</Title>
       <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>
