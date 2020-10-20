@@ -43,7 +43,6 @@ const onboardingViews = [
 
 const OnboardingScreen = ({navigation}) => {
   const [swiper, setSwiper] = useState(null);
-  const [guided, setGuided] = useState(false);
   const swiperRef = useRef(null);
   const {data} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-only',
@@ -62,10 +61,9 @@ const OnboardingScreen = ({navigation}) => {
       if (data.getStatus.previousTask && data.getStatus.currentTask) {
         navigation.navigate('QuestionScreen');
       }
-      setGuided(true); // this is used as an hack because react native navigation keeps screens mounted and we only want to guide the user once
     };
-    data && !guided && guideUser();
-  }, [swiper, data, navigation, guided]);
+    data && guideUser();
+  }, [swiper, data, navigation]);
 
   return (
     <Container testID={testIDs.ONBOARDING.SCREEN}>
