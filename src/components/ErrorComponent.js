@@ -86,6 +86,7 @@ const ErrorComponent = ({
         <Button
           label={deafultLabelOverRide ? deafultLabelOverRide : errorType.label}
           onPress={() => onPress()}
+          style={styles.button}
         />
       </Content>
     </Container>
@@ -96,6 +97,7 @@ const styles = StyleSheet.create({
   container: {justifyContent: 'space-evenly', alignItems: 'center', flex: 1},
   textContainer: {alignItems: 'center', padding: 30},
   title: {fontSize: 30, marginBottom: 24},
+  button: {alignSelf: 'center'},
 });
 
 ErrorComponent.propTypes = {
