@@ -3,6 +3,7 @@ import {gql} from '@apollo/client';
 const GET_STATUS_QUERY = gql`
   query getStatus {
     getStatus {
+      exportToken
       user {
         balance
       }

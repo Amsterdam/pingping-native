@@ -15,7 +15,9 @@ const AccountStack = ({setLogOut}) => (
     <Stack.Screen name="DeleteData">
       {(props) => <DeleteDataScreen {...props} setLogOut={setLogOut} />}
     </Stack.Screen>
-    <Stack.Screen name="ExportData" component={ExportDataScreen} />
+    <Stack.Screen name="ExportData">
+      {(props) => <ExportDataScreen {...props} setLogOut={setLogOut} />}
+    </Stack.Screen>
   </Stack.Navigator>
 );
 

@@ -2,17 +2,23 @@ import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
+import {useLazyQuery, useMutation} from '@apollo/client';
+import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import QrScanner from '../components/QrScanner';
 import LabeledHeader from '../components/header/LabeledHeader';
-import IMPORT_USER_MUTATION from '../apollo/Mutation/importUserMutation';
-import {useMutation} from '@apollo/client';
+import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
+import {doRegisterDevice} from '../helpers/authHelper';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 
 const ImportDataScreen = ({navigation}) => {
-  const [importUser] = useMutation(IMPORT_USER_MUTATION);
+  const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
+  const [getStatus] = useLazyQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'network-only',
+  });
   const [scanning, setScanning] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -21,12 +27,14 @@ const ImportDataScreen = ({navigation}) => {
     setScanning(false);
     setLoading(true);
     try {
-      await importUser({variables: {exportToken}});
+      await doRegisterDevice(registerDevice, exportToken);
+      await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
+      getStatus();
       setScanning(false);
       setLoading(false);
     } catch (error) {
       setScanning(true);
-      console.log('error');
+      console.log(error);
     }
   };
 
