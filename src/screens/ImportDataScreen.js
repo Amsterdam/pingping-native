@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import {useLazyQuery, useMutation} from '@apollo/client';
+import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
@@ -27,6 +28,7 @@ const ImportDataScreen = ({navigation}) => {
     setLoading(true);
     try {
       await doRegisterDevice(registerDevice, exportToken);
+      await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
       getStatus();
       setScanning(false);
       setLoading(false);

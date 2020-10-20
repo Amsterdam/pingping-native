@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import {useQuery} from '@apollo/client';
+import AsyncStorage from '@react-native-community/async-storage';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -10,12 +11,27 @@ import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import QrCode from '../components/QrCode';
 import {appColors} from '../config/colors';
+import {resetStore} from '../apollo/apolloClient';
 
-const ExportDataScreen = ({navigation}) => {
-  const {data, loading, error} = useQuery(GET_STATUS_QUERY, {
-    pollInterval: 500,
+const ExportDataScreen = ({navigation, setLogOut}) => {
+  const {data, error} = useQuery(GET_STATUS_QUERY, {
+    pollInterval: 1000,
+    fetchPolicy: 'network-only',
   });
   const exportToken = data?.getStatus?.exportToken;
+
+  useEffect(() => {
+    async function checkForErrors() {
+      if (error?.message === 'unauthorized') {
+        await AsyncStorage.clear();
+        setLogOut();
+        resetStore();
+      }
+    }
+    checkForErrors();
+  }, [error, setLogOut]);
+
+  console.log(error);
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Profiel" />
@@ -68,6 +84,7 @@ const styles = StyleSheet.create({
 
 ExportDataScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
+  setLogOut: PropTypes.func.isRequired,
 };
 
 export default ExportDataScreen;
