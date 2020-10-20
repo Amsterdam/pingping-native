@@ -134,8 +134,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 		missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 19
-        versionName "0.0.21"
+        versionCode 20
+        versionName "0.0.22"
 		multiDexEnabled true
     }
     splits {
