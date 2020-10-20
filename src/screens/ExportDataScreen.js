@@ -2,18 +2,20 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
-// import {useMutation} from '@apollo/client';
-// import EXPORT_USER_MUTATION from '../apollo/Mutation/exportUserMutation';
+import {useQuery} from '@apollo/client';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import QRCode from 'react-native-qrcode-svg';
+import QrCode from '../components/QrCode';
 import {appColors} from '../config/colors';
 
 const ExportDataScreen = ({navigation}) => {
-  //   const [exportUser, {data}] = useMutation(EXPORT_USER_MUTATION);
-
+  const {data, loading, error} = useQuery(GET_STATUS_QUERY, {
+    pollInterval: 500,
+  });
+  const exportToken = data?.getStatus?.exportToken;
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Profiel" />
@@ -31,9 +33,7 @@ const ExportDataScreen = ({navigation}) => {
             het!
           </Body>
           <View style={styles.qrContainer}>
-            <View style={styles.qrCode}>
-              <QRCode value="http://awesome.link.qr" size={200} />
-            </View>
+            <QrCode exportToken={exportToken} />
           </View>
         </ContentLayout>
       </Content>

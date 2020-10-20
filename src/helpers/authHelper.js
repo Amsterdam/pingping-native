@@ -1,7 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
 
-export async function doRegisterDevice(registerDeviceCallback) {
+export async function doRegisterDevice(
+  registerDeviceCallback = () => {},
+  exportToken = '',
+) {
   try {
     const deviceId = DeviceInfo.getUniqueId();
     const deviceType = DeviceInfo.getDeviceType();
@@ -18,6 +21,7 @@ export async function doRegisterDevice(registerDeviceCallback) {
         deviceId,
         deviceType,
         deviceOs,
+        exportToken,
       },
     });
     await AsyncStorage.setItem('@access_token', accessToken);

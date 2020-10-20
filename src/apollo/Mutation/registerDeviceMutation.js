@@ -5,9 +5,15 @@ const REGISTER_DEVICE_MUTATION = gql`
     $deviceId: String!
     $deviceOs: String
     $deviceType: String
+    $exportToken: String
   ) {
     registerDevice(
-      input: {deviceId: $deviceId, deviceOs: $deviceOs, deviceType: $deviceType}
+      input: {
+        deviceId: $deviceId
+        deviceOs: $deviceOs
+        deviceType: $deviceType
+        exportToken: $exportToken
+      }
     ) {
       accessToken
       user {
