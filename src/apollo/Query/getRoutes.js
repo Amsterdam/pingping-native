@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import ROUTES_ATTRIBUTES from '../Fragment/routesAttributes';
+import ROUTES_FRAGMENT from '../Fragment/routesFragment';
 
 const GET_ROUTES_QUERY = gql`
   query GET_ROUTES_QUERY {
@@ -15,7 +15,7 @@ const GET_ROUTES_QUERY = gql`
       }
     }
   }
-  ${ROUTES_ATTRIBUTES}
+  ${ROUTES_FRAGMENT}
 `;
 
 export default GET_ROUTES_QUERY;

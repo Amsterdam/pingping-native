@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client';
 
-const ROUTES_ATTRIBUTES = gql`
+const ROUTES_FRAGMENT = gql`
   fragment RoutesFragment on RouteResponse {
     routeId
     title
@@ -36,4 +36,4 @@ const ROUTES_ATTRIBUTES = gql`
   }
 `;
 
-export default ROUTES_ATTRIBUTES;
+export default ROUTES_FRAGMENT;

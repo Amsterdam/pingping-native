@@ -127,7 +127,7 @@ const CityPingsModal = ({navigation, route}) => {
         </Content>
         <View style={styles.underLayer} />
         <ConfettiCannon
-          count={300}
+          count={200}
           origin={{x: 0, y: -100}}
           explosionSpeed={250}
           fallSpeed={10000}

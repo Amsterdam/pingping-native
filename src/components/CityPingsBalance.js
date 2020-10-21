@@ -5,8 +5,10 @@ import ProgressBar from './ProgressBar';
 import CityPingCoin from '../assets/svg/CityPingCoin';
 import {appColors} from '../config/colors';
 import Body from './typography/Body';
+import ClaimedTickets from '../assets/svg/ClaimedTickets';
 
 const CityPingsBalance = ({price, balance}) => {
+  const progress = price / balance;
   return (
     <View style={styles.balanceContainer}>
       <View style={styles.saldo}>
@@ -15,7 +17,7 @@ const CityPingsBalance = ({price, balance}) => {
           {balance} / {price} CityPings
         </Body>
       </View>
-      <ProgressBar progress={balance / price} />
+      <ProgressBar progress={progress} />
     </View>
   );
 };
