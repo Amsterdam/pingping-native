@@ -13,7 +13,7 @@ const RewardCard = ({
 }) => {
   const doNavigation = () => {
     navigation.navigate('CityPings', {
-      screen: 'RewardDetailModal',
+      screen: 'RewardDetailModalScreen',
       initial: false,
       params: {
         price,
