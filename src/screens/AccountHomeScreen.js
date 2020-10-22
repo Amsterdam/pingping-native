@@ -37,7 +37,7 @@ const AccountHomeScreen = ({navigation}) => {
       <SimpleHeader title="Gegevens" />
       <FlatList
         data={buttons}
-        contentContainerStyle={styles.container}
+        contentContainerStyle={styles.flatList}
         columnWrapperStyle={styles.flatListColumn}
         renderItem={({item}) => (
           <AccountBlockButton button={item} navigation={navigation} />
@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: appColors.almostNotBlue,
+  },
+  flatList: {
+    backgroundColor: appColors.almostNotBlue,
+    marginTop: 12,
   },
 });
 
