@@ -88,10 +88,14 @@ const client = new ApolloClient({
           query: gql`
             {
               claimedRewardModalOpen
+              rewardId
+              title
+              description
+              imageUrl
             }
           `,
           data: {
-            claimedRewardModalOpen: variables.claimedRewardModalOpen,
+            ...variables,
           },
         });
         return null;
@@ -117,7 +121,11 @@ async function writeInitialData() {
   await inMemoryCache.writeQuery({
     query: GET_CLAIMED_REWARD_MODAL,
     data: {
-      claimedRewardModalOpen: true,
+      claimedRewardModalOpen: false,
+      title: '',
+      description: '',
+      imageUrl: '',
+      rewardId: '',
     },
   });
 

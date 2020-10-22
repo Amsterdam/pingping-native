@@ -7,17 +7,17 @@ import Button from '../OnboardingButton';
 import ContentLayout from '../layout/ContentLayout';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
-import VaultImage from '../../assets/vault.png';
+import {BASE_URL} from '../../config/initialSettings';
 import ModalLayout from './ModalLayout';
 import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
 import GET_CLAIMED_REWARD_MODAL from '../../apollo/Query/Local/getClaimedRewardModalState';
+import ClaimedTicketsLarge from '../../assets/svg/ClaimedTicketsLarge';
 
 const ClaimedRewardModal = ({navigation}) => {
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
   const {data} = useQuery(GET_CLAIMED_REWARD_MODAL);
 
   const closeModal = async () => {
-    console.log('closing');
     await claimedRewardModal({
       variables: {
         claimedRewardModalOpen: false,
@@ -26,25 +26,27 @@ const ClaimedRewardModal = ({navigation}) => {
   };
 
   if (data && data.claimedRewardModalOpen) {
-    const {claimedRewardModalOpen} = data;
-    console.log(claimedRewardModalOpen);
+    const {claimedRewardModalOpen, title, description, imageUrl} = data;
+    console.log(data);
     return (
       <ModalLayout
         modalOpen={claimedRewardModalOpen}
-        image={VaultImage}
+        image={{uri: `${BASE_URL}${imageUrl}`}}
         closeModal={closeModal}
         navigation={navigation}>
-        <ContentLayout>
+        <ContentLayout style={styles.container}>
           <View style={styles.textContainer}>
-            <Title>{data.title}</Title>
-            <Body>{data.description}</Body>
+            <Title>{title}</Title>
+            <Body>{description}</Body>
           </View>
-
-          <Button
-            style={styles.button}
-            onPress={() => {}}
-            label="Bekijk je code"
-          />
+          <View style={styles.illustrationButtonContainer}>
+            <ClaimedTicketsLarge style={styles.illustration} />
+            <Button
+              style={styles.button}
+              onPress={() => {}}
+              label="Bekijk je code"
+            />
+          </View>
         </ContentLayout>
       </ModalLayout>
     );
@@ -53,8 +55,16 @@ const ClaimedRewardModal = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {flex: 1, height: '100%'},
   button: {
     alignSelf: 'center',
+  },
+  illustration: {
+    alignSelf: 'center',
+  },
+  illustrationButtonContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
   },
 });
 

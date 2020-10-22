@@ -1,8 +1,20 @@
 import {gql} from '@apollo/client';
 
 const CLAIMED_REWARD_MODAL = gql`
-  mutation claimedRewardModal($claimedRewardModalOpen: Boolean!) {
-    claimedRewardModal(claimedRewardModalOpen: $claimedRewardModalOpen) @client
+  mutation claimedRewardModal(
+    $claimedRewardModalOpen: Boolean!
+    $title: String!
+    $description: String!
+    $imageUrl: String!
+    $rewardId: String!
+  ) {
+    claimedRewardModal(
+      claimedRewardModalOpen: $claimedRewardModalOpen
+      title: $title
+      description: $description
+      imageUrl: $imageUrl
+      rewardId: $rewardId
+    ) @client
   }
 `;
 

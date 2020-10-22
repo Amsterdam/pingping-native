@@ -20,11 +20,16 @@ const RewardCard = ({
 
   const doNavigation = async () => {
     if (claimed) {
-      return await claimedRewardModal({
+      await claimedRewardModal({
         variables: {
-          claimedRewardModal: true,
+          claimedRewardModalOpen: true,
+          title,
+          imageUrl,
+          rewardId,
+          description,
         },
       });
+      return;
     }
     navigation.navigate('RewardDetailModalScreen', {
       price,
