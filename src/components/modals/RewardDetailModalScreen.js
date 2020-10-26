@@ -12,7 +12,7 @@ import {appColors} from '../../config/colors';
 import CityPingsBalance from '../CityPingsBalance';
 import Button from '../OnboardingButton';
 
-function RewardDetailModal({navigation, route}) {
+function RewardDetailModalScreen({navigation, route}) {
   const {
     balance,
     price,
@@ -26,12 +26,12 @@ function RewardDetailModal({navigation, route}) {
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
 
   const doClaimReward = async () => {
-    Toast.show({
-      text: 'Het is op dit moment nog niet mogelijk om een reward te claimen',
-      textStyle: {fontFamily: 'Raleway-Regular'},
-      style: {backgroundColor: '#000', borderRadius: 10},
-      duration: 2000,
-    }); // change the error message once complete
+    // Toast.show({
+    //   text: 'Het is op dit moment nog niet mogelijk om een reward te claimen',
+    //   textStyle: {fontFamily: 'Raleway-Regular'},
+    //   style: {backgroundColor: '#000', borderRadius: 10},
+    //   duration: 2000,
+    // }); // change the error message once complete
     try {
       const claimResponse = await claimReward({
         variables: {
@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
   },
 });
 
-RewardDetailModal.propTypes = {
+RewardDetailModalScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
 };
 
-export default RewardDetailModal;
+export default RewardDetailModalScreen;

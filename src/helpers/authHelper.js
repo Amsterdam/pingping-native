@@ -59,7 +59,8 @@ const userStatus = async (
   } catch (error) {
     console.log(error);
     if (error.message === 'unauthorized') {
-      return await AsyncStorage.clear(); // Token is not valid, clear all.
+      await AsyncStorage.clear(); // Token is not valid, clear all.
+      setOnboarder(true);
     }
     if (error.message === 'undefined') {
       return setBackEndIssue(true);

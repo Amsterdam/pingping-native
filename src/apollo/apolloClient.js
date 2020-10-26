@@ -4,9 +4,10 @@ import * as Sentry from '@sentry/react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
-import GET_MODAL_STATE from './Query/getModalState';
+import GET_MODAL_STATE from './Query/Local/getModalState';
 import {API_URL} from '../config/initialSettings';
-import GET_QUESTIONNAIRE_MODAL from './Query/getQuestionnaireModal';
+import GET_QUESTIONNAIRE_MODAL from './Query/Local/getQuestionnaireModal';
+import GET_CLAIMED_REWARD_MODAL from './Query/Local/getClaimedRewardModalState';
 
 Sentry.init({
   dsn:
@@ -82,6 +83,27 @@ const client = new ApolloClient({
         });
         return null;
       },
+      claimedRewardModal: (_root, variables, {cache}) => {
+        cache.writeQuery({
+          query: gql`
+            {
+              claimedRewardModalOpen
+              data {
+                pin
+                code
+              }
+              rewardId
+              title
+              description
+              imageUrl
+            }
+          `,
+          data: {
+            ...variables,
+          },
+        });
+        return null;
+      },
     },
   },
 });
@@ -98,6 +120,17 @@ async function writeInitialData() {
     query: GET_QUESTIONNAIRE_MODAL,
     data: {
       questionnaireModalOpen: false,
+    },
+  });
+  await inMemoryCache.writeQuery({
+    query: GET_CLAIMED_REWARD_MODAL,
+    data: {
+      claimedRewardModalOpen: false,
+      data: {pin: '', code: ''},
+      title: '',
+      description: '',
+      imageUrl: '',
+      rewardId: '',
     },
   });
 

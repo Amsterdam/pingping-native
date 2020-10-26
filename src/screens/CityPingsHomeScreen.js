@@ -14,10 +14,11 @@ import Title from '../components/typography/Title';
 import RewardCard from '../components/RewardCard';
 import {appColors} from '../config/colors';
 import CitypingsChip from '../components/CitypingsChip';
-import YourPerformanceOverview from '../components/YourPerformanceOverview';
+import ClaimedRewardsList from '../components/ClaimedRewardsList';
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/ErrorComponent';
+import ClaimedRewardsModal from '../components/modals/ClaimedRewardModal';
 
 const CityPingsHomeScreen = ({navigation}) => {
   React.useEffect(() => {
@@ -58,8 +59,8 @@ const CityPingsHomeScreen = ({navigation}) => {
     );
   }
 
-  const balance =
-    me.data && me.data.getStatus && me.data.getStatus.user.balance; // maybe move this part to either localstate or the tabnavigator
+  const balance = me?.data?.getStatus?.user.balance; // maybe move this part to either localstate or the tabnavigator
+  const claimedRewards = me?.data?.getStatus?.user.rewards;
 
   return (
     <Container style={styles.container}>
@@ -100,10 +101,15 @@ const CityPingsHomeScreen = ({navigation}) => {
             </ContentLayout>
           </Content>
         </Tab>
-        <Tab heading="Mijn prestaties" {...TAB_STYLE}>
-          <YourPerformanceOverview />
+        <Tab heading="Mijn Rewards" {...TAB_STYLE}>
+          <ClaimedRewardsList
+            claimedRewards={claimedRewards}
+            navigation={navigation}
+            balance={balance}
+          />
         </Tab>
       </Tabs>
+      <ClaimedRewardsModal navigation={navigation} />
     </Container>
   );
 };

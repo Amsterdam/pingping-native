@@ -5,7 +5,7 @@ import ContentLayout from './layout/ContentLayout';
 import RewardBlock from './RewardBlock';
 import GET_ACHIEVEMENTS_QUERY from '../apollo/Query/getAchievements';
 
-const YourPerformanceScreen = () => {
+const YourPerformanceOverview = () => {
   const {data} = useQuery(GET_ACHIEVEMENTS_QUERY);
   return (
     <ContentLayout style={styles.content}>
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default YourPerformanceScreen;
+export default YourPerformanceOverview;

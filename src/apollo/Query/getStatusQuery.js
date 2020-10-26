@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+import REWARD_FRAGMENT from '../Fragment/rewardFragment';
 
 const GET_STATUS_QUERY = gql`
   query getStatus {
@@ -6,6 +7,15 @@ const GET_STATUS_QUERY = gql`
       exportToken
       user {
         balance
+        rewards {
+          id
+          reward {
+            ...RewardFragment
+          }
+          status
+          barcodeImageUrl
+          data
+        }
       }
       device {
         id
@@ -39,6 +49,7 @@ const GET_STATUS_QUERY = gql`
       }
     }
   }
+  ${REWARD_FRAGMENT}
 `;
 
 export default GET_STATUS_QUERY;

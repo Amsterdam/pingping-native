@@ -14,7 +14,7 @@ import TipsChip from '../components/TipsChip';
 import RouteTaskRow from '../components/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/ErrorComponent';
-import QUESTIONNAIRE_MODAL from '../apollo/Mutation/questionnaireModal';
+import QUESTIONNAIRE_MODAL from '../apollo/Mutation/Local/questionnaireModal';
 import Loading from '../components/LoadingComponent';
 
 const screenHeight = Dimensions.get('window').height;

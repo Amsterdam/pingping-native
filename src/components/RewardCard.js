@@ -1,19 +1,39 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
+import {useMutation} from '@apollo/client';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import CityPingsBalance from './CityPingsBalance';
 import Card from './Card';
 import {appColors} from '../config/colors';
+import ClaimedTickets from '../assets/svg/ClaimedTickets';
+import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';
 
 const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
+  data,
   balance = 0,
+  claimed = false,
 }) => {
-  const doNavigation = () => {
-    navigation.navigate('RewardDetailModal', {
+  const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
+
+  const doNavigation = async () => {
+    if (claimed) {
+      await claimedRewardModal({
+        variables: {
+          claimedRewardModalOpen: true,
+          data,
+          title,
+          imageUrl,
+          rewardId,
+          description,
+        },
+      });
+      return;
+    }
+    navigation.navigate('RewardDetailModalScreen', {
       price,
       balance,
       description,
@@ -32,11 +52,15 @@ const RewardCard = ({
       thumbnailUrl={thumbnailUrl}>
       <View style={styles.descriptionContainer}>
         <Body style={styles.rewardType}>Reward</Body>
-        <Title style={styles.description}>{title}</Title>
+        <Title style={styles.title}>{title}</Title>
         <Body numberOfLines={3} ellipsizeMode="tail">
           {description}
         </Body>
-        <CityPingsBalance price={price} balance={balance} />
+        {claimed ? (
+          <ClaimedTickets style={styles.illustration} />
+        ) : (
+          <CityPingsBalance price={price} balance={balance} />
+        )}
       </View>
     </Card>
   );
@@ -44,25 +68,29 @@ const RewardCard = ({
 
 const styles = StyleSheet.create({
   descriptionContainer: {
-    padding: 20,
+    paddingHorizontal: 10,
   },
-  description: {
+  title: {
     fontSize: 20,
+    marginBottom: 10,
   },
   rewardType: {
     color: appColors.primary,
-    marginBottom: 5,
+    marginBottom: 10,
   },
+  illustration: {alignSelf: 'flex-end'},
 });
 
 RewardCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
   balance: PropTypes.number,
+  claimed: PropTypes.bool,
 };
 
 RewardCard.defaultProps = {
   balance: 0,
+  claimed: false,
 };
 
 export default memo(RewardCard);
