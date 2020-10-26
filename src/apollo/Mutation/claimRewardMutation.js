@@ -10,6 +10,7 @@ const CLAIM_REWARD_MUTATION = gql`
       }
       status
       barcodeImageUrl
+      data
     }
   }
   ${REWARD_FRAGMENT}

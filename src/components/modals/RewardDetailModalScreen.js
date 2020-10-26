@@ -4,6 +4,7 @@ import {View, ScrollView, StyleSheet} from 'react-native';
 import {Root, Toast} from 'native-base';
 import {useMutation} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
+import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
 import ImageOverlayHeader from '../header/ImageOverlayHeader';
 import Title from '../typography/Title';
 import {Container} from 'native-base';
@@ -24,14 +25,9 @@ function RewardDetailModalScreen({navigation, route}) {
   } = route.params;
   const available = balance >= price;
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
+  const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
 
   const doClaimReward = async () => {
-    // Toast.show({
-    //   text: 'Het is op dit moment nog niet mogelijk om een reward te claimen',
-    //   textStyle: {fontFamily: 'Raleway-Regular'},
-    //   style: {backgroundColor: '#000', borderRadius: 10},
-    //   duration: 2000,
-    // }); // change the error message once complete
     try {
       const claimResponse = await claimReward({
         variables: {
@@ -39,8 +35,23 @@ function RewardDetailModalScreen({navigation, route}) {
         },
       });
       console.log(claimResponse);
+      await claimedRewardModal({
+        variables: {
+          claimedRewardModalOpen: true,
+          data: claimResponse.data.claimReward.data,
+          title: claimResponse.data.claimReward.reward.title,
+          imageUrl: claimResponse.data.claimReward.reward.imageUrl,
+          rewardId: claimResponse.data.claimReward.reward.rewardId,
+          description: claimResponse.data.claimReward.reward.description,
+        },
+      });
     } catch (error) {
-      //error toast
+      Toast.show({
+        text: 'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
+        textStyle: {fontFamily: 'Raleway-Regular'},
+        style: {backgroundColor: '#000', borderRadius: 10},
+        duration: 2000,
+      });
     }
   };
 
