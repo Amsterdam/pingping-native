@@ -25,6 +25,7 @@ import ErrorComponent from '../components/ErrorComponent';
 import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
 import {questionTypes} from '../config/questionTypes';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import GoBack from '../components/answerTypes/GoBack';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -130,6 +131,9 @@ const QuestionScreen = ({navigation}) => {
     };
 
     const nextButtonDisabled = checkDisabled();
+    if (currentTask.type === questionTypes.GO_BACK) {
+      return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+    }
     return (
       <Container>
         <Header style={styles.header} transparent noShadow>
