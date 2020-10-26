@@ -50,7 +50,7 @@ const GoBack = ({currentTask, doRevertTask}) => {
 
 const styles = StyleSheet.create({
   content: {
-    backgroundColor: appColors.almostNotBlue,
+    backgroundColor: appColors.background,
   },
   container: {
     flex: 1,
