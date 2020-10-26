@@ -7,6 +7,7 @@ const CLAIMED_REWARD_MODAL = gql`
     $description: String!
     $imageUrl: String!
     $rewardId: String!
+    $data: Object!
   ) {
     claimedRewardModal(
       claimedRewardModalOpen: $claimedRewardModalOpen
@@ -14,6 +15,7 @@ const CLAIMED_REWARD_MODAL = gql`
       description: $description
       imageUrl: $imageUrl
       rewardId: $rewardId
+      data: $data
     ) @client
   }
 `;

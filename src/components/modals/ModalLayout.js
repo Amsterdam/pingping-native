@@ -28,7 +28,10 @@ const RouteQuestionaireModal = ({children, closeModal, modalOpen, image}) => {
         barStyle="light-content"
       />
       <Root>
-        <KeyboardAvoidingView behavior="position" style={styles.container}>
+        <KeyboardAvoidingView
+          behavior="position"
+          style={styles.container}
+          contentContainerStyle={styles.content}>
           <ScrollView
             contentContainerStyle={styles.content}
             keyboardShouldPersistTaps={'handled'}>
@@ -56,6 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.background,
     flex: 1,
   },
+  content: {flexGrow: 1},
   textContainer: {
     marginBottom: 25,
   },

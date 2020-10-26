@@ -13,6 +13,7 @@ const ClaimedRewardsList = ({claimedRewards, balance, navigation}) => {
           navigation={navigation}
           reward={claimedReward.reward}
           key={claimedReward.reward.rewardId}
+          data={claimedReward.data}
           balance={balance}
           claimed
         />

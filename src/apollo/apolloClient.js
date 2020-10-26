@@ -88,6 +88,10 @@ const client = new ApolloClient({
           query: gql`
             {
               claimedRewardModalOpen
+              data {
+                pin
+                code
+              }
               rewardId
               title
               description
@@ -122,6 +126,7 @@ async function writeInitialData() {
     query: GET_CLAIMED_REWARD_MODAL,
     data: {
       claimedRewardModalOpen: false,
+      data: {pin: '', code: ''},
       title: '',
       description: '',
       imageUrl: '',

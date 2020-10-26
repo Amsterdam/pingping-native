@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Dimensions, TextInput} from 'react-native';
-import {Toast, Root} from 'native-base';
+import {StyleSheet, View} from 'react-native';
 import {useQuery, useMutation} from '@apollo/client';
 import Button from '../OnboardingButton';
 import ContentLayout from '../layout/ContentLayout';
@@ -12,9 +11,12 @@ import ModalLayout from './ModalLayout';
 import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
 import GET_CLAIMED_REWARD_MODAL from '../../apollo/Query/Local/getClaimedRewardModalState';
 import ClaimedTicketsLarge from '../../assets/svg/ClaimedTicketsLarge';
+import {appColors} from '../../config/colors';
+import ShowRewardCodeModal from './ShowRewardCodeModal';
 
 const ClaimedRewardModal = ({navigation}) => {
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
+  const [open, setOpen] = useState(false);
   const {data} = useQuery(GET_CLAIMED_REWARD_MODAL);
 
   const closeModal = async () => {
@@ -35,19 +37,33 @@ const ClaimedRewardModal = ({navigation}) => {
         closeModal={closeModal}
         navigation={navigation}>
         <ContentLayout style={styles.container}>
+          <Body style={styles.rewardType}>Reward</Body>
           <View style={styles.textContainer}>
             <Title>{title}</Title>
             <Body>{description}</Body>
           </View>
           <View style={styles.illustrationButtonContainer}>
-            <ClaimedTicketsLarge style={styles.illustration} />
+            <View>
+              <ClaimedTicketsLarge style={styles.illustration} />
+              <Title align="center">GECLAIMED</Title>
+              <Body align="center" style={styles.rewardType}>
+                Geldig tot 12-12-2012
+              </Body>
+            </View>
+
             <Button
               style={styles.button}
-              onPress={() => {}}
+              onPress={() => setOpen(true)}
               label="Bekijk je code"
             />
           </View>
         </ContentLayout>
+        <ShowRewardCodeModal
+          open={open}
+          setOpen={setOpen}
+          validUntil={'12-12-2012'}
+          code={data.data.code}
+        />
       </ModalLayout>
     );
   }
@@ -55,16 +71,21 @@ const ClaimedRewardModal = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, height: '100%'},
+  container: {flex: 1},
   button: {
     alignSelf: 'center',
   },
   illustration: {
     alignSelf: 'center',
+    marginBottom: 10,
   },
   illustrationButtonContainer: {
+    justifyContent: 'space-evenly',
     flex: 1,
-    justifyContent: 'space-between',
+  },
+  rewardType: {
+    color: appColors.primary,
+    marginBottom: 10,
   },
 });
 

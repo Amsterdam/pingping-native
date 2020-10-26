@@ -13,6 +13,7 @@ import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';
 const RewardCard = ({
   navigation,
   reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
+  data,
   balance = 0,
   claimed = false,
 }) => {
@@ -23,6 +24,7 @@ const RewardCard = ({
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
+          data,
           title,
           imageUrl,
           rewardId,
@@ -50,7 +52,7 @@ const RewardCard = ({
       thumbnailUrl={thumbnailUrl}>
       <View style={styles.descriptionContainer}>
         <Body style={styles.rewardType}>Reward</Body>
-        <Title style={styles.description}>{title}</Title>
+        <Title style={styles.title}>{title}</Title>
         <Body numberOfLines={3} ellipsizeMode="tail">
           {description}
         </Body>
@@ -66,14 +68,15 @@ const RewardCard = ({
 
 const styles = StyleSheet.create({
   descriptionContainer: {
-    padding: 20,
+    paddingHorizontal: 10,
   },
-  description: {
+  title: {
     fontSize: 20,
+    marginBottom: 10,
   },
   rewardType: {
     color: appColors.primary,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   illustration: {alignSelf: 'flex-end'},
 });

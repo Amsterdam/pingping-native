@@ -7,6 +7,7 @@ const GET_CLAIMED_REWARD_MODAL = gql`
     description @client
     imageUrl @client
     rewardId @client
+    data @client
   }
 `;
 
