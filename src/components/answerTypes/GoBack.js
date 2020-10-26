@@ -6,6 +6,7 @@ import AmsterdamBuildings from '../../assets/svg/AmsterdamBuildings';
 import Button from '../OnboardingButton';
 import WebViewModal from '../modals/WebViewModal';
 import ContentLayout from '../layout/ContentLayout';
+import {appColors} from '../../config/colors';
 
 const GoBack = ({currentTask, doRevertTask}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
@@ -20,7 +21,7 @@ const GoBack = ({currentTask, doRevertTask}) => {
   };
 
   return (
-    <ContentLayout>
+    <ContentLayout style={styles.content}>
       <View style={styles.container}>
         <AmsterdamBuildings />
         <View style={{alignItems: 'center'}}>
@@ -48,11 +49,13 @@ const GoBack = ({currentTask, doRevertTask}) => {
 };
 
 const styles = StyleSheet.create({
+  content: {
+    backgroundColor: appColors.almostNotBlue,
+  },
   container: {
     flex: 1,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    height: 300,
   },
   title: {
     textAlign: 'center',
