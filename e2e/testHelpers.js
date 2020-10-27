@@ -10,7 +10,7 @@ export const walkthroughOnboarding = async () => {
   await element(by.id(testIDs.WELCOME.START_BUTTON)).tap();
 };
 export const answerOnboardingQuestions = async () => {
-  await pressCity('AMSTERDAM');
+  await pressYesAndNext();
   await setBirthDate('12', 'december', '2012');
   await pressYesAndNext();
   await pressYesAndNext();
@@ -60,7 +60,16 @@ export const pressYesAndNext = async () => {
   await element(by.id(testIDs.QUESTION.YES_BUTTON)).tap();
   await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
 };
+export const pressNoAndNext = async () => {
+  await element(by.id(testIDs.QUESTION.NO_BUTTON)).tap();
+  await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
+};
+
 export const pressCity = async (city) => {
   await element(by.id(`${city}_BUTTON`)).tap();
   await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
+};
+
+export const goBack = async () => {
+  await element(by.id(testIDs.NAVIGATION.HEADER_BACK_BUTTON)).tap();
 };

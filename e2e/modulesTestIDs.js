@@ -24,6 +24,10 @@ export const testIDs = {
     PICKER_MONTH: 'PICKER_MONTH',
     PICKER_YEAR: 'PICKER_YEAR',
   },
+  GO_BACK_SCREEN: {
+    SCREEN: 'GO_BACK_SCREEN',
+    GO_BACK_BUTTON: 'GO_BACK_BUTTON',
+  },
   IMPORT_DATA: {
     SCREEN: 'IMPORT_DATA_SCREEN',
   },

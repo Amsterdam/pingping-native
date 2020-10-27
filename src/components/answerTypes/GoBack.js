@@ -7,6 +7,7 @@ import Button from '../OnboardingButton';
 import WebViewModal from '../modals/WebViewModal';
 import ContentLayout from '../layout/ContentLayout';
 import {appColors} from '../../config/colors';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const GoBack = ({currentTask, doRevertTask}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
@@ -22,9 +23,9 @@ const GoBack = ({currentTask, doRevertTask}) => {
 
   return (
     <ContentLayout style={styles.content}>
-      <View style={styles.container}>
+      <View style={styles.container} testID={testIDs.GO_BACK_SCREEN.SCREEN}>
         <AmsterdamBuildings />
-        <View style={{alignItems: 'center'}}>
+        <View style={styles.subContainer}>
           <Title style={styles.title}>{currentTask.title}</Title>
           <HTML
             html={currentTask.description}
@@ -35,7 +36,12 @@ const GoBack = ({currentTask, doRevertTask}) => {
           />
         </View>
         <View>
-          <Button style={styles.button} onPress={doRevertTask} label="TERUG" />
+          <Button
+            style={styles.button}
+            onPress={doRevertTask}
+            label="TERUG"
+            testid={testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON}
+          />
         </View>
         <WebViewModal
           urlToVisit={urlToVisit}
@@ -55,6 +61,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  subContainer: {
     alignItems: 'center',
   },
   title: {
