@@ -1,11 +1,16 @@
 import React from 'react';
 import {StyleSheet, StatusBar} from 'react-native';
+import PropTypes from 'prop-types';
 import {Header, Left, Right} from 'native-base';
 import Title from '../typography/Title';
 import HeaderBackButton from './HeaderBackButton';
 import {appColors} from '../../config/colors';
 
-const LabeledHeader = ({navigation, filledHeader = false, title = 'none'}) => {
+const LabeledHeader = ({
+  navigation = () => {},
+  filledHeader = false,
+  title = 'none',
+}) => {
   const styles = StyleSheet.create({
     header: {
       alignItems: 'center',
@@ -43,6 +48,16 @@ const LabeledHeader = ({navigation, filledHeader = false, title = 'none'}) => {
       <Right style={styles.flex} />
     </Header>
   );
+};
+
+LabeledHeader.propTypes = {
+  navigation: PropTypes.func.isRequired,
+  filledHeader: PropTypes.bool,
+  title: PropTypes.object,
+};
+LabeledHeader.propTypes = {
+  filledHeader: false,
+  title: '',
 };
 
 export default LabeledHeader;

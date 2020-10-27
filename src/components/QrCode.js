@@ -1,9 +1,10 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import {appColors} from '../config/colors';
 import QRCode from 'react-native-qrcode-svg';
 
-const QrCode = ({exportToken}) => {
+const QrCode = ({exportToken = ''}) => {
   return (
     <View style={styles.qrCode}>
       <QRCode value={exportToken} size={200} />
@@ -19,5 +20,12 @@ const styles = StyleSheet.create({
     borderColor: appColors.primary,
   },
 });
+
+QrCode.propTypes = {
+  exportToken: PropTypes.string,
+};
+QrCode.defaultprops = {
+  exportToken: '',
+};
 
 export default memo(QrCode);

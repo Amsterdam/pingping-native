@@ -16,7 +16,7 @@ import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../../apollo/Mutation/submitRouteFee
 
 const INITIAL_STATE = {feedback: '', routeName: ''};
 
-const RouteQuestionaireModal = ({navigation}) => {
+const RouteQuestionaireModal = ({navigation = () => {}}) => {
   const [questionnaireModal] = useMutation(QUESTIONNAIRE_MODAL);
   const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
   const {data} = useQuery(GET_QUESTIONNAIRE_MODAL);

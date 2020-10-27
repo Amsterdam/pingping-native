@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, StatusBar, View, SafeAreaView} from 'react-native';
+import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 import HeaderBackButton from './HeaderBackButton';
@@ -7,7 +8,7 @@ import HeaderBackButton from './HeaderBackButton';
 // The build up of this header fixes an issue on smaller android devices
 // When playing youtube videos
 
-const TaskHeader = ({title, navigation}) => {
+const TaskHeader = ({title = '', navigation = () => {}}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.header} transparent noShadow>
@@ -46,5 +47,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+TaskHeader.propTypes = {
+  title: PropTypes.string,
+  navigation: PropTypes.string.isRequired,
+};
+
+TaskHeader.defaultProps = {
+  title: '',
+};
 
 export default TaskHeader;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Platform} from 'react-native';
 import {Picker} from '@react-native-community/picker';
+import PropTypes from 'prop-types';
 import {getDays, getMonths, getYears} from '../../helpers/birthDayHelper';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
@@ -62,5 +63,10 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 });
+
+DateOfBirth.propTyes = {
+  setState: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+};
 
 export default DateOfBirth;

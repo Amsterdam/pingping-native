@@ -9,11 +9,11 @@ import {BASE_URL} from '../../config/initialSettings';
 const screenHeight = Dimensions.get('window').height;
 
 const ImageOverlayHeader = ({
-  navigation,
-  imageUrl,
-  cityPings,
-  thumbnailUrl,
-  mainColor,
+  navigation = () => {},
+  imageUrl = '',
+  cityPings = 0,
+  thumbnailUrl = '',
+  mainColor = '#fff',
 }) => {
   return (
     <View style={styles.imageContainer}>
@@ -58,6 +58,13 @@ ImageOverlayHeader.propTypes = {
   navigation: PropTypes.object.isRequired,
   imageUrl: PropTypes.string.isRequired,
   cityPings: PropTypes.number.isRequired,
+  thumbnailUrl: PropTypes.string,
+  mainColor: PropTypes.string,
+};
+
+ImageOverlayHeader.defaultProps = {
+  thumbnailUrl: '',
+  mainColor: '#fff',
 };
 
 export default ImageOverlayHeader;

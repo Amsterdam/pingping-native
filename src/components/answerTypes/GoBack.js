@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import HTML from 'react-native-render-html';
+import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import AmsterdamBuildings from '../../assets/svg/AmsterdamBuildings';
 import Button from '../OnboardingButton';
@@ -77,5 +78,10 @@ const styles = StyleSheet.create({
     lineHeight: 25,
   },
 });
+
+GoBack.propTypes = {
+  currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
+};
 
 export default GoBack;
