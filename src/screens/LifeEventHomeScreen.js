@@ -102,9 +102,9 @@ const RouteHomeScreen = ({navigation}) => {
             style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
             Andere Routes
           </Title>
-          {otherRoutes.length === '0' && (
-            <EmptyContentNotifier text="In de toekomst zullen er nieuwe routes worden toegevoegd. So stay tuned." />
-          )}
+
+          <EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
+
           {otherRoutes.map((lifeEvent) => (
             <RouteCard
               navigation={navigation}

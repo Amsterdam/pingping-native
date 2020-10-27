@@ -16,9 +16,6 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 5,
   },
-  text: {
-    color: '#B9B9B9',
-  },
 });
 
 export default EmptyContentNotifier;

@@ -21,7 +21,9 @@ const Card = ({
   disabledString = '',
 }) => {
   return (
-    <View style={[styles.paper, style]} testID={testID}>
+    <View
+      style={[styles.paper, !disabled && styles.paperShadow, style]}
+      testID={testID}>
       <TouchableOpacity onPress={onPress}>
         <View>
           <View style={styles.imageContainer}>
@@ -46,11 +48,13 @@ const Card = ({
 
 const styles = StyleSheet.create({
   paper: {
-    ...commonStyles.shadow,
     backgroundColor: '#fff',
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
     marginVertical: 10,
+  },
+  paperShadow: {
+    ...commonStyles.shadow,
   },
   imageContainer: {
     position: 'relative',

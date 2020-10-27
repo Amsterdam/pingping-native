@@ -2,16 +2,9 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import {commonStyles} from '../config/commonStyles';
-import Title from './typography/Title';
 
 const CardDisabledOverlay = ({disabledString = ''}) => {
-  return (
-    <View style={styles.disabledStyle}>
-      <View style={styles.disabledBox}>
-        <Title style={styles.disabledText}>{disabledString}</Title>
-      </View>
-    </View>
-  );
+  return <View style={styles.disabledStyle} />;
 };
 
 const styles = {
@@ -26,17 +19,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-  },
-  disabledText: {
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  disabledBox: {
-    ...commonStyles.shadow,
-    borderRadius: commonStyles.borderRadius,
-    backgroundColor: '#fff',
-    padding: 20,
-    width: '70%',
   },
 };
 

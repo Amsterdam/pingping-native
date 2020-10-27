@@ -30,7 +30,7 @@ const RouteCard = ({
       routeId,
     });
   };
-
+  const routeDisabled = numberOfSteps === 0;
   return (
     <Card
       onPress={doNavigation}
@@ -39,7 +39,7 @@ const RouteCard = ({
       thumbnailUrl={thumbnailUrl}
       mainColor={mainColor}
       testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}
-      disabled={numberOfSteps === 0}
+      disabled={routeDisabled}
       disabledString="Deze route is nog niet beschikbaar">
       <Body style={styles.rewardType}>{targetAudience}</Body>
       <Title style={styles.title}>{title}</Title>
