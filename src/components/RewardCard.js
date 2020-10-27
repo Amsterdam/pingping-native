@@ -43,7 +43,6 @@ const RewardCard = ({
       thumbnailUrl,
     });
   };
-
   return (
     <Card
       onPress={doNavigation}
