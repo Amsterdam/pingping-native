@@ -59,8 +59,6 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
               <Body style={styles.faqFontSize}>{item.answer}</Body>
             </View>
           ))}
-
-          <Body align="justify" />
         </View>
       ) : (
         <></>

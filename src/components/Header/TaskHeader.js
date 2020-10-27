@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 TaskHeader.propTypes = {
   title: PropTypes.string,
-  navigation: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 TaskHeader.defaultProps = {

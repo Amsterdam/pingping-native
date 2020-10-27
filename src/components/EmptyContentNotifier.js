@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-EmptyContentNotifier.PropTypes = {
+EmptyContentNotifier.propTypes = {
   text: PropTypes.string.isRequired,
 };
 

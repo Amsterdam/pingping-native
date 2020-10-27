@@ -24,7 +24,7 @@ const YesOrNo = ({answers, state, setState}) => {
 };
 
 YesOrNo.propTypes = {
-  answers: PropTypes.array.isRequired,
+  answers: PropTypes.object.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

@@ -6,15 +6,6 @@ const ContentLayout = ({children = [], style = {}}) => {
   return <View style={{...styles.container, ...style}}>{children}</View>;
 };
 
-ContentLayout.propTypes = {
-  children: PropTypes.any.isRequired,
-  style: PropTypes.object,
-};
-
-ContentLayout.defaultProps = {
-  style: {},
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

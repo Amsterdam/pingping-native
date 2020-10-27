@@ -9,7 +9,6 @@ const Body = ({
   numberOfLines = 0,
   ellipsizeMode = '',
 }) => {
-  console.log(typeof children);
   const styles = StyleSheet.create({
     text: {
       fontFamily: 'Raleway-Regular',

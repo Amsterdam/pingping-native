@@ -34,9 +34,10 @@ Title.propTypes = {
     PropTypes.array,
     PropTypes.object,
     PropTypes.string,
+    PropTypes.number,
   ]).isRequired,
   align: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   numberOfLines: PropTypes.number,
   ellipsizeMode: PropTypes.string,
 };

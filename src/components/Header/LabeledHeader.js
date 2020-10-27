@@ -51,11 +51,11 @@ const LabeledHeader = ({
 };
 
 LabeledHeader.propTypes = {
-  navigation: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
   filledHeader: PropTypes.bool,
-  title: PropTypes.object,
+  title: PropTypes.string,
 };
-LabeledHeader.propTypes = {
+LabeledHeader.defaultProps = {
   filledHeader: false,
   title: '',
 };
