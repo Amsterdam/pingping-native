@@ -4,7 +4,7 @@ import {TouchableOpacity, StyleSheet} from 'react-native';
 import Body from './typography/Body';
 import {Icon} from 'native-base';
 
-const ChevronButton = ({onPress}) => {
+const ChevronButton = ({onPress = () => {}}) => {
   return (
     <TouchableOpacity style={styles.rowFlex} onPress={onPress}>
       <Body>Alles</Body>
