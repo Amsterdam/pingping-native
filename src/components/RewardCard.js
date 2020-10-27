@@ -2,6 +2,7 @@ import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
+import {View as AnimatableView} from 'react-native-animatable';
 import Title from './typography/Title';
 import Body from './typography/Body';
 import CityPingsBalance from './CityPingsBalance';
@@ -55,8 +56,14 @@ const RewardCard = ({
         <Body numberOfLines={3} ellipsizeMode="tail">
           {description}
         </Body>
+
         {claimed ? (
-          <ClaimedTickets style={styles.illustration} />
+          <AnimatableView
+            animation="bounceIn"
+            delay={200}
+            style={styles.illustration}>
+            <ClaimedTickets />
+          </AnimatableView>
         ) : (
           <CityPingsBalance price={price} balance={balance} />
         )}

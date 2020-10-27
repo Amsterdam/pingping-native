@@ -1,9 +1,10 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {Icon} from 'native-base';
 import Title from './typography/Title';
+import {View as AnimatableView} from 'react-native-animatable';
 import {appColors} from '../config/colors';
+import Badge from '../assets/svg/Badge';
 
 const CIRCLE_RADIUS = 30;
 
@@ -34,15 +35,16 @@ const RouteTaskRow = ({
             isCurrentTask && styles.circleActive,
             isCompleted && styles.circleDisabled,
           ]}>
-          {isCompleted ? (
-            <Icon name="check" type="Entypo" style={styles.icon} />
-          ) : (
-            <Title style={styles.label}>{index}</Title>
-          )}
+          <Title style={styles.label}>{index}</Title>
         </View>
-        <Title style={isCompleted ? styles.disabled : styles.title}>
+        <Title style={[styles.title, isCompleted && styles.disabled]}>
           {task.title}
         </Title>
+        {isCompleted && (
+          <AnimatableView animation="bounceIn" delay={200}>
+            <Badge style={styles.badge} />
+          </AnimatableView>
+        )}
       </View>
     </TouchableOpacity>
   );
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '100%',
     padding: 20,
   },
   circleStepIndicator: {
@@ -73,14 +76,18 @@ const styles = StyleSheet.create({
   label: {
     color: '#fff',
     fontSize: 14,
+    marginLeft: 1,
   },
   title: {
     fontSize: 16,
+    width: '70%',
   },
   disabled: {
+    flexGrow: 1,
     color: appColors.subtleGrey,
     fontSize: 16,
   },
+  badge: {marginLeft: 5},
   background: {
     backgroundColor: 'rgba(191, 233, 238, 0.3)',
   },
