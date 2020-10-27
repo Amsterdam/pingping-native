@@ -14,7 +14,7 @@ import ClaimedTicketsLarge from '../../assets/svg/ClaimedTicketsLarge';
 import {appColors} from '../../config/colors';
 import ShowRewardCodeModal from './ShowRewardCodeModal';
 
-const ClaimedRewardModal = ({navigation}) => {
+const ClaimedRewardModal = ({navigation = () => {}}) => {
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
   const [open, setOpen] = useState(false);
   const {data} = useQuery(GET_CLAIMED_REWARD_MODAL);
@@ -29,7 +29,7 @@ const ClaimedRewardModal = ({navigation}) => {
 
   if (data && data.claimedRewardModalOpen) {
     const {claimedRewardModalOpen, title, description, imageUrl} = data;
-    console.log(data);
+
     return (
       <ModalLayout
         modalOpen={claimedRewardModalOpen}

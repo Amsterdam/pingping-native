@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import PropTypes from 'prop-types';
 import Button from '../Button';
 import {ppBaseColors} from '../../config/colors';
 import {testIDs} from '../../../e2e/modulesTestIDs';
@@ -50,5 +51,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
+MultipleChoice.propTypes = {
+  answers: PropTypes.array.isRequired,
+  state: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
+};
 
 export default MultipleChoice;

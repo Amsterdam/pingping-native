@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HeaderTemplate from './HeaderTemplate';
 import {StyleSheet} from 'react-native';
 import Title from '../typography/Title';
@@ -35,5 +36,15 @@ const styles = StyleSheet.create({
     color: appColors.white,
   },
 });
+
+SimpleHeader.propTypes = {
+  title: PropTypes.string,
+  color: PropTypes.string,
+};
+
+SimpleHeader.defaultProps = {
+  title: '',
+  color: 'primary',
+};
 
 export default SimpleHeader;

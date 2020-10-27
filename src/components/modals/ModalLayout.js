@@ -16,7 +16,12 @@ import {appColors} from '../../config/colors';
 
 const screenHeight = Dimensions.get('window').height;
 
-const RouteQuestionaireModal = ({children, closeModal, modalOpen, image}) => {
+const RouteQuestionaireModal = ({
+  children = [],
+  closeModal = () => {},
+  modalOpen = false,
+  image = '',
+}) => {
   return (
     <Modal
       animationType="slide"
@@ -83,6 +88,8 @@ const styles = StyleSheet.create({
 RouteQuestionaireModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   modalOpen: PropTypes.bool.isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
 };
 
 export default RouteQuestionaireModal;

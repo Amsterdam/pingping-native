@@ -31,6 +31,7 @@ const RouteCard = ({
     });
   };
   const routeDisabled = numberOfSteps === 0;
+
   return (
     <Card
       onPress={doNavigation}

@@ -13,7 +13,7 @@ import {appColors} from '../../config/colors';
 import CityPingsBalance from '../CityPingsBalance';
 import Button from '../OnboardingButton';
 
-function RewardDetailModalScreen({navigation, route}) {
+function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {
     balance,
     price,
