@@ -101,7 +101,7 @@ const CityPingsHomeScreen = ({navigation}) => {
             </ContentLayout>
           </Content>
         </Tab>
-        <Tab heading="Mijn Rewards" {...TAB_STYLE}>
+        <Tab heading="Geclaimed" {...TAB_STYLE}>
           <ClaimedRewardsList
             claimedRewards={claimedRewards}
             navigation={navigation}
