@@ -23,7 +23,7 @@
                                 </accessibility>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cyan="0.050000000000000003" magenta="0.037968710060000001" yellow="0.02573277056" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" notEnabled="YES"/>
                         </accessibility>
