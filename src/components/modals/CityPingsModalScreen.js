@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View, Animated, StatusBar} from 'react-native';
 import {Content, Container} from 'native-base';
 import {useQuery} from '@apollo/client';
+import LottieView from 'lottie-react-native';
 import ContentLayout from '../layout/ContentLayout';
 import GET_ROUTES from '../../apollo/Query/getRoutes';
-import ConfettiCannon from 'react-native-confetti-cannon';
 import GET_AVAILABLE_REWARDS from '../../apollo/Query/getAvailableRewards';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
@@ -35,108 +35,106 @@ const CityPingsModal = ({navigation, route}) => {
     outputRange: [0, -HEADER_HEIGHT],
   });
 
+  let balance = 0;
   const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
   const availableRewards = rewardData?.data?.getAvailableRewards;
-  const balance = me.data?.getStatus?.user?.balance;
+  balance = me.data?.getStatus?.user?.balance;
 
-  if (me.data && availableRewards && availableRoutes) {
-    return (
-      <Container style={styles.container}>
-        <StatusBar
-          backgroundColor={appColors.headerColor}
-          barStyle="light-content"
-        />
+  return (
+    <Container style={styles.container}>
+      <StatusBar
+        backgroundColor={appColors.headerColor}
+        barStyle="light-content"
+      />
 
-        <Animated.View
-          style={[styles.header, {transform: [{translateY: translateY}]}]}
-          transparent
-          noShadow
-        />
+      <Animated.View
+        style={[styles.header, {transform: [{translateY: translateY}]}]}
+        transparent
+        noShadow
+      />
 
-        <Content
-          onScroll={(e) => {
-            scrollY.setValue(e.nativeEvent.contentOffset.y);
-          }}
-          scrollEventThrottle={16}
-          contentContainerStyle={styles.content}>
-          <ContentLayout>
-            <View style={styles.headerContainer}>
-              <Title style={styles.title}>GOED BEZIG!</Title>
-              <CitypingsChip value={balance} />
+      <Content
+        onScroll={(e) => {
+          scrollY.setValue(e.nativeEvent.contentOffset.y);
+        }}
+        scrollEventThrottle={16}
+        contentContainerStyle={styles.content}>
+        <ContentLayout>
+          <View style={styles.headerContainer}>
+            <Title style={styles.title}>GOED BEZIG!</Title>
+            <CitypingsChip value={balance} />
+          </View>
+          <View style={styles.paper}>
+            <LottieView
+              source={require('../../assets/lottieFiles/confetti-celebration.json')}
+              autoPlay
+              loop
+              resizeMode="cover"
+              style={styles.lottieView}
+            />
+            <Body style={styles.celebrationBoxTitle} align="center">
+              Je hebt weer een aantal CityPings verdiend!
+            </Body>
+            <View style={styles.coinContainer}>
+              <CityPingsCoin height={30} width={30} />
             </View>
-            <View style={styles.paper}>
-              <Body style={styles.celebrationBoxTitle} align="center">
-                Je hebt weer een aantal CityPings verdiend!
-              </Body>
-              <View style={styles.coinContainer}>
-                <CityPingsCoin height={30} width={30} />
+            <Title>{pings}</Title>
+          </View>
+
+          {availableRewards?.length > 0 && (
+            <View style={styles.blockContainer}>
+              <View style={styles.rowFlex}>
+                <Title style={styles.subTitle}>Verzilveren</Title>
+                <ChevronButton
+                  onPress={() =>
+                    navigation.navigate('CityPings', {
+                      screen: 'Main',
+                      initial: false,
+                    })
+                  }
+                />
               </View>
-              <Title>{pings}</Title>
+              <View style={styles.rowFlex}>
+                {availableRewards.map((reward) => (
+                  <RewardCardMini
+                    navigation={navigation}
+                    reward={reward}
+                    key={reward.rewardId}
+                    balance={balance}
+                  />
+                ))}
+              </View>
             </View>
+          )}
 
-            {availableRewards?.length > 0 && (
-              <View style={styles.blockContainer}>
-                <View style={styles.rowFlex}>
-                  <Title style={styles.subTitle}>Verzilveren</Title>
-                  <ChevronButton
-                    onPress={() =>
-                      navigation.navigate('CityPings', {
-                        screen: 'Main',
-                        initial: false,
-                      })
-                    }
-                  />
-                </View>
-                <View style={styles.rowFlex}>
-                  {availableRewards.map((reward) => (
-                    <RewardCardMini
-                      navigation={navigation}
-                      reward={reward}
-                      key={reward.rewardId}
-                      balance={balance}
-                    />
-                  ))}
-                </View>
+          {availableRoutes?.length > 0 && (
+            <View style={styles.blockContainer}>
+              <View style={styles.rowFlex}>
+                <Title style={styles.subTitle}>Nieuwe Route</Title>
+                <ChevronButton
+                  onPress={() =>
+                    navigation.navigate('Routes', {
+                      screen: 'LifeEventHomeScreen',
+                    })
+                  }
+                />
               </View>
-            )}
-
-            {availableRoutes?.length > 0 && (
-              <View style={styles.blockContainer}>
-                <View style={styles.rowFlex}>
-                  <Title style={styles.subTitle}>Nieuwe Route</Title>
-                  <ChevronButton
-                    onPress={() =>
-                      navigation.navigate('Routes', {
-                        screen: 'LifeEventHomeScreen',
-                      })
-                    }
+              <View>
+                {availableRoutes.map((lifeEvent) => (
+                  <RouteCard
+                    navigation={navigation}
+                    lifeEvent={lifeEvent}
+                    key={lifeEvent.routeId}
                   />
-                </View>
-                <View>
-                  {availableRoutes.map((lifeEvent) => (
-                    <RouteCard
-                      navigation={navigation}
-                      lifeEvent={lifeEvent}
-                      key={lifeEvent.routeId}
-                    />
-                  ))}
-                </View>
+                ))}
               </View>
-            )}
-          </ContentLayout>
-        </Content>
-        <View style={styles.underLayer} />
-        <ConfettiCannon
-          count={200}
-          origin={{x: 0, y: -100}}
-          explosionSpeed={250}
-          fallSpeed={10000}
-          fadeOut
-        />
-      </Container>
-    );
-  }
-  return <React.Fragment />;
+            </View>
+          )}
+        </ContentLayout>
+      </Content>
+      <View style={styles.underLayer} />
+    </Container>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -206,6 +204,9 @@ const styles = StyleSheet.create({
   },
   blockContainer: {
     marginBottom: 20,
+  },
+  lottieView: {
+    margin: 5,
   },
 });
 
