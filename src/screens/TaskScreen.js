@@ -45,10 +45,12 @@ const TaskScreen = ({navigation, route}) => {
         routeResponse?.data?.getRoute?.tasks.filter(
           (task) => task.status !== 'Completed',
         ).length === 0;
+
       if (routeDone) {
         setLoading(false);
+        navigation.goBack();
         return navigation.navigate('CityPings', {
-          screen: 'CityPingsModalScreen',
+          screen: 'CompletedRouteCelebrationModalScreen',
           params: {pings: routeResponse.data.getRoute.totalPoints},
           initial: false,
         });

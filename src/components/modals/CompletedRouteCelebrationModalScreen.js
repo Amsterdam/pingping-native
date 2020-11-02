@@ -21,7 +21,7 @@ import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const HEADER_HEIGHT = 200;
 
-const CityPingsModal = ({navigation, route}) => {
+const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
   const {pings} = route.params;
   const routeData = useQuery(GET_ROUTES, {fetchPolicy: 'cache-and-network'});
   const rewardData = useQuery(GET_AVAILABLE_REWARDS, {
@@ -210,9 +210,9 @@ const styles = StyleSheet.create({
   },
 });
 
-CityPingsModal.propTypes = {
+CompletedRouteCelebrationModalScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
 };
 
-export default CityPingsModal;
+export default CompletedRouteCelebrationModalScreen;
