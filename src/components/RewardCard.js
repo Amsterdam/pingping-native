@@ -13,13 +13,12 @@ import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
+  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl, status},
   data,
   balance = 0,
   claimed = false,
 }) => {
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
-
   const doNavigation = async () => {
     if (claimed) {
       await claimedRewardModal({
@@ -49,7 +48,8 @@ const RewardCard = ({
       onPress={doNavigation}
       pings={price}
       imageUrl={imageUrl}
-      thumbnailUrl={thumbnailUrl}>
+      thumbnailUrl={thumbnailUrl}
+      disabled={status === 'NotAvailable'}>
       <View style={styles.descriptionContainer}>
         <Body style={styles.rewardType}>Reward</Body>
         <Title style={styles.title}>{title}</Title>
