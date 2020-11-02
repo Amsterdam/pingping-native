@@ -6,9 +6,9 @@ import Body from './typography/Body';
 import {appColors} from '../config/colors';
 import Card from './Card';
 
-const RewardCard = ({
+const RewardCardMini = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl},
+  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl, status},
   balance,
 }) => {
   const doNavigation = () => {
@@ -33,6 +33,7 @@ const RewardCard = ({
       pings={price}
       thumbnailUrl={thumbnailUrl}
       style={styles.card}
+      disabled={status === 'NotAvailable'}
       mini>
       <View style={styles.descriptionContainer}>
         <Title style={styles.cardFont} numberOfLines={2} ellipsizeMode="tail">
@@ -59,9 +60,9 @@ const styles = StyleSheet.create({
   },
 });
 
-RewardCard.propTypes = {
+RewardCardMini.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
 };
 
-export default memo(RewardCard);
+export default memo(RewardCardMini);
