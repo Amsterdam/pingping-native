@@ -18,6 +18,7 @@ import RewardCardMini from '../RewardCardMini';
 import ChevronButton from '../ChevronButton';
 import GET_STATUS_QUERY from '../../apollo/Query/getStatusQuery';
 import {BORDER_RADIUS} from '../../config/commonStyles';
+import confettiCelebration from '../../assets/lottieFiles/confetti-celebration.json';
 
 const HEADER_HEIGHT = 200;
 
@@ -66,7 +67,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
           </View>
           <View style={styles.paper}>
             <LottieView
-              source={require('../../assets/lottieFiles/confetti-celebration.json')}
+              source={confettiCelebration}
               autoPlay
               loop
               resizeMode="cover"

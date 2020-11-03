@@ -20,6 +20,7 @@ import Button from '../components/OnboardingButton';
 import {appColors} from '../config/colors';
 import WebViewModal from '../components/modals/WebViewModal';
 import Loading from '../components/LoadingComponent';
+import {StackActions} from '@react-navigation/native';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
@@ -48,12 +49,12 @@ const TaskScreen = ({navigation, route}) => {
 
       if (routeDone) {
         setLoading(false);
-        navigation.goBack();
-        return navigation.navigate('CityPings', {
+        navigation.navigate('CityPings', {
           screen: 'CompletedRouteCelebrationModalScreen',
           params: {pings: routeResponse.data.getRoute.totalPoints},
           initial: false,
         });
+        return navigation.dispatch(StackActions.popToTop());
       }
 
       return navigation.goBack();
