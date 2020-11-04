@@ -8062,10 +8062,10 @@ react-native-linear-gradient@^2.5.6:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
-react-native-notifications@^3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-3.3.4.tgz#ade029e623380113f06f8d5b7759ad36e27c9566"
-  integrity sha512-oJuuUxKh/82HI7kgWUBlxf3d0/ngfX1Lp1meeESySA6u0I+jeTS0EOPDAVD6bGrfAywCi3d4elY7QbGTy6MWGQ==
+react-native-notifications@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-3.4.0.tgz#edadbeba7de23a4495c8b38b4afc6d3bc8015aec"
+  integrity sha512-6eDwwfuw8jdHVUOd+gEbbvM4rlLGwNhPR0N80k+3Vd/ywAZhR915H9oRveq8yUS+28jCJvzGiDwaT2Dt9pvzcw==
 
 react-native-permissions@^2.0.2:
   version "2.2.0"

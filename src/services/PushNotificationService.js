@@ -40,12 +40,12 @@ const PushNotificationManager = ({children}) => {
       },
     );
 
-    // Notifications.events().registerNotificationReceivedBackground(
-    //   (notification, completion) => {
-    //     console.log('Notification Received - Background', notification.payload);
-    //     completion({alert: true, sound: true, badge: false});
-    //   },
-    // );
+    Notifications.events().registerNotificationReceivedBackground(
+      (notification, completion) => {
+        console.log('Notification Received - Background', notification.payload);
+        completion({alert: true, sound: true, badge: false});
+      },
+    );
   }, []);
 
   return <Container>{children}</Container>;
