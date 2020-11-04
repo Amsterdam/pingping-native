@@ -150,10 +150,10 @@ const RouteHomeScreen = ({navigation}) => {
         }>
         <ContentLayout>
           {!routes.data && (
-            <>
+            <AnimatableView animation="fadeIn">
               <CardSkeleton />
               <CardSkeleton />
-            </>
+            </AnimatableView>
           )}
           {routes.data && renderRoutes()}
         </ContentLayout>

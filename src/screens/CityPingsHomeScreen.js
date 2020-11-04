@@ -84,7 +84,11 @@ const CityPingsHomeScreen = ({navigation}) => {
               />
             }>
             <ContentLayout>
-              {availableRewards.loading && <CardSkeleton withTitle={false} />}
+              {availableRewards.loading && (
+                <AnimatableView animation="fadeIn">
+                  <CardSkeleton withTitle={false} />
+                </AnimatableView>
+              )}
               {availableRewards.data && (
                 <AnimatableView animation="fadeIn">
                   {availableRewards.data.getAvailableRewards.map((reward) => (
