@@ -88,11 +88,11 @@ const RouteHomeScreen = ({navigation}) => {
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
             <Title style={styles.title}>Aanbevolen Routes</Title>
-            {suggestedRoutes.map((lifeEvent) => (
+            {suggestedRoutes.map((route) => (
               <RouteCard
                 navigation={navigation}
-                lifeEvent={lifeEvent}
-                key={lifeEvent.routeId}
+                route={route}
+                key={route.routeId}
               />
             ))}
           </React.Fragment>
@@ -106,11 +106,11 @@ const RouteHomeScreen = ({navigation}) => {
 
           <EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
 
-          {otherRoutes.map((lifeEvent) => (
+          {otherRoutes.map((route) => (
             <RouteCard
               navigation={navigation}
-              lifeEvent={lifeEvent}
-              key={lifeEvent.routeId}
+              route={route}
+              key={route.routeId}
             />
           ))}
         </React.Fragment>
@@ -119,11 +119,8 @@ const RouteHomeScreen = ({navigation}) => {
   };
 
   return (
-    <Container style={styles.container} testID={testIDs.LIFE_EVENTS.SCREEN}>
-      <View
-        style={styles.underLayer}
-        testID={testIDs.LIFE_EVENTS.ANIMATED_VIEW}
-      />
+    <Container style={styles.container} testID={testIDs.ROUTES.SCREEN}>
+      <View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle="light-content"

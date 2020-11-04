@@ -18,7 +18,7 @@ import QUESTIONNAIRE_MODAL from '../apollo/Mutation/Local/questionnaireModal';
 import RouteDetailSkeleton from '../components/skeletonComponents/RouteDetailsSkeleton';
 
 const screenHeight = Dimensions.get('window').height;
-function LifeEventDetailsScreen({navigation, route}) {
+function RouteDetailsScreen({navigation, route}) {
   const {routeId} = route.params;
   const {data, error, refetch} = useQuery(GET_ROUTE_QUERY, {
     variables: {
@@ -173,9 +173,9 @@ const styles = StyleSheet.create({
   },
 });
 
-LifeEventDetailsScreen.propTypes = {
+RouteDetailsScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
 };
 
-export default LifeEventDetailsScreen;
+export default RouteDetailsScreen;

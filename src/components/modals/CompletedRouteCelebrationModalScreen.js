@@ -115,17 +115,17 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
                 <ChevronButton
                   onPress={() =>
                     navigation.navigate('Routes', {
-                      screen: 'LifeEventHomeScreen',
+                      screen: 'RouteHomeScreen',
                     })
                   }
                 />
               </View>
               <View>
-                {availableRoutes.map((lifeEvent) => (
+                {availableRoutes.map((route) => (
                   <RouteCard
                     navigation={navigation}
-                    lifeEvent={lifeEvent}
-                    key={lifeEvent.routeId}
+                    route={route}
+                    key={route.routeId}
                   />
                 ))}
               </View>

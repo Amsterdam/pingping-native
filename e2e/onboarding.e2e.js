@@ -51,7 +51,7 @@ describe('Onboarding Screen', () => {
     await pressMultipleChoiceOption(1);
     await pressYesAndNext();
     await skipNotifications();
-    await expect(element(by.id(testIDs.LIFE_EVENTS.SCREEN))).toBeVisible();
+    await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
     await deleteAccount();
   });
 });

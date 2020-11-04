@@ -9,8 +9,8 @@
     "postversion": "react-native-version",
     "test": "jest",
     "lint": "eslint .",
-    "build-test-ios": "detox build --configuration ios && detox test -c ios",
-    "test-ios": "detox test -c ios"
+    "detoxbuildandtest": "detox build --configuration ios && detox test -c ios",
+    "detoxtestios": "detox test -c ios"
   },
   "dependencies": {
     "@apollo/client": "^3.2.4",

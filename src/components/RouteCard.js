@@ -12,7 +12,7 @@ const MARGIN = 15;
 
 const RouteCard = ({
   navigation,
-  lifeEvent: {
+  route: {
     routeId,
     totalPoints,
     targetAudience,
@@ -26,7 +26,7 @@ const RouteCard = ({
   },
 }) => {
   const doNavigation = () => {
-    navigation.navigate('LifeEventDetailsScreen', {
+    navigation.navigate('RouteDetailsScreen', {
       routeId,
     });
   };
@@ -39,7 +39,7 @@ const RouteCard = ({
       imageUrl={coverImageUrl}
       thumbnailUrl={thumbnailUrl}
       mainColor={mainColor}
-      testID={testIDs.LIFE_EVENTS.LIFE_EVENT_CARD}
+      testID={testIDs.ROUTES.ROUTE_CARD}
       disabled={routeDisabled}
       disabledString="Deze route is nog niet beschikbaar">
       <Body style={styles.rewardType}>{targetAudience}</Body>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
 RouteCard.propTypes = {
   navigation: PropTypes.object.isRequired,
-  lifeEvent: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
 };
 
 export default memo(RouteCard);
