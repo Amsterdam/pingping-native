@@ -4,9 +4,9 @@ import {
   StatusBar,
   Animated,
   View,
-  ActivityIndicator,
   RefreshControl,
 } from 'react-native';
+import {View as AnimatableView} from 'react-native-animatable';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
@@ -19,6 +19,7 @@ import ErrorComponent from '../components/ErrorComponent';
 import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import EmptyContentNotifier from '../components/EmptyContentNotifier';
+import CardSkeleton from '../components/skeletonComponents/CardSkeleton';
 
 const HEADER_HEIGHT = 200;
 
@@ -83,7 +84,7 @@ const RouteHomeScreen = ({navigation}) => {
     otherRoutes.sort(compareProgress);
 
     return (
-      <React.Fragment>
+      <AnimatableView animation="fadeIn">
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
             <Title style={styles.title}>Aanbevolen Routes</Title>
@@ -113,7 +114,7 @@ const RouteHomeScreen = ({navigation}) => {
             />
           ))}
         </React.Fragment>
-      </React.Fragment>
+      </AnimatableView>
     );
   };
 
@@ -148,7 +149,12 @@ const RouteHomeScreen = ({navigation}) => {
           />
         }>
         <ContentLayout>
-          {!routes.data && <ActivityIndicator />}
+          {!routes.data && (
+            <>
+              <CardSkeleton />
+              <CardSkeleton />
+            </>
+          )}
           {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>
