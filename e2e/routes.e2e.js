@@ -21,11 +21,9 @@ describe('Onboarding Screen', () => {
     await walkthroughOnboarding();
     await answerOnboardingQuestions();
     await skipNotifications();
-    await expect(element(by.id(testIDs.LIFE_EVENTS.SCREEN))).toBeVisible();
+    await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
     try {
-      await element(by.id(testIDs.LIFE_EVENTS.LIFE_EVENT_CARD))
-        .atIndex(0)
-        .tap();
+      await element(by.id(testIDs.ROUTES.ROUTE_CARD)).atIndex(0).tap();
     } catch (error) {
       console.error(error);
       await deleteAccount();

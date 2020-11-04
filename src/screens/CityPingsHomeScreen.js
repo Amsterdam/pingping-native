@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  StatusBar,
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  RefreshControl,
-} from 'react-native';
+import {StatusBar, StyleSheet, View, RefreshControl} from 'react-native';
 import PropTypes from 'prop-types';
 import {Content, Container, Header, Tab, Tabs} from 'native-base';
+import {View as AnimatableView} from 'react-native-animatable';
 import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
@@ -19,6 +14,7 @@ import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/ErrorComponent';
 import ClaimedRewardsModal from '../components/modals/ClaimedRewardModal';
+import CardSkeleton from '../components/skeletonComponents/CardSkeleton';
 
 const CityPingsHomeScreen = ({navigation}) => {
   React.useEffect(() => {
@@ -88,20 +84,27 @@ const CityPingsHomeScreen = ({navigation}) => {
               />
             }>
             <ContentLayout>
-              {availableRewards.loading && <ActivityIndicator />}
-              {availableRewards.data &&
-                availableRewards.data.getAvailableRewards.map((reward) => (
-                  <RewardCard
-                    navigation={navigation}
-                    reward={reward}
-                    key={reward.rewardId}
-                    balance={balance}
-                  />
-                ))}
+              {availableRewards.loading && (
+                <AnimatableView animation="fadeIn">
+                  <CardSkeleton withTitle={false} />
+                </AnimatableView>
+              )}
+              {availableRewards.data && (
+                <AnimatableView animation="fadeIn">
+                  {availableRewards.data.getAvailableRewards.map((reward) => (
+                    <RewardCard
+                      navigation={navigation}
+                      reward={reward}
+                      key={reward.rewardId}
+                      balance={balance}
+                    />
+                  ))}
+                </AnimatableView>
+              )}
             </ContentLayout>
           </Content>
         </Tab>
-        <Tab heading="Mijn Rewards" {...TAB_STYLE}>
+        <Tab heading="Geclaimed" {...TAB_STYLE}>
           <ClaimedRewardsList
             claimedRewards={claimedRewards}
             navigation={navigation}

@@ -1,13 +1,14 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import {Text} from 'native-base';
 
 const Title = ({
-  children,
+  children = [],
   align = 'left',
-  style,
-  numberOfLines,
-  ellipsizeMode,
+  style = {},
+  numberOfLines = 0,
+  ellipsizeMode = 'tail',
   fontSize = 30,
 }) => {
   const styles = StyleSheet.create({
@@ -26,6 +27,26 @@ const Title = ({
       {children}
     </Text>
   );
+};
+
+Title.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  align: PropTypes.string,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  numberOfLines: PropTypes.number,
+  ellipsizeMode: PropTypes.string,
+};
+
+Title.defaultProps = {
+  align: 'left',
+  style: {},
+  numberOfLines: 0,
+  ellipsizeMode: 'tail',
 };
 
 export default Title;

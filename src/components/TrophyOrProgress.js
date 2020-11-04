@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Animatable from 'react-native-animatable';
+import {View as AnimatableView} from 'react-native-animatable';
 import ProgressBar from './ProgressBar';
 import Trophy from '../assets/svg/Trohpy';
 
 const TrophyOrProgress = ({progress}) => {
   if (progress === 1) {
     return (
-      <Animatable.View animation="bounceIn">
+      <AnimatableView animation="bounceIn" delay={200}>
         <Trophy />
-      </Animatable.View>
+      </AnimatableView>
     );
   }
   return <ProgressBar progress={progress} />;

@@ -4,9 +4,9 @@ import {
   StatusBar,
   Animated,
   View,
-  ActivityIndicator,
   RefreshControl,
 } from 'react-native';
+import {View as AnimatableView} from 'react-native-animatable';
 import PropTypes from 'prop-types';
 import {Content, Container} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
@@ -19,6 +19,7 @@ import ErrorComponent from '../components/ErrorComponent';
 import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import EmptyContentNotifier from '../components/EmptyContentNotifier';
+import CardSkeleton from '../components/skeletonComponents/CardSkeleton';
 
 const HEADER_HEIGHT = 200;
 
@@ -83,15 +84,15 @@ const RouteHomeScreen = ({navigation}) => {
     otherRoutes.sort(compareProgress);
 
     return (
-      <React.Fragment>
+      <AnimatableView animation="fadeIn">
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
             <Title style={styles.title}>Aanbevolen Routes</Title>
-            {suggestedRoutes.map((lifeEvent) => (
+            {suggestedRoutes.map((route) => (
               <RouteCard
                 navigation={navigation}
-                lifeEvent={lifeEvent}
-                key={lifeEvent.routeId}
+                route={route}
+                key={route.routeId}
               />
             ))}
           </React.Fragment>
@@ -105,24 +106,21 @@ const RouteHomeScreen = ({navigation}) => {
 
           <EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
 
-          {otherRoutes.map((lifeEvent) => (
+          {otherRoutes.map((route) => (
             <RouteCard
               navigation={navigation}
-              lifeEvent={lifeEvent}
-              key={lifeEvent.routeId}
+              route={route}
+              key={route.routeId}
             />
           ))}
         </React.Fragment>
-      </React.Fragment>
+      </AnimatableView>
     );
   };
 
   return (
-    <Container style={styles.container} testID={testIDs.LIFE_EVENTS.SCREEN}>
-      <View
-        style={styles.underLayer}
-        testID={testIDs.LIFE_EVENTS.ANIMATED_VIEW}
-      />
+    <Container style={styles.container} testID={testIDs.ROUTES.SCREEN}>
+      <View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
       <StatusBar
         backgroundColor={appColors.headerColor}
         barStyle="light-content"
@@ -148,7 +146,12 @@ const RouteHomeScreen = ({navigation}) => {
           />
         }>
         <ContentLayout>
-          {!routes.data && <ActivityIndicator />}
+          {!routes.data && (
+            <AnimatableView animation="fadeIn">
+              <CardSkeleton />
+              <CardSkeleton />
+            </AnimatableView>
+          )}
           {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>

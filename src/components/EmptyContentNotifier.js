@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 import Body from '../components/typography/Body';
 
 const EmptyContentNotifier = ({text}) => {
@@ -17,5 +18,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
+
+EmptyContentNotifier.propTypes = {
+  text: PropTypes.string.isRequired,
+};
 
 export default EmptyContentNotifier;

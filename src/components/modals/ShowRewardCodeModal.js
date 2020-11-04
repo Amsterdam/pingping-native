@@ -9,7 +9,12 @@ import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const screenWidth = Dimensions.get('window').width;
 
-const ShowRewardCodeModal = ({open, setOpen, validUntil, code}) => {
+const ShowRewardCodeModal = ({
+  open = false,
+  setOpen = () => {},
+  validUntil = '',
+  code = '',
+}) => {
   function closeModal() {
     setOpen(false);
   }
@@ -96,6 +101,12 @@ const styles = StyleSheet.create({
 ShowRewardCodeModal.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
+  validUntil: PropTypes.string,
+  code: PropTypes.string,
+};
+ShowRewardCodeModal.defaultProps = {
+  validUntil: '',
+  code: '',
 };
 
 export default ShowRewardCodeModal;

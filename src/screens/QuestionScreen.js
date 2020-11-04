@@ -20,12 +20,12 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
 import ProgressBar from '../components/ProgressBar';
-import Loading from '../components/LoadingComponent';
 import ErrorComponent from '../components/ErrorComponent';
 import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
 import {questionTypes} from '../config/questionTypes';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import GoBack from '../components/answerTypes/GoBack';
+import QuestionSkeleton from '../components/skeletonComponents/QuestionSkeleton';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -63,7 +63,7 @@ const QuestionScreen = ({navigation}) => {
   }
 
   if (loading) {
-    return <Loading />;
+    return <QuestionSkeleton />;
   }
 
   if (data && !currentTask) {
@@ -162,7 +162,7 @@ const QuestionScreen = ({navigation}) => {
           </Right>
         </Header>
         <Content contentContainerStyle={styles.content}>
-          {data && (
+          {data && !loadingQuestion && (
             <Animatable.View
               style={styles.flex}
               easing="linear"
@@ -187,7 +187,7 @@ const QuestionScreen = ({navigation}) => {
               />
             </Animatable.View>
           )}
-          {loadingQuestion && <Loading />}
+          {loadingQuestion && <QuestionSkeleton />}
         </Content>
       </Container>
     );

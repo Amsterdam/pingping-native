@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import {Root, Toast} from 'native-base';
-import {useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../../apollo/Mutation/claimRewardMutation';
 import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
 import ImageOverlayHeader from '../header/ImageOverlayHeader';
@@ -12,10 +12,10 @@ import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import CityPingsBalance from '../CityPingsBalance';
 import Button from '../OnboardingButton';
+import GET_STATUS_QUERY from '../../apollo/Query/getStatusQuery';
 
-function RewardDetailModalScreen({navigation, route}) {
+function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {
-    balance,
     price,
     title,
     description,
@@ -23,18 +23,23 @@ function RewardDetailModalScreen({navigation, route}) {
     imageUrl,
     thumbnailUrl,
   } = route.params;
-  const available = balance >= price;
+
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
+  const [loading, setLoading] = useState(false);
+  const {data, refetch} = useQuery(GET_STATUS_QUERY, {
+    fetchPolicy: 'cache-first',
+  });
 
   const doClaimReward = async () => {
+    setLoading(true);
     try {
       const claimResponse = await claimReward({
         variables: {
           rewardId,
         },
       });
-      console.log(claimResponse);
+
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
@@ -45,7 +50,11 @@ function RewardDetailModalScreen({navigation, route}) {
           description: claimResponse.data.claimReward.reward.description,
         },
       });
+      refetch();
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+      console.log(error);
       Toast.show({
         text: 'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
         textStyle: {fontFamily: 'Raleway-Regular'},
@@ -54,6 +63,10 @@ function RewardDetailModalScreen({navigation, route}) {
       });
     }
   };
+
+  let balance = 0;
+  balance = data?.getStatus?.user.balance;
+  const available = balance >= price;
 
   return (
     <Container>
@@ -78,7 +91,7 @@ function RewardDetailModalScreen({navigation, route}) {
           </Body>
           <Button
             style={styles.button}
-            disabled={!available}
+            disabled={!available || loading}
             label="Claim"
             onPress={doClaimReward}
           />

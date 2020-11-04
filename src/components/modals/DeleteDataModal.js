@@ -8,7 +8,12 @@ import OnboardingButton from '../OnboardingButton';
 import {appColors} from '../../config/colors';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
-const DeleteDataModal = ({open, setOpen, doDeleteUser, loading}) => {
+const DeleteDataModal = ({
+  open = false,
+  setOpen = () => {},
+  doDeleteUser = () => {},
+  loading = false,
+}) => {
   function closeModal() {
     setOpen(false);
   }

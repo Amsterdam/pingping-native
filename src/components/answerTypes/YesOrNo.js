@@ -1,5 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
+import PropTypes from 'prop-types';
 import Button from '../Button';
 
 const YesOrNo = ({answers, state, setState}) => {
@@ -20,6 +21,12 @@ const YesOrNo = ({answers, state, setState}) => {
   }
 
   return <View>{mapButtons()}</View>;
+};
+
+YesOrNo.propTypes = {
+  answers: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
 };
 
 export default YesOrNo;

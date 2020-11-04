@@ -18,6 +18,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
     pollInterval: 1000,
     fetchPolicy: 'network-only',
   });
+
   const exportToken = data?.getStatus?.exportToken;
 
   useEffect(() => {
@@ -31,7 +32,6 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
     checkForErrors();
   }, [error, setLogOut]);
 
-  console.log(error);
   return (
     <Container>
       <LabeledHeader filledHeader navigation={navigation} title="Profiel" />

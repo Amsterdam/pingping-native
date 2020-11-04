@@ -6,7 +6,7 @@ import CityPingCoin from '../assets/svg/CityPingCoin';
 import {appColors} from '../config/colors';
 import Body from './typography/Body';
 
-const CityPingsBalance = ({price, balance}) => {
+const CityPingsBalance = ({price = 0, balance = 0}) => {
   const progress = balance / price;
 
   return (

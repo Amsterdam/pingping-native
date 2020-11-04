@@ -39,11 +39,11 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
             ook gebruiken zonder persoonlijke gegevens te delen. Je krijgt dan
             geen persoonlijke route. Logisch toch? Oh ja, we verkopen of geven
             je gegevens niet aan een derde. Natuurlijk willen we de app steeds
-            verbeteren en willen we weten of ping ping jouw inderdaad helpt om
-            je financiële zaken te regelen. Zo niet: dan moeten we iets anders
+            verbeteren en willen we weten of Ping Ping jou inderdaad helpt om je
+            (financiële) zaken te regelen. Zo niet: dan moeten we iets anders
             bedenken. Hiervoor analyseren we jouw gebruik. We bekijken
             bijvoorbeeld hoe vaak je de app gebruikt en of het lukt om de route
-            af te maken. Zo proberen wij te begrijpen of de app werkt en als het
+            af te maken. Zo proberen wij te begrijpen of de app werkt en of het
             nodig is te verbeteren. Deze gegevens slaan we zonder jouw
             persoonsgegevens op.
           </Body>
@@ -59,8 +59,6 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
               <Body style={styles.faqFontSize}>{item.answer}</Body>
             </View>
           ))}
-
-          <Body align="justify" />
         </View>
       ) : (
         <></>
