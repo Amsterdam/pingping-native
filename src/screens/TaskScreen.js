@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  ActivityIndicator,
-  Image,
-} from 'react-native';
+import {View, StyleSheet, ScrollView, ActivityIndicator} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
+import {BASE_URL} from '../config/initialSettings';
+import ProgressiveImage from '../components/ProgressiveImage';
 import TaskHeader from '../components/header/TaskHeader';
 import {useMutation, useQuery} from '@apollo/client';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
@@ -93,8 +89,10 @@ const TaskScreen = ({navigation, route}) => {
         );
       case 'Image':
         return (
-          <Image
-            source={{uri: task.media.value}}
+          <ProgressiveImage
+            source={{uri: `${BASE_URL}${task.media.value}`}}
+            thumbnailSource={{uri: `${BASE_URL}${task.media.thumbnail}`}}
+            mainColor={task.media.color}
             style={styles.imageContainer}
           />
         );

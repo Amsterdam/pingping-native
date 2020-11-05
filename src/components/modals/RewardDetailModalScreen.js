@@ -15,14 +15,7 @@ import Button from '../OnboardingButton';
 import GET_STATUS_QUERY from '../../apollo/Query/getStatusQuery';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
-  const {
-    price,
-    title,
-    description,
-    rewardId,
-    imageUrl,
-    thumbnailUrl,
-  } = route.params;
+  const {price, title, description, rewardId, cover} = route.params;
 
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
@@ -74,9 +67,8 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
         <ScrollView>
           <ImageOverlayHeader
             navigation={navigation}
-            imageUrl={imageUrl}
+            cover={cover}
             cityPings={price}
-            thumbnailUrl={thumbnailUrl}
           />
           <View style={styles.contentContainer}>
             <Body style={styles.label}>Rewards</Body>
@@ -127,6 +119,14 @@ const styles = StyleSheet.create({
 RewardDetailModalScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
+  cover: PropTypes.object,
+};
+RewardDetailModalScreen.defaultProps = {
+  cover: {
+    value: '',
+    thumbnail: '',
+    color: '',
+  },
 };
 
 export default RewardDetailModalScreen;

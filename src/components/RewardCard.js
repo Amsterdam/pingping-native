@@ -13,7 +13,7 @@ import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';
 
 const RewardCard = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl, status},
+  reward: {price, description, title, rewardId, cover, status},
   data,
   balance = 0,
   claimed = false,
@@ -26,7 +26,7 @@ const RewardCard = ({
           claimedRewardModalOpen: true,
           data,
           title,
-          imageUrl,
+          imageUrl: cover.value,
           rewardId,
           description,
         },
@@ -38,17 +38,15 @@ const RewardCard = ({
       balance,
       description,
       title,
-      imageUrl,
+      cover,
       rewardId,
-      thumbnailUrl,
     });
   };
   return (
     <Card
       onPress={doNavigation}
       pings={price}
-      imageUrl={imageUrl}
-      thumbnailUrl={thumbnailUrl}
+      cover={cover}
       disabled={status === 'NotAvailable'}>
       <View style={styles.descriptionContainer}>
         <Body style={styles.rewardType}>Reward</Body>

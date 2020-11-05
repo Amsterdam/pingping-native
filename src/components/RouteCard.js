@@ -20,9 +20,7 @@ const RouteCard = ({
     description,
     numberOfSteps,
     progress,
-    coverImageUrl,
-    thumbnailUrl,
-    mainColor,
+    cover,
   },
 }) => {
   const doNavigation = () => {
@@ -36,9 +34,7 @@ const RouteCard = ({
     <Card
       onPress={doNavigation}
       pings={totalPoints}
-      imageUrl={coverImageUrl}
-      thumbnailUrl={thumbnailUrl}
-      mainColor={mainColor}
+      cover={cover}
       testID={testIDs.ROUTES.ROUTE_CARD}
       disabled={routeDisabled}
       disabledString="Deze route is nog niet beschikbaar">

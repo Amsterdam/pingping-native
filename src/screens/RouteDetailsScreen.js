@@ -54,9 +54,7 @@ function RouteDetailsScreen({navigation, route}) {
       tasks,
       title,
       description,
-      thumbnailUrl,
-      coverImageUrl,
-      mainColor,
+      cover,
     } = data.getRoute;
 
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
@@ -76,9 +74,7 @@ function RouteDetailsScreen({navigation, route}) {
           <ImageOverlayHeader
             navigation={navigation}
             cityPings={totalPoints}
-            imageUrl={coverImageUrl}
-            thumbnailUrl={thumbnailUrl}
-            mainColor={mainColor}
+            cover={cover}
           />
           <ContentLayout>
             <Body style={styles.label}>{targetAudience}</Body>

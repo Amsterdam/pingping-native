@@ -10,12 +10,10 @@ import CardDisabledOverlay from '../components/CardDisabledOverlay';
 const Card = ({
   onPress = () => {},
   children,
-  imageUrl = '',
-  thumbnailUrl = '',
+  cover,
   pings = 0,
   style = {},
   mini = false,
-  mainColor = '',
   testID = '',
   disabled = false,
   disabledString = '',
@@ -28,9 +26,9 @@ const Card = ({
         <View>
           <View style={styles.imageContainer}>
             <ProgressiveImage
-              source={{uri: `${BASE_URL}${imageUrl}`}}
-              thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
-              mainColor={mainColor}
+              source={{uri: `${BASE_URL}${cover.value}`}}
+              thumbnailSource={{uri: `${BASE_URL}${cover.thumbnail}`}}
+              mainColor={cover.color}
               style={styles.image}
             />
             <View style={styles.overlayTop}>
@@ -75,13 +73,11 @@ const styles = StyleSheet.create({
 });
 
 Card.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  thumbnailUrl: PropTypes.string.isRequired,
   pings: PropTypes.number,
   style: PropTypes.object,
+  cover: PropTypes.object,
   mini: PropTypes.bool,
   disabled: PropTypes.bool,
-  mainColor: PropTypes.string,
   testID: PropTypes.string,
   disabledString: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
@@ -89,6 +85,11 @@ Card.propTypes = {
 
 Card.defaultProps = {
   pings: 0,
+  cover: {
+    value: '',
+    thumbnail: '',
+    color: '',
+  },
   style: {},
   mini: false,
   disabled: false,

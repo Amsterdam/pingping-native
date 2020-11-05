@@ -1,18 +1,19 @@
 import {gql} from '@apollo/client';
+import MEDIA_FRAGMENT from './mediaFragment';
 
 const ROUTES_FRAGMENT = gql`
   fragment RoutesFragment on RouteResponse {
     routeId
     title
     description
-    coverImageUrl
-    thumbnailUrl
-    mainColor
     isSuggested
     numberOfSteps
     totalPoints
     targetAudience
     progress
+    cover {
+      ...MediaFragment
+    }
     tips {
       title
       description
@@ -26,14 +27,14 @@ const ROUTES_FRAGMENT = gql`
         headerTitle
         description
         media {
-          type
-          value
+          ...MediaFragment
         }
         choices
         progress
       }
     }
   }
+  ${MEDIA_FRAGMENT}
 `;
 
 export default ROUTES_FRAGMENT;
