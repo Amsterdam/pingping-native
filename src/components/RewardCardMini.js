@@ -8,7 +8,7 @@ import Card from './Card';
 
 const RewardCardMini = ({
   navigation,
-  reward: {price, description, title, rewardId, imageUrl, thumbnailUrl, status},
+  reward: {price, description, title, rewardId, cover, status},
   balance,
 }) => {
   const doNavigation = () => {
@@ -21,7 +21,7 @@ const RewardCardMini = ({
         description,
         title,
         rewardId,
-        imageUrl,
+        cover,
       },
     });
   };
@@ -29,9 +29,8 @@ const RewardCardMini = ({
   return (
     <Card
       onPress={doNavigation}
-      imageUrl={imageUrl}
+      cover={cover}
       pings={price}
-      thumbnailUrl={thumbnailUrl}
       style={styles.card}
       disabled={status === 'NotAvailable'}
       mini>

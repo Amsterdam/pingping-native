@@ -1,16 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Animated} from 'react-native';
-import {appColors} from '../config/colors';
-
-const styles = StyleSheet.create({
-  imageOverlay: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    top: 0,
-  },
-});
+import PropTypes from 'prop-types';
 
 function ProgressiveImage(props) {
   const thumbnailAnimated = new Animated.Value(0);
@@ -50,5 +40,28 @@ function ProgressiveImage(props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  imageOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    top: 0,
+  },
+});
+
+ProgressiveImage.propTypes = {
+  thumbnailSource: PropTypes.string,
+  source: PropTypes.string,
+  style: PropTypes.object,
+  mainColor: PropTypes.string,
+};
+ProgressiveImage.defaultProps = {
+  thumbnailSource: '',
+  source: '',
+  style: {},
+  mainColor: '',
+};
 
 export default ProgressiveImage;
