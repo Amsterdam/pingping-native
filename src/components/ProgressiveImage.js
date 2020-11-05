@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
 });
 
 ProgressiveImage.propTypes = {
-  thumbnailSource: PropTypes.string,
-  source: PropTypes.string,
+  thumbnailSource: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  source: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.object,
   mainColor: PropTypes.string,
 };

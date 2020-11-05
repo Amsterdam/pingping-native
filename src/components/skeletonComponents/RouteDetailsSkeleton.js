@@ -1,45 +1,46 @@
 import React from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
 const RouteDetailSkeleton = () => (
-  <SkeletonPlaceholder>
-    <View style={styles.image} />
-    <View style={styles.content}>
-      <View style={styles.shortText} />
-      <View style={styles.title} />
-      <View style={styles.paragraphFull} />
-      <View style={styles.paragraphFull} />
-      <View style={styles.paragraphFull} />
-      <View style={styles.paragraphHalf} />
-      <View style={styles.row}>
-        <View style={styles.steps} />
-        <View style={styles.steps} />
-      </View>
-      <View style={styles.subTitle} />
+  <View style={styles.container}>
+    <SkeletonPlaceholder>
+      <View style={styles.image} />
+      <View style={styles.content}>
+        <View style={styles.shortText} />
+        <View style={styles.title} />
+        <View style={styles.paragraphFull} />
+        <View style={styles.paragraphFull} />
+        <View style={styles.paragraphFull} />
+        <View style={styles.paragraphHalf} />
+        <View style={styles.row}>
+          <View style={styles.steps} />
+          <View style={styles.steps} />
+        </View>
+        <View style={styles.subTitle} />
 
-      <View style={styles.task}>
-        <View style={styles.circle} />
-        <View style={styles.taskTitle} />
+        <View style={styles.task}>
+          <View style={styles.circle} />
+          <View style={styles.taskTitle} />
+        </View>
+        <View style={styles.task}>
+          <View style={styles.circle} />
+          <View style={styles.taskTitle} />
+        </View>
+        <View style={styles.task}>
+          <View style={styles.circle} />
+          <View style={styles.taskTitle} />
+        </View>
+        <View style={styles.task}>
+          <View style={styles.circle} />
+          <View style={styles.taskTitle} />
+        </View>
       </View>
-      <View style={styles.task}>
-        <View style={styles.circle} />
-        <View style={styles.taskTitle} />
-      </View>
-      <View style={styles.task}>
-        <View style={styles.circle} />
-        <View style={styles.taskTitle} />
-      </View>
-      <View style={styles.task}>
-        <View style={styles.circle} />
-        <View style={styles.taskTitle} />
-      </View>
-    </View>
-  </SkeletonPlaceholder>
+    </SkeletonPlaceholder>
+  </View>
 );
 
 const styles = StyleSheet.create({

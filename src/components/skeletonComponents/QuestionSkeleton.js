@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
   questionContainer: {
     justifyContent: 'center',
   },
-  title: {width: '100%', height: 40, borderRadius: 8, marginTop: 10},
-  subTitle: {width: '80%', height: 40, marginTop: 6, borderRadius: 8},
+  title: {width: '100%', height: 40, borderRadius: 10, marginTop: 10},
+  subTitle: {width: '80%', height: 40, marginTop: 6, borderRadius: 10},
   button: {marginTop: 6, width: '100%', height: 50, borderRadius: 30},
   nextButton: {
     marginTop: 6,
