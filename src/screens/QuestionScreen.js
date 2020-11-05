@@ -162,7 +162,7 @@ const QuestionScreen = ({navigation}) => {
           </Right>
         </Header>
         <Content contentContainerStyle={styles.content}>
-          {/* {data && !loadingQuestion && (
+          {data && !loadingQuestion && (
             <Animatable.View
               style={styles.flex}
               easing="linear"
@@ -186,8 +186,8 @@ const QuestionScreen = ({navigation}) => {
                 submitAnswer={submitAnswer}
               />
             </Animatable.View>
-          )} */}
-          {true && <QuestionSkeleton />}
+          )}
+          {loadingQuestion && <QuestionSkeleton />}
         </Content>
       </Container>
     );
