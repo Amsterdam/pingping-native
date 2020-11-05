@@ -32,13 +32,14 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
           rewardId,
         },
       });
+      console.log(claimResponse);
 
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
           data: claimResponse.data.claimReward.data,
           title: claimResponse.data.claimReward.reward.title,
-          imageUrl: claimResponse.data.claimReward.reward.imageUrl,
+          imageUrl: claimResponse.data.claimReward.reward.cover.value,
           rewardId: claimResponse.data.claimReward.reward.rewardId,
           description: claimResponse.data.claimReward.reward.description,
         },
