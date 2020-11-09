@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const QuestionSkeleton = () => (
   <SkeletonPlaceholder>
@@ -27,7 +28,12 @@ const styles = StyleSheet.create({
   },
   title: {width: '100%', height: 40, borderRadius: 10, marginTop: 10},
   subTitle: {width: '80%', height: 40, marginTop: 6, borderRadius: 10},
-  button: {marginTop: 6, width: '100%', height: 50, borderRadius: 30},
+  button: {
+    marginTop: 6,
+    width: '100%',
+    height: 50,
+    borderRadius: BORDER_RADIUS,
+  },
   nextButton: {
     marginTop: 6,
     width: 100,

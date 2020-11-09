@@ -6,7 +6,7 @@ import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {BASE_URL} from '../config/initialSettings';
 import ProgressiveImage from '../components/ProgressiveImage';
-import TaskHeader from '../components/header/TaskHeader';
+import LabeledHeader from '../components/header/LabeledHeader';
 import {useMutation, useQuery} from '@apollo/client';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
@@ -124,7 +124,7 @@ const TaskScreen = ({navigation, route}) => {
   return (
     <Container>
       <Root>
-        <TaskHeader navigation={navigation} title={task.headerTitle} />
+        <LabeledHeader filledHeader navigation={navigation} title="Privacy" />
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {task?.media && renderMedia(task.media)}
           <ContentLayout>

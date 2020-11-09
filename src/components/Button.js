@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 import {Button as NativeBaseButton, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../config/colors';
-import {commonStyles} from '../config/commonStyles';
+import {BORDER_RADIUS, commonStyles} from '../config/commonStyles';
 
 const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     backgroundColor: '#fff',
     marginBottom: 20,
-    borderRadius: 100,
-    ...commonStyles.shadow,
+    borderRadius: BORDER_RADIUS,
     borderColor: appColors.primary,
   },
   activeButton: {
@@ -40,7 +39,6 @@ const Button = ({
       testID={testid}
       style={[styles.button, active && styles.activeButton]}
       transparent
-      rounded
       bordered
       full
       onPress={onPress}>
