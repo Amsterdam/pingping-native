@@ -17,6 +17,7 @@ export const ppBaseColors = {
 export const appColors = {
   primary: ppBaseColors.PP_ORANGE,
   secondary: ppBaseColors.PP_LIGHT_BLUE,
+  danger: ppBaseColors.PP_PINK,
   headerColor: ppBaseColors.PP_DARK_BLUE,
   text: ppBaseColors.PP_BLACK,
   accentColor: ppBaseColors.PP_BABY_BLUE,
