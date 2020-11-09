@@ -27,8 +27,8 @@ const ImageOverlayHeader = ({
       />
       <View style={styles.imageOverlay}>
         <IconButton
-          iconName="arrow-left"
-          iconType="MaterialCommunityIcons"
+          iconName="chevron-left"
+          iconType="MaterialIcons"
           onPress={() => navigation.goBack()}
           size="L"
         />

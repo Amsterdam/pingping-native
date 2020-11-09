@@ -7,10 +7,10 @@ import {commonStyles} from '../config/commonStyles';
 
 const styles = StyleSheet.create({
   button: {
-    alignSelf: 'stretch',
     justifyContent: 'center',
     backgroundColor: '#fff',
     marginBottom: 20,
+    borderRadius: 100,
     ...commonStyles.shadow,
     borderColor: appColors.primary,
   },
@@ -39,9 +39,10 @@ const Button = ({
     <NativeBaseButton
       testID={testid}
       style={[styles.button, active && styles.activeButton]}
-      rounded
       transparent
+      rounded
       bordered
+      full
       onPress={onPress}>
       <Text style={[styles.label, active && styles.activeText]}>{label}</Text>
     </NativeBaseButton>

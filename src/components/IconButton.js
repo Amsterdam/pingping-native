@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon, Button} from 'native-base';
 import {appColors} from '../config/colors';
 
@@ -38,36 +38,31 @@ const IconButton = ({
       backgroundColor: appColors.headerColor,
       width: buttonWidth,
       height: buttonHeight,
+      borderRadius: 30,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingBottom: 0,
-      paddingTop: 0,
     },
     icon: {
       color: '#fff',
       fontSize: iconSize,
-      paddingTop: 0,
-      marginTop: 1,
-      marginLeft: 1,
     },
     color: {
       color: appColors.greyedOut,
     },
   });
   return (
-    <Button
-      iconLeft
+    <TouchableOpacity
       style={styles.button}
-      rounded
       onPress={() => onPress()}
+      activeOpacity={0.5}
       disabled={disabled}>
       <Icon
         style={[styles.icon, disabled && styles.disabled]}
         name={iconName}
         type={iconType}
       />
-    </Button>
+    </TouchableOpacity>
   );
 };
 

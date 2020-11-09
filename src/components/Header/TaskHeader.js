@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, StatusBar, View, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  StatusBar,
+  View,
+  SafeAreaView,
+  Platform,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
@@ -9,21 +15,39 @@ import HeaderBackButton from './HeaderBackButton';
 // When playing youtube videos
 
 const TaskHeader = ({title = '', navigation = () => {}}) => {
-  return (
-    <SafeAreaView style={styles.safeArea}>
+  const isIos = Platform.OS === 'ios';
+  const renderContent = (content) => {
+    if (isIos) {
+      return (
+        <SafeAreaView style={styles.safeArea}>
+          <View style={styles.header} transparent noShadow>
+            {content}
+          </View>
+        </SafeAreaView>
+      );
+    }
+    return (
       <View style={styles.header} transparent noShadow>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={appColors.headerColor}
-        />
-        <View style={styles.backButton}>
-          <HeaderBackButton navigation={navigation} color="black" />
-        </View>
-        <Title style={styles.headerTitle}>{title}</Title>
-        <View style={styles.flex1} />
+        {content}
       </View>
-    </SafeAreaView>
+    );
+  };
+
+  const content = (
+    <>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={appColors.headerColor}
+      />
+      <View style={styles.backButton}>
+        <HeaderBackButton navigation={navigation} color="black" />
+      </View>
+      <Title style={styles.headerTitle}>{title}</Title>
+      <View style={styles.flex1} />
+    </>
   );
+
+  return renderContent(content);
 };
 
 const styles = StyleSheet.create({
@@ -37,14 +61,14 @@ const styles = StyleSheet.create({
     color: appColors.white,
     textAlign: 'center',
   },
-  safeArea: {
-    backgroundColor: appColors.headerColor,
-  },
   backButton: {
     flex: 1,
   },
   flex1: {
     flex: 1,
+  },
+  safeArea: {
+    backgroundColor: appColors.headerColor,
   },
 });
 
