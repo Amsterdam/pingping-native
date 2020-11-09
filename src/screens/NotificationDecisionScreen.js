@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  View,
-  Dimensions,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
-import {Header, Container, Button, Text, Left, Right} from 'native-base';
+import {Header, Container, Text, Left, Right} from 'native-base';
+import Button from '../components/OnboardingButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
@@ -90,9 +85,9 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           <Button
             style={styles.button}
             onPress={acceptNotifications}
-            testid={testIDs.NOTIFICATON.ACCEPT_BUTTON}>
-            <Text style={styles.buttonLabel}>Accepteren</Text>
-          </Button>
+            testid={testIDs.NOTIFICATON.ACCEPT_BUTTON}
+            label="ACCEPTEREN"
+          />
         </View>
       </View>
       {loading && <Loading />}
