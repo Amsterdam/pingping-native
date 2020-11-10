@@ -121,10 +121,10 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
                 />
               </View>
               <View>
-                {availableRoutes.map((route) => (
+                {availableRoutes.map((availableRoute) => (
                   <RouteCard
                     navigation={navigation}
-                    route={route}
+                    route={availableRoute}
                     key={route.routeId}
                   />
                 ))}

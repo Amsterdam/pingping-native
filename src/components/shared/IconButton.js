@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Button, Icon} from 'native-base';
+import {Icon} from 'native-base';
 import {appColors} from '../../config/colors';
 
 const IconButton = ({

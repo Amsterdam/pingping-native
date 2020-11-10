@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
 import {testIDs} from './modulesTestIDs';
 import {
-  walkthroughOnboarding,
-  setBirthDate,
-  pressYesAndNext,
-  pressMultipleChoiceOption,
-  skipNotifications,
   deleteAccount,
   goBack,
+  pressMultipleChoiceOption,
   pressNoAndNext,
+  pressYesAndNext,
+  setBirthDate,
+  skipNotifications,
+  walkthroughOnboarding,
 } from './testHelpers';
 
 describe('Onboarding Screen', () => {

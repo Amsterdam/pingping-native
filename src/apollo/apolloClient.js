@@ -1,4 +1,4 @@
-import {ApolloClient, createHttpLink, InMemoryCache, gql} from '@apollo/client';
+import {ApolloClient, InMemoryCache, createHttpLink, gql} from '@apollo/client';
 import {onError} from '@apollo/client/link/error';
 import * as Sentry from '@sentry/react-native';
 import AsyncStorage from '@react-native-community/async-storage';

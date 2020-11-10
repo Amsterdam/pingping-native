@@ -39,7 +39,7 @@ const TaskScreen = ({navigation, route}) => {
       const routeResponse = await refetch();
       const routeDone =
         routeResponse?.data?.getRoute?.tasks.filter(
-          (task) => task.status !== 'Completed',
+          (routeTask) => routeTask.status !== 'Completed',
         ).length === 0;
 
       if (routeDone) {
