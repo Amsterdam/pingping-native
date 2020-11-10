@@ -125,7 +125,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
                   <RouteCard
                     navigation={navigation}
                     route={availableRoute}
-                    key={route.routeId}
+                    key={availableRoute.routeId}
                   />
                 ))}
               </View>
