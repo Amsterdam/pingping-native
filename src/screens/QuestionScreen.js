@@ -50,7 +50,11 @@ const QuestionScreen = ({navigation}) => {
     if (current?.answer) {
       setRevertedQuestionValues(currentTask, current, setState);
     }
-  }, [currentTask, current]);
+
+    if (data && !currentTask) {
+      navigation.navigate('NotificationDecisionScreen');
+    }
+  }, [currentTask, current, navigation, data]);
 
   if (error) {
     return (
@@ -64,10 +68,6 @@ const QuestionScreen = ({navigation}) => {
 
   if (loading) {
     return <QuestionSkeleton />;
-  }
-
-  if (data && !currentTask) {
-    navigation.navigate('NotificationDecisionScreen');
   }
 
   if (data && currentTask) {
@@ -192,7 +192,7 @@ const QuestionScreen = ({navigation}) => {
       </Container>
     );
   }
-  return <></>;
+  return <QuestionSkeleton />;
 };
 
 const styles = StyleSheet.create({
