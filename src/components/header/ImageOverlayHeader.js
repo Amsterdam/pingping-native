@@ -10,23 +10,25 @@ const screenHeight = Dimensions.get('window').height;
 
 const ImageOverlayHeader = ({
   navigation = () => {},
-  imageUrl = '',
+  cover = {
+    value: '',
+    color: '#fff',
+    thumbnail: '',
+  },
   cityPings = 0,
-  thumbnailUrl = '',
-  mainColor = '#fff',
 }) => {
   return (
     <View style={styles.imageContainer}>
       <ProgressiveImage
-        source={{uri: `${BASE_URL}${imageUrl}`}}
-        thumbnailSource={{uri: `${BASE_URL}${thumbnailUrl}`}}
-        mainColor={mainColor}
+        source={{uri: `${BASE_URL}${cover.value}`}}
+        thumbnailSource={{uri: `${BASE_URL}${cover.thumbnail}`}}
+        mainColor={cover.color}
         style={styles.image}
       />
       <View style={styles.imageOverlay}>
         <IconButton
-          iconName="arrow-left"
-          iconType="MaterialCommunityIcons"
+          iconName="chevron-left"
+          iconType="MaterialIcons"
           onPress={() => navigation.goBack()}
           size="L"
         />
@@ -56,15 +58,7 @@ const styles = StyleSheet.create({
 
 ImageOverlayHeader.propTypes = {
   navigation: PropTypes.object.isRequired,
-  imageUrl: PropTypes.string.isRequired,
   cityPings: PropTypes.number.isRequired,
-  thumbnailUrl: PropTypes.string,
-  mainColor: PropTypes.string,
-};
-
-ImageOverlayHeader.defaultProps = {
-  thumbnailUrl: '',
-  mainColor: '#fff',
 };
 
 export default ImageOverlayHeader;

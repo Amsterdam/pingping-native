@@ -11,12 +11,15 @@ export const ppBaseColors = {
   PP_GRAY: '#b9b9b9',
   PP_LIGHT_GRAY: '#e9e9e9',
   PP_BACKGROUND: '#f7fbff',
+  PP_BLACK: '#000',
 };
 
 export const appColors = {
   primary: ppBaseColors.PP_ORANGE,
   secondary: ppBaseColors.PP_LIGHT_BLUE,
+  danger: ppBaseColors.PP_PINK,
   headerColor: ppBaseColors.PP_DARK_BLUE,
+  text: ppBaseColors.PP_BLACK,
   accentColor: ppBaseColors.PP_BABY_BLUE,
   bullet: ppBaseColors.PP_BULLET,
   success: ppBaseColors.PP_SUCCESS,

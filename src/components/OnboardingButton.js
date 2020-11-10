@@ -29,7 +29,7 @@ const OnboardingButton = ({
       onPress={onPress}>
       <View style={styles.innerContainer}>
         {loading ? (
-          <ActivityIndicator />
+          <ActivityIndicator color={appColors.danger} />
         ) : (
           <React.Fragment>
             {iconName && iconType && (

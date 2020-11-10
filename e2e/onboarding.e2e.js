@@ -51,7 +51,9 @@ describe('Onboarding Screen', () => {
     await pressMultipleChoiceOption(1);
     await pressYesAndNext();
     await skipNotifications();
-    await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
+    await waitFor(element(by.text('AANBEVOLEN ROUTES')))
+      .toBeVisible()
+      .withTimeout(4000);
     await deleteAccount();
   });
 });
