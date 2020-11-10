@@ -3,19 +3,19 @@ import {View, ScrollView, Dimensions, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useMutation, useQuery} from '@apollo/client';
-import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import TrophyOrProgress from '../components/TrophyOrProgress';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
+import {appColors} from '../config/colors';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import {appColors} from '../config/colors';
-import Button from '../components/OnboardingButton';
-import TipsChip from '../components/TipsChip';
-import RouteTaskRow from '../components/RouteTaskRow';
+import Button from '../components/shared/RoundedButton';
+import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
+import TrophyOrProgress from '../components/route/TrophyOrProgress';
+import TipsChip from '../components/route/TipsChip';
+import RouteTaskRow from '../components/route/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
-import ErrorComponent from '../components/ErrorComponent';
+import ErrorComponent from '../components/shared/ErrorComponent';
 import QUESTIONNAIRE_MODAL from '../apollo/Mutation/Local/questionnaireModal';
-import RouteDetailSkeleton from '../components/skeletonComponents/RouteDetailsSkeleton';
+import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 
 const screenHeight = Dimensions.get('window').height;
 function RouteDetailsScreen({navigation, route}) {

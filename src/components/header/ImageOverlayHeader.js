@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Dimensions, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import CitypingsChip from '../CitypingsChip';
-import ProgressiveImage from '../ProgressiveImage';
-import IconButton from '../IconButton';
+import CitypingsChip from '../shared/CitypingsChip';
+import ProgressiveImage from '../shared/ProgressiveImage';
+import IconButton from '../shared/IconButton';
 import {BASE_URL} from '../../config/initialSettings';
 
 const screenHeight = Dimensions.get('window').height;

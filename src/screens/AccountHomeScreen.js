@@ -2,12 +2,11 @@ import React from 'react';
 import {StyleSheet, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
-
 import SimpleHeader from '../components/header/SimpleHeader';
 import ExportImage from '../assets/export.png';
 import WarningImage from '../assets/warning.png';
 import TrashImage from '../assets/trashcan.png';
-import AccountBlockButton from '../components/AccountBlockButton';
+import AccountBlockButton from '../components/account/AccountBlockButton';
 import {appColors} from '../config/colors';
 import {testIDs} from '../../e2e/modulesTestIDs';
 

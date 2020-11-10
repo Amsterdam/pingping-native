@@ -2,9 +2,8 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
-
 import SimpleHeader from '../components/header/SimpleHeader';
-import Button from '../components/OnboardingButton';
+import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';

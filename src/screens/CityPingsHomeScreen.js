@@ -6,15 +6,15 @@ import {View as AnimatableView} from 'react-native-animatable';
 import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import RewardCard from '../components/RewardCard';
+import RewardCard from '../components/reward/RewardCard';
 import {appColors} from '../config/colors';
-import CitypingsChip from '../components/CitypingsChip';
-import ClaimedRewardsList from '../components/ClaimedRewardsList';
+import CitypingsChip from '../components/shared/CitypingsChip';
+import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import ErrorComponent from '../components/ErrorComponent';
+import ErrorComponent from '../components/shared/ErrorComponent';
 import ClaimedRewardsModal from '../components/modals/ClaimedRewardModal';
-import CardSkeleton from '../components/skeletonComponents/CardSkeleton';
+import CardSkeleton from '../components/skeleton/CardSkeleton';
 
 const CityPingsHomeScreen = ({navigation}) => {
   React.useEffect(() => {

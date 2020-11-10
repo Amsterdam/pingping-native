@@ -11,7 +11,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {Root} from 'native-base';
-import IconButton from '../IconButton';
+import IconButton from '../shared/IconButton';
 import {appColors} from '../../config/colors';
 
 const screenHeight = Dimensions.get('window').height;

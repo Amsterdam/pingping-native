@@ -5,17 +5,17 @@ import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
 import {BASE_URL} from '../config/initialSettings';
-import ProgressiveImage from '../components/ProgressiveImage';
+import ProgressiveImage from '../components/shared/ProgressiveImage';
 import LabeledHeader from '../components/header/LabeledHeader';
 import {useMutation, useQuery} from '@apollo/client';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import Button from '../components/OnboardingButton';
+import Button from '../components/shared/RoundedButton';
 import {appColors} from '../config/colors';
 import WebViewModal from '../components/modals/WebViewModal';
-import Loading from '../components/LoadingComponent';
+import Loading from '../components/shared/LoadingComponent';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;

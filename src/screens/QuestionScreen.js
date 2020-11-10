@@ -11,21 +11,21 @@ import {
 } from 'native-base';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
-import Title from '../components/typography/Title';
 import {useQuery, useMutation} from '@apollo/client';
 import {appColors} from '../config/colors';
-import NextButtonQuestionScreen from '../components/NextButtonQuestionScreen';
-import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
-import ProgressBar from '../components/ProgressBar';
-import ErrorComponent from '../components/ErrorComponent';
+import ProgressBar from '../components/shared/ProgressBar';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import Title from '../components/typography/Title';
+import NextButtonQuestionScreen from '../components/onboarding/NextButtonQuestionScreen';
+import QuestionComponent from '../components/onboarding/QuestionComponent';
+import GoBack from '../components/onboarding/answerTypes/GoBack';
+import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
 import {questionTypes} from '../config/questionTypes';
 import {testIDs} from '../../e2e/modulesTestIDs';
-import GoBack from '../components/answerTypes/GoBack';
-import QuestionSkeleton from '../components/skeletonComponents/QuestionSkeleton';
 
 const INITIAL_STATE = {
   answerSelected: false,

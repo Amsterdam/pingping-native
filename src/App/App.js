@@ -8,8 +8,8 @@ import TabNavigator from './TabNavigator';
 import PushNotificationService from '../services/PushNotificationService';
 import userStatus from '../helpers/authHelper';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import Loading from '../components/LoadingComponent';
-import ErrorComponent from '../components/ErrorComponent';
+import Loading from '../components/shared/LoadingComponent';
+import ErrorComponent from '../components/shared/ErrorComponent';
 
 export default function App() {
   React.useEffect(() => {

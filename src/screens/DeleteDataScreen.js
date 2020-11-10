@@ -9,7 +9,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/OnboardingButton';
+import Button from '../components/shared/RoundedButton';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import {resetStore} from '../apollo/apolloClient';

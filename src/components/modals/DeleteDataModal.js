@@ -4,7 +4,7 @@ import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
-import OnboardingButton from '../OnboardingButton';
+import RoundedButton from '../shared/RoundedButton';
 import {appColors} from '../../config/colors';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
@@ -41,7 +41,7 @@ const DeleteDataModal = ({
               terug te halen..
             </Body>
             <View>
-              <OnboardingButton
+              <RoundedButton
                 style={styles.button}
                 label="Niet verwijderen"
                 onPress={closeModal}
@@ -49,7 +49,7 @@ const DeleteDataModal = ({
                 disabled={loading}
                 full
               />
-              <OnboardingButton
+              <RoundedButton
                 iconName="delete"
                 iconType="AntDesign"
                 style={[styles.button, styles.removeButton]}

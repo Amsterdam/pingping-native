@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import QrScanner from '../components/QrScanner';
+import QrScanner from '../components/onboarding/QrScanner';
 import LabeledHeader from '../components/header/LabeledHeader';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import {doRegisterDevice} from '../helpers/authHelper';

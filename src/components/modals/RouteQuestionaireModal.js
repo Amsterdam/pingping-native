@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Dimensions, TextInput} from 'react-native';
-import {Toast, Root} from 'native-base';
+import {StyleSheet, View, TextInput} from 'react-native';
+import {Toast} from 'native-base';
 import {useQuery, useMutation} from '@apollo/client';
-import Button from '../OnboardingButton';
+import Button from '../shared/RoundedButton';
 import ContentLayout from '../layout/ContentLayout';
 import Title from '../typography/Title';
 import Body from '../typography/Body';

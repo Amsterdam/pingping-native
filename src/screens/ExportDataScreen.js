@@ -9,7 +9,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import QrCode from '../components/QrCode';
+import QrCode from '../components/account/QrCode';
 import {appColors} from '../config/colors';
 import {resetStore} from '../apollo/apolloClient';
 
