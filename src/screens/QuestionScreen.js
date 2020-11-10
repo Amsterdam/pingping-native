@@ -52,7 +52,7 @@ const QuestionScreen = ({navigation}) => {
     }
 
     if (data && !currentTask) {
-      navigation.navigate('NotificationDecisionScreen');
+      return navigation.replace('NotificationDecisionScreen');
     }
   }, [currentTask, current, navigation, data]);
 
