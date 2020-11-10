@@ -1,7 +1,7 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import {Header, Right, Container, Left} from 'native-base';
-import {StyleSheet, StatusBar} from 'react-native';
+import {Container, Header, Left, Right} from 'native-base';
+import {StatusBar, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {appColors, ppBaseColors} from '../config/colors';

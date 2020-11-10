@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
+import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
-import {Header, Container, Left, Right} from 'native-base';
+import {Container, Header, Left, Right} from 'native-base';
 import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';

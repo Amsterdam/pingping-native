@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import {useLazyQuery, useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 import ContentLayout from '../components/layout/ContentLayout';

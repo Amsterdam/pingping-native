@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
-import {useQuery, useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import Button from '../shared/RoundedButton';
 import ContentLayout from '../layout/ContentLayout';
 import Title from '../typography/Title';

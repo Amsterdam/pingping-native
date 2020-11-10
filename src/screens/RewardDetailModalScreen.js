@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {View, ScrollView, StyleSheet} from 'react-native';
-import {Root, Toast, Container} from 'native-base';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {Container, Root, Toast} from 'native-base';
 import {useMutation, useQuery} from '@apollo/client';
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';

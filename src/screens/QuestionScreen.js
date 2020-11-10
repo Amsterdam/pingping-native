@@ -1,17 +1,17 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {StyleSheet, View, StatusBar} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {
-  Content,
   Container,
+  Content,
   Header,
-  Right,
+  Icon,
   Left,
   Button as NbButton,
-  Icon,
+  Right,
 } from 'native-base';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
-import {useQuery, useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import {appColors} from '../config/colors';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Platform} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import PropTypes from 'prop-types';
 import {getDays, getMonths, getYears} from '../../../helpers/birthDayHelper';

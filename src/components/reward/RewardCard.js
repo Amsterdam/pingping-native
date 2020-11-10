@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
 import {View as AnimatableView} from 'react-native-animatable';

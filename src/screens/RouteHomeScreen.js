@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  StyleSheet,
-  StatusBar,
   Animated,
-  View,
   RefreshControl,
+  StatusBar,
+  StyleSheet,
+  View,
 } from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';

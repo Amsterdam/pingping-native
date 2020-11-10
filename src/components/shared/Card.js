@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import ProgressiveImage from './ProgressiveImage';
 import CitypingsChip from './CitypingsChip';
 import CardDisabledOverlay from './CardDisabledOverlay';
 import {BASE_URL} from '../../config/initialSettings';
-import {commonStyles, BORDER_RADIUS} from '../../config/commonStyles';
+import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
 
 const Card = ({
   onPress = () => {},

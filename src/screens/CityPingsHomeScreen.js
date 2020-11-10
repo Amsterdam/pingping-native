@@ -1,7 +1,7 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View, RefreshControl} from 'react-native';
+import {RefreshControl, StatusBar, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {Content, Container, Header, Tab, Tabs} from 'native-base';
+import {Container, Content, Header, Tab, Tabs} from 'native-base';
 import {View as AnimatableView} from 'react-native-animatable';
 import {useLazyQuery} from '@apollo/client';
 import ContentLayout from '../components/layout/ContentLayout';

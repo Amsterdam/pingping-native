@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, ActivityIndicator} from 'react-native';
-import {Button, Text, Icon} from 'native-base';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {Button, Icon, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../../config/colors';
 
 const RoundedButton = ({

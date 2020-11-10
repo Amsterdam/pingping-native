@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import QRCode from 'react-native-qrcode-svg';
 import {appColors} from '../../config/colors';

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Animated} from 'react-native';
+import {Animated, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 
 function ProgressiveImage(props) {

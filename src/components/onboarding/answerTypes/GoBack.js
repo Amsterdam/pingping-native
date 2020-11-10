@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import HTML from 'react-native-render-html';
 import PropTypes from 'prop-types';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';

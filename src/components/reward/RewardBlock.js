@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Image, Dimensions} from 'react-native';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import Body from '../typography/Body';

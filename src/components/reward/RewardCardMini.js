@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import Body from '../typography/Body';

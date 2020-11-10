@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Dimensions, View} from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';

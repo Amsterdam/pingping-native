@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from '../typography/Title';

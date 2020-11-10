@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {RefreshControl, View, StyleSheet} from 'react-native';
-import {Content, Container} from 'native-base';
+import {RefreshControl, StyleSheet, View} from 'react-native';
+import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import {appColors} from '../../config/colors';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';

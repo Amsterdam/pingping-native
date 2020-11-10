@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Dimensions, StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import CitypingsChip from '../shared/CitypingsChip';
 import ProgressiveImage from '../shared/ProgressiveImage';

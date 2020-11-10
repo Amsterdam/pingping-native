@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import {useQuery} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';

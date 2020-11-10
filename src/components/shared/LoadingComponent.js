@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {appColors} from '../../config/colors';
 import Body from '../typography/Body';
 

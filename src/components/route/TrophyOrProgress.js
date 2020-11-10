@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View as AnimatableView} from 'react-native-animatable';
 import ProgressBar from '../shared/ProgressBar';
+
 import Trophy from '../../assets/svg/Trohpy';
 
 const TrophyOrProgress = ({progress}) => {

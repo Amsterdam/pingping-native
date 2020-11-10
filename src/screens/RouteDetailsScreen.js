@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, Dimensions, StyleSheet} from 'react-native';
+import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import {useMutation, useQuery} from '@apollo/client';

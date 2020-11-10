@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, ActivityIndicator} from 'react-native';
+import {ActivityIndicator, ScrollView, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';

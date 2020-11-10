@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
+import Badge from '../../assets/svg/Badge';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
-import Badge from '../../assets/svg/Badge';
 
 const CIRCLE_RADIUS = 30;
 

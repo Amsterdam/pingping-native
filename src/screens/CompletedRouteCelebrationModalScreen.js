@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Animated, StatusBar} from 'react-native';
-import {Content, Container} from 'native-base';
+import {Animated, StatusBar, StyleSheet, View} from 'react-native';
+import {Container, Content} from 'native-base';
 import {useQuery} from '@apollo/client';
 import LottieView from 'lottie-react-native';
 import GET_ROUTES from '../apollo/Query/getRoutes';

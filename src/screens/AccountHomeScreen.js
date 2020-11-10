@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, FlatList} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import SimpleHeader from '../components/header/SimpleHeader';

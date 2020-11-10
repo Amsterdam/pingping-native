@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from '../typography/Title';
