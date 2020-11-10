@@ -38,7 +38,12 @@ describe('Onboarding Screen', () => {
     await setBirthDate('12', 'december', '2012');
     await pressYesAndNext();
     await pressYesAndNext();
-    await device.launchApp({permissions: {notifications: 'YES'}});
+    await device.launchApp({
+      permissions: {notifications: 'YES'},
+      launchArgs: {
+        detoxDebugVisibility: 'YES',
+      },
+    });
     await pressYesAndNext();
     await goBack();
     await pressYesAndNext();
@@ -51,9 +56,7 @@ describe('Onboarding Screen', () => {
     await pressMultipleChoiceOption(1);
     await pressYesAndNext();
     await skipNotifications();
-    await waitFor(element(by.text('AANBEVOLEN ROUTES')))
-      .toBeVisible()
-      .withTimeout(4000);
+    await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
     await deleteAccount();
   });
 });

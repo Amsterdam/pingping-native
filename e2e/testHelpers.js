@@ -39,6 +39,7 @@ export const setBirthDate = async (day, month, year) => {
 };
 
 export const deleteAccount = async () => {
+  await expect(element(by.id(testIDs.ACCOUNT.TAB_BUTTON))).toBeVisible();
   await element(by.id(testIDs.ACCOUNT.TAB_BUTTON)).tap();
   await expect(element(by.id(testIDs.ACCOUNT.SCREEN))).toBeVisible();
   await element(by.id(testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON)).tap();
