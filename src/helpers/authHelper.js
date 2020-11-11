@@ -25,11 +25,6 @@ export async function doRegisterDevice(
       },
     });
     await AsyncStorage.setItem('@access_token', accessToken);
-    const items = [
-      ['@access_token', accessToken],
-      ['@userId', id],
-    ];
-    return AsyncStorage.multiSet(items);
   } catch (error) {
     console.log({error});
   }
