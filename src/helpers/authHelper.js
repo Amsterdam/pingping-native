@@ -11,10 +11,7 @@ export async function doRegisterDevice(
     const deviceOs = await DeviceInfo.getSystemName();
     const {
       data: {
-        registerDevice: {
-          accessToken,
-          user: {id},
-        },
+        registerDevice: {accessToken},
       },
     } = await registerDeviceCallback({
       variables: {
