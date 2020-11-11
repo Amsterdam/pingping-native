@@ -4,7 +4,6 @@ import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import {useMutation, useQuery} from '@apollo/client';
-import {appColors} from '../config/colors';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
@@ -138,14 +137,6 @@ const QuestionScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   content: {flex: 1, padding: 20},
-  header: {
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: appColors.primary,
-  },
-
   icon: {
     color: '#000',
     fontSize: 32,
