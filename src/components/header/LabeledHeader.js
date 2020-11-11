@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, StatusBar} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Header, Left, Right} from 'native-base';
 import Title from '../typography/Title';

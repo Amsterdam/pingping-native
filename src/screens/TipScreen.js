@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
+import {Container, Content} from 'native-base';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
-import {Content, Container} from 'native-base';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 

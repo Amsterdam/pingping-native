@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import {useQuery} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -9,7 +9,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import QrCode from '../components/QrCode';
+import QrCode from '../components/account/QrCode';
 import {appColors} from '../config/colors';
 import {resetStore} from '../apollo/apolloClient';
 

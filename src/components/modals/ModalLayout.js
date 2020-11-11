@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Dimensions,
+  Image,
+  KeyboardAvoidingView,
   Modal,
+  ScrollView,
+  StatusBar,
   StyleSheet,
   View,
-  ScrollView,
-  Image,
-  Dimensions,
-  StatusBar,
-  KeyboardAvoidingView,
 } from 'react-native';
 import {Root} from 'native-base';
-import IconButton from '../IconButton';
+import IconButton from '../shared/IconButton';
 import {appColors} from '../../config/colors';
 
 const screenHeight = Dimensions.get('window').height;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, StyleSheet, View, Dimensions} from 'react-native';
+import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';

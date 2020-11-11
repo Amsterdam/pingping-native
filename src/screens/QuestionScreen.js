@@ -1,31 +1,31 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {StyleSheet, View, StatusBar} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {
-  Content,
   Container,
+  Content,
   Header,
-  Right,
+  Icon,
   Left,
   Button as NbButton,
-  Icon,
+  Right,
 } from 'native-base';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
-import Title from '../components/typography/Title';
-import {useQuery, useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import {appColors} from '../config/colors';
-import NextButtonQuestionScreen from '../components/NextButtonQuestionScreen';
-import QuestionComponent from '../components/QuestionComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
-import ProgressBar from '../components/ProgressBar';
-import ErrorComponent from '../components/ErrorComponent';
+import ProgressBar from '../components/shared/ProgressBar';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import Title from '../components/typography/Title';
+import NextButtonQuestionScreen from '../components/onboarding/NextButtonQuestionScreen';
+import QuestionComponent from '../components/onboarding/QuestionComponent';
+import GoBack from '../components/onboarding/answerTypes/GoBack';
+import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
 import {questionTypes} from '../config/questionTypes';
 import {testIDs} from '../../e2e/modulesTestIDs';
-import GoBack from '../components/answerTypes/GoBack';
-import QuestionSkeleton from '../components/skeletonComponents/QuestionSkeleton';
 
 const INITIAL_STATE = {
   answerSelected: false,

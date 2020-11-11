@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderTemplate from './HeaderTemplate';
 import {StyleSheet} from 'react-native';
+import HeaderTemplate from './HeaderTemplate';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 

@@ -1,0 +1,711 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView>
+      <View>
+        <View
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "",
+                },
+                Object {
+                  "height": 400.2,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <Image
+              blurRadius={1}
+              mainColor=""
+              onLoad={[Function]}
+              source={
+                Object {
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                }
+              }
+              style={
+                Object {
+                  "height": 400.2,
+                  "opacity": 0,
+                  "width": "100%",
+                }
+              }
+              thumbnailSource={
+                Object {
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                }
+              }
+            />
+            <Image
+              mainColor=""
+              onLoad={[Function]}
+              source={
+                Object {
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                }
+              }
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": 400.2,
+                  "left": 0,
+                  "opacity": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+              thumbnailSource={
+                Object {
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "position": "absolute",
+                "top": 80,
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#0d2036",
+                  "borderRadius": 30,
+                  "flexDirection": "row",
+                  "height": 38,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "width": 38,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontSize": 30,
+                      },
+                      Object {
+                        "color": "#000",
+                        "fontSize": 30,
+                      },
+                      Object {
+                        "color": "#fff",
+                        "fontSize": 22,
+                      },
+                      false,
+                    ],
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                type="MaterialIcons"
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#0d2036",
+                  "borderRadius": 5,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "padding": 10,
+                }
+              }
+            >
+              <RNSVGSvgView
+                align="xMidYMid"
+                bbHeight={16}
+                bbWidth={16}
+                fill="none"
+                focusable={false}
+                height={16}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "marginRight": 5,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 16,
+                      "width": 16,
+                    },
+                  ]
+                }
+                vbHeight={16}
+                vbWidth={16}
+                width={16}
+              >
+                <RNSVGGroup
+                  fill={null}
+                  propList={
+                    Array [
+                      "fill",
+                    ]
+                  }
+                >
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M7.955 15.91a7.955 7.955 0 110-15.91 7.955 7.955 0 010 15.91z"
+                    fill={4294892880}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M13.876 7.829a6.047 6.047 0 11-12.094 0 6.047 6.047 0 0112.094 0z"
+                    fill={4294945536}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M14.047 8.08a5.966 5.966 0 11-11.932.001 5.966 5.966 0 0111.932 0z"
+                    fill={4294950409}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M6.454 10.626c.425 0 .796-.076 1.113-.227.317-.152.586-.366.805-.641l-.707-.497a1.382 1.382 0 01-.497.417 1.531 1.531 0 01-.707.157c-.257 0-.488-.044-.693-.133a1.525 1.525 0 01-.528-.374 1.674 1.674 0 01-.34-.578 2.21 2.21 0 01-.119-.742c0-.257.04-.495.123-.714.081-.22.198-.41.35-.574a1.64 1.64 0 01.542-.385 1.705 1.705 0 011.316-.018c.21.082.38.212.511.389l.672-.532a1.442 1.442 0 00-.357-.336 2.406 2.406 0 00-.448-.234 2.528 2.528 0 00-.497-.14 3.033 3.033 0 00-1.561.136c-.327.121-.61.294-.85.518-.24.224-.43.496-.567.816a2.69 2.69 0 00-.207 1.074c0 .387.065.74.196 1.06.13.32.313.596.546.827.233.23.512.41.837.539.324.128.68.192 1.067.192zm3.596-.126V8.449h.679c.261 0 .509-.026.742-.077.233-.051.438-.134.613-.248.175-.115.313-.265.416-.452.103-.187.154-.418.154-.693a1.49 1.49 0 00-.133-.658 1.172 1.172 0 00-.378-.448c-.163-.117-.36-.2-.588-.252a3.525 3.525 0 00-.77-.077H9.168V10.5h.882zm0-2.793h.616c.145 0 .282-.01.413-.031.13-.022.247-.059.35-.112a.64.64 0 00.245-.221.658.658 0 00.091-.364.626.626 0 00-.09-.354.63.63 0 00-.242-.213 1.035 1.035 0 00-.343-.101 3.132 3.132 0 00-.396-.025h-.644v1.421z"
+                    fill={4294960771}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                </RNSVGGroup>
+              </RNSVGSvgView>
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={0}
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontFamily": "Heavitas",
+                      "fontSize": 30,
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 12,
+                      "paddingTop": 5,
+                    },
+                  ]
+                }
+              >
+                10 CityPings
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 40,
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            style={
+              Object {
+                "color": "#fb9f00",
+                "fontFamily": "Raleway-Regular",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "textAlign": "left",
+              }
+            }
+          >
+            Rewards
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginVertical": 20,
+                },
+              ]
+            }
+          >
+            test
+          </Text>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginTop": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <RNSVGSvgView
+                align="xMidYMid"
+                bbHeight={16}
+                bbWidth={16}
+                fill="none"
+                focusable={false}
+                height={16}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 16,
+                      "width": 16,
+                    },
+                  ]
+                }
+                vbHeight={16}
+                vbWidth={16}
+                width={16}
+              >
+                <RNSVGGroup
+                  fill={null}
+                  propList={
+                    Array [
+                      "fill",
+                    ]
+                  }
+                >
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M7.955 15.91a7.955 7.955 0 110-15.91 7.955 7.955 0 010 15.91z"
+                    fill={4294892880}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M13.876 7.829a6.047 6.047 0 11-12.094 0 6.047 6.047 0 0112.094 0z"
+                    fill={4294945536}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M14.047 8.08a5.966 5.966 0 11-11.932.001 5.966 5.966 0 0111.932 0z"
+                    fill={4294950409}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                  <RNSVGPath
+                    clipRule={0}
+                    d="M6.454 10.626c.425 0 .796-.076 1.113-.227.317-.152.586-.366.805-.641l-.707-.497a1.382 1.382 0 01-.497.417 1.531 1.531 0 01-.707.157c-.257 0-.488-.044-.693-.133a1.525 1.525 0 01-.528-.374 1.674 1.674 0 01-.34-.578 2.21 2.21 0 01-.119-.742c0-.257.04-.495.123-.714.081-.22.198-.41.35-.574a1.64 1.64 0 01.542-.385 1.705 1.705 0 011.316-.018c.21.082.38.212.511.389l.672-.532a1.442 1.442 0 00-.357-.336 2.406 2.406 0 00-.448-.234 2.528 2.528 0 00-.497-.14 3.033 3.033 0 00-1.561.136c-.327.121-.61.294-.85.518-.24.224-.43.496-.567.816a2.69 2.69 0 00-.207 1.074c0 .387.065.74.196 1.06.13.32.313.596.546.827.233.23.512.41.837.539.324.128.68.192 1.067.192zm3.596-.126V8.449h.679c.261 0 .509-.026.742-.077.233-.051.438-.134.613-.248.175-.115.313-.265.416-.452.103-.187.154-.418.154-.693a1.49 1.49 0 00-.133-.658 1.172 1.172 0 00-.378-.448c-.163-.117-.36-.2-.588-.252a3.525 3.525 0 00-.77-.077H9.168V10.5h.882zm0-2.793h.616c.145 0 .282-.01.413-.031.13-.022.247-.059.35-.112a.64.64 0 00.245-.221.658.658 0 00.091-.364.626.626 0 00-.09-.354.63.63 0 00-.242-.213 1.035 1.035 0 00-.343-.101 3.132 3.132 0 00-.396-.025h-.644v1.421z"
+                    fill={4294960771}
+                    fillRule={0}
+                    propList={
+                      Array [
+                        "fill",
+                        "fillRule",
+                      ]
+                    }
+                  />
+                </RNSVGGroup>
+              </RNSVGSvgView>
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={0}
+                style={
+                  Object {
+                    "color": "#b9b9b9",
+                    "fontFamily": "Raleway-Regular",
+                    "fontSize": 15,
+                    "lineHeight": 25,
+                    "marginLeft": 5,
+                    "textAlign": "left",
+                  }
+                }
+              >
+                0
+                 / 
+                10
+                 CityPings
+              </Text>
+            </View>
+            <View
+              animated={true}
+              animationConfig={
+                Object {
+                  "bounciness": 0,
+                }
+              }
+              animationType="timing"
+              indeterminate={false}
+              indeterminateAnimationDuration={1000}
+              onLayout={[Function]}
+              progress={0}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#e9e9e9",
+                    "borderColor": "#2dbcca",
+                    "borderRadius": 4,
+                    "borderWidth": 0,
+                    "overflow": "hidden",
+                    "width": 50,
+                  },
+                  undefined,
+                ]
+              }
+              useNativeDriver={true}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#2dbcca",
+                    "height": 10,
+                    "transform": Array [
+                      Object {
+                        "translateX": -1.7763568394002505e-15,
+                      },
+                      Object {
+                        "translateX": -25,
+                      },
+                      Object {
+                        "scaleX": 0.0001,
+                      },
+                    ],
+                  }
+                }
+              />
+            </View>
+          </View>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            style={
+              Object {
+                "fontFamily": "Raleway-Regular",
+                "fontSize": 15,
+                "lineHeight": 25,
+                "marginTop": 20,
+                "textAlign": "left",
+              }
+            }
+          >
+            123123
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginVertical": 10,
+          "paddingHorizontal": 40,
+        }
+      }
+    >
+      <Text
+        ellipsizeMode="tail"
+        numberOfLines={0}
+        style={
+          Object {
+            "fontFamily": "Raleway-Regular",
+            "fontSize": 15,
+            "lineHeight": 25,
+            "textAlign": "left",
+          }
+        }
+      >
+        Nog even doorsparen !
+      </Text>
+      <View
+        accessible={true}
+        focusable={true}
+        forwardedRef={[Function]}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "flex-start",
+            "backgroundColor": "gray",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 10,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "space-between",
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": undefined,
+            "shadowOffset": undefined,
+            "shadowOpacity": undefined,
+            "shadowRadius": undefined,
+          }
+        }
+        testID=""
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#fff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                },
+                Object {
+                  "color": "#fff",
+                  "fontFamily": "Heavitas",
+                  "fontSize": 14,
+                  "paddingTop": 3,
+                },
+              ]
+            }
+          >
+            Claim
+          </Text>
+        </View>
+      </View>
+    </View>
+    <Modal
+      animationType="fade"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(0,0,0,0.4)",
+            "flex": 1,
+            "justifyContent": "flex-end",
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "elevation": 4,
+              "maxHeight": 667,
+              "minHeight": 56,
+              "opacity": 1,
+              "padding": 15,
+            }
+          }
+        >
+          <RCTScrollView
+            data={Array []}
+            disableVirtualization={false}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            onContentSizeChange={[Function]}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onMomentumScrollEnd={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            removeClippedSubviews={false}
+            renderItem={[Function]}
+            scrollEventThrottle={50}
+            stickyHeaderIndices={Array []}
+            style={
+              Array [
+                Object {
+                  "marginHorizontal": -15,
+                },
+                Object {
+                  "marginTop": 0,
+                },
+              ]
+            }
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
+          >
+            <View />
+          </RCTScrollView>
+        </View>
+      </View>
+    </Modal>
+  </View>
+</View>
+`;

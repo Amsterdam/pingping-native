@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Svg, {G, Path, Defs, ClipPath} from 'react-native-svg';
+import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
 
 function AstronautSitting(props) {
   return (

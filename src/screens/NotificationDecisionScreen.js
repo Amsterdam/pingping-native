@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
+import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
-import {Header, Container, Text, Left, Right} from 'native-base';
-import Button from '../components/OnboardingButton';
+import {Container, Header, Left, Right} from 'native-base';
+import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
+import Loading from '../components/shared/LoadingComponent';
 import {appColors} from '../config/colors';
 import Bell from '../assets/svg/Bell';
 import {Notifications} from 'react-native-notifications';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
-import Loading from '../components/LoadingComponent';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import {testIDs} from '../../e2e/modulesTestIDs';
 
