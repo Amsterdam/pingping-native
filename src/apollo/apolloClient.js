@@ -9,10 +9,12 @@ import {API_URL} from '../config/initialSettings';
 import GET_QUESTIONNAIRE_MODAL from './Query/Local/getQuestionnaireModal';
 import GET_CLAIMED_REWARD_MODAL from './Query/Local/getClaimedRewardModalState';
 
-Sentry.init({
-  dsn:
-    'https://a302605b019943859ae466e19980c244@o458828.ingest.sentry.io/5457049',
-});
+if (!__DEV__) {
+  Sentry.init({
+    dsn:
+      'https://a302605b019943859ae466e19980c244@o458828.ingest.sentry.io/5457049',
+  });
+}
 
 const inMemoryCache = new InMemoryCache();
 

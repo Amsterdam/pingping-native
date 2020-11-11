@@ -34,7 +34,7 @@ exports[`renders correctly 1`] = `
               "left": 0,
               "paddingLeft": 6,
               "paddingRight": 10,
-              "paddingTop": 18,
+              "paddingTop": undefined,
               "right": 0,
               "shadowColor": null,
               "shadowOffset": null,
@@ -104,7 +104,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
-            testID="Header-Back-Button"
+            testID="HEADER_BACK_BUTTON"
           >
             <Text
               allowFontScaling={false}
@@ -146,6 +146,8 @@ exports[`renders correctly 1`] = `
           </View>
         </View>
         <Text
+          ellipsizeMode="tail"
+          numberOfLines={0}
           style={
             Array [
               Object {
@@ -165,7 +167,6 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
-          uppercase={false}
         >
           Tips
         </Text>

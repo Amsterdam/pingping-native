@@ -9,6 +9,7 @@ exports[`renders correctly 1`] = `
       "height": 1334,
     }
   }
+  testID="DELETE_DATA_SCREEN"
 >
   <View>
     <RCTSafeAreaView
@@ -34,7 +35,7 @@ exports[`renders correctly 1`] = `
               "left": 0,
               "paddingLeft": 6,
               "paddingRight": 10,
-              "paddingTop": 18,
+              "paddingTop": undefined,
               "right": 0,
               "shadowColor": null,
               "shadowOffset": null,
@@ -106,7 +107,7 @@ exports[`renders correctly 1`] = `
                 "shadowRadius": null,
               }
             }
-            testID="Header-Back-Button"
+            testID="HEADER_BACK_BUTTON"
           >
             <Text
               allowFontScaling={false}
@@ -148,6 +149,8 @@ exports[`renders correctly 1`] = `
           </View>
         </View>
         <Text
+          ellipsizeMode="tail"
+          numberOfLines={0}
           style={
             Array [
               Object {
@@ -167,7 +170,6 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
-          uppercase={false}
         >
           Privacy
         </Text>
@@ -261,6 +263,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Array [
                 Object {
@@ -278,7 +282,6 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            uppercase={false}
           >
             Jouw eigen gegevens
           </Text>
@@ -295,6 +298,8 @@ exports[`renders correctly 1`] = `
             </Text>
           </View>
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Object {
                 "fontFamily": "Raleway-Regular",
@@ -305,9 +310,11 @@ exports[`renders correctly 1`] = `
               }
             }
           >
-            Wij van PingPing gebruiken de door jouw ingevulde gegevens alleen om jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw gegevens verkopen aan andere partijen.
+            Wij van Ping Ping gebruiken de door jouw ingevulde gegevens alleen om jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw gegevens verkopen aan andere partijen.
           </Text>
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Object {
                 "fontFamily": "Raleway-Regular",
@@ -342,6 +349,7 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
+                  "alignSelf": "stretch",
                   "backgroundColor": "#f9454f",
                   "borderBottomWidth": null,
                   "borderColor": "#007aff",
@@ -353,7 +361,7 @@ exports[`renders correctly 1`] = `
                   "elevation": 2,
                   "flexDirection": "row",
                   "height": 45,
-                  "justifyContent": "space-between",
+                  "justifyContent": "center",
                   "opacity": 1,
                   "paddingBottom": 6,
                   "paddingTop": 6,
@@ -363,6 +371,7 @@ exports[`renders correctly 1`] = `
                   "shadowRadius": undefined,
                 }
               }
+              testID="DELETE_DATA_BUTTON"
             >
               <View
                 style={
@@ -430,7 +439,6 @@ exports[`renders correctly 1`] = `
                       },
                     ]
                   }
-                  uppercase={false}
                 >
                   Verwijder mijn gegevens
                 </Text>
@@ -457,6 +465,7 @@ exports[`renders correctly 1`] = `
           "justifyContent": "center",
         }
       }
+      testID="DELETE_DATA_MODAL"
     >
       <View
         style={
@@ -499,6 +508,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
+                "alignSelf": "flex-start",
                 "backgroundColor": "transparent",
                 "borderBottomWidth": null,
                 "borderColor": "#007aff",
@@ -562,6 +572,8 @@ exports[`renders correctly 1`] = `
             </Text>
           </View>
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Array [
                 Object {
@@ -579,11 +591,12 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            uppercase={false}
           >
             Gegevens Verwijderen
           </Text>
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Object {
                 "fontFamily": "Raleway-Regular",
@@ -611,6 +624,7 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
+                  "alignSelf": "stretch",
                   "backgroundColor": "#fb9f00",
                   "borderBottomWidth": null,
                   "borderColor": "#007aff",
@@ -633,6 +647,7 @@ exports[`renders correctly 1`] = `
                   "shadowRadius": undefined,
                 }
               }
+              testID=""
             >
               <View
                 style={
@@ -663,7 +678,6 @@ exports[`renders correctly 1`] = `
                       },
                     ]
                   }
-                  uppercase={false}
                 >
                   Niet verwijderen
                 </Text>
@@ -683,6 +697,7 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
+                  "alignSelf": "stretch",
                   "backgroundColor": "#e9e9e9",
                   "borderBottomWidth": null,
                   "borderColor": "#007aff",
@@ -705,6 +720,7 @@ exports[`renders correctly 1`] = `
                   "shadowRadius": undefined,
                 }
               }
+              testID="DELETE_DATA_MODAL_BUTTON"
             >
               <View
                 style={
@@ -772,7 +788,6 @@ exports[`renders correctly 1`] = `
                       },
                     ]
                   }
-                  uppercase={false}
                 >
                   Verwijder mijn gegevens
                 </Text>

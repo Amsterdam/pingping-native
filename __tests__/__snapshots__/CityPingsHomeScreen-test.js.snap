@@ -40,7 +40,7 @@ exports[`renders correctly 1`] = `
               "left": 0,
               "paddingLeft": 6,
               "paddingRight": 10,
-              "paddingTop": 18,
+              "paddingTop": undefined,
               "right": 0,
               "shadowColor": null,
               "shadowOffset": null,
@@ -67,6 +67,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
             style={
               Array [
                 Object {
@@ -86,7 +88,6 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            uppercase={false}
           >
             Rewards
           </Text>
@@ -191,6 +192,8 @@ exports[`renders correctly 1`] = `
               </RNSVGGroup>
             </RNSVGSvgView>
             <Text
+              ellipsizeMode="tail"
+              numberOfLines={0}
               style={
                 Array [
                   Object {
@@ -210,7 +213,6 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
-              uppercase={false}
             >
               0 CityPings
             </Text>
@@ -255,6 +257,13 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
+        accessibilityRole="tab"
+        accessibilityState={
+          Object {
+            "disabled": false,
+            "selected": true,
+          }
+        }
         accessible={true}
         focusable={true}
         onClick={[Function]}
@@ -312,13 +321,19 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            uppercase={false}
           >
             Rewards
           </Text>
         </View>
       </View>
       <View
+        accessibilityRole="tab"
+        accessibilityState={
+          Object {
+            "disabled": false,
+            "selected": false,
+          }
+        }
         accessible={true}
         focusable={true}
         onClick={[Function]}
@@ -375,9 +390,8 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            uppercase={false}
           >
-            Mijn prestaties
+            Geclaimed
           </Text>
         </View>
       </View>
@@ -556,7 +570,7 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            heading="Mijn prestaties"
+            heading="Geclaimed"
           />
         </View>
       </View>
