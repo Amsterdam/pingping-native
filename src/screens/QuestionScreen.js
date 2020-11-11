@@ -1,14 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
-import {
-  Container,
-  Content,
-  Header,
-  Icon,
-  Left,
-  Button as NbButton,
-  Right,
-} from 'native-base';
+import {StyleSheet} from 'react-native';
+import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import {useMutation, useQuery} from '@apollo/client';
@@ -16,16 +8,19 @@ import {appColors} from '../config/colors';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
-import ProgressBar from '../components/shared/ProgressBar';
 import ErrorComponent from '../components/shared/ErrorComponent';
-import Title from '../components/typography/Title';
 import NextButtonQuestionScreen from '../components/onboarding/NextButtonQuestionScreen';
 import QuestionComponent from '../components/onboarding/QuestionComponent';
 import GoBack from '../components/onboarding/answerTypes/GoBack';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
-import {setRevertedQuestionValues} from '../helpers/setRevertedQuestionValues';
 import {questionTypes} from '../config/questionTypes';
-import {testIDs} from '../../e2e/modulesTestIDs';
+import {
+  checkDisabled,
+  revertTaskFunc,
+  setRevertedQuestionValues,
+  submitAnswer,
+} from '../helpers/questionAnswerHelpers';
+import QuestionScreenHeader from '../components/header/QuestionScreenHeader';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -71,96 +66,42 @@ const QuestionScreen = ({navigation}) => {
   }
 
   if (data && currentTask) {
-    const checkDisabled = () => {
-      if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
-        return !state.day || !state.month || !state.year;
-      }
-      if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
-        return state.choices.length < 1;
-      }
-      return !state.answerSelected;
+    const doRevertTask = () => {
+      revertTaskFunc(
+        setLoadingQuestion,
+        previousTask,
+        navigation,
+        refetch,
+        animationRef,
+        revertTask,
+      );
     };
 
-    const submitAnswer = async () => {
-      let answer = '';
-      answer = state.answerSelected;
-      switch (currentTask.type) {
-        case questionTypes.DATE_OF_BIRTH:
-          answer = `${state.year}-${state.month}-${state.day}`;
-          break;
-        case questionTypes.MULTIPLE_CHOICES:
-          answer = state.choices.join();
-          break;
-        default:
-          break;
-      }
-      setLoadingQuestion(true);
-      try {
-        await updateTask({
-          variables: {
-            answer,
-            taskId: currentTask.taskId,
-          },
-        });
-        setState(INITIAL_STATE);
-        await refetch();
-        setLoadingQuestion(false);
-        animationRef.current?.fadeIn();
-      } catch (e) {
-        console.log(e);
-        setLoadingQuestion(false);
-      }
+    const doSubmitAnswer = () => {
+      submitAnswer(
+        currentTask,
+        state,
+        setLoadingQuestion,
+        updateTask,
+        setState,
+        refetch,
+        INITIAL_STATE,
+        animationRef,
+      );
     };
 
-    const doRevertTask = async () => {
-      console.log(previousTask);
-      setLoadingQuestion(true);
-      if (!previousTask?.taskId) {
-        return navigation.goBack();
-      }
-      try {
-        await revertTask({
-          variables: {taskId: previousTask.taskId},
-        });
-        await refetch();
-        setLoadingQuestion(false);
-        animationRef.current?.fadeIn();
-      } catch (e) {
-        console.log(e);
-      }
-    };
+    const nextButtonDisabled = checkDisabled(currentTask, state);
 
-    const nextButtonDisabled = checkDisabled();
     if (currentTask.type === questionTypes.GO_BACK) {
       return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
     }
+
     return (
       <Container>
-        <Header style={styles.header} transparent noShadow>
-          <StatusBar
-            barStyle="dark-content"
-            backgroundColor={appColors.background}
-          />
-          <Left style={styles.flex}>
-            <NbButton
-              transparent
-              onPress={doRevertTask}
-              testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
-              <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
-            </NbButton>
-          </Left>
-          <Title style={styles.headerTitle}>
-            {currentTask && currentTask.headerTitle}
-          </Title>
-
-          <Right>
-            <View>
-              <ProgressBar
-                progress={data.getStatus.currentTask.task.progress}
-              />
-            </View>
-          </Right>
-        </Header>
+        <QuestionScreenHeader
+          currentTask={currentTask}
+          doRevertTask={doRevertTask}
+        />
         <Content contentContainerStyle={styles.content}>
           {data && !loadingQuestion && (
             <Animatable.View
@@ -183,7 +124,7 @@ const QuestionScreen = ({navigation}) => {
 
               <NextButtonQuestionScreen
                 nextButtonDisabled={nextButtonDisabled}
-                submitAnswer={submitAnswer}
+                submitAnswer={doSubmitAnswer}
               />
             </Animatable.View>
           )}
