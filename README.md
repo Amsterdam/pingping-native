@@ -14,7 +14,7 @@ Before executing the steps listed in the list below, please checkout the [enviro
 1. `git clone https://github.com/Amsterdam/pingping-native`
 1. `yarn install`
 1. `cd ios && pod install && cd ..`
-1. `npx react-native run-ios` and the frontend should be up and running correctly
+1. `npx react-native run-ios` a simulator should spin up and React-native should start
 
 ### Screens
 
@@ -27,7 +27,7 @@ The components folder includes components structured by stack. If a component is
 
 ### Services
 
-Things that are not components or scenes should probably go here. For instance, the middleware to present notifications within the app can be found here.
+Things that are not components or screens should probably go here. For instance, the middleware to present notifications within the app can be found here.
 
 ### Apollo
 
@@ -39,5 +39,5 @@ The following rules apply:
 
 - A component can define nested components or services. It cannot use or define screens.
 - A screen can define nested components or services.
-- A service can define nested services. It cannot use or define components or scenes.
+- A service can define nested services. It cannot use or define components or screens.
 - Read the contributing file and stick to the rules for branching/file and folder structures.
