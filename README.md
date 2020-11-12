@@ -1,4 +1,4 @@
-# PingPing React Native
+# PingPing React Native &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ## Development
 
