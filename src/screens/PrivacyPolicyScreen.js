@@ -3,18 +3,18 @@ import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Content} from 'native-base';
 import {useMutation} from '@apollo/client';
-import LabeledHeader from '../components/header/LabeledHeader';
-import Button from '../components/OnboardingButton';
 import AsyncStorage from '@react-native-community/async-storage';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
 import FloppyDisk from '../assets/svg/FloppyDisk';
 import {appColors} from '../config/colors';
-import PrivacyPolicyAccordion from '../components/PrivacyPolicyAccordion';
+import Button from '../components/shared/RoundedButton';
+import LabeledHeader from '../components/header/LabeledHeader';
+import Title from '../components/typography/Title';
+import Body from '../components/typography/Body';
+import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion';
 import SimpleHeader from '../components/header/SimpleHeader';
+import Loading from '../components/shared/LoadingComponent';
 import {doRegisterDevice} from '../helpers/authHelper';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
-import Loading from '../components/LoadingComponent';
 import {testIDs} from '../../e2e/modulesTestIDs';
 
 const PrivacyPolicyScreen = ({navigation}) => {

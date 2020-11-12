@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
-import RewardDetailModalScreen from '../../components/modals/RewardDetailModalScreen';
-import CompletedRouteCelebrationModalScreen from '../../components/modals/CompletedRouteCelebrationModalScreen';
+import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
+import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();

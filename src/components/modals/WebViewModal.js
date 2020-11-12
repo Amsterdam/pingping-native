@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {
+  ActivityIndicator,
   Modal,
   StyleSheet,
-  View,
   TouchableOpacity,
-  ActivityIndicator,
+  View,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import Title from '../typography/Title';

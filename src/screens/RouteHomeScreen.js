@@ -1,25 +1,25 @@
 import React from 'react';
 import {
-  StyleSheet,
-  StatusBar,
   Animated,
-  View,
   RefreshControl,
+  StatusBar,
+  StyleSheet,
+  View,
 } from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
 import PropTypes from 'prop-types';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
-import RouteCard from '../components/RouteCard';
-import ErrorComponent from '../components/ErrorComponent';
+import RouteCard from '../components/route/RouteCard';
+import ErrorComponent from '../components/shared/ErrorComponent';
 import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
+import EmptyContentNotifier from '../components/shared/EmptyContentNotifier';
+import CardSkeleton from '../components/skeleton/CardSkeleton';
+import {appColors} from '../config/colors';
 import {testIDs} from '../../e2e/modulesTestIDs';
-import EmptyContentNotifier from '../components/EmptyContentNotifier';
-import CardSkeleton from '../components/skeletonComponents/CardSkeleton';
 
 const HEADER_HEIGHT = 200;
 

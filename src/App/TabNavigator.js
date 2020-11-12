@@ -6,7 +6,6 @@ import RouteStack from './stacks/RouteStack';
 import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
 import {testIDs} from '../../e2e/modulesTestIDs';
-// import KasboekStack from './stacks/KasboekStack';
 import {appColors} from '../config/colors';
 
 const Tab = createBottomTabNavigator();
@@ -47,21 +46,7 @@ const TabNavigator = ({setLogOut}) => (
         ),
       }}
     />
-    {/* <Tab.Screen
-      name="Kasboek"
-      component={KasboekStack}
-      options={{
-        tabBarLabel: 'Kasboek',
-        tabBarIcon: ({color, size}) => (
-          <Icon
-            name="piggy-bank"
-            type="FontAwesome5"
-            style={{color: color,fontSize: size}}
-            size={size}
-          />
-        ),
-      }}
-    /> */}
+
     <Tab.Screen
       name="Account"
       options={{

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Svg, {G, Path, Circle, Defs, ClipPath} from 'react-native-svg';
+import Svg, {Circle, ClipPath, Defs, G, Path} from 'react-native-svg';
 
 function Badge(props) {
   return (

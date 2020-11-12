@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Content, Container} from 'native-base';
+import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -9,7 +9,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import LabeledHeader from '../components/header/LabeledHeader';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
-import Button from '../components/OnboardingButton';
+import Button from '../components/shared/RoundedButton';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import {resetStore} from '../apollo/apolloClient';

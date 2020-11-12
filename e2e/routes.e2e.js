@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 import {testIDs} from './modulesTestIDs';
 import {
-  walkthroughOnboarding,
   answerOnboardingQuestions,
-  skipNotifications,
   deleteAccount,
+  skipNotifications,
+  walkthroughOnboarding,
 } from './testHelpers';
 
 describe('Onboarding Screen', () => {
