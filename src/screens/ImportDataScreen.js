@@ -30,10 +30,9 @@ const ImportDataScreen = ({navigation}) => {
       await doRegisterDevice(registerDevice, exportToken);
       await AsyncStorage.setItem('@acceptedPolicy', JSON.stringify(true));
       getStatus();
-      setScanning(false);
-      setLoading(false);
     } catch (error) {
-      setScanning(true);
+      setLoading(false);
+      setScanning(false);
       console.log(error);
     }
   };

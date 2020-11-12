@@ -16,7 +16,6 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
   const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
-  const [loading, setLoading] = useState(false);
 
   const acceptNotifications = async () => {
     Notifications.registerRemoteNotifications();
@@ -25,7 +24,6 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
         await doRegister('Approved', event.deviceToken);
       },
     );
-    setLogin(true);
   };
 
   const declineNotifications = async () => {
@@ -33,7 +31,6 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
   };
 
   const doRegister = async (decision, token) => {
-    setLoading(true);
     try {
       await registerNotifications({
         variables: {
@@ -48,7 +45,6 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
       });
       setLogin(true);
     } catch (error) {
-      setLoading(false);
       console.log(error);
     }
   };
@@ -90,7 +86,6 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           />
         </View>
       </View>
-      {loading && <Loading />}
     </Container>
   );
 };
