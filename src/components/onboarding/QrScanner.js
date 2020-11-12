@@ -23,7 +23,7 @@ const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
         </React.Fragment>
       ) : (
         <Button
-          style={styles.button}
+          full={true}
           onPress={() => setScanning(true)}
           label="Opnieuw scannen"
         />

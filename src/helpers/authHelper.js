@@ -23,7 +23,7 @@ export async function doRegisterDevice(
     });
     await AsyncStorage.setItem('@access_token', accessToken);
   } catch (error) {
-    console.log({error});
+    throw new Error('Failed to register device');
   }
 }
 
