@@ -87,7 +87,7 @@ const RouteHomeScreen = ({navigation}) => {
       <AnimatableView animation="fadeIn">
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
-            <Title style={styles.title}>Aanbevolen Routes</Title>
+            <Title style={styles.title}>Aanbevolen</Title>
             {suggestedRoutes.map((route) => (
               <RouteCard
                 navigation={navigation}
@@ -101,7 +101,7 @@ const RouteHomeScreen = ({navigation}) => {
         <React.Fragment>
           <Title
             style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
-            Andere Routes
+            Andere life events
           </Title>
 
           <EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
@@ -179,9 +179,9 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   subTitle: {
-    color: '#000',
+    color: appColors.primary,
     marginVertical: 10,
-    fontSize: 24,
+    fontSize: 18,
     textAlign: 'left',
   },
   content: {
