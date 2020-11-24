@@ -109,7 +109,7 @@ exports[`renders correctly 1`] = `
         },
         Object {
           "image": Object {
-            "testUri": "../../../src/assets/warning.png",
+            "testUri": "../../../src/assets/privacy.png",
           },
           "route": "ViewPrivacy",
           "testID": "VIEW_PRIVACY_BUTTON",
@@ -270,7 +270,7 @@ exports[`renders correctly 1`] = `
             <Image
               source={
                 Object {
-                  "testUri": "../../../src/assets/warning.png",
+                  "testUri": "../../../src/assets/privacy.png",
                 }
               }
               style={

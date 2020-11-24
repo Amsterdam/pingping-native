@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
 import {ppBaseColors} from '../../../config/colors';
+import Body from '../../typography/Body';
 import {testIDs} from '../../../../e2e/modulesTestIDs';
 
 const MultipleChoice = ({answers, state, setState}) => {
@@ -35,7 +36,12 @@ const MultipleChoice = ({answers, state, setState}) => {
     return buttonArray;
   }
 
-  return <View>{mapButtons()}</View>;
+  return (
+    <View>
+      <Body style={styles.bodyText}>Meerdere opties zijn mogelijk</Body>
+      {mapButtons()}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -50,6 +56,11 @@ const styles = StyleSheet.create({
   activeText: {
     color: '#fff',
   },
+  bodyText: {
+    textAlign: 'center',
+    fontSize: 14,
+    marginBottom: 20,
+  }
 });
 
 MultipleChoice.propTypes = {
