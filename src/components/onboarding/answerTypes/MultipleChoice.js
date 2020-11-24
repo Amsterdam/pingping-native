@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
 import {ppBaseColors} from '../../../config/colors';
-import Body from '../typography/Body';
+import Body from '../../typography/Body';
 import {testIDs} from '../../../../e2e/modulesTestIDs';
 
 const MultipleChoice = ({answers, state, setState}) => {
