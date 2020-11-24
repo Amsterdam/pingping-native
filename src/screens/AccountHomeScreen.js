@@ -5,7 +5,7 @@ import {Container} from 'native-base';
 
 import SimpleHeader from '../components/header/SimpleHeader';
 import ExportImage from '../assets/export.png';
-import WarningImage from '../assets/warning.png';
+import PrivacyImage from '../assets/privacy.png';
 import TrashImage from '../assets/trashcan.png';
 import AccountBlockButton from '../components/AccountBlockButton';
 import {appColors} from '../config/colors';
@@ -21,7 +21,7 @@ const AccountHomeScreen = ({navigation}) => {
     },
     {
       title: 'Privacy',
-      image: WarningImage,
+      image: PrivacyImage,
       route: 'ViewPrivacy',
       testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
     },
