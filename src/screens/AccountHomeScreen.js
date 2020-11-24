@@ -3,9 +3,9 @@ import {FlatList, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
 import SimpleHeader from '../components/header/SimpleHeader';
-import ExportImage from '../assets/export.png';
-import PrivacyImage from '../assets/privacy.png';
-import TrashImage from '../assets/trashcan.png';
+import Export from '../assets/svg/Export';
+import Trashcan from '../assets/svg/Trashcan';
+import Lock from '../assets/svg/Lock';
 import AccountBlockButton from '../components/account/AccountBlockButton';
 import {appColors} from '../config/colors';
 import {testIDs} from '../../e2e/modulesTestIDs';
@@ -14,19 +14,19 @@ const AccountHomeScreen = ({navigation}) => {
   const buttons = [
     {
       title: 'Exporteer gegevens',
-      image: ExportImage,
+      image: <Export style={styles.image} />,
       route: 'ExportData',
       testID: testIDs.ACCOUNT.EXPORT_DATA_BUTTON,
     },
     {
       title: 'Privacy',
-      image: PrivacyImage,
+      image: <Lock style={styles.image} />,
       route: 'ViewPrivacy',
       testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
     },
     {
       title: 'Verwijder gegevens',
-      image: TrashImage,
+      image: <Trashcan style={styles.image} />,
       route: 'DeleteData',
       testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
     },
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
   flatList: {
     backgroundColor: appColors.almostNotBlue,
     marginTop: 12,
+  },
+  image: {
+    marginBottom: 20,
   },
 });
 
