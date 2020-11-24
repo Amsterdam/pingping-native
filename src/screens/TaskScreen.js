@@ -116,6 +116,7 @@ const TaskScreen = ({navigation, route}) => {
       style: {backgroundColor: '#000', borderRadius: 10},
       duration: 2000,
     }); // change the error message once complete
+    throw new Error('Om Hulp Gevraagd');
   };
 
   const taskStatus = task.status === 'Completed';

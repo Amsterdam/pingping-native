@@ -9,12 +9,7 @@ import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const screenWidth = Dimensions.get('window').width;
 
-const ShowRewardCodeModal = ({
-  open = false,
-  setOpen = () => {},
-  validUntil = '',
-  code = '',
-}) => {
+const ShowRewardCodeModal = ({open = false, setOpen = () => {}, data = {}}) => {
   function closeModal() {
     setOpen(false);
   }
@@ -36,9 +31,11 @@ const ShowRewardCodeModal = ({
               <Icon name="close" type="AntDesign" style={styles.icon} />
             </Button>
             <Title style={styles.title}>Jouw Code</Title>
-            <Body style={styles.body}>Geldig tot: {validUntil}</Body>
+            {data.expiryDate && (
+              <Body style={styles.body}>Geldig tot: {data.expiryDate}</Body>
+            )}
             <View style={styles.codeContainer}>
-              <Title style={styles.code}>{code}</Title>
+              {data.code && <Title style={styles.code}>{data.code}</Title>}
             </View>
           </View>
         </View>
