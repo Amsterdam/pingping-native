@@ -2,7 +2,7 @@ import React from 'react';
 import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container} from 'native-base';
-import {useMutation, useQuery} from '@apollo/client';
+import {useQuery} from '@apollo/client';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import {appColors} from '../config/colors';
 import Title from '../components/typography/Title';
@@ -14,7 +14,6 @@ import TipsChip from '../components/route/TipsChip';
 import RouteTaskRow from '../components/route/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/shared/ErrorComponent';
-import QUESTIONNAIRE_MODAL from '../apollo/Mutation/Local/questionnaireModal';
 import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 
 const screenHeight = Dimensions.get('window').height;
@@ -25,15 +24,8 @@ function RouteDetailsScreen({navigation, route}) {
       routeId,
     },
   });
-  const [openQuestionnaireModal] = useMutation(QUESTIONNAIRE_MODAL);
 
   const numberOfSteps = data?.getRoute?.numberOfSteps;
-
-  React.useEffect(() => {
-    if (numberOfSteps === 0) {
-      openQuestionnaireModal({variables: {questionnaireModalOpen: true}});
-    }
-  }, [numberOfSteps, openQuestionnaireModal]);
 
   if (error) {
     return (
