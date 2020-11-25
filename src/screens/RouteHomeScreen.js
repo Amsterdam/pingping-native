@@ -15,7 +15,6 @@ import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import RouteCard from '../components/route/RouteCard';
 import ErrorComponent from '../components/shared/ErrorComponent';
-import RouteQuestionaireModal from '../components/modals/RouteQuestionaireModal';
 import EmptyContentNotifier from '../components/shared/EmptyContentNotifier';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import {appColors} from '../config/colors';
