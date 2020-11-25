@@ -12,7 +12,7 @@ import StarRating from '../components/route/StarRating';
 
 const INITIAL_STATE = {feedback: '', routeName: '', numberActive: 0};
 
-const MARGIN = 20;
+const MARGIN = 30;
 
 function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
   const {cover} = route.params;
@@ -22,6 +22,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
   const onRate = (stars) => () => {
     setState({...state, numberActive: stars});
   };
+
   const doSubmit = async () => {
     try {
       await submitFeedback({
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     padding: 5,
-    height: 100,
+    minHeight: 150,
     color: 'black',
   },
   anyTips: {
