@@ -27,8 +27,9 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
     try {
       await submitFeedback({
         variables: {
-          routeName: state.routeName,
+          routeId: state.routeName,
           feedback: state.feedback,
+          rating: state.numberActive,
         },
       });
       setState(INITIAL_STATE);
@@ -65,7 +66,12 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
                 numberOfLines={6}
               />
             </View>
-            <RoundedButton label="verstuur" style={styles.button} disabled />
+            <RoundedButton
+              label="verstuur"
+              style={styles.button}
+              onPress={doSubmit}
+              disabled={!state.numberActive > 0}
+            />
           </View>
         </ScrollView>
       </Root>
