@@ -12,12 +12,12 @@ import StarRating from '../components/route/StarRating';
 import ThankYouFeedbackModal from '../components/modals/ThankYouFeedbackModal';
 import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
 
-const INITIAL_STATE = {feedback: '', routeName: '', numberActive: 0};
+const INITIAL_STATE = {feedback: '', numberActive: 0};
 
 const MARGIN = 30;
 
 function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
-  const {cover} = route.params;
+  const {cover, routeId} = route.params;
   const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
   const [state, setState] = React.useState(INITIAL_STATE);
   const [displayError, setDisplayError] = React.useState({
@@ -34,7 +34,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
     try {
       await submitFeedback({
         variables: {
-          routeId: state.routeName,
+          routeId,
           feedback: state.feedback,
           rating: state.numberActive,
         },
@@ -146,6 +146,7 @@ RouteFeedbackScreen.propTypes = {
   route: PropTypes.object.isRequired,
   cover: PropTypes.object,
 };
+
 RouteFeedbackScreen.defaultProps = {
   cover: {
     value: '',
