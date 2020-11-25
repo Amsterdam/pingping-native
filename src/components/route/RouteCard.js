@@ -7,6 +7,7 @@ import {appColors} from '../../config/colors';
 import Card from '../shared/Card';
 import TrophyOrProgress from './TrophyOrProgress';
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import FeedbackCard from './FeedBackCard';
 
 const MARGIN = 15;
 
@@ -31,25 +32,28 @@ const RouteCard = ({
   const routeDisabled = numberOfSteps === 0;
 
   return (
-    <Card
-      onPress={doNavigation}
-      pings={totalPoints}
-      cover={cover}
-      testID={testIDs.ROUTES.ROUTE_CARD}
-      disabled={routeDisabled}
-      disabledString="Deze route is nog niet beschikbaar">
-      <Body style={styles.rewardType}>{targetAudience}</Body>
-      <Title style={styles.title}>{title}</Title>
-      <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>
-        {description}
-      </Body>
-      <View style={styles.balanceContainer}>
-        <View style={styles.saldo}>
-          <Body style={styles.savings}>{numberOfSteps} stappen</Body>
+    <React.Fragment>
+      <Card
+        onPress={doNavigation}
+        pings={totalPoints}
+        cover={cover}
+        testID={testIDs.ROUTES.ROUTE_CARD}
+        disabled={routeDisabled}
+        disabledString="Deze route is nog niet beschikbaar">
+        <Body style={styles.rewardType}>{targetAudience}</Body>
+        <Title style={styles.title}>{title}</Title>
+        <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>
+          {description}
+        </Body>
+        <View style={styles.balanceContainer}>
+          <View style={styles.saldo}>
+            <Body style={styles.savings}>{numberOfSteps} stappen</Body>
+          </View>
+          <TrophyOrProgress progress={progress} />
         </View>
-        <TrophyOrProgress progress={progress} />
-      </View>
-    </Card>
+      </Card>
+      {progress === 1 && <FeedbackCard />}
+    </React.Fragment>
   );
 };
 
