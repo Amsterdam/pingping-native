@@ -8,8 +8,6 @@ import ContentLayout from '../layout/ContentLayout';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
-import VaultImage from '../../assets/vault.png';
-import ModalLayout from './ModalLayout';
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../../apollo/Mutation/submitRouteFeedback';
 
 const INITIAL_STATE = {feedback: '', routeName: ''};

@@ -24,9 +24,10 @@ const RouteCard = ({
     cover,
   },
 }) => {
-  const doNavigation = () => {
-    navigation.navigate('RouteDetailsScreen', {
+  const doNavigation = (route) => () => {
+    navigation.navigate(route, {
       routeId,
+      cover,
     });
   };
   const routeDisabled = numberOfSteps === 0;
@@ -34,7 +35,7 @@ const RouteCard = ({
   return (
     <React.Fragment>
       <Card
-        onPress={doNavigation}
+        onPress={doNavigation('RouteDetailsScreen')}
         pings={totalPoints}
         cover={cover}
         testID={testIDs.ROUTES.ROUTE_CARD}
@@ -52,7 +53,9 @@ const RouteCard = ({
           <TrophyOrProgress progress={progress} />
         </View>
       </Card>
-      {progress === 1 && <FeedbackCard />}
+      {progress === 1 && (
+        <FeedbackCard onPress={doNavigation('RouteFeedbackScreen')} />
+      )}
     </React.Fragment>
   );
 };

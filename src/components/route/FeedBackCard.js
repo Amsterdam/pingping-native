@@ -9,7 +9,7 @@ import FeedbackIcon from '../../assets/svg/FeedbackIcon';
 
 const MARGIN = 5;
 
-const FeedbackCard = ({style}) => {
+const FeedbackCard = ({style, onPress}) => {
   return (
     <View style={[styles.paper, style]}>
       <View style={styles.descriptionContainer}>
@@ -18,12 +18,12 @@ const FeedbackCard = ({style}) => {
           <FeedbackIcon />
         </View>
         <Body style={styles.body}>
-          Wat vind je van deze route? Help ons de app te verbeteren
+          Wat vond je van deze route? Help ons de app te verbeteren
         </Body>
         <Button
           full
           style={styles.button}
-          onPress={() => {}}
+          onPress={onPress}
           label="Feedback geven"
         />
       </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
 
 FeedbackCard.propTypes = {
   style: PropTypes.object,
+  onPress: PropTypes.func.isRequired,
 };
 FeedbackCard.defaultProps = {
   style: {},

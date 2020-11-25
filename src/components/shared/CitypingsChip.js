@@ -6,6 +6,9 @@ import Title from '../typography/Title';
 import {ppBaseColors} from '../../config/colors';
 
 const CitypingsChip = ({value = 0, mini = false}) => {
+  if (!value) {
+    return <></>;
+  }
   return (
     <View style={styles.cpBalance}>
       <CityPingCoin style={styles.coin} />
