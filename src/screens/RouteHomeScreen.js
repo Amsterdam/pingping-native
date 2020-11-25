@@ -155,7 +155,6 @@ const RouteHomeScreen = ({navigation}) => {
           {routes.data && renderRoutes()}
         </ContentLayout>
       </Content>
-      <RouteQuestionaireModal navigation={navigation} />
     </Container>
   );
 };
