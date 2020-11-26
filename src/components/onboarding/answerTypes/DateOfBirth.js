@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import PropTypes from 'prop-types';
 import {getDays, getMonths, getYears} from '../../../helpers/birthDayHelper';
 import {testIDs} from '../../../../e2e/modulesTestIDs';
 
-const DateOfBirth = ({setState, state}) => {
+const INITIAL_STATE = {
+  day: '',
+  month: '',
+  year: '',
+};
+
+const DateOfBirth = ({}) => {
+  const [state, setState] = useState(INITIAL_STATE);
   const isIos = Platform.OS === 'ios';
   return (
     <View style={styles.container}>

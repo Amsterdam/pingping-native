@@ -12,7 +12,7 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
     if (isLastItem) {
       const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
       if (acceptedPolicy) {
-        return navigation.navigate('WelcomeScreen');
+        return navigation.navigate('QuestionScreen');
       }
       return navigation.navigate('PrivacyPolicyScreen');
     }
