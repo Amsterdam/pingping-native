@@ -14,6 +14,7 @@ const RoundedButton = ({
   loading = false,
   testid = '',
   full = false,
+  labelStyle = {},
 }) => {
   return (
     <Button
@@ -35,7 +36,7 @@ const RoundedButton = ({
             {iconName && iconType && (
               <Icon name={iconName} type={iconType} style={styles.icon} />
             )}
-            <Text style={styles.label}>{label}</Text>
+            <Text style={[styles.label, labelStyle]}>{label}</Text>
           </React.Fragment>
         )}
       </View>

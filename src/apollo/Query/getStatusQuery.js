@@ -1,5 +1,6 @@
 import {gql} from '@apollo/client';
 import REWARD_FRAGMENT from '../Fragment/rewardFragment';
+import MEDIA_FRAGMENT from '../Fragment/mediaFragment';
 
 const GET_STATUS_QUERY = gql`
   query getStatus {
@@ -33,6 +34,9 @@ const GET_STATUS_QUERY = gql`
           type
           progress
           headerTitle
+          media {
+            ...MediaFragment
+          }
         }
       }
       previousTask {
@@ -50,6 +54,7 @@ const GET_STATUS_QUERY = gql`
     }
   }
   ${REWARD_FRAGMENT}
+  ${MEDIA_FRAGMENT}
 `;
 
 export default GET_STATUS_QUERY;

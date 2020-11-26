@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
 import {ppBaseColors} from '../../../config/colors';
 import Body from '../../typography/Body';
 import {testIDs} from '../../../../e2e/modulesTestIDs';
+import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import AnswerTemplate from './AnswerTemplate';
 
-const MultipleChoice = ({answers, state, setState}) => {
+const MultipleChoice = ({
+  currentTask = {},
+  doRevertTask = () => {},
+  updateTask = () => {},
+  refetch = () => {},
+  answeredBefore,
+}) => {
+  const [state, setState] = useState({choices: []});
+  useEffect(() => {
+    if (answeredBefore) {
+      setState({choices: answeredBefore.split(',')});
+    }
+  }, [answeredBefore]);
   let choices = [...state.choices];
 
   const addChoice = (choice) => () => {
@@ -18,9 +32,9 @@ const MultipleChoice = ({answers, state, setState}) => {
     return setState({...state, choices});
   };
 
-  function mapButtons() {
+  const mapButtons = () => {
     const buttonArray = [];
-    for (const [key, value] of Object.entries(answers)) {
+    for (const [key, value] of Object.entries(currentTask.choices)) {
       buttonArray.push(
         <Button
           label={value}
@@ -34,13 +48,34 @@ const MultipleChoice = ({answers, state, setState}) => {
       );
     }
     return buttonArray;
-  }
+  };
 
+  const doUpdateTask = async () => {
+    try {
+      await updateTask({
+        variables: {
+          answer: state.choices.join(),
+          taskId: currentTask.taskId,
+        },
+      });
+      await refetch();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const nextButtonDisabled = checkDisabled(currentTask, state);
   return (
-    <View>
-      <Body style={styles.bodyText}>Meerdere opties zijn mogelijk</Body>
-      {mapButtons()}
-    </View>
+    <AnswerTemplate
+      currentTask={currentTask}
+      nextButtonDisabled={nextButtonDisabled}
+      doRevertTask={doRevertTask}
+      doUpdateTask={doUpdateTask}>
+      <View>
+        <Body style={styles.bodyText}>Meerdere opties zijn mogelijk</Body>
+        {mapButtons()}
+      </View>
+    </AnswerTemplate>
   );
 };
 
@@ -60,13 +95,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     marginBottom: 20,
-  }
+  },
 });
 
 MultipleChoice.propTypes = {
-  answers: PropTypes.object.isRequired,
-  state: PropTypes.object.isRequired,
-  setState: PropTypes.func.isRequired,
+  currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default MultipleChoice;
