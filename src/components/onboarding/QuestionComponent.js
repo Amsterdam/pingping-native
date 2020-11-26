@@ -24,6 +24,9 @@ const QuestionComponent = ({
             refetch={refetch}
           />
         );
+      case questionTypes.GO_BACK:
+        return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+
       case questionTypes.YES_OR_NO:
         return (
           <YesOrNo
@@ -54,8 +57,7 @@ const QuestionComponent = ({
             answeredBefore={answeredBefore}
           />
         );
-      case questionTypes.GO_BACK:
-        return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+
       default:
         break;
     }

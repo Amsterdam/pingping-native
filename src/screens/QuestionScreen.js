@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {useMutation, useQuery} from '@apollo/client';
 import PropTypes from 'prop-types';
-import {View} from 'react-native';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
@@ -14,6 +13,7 @@ const QuestionScreen = ({navigation}) => {
   const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const [revertTask] = useMutation(REVERT_TASK_MUTATION);
+  const [loadingQuestion, setLoadingQuestion] = useState(false);
   const current = data?.getStatus?.currentTask;
   const answeredBefore = current?.answer;
   const currentTask = current?.task;
@@ -43,7 +43,7 @@ const QuestionScreen = ({navigation}) => {
     );
   }
 
-  if (loading) {
+  if (loading || loadingQuestion) {
     return <QuestionSkeleton />;
   }
 
@@ -55,6 +55,7 @@ const QuestionScreen = ({navigation}) => {
         refetch={refetch}
         doRevertTask={doRevertTask}
         answeredBefore={answeredBefore}
+        setLoadingQuestion={setLoadingQuestion}
       />
     );
   }
