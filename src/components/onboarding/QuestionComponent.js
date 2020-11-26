@@ -24,12 +24,31 @@ const QuestionComponent = ({
           />
         );
       case questionTypes.YES_OR_NO:
-        return <YesOrNo answers={currentTask.choices} />;
+        return (
+          <YesOrNo
+            currentTask={currentTask}
+            updateTask={updateTask}
+            refetch={refetch}
+            doRevertTask={doRevertTask}
+          />
+        );
       case questionTypes.DATE_OF_BIRTH:
-        return <DateOfBirth />;
+        return (
+          <DateOfBirth
+            currentTask={currentTask}
+            doRevertTask={doRevertTask}
+            updateTask={updateTask}
+            refetch={refetch}
+          />
+        );
       case questionTypes.MULTIPLE_CHOICES:
         return (
-          <MultipleChoice answers={currentTask.choices} refetch={refetch} />
+          <MultipleChoice
+            currentTask={currentTask}
+            updateTask={updateTask}
+            refetch={refetch}
+            doRevertTask={doRevertTask}
+          />
         );
       case questionTypes.GO_BACK:
         return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;

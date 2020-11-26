@@ -99,6 +99,6 @@ export const checkDisabled = (currentTask, state) => {
     case questionTypes.MULTIPLE_CHOICES:
       return state.choices.length < 1;
     default:
-      return !state.answerSelected;
+      return !state;
   }
 };
