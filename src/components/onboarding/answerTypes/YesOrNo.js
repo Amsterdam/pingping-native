@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
@@ -10,8 +10,16 @@ const YesOrNo = ({
   doRevertTask = () => {},
   updateTask = () => {},
   refetch = () => {},
+  answeredBefore,
 }) => {
   const [answer, setAnswerSelected] = useState('');
+
+  useEffect(() => {
+    if (answeredBefore) {
+      setAnswerSelected(answeredBefore);
+    }
+  }, [answeredBefore]);
+
   const mapButtons = () => {
     const buttonArray = [];
     for (const [key, value] of Object.entries(currentTask.choices)) {

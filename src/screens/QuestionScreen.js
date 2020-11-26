@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import {useMutation, useQuery} from '@apollo/client';
 import PropTypes from 'prop-types';
@@ -15,9 +15,9 @@ const QuestionScreen = ({navigation}) => {
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const [revertTask] = useMutation(REVERT_TASK_MUTATION);
   const current = data?.getStatus?.currentTask;
+  const answeredBefore = current?.answer;
   const currentTask = current?.task;
   const previousTask = data?.getStatus?.previousTask?.task;
-  console.log({data});
 
   const doRevertTask = async () => {
     if (!previousTask?.taskId) {
@@ -58,6 +58,7 @@ const QuestionScreen = ({navigation}) => {
         updateTask={updateTask}
         refetch={refetch}
         doRevertTask={doRevertTask}
+        answeredBefore={answeredBefore}
       />
     );
   }

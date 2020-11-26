@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import PropTypes from 'prop-types';
@@ -18,7 +18,14 @@ const DateOfBirth = ({
   doRevertTask = () => {},
   updateTask = () => {},
   refetch = () => {},
+  answeredBefore,
 }) => {
+  useEffect(() => {
+    if (answeredBefore) {
+      const splitDate = answeredBefore.split('-');
+      setState({year: splitDate[0], month: splitDate[1], day: splitDate[2]});
+    }
+  }, [answeredBefore]);
   const [state, setState] = useState(INITIAL_STATE);
   const isIos = Platform.OS === 'ios';
   const nextButtonDisabled = checkDisabled(currentTask, state);

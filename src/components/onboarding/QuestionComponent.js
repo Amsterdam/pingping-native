@@ -12,6 +12,7 @@ const QuestionComponent = ({
   updateTask,
   refetch,
   doRevertTask,
+  answeredBefore,
 }) => {
   const renderQuestionType = () => {
     switch (currentTask.type) {
@@ -30,6 +31,7 @@ const QuestionComponent = ({
             updateTask={updateTask}
             refetch={refetch}
             doRevertTask={doRevertTask}
+            answeredBefore={answeredBefore}
           />
         );
       case questionTypes.DATE_OF_BIRTH:
@@ -39,6 +41,7 @@ const QuestionComponent = ({
             doRevertTask={doRevertTask}
             updateTask={updateTask}
             refetch={refetch}
+            answeredBefore={answeredBefore}
           />
         );
       case questionTypes.MULTIPLE_CHOICES:
@@ -48,6 +51,7 @@ const QuestionComponent = ({
             updateTask={updateTask}
             refetch={refetch}
             doRevertTask={doRevertTask}
+            answeredBefore={answeredBefore}
           />
         );
       case questionTypes.GO_BACK:

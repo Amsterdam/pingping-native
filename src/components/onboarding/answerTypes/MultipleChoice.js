@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
@@ -13,8 +13,14 @@ const MultipleChoice = ({
   doRevertTask = () => {},
   updateTask = () => {},
   refetch = () => {},
+  answeredBefore,
 }) => {
   const [state, setState] = useState({choices: []});
+  useEffect(() => {
+    if (answeredBefore) {
+      setState({choices: answeredBefore.split(',')});
+    }
+  }, [answeredBefore]);
   let choices = [...state.choices];
 
   const addChoice = (choice) => () => {
