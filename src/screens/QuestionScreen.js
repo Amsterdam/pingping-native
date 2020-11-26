@@ -43,7 +43,7 @@ const QuestionScreen = ({navigation}) => {
     );
   }
 
-  if (true) {
+  if (loading) {
     return <QuestionSkeleton />;
   }
 
