@@ -1,10 +1,12 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
+import PropTypes from 'prop-types';
+import {View} from 'react-native';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
-import PropTypes from 'prop-types';
-import {useQuery} from '@apollo/client';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import QuestionComponent from '../components/onboarding/QuestionComponent';
 
@@ -31,6 +33,24 @@ const QuestionScreen = ({navigation}) => {
     }
   };
 
+  if (error) {
+    return (
+      <ErrorComponent
+        functionToRetry={refetch}
+        somethingWentWrong
+        onPress={() => navigation.goBack()}
+      />
+    );
+  }
+
+  if (loading) {
+    return (
+      <View style={styles.skeleton}>
+        <QuestionSkeleton />
+      </View>
+    );
+  }
+
   if (data && currentTask) {
     return (
       <QuestionComponent
@@ -45,12 +65,7 @@ const QuestionScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  content: {flex: 1, padding: 20},
-  icon: {
-    color: '#000',
-    fontSize: 32,
-  },
-  flex: {flex: 1},
+  skeleton: {flex: 1, paddingVertical: 100, paddingHorizontal: 40},
 });
 
 QuestionScreen.propTypes = {

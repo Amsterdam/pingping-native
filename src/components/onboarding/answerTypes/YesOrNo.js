@@ -5,7 +5,12 @@ import Button from '../../onboarding/AnswerButtonOnboarding';
 import AnswerTemplate from './AnswerTemplate';
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 
-const YesOrNo = ({currentTask, doRevertTask, updateTask, refetch}) => {
+const YesOrNo = ({
+  currentTask = {},
+  doRevertTask = () => {},
+  updateTask = () => {},
+  refetch = () => {},
+}) => {
   const [answer, setAnswerSelected] = useState('');
   const mapButtons = () => {
     const buttonArray = [];
@@ -52,6 +57,9 @@ const YesOrNo = ({currentTask, doRevertTask, updateTask, refetch}) => {
 
 YesOrNo.propTypes = {
   currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default YesOrNo;

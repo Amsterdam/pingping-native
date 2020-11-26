@@ -8,7 +8,12 @@ import {testIDs} from '../../../../e2e/modulesTestIDs';
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 import AnswerTemplate from './AnswerTemplate';
 
-const MultipleChoice = ({currentTask, doRevertTask, updateTask, refetch}) => {
+const MultipleChoice = ({
+  currentTask = {},
+  doRevertTask = () => {},
+  updateTask = () => {},
+  refetch = () => {},
+}) => {
   const [state, setState] = useState({choices: []});
   let choices = [...state.choices];
 
@@ -88,7 +93,10 @@ const styles = StyleSheet.create({
 });
 
 MultipleChoice.propTypes = {
-  answers: PropTypes.object.isRequired,
+  currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default MultipleChoice;

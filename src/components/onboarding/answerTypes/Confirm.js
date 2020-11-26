@@ -9,7 +9,11 @@ import Title from '../../typography/Title';
 import Body from '../../typography/Body';
 import {appColors} from '../../../config/colors';
 
-const Confirm = ({currentTask, updateTask, refetch}) => {
+const Confirm = ({
+  currentTask = {},
+  updateTask = () => {},
+  refetch = () => {},
+}) => {
   const doUpdateTask = (answer) => async () => {
     try {
       await updateTask({
@@ -107,6 +111,8 @@ const styles = StyleSheet.create({
 
 Confirm.propTypes = {
   currentTask: PropTypes.object.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default Confirm;

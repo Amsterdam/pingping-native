@@ -13,7 +13,12 @@ const INITIAL_STATE = {
   year: '',
 };
 
-const DateOfBirth = ({currentTask, updateTask, refetch, doRevertTask}) => {
+const DateOfBirth = ({
+  currentTask = () => {},
+  doRevertTask = () => {},
+  updateTask = () => {},
+  refetch = () => {},
+}) => {
   const [state, setState] = useState(INITIAL_STATE);
   const isIos = Platform.OS === 'ios';
   const nextButtonDisabled = checkDisabled(currentTask, state);
@@ -110,8 +115,10 @@ const styles = StyleSheet.create({
 });
 
 DateOfBirth.propTyes = {
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.object.isRequired,
+  currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.object.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default DateOfBirth;
