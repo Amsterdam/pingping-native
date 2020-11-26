@@ -8377,10 +8377,10 @@ react-native-screens@^2.15.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.15.0.tgz#9b97c1881c4fcdf304bf363f0013225901625f44"
   integrity sha512-qTSQPy0WKHtlb8xt5gY0Gt6sdvfQUQAnFSqgsggW9UEvySbkHzpqOrOYNA79Ca8oXO0dCFwp6X8buIiDefa7+Q==
 
-react-native-skeleton-placeholder@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-3.0.2.tgz#6cd19035018a714b64a866a2f90ee98e2c56e212"
-  integrity sha512-JL6hfBBiJCbxFdb9/BXZGkJRG/O0stsjmkbLEd6k3blV76zZjueb8D8Nhu2EJRje8Nz/16k7mJtzuwTbTMR6Hg==
+react-native-skeleton-placeholder@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-2.0.11.tgz#5c9e5b5e5741749fc81f6ed5d0011ef0a0be7dd5"
+  integrity sha512-vF8ZDDqd/biGjw3iUmE96JtIWM//ttrvX4VLgh5XTQB5JshazA9MgM5NK+4mlwCT0duWN4nhxis+T9Xw3JKALw==
 
 react-native-svg@^12.1.0:
   version "12.1.0"
