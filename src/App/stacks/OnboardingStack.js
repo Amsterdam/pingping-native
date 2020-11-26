@@ -2,7 +2,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import OnboardingScreen from '../../screens/OnboardingScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
-import WelcomeScreen from '../../screens/WelcomeScreen';
 import QuestionScreen from '../../screens/QuestionScreen';
 import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
 import ImportDataScreen from '../../screens/ImportDataScreen';
@@ -13,7 +12,6 @@ const OnboardingStack = ({setLogin}) => (
   <Stack.Navigator initialRouteName="OnboardingScreen" headerMode="none">
     <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
     <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
-    <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
     <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
     <Stack.Screen name="ImportDataScreen" component={ImportDataScreen} />
     <Stack.Screen name="NotificationDecisionScreen">
