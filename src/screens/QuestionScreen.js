@@ -43,12 +43,8 @@ const QuestionScreen = ({navigation}) => {
     );
   }
 
-  if (loading) {
-    return (
-      <View style={styles.skeleton}>
-        <QuestionSkeleton />
-      </View>
-    );
+  if (true) {
+    return <QuestionSkeleton />;
   }
 
   if (data && currentTask) {
@@ -62,12 +58,8 @@ const QuestionScreen = ({navigation}) => {
       />
     );
   }
-  return <></>;
+  return <QuestionSkeleton />;
 };
-
-const styles = StyleSheet.create({
-  skeleton: {flex: 1, paddingVertical: 100, paddingHorizontal: 40},
-});
 
 QuestionScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
