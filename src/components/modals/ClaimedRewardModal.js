@@ -28,7 +28,15 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
   };
 
   if (data && data.claimedRewardModalOpen) {
-    const {claimedRewardModalOpen, title, description, imageUrl} = data;
+    const {
+      claimedRewardModalOpen,
+      title,
+      description,
+      imageUrl,
+      expiryDate,
+      pin,
+      code,
+    } = data;
 
     return (
       <ModalLayout
@@ -46,9 +54,9 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
             <View>
               <ClaimedTicketsLarge style={styles.illustration} />
               <Title align="center">GECLAIMED</Title>
-              {data.data.expiryDate && (
+              {expiryDate && (
                 <Body align="center" style={styles.rewardType}>
-                  Geldig tot {data.data.expiryDate}
+                  Geldig tot {expiryDate}
                 </Body>
               )}
             </View>
@@ -60,7 +68,12 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
             />
           </View>
         </ContentLayout>
-        <ShowRewardCodeModal open={open} setOpen={setOpen} data={data.data} />
+        <ShowRewardCodeModal
+          open={open}
+          setOpen={setOpen}
+          code={code}
+          expiryDate={expiryDate}
+        />
       </ModalLayout>
     );
   }

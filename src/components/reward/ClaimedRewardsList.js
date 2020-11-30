@@ -1,24 +1,40 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {RefreshControl, StyleSheet} from 'react-native';
+import {Content} from 'native-base';
 import {appColors} from '../../config/colors';
 import ContentLayout from '../layout/ContentLayout';
 import RewardCard from './RewardCard';
 
-const ClaimedRewardsList = ({claimedRewards, balance, navigation}) => {
-  console.log(claimedRewards);
+const ClaimedRewardsList = ({
+  claimedRewards,
+  balance,
+  navigation,
+  refreshing,
+  onRefresh,
+}) => {
   return (
-    <ContentLayout style={styles.content}>
-      {claimedRewards.map((claimedReward) => (
-        <RewardCard
-          navigation={navigation}
-          reward={claimedReward.reward}
-          key={claimedReward.reward.rewardId}
-          data={claimedReward.data}
-          balance={balance}
-          claimed
+    <Content
+      style={{backgroundColor: appColors.almostNotBlue}}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          tintColor={appColors.primary}
         />
-      ))}
-    </ContentLayout>
+      }>
+      <ContentLayout>
+        {claimedRewards.map((claimedReward) => (
+          <RewardCard
+            navigation={navigation}
+            reward={claimedReward.reward}
+            key={claimedReward.reward.rewardId}
+            data={claimedReward.data}
+            balance={balance}
+            claimed
+          />
+        ))}
+      </ContentLayout>
+    </Content>
   );
 };
 

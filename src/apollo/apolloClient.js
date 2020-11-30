@@ -55,10 +55,9 @@ const client = new ApolloClient({
           query: gql`
             {
               claimedRewardModalOpen
-              data {
-                pin
-                code
-              }
+              pin
+              code
+              expiryDate
               rewardId
               title
               description
@@ -80,7 +79,9 @@ async function writeInitialData() {
     query: GET_CLAIMED_REWARD_MODAL,
     data: {
       claimedRewardModalOpen: false,
-      data: {pin: '', code: ''},
+      pin: '',
+      code: '',
+      expiryDate: '',
       title: '',
       description: '',
       imageUrl: '',

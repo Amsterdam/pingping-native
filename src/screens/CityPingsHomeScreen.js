@@ -109,6 +109,9 @@ const CityPingsHomeScreen = ({navigation}) => {
             claimedRewards={claimedRewards}
             navigation={navigation}
             balance={balance}
+            getStatus={getStatus}
+            onRefresh={onRefresh}
+            refreshing={refreshing}
           />
         </Tab>
       </Tabs>
@@ -135,8 +138,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   tabBarUnderlineStyle: {
-    width: 100,
-    marginHorizontal: 55,
     backgroundColor: '#fff',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,

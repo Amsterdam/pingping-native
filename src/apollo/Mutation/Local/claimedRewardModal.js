@@ -7,7 +7,9 @@ const CLAIMED_REWARD_MODAL = gql`
     $description: String!
     $imageUrl: String!
     $rewardId: String!
-    $data: Object!
+    $pin: String
+    $code: String
+    $expiryDate: String
   ) {
     claimedRewardModal(
       claimedRewardModalOpen: $claimedRewardModalOpen
@@ -15,7 +17,9 @@ const CLAIMED_REWARD_MODAL = gql`
       description: $description
       imageUrl: $imageUrl
       rewardId: $rewardId
-      data: $data
+      pin: $pin
+      code: $code
+      expiryDate: $expiryDate
     ) @client
   }
 `;

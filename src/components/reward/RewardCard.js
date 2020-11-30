@@ -24,11 +24,13 @@ const RewardCard = ({
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
-          data,
           title,
           imageUrl: cover.value,
           rewardId,
           description,
+          pin: data.pin,
+          code: data.code,
+          expiryDate: data.expiryDate,
         },
       });
       return;
@@ -49,7 +51,12 @@ const RewardCard = ({
       cover={cover}
       disabled={status === 'NotAvailable'}>
       <View style={styles.descriptionContainer}>
-        <Body style={styles.rewardType}>Reward</Body>
+        <View style={styles.typeContainer}>
+          <Body style={styles.rewardType}>Reward</Body>
+          {data?.expiryDate && (
+            <Body style={styles.expiryDate}>Geldig tot {data.expiryDate}</Body>
+          )}
+        </View>
         <Title style={styles.title}>{title}</Title>
         <Body numberOfLines={3} ellipsizeMode="tail">
           {description}
@@ -81,6 +88,14 @@ const styles = StyleSheet.create({
   rewardType: {
     color: appColors.primary,
     marginBottom: 10,
+  },
+  expiryDate: {
+    color: appColors.primary,
+    fontSize: 10,
+  },
+  typeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   illustration: {alignSelf: 'flex-end'},
 });
