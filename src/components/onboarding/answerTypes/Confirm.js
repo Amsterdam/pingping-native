@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import SimpleHeader from '../../header/SimpleHeader';
@@ -8,8 +8,19 @@ import {BASE_URL} from '../../../config/initialSettings';
 import Title from '../../typography/Title';
 import Body from '../../typography/Body';
 import {appColors} from '../../../config/colors';
+import ConfirmModal from '../../modals/ConfirmModal';
 
 const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+
+  const handleOnPress = (answer) => {
+    console.log({answer, task: currentTask.taskId});
+    if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
+      return setConfirmModalOpen(true);
+    }
+    doUpdateConfirmTask(answer);
+  };
+
   const mapButtons = () => {
     const buttonArray = [];
     for (const [key, value] of Object.entries(currentTask.choices)) {
@@ -19,7 +30,7 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
           key={key}
           style={[styles.button, key === 'no' && styles.whiteButton]}
           labelStyle={[key === 'no' && styles.label]}
-          onPress={() => doUpdateConfirmTask(key)}
+          onPress={() => handleOnPress(key)}
           testid={`${key}_BUTTON`.toUpperCase()}
         />,
       );
@@ -46,6 +57,11 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
 
         <View style={styles.buttonContainer}>{mapButtons()}</View>
       </View>
+      <ConfirmModal
+        open={confirmModalOpen}
+        setOpen={setConfirmModalOpen}
+        doUpdateConfirmTask={doUpdateConfirmTask}
+      />
     </Container>
   );
 };
