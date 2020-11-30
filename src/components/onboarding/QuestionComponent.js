@@ -12,7 +12,10 @@ const QuestionComponent = ({
   updateTask,
   refetch,
   doRevertTask,
-  answeredBefore,
+  state,
+  setState,
+  doUpdateTask,
+  setLoadingQuestion,
 }) => {
   const renderQuestionType = () => {
     switch (currentTask.type) {
@@ -22,6 +25,7 @@ const QuestionComponent = ({
             currentTask={currentTask}
             updateTask={updateTask}
             refetch={refetch}
+            setLoadingQuestion={setLoadingQuestion}
           />
         );
       case questionTypes.GO_BACK:
@@ -31,10 +35,10 @@ const QuestionComponent = ({
         return (
           <YesOrNo
             currentTask={currentTask}
-            updateTask={updateTask}
-            refetch={refetch}
             doRevertTask={doRevertTask}
-            answeredBefore={answeredBefore}
+            state={state}
+            setState={setState}
+            doUpdateTask={doUpdateTask}
           />
         );
       case questionTypes.DATE_OF_BIRTH:
@@ -42,19 +46,19 @@ const QuestionComponent = ({
           <DateOfBirth
             currentTask={currentTask}
             doRevertTask={doRevertTask}
-            updateTask={updateTask}
-            refetch={refetch}
-            answeredBefore={answeredBefore}
+            state={state}
+            setState={setState}
+            doUpdateTask={doUpdateTask}
           />
         );
       case questionTypes.MULTIPLE_CHOICES:
         return (
           <MultipleChoice
             currentTask={currentTask}
-            updateTask={updateTask}
-            refetch={refetch}
             doRevertTask={doRevertTask}
-            answeredBefore={answeredBefore}
+            state={state}
+            setState={setState}
+            doUpdateTask={doUpdateTask}
           />
         );
 

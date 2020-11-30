@@ -8,18 +8,10 @@ import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 const YesOrNo = ({
   currentTask = {},
   doRevertTask = () => {},
-  updateTask = () => {},
-  refetch = () => {},
-  answeredBefore,
+  doUpdateTask = () => {},
+  state = {},
+  setState = () => {},
 }) => {
-  const [answer, setAnswerSelected] = useState('');
-
-  useEffect(() => {
-    if (answeredBefore) {
-      setAnswerSelected(answeredBefore);
-    }
-  }, [answeredBefore]);
-
   const mapButtons = () => {
     const buttonArray = [];
     for (const [key, value] of Object.entries(currentTask.choices)) {
@@ -27,8 +19,8 @@ const YesOrNo = ({
         <Button
           label={value}
           key={key}
-          active={key === answer}
-          onPress={() => setAnswerSelected(key)}
+          active={key === state.answerSelected}
+          onPress={() => setState({...state, answerSelected: key})}
           testid={`${key}_BUTTON`.toUpperCase()}
         />,
       );
@@ -36,22 +28,7 @@ const YesOrNo = ({
     return buttonArray;
   };
 
-  const doUpdateTask = async () => {
-    try {
-      await updateTask({
-        variables: {
-          answer,
-          taskId: currentTask.taskId,
-        },
-      });
-      setAnswerSelected('');
-      await refetch();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const nextButtonDisabled = checkDisabled(currentTask, answer);
+  const nextButtonDisabled = checkDisabled(currentTask, state);
   return (
     <AnswerTemplate
       currentTask={currentTask}
@@ -67,7 +44,8 @@ YesOrNo.propTypes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
   updateTask: PropTypes.func.isRequired,
-  refetch: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
 };
 
 export default YesOrNo;

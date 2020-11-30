@@ -34,7 +34,7 @@ export const submitAnswer = async (
     await refetch();
     setState(INITIAL_STATE);
     setLoadingQuestion(false);
-    animationRef.current?.fadeIn();
+    // animationRef.current?.fadeIn();
   } catch (e) {
     console.log(e);
     setLoadingQuestion(false);
@@ -67,9 +67,9 @@ export const revertTaskFunc = async (
 };
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(currentTask, current, setState) {
+export function setRevertedQuestionValues(currentTask, answer, setState) {
   if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
-    const splitDate = current.answer.split('-');
+    const splitDate = answer.split('-');
     setState((state) => ({
       ...state,
       year: splitDate[0],
@@ -80,13 +80,13 @@ export function setRevertedQuestionValues(currentTask, current, setState) {
   if (currentTask.type === questionTypes.YES_OR_NO) {
     setState((state) => ({
       ...state,
-      answerSelected: current.answer,
+      answerSelected: answer,
     }));
   }
   if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
     setState((state) => ({
       ...state,
-      choices: current.answer.split(','),
+      choices: answer.split(','),
     }));
   }
 }
@@ -99,6 +99,6 @@ export const checkDisabled = (currentTask, state) => {
     case questionTypes.MULTIPLE_CHOICES:
       return state.choices.length < 1;
     default:
-      return !state;
+      return !state.answerSelected;
   }
 };
