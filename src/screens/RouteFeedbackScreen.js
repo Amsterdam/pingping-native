@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   KeyboardAvoidingView,
+  Platform,
   ScrollView,
   StyleSheet,
   TextInput,
@@ -62,7 +63,8 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 
   return (
     <Container>
-      <KeyboardAvoidingView behavior="position">
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
         <ScrollView keyboardShouldPersistTaps="handled">
           <ImageOverlayHeader navigation={navigation} cover={cover} />
           <View style={styles.contentContainer}>

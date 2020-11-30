@@ -11,6 +11,7 @@ const ROUTES_FRAGMENT = gql`
     totalPoints
     targetAudience
     progress
+    hasSubmittedFeedback
     cover {
       ...MediaFragment
     }

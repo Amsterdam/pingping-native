@@ -22,6 +22,7 @@ const RouteCard = ({
     numberOfSteps,
     progress,
     cover,
+    hasSubmittedFeedback,
   },
 }) => {
   const doNavigation = (route) => () => {
@@ -53,7 +54,7 @@ const RouteCard = ({
           <TrophyOrProgress progress={progress} />
         </View>
       </Card>
-      {progress === 1 && (
+      {progress === 1 && !hasSubmittedFeedback && (
         <FeedbackCard onPress={doNavigation('RouteFeedbackScreen')} />
       )}
     </React.Fragment>
