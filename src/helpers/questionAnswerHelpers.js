@@ -34,7 +34,7 @@ export const submitAnswer = async (
     await refetch();
     setState(INITIAL_STATE);
     setLoadingQuestion(false);
-    animationRef.current?.slideInRight();
+    animationRef.current?.fadeIn();
   } catch (e) {
     console.log(e);
     setLoadingQuestion(false);
@@ -81,7 +81,7 @@ export const revertTaskFunc = async (
     });
     await refetch();
     setLoadingQuestion(false);
-    animationRef.current?.slideInLeft();
+    animationRef.current?.fadeIn();
   } catch (e) {
     setLoadingQuestion(false);
     console.log(e);

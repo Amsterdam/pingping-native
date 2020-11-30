@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   },
   label: {
     color: appColors.primary,
+    textAlign: 'center',
   },
   whiteButton: {
     backgroundColor: 'white',
