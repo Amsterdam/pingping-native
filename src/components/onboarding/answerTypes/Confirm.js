@@ -9,25 +9,7 @@ import Title from '../../typography/Title';
 import Body from '../../typography/Body';
 import {appColors} from '../../../config/colors';
 
-const Confirm = ({
-  currentTask = {},
-  updateTask = () => {},
-  refetch = () => {},
-}) => {
-  const doUpdateTask = (answer) => async () => {
-    try {
-      await updateTask({
-        variables: {
-          answer,
-          taskId: currentTask.taskId,
-        },
-      });
-      await refetch();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
   const mapButtons = () => {
     const buttonArray = [];
     for (const [key, value] of Object.entries(currentTask.choices)) {
@@ -37,7 +19,7 @@ const Confirm = ({
           key={key}
           style={[styles.button, key === 'no' && styles.whiteButton]}
           labelStyle={[key === 'no' && styles.label]}
-          onPress={doUpdateTask(key)}
+          onPress={() => doUpdateConfirmTask(key)}
           testid={`${key}_BUTTON`.toUpperCase()}
         />,
       );
@@ -111,8 +93,7 @@ const styles = StyleSheet.create({
 
 Confirm.propTypes = {
   currentTask: PropTypes.object.isRequired,
-  updateTask: PropTypes.func.isRequired,
-  refetch: PropTypes.func.isRequired,
+  doUpdateConfirmTask: PropTypes.func.isRequired,
 };
 
 export default Confirm;

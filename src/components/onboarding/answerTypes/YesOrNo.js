@@ -43,7 +43,6 @@ const YesOrNo = ({
 YesOrNo.propTypes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
-  updateTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

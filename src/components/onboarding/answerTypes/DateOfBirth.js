@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
 DateOfBirth.propTyes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
-  updateTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

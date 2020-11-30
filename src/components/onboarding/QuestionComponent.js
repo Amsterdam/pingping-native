@@ -16,6 +16,8 @@ const QuestionComponent = ({
   setState,
   doUpdateTask,
   setLoadingQuestion,
+  animationRef,
+  doUpdateConfirmTask,
 }) => {
   const renderQuestionType = () => {
     switch (currentTask.type) {
@@ -23,9 +25,10 @@ const QuestionComponent = ({
         return (
           <Confirm
             currentTask={currentTask}
-            updateTask={updateTask}
+            doUpdateConfirmTask={doUpdateConfirmTask}
             refetch={refetch}
             setLoadingQuestion={setLoadingQuestion}
+            animationRef={animationRef}
           />
         );
       case questionTypes.GO_BACK:

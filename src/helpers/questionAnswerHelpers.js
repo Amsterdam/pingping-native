@@ -34,10 +34,31 @@ export const submitAnswer = async (
     await refetch();
     setState(INITIAL_STATE);
     setLoadingQuestion(false);
-    // animationRef.current?.fadeIn();
+    animationRef.current?.slideInRight();
   } catch (e) {
     console.log(e);
     setLoadingQuestion(false);
+  }
+};
+
+export const updateConfirmTask = async (
+  answer,
+  updateTask,
+  currentTask,
+  refetch,
+  animationRef,
+) => {
+  try {
+    await updateTask({
+      variables: {
+        answer,
+        taskId: currentTask.taskId,
+      },
+    });
+    await refetch();
+    animationRef.current?.slideInRight();
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -47,8 +68,8 @@ export const revertTaskFunc = async (
   previousTask,
   navigation,
   refetch,
-  animationRef,
   revertTask,
+  animationRef,
 ) => {
   setLoadingQuestion(true);
   if (!previousTask?.taskId) {
@@ -60,8 +81,9 @@ export const revertTaskFunc = async (
     });
     await refetch();
     setLoadingQuestion(false);
-    animationRef.current?.fadeIn();
+    animationRef.current?.slideInLeft();
   } catch (e) {
+    setLoadingQuestion(false);
     console.log(e);
   }
 };
