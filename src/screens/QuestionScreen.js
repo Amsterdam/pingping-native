@@ -83,7 +83,7 @@ const QuestionScreen = ({navigation}) => {
     return (
       <AnimatableView
         style={styles.flex}
-        duration={400}
+        duration={300}
         ref={animationRef}
         animation="slideInRight"
         useNativeDriver>
