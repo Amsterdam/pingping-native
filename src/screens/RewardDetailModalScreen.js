@@ -36,7 +36,9 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
-          data: claimResponse.data.claimReward.data,
+          pin: claimResponse.data.claimReward.data?.pin,
+          code: claimResponse.data.claimReward.data?.code,
+          expiryDate: claimResponse.data.claimReward.data?.expiryDate,
           title: claimResponse.data.claimReward.reward.title,
           imageUrl: claimResponse.data.claimReward.reward.cover.value,
           rewardId: claimResponse.data.claimReward.reward.rewardId,
