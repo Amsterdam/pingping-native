@@ -34,10 +34,31 @@ export const submitAnswer = async (
     await refetch();
     setState(INITIAL_STATE);
     setLoadingQuestion(false);
-    animationRef.current?.fadeIn();
+    animationRef.current?.slideInRight();
   } catch (e) {
     console.log(e);
     setLoadingQuestion(false);
+  }
+};
+
+export const updateConfirmTask = async (
+  answer,
+  updateTask,
+  currentTask,
+  refetch,
+  animationRef,
+) => {
+  try {
+    await updateTask({
+      variables: {
+        answer,
+        taskId: currentTask.taskId,
+      },
+    });
+    await refetch();
+    animationRef.current?.slideInRight();
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -47,8 +68,8 @@ export const revertTaskFunc = async (
   previousTask,
   navigation,
   refetch,
-  animationRef,
   revertTask,
+  animationRef,
 ) => {
   setLoadingQuestion(true);
   if (!previousTask?.taskId) {
@@ -60,16 +81,17 @@ export const revertTaskFunc = async (
     });
     await refetch();
     setLoadingQuestion(false);
-    animationRef.current?.fadeIn();
+    animationRef.current?.slideInLeft();
   } catch (e) {
+    setLoadingQuestion(false);
     console.log(e);
   }
 };
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(currentTask, current, setState) {
+export function setRevertedQuestionValues(currentTask, answer, setState) {
   if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
-    const splitDate = current.answer.split('-');
+    const splitDate = answer.split('-');
     setState((state) => ({
       ...state,
       year: splitDate[0],
@@ -80,13 +102,13 @@ export function setRevertedQuestionValues(currentTask, current, setState) {
   if (currentTask.type === questionTypes.YES_OR_NO) {
     setState((state) => ({
       ...state,
-      answerSelected: current.answer,
+      answerSelected: answer,
     }));
   }
   if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
     setState((state) => ({
       ...state,
-      choices: current.answer.split(','),
+      choices: answer.split(','),
     }));
   }
 }
@@ -99,6 +121,6 @@ export const checkDisabled = (currentTask, state) => {
     case questionTypes.MULTIPLE_CHOICES:
       return state.choices.length < 1;
     default:
-      return !state;
+      return !state.answerSelected;
   }
 };

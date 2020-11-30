@@ -7,43 +7,15 @@ import {testIDs} from '../../../../e2e/modulesTestIDs';
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 import AnswerTemplate from './AnswerTemplate';
 
-const INITIAL_STATE = {
-  day: '',
-  month: '',
-  year: '',
-};
-
 const DateOfBirth = ({
-  currentTask = () => {},
+  currentTask = {},
   doRevertTask = () => {},
-  updateTask = () => {},
-  refetch = () => {},
-  answeredBefore,
+  doUpdateTask = () => {},
+  state = {},
+  setState = () => {},
 }) => {
-  useEffect(() => {
-    if (answeredBefore) {
-      const splitDate = answeredBefore.split('-');
-      setState({year: splitDate[0], month: splitDate[1], day: splitDate[2]});
-    }
-  }, [answeredBefore]);
-  const [state, setState] = useState(INITIAL_STATE);
   const isIos = Platform.OS === 'ios';
   const nextButtonDisabled = checkDisabled(currentTask, state);
-
-  const doUpdateTask = async () => {
-    const answer = `${state.year}-${state.month}-${state.day}`;
-    try {
-      await updateTask({
-        variables: {
-          answer,
-          taskId: currentTask.taskId,
-        },
-      });
-      await refetch();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <AnswerTemplate
@@ -123,9 +95,9 @@ const styles = StyleSheet.create({
 
 DateOfBirth.propTyes = {
   currentTask: PropTypes.object.isRequired,
-  doRevertTask: PropTypes.object.isRequired,
-  updateTask: PropTypes.func.isRequired,
-  refetch: PropTypes.func.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
 };
 
 export default DateOfBirth;

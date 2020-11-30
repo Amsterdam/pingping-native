@@ -13,8 +13,8 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 
 export default function App() {
   React.useEffect(() => {
-    RNBootSplash.hide({duration: 700});
     NetInfo.addEventListener((netInfoState) => {
+      RNBootSplash.hide({fade: true});
       // here we check if there is an internect connection
       // if we have an internet connection we will move with executing functions
       // otherwise we present the user with a no connections screen

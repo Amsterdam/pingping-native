@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
@@ -11,16 +11,10 @@ import AnswerTemplate from './AnswerTemplate';
 const MultipleChoice = ({
   currentTask = {},
   doRevertTask = () => {},
-  updateTask = () => {},
-  refetch = () => {},
-  answeredBefore,
+  doUpdateTask = () => {},
+  state = {},
+  setState = () => {},
 }) => {
-  const [state, setState] = useState({choices: []});
-  useEffect(() => {
-    if (answeredBefore) {
-      setState({choices: answeredBefore.split(',')});
-    }
-  }, [answeredBefore]);
   let choices = [...state.choices];
 
   const addChoice = (choice) => () => {
@@ -48,20 +42,6 @@ const MultipleChoice = ({
       );
     }
     return buttonArray;
-  };
-
-  const doUpdateTask = async () => {
-    try {
-      await updateTask({
-        variables: {
-          answer: state.choices.join(),
-          taskId: currentTask.taskId,
-        },
-      });
-      await refetch();
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const nextButtonDisabled = checkDisabled(currentTask, state);
@@ -101,8 +81,8 @@ const styles = StyleSheet.create({
 MultipleChoice.propTypes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
-  updateTask: PropTypes.func.isRequired,
-  refetch: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+  setState: PropTypes.func.isRequired,
 };
 
 export default MultipleChoice;
