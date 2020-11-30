@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../../onboarding/AnswerButtonOnboarding';
+import AnswerTemplate from './AnswerTemplate';
+import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 
-const YesOrNo = ({answers, state, setState}) => {
-  function mapButtons() {
+const YesOrNo = ({
+  currentTask = {},
+  doRevertTask = () => {},
+  doUpdateTask = () => {},
+  state = {},
+  setState = () => {},
+}) => {
+  const mapButtons = () => {
     const buttonArray = [];
-    for (const [key, value] of Object.entries(answers)) {
+    for (const [key, value] of Object.entries(currentTask.choices)) {
       buttonArray.push(
         <Button
           label={value}
@@ -18,13 +26,23 @@ const YesOrNo = ({answers, state, setState}) => {
       );
     }
     return buttonArray;
-  }
+  };
 
-  return <View>{mapButtons()}</View>;
+  const nextButtonDisabled = checkDisabled(currentTask, state);
+  return (
+    <AnswerTemplate
+      currentTask={currentTask}
+      nextButtonDisabled={nextButtonDisabled}
+      doRevertTask={doRevertTask}
+      doUpdateTask={doUpdateTask}>
+      <View>{mapButtons()}</View>
+    </AnswerTemplate>
+  );
 };
 
 YesOrNo.propTypes = {
-  answers: PropTypes.object.isRequired,
+  currentTask: PropTypes.object.isRequired,
+  doRevertTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

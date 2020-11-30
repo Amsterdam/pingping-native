@@ -3,13 +3,18 @@ import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
+import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const screenWidth = Dimensions.get('window').width;
 
-const ShowRewardCodeModal = ({open = false, setOpen = () => {}, data = {}}) => {
+const ConfirmModal = ({
+  open = false,
+  setOpen = () => {},
+  doUpdateConfirmTask = () => {},
+}) => {
   function closeModal() {
     setOpen(false);
   }
@@ -30,13 +35,18 @@ const ShowRewardCodeModal = ({open = false, setOpen = () => {}, data = {}}) => {
               onPress={closeModal}>
               <Icon name="close" type="AntDesign" style={styles.icon} />
             </Button>
-            <Title style={styles.title}>Jouw Code</Title>
-            {data.expiryDate && (
-              <Body style={styles.body}>Geldig tot: {data.expiryDate}</Body>
-            )}
-            <View style={styles.codeContainer}>
-              {data.code && <Title style={styles.code}>{data.code}</Title>}
-            </View>
+            <Title style={styles.title}>Vragen Overslaan</Title>
+
+            <Body style={styles.body}>
+              Als je er voor kiest om zonder vragen te beantwoorden door te gaan
+              zal de route niet persoonlijk op jou aangepast worden en krijg je
+              de volledige route te zien met alle stappen.
+            </Body>
+            <RoundedButton
+              label="Vragen Overslaan"
+              full
+              onPress={() => doUpdateConfirmTask('no')}
+            />
           </View>
         </View>
       </View>
@@ -81,7 +91,6 @@ const styles = StyleSheet.create({
   },
   body: {
     marginBottom: 20,
-    color: appColors.primary,
   },
   codeContainer: {
     backgroundColor: appColors.headerColor,
@@ -96,15 +105,10 @@ const styles = StyleSheet.create({
   },
 });
 
-ShowRewardCodeModal.propTypes = {
+ConfirmModal.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  validUntil: PropTypes.string,
-  code: PropTypes.string,
-};
-ShowRewardCodeModal.defaultProps = {
-  validUntil: '',
-  code: '',
+  doUpdateConfirmTask: PropTypes.func.isRequired,
 };
 
-export default ShowRewardCodeModal;
+export default ConfirmModal;

@@ -1,64 +1,79 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {View} from 'native-base';
-import Title from '../typography/Title';
 import DateOfBirth from './answerTypes/DateOfBirth';
 import YesOrNo from './answerTypes/YesOrNo';
+import Confirm from './answerTypes/Confirm';
+import GoBack from './answerTypes/GoBack';
 import MultipleChoice from './answerTypes/MultipleChoice';
 import {questionTypes} from '../../config/questionTypes';
 
-const QuestionComponent = ({currentTask, setState, state}) => {
+const QuestionComponent = ({
+  currentTask,
+  updateTask,
+  refetch,
+  doRevertTask,
+  state,
+  setState,
+  doUpdateTask,
+  setLoadingQuestion,
+  animationRef,
+  doUpdateConfirmTask,
+}) => {
   const renderQuestionType = () => {
     switch (currentTask.type) {
+      case questionTypes.CONFIRM:
+        return (
+          <Confirm
+            currentTask={currentTask}
+            doUpdateConfirmTask={doUpdateConfirmTask}
+            refetch={refetch}
+            setLoadingQuestion={setLoadingQuestion}
+            animationRef={animationRef}
+          />
+        );
+      case questionTypes.GO_BACK:
+        return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+
       case questionTypes.YES_OR_NO:
         return (
           <YesOrNo
+            currentTask={currentTask}
+            doRevertTask={doRevertTask}
             state={state}
             setState={setState}
-            answers={currentTask.choices}
+            doUpdateTask={doUpdateTask}
           />
         );
       case questionTypes.DATE_OF_BIRTH:
-        return <DateOfBirth setState={setState} state={state} />;
+        return (
+          <DateOfBirth
+            currentTask={currentTask}
+            doRevertTask={doRevertTask}
+            state={state}
+            setState={setState}
+            doUpdateTask={doUpdateTask}
+          />
+        );
       case questionTypes.MULTIPLE_CHOICES:
         return (
           <MultipleChoice
+            currentTask={currentTask}
+            doRevertTask={doRevertTask}
             state={state}
             setState={setState}
-            answers={currentTask.choices}
+            doUpdateTask={doUpdateTask}
           />
         );
+
       default:
         break;
     }
   };
-  return (
-    <React.Fragment>
-      <Title style={styles.title}>{currentTask.title}</Title>
-      <View style={styles.questionContainer}>{renderQuestionType()}</View>
-    </React.Fragment>
-  );
+  return renderQuestionType();
 };
-
-const styles = StyleSheet.create({
-  questionContainer: {
-    flex: 1,
-    marginTop: 50,
-    justifyContent: 'space-evenly',
-  },
-  title: {
-    textAlign: 'center',
-  },
-  whiteButton: {
-    backgroundColor: '#fff',
-  },
-});
 
 QuestionComponent.propTypes = {
   currentTask: PropTypes.object.isRequired,
-  setState: PropTypes.func.isRequired,
-  state: PropTypes.object.isRequired,
 };
 
 export default QuestionComponent;

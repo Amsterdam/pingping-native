@@ -3,4 +3,5 @@ export const questionTypes = {
   MULTIPLE_CHOICES: 'MultipleChoices',
   GO_BACK: 'GoBack',
   DATE_OF_BIRTH: 'DateOfBirth',
+  CONFIRM: 'Confirm',
 };

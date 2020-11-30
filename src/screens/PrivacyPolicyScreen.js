@@ -43,7 +43,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
       const token = await AsyncStorage.getItem('@access_token');
       if (token) {
         setLoading(false);
-        navigation.navigate('WelcomeScreen');
+        navigation.navigate('QuestionScreen');
       }
     } catch (error) {
       console.log(error);

@@ -1,25 +1,20 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet} from 'react-native';
-import {Container, Content} from 'native-base';
-import PropTypes from 'prop-types';
-import * as Animatable from 'react-native-animatable';
+import {StyleSheet, View} from 'react-native';
 import {useMutation, useQuery} from '@apollo/client';
-import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import PropTypes from 'prop-types';
+import {View as AnimatableView} from 'react-native-animatable';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
-import ErrorComponent from '../components/shared/ErrorComponent';
-import NextButtonQuestionScreen from '../components/onboarding/NextButtonQuestionScreen';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import QuestionComponent from '../components/onboarding/QuestionComponent';
-import GoBack from '../components/onboarding/answerTypes/GoBack';
-import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
-import {questionTypes} from '../config/questionTypes';
 import {
-  checkDisabled,
   revertTaskFunc,
   setRevertedQuestionValues,
   submitAnswer,
+  updateConfirmTask,
 } from '../helpers/questionAnswerHelpers';
-import QuestionScreenHeader from '../components/header/QuestionScreenHeader';
 
 const INITIAL_STATE = {
   answerSelected: false,
@@ -30,25 +25,22 @@ const INITIAL_STATE = {
 };
 
 const QuestionScreen = ({navigation}) => {
-  const [state, setState] = useState(INITIAL_STATE);
   const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
-  const [loadingQuestion, setLoadingQuestion] = useState(false);
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
   const [revertTask] = useMutation(REVERT_TASK_MUTATION);
+  const [loadingQuestion, setLoadingQuestion] = useState(false);
   const animationRef = useRef(null);
   const current = data?.getStatus?.currentTask;
+  const answeredBefore = current?.answer;
   const currentTask = current?.task;
   const previousTask = data?.getStatus?.previousTask?.task;
+  const [state, setState] = useState(INITIAL_STATE);
 
   useEffect(() => {
-    if (current?.answer) {
-      setRevertedQuestionValues(currentTask, current, setState);
+    if (answeredBefore) {
+      setRevertedQuestionValues(currentTask, answeredBefore, setState);
     }
-
-    if (data && !currentTask) {
-      return navigation.replace('NotificationDecisionScreen');
-    }
-  }, [currentTask, current, navigation, data]);
+  }, [answeredBefore, currentTask, navigation]);
 
   if (error) {
     return (
@@ -60,10 +52,6 @@ const QuestionScreen = ({navigation}) => {
     );
   }
 
-  if (loading) {
-    return <QuestionSkeleton />;
-  }
-
   if (data && currentTask) {
     const doRevertTask = () => {
       revertTaskFunc(
@@ -71,12 +59,12 @@ const QuestionScreen = ({navigation}) => {
         previousTask,
         navigation,
         refetch,
-        animationRef,
         revertTask,
+        animationRef,
       );
     };
 
-    const doSubmitAnswer = () => {
+    const doUpdateTask = () => {
       submitAnswer(
         currentTask,
         state,
@@ -88,59 +76,38 @@ const QuestionScreen = ({navigation}) => {
         animationRef,
       );
     };
-
-    const nextButtonDisabled = checkDisabled(currentTask, state);
-
-    if (currentTask.type === questionTypes.GO_BACK) {
-      return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
-    }
+    const doUpdateConfirmTask = (answer) => {
+      updateConfirmTask(answer, updateTask, currentTask, refetch, animationRef);
+    };
 
     return (
-      <Container>
-        <QuestionScreenHeader
-          currentTask={currentTask}
-          doRevertTask={doRevertTask}
-        />
-        <Content contentContainerStyle={styles.content}>
-          {data && !loadingQuestion && (
-            <Animatable.View
-              style={styles.flex}
-              easing="linear"
-              duration={800}
-              ref={animationRef}
-              animation="fadeIn"
-              useNativeDriver>
-              <QuestionComponent
-                currentTask={currentTask}
-                setState={setState}
-                answerSelected={state.answerSelected}
-                day={state.day}
-                month={state.month}
-                year={state.year}
-                state={state}
-                navigation={navigation}
-              />
+      <AnimatableView
+        style={styles.flex}
+        duration={400}
+        ref={animationRef}
+        useNativeDriver>
+        {!loadingQuestion && (
+          <QuestionComponent
+            currentTask={currentTask}
+            updateTask={updateTask}
+            refetch={refetch}
+            doRevertTask={doRevertTask}
+            state={state}
+            setState={setState}
+            doUpdateTask={doUpdateTask}
+            setLoadingQuestion={setLoadingQuestion}
+            doUpdateConfirmTask={doUpdateConfirmTask}
+          />
+        )}
 
-              <NextButtonQuestionScreen
-                nextButtonDisabled={nextButtonDisabled}
-                submitAnswer={doSubmitAnswer}
-              />
-            </Animatable.View>
-          )}
-          {loadingQuestion && <QuestionSkeleton />}
-        </Content>
-      </Container>
+        {(loadingQuestion || loading) && <QuestionSkeleton />}
+      </AnimatableView>
     );
   }
   return <QuestionSkeleton />;
 };
 
 const styles = StyleSheet.create({
-  content: {flex: 1, padding: 20},
-  icon: {
-    color: '#000',
-    fontSize: 32,
-  },
   flex: {flex: 1},
 });
 

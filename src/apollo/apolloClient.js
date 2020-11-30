@@ -4,9 +4,7 @@ import * as Sentry from '@sentry/react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
-import GET_MODAL_STATE from './Query/Local/getModalState';
 import {API_URL} from '../config/initialSettings';
-import GET_QUESTIONNAIRE_MODAL from './Query/Local/getQuestionnaireModal';
 import GET_CLAIMED_REWARD_MODAL from './Query/Local/getClaimedRewardModalState';
 
 if (!__DEV__) {
@@ -52,39 +50,6 @@ const client = new ApolloClient({
   cache: inMemoryCache,
   resolvers: {
     Mutation: {
-      toggleModal: (_root, variables, {cache}) => {
-        const {modalOpen} = cache.readQuery({
-          query: GET_MODAL_STATE,
-        });
-
-        cache.writeQuery({
-          query: gql`
-            {
-              modalOpen
-              pings
-            }
-          `,
-          data: {
-            modalOpen: !modalOpen,
-            pings: variables.pings,
-          },
-        });
-        return null;
-      },
-      questionnaireModal: (_root, variables, {cache}) => {
-        cache.writeQuery({
-          query: gql`
-            {
-              questionnaireModalOpen
-              routeId
-            }
-          `,
-          data: {
-            questionnaireModalOpen: variables.questionnaireModalOpen,
-          },
-        });
-        return null;
-      },
       claimedRewardModal: (_root, variables, {cache}) => {
         cache.writeQuery({
           query: gql`
@@ -111,19 +76,6 @@ const client = new ApolloClient({
 });
 
 async function writeInitialData() {
-  await inMemoryCache.writeQuery({
-    query: GET_MODAL_STATE,
-    data: {
-      pings: 1,
-      modalOpen: false,
-    },
-  });
-  await inMemoryCache.writeQuery({
-    query: GET_QUESTIONNAIRE_MODAL,
-    data: {
-      questionnaireModalOpen: false,
-    },
-  });
   await inMemoryCache.writeQuery({
     query: GET_CLAIMED_REWARD_MODAL,
     data: {

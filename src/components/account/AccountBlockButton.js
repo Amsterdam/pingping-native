@@ -9,7 +9,7 @@ const AccountBlockButton = ({button, navigation}) => {
       testID={button.testID}
       style={styles.accountMainButton}
       onPress={() => navigation.navigate(button.route)}>
-      <Image source={button.image} style={styles.image} />
+      {button.image}
       <Title style={styles.title}>{button.title}</Title>
     </TouchableOpacity>
   );
@@ -32,11 +32,6 @@ const styles = StyleSheet.create({
     shadowRadius: 1.0,
 
     elevation: 1,
-  },
-  image: {
-    marginBottom: 20,
-    maxWidth: 40,
-    maxHeight: 40,
   },
   title: {fontSize: 14, textAlign: 'center'},
 });

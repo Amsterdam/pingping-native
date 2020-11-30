@@ -41,14 +41,35 @@ export const submitAnswer = async (
   }
 };
 
+export const updateConfirmTask = async (
+  answer,
+  updateTask,
+  currentTask,
+  refetch,
+  animationRef,
+) => {
+  try {
+    await updateTask({
+      variables: {
+        answer,
+        taskId: currentTask.taskId,
+      },
+    });
+    await refetch();
+    animationRef.current?.slideInRight();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // revert a task and enables the user to go back within the questions flow
 export const revertTaskFunc = async (
   setLoadingQuestion,
   previousTask,
   navigation,
   refetch,
-  animationRef,
   revertTask,
+  animationRef,
 ) => {
   setLoadingQuestion(true);
   if (!previousTask?.taskId) {
@@ -62,14 +83,15 @@ export const revertTaskFunc = async (
     setLoadingQuestion(false);
     animationRef.current?.fadeIn();
   } catch (e) {
+    setLoadingQuestion(false);
     console.log(e);
   }
 };
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(currentTask, current, setState) {
+export function setRevertedQuestionValues(currentTask, answer, setState) {
   if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
-    const splitDate = current.answer.split('-');
+    const splitDate = answer.split('-');
     setState((state) => ({
       ...state,
       year: splitDate[0],
@@ -80,13 +102,13 @@ export function setRevertedQuestionValues(currentTask, current, setState) {
   if (currentTask.type === questionTypes.YES_OR_NO) {
     setState((state) => ({
       ...state,
-      answerSelected: current.answer,
+      answerSelected: answer,
     }));
   }
   if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
     setState((state) => ({
       ...state,
-      choices: current.answer.split(','),
+      choices: answer.split(','),
     }));
   }
 }

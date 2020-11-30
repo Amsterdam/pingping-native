@@ -46,9 +46,11 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
             <View>
               <ClaimedTicketsLarge style={styles.illustration} />
               <Title align="center">GECLAIMED</Title>
-              <Body align="center" style={styles.rewardType}>
-                Geldig tot 12-12-2012
-              </Body>
+              {data.data.expiryDate && (
+                <Body align="center" style={styles.rewardType}>
+                  Geldig tot {data.data.expiryDate}
+                </Body>
+              )}
             </View>
 
             <Button
@@ -58,12 +60,7 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
             />
           </View>
         </ContentLayout>
-        <ShowRewardCodeModal
-          open={open}
-          setOpen={setOpen}
-          validUntil={'12-12-2012'}
-          code={data.data.code}
-        />
+        <ShowRewardCodeModal open={open} setOpen={setOpen} data={data.data} />
       </ModalLayout>
     );
   }

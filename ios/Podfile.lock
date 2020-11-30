@@ -69,14 +69,14 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - lottie-ios (3.1.8)
+  - lottie-ios (3.1.9)
   - lottie-react-native (3.5.0):
     - lottie-ios (~> 3.1.8)
     - React
   - OpenSSL-Universal (1.0.2.20):
     - OpenSSL-Universal/Static (= 1.0.2.20)
   - OpenSSL-Universal/Static (1.0.2.20)
-  - Permission-Camera (2.2.2):
+  - Permission-Camera (3.0.0-beta.2):
     - RNPermissions
   - RCTRequired (0.63.3)
   - RCTTypeSafety (0.63.3):
@@ -255,13 +255,13 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.40.0):
     - React-Core
-  - react-native-netinfo (5.9.7):
+  - react-native-netinfo (5.9.9):
     - React-Core
-  - react-native-notifications (3.4.0):
+  - react-native-notifications (3.4.1):
     - React-Core
-  - react-native-safe-area-context (3.1.8):
+  - react-native-safe-area-context (3.1.9):
     - React-Core
-  - react-native-webview (10.9.2):
+  - react-native-webview (11.0.0):
     - React-Core
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
@@ -323,7 +323,7 @@ PODS:
     - React-Core (= 0.63.3)
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
-  - RNBootSplash (2.2.7):
+  - RNBootSplash (3.1.2):
     - React-Core
   - RNCAsyncStorage (1.12.1):
     - React-Core
@@ -331,14 +331,14 @@ PODS:
     - React
   - RNCPicker (1.8.1):
     - React-Core
-  - RNDeviceInfo (6.2.1):
+  - RNDeviceInfo (7.1.0):
     - React-Core
-  - RNGestureHandler (1.8.0):
-    - React
-  - RNPermissions (2.2.2):
+  - RNGestureHandler (1.9.0):
     - React-Core
-  - RNScreens (2.11.0):
-    - React
+  - RNPermissions (3.0.0-beta.2):
+    - React-Core
+  - RNScreens (2.15.0):
+    - React-Core
   - RNSentry (2.0.2):
     - React-Core
     - Sentry (= 6.0.9)
@@ -382,7 +382,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
-  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
+  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera/Permission-Camera.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - RCTYouTube (from `../node_modules/react-native-youtube`)
@@ -459,7 +459,7 @@ EXTERNAL SOURCES:
   lottie-react-native:
     :path: "../node_modules/lottie-react-native"
   Permission-Camera:
-    :path: "../node_modules/react-native-permissions/ios/Camera.podspec"
+    :path: "../node_modules/react-native-permissions/ios/Camera/Permission-Camera.podspec"
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -554,10 +554,10 @@ SPEC CHECKSUMS:
   FlipperKit: ab353d41aea8aae2ea6daaf813e67496642f3d7d
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   lottie-react-native: 1fb4ce21d6ad37dab8343eaff8719df76035bd93
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
-  Permission-Camera: 5d2aaf95592660b6dcb5e8d1d90ed5d0156cad02
+  Permission-Camera: abef7a26b510c421c101a5e2eee6c82f00ed5cbf
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
   RCTYouTube: 4509d59a7de050dd0c7c6cb1f427d37678d63b5c
@@ -570,10 +570,10 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
-  react-native-netinfo: 250dc0ca126512f618a8a2ca6a936577e1f66586
-  react-native-notifications: 159f52c1f45f418aba8d364df19755abb8b03ae7
-  react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
-  react-native-webview: 4e96d493f9f90ba4f03b28933f30b2964df07e39
+  react-native-netinfo: 0212ce8604e88edf686f1481b925b17a42a52449
+  react-native-notifications: 77c7c863273e79caaa2523f239e714b033995262
+  react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
+  react-native-webview: 6b7950628616679d81bdd75747e50cf6de9b5a5f
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40
@@ -584,14 +584,14 @@ SPEC CHECKSUMS:
   React-RCTText: 65a6de06a7389098ce24340d1d3556015c38f746
   React-RCTVibration: 8e9fb25724a0805107fc1acc9075e26f814df454
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
-  RNBootSplash: a902017918cfd3e1f016ec7faef78fdf4c4e3cd0
+  RNBootSplash: a9544ba7f1a68b561e61e9efc68e2b3eec05dcef
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPicker: 914b557e20b3b8317b084aca9ff4b4edb95f61e4
-  RNDeviceInfo: 9b6aba9ffaed69ecb72bd13c7bcb0debf277bc9f
-  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
-  RNPermissions: 5df468064df661a4c8c017e2791ce90d7695eea5
-  RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
+  RNDeviceInfo: 6cf87235aa11e675b93b31aa9b88a825753eea2f
+  RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
+  RNPermissions: 9e7561bcbab267e3f64a4f6509edc00ae0de1519
+  RNScreens: 2ad555d4d9fa10b91bb765ca07fe9b29d59573f0
   RNSentry: 5ebc2926dbcbb9b77857ba6df0754a869037123d
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
@@ -600,6 +600,6 @@ SPEC CHECKSUMS:
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
   YoutubePlayer-in-WKWebView: af2f5929fc78882d94bfdfeea999b661b78d9717
 
-PODFILE CHECKSUM: e15f71fc3244099696254b49706eff97cb3ce2b1
+PODFILE CHECKSUM: 1f1b87a58c8dbf3d0cfb6446ec6e9fed132f07f3
 
 COCOAPODS: 1.10.0
