@@ -21,6 +21,7 @@ export const submitAnswer = async (
       answer = state.choices.join();
       break;
     default:
+      answer = state.answerSelected;
       break;
   }
   setLoadingQuestion(true);
@@ -47,7 +48,9 @@ export const updateConfirmTask = async (
   currentTask,
   refetch,
   animationRef,
+  setLoadingQuestion,
 ) => {
+  setLoadingQuestion(true);
   try {
     await updateTask({
       variables: {
@@ -56,8 +59,10 @@ export const updateConfirmTask = async (
       },
     });
     await refetch();
+    setLoadingQuestion(false);
     animationRef.current?.slideInRight();
   } catch (error) {
+    setLoadingQuestion(false);
     console.log(error);
   }
 };

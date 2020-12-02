@@ -111,14 +111,14 @@ const TaskScreen = ({navigation, route}) => {
 
   const needHelp = () => {
     try {
+      throw new Error('Om Hulp Gevraagd');
+    } catch (error) {
       Toast.show({
         text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
         textStyle: {fontFamily: 'Raleway-Regular'},
         style: {backgroundColor: '#000', borderRadius: 10},
         duration: 2000,
       }); // change the error message once complete
-      throw new Error('Om Hulp Gevraagd');
-    } catch (error) {
       console.log(error);
     }
   };

@@ -76,8 +76,16 @@ const QuestionScreen = ({navigation}) => {
         animationRef,
       );
     };
+
     const doUpdateConfirmTask = (answer) => {
-      updateConfirmTask(answer, updateTask, currentTask, refetch, animationRef);
+      updateConfirmTask(
+        answer,
+        updateTask,
+        currentTask,
+        refetch,
+        animationRef,
+        setLoadingQuestion,
+      );
     };
 
     return (
