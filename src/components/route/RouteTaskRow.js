@@ -5,6 +5,7 @@ import Badge from '../../assets/svg/Badge';
 import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
+import routes from '../../App/stacks/routes';
 
 const CIRCLE_RADIUS = 30;
 
@@ -20,7 +21,7 @@ const RouteTaskRow = ({
     tasksToDo.length > 0 && tasksToDo[0].task.taskId === task.taskId;
 
   const doNavigate = () => {
-    navigation.navigate('TaskScreen', {
+    navigation.navigate(routes.routeStack.taskScreen, {
       routeId,
       task: {...task, status},
     });

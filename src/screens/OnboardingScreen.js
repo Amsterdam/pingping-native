@@ -13,6 +13,7 @@ import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import {useQuery} from '@apollo/client';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import routes from '../App/stacks/routes';
 
 const onboardingViews = [
   {
@@ -54,12 +55,12 @@ const OnboardingScreen = ({navigation}) => {
       // if the user has completed all onboardingtasks, current tasks should be null
       // we send the user to the notification decisionscreen
       if (!data.getStatus.currentTask) {
-        navigation.navigate('NotificationDecisionScreen');
+        navigation.navigate(routes.onboardingStack.notificationDecisionScreen);
       }
       // if the user has already completed an onboarding tasks we do not have
       // to show the user the onboarding again, we send this user to the question screen
       if (data.getStatus.previousTask && data.getStatus.currentTask) {
-        navigation.navigate('QuestionScreen');
+        navigation.navigate(routes.onboardingStack.questionScreen);
       }
     };
     data && guideUser();
@@ -77,7 +78,9 @@ const OnboardingScreen = ({navigation}) => {
         <Right>
           <TouchableOpacity
             testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
-            onPress={() => navigation.navigate('ImportDataScreen')}>
+            onPress={() =>
+              navigation.navigate(routes.onboardingStack.importDataScreen)
+            }>
             <Title style={styles.buttonLabel}>Inloggen</Title>
           </TouchableOpacity>
         </Right>

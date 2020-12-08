@@ -5,16 +5,28 @@ import RouteDetailsScreen from '../../screens/RouteDetailsScreen';
 import RouteFeedbackScreen from '../../screens/RouteFeedbackScreen';
 import TaskScreen from '../../screens/TaskScreen';
 import TipScreen from '../../screens/TipScreen';
+import routes from './routes';
 
 const Stack = createStackNavigator();
 
 const RouteStack = () => (
-  <Stack.Navigator initialRouteName="RouteHomeScreen" headerMode="none">
-    <Stack.Screen name="RouteHomeScreen" component={RouteHomeScreen} />
-    <Stack.Screen name="RouteDetailsScreen" component={RouteDetailsScreen} />
-    <Stack.Screen name="RouteFeedbackScreen" component={RouteFeedbackScreen} />
-    <Stack.Screen name="TaskScreen" component={TaskScreen} />
-    <Stack.Screen name="TipScreen" component={TipScreen} />
+  <Stack.Navigator
+    initialRouteName={routes.routeStack.homeScreen}
+    headerMode="none">
+    <Stack.Screen
+      name={routes.routeStack.homeScreen}
+      component={RouteHomeScreen}
+    />
+    <Stack.Screen
+      name={routes.routeStack.routeDetailsScreen}
+      component={RouteDetailsScreen}
+    />
+    <Stack.Screen
+      name={routes.routeStack.routeFeedbackScreen}
+      component={RouteFeedbackScreen}
+    />
+    <Stack.Screen name={routes.routeStack.taskScreen} component={TaskScreen} />
+    <Stack.Screen name={routes.routeStack.tipScreen} component={TipScreen} />
   </Stack.Navigator>
 );
 

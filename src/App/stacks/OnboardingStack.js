@@ -5,16 +5,31 @@ import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import QuestionScreen from '../../screens/QuestionScreen';
 import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
 import ImportDataScreen from '../../screens/ImportDataScreen';
+import routes from './routes';
 
 const Stack = createStackNavigator();
 
 const OnboardingStack = ({setLogin}) => (
-  <Stack.Navigator initialRouteName="OnboardingScreen" headerMode="none">
-    <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
-    <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
-    <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
-    <Stack.Screen name="ImportDataScreen" component={ImportDataScreen} />
-    <Stack.Screen name="NotificationDecisionScreen">
+  <Stack.Navigator
+    initialRouteName={routes.onboardingStack.homeScreen}
+    headerMode="none">
+    <Stack.Screen
+      name={routes.onboardingStack.homeScreen}
+      component={OnboardingScreen}
+    />
+    <Stack.Screen
+      name={routes.onboardingStack.privacyPolicyScreen}
+      component={PrivacyPolicyScreen}
+    />
+    <Stack.Screen
+      name={routes.onboardingStack.questionScreen}
+      component={QuestionScreen}
+    />
+    <Stack.Screen
+      name={routes.onboardingStack.importDataScreen}
+      component={ImportDataScreen}
+    />
+    <Stack.Screen name={routes.onboardingStack.notificationDecisionScreen}>
       {(props) => <NotificationDecisionScreen {...props} setLogin={setLogin} />}
     </Stack.Screen>
   </Stack.Navigator>

@@ -9,25 +9,26 @@ import Lock from '../assets/svg/Lock';
 import AccountBlockButton from '../components/account/AccountBlockButton';
 import {appColors} from '../config/colors';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import routes from '../App/stacks/routes';
 
 const AccountHomeScreen = ({navigation}) => {
   const buttons = [
     {
       title: 'Exporteer gegevens',
       image: <Export style={styles.image} />,
-      route: 'ExportData',
+      route: routes.accountStack.exportDataScreen,
       testID: testIDs.ACCOUNT.EXPORT_DATA_BUTTON,
     },
     {
       title: 'Privacy',
       image: <Lock style={styles.image} />,
-      route: 'ViewPrivacy',
+      route: routes.accountStack.privacyPolicyScreen,
       testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
     },
     {
       title: 'Verwijder gegevens',
       image: <Trashcan style={styles.image} />,
-      route: 'DeleteData',
+      route: routes.accountStack.deleteDataScreen,
       testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
     },
   ];

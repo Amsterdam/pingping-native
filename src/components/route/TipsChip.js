@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import {Icon} from 'native-base';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
+import routes from '../../App/stacks/routes';
 
 const TipsChip = ({navigation, tips}) => {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() =>
-        navigation.navigate('TipScreen', {
+        navigation.navigate(routes.routeStack.tipScreen, {
           tips,
         })
       }>

@@ -3,13 +3,19 @@ import {createStackNavigator} from '@react-navigation/stack';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
 import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
 import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
+import routes from './routes';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
 
 const CityPingsStackScreen = () => (
-  <MainStack.Navigator initialRouteName="CityPingsHomeScreen" headerMode="none">
-    <MainStack.Screen name="CityPingsHome" component={CityPingsHomeScreen} />
+  <MainStack.Navigator
+    initialRouteName={routes.citypingsStack.homeScreen}
+    headerMode="none">
+    <MainStack.Screen
+      name={routes.citypingsStack.homeScreen}
+      component={CityPingsHomeScreen}
+    />
   </MainStack.Navigator>
 );
 
@@ -22,12 +28,12 @@ function RootStackScreen() {
         options={{headerShown: false}}
       />
       <RootStack.Screen
-        name="RewardDetailModalScreen"
+        name={routes.citypingsStack.rewardDetailModalScreen}
         component={RewardDetailModalScreen}
         options={{headerShown: false}}
       />
       <RootStack.Screen
-        name="CompletedRouteCelebrationModalScreen"
+        name={routes.citypingsStack.completedRouteCelebrationModalScreen}
         component={CompletedRouteCelebrationModalScreen}
         options={{headerShown: false}}
       />

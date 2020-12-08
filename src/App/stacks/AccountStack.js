@@ -5,17 +5,26 @@ import AccountHomeScreen from '../../screens/AccountHomeScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import DeleteDataScreen from '../../screens/DeleteDataScreen';
 import ExportDataScreen from '../../screens/ExportDataScreen';
+import routes from './routes';
 
 const Stack = createStackNavigator();
 
 const AccountStack = ({setLogOut}) => (
-  <Stack.Navigator initialRouteName="AccountHome" headerMode="none">
-    <Stack.Screen name="AccountHome" component={AccountHomeScreen} />
-    <Stack.Screen name="ViewPrivacy" component={PrivacyPolicyScreen} />
-    <Stack.Screen name="DeleteData">
+  <Stack.Navigator
+    initialRouteName={routes.accountStack.homeScreen}
+    headerMode="none">
+    <Stack.Screen
+      name={routes.accountStack.homeScreen}
+      component={AccountHomeScreen}
+    />
+    <Stack.Screen
+      name={routes.accountStack.privacyPolicyScreen}
+      component={PrivacyPolicyScreen}
+    />
+    <Stack.Screen name={routes.accountStack.deleteDataScreen}>
       {(props) => <DeleteDataScreen {...props} setLogOut={setLogOut} />}
     </Stack.Screen>
-    <Stack.Screen name="ExportData">
+    <Stack.Screen name={routes.accountStack.exportDataScreen}>
       {(props) => <ExportDataScreen {...props} setLogOut={setLogOut} />}
     </Stack.Screen>
   </Stack.Navigator>

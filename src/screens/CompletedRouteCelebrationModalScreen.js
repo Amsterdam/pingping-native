@@ -19,6 +19,7 @@ import RewardCardMini from '../components/reward/RewardCardMini';
 import ChevronButton from '../components/reward/ChevronButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import CitypingsChip from '../components/shared/CitypingsChip';
+import routes from '../App/stacks/routes';
 
 const HEADER_HEIGHT = 200;
 
@@ -88,7 +89,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
                 <Title style={styles.subTitle}>Verzilveren</Title>
                 <ChevronButton
                   onPress={() =>
-                    navigation.navigate('CityPings', {
+                    navigation.navigate(routes.citypingsStack.name, {
                       screen: 'Main',
                       initial: false,
                     })
@@ -114,8 +115,8 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
                 <Title style={styles.subTitle}>Nieuwe Route</Title>
                 <ChevronButton
                   onPress={() =>
-                    navigation.navigate('Routes', {
-                      screen: 'RouteHomeScreen',
+                    navigation.navigate(routes.routeStack.name, {
+                      screen: routes.routeStack.homeScreen,
                     })
                   }
                 />

@@ -16,6 +16,7 @@ import Button from '../components/shared/RoundedButton';
 import {appColors} from '../config/colors';
 import WebViewModal from '../components/modals/WebViewModal';
 import Loading from '../components/shared/LoadingComponent';
+import routes from '../App/stacks/routes';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
@@ -44,8 +45,8 @@ const TaskScreen = ({navigation, route}) => {
 
       if (routeDone) {
         setLoading(false);
-        navigation.navigate('CityPings', {
-          screen: 'CompletedRouteCelebrationModalScreen',
+        navigation.navigate(routes.citypingsStack.name, {
+          screen: routes.citypingsStack.completedRouteCelebrationModalScreen,
           params: {pings: routeResponse.data.getRoute.totalPoints},
           initial: false,
         });

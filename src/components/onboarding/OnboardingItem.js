@@ -6,15 +6,16 @@ import Button from '../shared/RoundedButton';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
+import routes from '../../App/stacks/routes';
 
 const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
   const navigator = async () => {
     if (isLastItem) {
       const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
       if (acceptedPolicy) {
-        return navigation.navigate('QuestionScreen');
+        return navigation.navigate(routes.onboardingStack.questionScreen);
       }
-      return navigation.navigate('PrivacyPolicyScreen');
+      return navigation.navigate(routes.onboardingStack.privacyPolicyScreen);
     }
     return buttonAction.scrollBy(1);
   };
