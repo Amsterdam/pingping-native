@@ -15,6 +15,7 @@ import RouteTaskRow from '../components/route/RouteTaskRow';
 import ContentLayout from '../components/layout/ContentLayout';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
+import routes from '../App/stacks/routes';
 
 const screenHeight = Dimensions.get('window').height;
 function RouteDetailsScreen({navigation, route}) {
@@ -52,7 +53,7 @@ function RouteDetailsScreen({navigation, route}) {
     const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
 
     const startTasks = () => {
-      navigation.navigate('TaskScreen', {
+      navigation.navigate(routes.routeStack.taskScreen, {
         routeId,
         task: {...tasksToDo[0].task, status: tasksToDo[0].status},
       });

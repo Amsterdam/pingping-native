@@ -5,6 +5,7 @@ import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import Card from '../shared/Card';
+import routes from '../../App/stacks/routes';
 
 const RewardCardMini = ({
   navigation,
@@ -12,8 +13,8 @@ const RewardCardMini = ({
   balance,
 }) => {
   const doNavigation = () => {
-    navigation.navigate('CityPings', {
-      screen: 'RewardDetailModalScreen',
+    navigation.navigate(routes.citypingsStack.name, {
+      screen: routes.citypingsStack.rewardDetailModalScreen,
       initial: false,
       params: {
         price,

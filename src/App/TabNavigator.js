@@ -7,21 +7,22 @@ import CityPingsStack from './stacks/CityPingsStack';
 import AccountStack from './stacks/AccountStack';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import {appColors} from '../config/colors';
+import routes from './stacks/routes';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = ({setLogOut}) => (
   <Tab.Navigator
-    initialRouteName="Routes"
+    initialRouteName={routes.routeStack.name}
     tabBarOptions={{
       labelStyle: {fontFamily: 'Raleway-Regular'},
       activeTintColor: appColors.primary,
     }}>
     <Tab.Screen
-      name="CityPings"
+      name={routes.citypingsStack.name}
       component={CityPingsStack}
       options={{
-        tabBarLabel: 'Citypings',
+        tabBarLabel: routes.citypingsStack.label,
         tabBarIcon: ({color, size}) => (
           <Icon
             name="price-ribbon"
@@ -33,10 +34,10 @@ const TabNavigator = ({setLogOut}) => (
     />
 
     <Tab.Screen
-      name="Routes"
+      name={routes.routeStack.name}
       component={RouteStack}
       options={{
-        tabBarLabel: 'Routes',
+        tabBarLabel: routes.routeStack.label,
         tabBarIcon: ({color, size}) => (
           <Icon
             name="stars"
@@ -48,10 +49,10 @@ const TabNavigator = ({setLogOut}) => (
     />
 
     <Tab.Screen
-      name="Account"
+      name={routes.accountStack.name}
       options={{
         tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
-        tabBarLabel: 'Gegevens',
+        tabBarLabel: routes.accountStack.label,
         tabBarIcon: ({color, size}) => (
           <Icon
             name="user-circle"

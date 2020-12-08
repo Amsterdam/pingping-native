@@ -10,6 +10,7 @@ import Card from '../shared/Card';
 import {appColors} from '../../config/colors';
 import ClaimedTickets from '../../assets/svg/ClaimedTickets';
 import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
+import routes from '../../App/stacks/routes';
 
 const RewardCard = ({
   navigation,
@@ -35,7 +36,7 @@ const RewardCard = ({
       });
       return;
     }
-    navigation.navigate('RewardDetailModalScreen', {
+    navigation.navigate(routes.citypingsStack.rewardDetailModalScreen, {
       price,
       balance,
       description,

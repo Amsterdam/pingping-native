@@ -8,6 +8,7 @@ import Card from '../shared/Card';
 import TrophyOrProgress from './TrophyOrProgress';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import FeedbackCard from './FeedBackCard';
+import routes from '../../App/stacks/routes';
 
 const MARGIN = 15;
 
@@ -36,7 +37,7 @@ const RouteCard = ({
   return (
     <React.Fragment>
       <Card
-        onPress={doNavigation('RouteDetailsScreen')}
+        onPress={doNavigation(routes.routeStack.routeDetailsScreen)}
         pings={totalPoints}
         cover={cover}
         testID={testIDs.ROUTES.ROUTE_CARD}
@@ -55,7 +56,9 @@ const RouteCard = ({
         </View>
       </Card>
       {progress === 1 && !hasSubmittedFeedback && (
-        <FeedbackCard onPress={doNavigation('RouteFeedbackScreen')} />
+        <FeedbackCard
+          onPress={doNavigation(routes.routeStack.routeFeedbackScreen)}
+        />
       )}
     </React.Fragment>
   );
