@@ -355,6 +355,7 @@ exports[`renders correctly 1`] = `
                   "fontSize": 14,
                   "paddingTop": 3,
                 },
+                Object {},
               ]
             }
           >

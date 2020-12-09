@@ -107,7 +107,7 @@ exports[`renders correctly 1`] = `
               }
             }
           />,
-          "route": "ExportData",
+          "route": "ACCOUNT_EXPORT_DATA_SCREEN",
           "testID": "EXPORT_DATA_BUTTON",
           "title": "Exporteer gegevens",
         },
@@ -119,7 +119,7 @@ exports[`renders correctly 1`] = `
               }
             }
           />,
-          "route": "ViewPrivacy",
+          "route": "ACCOUNT_PRIVACY_POLICY_SCREEN",
           "testID": "VIEW_PRIVACY_BUTTON",
           "title": "Privacy",
         },
@@ -131,7 +131,7 @@ exports[`renders correctly 1`] = `
               }
             }
           />,
-          "route": "DeleteData",
+          "route": "ACCOUNT_DELETE_DATA_SCREEN",
           "testID": "DELETE_DATA_BLOCK_BUTTON",
           "title": "Verwijder gegevens",
         },
