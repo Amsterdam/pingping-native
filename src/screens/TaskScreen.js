@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
+import * as Sentry from '@sentry/react-native';
 import {BASE_URL} from '../config/initialSettings';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -114,6 +115,9 @@ const TaskScreen = ({navigation, route}) => {
     try {
       throw new Error('Om Hulp Gevraagd');
     } catch (error) {
+      if (!__DEV__) {
+        Sentry.captureMessage('Om Hulp Gevraagd');
+      }
       Toast.show({
         text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
         textStyle: {fontFamily: 'Raleway-Regular'},
