@@ -18,6 +18,7 @@ import RoundedButton from '../components/shared/RoundedButton';
 import StarRating from '../components/route/StarRating';
 import ThankYouFeedbackModal from '../components/modals/ThankYouFeedbackModal';
 import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
+import GET_ROUTES from '../apollo/Query/getRoutes';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
@@ -45,6 +46,11 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
           feedback: state.feedback,
           rating: state.numberActive,
         },
+        refetchQueries: [
+          {
+            query: GET_ROUTES,
+          },
+        ],
       });
       setThankYouOpen(true);
       setTimeout(() => {

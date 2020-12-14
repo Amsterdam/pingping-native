@@ -34,7 +34,7 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
       description,
       imageUrl,
       expiryDate,
-      pin,
+      //   pin,
       code,
     } = data;
 

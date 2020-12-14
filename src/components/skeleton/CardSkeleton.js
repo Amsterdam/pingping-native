@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
@@ -44,4 +45,12 @@ const styles = StyleSheet.create({
     ...commonStyles.shadow,
   },
 });
+
+CardSkeleton.propTypes = {
+  withTitle: PropTypes.bool,
+};
+CardSkeleton.defaultProps = {
+  withTitle: true,
+};
+
 export default CardSkeleton;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
 import {appColors} from '../../config/colors';
@@ -64,6 +65,18 @@ const IconButton = ({
       />
     </TouchableOpacity>
   );
+};
+
+IconButton.propTypes = {
+  iconName: PropTypes.string.isRequired,
+  iconType: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  size: PropTypes.string.isRequired,
+};
+
+IconButton.defaultProps = {
+  disabled: false,
 };
 
 export default IconButton;

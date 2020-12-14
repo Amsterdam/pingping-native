@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
 
 ImageOverlayHeader.propTypes = {
   navigation: PropTypes.object.isRequired,
+  cover: PropTypes.object.isRequired,
   cityPings: PropTypes.number,
 };
 

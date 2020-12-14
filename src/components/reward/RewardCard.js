@@ -106,11 +106,13 @@ RewardCard.propTypes = {
   reward: PropTypes.object.isRequired,
   balance: PropTypes.number,
   claimed: PropTypes.bool,
+  data: PropTypes.object,
 };
 
 RewardCard.defaultProps = {
   balance: 0,
   claimed: false,
+  data: {},
 };
 
 export default memo(RewardCard);

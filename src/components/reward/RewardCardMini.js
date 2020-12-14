@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
 RewardCardMini.propTypes = {
   navigation: PropTypes.object.isRequired,
   reward: PropTypes.object.isRequired,
+  balance: PropTypes.number.isRequired,
 };
 
 export default memo(RewardCardMini);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {createStackNavigator} from '@react-navigation/stack';
 import OnboardingScreen from '../../screens/OnboardingScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
@@ -34,5 +35,9 @@ const OnboardingStack = ({setLogin}) => (
     </Stack.Screen>
   </Stack.Navigator>
 );
+
+OnboardingStack.propTypes = {
+  setLogin: PropTypes.func.isRequired,
+};
 
 export default OnboardingStack;

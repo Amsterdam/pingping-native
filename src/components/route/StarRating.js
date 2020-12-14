@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
 import {ppBaseColors} from '../../config/colors';
@@ -36,5 +37,11 @@ const styles = StyleSheet.create({
     color: ppBaseColors.PP_GOLD,
   },
 });
+
+StarRating.propTypes = {
+  numberActive: PropTypes.number.isRequired,
+  numberOfStars: PropTypes.number.isRequired,
+  onRate: PropTypes.func.isRequired,
+};
 
 export default StarRating;

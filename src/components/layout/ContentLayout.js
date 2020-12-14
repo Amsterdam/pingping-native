@@ -19,11 +19,6 @@ ContentLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   style: PropTypes.object,
 };
-
-ContentLayout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  style: PropTypes.object,
-};
 ContentLayout.defaultProps = {
   style: {},
 };

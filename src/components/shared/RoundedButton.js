@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {Button, Icon, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../../config/colors';
@@ -73,5 +74,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+RoundedButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  onPress: PropTypes.func.isRequired,
+  deleteButton: PropTypes.bool,
+  iconName: PropTypes.string,
+  iconType: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  loading: PropTypes.bool,
+  testid: PropTypes.string,
+  full: PropTypes.bool,
+  labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+};
+
+RoundedButton.defaultProps = {
+  disabled: false,
+  deleteButton: false,
+  iconName: null,
+  iconType: null,
+  style: {},
+  loading: false,
+  testid: '',
+  full: false,
+  labelStyle: {},
+};
 
 export default RoundedButton;

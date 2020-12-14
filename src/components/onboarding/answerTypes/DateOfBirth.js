@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Platform, StyleSheet, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import PropTypes from 'prop-types';

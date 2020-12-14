@@ -5,26 +5,6 @@ import {Button} from 'native-base';
 import {appColors} from '../../config/colors';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
-const styles = StyleSheet.create({
-  nextButtonLabel: {
-    fontFamily: 'Raleway-Regular',
-    fontSize: 18,
-  },
-  nextButton: {
-    paddingBottom: 0,
-    paddingTop: 0,
-    paddingLeft: 0,
-    paddingRight: 0,
-    alignSelf: 'flex-end',
-  },
-  nextButtonDisabled: {
-    color: appColors.greyedOut,
-  },
-  nextButtonActive: {
-    color: appColors.primary,
-  },
-});
-
 const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
   return (
     <Button
@@ -44,6 +24,26 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
     </Button>
   );
 };
+
+const styles = StyleSheet.create({
+  nextButtonLabel: {
+    fontFamily: 'Raleway-Regular',
+    fontSize: 18,
+  },
+  nextButton: {
+    paddingBottom: 0,
+    paddingTop: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    alignSelf: 'flex-end',
+  },
+  nextButtonDisabled: {
+    color: appColors.greyedOut,
+  },
+  nextButtonActive: {
+    color: appColors.primary,
+  },
+});
 
 NextButtonQuestionScreen.propTypes = {
   nextButtonDisabled: PropTypes.bool.isRequired,

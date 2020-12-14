@@ -1,5 +1,6 @@
 import React from 'react';
-import {RefreshControl, StyleSheet} from 'react-native';
+import {RefreshControl} from 'react-native';
+import PropTypes from 'prop-types';
 import {Content} from 'native-base';
 import {appColors} from '../../config/colors';
 import ContentLayout from '../layout/ContentLayout';
@@ -38,11 +39,17 @@ const ClaimedRewardsList = ({
   );
 };
 
-const styles = StyleSheet.create({
-  content: {
-    backgroundColor: appColors.almostNotBlue,
-    flex: 1,
-  },
-});
+ClaimedRewardsList.propTypes = {
+  claimedRewards: PropTypes.array,
+  balance: PropTypes.number,
+  navigation: PropTypes.object.isRequired,
+  refreshing: PropTypes.bool.isRequired,
+  onRefresh: PropTypes.func.isRequired,
+};
+
+ClaimedRewardsList.defaultProps = {
+  claimedRewards: [],
+  balance: 0,
+};
 
 export default ClaimedRewardsList;
