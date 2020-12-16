@@ -129,6 +129,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     defaultConfig {
         applicationId "com.pingpingnative"
         minSdkVersion rootProject.ext.minSdkVersion
