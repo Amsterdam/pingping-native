@@ -40,7 +40,11 @@ const ShowRewardCodeModal = ({
               <Body style={styles.body}>Geldig tot: {expiryDate}</Body>
             )}
             <View style={styles.codeContainer}>
-              {code && <Title style={styles.code}>{code}</Title>}
+              {code && (
+                <Title selectable style={styles.code}>
+                  {code}
+                </Title>
+              )}
             </View>
           </View>
         </View>

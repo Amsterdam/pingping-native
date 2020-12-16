@@ -10,6 +10,7 @@ const Title = ({
   numberOfLines = 0,
   ellipsizeMode = 'tail',
   fontSize = 30,
+  selectable = false,
 }) => {
   const styles = StyleSheet.create({
     text: {
@@ -23,7 +24,8 @@ const Title = ({
     <Text
       style={[styles.text, style]}
       numberOfLines={numberOfLines}
-      ellipsizeMode={ellipsizeMode}>
+      ellipsizeMode={ellipsizeMode}
+      selectable={selectable}>
       {children}
     </Text>
   );
@@ -40,9 +42,11 @@ Title.propTypes = {
   style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   numberOfLines: PropTypes.number,
   ellipsizeMode: PropTypes.string,
+  selectable: PropTypes.bool,
 };
 
 Title.defaultProps = {
+  selectable: false,
   align: 'left',
   style: {},
   numberOfLines: 0,
