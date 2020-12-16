@@ -30,7 +30,7 @@ export function getMonths() {
 
 export function getYears() {
   const years = [];
-  for (let index = 1990; index < 2020; index++) {
+  for (let index = 1994; index < 2020; index++) {
     const value = index.toString();
     years.push(<Picker.Item label={value} value={value} key={value} />);
   }
