@@ -14,6 +14,8 @@ import ClaimedTicketsLarge from '../../assets/svg/ClaimedTicketsLarge';
 import {appColors} from '../../config/colors';
 import ShowRewardCodeModal from './ShowRewardCodeModal';
 
+const MARGIN_BOTTOM = 25;
+
 const ClaimedRewardModal = ({navigation = () => {}}) => {
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
   const [open, setOpen] = useState(false);
@@ -48,24 +50,24 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
           <Body style={styles.rewardType}>Reward</Body>
           <View style={styles.textContainer}>
             <Title>{title}</Title>
-            <Body>{description}</Body>
           </View>
-          <View style={styles.illustrationButtonContainer}>
-            <View>
-              <ClaimedTicketsLarge style={styles.illustration} />
-              <Title align="center">GECLAIMED</Title>
-              {expiryDate && (
-                <Body align="center" style={styles.rewardType}>
-                  Geldig tot {expiryDate}
-                </Body>
-              )}
-            </View>
 
+          <View>
+            <ClaimedTicketsLarge style={styles.illustration} />
+            <Title align="center">GECLAIMED</Title>
+            {expiryDate && (
+              <Body align="center" style={styles.rewardType}>
+                Geldig tot {expiryDate}
+              </Body>
+            )}
+          </View>
+          <View>
             <Button
               style={styles.button}
               onPress={() => setOpen(true)}
               label="Bekijk je code"
             />
+            <Body>{description}</Body>
           </View>
         </ContentLayout>
         <ShowRewardCodeModal
@@ -82,16 +84,16 @@ const ClaimedRewardModal = ({navigation = () => {}}) => {
 
 const styles = StyleSheet.create({
   container: {flex: 1},
+  textContainer: {
+    marginBottom: MARGIN_BOTTOM,
+  },
   button: {
     alignSelf: 'center',
+    marginVertical: MARGIN_BOTTOM,
   },
   illustration: {
     alignSelf: 'center',
-    marginBottom: 10,
-  },
-  illustrationButtonContainer: {
-    justifyContent: 'space-evenly',
-    flex: 1,
+    marginBottom: MARGIN_BOTTOM,
   },
   rewardType: {
     color: appColors.primary,
