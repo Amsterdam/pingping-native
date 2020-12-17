@@ -10,7 +10,7 @@ import GET_CLAIMED_REWARD_MODAL from './Query/Local/getClaimedRewardModalState';
 if (!__DEV__) {
   Sentry.init({
     dsn:
-      'https://a302605b019943859ae466e19980c244@o458828.ingest.sentry.io/5457049',
+      'https://7db1949cf7af4489ba82180ad080075e@o493119.ingest.sentry.io/5561597',
   });
 }
 

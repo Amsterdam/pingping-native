@@ -18,6 +18,7 @@ import {appColors} from '../config/colors';
 import WebViewModal from '../components/modals/WebViewModal';
 import Loading from '../components/shared/LoadingComponent';
 import routes from '../App/stacks/routes';
+import {YOUTUBE_API_KEY} from '../config/keys';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
@@ -77,7 +78,7 @@ const TaskScreen = ({navigation, route}) => {
               videoId={task.media.value} // The YouTube video ID
               play={false} // control playback of video with true/false
               loop={false} // control whether the video should loop when ended
-              apiKey="INVALIDATED READ INSTRUCTIONS"
+              apiKey={YOUTUBE_API_KEY}
               style={[
                 styles.videoContainer,
                 !videoReady && styles.videoNotReady,
