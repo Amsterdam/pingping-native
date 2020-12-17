@@ -60,3 +60,5 @@ buck-out/
 /ios/Pods/
 
 src/config/keys.js
+android/sentry.properties
+ios/sentry.properties
