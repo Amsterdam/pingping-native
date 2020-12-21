@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {ActivityIndicator, ScrollView, StyleSheet, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
@@ -86,6 +92,7 @@ const TaskScreen = ({navigation, route}) => {
               onError={(e) => console.log(e)}
               onReady={() => setVideoReady(true)}
               resumePlayAndroid={false}
+              showFullscreenButton={false}
             />
           </View>
         );
@@ -189,9 +196,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#fff',
+    flex: 1,
   },
   videoContainer: {
-    alignSelf: 'stretch',
+    width: Dimensions.get('window').width,
     height: 200,
     backgroundColor: 'black',
   },
