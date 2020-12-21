@@ -196,7 +196,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#fff',
-    flex: 1,
   },
   videoContainer: {
     width: Dimensions.get('window').width,
