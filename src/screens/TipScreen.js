@@ -13,7 +13,7 @@ const TipScreen = ({navigation, route}) => {
     <Container>
       <LabeledHeader title="Tips" navigation={navigation} />
       <ContentLayout>
-        <Content>
+        <Content contentContainerStyle={styles.content}>
           {tips?.length > 0 &&
             tips.map((tip) => (
               <View style={styles.paragraphContainer} key={tip.title}>
@@ -28,6 +28,10 @@ const TipScreen = ({navigation, route}) => {
 };
 
 const styles = StyleSheet.create({
+  content: {
+    margin: 10,
+    alignItems: 'center',
+  },
   subTitle: {
     fontSize: 18,
     marginBottom: 10,
