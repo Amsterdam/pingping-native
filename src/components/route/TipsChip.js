@@ -15,11 +15,7 @@ const TipsChip = ({navigation, tips}) => {
           tips,
         })
       }>
-      <Icon
-        name="lightbulb-on-outline"
-        type="MaterialCommunityIcons"
-        style={styles.icon}
-      />
+      <Icon name="lightbulb-o" type="FontAwesome" style={styles.icon} />
       <Title style={styles.title}>Tips</Title>
     </TouchableOpacity>
   );
