@@ -36,14 +36,18 @@ const ShowRewardCodeModal = ({
               <Icon name="close" type="AntDesign" style={styles.icon} />
             </Button>
             <Title style={styles.title}>Jouw Code</Title>
-            {expiryDate && (
+            {expiryDate ? (
               <Body style={styles.body}>Geldig tot: {expiryDate}</Body>
+            ) : (
+              <></>
             )}
             <View style={styles.codeContainer}>
-              {code && (
+              {code ? (
                 <Title selectable style={styles.code}>
                   {code}
                 </Title>
+              ) : (
+                <></>
               )}
             </View>
           </View>
