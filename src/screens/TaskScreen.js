@@ -184,7 +184,6 @@ const TaskScreen = ({navigation, route}) => {
           urlToVisit={urlToVisit}
           closeModal={closeModal}
           webViewOpen={webViewOpen}
-          setWebviewOpen={setWebviewOpen}
         />
       </Root>
     </Container>

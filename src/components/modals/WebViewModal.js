@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    borderRadius: 35,
     backgroundColor: 'rgba(1,1,1,0.8)',
   },
   modalView: {
     marginTop: 75,
     flex: 1,
-    borderRadius: 35,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
     backgroundColor: '#fff',
   },
   activivityIndicator: {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Container, Root, Toast} from 'native-base';
 import {useMutation, useQuery} from '@apollo/client';
+import HTML from 'react-native-render-html';
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import CLAIMED_REWARD_MODAL from '../apollo/Mutation/Local/claimedRewardModal';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -12,16 +13,27 @@ import Body from '../components/typography/Body';
 import {appColors} from '../config/colors';
 import CityPingsBalance from '../components/shared/CityPingsBalance';
 import Button from '../components/shared/RoundedButton';
+import WebViewModal from '../components/modals/WebViewModal';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {price, title, description, rewardId, cover} = route.params;
-
+  const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
+  const [webViewOpen, setWebviewOpen] = useState(false);
   const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
   const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
   const [loading, setLoading] = useState(false);
   const {data, refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-first',
   });
+
+  const linkPressed = (event, href) => {
+    setUrlToVisit('href');
+    setWebviewOpen(true);
+  };
+
+  const closeModal = () => {
+    setWebviewOpen(false);
+  };
 
   const doClaimReward = async () => {
     setLoading(true);
@@ -31,8 +43,6 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
           rewardId,
         },
       });
-      console.log(claimResponse);
-
       await claimedRewardModal({
         variables: {
           claimedRewardModalOpen: true,
@@ -76,7 +86,15 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
             <Body style={styles.label}>Rewards</Body>
             <Title style={styles.title}>{title}</Title>
             <CityPingsBalance balance={balance} price={price} />
-            <Body style={styles.description}>{description}</Body>
+            <View style={styles.description}>
+              <HTML
+                html={description}
+                baseFontStyle={styles.htmlFontStyle}
+                onLinkPress={(event, href) => {
+                  linkPressed(event, href);
+                }}
+              />
+            </View>
           </View>
         </ScrollView>
         <View style={styles.buttonContainer}>
@@ -91,6 +109,12 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
           />
         </View>
       </Root>
+      <WebViewModal
+        urlToVisit={urlToVisit}
+        closeModal={closeModal}
+        webViewOpen={webViewOpen}
+        setWebviewOpen={setWebviewOpen}
+      />
     </Container>
   );
 }
@@ -115,6 +139,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  htmlFontStyle: {
+    fontFamily: 'Raleway-Regular',
+    fontSize: 15,
+    lineHeight: 25,
   },
 });
 
