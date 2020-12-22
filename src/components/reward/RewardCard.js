@@ -19,24 +19,23 @@ const RewardCard = ({
   balance = 0,
   claimed = false,
 }) => {
-  const [claimedRewardModal] = useMutation(CLAIMED_REWARD_MODAL);
+  console.log(cover);
   const doNavigation = async () => {
     if (claimed) {
-      await claimedRewardModal({
-        variables: {
-          claimedRewardModalOpen: true,
+      return navigation.navigate(
+        routes.citypingsStack.claimedRewardModalScreen,
+        {
           title,
-          imageUrl: cover.value,
+          cover,
           rewardId,
           description,
           pin: data.pin,
           code: data.code,
           expiryDate: data.expiryDate,
         },
-      });
-      return;
+      );
     }
-    navigation.navigate(routes.citypingsStack.rewardDetailModalScreen, {
+    return navigation.navigate(routes.citypingsStack.rewardDetailModalScreen, {
       price,
       balance,
       description,
@@ -45,6 +44,7 @@ const RewardCard = ({
       rewardId,
     });
   };
+
   return (
     <Card
       onPress={doNavigation}

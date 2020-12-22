@@ -1,11 +1,10 @@
-import {ApolloClient, InMemoryCache, createHttpLink, gql} from '@apollo/client';
+import {ApolloClient, InMemoryCache, createHttpLink} from '@apollo/client';
 import {onError} from '@apollo/client/link/error';
 import * as Sentry from '@sentry/react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
 import {API_URL} from '../config/initialSettings';
-import GET_CLAIMED_REWARD_MODAL from './Query/Local/getClaimedRewardModalState';
 
 if (!__DEV__) {
   Sentry.init({
@@ -49,46 +48,11 @@ const client = new ApolloClient({
   link: authLink.concat(errorLink).concat(httpLink),
   cache: inMemoryCache,
   resolvers: {
-    Mutation: {
-      claimedRewardModal: (_root, variables, {cache}) => {
-        cache.writeQuery({
-          query: gql`
-            {
-              claimedRewardModalOpen
-              pin
-              code
-              expiryDate
-              rewardId
-              title
-              description
-              imageUrl
-            }
-          `,
-          data: {
-            ...variables,
-          },
-        });
-        return null;
-      },
-    },
+    Mutation: {},
   },
 });
 
 async function writeInitialData() {
-  await inMemoryCache.writeQuery({
-    query: GET_CLAIMED_REWARD_MODAL,
-    data: {
-      claimedRewardModalOpen: false,
-      pin: '',
-      code: '',
-      expiryDate: '',
-      title: '',
-      description: '',
-      imageUrl: '',
-      rewardId: '',
-    },
-  });
-
   return;
 }
 
