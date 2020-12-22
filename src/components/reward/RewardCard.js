@@ -17,7 +17,6 @@ const RewardCard = ({
   balance = 0,
   claimed = false,
 }) => {
-  console.log(cover);
   const doNavigation = async () => {
     if (claimed) {
       return navigation.navigate(

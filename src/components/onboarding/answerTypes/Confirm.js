@@ -14,7 +14,6 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
   const handleOnPress = (answer) => {
-    console.log({answer, task: currentTask.taskId});
     if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
       return setConfirmModalOpen(true);
     }
