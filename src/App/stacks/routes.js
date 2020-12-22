@@ -21,6 +21,7 @@ const routes = {
     name: 'CITY_PINGS_STACK',
     homeScreen: 'CITY_PINGS_HOME_SCREEN',
     rewardDetailModalScreen: 'CITY_PINGS_REWARD_DETAIL_MODAL_SCREEN',
+    claimedRewardModalScreen: 'CITY_PINGS_CLAIMED_REWARD_MODAL_SCREEN',
     completedRouteCelebrationModalScreen:
       'CITY_PINGS_COMPLETED_ROUTE_CELEBRATION_MODAL_SCREEN',
   },

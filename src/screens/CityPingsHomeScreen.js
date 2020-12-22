@@ -1,12 +1,9 @@
 import React from 'react';
-import {RefreshControl, StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {Container, Content, Header, Tab, Tabs} from 'native-base';
-import {View as AnimatableView} from 'react-native-animatable';
+import {Container, Header, Tab, Tabs} from 'native-base';
 import {useLazyQuery} from '@apollo/client';
-import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
-import RewardCard from '../components/reward/RewardCard';
 import {appColors} from '../config/colors';
 import CitypingsChip from '../components/shared/CitypingsChip';
 import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
@@ -14,7 +11,7 @@ import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import ClaimedRewardsModal from '../components/modals/ClaimedRewardModal';
-import CardSkeleton from '../components/skeleton/CardSkeleton';
+import AvailableRewardsList from '../components/reward/AvailableRewardsList';
 
 const CityPingsHomeScreen = ({navigation}) => {
   React.useEffect(() => {
@@ -74,35 +71,14 @@ const CityPingsHomeScreen = ({navigation}) => {
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         tabContainerStyle={styles.shadowRemover}>
         <Tab heading="Rewards" {...TAB_STYLE}>
-          <Content
-            style={{backgroundColor: appColors.almostNotBlue}}
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={onRefresh}
-                tintColor={appColors.primary}
-              />
-            }>
-            <ContentLayout>
-              {availableRewards.loading && (
-                <AnimatableView animation="fadeIn">
-                  <CardSkeleton withTitle={false} />
-                </AnimatableView>
-              )}
-              {availableRewards.data && (
-                <AnimatableView animation="fadeIn">
-                  {availableRewards.data.getAvailableRewards.map((reward) => (
-                    <RewardCard
-                      navigation={navigation}
-                      reward={reward}
-                      key={reward.rewardId}
-                      balance={balance}
-                    />
-                  ))}
-                </AnimatableView>
-              )}
-            </ContentLayout>
-          </Content>
+          <AvailableRewardsList
+            availableRewards={availableRewards}
+            navigation={navigation}
+            balance={balance}
+            getStatus={getStatus}
+            onRefresh={onRefresh}
+            refreshing={refreshing}
+          />
         </Tab>
         <Tab heading="Geclaimed" {...TAB_STYLE}>
           <ClaimedRewardsList
