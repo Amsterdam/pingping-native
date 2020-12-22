@@ -10,7 +10,6 @@ import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/shared/ErrorComponent';
-import ClaimedRewardsModal from '../components/modals/ClaimedRewardModal';
 import AvailableRewardsList from '../components/reward/AvailableRewardsList';
 
 const CityPingsHomeScreen = ({navigation}) => {
@@ -91,7 +90,6 @@ const CityPingsHomeScreen = ({navigation}) => {
           />
         </Tab>
       </Tabs>
-      <ClaimedRewardsModal navigation={navigation} />
     </Container>
   );
 };

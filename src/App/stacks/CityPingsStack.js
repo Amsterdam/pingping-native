@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
 import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
 import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
@@ -9,18 +10,32 @@ import routes from './routes';
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
 
-const CityPingsStackScreen = () => (
-  <MainStack.Navigator
-    initialRouteName={routes.citypingsStack.homeScreen}
-    headerMode="none">
-    <MainStack.Screen
-      name={routes.citypingsStack.homeScreen}
-      component={CityPingsHomeScreen}
-    />
-  </MainStack.Navigator>
-);
+const tabHiddenRoutes = [
+  routes.citypingsStack.rewardDetailModalScreen,
+  routes.citypingsStack.claimedRewardModalScreen,
+];
 
-function RootStackScreen() {
+const CityPingsStackScreen = ({navigation, route}) => {
+  return (
+    <MainStack.Navigator
+      initialRouteName={routes.citypingsStack.homeScreen}
+      headerMode="none">
+      <MainStack.Screen
+        name={routes.citypingsStack.homeScreen}
+        component={CityPingsHomeScreen}
+      />
+    </MainStack.Navigator>
+  );
+};
+
+function RootStackScreen({navigation, route}) {
+  React.useEffect(() => {
+    if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
+      navigation.setOptions({tabBarVisible: false});
+    } else {
+      navigation.setOptions({tabBarVisible: true});
+    }
+  }, [navigation, route]);
   return (
     <RootStack.Navigator mode="modal">
       <RootStack.Screen
