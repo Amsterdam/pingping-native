@@ -15,7 +15,7 @@ const tabHiddenRoutes = [
   routes.citypingsStack.claimedRewardModalScreen,
 ];
 
-const CityPingsStackScreen = ({navigation, route}) => {
+const CityPingsStackScreen = () => {
   return (
     <MainStack.Navigator
       initialRouteName={routes.citypingsStack.homeScreen}
@@ -37,26 +37,19 @@ function RootStackScreen({navigation, route}) {
     }
   }, [navigation, route]);
   return (
-    <RootStack.Navigator mode="modal">
-      <RootStack.Screen
-        name="Main"
-        component={CityPingsStackScreen}
-        options={{headerShown: false}}
-      />
+    <RootStack.Navigator mode="modal" headerMode="none">
+      <RootStack.Screen name="Main" component={CityPingsStackScreen} />
       <RootStack.Screen
         name={routes.citypingsStack.rewardDetailModalScreen}
         component={RewardDetailModalScreen}
-        options={{headerShown: false}}
       />
       <RootStack.Screen
         name={routes.citypingsStack.claimedRewardModalScreen}
         component={ClaimedRewardModalScreen}
-        options={{headerShown: false}}
       />
       <RootStack.Screen
         name={routes.citypingsStack.completedRouteCelebrationModalScreen}
         component={CompletedRouteCelebrationModalScreen}
-        options={{headerShown: false}}
       />
     </RootStack.Navigator>
   );
