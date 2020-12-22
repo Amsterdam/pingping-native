@@ -54,7 +54,16 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
         description: claimResponse.data.claimReward.reward.description,
       });
     } catch (error) {
-      console.log(error);
+      if (error.message.includes('reward_not_available')) {
+        console.log(error);
+        return Toast.show({
+          text:
+            'Deze reward is op dit moment niet beschikbaar, probeer het later nog eens.',
+          textStyle: {fontFamily: 'Raleway-Regular'},
+          style: {backgroundColor: '#000', borderRadius: 10},
+          duration: 2000,
+        });
+      }
       Toast.show({
         text: 'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
         textStyle: {fontFamily: 'Raleway-Regular'},
