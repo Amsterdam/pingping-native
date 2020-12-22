@@ -1,16 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Container} from 'native-base';
-import {useQuery} from '@apollo/client';
 import HTML from 'react-native-render-html';
 import Button from '../components/shared/RoundedButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import {BASE_URL} from '../config/initialSettings';
-import GET_CLAIMED_REWARD_MODAL from '../apollo/Query/Local/getClaimedRewardModalState';
 import ClaimedTicketsLarge from '../assets/svg/ClaimedTicketsLarge';
 import {appColors} from '../config/colors';
 import ShowRewardCodeModal from '../components/modals/ShowRewardCodeModal';

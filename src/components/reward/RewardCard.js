@@ -1,7 +1,6 @@
 import React, {memo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {useMutation} from '@apollo/client';
 import {View as AnimatableView} from 'react-native-animatable';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
@@ -9,7 +8,6 @@ import CityPingsBalance from '../shared/CityPingsBalance';
 import Card from '../shared/Card';
 import {appColors} from '../../config/colors';
 import ClaimedTickets from '../../assets/svg/ClaimedTickets';
-import CLAIMED_REWARD_MODAL from '../../apollo/Mutation/Local/claimedRewardModal';
 import routes from '../../App/stacks/routes';
 
 const RewardCard = ({
