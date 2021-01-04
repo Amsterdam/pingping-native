@@ -1,1 +1,2 @@
 export const YOUTUBE_API_KEY = 'GOOGLE_API_KEYS';
+export const SENTRY_DSN = 'SENTRY_DSN';

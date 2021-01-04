@@ -5,11 +5,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from '@apollo/link-context';
 import unfetch from 'unfetch';
 import {API_URL} from '../config/initialSettings';
+import SENTRY_DSN from '../config/keys';
 
 if (!__DEV__) {
   Sentry.init({
-    dsn:
-      'https://7db1949cf7af4489ba82180ad080075e@o493119.ingest.sentry.io/5561597',
+    dsn: SENTRY_DSN,
   });
 }
 
