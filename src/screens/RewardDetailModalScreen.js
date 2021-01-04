@@ -27,7 +27,7 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   });
 
   const linkPressed = (event, href) => {
-    setUrlToVisit('href');
+    setUrlToVisit(href);
     setWebviewOpen(true);
   };
 
