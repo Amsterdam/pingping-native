@@ -19,7 +19,7 @@ test('renders correctly', () => {
               title: 'test',
               description: '123123',
               rewardId: '1231',
-              cover: '123',
+              cover: {},
             },
           }}
         />

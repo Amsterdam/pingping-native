@@ -157,6 +157,7 @@ exports[`renders correctly 1`] = `
           <Text
             ellipsizeMode="tail"
             numberOfLines={0}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -221,6 +222,7 @@ exports[`renders correctly 1`] = `
           <Text
             ellipsizeMode="tail"
             numberOfLines={0}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -441,7 +443,6 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "backgroundColor": "rgba(1,1,1,0.8)",
-            "borderRadius": 35,
             "flex": 1,
             "justifyContent": "center",
           }
@@ -451,7 +452,8 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "backgroundColor": "#fff",
-              "borderRadius": 35,
+              "borderTopLeftRadius": 35,
+              "borderTopRightRadius": 35,
               "flex": 1,
               "marginTop": 75,
             }
@@ -481,6 +483,7 @@ exports[`renders correctly 1`] = `
             <Text
               ellipsizeMode="tail"
               numberOfLines={0}
+              selectable={false}
               style={
                 Array [
                   Object {

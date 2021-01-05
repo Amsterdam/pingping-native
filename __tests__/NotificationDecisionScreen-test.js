@@ -5,12 +5,16 @@ import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};
+const setLogin = jest.fn();
 
 test('renders correctly', () => {
   const tree = renderer
     .create(
       <MockedProvider mocks={[]}>
-        <NotificationDecisionScreen navigation={navigation} />
+        <NotificationDecisionScreen
+          navigation={navigation}
+          setLogin={setLogin}
+        />
       </MockedProvider>,
     )
     .toJSON();

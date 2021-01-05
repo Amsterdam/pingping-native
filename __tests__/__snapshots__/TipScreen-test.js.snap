@@ -148,6 +148,7 @@ exports[`renders correctly 1`] = `
         <Text
           ellipsizeMode="tail"
           numberOfLines={0}
+          selectable={false}
           style={
             Array [
               Object {
@@ -215,7 +216,10 @@ exports[`renders correctly 1`] = `
             Object {
               "padding": undefined,
             },
-            undefined,
+            Object {
+              "alignItems": "center",
+              "margin": 10,
+            },
           ]
         }
         contentInset={

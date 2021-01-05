@@ -1,15 +1,25 @@
 import React from 'react';
 import {MockedProvider} from '@apollo/client/testing';
-import OnboardingScreen from '../src/screens/OnboardingScreen';
 import renderer from 'react-test-renderer';
+import OnboardingScreen from '../src/screens/OnboardingScreen';
+import GET_STATUS_QUERY from '../src/apollo/Query/getStatusQuery';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};
 
+const mocks = [
+  {
+    request: {
+      query: GET_STATUS_QUERY,
+    },
+    result: undefined,
+  },
+];
+
 test('renders correctly', () => {
   const tree = renderer
     .create(
-      <MockedProvider mocks={[]}>
+      <MockedProvider mocks={mocks}>
         <OnboardingScreen navigation={navigation} />
       </MockedProvider>,
     )

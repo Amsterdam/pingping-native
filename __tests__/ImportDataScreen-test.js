@@ -1,18 +1,18 @@
 import React from 'react';
 import ImportDataScreen from '../src/screens/ImportDataScreen';
-import renderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import {MockedProvider} from '@apollo/client/testing';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(
-      <MockedProvider mocks={[]}>
-        <ImportDataScreen navigation={navigation} />
-      </MockedProvider>,
-    )
-    .toJSON();
+  const renderer = new ShallowRenderer();
+  const tree = renderer.render(
+    <MockedProvider mocks={[]}>
+      <ImportDataScreen navigation={navigation} />
+    </MockedProvider>,
+  );
+
   expect(tree).toMatchSnapshot();
 });

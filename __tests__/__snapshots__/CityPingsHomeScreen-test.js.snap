@@ -69,6 +69,7 @@ exports[`renders correctly 1`] = `
           <Text
             ellipsizeMode="tail"
             numberOfLines={0}
+            selectable={false}
             style={
               Array [
                 Object {
