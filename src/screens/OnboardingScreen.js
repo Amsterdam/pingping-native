@@ -1,9 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {Container, Header, Left, Right} from 'native-base';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {appColors, ppBaseColors} from '../config/colors';
 import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Title from '../components/typography/Title';

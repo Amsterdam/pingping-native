@@ -45,7 +45,7 @@ exports[`renders correctly 1`] = `
               onLoad={[Function]}
               source={
                 Object {
-                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                  "uri": "https://api.pingping.amsterdam.nlundefined",
                 }
               }
               style={
@@ -57,7 +57,7 @@ exports[`renders correctly 1`] = `
               }
               thumbnailSource={
                 Object {
-                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                  "uri": "https://api.pingping.amsterdam.nlundefined",
                 }
               }
             />
@@ -66,7 +66,7 @@ exports[`renders correctly 1`] = `
               onLoad={[Function]}
               source={
                 Object {
-                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                  "uri": "https://api.pingping.amsterdam.nlundefined",
                 }
               }
               style={
@@ -83,7 +83,7 @@ exports[`renders correctly 1`] = `
               }
               thumbnailSource={
                 Object {
-                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
+                  "uri": "https://api.pingping.amsterdam.nlundefined",
                 }
               }
             />
@@ -262,6 +262,7 @@ exports[`renders correctly 1`] = `
               <Text
                 ellipsizeMode="tail"
                 numberOfLines={0}
+                selectable={false}
                 style={
                   Array [
                     Object {
@@ -313,6 +314,7 @@ exports[`renders correctly 1`] = `
           <Text
             ellipsizeMode="tail"
             numberOfLines={0}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -504,21 +506,41 @@ exports[`renders correctly 1`] = `
               />
             </View>
           </View>
-          <Text
-            ellipsizeMode="tail"
-            numberOfLines={0}
+          <View
             style={
               Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
                 "marginTop": 20,
-                "textAlign": "left",
               }
             }
           >
-            123123
-          </Text>
+            <View
+              style={Object {}}
+            >
+              <Text
+                allowFontScaling={true}
+                selectable={false}
+                style={
+                  Array [
+                    Object {},
+                    Object {},
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={true}
+                  style={
+                    Object {
+                      "fontFamily": "Raleway-Regular",
+                      "fontSize": 15,
+                      "lineHeight": 25,
+                    }
+                  }
+                >
+                  123123
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     </RCTScrollView>
@@ -708,5 +730,138 @@ exports[`renders correctly 1`] = `
       </View>
     </Modal>
   </View>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    statusBarTranslucent={true}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(1,1,1,0.8)",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#fff",
+            "borderTopLeftRadius": 35,
+            "borderTopRightRadius": 35,
+            "flex": 1,
+            "marginTop": 75,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fb9f00",
+              "borderTopLeftRadius": 35,
+              "borderTopRightRadius": 35,
+              "justifyContent": "center",
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "System",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "Heavitas",
+                  "fontSize": 30,
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#fff",
+                  "marginTop": 10,
+                },
+              ]
+            }
+          >
+            SLUITEN
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "padding": 5,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <RNCWebView
+              cacheEnabled={true}
+              injectedJavaScriptBeforeContentLoadedForMainFrameOnly={true}
+              injectedJavaScriptForMainFrameOnly={true}
+              javaScriptEnabled={true}
+              messagingEnabled={false}
+              onContentProcessDidTerminate={[Function]}
+              onHttpError={[Function]}
+              onLoadingError={[Function]}
+              onLoadingFinish={[Function]}
+              onLoadingProgress={[Function]}
+              onLoadingStart={[Function]}
+              onMessage={[Function]}
+              onNavigationStateChange={[Function]}
+              onShouldStartLoadWithRequest={[Function]}
+              source={
+                Object {
+                  "uri": "https://amsterdam.nl",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "backgroundColor": "#ffffff",
+                  },
+                  undefined,
+                ]
+              }
+              useSharedProcessPool={true}
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
 </View>
 `;

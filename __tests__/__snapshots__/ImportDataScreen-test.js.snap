@@ -701,17 +701,10 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <CompletedRouteCelebrationModalScreen
+  <ImportDataScreen
     navigation={
       Object {
         "navigate": [MockFunction],
-      }
-    }
-    route={
-      Object {
-        "params": Object {
-          "pings": 0,
-        },
       }
     }
   />
