@@ -1,5 +1,10 @@
 # PingPing React Native &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+
+## Security
+
+If you see or suspect any vulnerabilities please read the[security policy](SECURITY.md) in order to report them.
+
 ## Development
 
 First read [contributing](CONTRIBUTING.md)
@@ -32,6 +37,10 @@ Things that are not components or screens should probably go here. For instance,
 ### Apollo
 
 The pingping native app uses an apollo client to communicate with the apollo server. All files related to apollo/graphql can be found in this folder. We have a distinction between local and network queries/mutations.
+
+### Sentry
+
+The PingPing app uses sentry to log client errors, the sentry dsn and tokens have been hidden away from this repo. If you are a part of the PingPing team ask one of the developers for the keys and instructions.
 
 ### Rules
 
