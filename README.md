@@ -3,7 +3,7 @@
 
 ## Security
 
-If you see or suspect any vulnerabilities please read the[security policy](SECURITY.md) in order to report them.
+If you see or suspect any vulnerabilities please read the [security policy](SECURITY.md) in order to report them.
 
 ## Development
 
