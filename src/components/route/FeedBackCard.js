@@ -6,12 +6,13 @@ import Button from '../shared/RoundedButton';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import FeedbackIcon from '../../assets/svg/FeedbackIcon';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const MARGIN = 5;
 
 const FeedbackCard = ({style, onPress}) => {
   return (
-    <View style={[styles.paper, style]}>
+    <View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
       <View style={styles.descriptionContainer}>
         <View style={styles.titleContainer}>
           <Title style={styles.title}>Feedback please</Title>

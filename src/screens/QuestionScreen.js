@@ -112,7 +112,7 @@ const QuestionScreen = ({navigation}) => {
       </AnimatableView>
     );
   }
-  return <QuestionSkeleton />;
+  return <></>;
 };
 
 const styles = StyleSheet.create({

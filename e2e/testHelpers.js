@@ -10,6 +10,8 @@ export const walkthroughOnboarding = async () => {
 };
 
 export const answerOnboardingQuestions = async () => {
+  await pressYes();
+  await pressYes();
   await setBirthDate('12', 'december', '2012');
   await pressYesAndNext();
   await pressYesAndNext();

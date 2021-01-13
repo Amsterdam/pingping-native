@@ -5,6 +5,7 @@ import CitypingsChip from '../shared/CitypingsChip';
 import ProgressiveImage from '../shared/ProgressiveImage';
 import IconButton from '../shared/IconButton';
 import {BASE_URL} from '../../config/initialSettings';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -31,6 +32,7 @@ const ImageOverlayHeader = ({
           iconType="MaterialIcons"
           onPress={() => navigation.goBack()}
           size="L"
+          testID={testIDs.NAVIGATION.IMAGE_OVERLAY_BACK_BUTTON}
         />
         <CitypingsChip value={cityPings} />
       </View>
