@@ -7,10 +7,9 @@ export const walkthroughOnboarding = async () => {
   await element(by.id(testIDs.ONBOARDING.WHERE_BUTTON)).tap();
   await expect(element(by.id(testIDs.PRIVACY.SCREEN))).toBeVisible();
   await element(by.id(testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON)).tap();
-  await element(by.id(testIDs.WELCOME.START_BUTTON)).tap();
 };
+
 export const answerOnboardingQuestions = async () => {
-  await pressYesAndNext();
   await setBirthDate('12', 'december', '2012');
   await pressYesAndNext();
   await pressYesAndNext();
@@ -23,7 +22,7 @@ export const answerOnboardingQuestions = async () => {
 };
 
 export const skipNotifications = async () => {
-  await expect(element(by.id(testIDs.NOTIFICATON.SCREEN))).toBeVisible();
+  await expect(element(by.id(testIDs.NOTIFICATON.SKIP_BUTTON))).toBeVisible();
   await element(by.id(testIDs.NOTIFICATON.SKIP_BUTTON)).tap();
 };
 
@@ -64,6 +63,12 @@ export const pressYesAndNext = async () => {
 export const pressNoAndNext = async () => {
   await element(by.id(testIDs.QUESTION.NO_BUTTON)).tap();
   await element(by.id(testIDs.QUESTION.NEXT_QUESTION_BUTTON)).tap();
+};
+export const pressYes = async () => {
+  await element(by.id(testIDs.QUESTION.YES_BUTTON)).tap();
+};
+export const pressNo = async () => {
+  await element(by.id(testIDs.QUESTION.NO_BUTTON)).tap();
 };
 
 export const pressCity = async (city) => {
