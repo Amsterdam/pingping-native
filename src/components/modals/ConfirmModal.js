@@ -7,6 +7,7 @@ import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
+import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -25,7 +26,9 @@ const ConfirmModal = ({
       transparent={true}
       visible={open}
       statusBarTranslucent>
-      <View style={styles.centeredView}>
+      <View
+        style={styles.centeredView}
+        testID={testIDs.QUESTION.SKIP_QUESTIONS_MODAL}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
             <Button
@@ -46,6 +49,7 @@ const ConfirmModal = ({
               label="Vragen Overslaan"
               full
               onPress={() => doUpdateConfirmTask('no')}
+              testid={testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON}
             />
           </View>
         </View>

@@ -4,7 +4,9 @@ import {
   deleteAccount,
   goBack,
   pressMultipleChoiceOption,
+  pressNo,
   pressNoAndNext,
+  pressYes,
   pressYesAndNext,
   setBirthDate,
   skipNotifications,
@@ -18,7 +20,7 @@ describe('Onboarding Screen', () => {
     await device.reloadReactNative();
   });
 
-  it('should open login screen', async () => {
+  it('Should open login screen and show camera', async () => {
     await device.launchApp({permissions: {camera: 'YES'}});
     await element(by.id(testIDs.ONBOARDING.LOG_IN_BUTTON)).tap();
     await expect(element(by.id(testIDs.IMPORT_DATA.SCREEN))).toBeVisible();
@@ -26,13 +28,29 @@ describe('Onboarding Screen', () => {
     await expect(element(by.id(testIDs.ONBOARDING.SCREEN))).toBeVisible();
   });
 
+  it('Should walk through onboarding and skip questions and delete account', async () => {
+    await device.launchApp({permissions: {notifications: 'YES'}});
+    await walkthroughOnboarding();
+    await pressYes();
+    await pressNo();
+    await expect(
+      element(by.id(testIDs.QUESTION.SKIP_QUESTIONS_MODAL)),
+    ).toBeVisible();
+    await element(by.id(testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON)).tap();
+    await skipNotifications();
+    await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
+    await expect(element(by.id(testIDs.ROUTES.FEEDBACK_CARD))).toBeNotVisible();
+    await deleteAccount();
+  });
+
   it('should walk through the onboarding steps and answer all questions with yes, close app and reopen app, reload app and then delete the account', async () => {
     await device.launchApp({permissions: {notifications: 'YES'}});
     await walkthroughOnboarding();
-    await pressNoAndNext();
+    await pressNo();
     await expect(element(by.id(testIDs.GO_BACK_SCREEN.SCREEN))).toBeVisible();
     await element(by.id(testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON)).tap();
-    await pressYesAndNext();
+    await pressYes();
+    await pressYes();
     await setBirthDate('10', 'oktober', '2010');
     await goBack();
     await setBirthDate('12', 'december', '2012');

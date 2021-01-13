@@ -10,6 +10,7 @@ const IconButton = ({
   onPress,
   disabled = false,
   size = 'L',
+  testID = '',
 }) => {
   let buttonWidth;
   let buttonHeight;
@@ -57,7 +58,8 @@ const IconButton = ({
       style={styles.button}
       onPress={() => onPress()}
       activeOpacity={0.5}
-      disabled={disabled}>
+      disabled={disabled}
+      testID={testID}>
       <Icon
         style={[styles.icon, disabled && styles.disabled]}
         name={iconName}
