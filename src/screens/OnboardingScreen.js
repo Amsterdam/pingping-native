@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Container, Header, Left, Right} from 'native-base';
 import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper';
+import {version} from '../../package.json';
 import {appColors, ppBaseColors} from '../config/colors';
 import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Title from '../components/typography/Title';
@@ -13,6 +14,7 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import {useQuery} from '@apollo/client';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
+import Body from '../components/typography/Body';
 
 const onboardingViews = [
   {
@@ -43,6 +45,7 @@ const onboardingViews = [
 
 const OnboardingScreen = ({navigation}) => {
   const [swiper, setSwiper] = useState(null);
+  const debugMode = __DEV__;
   const swiperRef = useRef(null);
   const {data} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-only',
@@ -84,6 +87,7 @@ const OnboardingScreen = ({navigation}) => {
           </TouchableOpacity>
         </Right>
       </Header>
+      {debugMode ? <Body align="center">{`${version} beta`}</Body> : <></>}
       <Swiper
         loop={false}
         dotColor={ppBaseColors.PP_GRAY}
