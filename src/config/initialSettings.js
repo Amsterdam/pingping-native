@@ -3,5 +3,4 @@ const ACC_URL = 'https://acc.api.pingping.amsterdam.nl';
 const PROD_URL = 'https://api.pingping.amsterdam.nl';
 
 export const BASE_URL = __DEV__ ? ACC_URL : PROD_URL;
-console.log(BASE_URL);
 export const API_URL = `${BASE_URL}/api`;
