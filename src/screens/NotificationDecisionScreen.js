@@ -12,6 +12,7 @@ import {Notifications} from 'react-native-notifications';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import sentryHelper from '../helpers/sentryHelper';
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
   const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
@@ -44,7 +45,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
       });
       setLogin(true);
     } catch (error) {
-      console.log(error);
+      sentryHelper(error.message);
     }
   };
 

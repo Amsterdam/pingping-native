@@ -1,4 +1,5 @@
 import {questionTypes} from '../config/questionTypes';
+import sentryHelper from '../helpers/sentryHelper';
 
 // submits an answer and formats the variables for the mutation in order to save according to correct questiontype
 export const submitAnswer = async (
@@ -36,8 +37,8 @@ export const submitAnswer = async (
     setState(INITIAL_STATE);
     setLoadingQuestion(false);
     animationRef.current?.fadeIn();
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    sentryHelper(error.message);
     setLoadingQuestion(false);
   }
 };
@@ -63,7 +64,7 @@ export const updateConfirmTask = async (
     animationRef.current?.slideInRight();
   } catch (error) {
     setLoadingQuestion(false);
-    console.log(error);
+    sentryHelper(error.message);
   }
 };
 
@@ -87,9 +88,9 @@ export const revertTaskFunc = async (
     await refetch();
     setLoadingQuestion(false);
     animationRef.current?.fadeIn();
-  } catch (e) {
+  } catch (error) {
     setLoadingQuestion(false);
-    console.log(e);
+    sentryHelper(error.message);
   }
 };
 

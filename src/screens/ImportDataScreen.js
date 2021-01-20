@@ -13,6 +13,7 @@ import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation'
 import {doRegisterDevice} from '../helpers/authHelper';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import sentryHelper from '../helpers/sentryHelper';
 
 const ImportDataScreen = ({navigation}) => {
   const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
@@ -33,7 +34,7 @@ const ImportDataScreen = ({navigation}) => {
     } catch (error) {
       setLoading(false);
       setScanning(false);
-      console.log(error);
+      sentryHelper(error.message);
     }
   };
 
