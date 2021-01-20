@@ -17,6 +17,7 @@ import {doRegisterDevice} from '../helpers/authHelper';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import routes from '../App/stacks/routes';
+import sentryHelper from '../helpers/sentryHelper';
 
 const PrivacyPolicyScreen = ({navigation}) => {
   useEffect(() => {
@@ -47,7 +48,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
         navigation.navigate(routes.onboardingStack.questionScreen);
       }
     } catch (error) {
-      console.log(error);
+      sentryHelper(error.message);
     }
   };
 

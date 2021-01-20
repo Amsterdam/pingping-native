@@ -14,6 +14,7 @@ import CityPingsBalance from '../components/shared/CityPingsBalance';
 import Button from '../components/shared/RoundedButton';
 import WebViewModal from '../components/modals/WebViewModal';
 import routes from '../App/stacks/routes';
+import sentryHelper from '../helpers/sentryHelper';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {price, title, description, rewardId, cover} = route.params;
@@ -55,7 +56,7 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
       });
     } catch (error) {
       if (error.message.includes('reward_not_available')) {
-        console.log(error);
+        sentryHelper(error.message);
         return Toast.show({
           text:
             'Deze reward is op dit moment niet beschikbaar, probeer het later nog eens.',

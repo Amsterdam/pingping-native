@@ -14,6 +14,7 @@ import DeleteDataModal from '../components/modals/DeleteDataModal';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import {resetStore} from '../apollo/apolloClient';
 import {testIDs} from '../../e2e/modulesTestIDs';
+import sentryHelper from '../helpers/sentryHelper';
 
 const DeleteDataScreen = ({navigation, setLogOut}) => {
   const [open, setOpen] = useState(false);
@@ -31,9 +32,9 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
       await AsyncStorage.clear();
       setLogOut();
       resetStore();
-    } catch (e) {
+    } catch (error) {
       setLoading(false);
-      console.log(e);
+      sentryHelper(error.message);
     }
   };
 

@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
+import sentryHelper from '../helpers/sentryHelper';
 
 export async function doRegisterDevice(
   registerDeviceCallback = () => {},
@@ -23,7 +24,7 @@ export async function doRegisterDevice(
     });
     await AsyncStorage.setItem('@access_token', accessToken);
   } catch (error) {
-    throw new Error('Failed to register device');
+    sentryHelper(error.message);
   }
 }
 
@@ -49,7 +50,7 @@ const userStatus = async (
       return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
     }
   } catch (error) {
-    console.log(error);
+    sentryHelper(error.message);
     if (error.message === 'unauthorized') {
       await AsyncStorage.clear(); // Token is not valid, clear all.
       setOnboarder(true);

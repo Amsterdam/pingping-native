@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import {Container, Root, Toast} from 'native-base';
 import YouTube from 'react-native-youtube';
 import HTML from 'react-native-render-html';
-import * as Sentry from '@sentry/react-native';
+import sentryHelper from '../helpers/sentryHelper';
 import {BASE_URL} from '../config/initialSettings';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import LabeledHeader from '../components/header/LabeledHeader';
@@ -63,7 +63,7 @@ const TaskScreen = ({navigation, route}) => {
 
       return navigation.goBack();
     } catch (error) {
-      console.log(error);
+      sentryHelper(error.message);
     } finally {
       setLoading(false);
     }
@@ -89,7 +89,7 @@ const TaskScreen = ({navigation, route}) => {
                 styles.videoContainer,
                 !videoReady && styles.videoNotReady,
               ]}
-              onError={(e) => console.log(e)}
+              onError={(error) => sentryHelper(error.message)}
               onReady={() => setVideoReady(true)}
               resumePlayAndroid={false}
               showFullscreenButton={false}
@@ -123,16 +123,13 @@ const TaskScreen = ({navigation, route}) => {
     try {
       throw new Error('Om Hulp Gevraagd');
     } catch (error) {
-      if (!__DEV__) {
-        Sentry.captureMessage('Om Hulp Gevraagd');
-      }
+      sentryHelper(error.message);
       Toast.show({
         text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
         textStyle: {fontFamily: 'Raleway-Regular'},
         style: {backgroundColor: '#000', borderRadius: 10},
         duration: 2000,
       }); // change the error message once complete
-      console.log(error);
     }
   };
 
