@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 import {Button, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const AnswerButtonOnboarding = ({
   onPress = () => {},
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   label: {
     paddingTop: 3,
     fontFamily: 'Heavitas',
-    fontSize: 14,
+    fontSize: normalizeValue(14),
     color: appColors.primary,
   },
 });

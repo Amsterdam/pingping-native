@@ -76,18 +76,26 @@ const OnboardingScreen = ({navigation}) => {
           backgroundColor={appColors.background}
         />
         <Left style={styles.flex} />
-        <Title style={styles.headerTitle}>INTRODUCTIE</Title>
+        <Title style={styles.headerTitle} variant="h6">
+          INTRODUCTIE
+        </Title>
         <Right>
           <TouchableOpacity
             testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
             onPress={() =>
               navigation.navigate(routes.onboardingStack.importDataScreen)
             }>
-            <Title style={styles.buttonLabel}>Inloggen</Title>
+            <Title style={styles.buttonLabel} variant="h7">
+              Inloggen
+            </Title>
           </TouchableOpacity>
         </Right>
       </Header>
-      {debugMode ? <Body align="center">{`${version} beta`}</Body> : <></>}
+      {debugMode ? (
+        <Body variant="b3" align="center">{`${version} beta`}</Body>
+      ) : (
+        <></>
+      )}
       <Swiper
         loop={false}
         dotColor={ppBaseColors.PP_GRAY}
@@ -113,12 +121,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 14,
     color: appColors.primary,
   },
   buttonLabel: {
     color: appColors.greyedOut,
-    fontSize: 12,
   },
   flex: {
     flex: 1,

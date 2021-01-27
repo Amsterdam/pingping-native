@@ -28,8 +28,8 @@ const Loading = () => {
       <ActivityIndicator size="large" color={appColors.primary} />
       {showText && (
         <React.Fragment>
-          <Body>Het laden duurt langer dan normaal</Body>
-          <Body>Nog even wachten</Body>
+          <Body variant="b3">Het laden duurt langer dan normaal</Body>
+          <Body variant="b3">Nog even wachten</Body>
         </React.Fragment>
       )}
     </View>

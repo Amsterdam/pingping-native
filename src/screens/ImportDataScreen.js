@@ -44,11 +44,11 @@ const ImportDataScreen = ({navigation}) => {
       <Content>
         <ContentLayout>
           <Title style={styles.margin}>Gegevens Importeren</Title>
-          <Body style={styles.margin}>
+          <Body variant="b3" style={styles.margin}>
             Als je van device switcht wil je natuurlijk niet dat al jouw
             gegevens en prestaties op Ping Ping verloren gaan!
           </Body>
-          <Body style={styles.margin}>
+          <Body variant="b3" style={styles.margin}>
             Het is heel simpel om jouw gegevens te importeren van je oude naar
             je nieuwe device. Open de app op je oude device en ga naar account,
             klik daar op exporteer gegevens en scan de QR-code met je nieuwe

@@ -23,7 +23,9 @@ const ThankYouFeedbackModal = ({open = false}) => {
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <View style={styles.modalContainer}>
-            <Title style={styles.title}>Bedankt voor je input!</Title>
+            <Title style={styles.title} variant="h4">
+              Bedankt voor je input!
+            </Title>
             <ThankYou />
             <ActivityIndicator color={appColors.primary} />
           </View>
@@ -58,7 +60,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 20,
     marginBottom: 10,
   },
 });

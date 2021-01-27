@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {Button, Icon, Text} from 'native-base';
 import {appColors, ppBaseColors} from '../../config/colors';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const RoundedButton = ({
   label = '',
@@ -55,12 +56,12 @@ const styles = StyleSheet.create({
   label: {
     paddingTop: 3,
     fontFamily: 'Heavitas',
-    fontSize: 14,
+    fontSize: normalizeValue(14),
     color: appColors.white,
   },
   icon: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: normalizeValue(24),
   },
   disabled: {
     ...buttonBase,

@@ -39,7 +39,7 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
 
   return (
     <Container>
-      <SimpleHeader title={currentTask.headerTitle} color="white" />
+      <SimpleHeader color="white" />
       <View style={styles.viewContainer}>
         <View>
           {currentTask.media?.value && (
@@ -50,8 +50,12 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
           )}
         </View>
         <View>
-          <Title style={styles.title}>{currentTask.title}</Title>
-          <Body style={styles.onboardingText}>{currentTask.description}</Body>
+          <Title style={styles.title} variant="h2" align="center">
+            {currentTask.title}
+          </Title>
+          <Body variant="b4" align="center" style={styles.onboardingText}>
+            {currentTask.description}
+          </Body>
         </View>
 
         <View style={styles.buttonContainer}>{mapButtons()}</View>
@@ -91,16 +95,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   title: {
-    fontWeight: '400',
-    fontSize: 26,
     color: appColors.text,
-    textAlign: 'center',
     marginBottom: 20,
   },
   onboardingText: {
-    textAlign: 'center',
     color: appColors.subText,
-    fontSize: 14,
   },
   buttonContainer: {
     alignSelf: 'stretch',

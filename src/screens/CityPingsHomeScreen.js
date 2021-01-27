@@ -11,6 +11,7 @@ import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import AvailableRewardsList from '../components/reward/AvailableRewardsList';
+import normalizeValue from '../helpers/normalizeValue';
 
 const CityPingsHomeScreen = ({navigation}) => {
   React.useEffect(() => {
@@ -62,7 +63,9 @@ const CityPingsHomeScreen = ({navigation}) => {
           barStyle="light-content"
         />
         <View style={styles.headerContainer}>
-          <Title style={styles.title}>Rewards</Title>
+          <Title style={styles.title} variant="h3">
+            Rewards
+          </Title>
           <CitypingsChip value={balance} />
         </View>
       </Header>
@@ -104,8 +107,6 @@ const styles = StyleSheet.create({
   container: {backgroundColor: appColors.almostNotBlue},
   title: {
     color: '#fff',
-    fontSize: 24,
-    textAlign: 'left',
   },
   headerContainer: {
     flexDirection: 'row',
@@ -122,12 +123,12 @@ const styles = StyleSheet.create({
   textStyle: {
     color: '#fff',
     fontFamily: 'Heavitas',
-    fontSize: 12,
+    fontSize: normalizeValue(12),
   },
   activeTextStyle: {
     color: '#fff',
     fontFamily: 'Heavitas',
-    fontSize: 14,
+    fontSize: normalizeValue(14),
   },
   shadowRemover: {
     elevation: 0,

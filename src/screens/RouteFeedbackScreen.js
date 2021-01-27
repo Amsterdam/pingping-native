@@ -86,7 +86,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Title style={styles.anyTips}>
+              <Title style={styles.anyTips} variant="h4">
                 Heb je nog tips om de app te verbeteren?
               </Title>
               <TextInput
@@ -152,7 +152,6 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   anyTips: {
-    fontSize: 18,
     marginBottom: MARGIN,
   },
   button: {

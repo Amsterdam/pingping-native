@@ -12,7 +12,7 @@ const CitypingsChip = ({value = 0, mini = false}) => {
   return (
     <View style={styles.cpBalance}>
       <CityPingCoin style={styles.coin} />
-      <Title style={styles.cpLabel}>{`${value} ${
+      <Title style={styles.cpLabel} variant="h6">{`${value} ${
         mini ? '' : 'CityPings'
       }`}</Title>
     </View>
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   },
   cpLabel: {
     color: '#fff',
-    fontSize: 12,
     paddingTop: 5,
   },
   coin: {

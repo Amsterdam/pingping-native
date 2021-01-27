@@ -10,7 +10,9 @@ const MinimalErrorComponent = ({message}) => {
   return (
     <View animation="bounceIn" delay={200} style={styles.container}>
       <Icon name="alert-octagon" type="Feather" style={styles.icon} />
-      <Body style={styles.errorMessage}>{message}</Body>
+      <Body variant="b3" style={styles.errorMessage}>
+        {message}
+      </Body>
     </View>
   );
 };

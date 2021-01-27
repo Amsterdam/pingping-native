@@ -15,6 +15,7 @@ import Button from '../components/shared/RoundedButton';
 import WebViewModal from '../components/modals/WebViewModal';
 import routes from '../App/stacks/routes';
 import sentryHelper from '../helpers/sentryHelper';
+import normalizeValue from '../helpers/normalizeValue';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {price, title, description, rewardId, cover} = route.params;
@@ -90,7 +91,9 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
             cityPings={price}
           />
           <View style={styles.contentContainer}>
-            <Body style={styles.label}>Rewards</Body>
+            <Body variant="b3" style={styles.label}>
+              Rewards
+            </Body>
             <Title style={styles.title}>{title}</Title>
             <CityPingsBalance balance={balance} price={price} />
             <View style={styles.description}>
@@ -105,7 +108,7 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
           </View>
         </ScrollView>
         <View style={styles.buttonContainer}>
-          <Body stlye={styles.balanceIndicatorText}>
+          <Body variant="b3" stlye={styles.balanceIndicatorText}>
             {available ? 'Lets go!' : 'Nog even doorsparen !'}
           </Body>
           <Button
@@ -149,8 +152,8 @@ const styles = StyleSheet.create({
   },
   htmlFontStyle: {
     fontFamily: 'Raleway-Regular',
-    fontSize: 15,
-    lineHeight: 25,
+    fontSize: normalizeValue(15),
+    lineHeight: normalizeValue(25),
   },
 });
 

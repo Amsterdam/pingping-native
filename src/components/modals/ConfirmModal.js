@@ -2,11 +2,10 @@ import React from 'react';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import normalizeValue from '../../helpers/normalizeValue';
 import Title from '../typography/Title';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS} from '../../config/commonStyles';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const screenWidth = Dimensions.get('window').width;
@@ -40,7 +39,7 @@ const ConfirmModal = ({
             </Button>
             <Title style={styles.title}>Vragen Overslaan</Title>
 
-            <Body style={styles.body}>
+            <Body variant="b3" style={styles.body}>
               Als je er voor kiest om zonder vragen te beantwoorden door te gaan
               zal de route niet persoonlijk op jou aangepast worden en krijg je
               de volledige route te zien met alle stappen.
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   icon: {
-    fontSize: 24,
+    fontSize: normalizeValue(24),
     color: '#000',
   },
   title: {
@@ -95,17 +94,6 @@ const styles = StyleSheet.create({
   },
   body: {
     marginBottom: 20,
-  },
-  codeContainer: {
-    backgroundColor: appColors.headerColor,
-    padding: 10,
-    borderRadius: BORDER_RADIUS,
-  },
-  code: {
-    marginTop: 5,
-    color: appColors.white,
-    textAlign: 'center',
-    fontSize: 20,
   },
 });
 

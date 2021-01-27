@@ -2,6 +2,7 @@ import React from 'react';
 import {Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import normalizeValue from '../../helpers/normalizeValue';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import RoundedButton from '../shared/RoundedButton';
@@ -35,7 +36,7 @@ const DeleteDataModal = ({
               <Icon name="close" type="AntDesign" style={styles.icon} />
             </Button>
             <Title style={styles.title}>Gegevens Verwijderen</Title>
-            <Body style={styles.body}>
+            <Body variant="b3" style={styles.body}>
               Weet je zeker dat je jouw gegevens wilt verwijderen? Wanneer je de
               gegevens hebt verwijdered is er geen mogelijkheid meer om deze
               terug te halen..
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   icon: {
-    fontSize: 24,
+    fontSize: normalizeValue(24),
     color: '#000',
   },
   title: {

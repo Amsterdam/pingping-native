@@ -18,7 +18,6 @@ const LabeledHeader = ({
     },
     headerTitle: {
       marginTop: 5,
-      fontSize: 14,
       color: filledHeader ? '#fff' : appColors.primary,
     },
     filledHeader: {
@@ -44,7 +43,9 @@ const LabeledHeader = ({
           navigation={navigation}
         />
       </Left>
-      <Title style={styles.headerTitle}>{title}</Title>
+      <Title style={styles.headerTitle} variant="h6">
+        {title}
+      </Title>
       <Right style={styles.flex} />
     </Header>
   );

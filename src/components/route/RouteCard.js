@@ -43,14 +43,24 @@ const RouteCard = ({
         testID={testIDs.ROUTES.ROUTE_CARD}
         disabled={routeDisabled}
         disabledString="Deze route is nog niet beschikbaar">
-        <Body style={styles.rewardType}>{targetAudience}</Body>
-        <Title style={styles.title}>{title}</Title>
-        <Body style={styles.description} ellipsizeMode="tail" numberOfLines={3}>
+        <Body variant="b3" style={styles.rewardType}>
+          {targetAudience}
+        </Body>
+        <Title style={styles.title} variant="h4">
+          {title}
+        </Title>
+        <Body
+          variant="b3"
+          style={styles.description}
+          ellipsizeMode="tail"
+          numberOfLines={3}>
           {description}
         </Body>
         <View style={styles.balanceContainer}>
           <View style={styles.saldo}>
-            <Body style={styles.savings}>{numberOfSteps} stappen</Body>
+            <Body variant="b3" style={styles.savings}>
+              {numberOfSteps} stappen
+            </Body>
           </View>
           <TrophyOrProgress progress={progress} />
         </View>
@@ -66,7 +76,6 @@ const RouteCard = ({
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 20,
     marginBottom: MARGIN,
   },
   rewardType: {

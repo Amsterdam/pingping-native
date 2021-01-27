@@ -13,7 +13,7 @@ const CityPingsBalance = ({price = 0, balance = 0}) => {
     <View style={styles.balanceContainer}>
       <View style={styles.saldo}>
         <CityPingCoin />
-        <Body style={styles.savings}>
+        <Body variant="b3" style={styles.savings}>
           {balance} / {price} CityPings
         </Body>
       </View>

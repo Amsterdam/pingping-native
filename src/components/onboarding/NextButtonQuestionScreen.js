@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
 import {Button} from 'native-base';
+import normalizeValue from '../../helpers/normalizeValue';
 import {appColors} from '../../config/colors';
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
@@ -28,7 +29,7 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
 const styles = StyleSheet.create({
   nextButtonLabel: {
     fontFamily: 'Raleway-Regular',
-    fontSize: 18,
+    fontSize: normalizeValue(18),
   },
   nextButton: {
     paddingBottom: 0,

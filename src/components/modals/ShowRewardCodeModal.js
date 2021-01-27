@@ -2,6 +2,7 @@ import React from 'react';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import normalizeValue from '../../helpers/normalizeValue';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
@@ -37,13 +38,19 @@ const ShowRewardCodeModal = ({
             </Button>
             <Title style={styles.title}>Jouw Code</Title>
             {expiryDate ? (
-              <Body style={styles.body}>Geldig tot: {expiryDate}</Body>
+              <Body variant="b3" style={styles.body}>
+                Geldig tot: {expiryDate}
+              </Body>
             ) : (
               <></>
             )}
             <View style={styles.codeContainer}>
               {code ? (
-                <Title selectable style={styles.code}>
+                <Title
+                  selectable
+                  style={styles.code}
+                  align="center"
+                  variant="h4">
                   {code}
                 </Title>
               ) : (
@@ -86,7 +93,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   icon: {
-    fontSize: 24,
+    fontSize: normalizeValue(24),
     color: '#000',
   },
   title: {
@@ -104,8 +111,6 @@ const styles = StyleSheet.create({
   code: {
     marginTop: 5,
     color: appColors.white,
-    textAlign: 'center',
-    fontSize: 20,
   },
 });
 

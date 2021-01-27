@@ -86,7 +86,9 @@ const RouteHomeScreen = ({navigation}) => {
       <AnimatableView animation="fadeIn">
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
-            <Title style={styles.title}>Aanbevolen</Title>
+            <Title style={styles.title} variant="h3" align="left">
+              Aanbevolen
+            </Title>
             {suggestedRoutes.map((route) => (
               <RouteCard
                 navigation={navigation}
@@ -99,6 +101,8 @@ const RouteHomeScreen = ({navigation}) => {
 
         <React.Fragment>
           <Title
+            variant="h4"
+            align="left"
             style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
             Andere life events
           </Title>
@@ -173,14 +177,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 24,
-    textAlign: 'left',
   },
   subTitle: {
     color: appColors.primary,
     marginVertical: 10,
-    fontSize: 18,
-    textAlign: 'left',
   },
   content: {
     position: 'absolute',

@@ -10,7 +10,9 @@ const AccountBlockButton = ({button, navigation}) => {
       style={styles.accountMainButton}
       onPress={() => navigation.navigate(button.route)}>
       {button.image}
-      <Title style={styles.title}>{button.title}</Title>
+      <Title variant="h6" align="center">
+        {button.title}
+      </Title>
     </TouchableOpacity>
   );
 };
@@ -33,7 +35,6 @@ const styles = StyleSheet.create({
 
     elevation: 1,
   },
-  title: {fontSize: 14, textAlign: 'center'},
 });
 
 AccountBlockButton.propTypes = {

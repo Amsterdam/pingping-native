@@ -65,8 +65,10 @@ const PrivacyPolicyScreen = ({navigation}) => {
             <FloppyDisk />
           </View>
           <View>
-            <Title style={styles.title}>PRIVACY</Title>
-            <Body style={styles.onboardingText}>
+            <Title style={styles.title} variant="h1" align="center">
+              PRIVACY
+            </Title>
+            <Body variant="b3" style={styles.onboardingText} align="center">
               Om Ping Ping optimaal te laten functioneren verzamelen wij
               informatie. Klik hieronder om meer hierover te lezen. Wij slaan zo
               min mogelijk informatie op.
@@ -98,16 +100,11 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   title: {
-    fontWeight: '400',
-    fontSize: 28,
     color: appColors.text,
-    textAlign: 'center',
     marginBottom: 20,
   },
   onboardingText: {
-    textAlign: 'center',
     color: appColors.subText,
-    fontSize: 14,
   },
   buttonContainer: {
     alignItems: 'center',

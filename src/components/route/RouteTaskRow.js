@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 import routes from '../../App/stacks/routes';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const CIRCLE_RADIUS = 30;
 
@@ -36,9 +37,13 @@ const RouteTaskRow = ({
             isCurrentTask && styles.circleActive,
             isCompleted && styles.circleDisabled,
           ]}>
-          <Title style={styles.label}>{index}</Title>
+          <Title variant="h6" style={styles.label}>
+            {index}
+          </Title>
         </View>
-        <Title style={[styles.title, isCompleted && styles.disabled]}>
+        <Title
+          style={[styles.title, isCompleted && styles.disabled]}
+          variant="h5">
           {task.title}
         </Title>
         {isCompleted && (
@@ -76,17 +81,14 @@ const styles = StyleSheet.create({
   },
   label: {
     color: '#fff',
-    fontSize: 14,
     marginLeft: 1,
   },
   title: {
-    fontSize: 16,
     width: '70%',
   },
   disabled: {
     flexGrow: 1,
     color: appColors.subtleGrey,
-    fontSize: 16,
   },
   badge: {marginLeft: 5},
   background: {
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: normalizeValue(12),
   },
 });
 
