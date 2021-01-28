@@ -15,7 +15,7 @@ const FeedbackCard = ({style, onPress}) => {
     <View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
       <View style={styles.descriptionContainer}>
         <View style={styles.titleContainer}>
-          <Title style={styles.title} variant="h6">
+          <Title style={styles.title} variant="h4">
             Feedback please
           </Title>
           <FeedbackIcon />

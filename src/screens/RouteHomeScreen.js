@@ -86,7 +86,7 @@ const RouteHomeScreen = ({navigation}) => {
       <AnimatableView animation="fadeIn">
         {suggestedRoutes.length > 0 && (
           <React.Fragment>
-            <Title style={styles.title} variant="h3" align="left">
+            <Title style={styles.title} variant="h2" align="left">
               Aanbevolen
             </Title>
             {suggestedRoutes.map((route) => (
@@ -101,7 +101,7 @@ const RouteHomeScreen = ({navigation}) => {
 
         <React.Fragment>
           <Title
-            variant="h4"
+            variant="h3"
             align="left"
             style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}>
             Andere life events

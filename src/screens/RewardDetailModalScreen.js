@@ -94,7 +94,9 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
             <Body variant="b3" style={styles.label}>
               Rewards
             </Body>
-            <Title style={styles.title}>{title}</Title>
+            <Title variant="h2" style={styles.title}>
+              {title}
+            </Title>
             <CityPingsBalance balance={balance} price={price} />
             <View style={styles.description}>
               <HTML
@@ -145,7 +147,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 40,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

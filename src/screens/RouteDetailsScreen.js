@@ -73,13 +73,10 @@ function RouteDetailsScreen({navigation, route}) {
             <Body variant="b3" style={styles.label}>
               {targetAudience}
             </Body>
-            <Title style={styles.title} variant="h4">
-              {title}
-            </Title>
+            <Title style={styles.title}>{title}</Title>
             <View style={styles.balanceContainer}>
               <View style={styles.saldo}>
                 <Body variant="b3" style={styles.savings}>
-                  {' '}
                   {numberOfSteps} stappen
                 </Body>
               </View>
@@ -88,7 +85,7 @@ function RouteDetailsScreen({navigation, route}) {
             <Body variant="b3" style={styles.description}>
               {description}
             </Body>
-            <Title style={styles.subtitle} variant="h4">
+            <Title style={styles.subtitle} variant="h3">
               De Route
             </Title>
           </ContentLayout>

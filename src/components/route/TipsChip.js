@@ -17,7 +17,7 @@ const TipsChip = ({navigation, tips}) => {
         })
       }>
       <Icon name="lightbulb-o" type="FontAwesome" style={styles.icon} />
-      <Title style={styles.title} variant="h6">
+      <Title style={styles.title} variant="h5">
         Tips
       </Title>
     </TouchableOpacity>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: '#fff',
-    fontSize: normalizeValue(14),
+    fontSize: normalizeValue(18),
   },
 });
 

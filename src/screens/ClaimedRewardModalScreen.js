@@ -42,12 +42,14 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
               Reward
             </Body>
             <View style={styles.textContainer}>
-              <Title>{title}</Title>
+              <Title variant="h2">{title}</Title>
             </View>
 
             <View>
               <ClaimedTicketsLarge style={styles.illustration} />
-              <Title align="center">GECLAIMED</Title>
+              <Title variant="h2" align="center">
+                GECLAIMED
+              </Title>
               {expiryDate ? (
                 <Body variant="b3" align="center" style={styles.rewardType}>
                   Geldig tot {expiryDate}

@@ -46,7 +46,7 @@ const RouteCard = ({
         <Body variant="b3" style={styles.rewardType}>
           {targetAudience}
         </Body>
-        <Title style={styles.title} variant="h4">
+        <Title style={styles.title} variant="h3">
           {title}
         </Title>
         <Body

@@ -59,7 +59,7 @@ const RewardCard = ({
             </Body>
           )}
         </View>
-        <Title variant="h4" style={styles.title}>
+        <Title variant="h3" style={styles.title}>
           {title}
         </Title>
         <Body variant="b3" numberOfLines={3} ellipsizeMode="tail">
