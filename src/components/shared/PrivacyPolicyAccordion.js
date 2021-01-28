@@ -5,13 +5,16 @@ import {Icon} from 'native-base';
 import Title from '../typography/Title';
 import Body from '../typography/Body';
 import {faqItems} from '../../helpers/faqItems';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   return (
     <View style={styles.policyContainer}>
       <TouchableWithoutFeedback onPress={toggleOpen}>
         <View style={styles.iconButton}>
-          <Title style={styles.title}>Privacy Policy</Title>
+          <Title style={styles.title} variant="h7" align="center">
+            Privacy Policy
+          </Title>
           <Icon
             name={open ? 'caretup' : 'caretdown'}
             type="AntDesign"
@@ -22,7 +25,7 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
       </TouchableWithoutFeedback>
       {open ? (
         <View style={styles.paddingPolicy}>
-          <Body align="justify">
+          <Body variant="b3" align="justify">
             We staan voor gelijkwaardigheid en gelijke kansen voor alle
             jongeren. Saamhorigheid is ons uitgangspunt. Dit betekent dat we
             elkaar kunnen en willen helpen. We spreken dan over
@@ -47,16 +50,14 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
             nodig is te verbeteren. Deze gegevens slaan we zonder jouw
             persoonsgegevens op.
           </Body>
-          <Body style={styles.faqTitle}>
+          <Body variant="b3" style={styles.faqTitle}>
             Praktische vragen over jouw privacy:
           </Body>
 
           {faqItems.map((item, index) => (
             <View key={item.question} style={styles.faqItemContainer}>
-              <Title style={styles.faqFontSize}>{`${index + 1}. ${
-                item.question
-              }`}</Title>
-              <Body style={styles.faqFontSize}>{item.answer}</Body>
+              <Title variant="h7">{`${index + 1}. ${item.question}`}</Title>
+              <Body variant="b5">{item.answer}</Body>
             </View>
           ))}
         </View>
@@ -81,12 +82,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
   },
-  title: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
   icon: {
-    fontSize: 16,
+    fontSize: normalizeValue(16),
     marginLeft: 8,
   },
   paddingPolicy: {
@@ -94,7 +91,6 @@ const styles = StyleSheet.create({
   },
   faqTitle: {marginTop: 10, marginBottom: 10},
   faqItemContainer: {marginTop: 5, marginBottom: 5},
-  faqFontSize: {fontSize: 12},
 });
 
 PrivacyPolicyAccordion.propTypes = {

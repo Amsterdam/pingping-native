@@ -57,12 +57,16 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           backgroundColor={appColors.background}
         />
         <Left style={styles.flex} />
-        <Title style={styles.headerTitle}>Notificaties</Title>
+        <Title style={styles.headerTitle} variant="h6">
+          Notificaties
+        </Title>
         <Right>
           <TouchableOpacity
             onPress={declineNotifications}
             testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
-            <Title style={styles.headerSubButton}>Overslaan</Title>
+            <Title style={styles.headerSubButton} variant="h7">
+              Overslaan
+            </Title>
           </TouchableOpacity>
         </Right>
       </Header>
@@ -71,8 +75,10 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
           <Bell Bell />
         </View>
         <View>
-          <Title style={styles.title}>NOTIFICATIES</Title>
-          <Body style={styles.onboardingText}>
+          <Title style={styles.title} variant="h1" align="center">
+            NOTIFICATIES
+          </Title>
+          <Body variant="b3" style={styles.onboardingText} align="center">
             Wil je een berichtje krijgen voor een actie die je nog moet doen of
             als er een nieuwe route is toegevoegd?
           </Body>
@@ -100,22 +106,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: '400',
-    fontSize: 26,
     color: appColors.text,
-    textAlign: 'center',
     marginBottom: 20,
   },
   onboardingText: {
-    textAlign: 'center',
     color: appColors.subText,
-    fontSize: 14,
   },
   button: {
     backgroundColor: appColors.primary,
   },
   headerSubButton: {
     color: appColors.greyedOut,
-    fontSize: 12,
   },
   buttonLabel: {
     fontWeight: 'bold',
@@ -125,7 +126,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 14,
     color: appColors.primary,
   },
   flex: {

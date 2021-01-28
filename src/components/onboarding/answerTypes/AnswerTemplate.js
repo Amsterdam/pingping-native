@@ -20,7 +20,9 @@ const AnswerTemplate = ({
         doRevertTask={doRevertTask}
       />
       <Content contentContainerStyle={styles.content}>
-        <Title style={styles.title}>{currentTask.title}</Title>
+        <Title variant="h2" align="center">
+          {currentTask.title}
+        </Title>
         <View style={styles.questionContainer}>{children}</View>
         <NextButtonQuestionScreen
           nextButtonDisabled={nextButtonDisabled}
@@ -36,10 +38,6 @@ const styles = StyleSheet.create({
   questionContainer: {
     flex: 1,
     justifyContent: 'center',
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 28,
   },
 });
 

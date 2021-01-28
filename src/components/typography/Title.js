@@ -2,27 +2,44 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Text} from 'native-base';
+import normalizeValue from '../../helpers/normalizeValue';
+
+const styles = StyleSheet.create({
+  base: {
+    fontFamily: 'Heavitas',
+  },
+  h1: {
+    fontSize: normalizeValue(32),
+  },
+  h2: {fontSize: normalizeValue(28)},
+  h3: {fontSize: normalizeValue(24)},
+  h4: {fontSize: normalizeValue(20)},
+  h5: {fontSize: normalizeValue(16)},
+  h6: {fontSize: normalizeValue(14)},
+  h7: {fontSize: normalizeValue(12)},
+  left: {
+    textAlign: 'left',
+  },
+  center: {
+    textAlign: 'center',
+  },
+  right: {
+    textAlign: 'right',
+  },
+});
 
 const Title = ({
   children = [],
+  variant = 'h1',
   align = 'left',
   style = {},
   numberOfLines = 0,
   ellipsizeMode = 'tail',
-  fontSize = 30,
   selectable = false,
 }) => {
-  const styles = StyleSheet.create({
-    text: {
-      fontFamily: 'Heavitas',
-      textAlign: align,
-      fontSize: fontSize,
-    },
-  });
-
   return (
     <Text
-      style={[styles.text, style]}
+      style={[styles.base, styles[variant], styles[align], style]}
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}
       selectable={selectable}>

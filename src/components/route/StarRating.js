@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
 import {ppBaseColors} from '../../config/colors';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const StarRating = ({
   numberActive = 0,
@@ -31,7 +32,7 @@ const StarRating = ({
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 30,
+    fontSize: normalizeValue(30),
   },
   activeIcon: {
     color: ppBaseColors.PP_GOLD,

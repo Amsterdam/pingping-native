@@ -77,7 +77,9 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
             {displayError.show && (
               <MinimalErrorComponent message={displayError.message} />
             )}
-            <Title style={styles.title}>Wat vond je van de route?</Title>
+            <Title variant="h2" style={styles.title}>
+              Wat vond je van de route?
+            </Title>
             <View style={styles.starContainer}>
               <StarRating
                 numberActive={state.numberActive}
@@ -86,7 +88,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Title style={styles.anyTips}>
+              <Title style={styles.anyTips} variant="h4">
                 Heb je nog tips om de app te verbeteren?
               </Title>
               <TextInput
@@ -152,7 +154,6 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   anyTips: {
-    fontSize: 18,
     marginBottom: MARGIN,
   },
   button: {

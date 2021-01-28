@@ -6,6 +6,7 @@ import Body from '../typography/Body';
 import {appColors} from '../../config/colors';
 import Card from '../shared/Card';
 import routes from '../../App/stacks/routes';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const RewardCardMini = ({
   navigation,
@@ -36,10 +37,14 @@ const RewardCardMini = ({
       disabled={status === 'NotAvailable'}
       mini>
       <View style={styles.descriptionContainer}>
-        <Title style={styles.cardFont} numberOfLines={2} ellipsizeMode="tail">
+        <Title variant="h7" numberOfLines={2} ellipsizeMode="tail">
           {title}
         </Title>
-        <Body numberOfLines={2} ellipsizeMode="tail" style={styles.cardFont}>
+        <Body
+          variant="b4"
+          numberOfLines={2}
+          ellipsizeMode="tail"
+          style={styles.cardFont}>
           {description}
         </Body>
       </View>
@@ -52,7 +57,8 @@ const styles = StyleSheet.create({
     width: '45%',
   },
   cardFont: {
-    fontSize: 12,
+    marginTop: 10,
+    lineHeight: normalizeValue(20),
   },
   rewardType: {
     color: appColors.primary,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
 import {appColors} from '../../config/colors';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const IconButton = ({
   iconName,
@@ -47,7 +48,7 @@ const IconButton = ({
     },
     icon: {
       color: '#fff',
-      fontSize: iconSize,
+      fontSize: normalizeValue(iconSize),
     },
     color: {
       color: appColors.greyedOut,

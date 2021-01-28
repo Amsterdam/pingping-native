@@ -77,10 +77,16 @@ const ErrorComponent = ({
         {errorType.illustration}
 
         <View style={styles.textContainer}>
-          <Title style={styles.title} align="center" numberOfLines={3}>
+          <Title
+            style={styles.title}
+            align="center"
+            variant="h2"
+            numberOfLines={3}>
             {errorType.title}
           </Title>
-          <Body align="center">{errorType.body}</Body>
+          <Body variant="b3" align="center">
+            {errorType.body}
+          </Body>
         </View>
 
         <Button
@@ -96,7 +102,7 @@ const ErrorComponent = ({
 const styles = StyleSheet.create({
   container: {justifyContent: 'space-evenly', alignItems: 'center', flex: 1},
   textContainer: {alignItems: 'center', padding: 30},
-  title: {fontSize: 30, marginBottom: 24},
+  title: {marginBottom: 24},
   button: {alignSelf: 'center'},
 });
 

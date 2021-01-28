@@ -52,7 +52,9 @@ const MultipleChoice = ({
       doRevertTask={doRevertTask}
       doUpdateTask={doUpdateTask}>
       <View>
-        <Body style={styles.bodyText}>Meerdere opties zijn mogelijk</Body>
+        <Body vriant="b4" align="center" style={styles.bodyText}>
+          Meerdere opties zijn mogelijk
+        </Body>
         {mapButtons()}
       </View>
     </AnswerTemplate>
@@ -72,8 +74,6 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   bodyText: {
-    textAlign: 'center',
-    fontSize: 14,
     marginBottom: 20,
   },
 });

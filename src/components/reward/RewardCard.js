@@ -50,13 +50,19 @@ const RewardCard = ({
       disabled={status === 'NotAvailable'}>
       <View style={styles.descriptionContainer}>
         <View style={styles.typeContainer}>
-          <Body style={styles.rewardType}>Reward</Body>
+          <Body variant="b3" style={styles.rewardType}>
+            Reward
+          </Body>
           {data?.expiryDate && (
-            <Body style={styles.expiryDate}>Geldig tot {data.expiryDate}</Body>
+            <Body variant="b3" style={styles.expiryDate}>
+              Geldig tot {data.expiryDate}
+            </Body>
           )}
         </View>
-        <Title style={styles.title}>{title}</Title>
-        <Body numberOfLines={3} ellipsizeMode="tail">
+        <Title variant="h3" style={styles.title}>
+          {title}
+        </Title>
+        <Body variant="b3" numberOfLines={3} ellipsizeMode="tail">
           {description}
         </Body>
 
@@ -80,7 +86,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   title: {
-    fontSize: 20,
     marginBottom: 10,
   },
   rewardType: {
@@ -89,7 +94,6 @@ const styles = StyleSheet.create({
   },
   expiryDate: {
     color: appColors.primary,
-    fontSize: 10,
   },
   typeContainer: {
     flexDirection: 'row',

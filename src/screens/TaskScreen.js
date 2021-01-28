@@ -25,6 +25,7 @@ import WebViewModal from '../components/modals/WebViewModal';
 import Loading from '../components/shared/LoadingComponent';
 import routes from '../App/stacks/routes';
 import {YOUTUBE_API_KEY} from '../config/keys';
+import normalizeValue from '../helpers/normalizeValue';
 
 const TaskScreen = ({navigation, route}) => {
   const {task, routeId} = route.params;
@@ -146,7 +147,7 @@ const TaskScreen = ({navigation, route}) => {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {task?.media && renderMedia(task.media)}
           <ContentLayout>
-            <Title>{task.title}</Title>
+            <Title variant="h3">{task.title}</Title>
             <HTML
               html={task.description}
               baseFontStyle={styles.htmlFontStyle}
@@ -159,7 +160,7 @@ const TaskScreen = ({navigation, route}) => {
 
         {taskStatus ? (
           <View style={styles.completedTagLineContainer}>
-            <Title style={styles.completedTagLine} align="center">
+            <Title style={styles.completedTagLine} variant="h6" align="center">
               Je {task.headerTitle} is gefikst
             </Title>
           </View>
@@ -217,7 +218,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 40,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -230,15 +232,16 @@ const styles = StyleSheet.create({
   },
   htmlFontStyle: {
     fontFamily: 'Raleway-Regular',
-    fontSize: 15,
-    lineHeight: 25,
+    fontSize: normalizeValue(15),
+    lineHeight: normalizeValue(25),
   },
   completedTagLineContainer: {
     padding: 10,
   },
   completedTagLine: {
-    fontSize: 14,
     color: appColors.primary,
+    marginTop: 10,
+    marginBottom: 20,
   },
 });
 

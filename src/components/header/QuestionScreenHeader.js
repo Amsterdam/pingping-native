@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {Header, Icon, Left, Button as NbButton, Right} from 'native-base';
+import normalizeValue from '../../helpers/normalizeValue';
 import {appColors} from '../../config/colors';
 import ProgressBar from '../shared/ProgressBar';
 import Title from '../typography/Title';
@@ -22,7 +23,7 @@ const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
           <Icon name="arrowleft" type="AntDesign" style={styles.icon} />
         </NbButton>
       </Left>
-      <Title style={styles.headerTitle}>
+      <Title style={styles.headerTitle} variant="h6">
         {currentTask && currentTask.headerTitle}
       </Title>
 
@@ -41,13 +42,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 14,
     color: appColors.primary,
   },
-
   icon: {
     color: '#000',
-    fontSize: 32,
+    fontSize: normalizeValue(32),
   },
   flex: {flex: 1},
 });

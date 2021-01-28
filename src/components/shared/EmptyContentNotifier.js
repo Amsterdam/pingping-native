@@ -6,7 +6,9 @@ import Body from '../typography/Body';
 const EmptyContentNotifier = ({text}) => {
   return (
     <View style={styles.container}>
-      <Body style={styles.text}>{text}</Body>
+      <Body variant="b3" style={styles.text}>
+        {text}
+      </Body>
     </View>
   );
 };

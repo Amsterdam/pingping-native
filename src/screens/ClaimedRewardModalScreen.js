@@ -12,6 +12,7 @@ import ClaimedTicketsLarge from '../assets/svg/ClaimedTicketsLarge';
 import {appColors} from '../config/colors';
 import ShowRewardCodeModal from '../components/modals/ShowRewardCodeModal';
 import WebViewModal from '../components/modals/WebViewModal';
+import normalizeValue from '../helpers/normalizeValue';
 
 const MARGIN_BOTTOM = 25;
 
@@ -37,16 +38,20 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
         <ScrollView>
           <ImageOverlayHeader navigation={navigation} cover={cover} />
           <ContentLayout style={styles.container}>
-            <Body style={styles.rewardType}>Reward</Body>
+            <Body variant="b3" style={styles.rewardType}>
+              Reward
+            </Body>
             <View style={styles.textContainer}>
-              <Title>{title}</Title>
+              <Title variant="h2">{title}</Title>
             </View>
 
             <View>
               <ClaimedTicketsLarge style={styles.illustration} />
-              <Title align="center">GECLAIMED</Title>
+              <Title variant="h2" align="center">
+                GECLAIMED
+              </Title>
               {expiryDate ? (
-                <Body align="center" style={styles.rewardType}>
+                <Body variant="b3" align="center" style={styles.rewardType}>
                   Geldig tot {expiryDate}
                 </Body>
               ) : (
@@ -106,8 +111,8 @@ const styles = StyleSheet.create({
   },
   htmlFontStyle: {
     fontFamily: 'Raleway-Regular',
-    fontSize: 15,
-    lineHeight: 25,
+    fontSize: normalizeValue(15),
+    lineHeight: normalizeValue(25),
   },
 });
 

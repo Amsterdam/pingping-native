@@ -5,6 +5,7 @@ import {Icon} from 'native-base';
 import Title from '../typography/Title';
 import {appColors} from '../../config/colors';
 import routes from '../../App/stacks/routes';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const TipsChip = ({navigation, tips}) => {
   return (
@@ -16,7 +17,9 @@ const TipsChip = ({navigation, tips}) => {
         })
       }>
       <Icon name="lightbulb-o" type="FontAwesome" style={styles.icon} />
-      <Title style={styles.title}>Tips</Title>
+      <Title style={styles.title} variant="h5">
+        Tips
+      </Title>
     </TouchableOpacity>
   );
 };
@@ -33,13 +36,12 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 14,
     marginTop: 5,
     marginLeft: 5,
   },
   icon: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: normalizeValue(18),
   },
 });
 

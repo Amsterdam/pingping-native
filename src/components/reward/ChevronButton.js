@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'native-base';
+import normalizeValue from '../../helpers/normalizeValue';
 import Body from '../typography/Body';
 
 const ChevronButton = ({onPress = () => {}}) => {
   return (
     <TouchableOpacity style={styles.rowFlex} onPress={onPress}>
-      <Body>Alles</Body>
+      <Body variant="b4">Alles</Body>
       <Icon style={styles.chevron} name="chevron-right" type="MaterialIcons" />
     </TouchableOpacity>
   );
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   chevron: {
-    fontSize: 20,
+    fontSize: normalizeValue(20),
   },
 });
 

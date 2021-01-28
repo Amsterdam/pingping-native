@@ -15,10 +15,12 @@ const FeedbackCard = ({style, onPress}) => {
     <View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
       <View style={styles.descriptionContainer}>
         <View style={styles.titleContainer}>
-          <Title style={styles.title}>Feedback please</Title>
+          <Title style={styles.title} variant="h4">
+            Feedback please
+          </Title>
           <FeedbackIcon />
         </View>
-        <Body style={styles.body}>
+        <Body variant="b4" style={styles.body}>
           Wat vond je van deze route? Help ons de app te verbeteren
         </Body>
         <Button
@@ -46,11 +48,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   title: {
-    fontSize: 15,
     marginBottom: MARGIN,
   },
   body: {
-    fontSize: 15,
     marginBottom: MARGIN,
   },
   descriptionContainer: {

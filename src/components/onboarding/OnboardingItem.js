@@ -24,8 +24,12 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
     <View style={styles.viewContainer}>
       <View>{view.svg}</View>
       <View>
-        <Title style={styles.title}>{view.title}</Title>
-        <Body style={styles.onboardingText}>{view.text}</Body>
+        <Title style={styles.title} variant="h2" align="center">
+          {view.title}
+        </Title>
+        <Body variant="b3" align="center" style={styles.onboardingText}>
+          {view.text}
+        </Body>
       </View>
       <View>
         <Button
@@ -48,16 +52,11 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   title: {
-    fontWeight: '400',
-    fontSize: 28,
     color: appColors.text,
-    textAlign: 'center',
     marginBottom: 20,
   },
   onboardingText: {
-    textAlign: 'center',
     color: appColors.subText,
-    fontSize: 16,
   },
   button: {
     backgroundColor: appColors.primary,

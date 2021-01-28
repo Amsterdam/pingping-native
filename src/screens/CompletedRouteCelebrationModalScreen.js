@@ -63,7 +63,9 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
         contentContainerStyle={styles.content}>
         <ContentLayout>
           <View style={styles.headerContainer}>
-            <Title style={styles.title}>GOED BEZIG!</Title>
+            <Title style={styles.title} variant="h3" align="left">
+              GOED BEZIG!
+            </Title>
             <CitypingsChip value={balance} />
           </View>
           <View style={styles.paper}>
@@ -74,7 +76,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
               resizeMode="cover"
               style={styles.lottieView}
             />
-            <Body style={styles.celebrationBoxTitle} align="center">
+            <Body variant="b3" align="center">
               Je hebt weer een aantal CityPings verdiend!
             </Body>
             <View style={styles.coinContainer}>
@@ -86,7 +88,9 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
           {availableRewards?.length > 0 && (
             <View style={styles.blockContainer}>
               <View style={styles.rowFlex}>
-                <Title style={styles.subTitle}>Verzilveren</Title>
+                <Title style={styles.subTitle} variant="h3" align="left">
+                  Verzilveren
+                </Title>
                 <ChevronButton
                   onPress={() =>
                     navigation.navigate(routes.citypingsStack.name, {
@@ -112,7 +116,9 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
           {availableRoutes?.length > 0 && (
             <View style={styles.blockContainer}>
               <View style={styles.rowFlex}>
-                <Title style={styles.subTitle}>Nieuwe Route</Title>
+                <Title variant="h3" style={styles.subTitle}>
+                  Nieuwe Route
+                </Title>
                 <ChevronButton
                   onPress={() =>
                     navigation.navigate(routes.routeStack.name, {
@@ -154,8 +160,6 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 24,
-    textAlign: 'left',
   },
   coinContainer: {
     marginVertical: 15,
@@ -163,11 +167,6 @@ const styles = StyleSheet.create({
   subTitle: {
     color: '#000',
     marginVertical: 10,
-    fontSize: 24,
-    textAlign: 'left',
-  },
-  celebrationBoxTitle: {
-    fontSize: 16,
   },
   content: {
     position: 'absolute',

@@ -10,10 +10,10 @@ const SimpleHeader = ({title = '', color = 'primary'}) => {
     <HeaderTemplate style={styles.header} color={color}>
       <Title
         style={[
-          styles.title,
           color === 'primary' && styles.titleWhite,
           color === 'white' && styles.titlePrimary,
-        ]}>
+        ]}
+        variant="h6">
         {title}
       </Title>
     </HeaderTemplate>
@@ -25,9 +25,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 14,
   },
   titlePrimary: {
     color: appColors.primary,

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import HTML from 'react-native-render-html';
 import PropTypes from 'prop-types';
+import normalizeValue from '../../../helpers/normalizeValue';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
 import Title from '../../typography/Title';
 import Button from '../../shared/RoundedButton';
@@ -74,8 +75,8 @@ const styles = StyleSheet.create({
   htmlFontStyle: {
     fontFamily: 'Raleway-Regular',
     textAlign: 'center',
-    fontSize: 15,
-    lineHeight: 25,
+    fontSize: normalizeValue(15),
+    lineHeight: normalizeValue(25),
   },
 });
 

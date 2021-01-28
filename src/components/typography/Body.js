@@ -1,25 +1,40 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
+import normalizeValue from '../../helpers/normalizeValue';
+
+const styles = StyleSheet.create({
+  base: {
+    fontFamily: 'Raleway-Regular',
+    lineHeight: normalizeValue(25),
+  },
+  b1: {fontSize: normalizeValue(20)},
+  b2: {fontSize: normalizeValue(18)},
+  b3: {fontSize: normalizeValue(16)},
+  b4: {fontSize: normalizeValue(14)},
+  b5: {fontSize: normalizeValue(12)},
+  left: {
+    textAlign: 'left',
+  },
+  center: {
+    textAlign: 'center',
+  },
+  right: {
+    textAlign: 'right',
+  },
+});
 
 const Body = ({
   children = [],
-  align = 'left',
   style = {},
   numberOfLines = 0,
   ellipsizeMode = '',
+  variant = 'b1',
+  align,
 }) => {
-  const styles = StyleSheet.create({
-    text: {
-      fontFamily: 'Raleway-Regular',
-      textAlign: align,
-      fontSize: 15,
-      lineHeight: 25,
-    },
-  });
   return (
     <Text
-      style={{...styles.text, ...style}}
+      style={[styles.base, styles[variant], styles[align], style]}
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}>
       {children}

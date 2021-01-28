@@ -70,16 +70,24 @@ function RouteDetailsScreen({navigation, route}) {
             cover={cover}
           />
           <ContentLayout>
-            <Body style={styles.label}>{targetAudience}</Body>
+            <Body variant="b3" style={styles.label}>
+              {targetAudience}
+            </Body>
             <Title style={styles.title}>{title}</Title>
             <View style={styles.balanceContainer}>
               <View style={styles.saldo}>
-                <Body style={styles.savings}> {numberOfSteps} stappen</Body>
+                <Body variant="b3" style={styles.savings}>
+                  {numberOfSteps} stappen
+                </Body>
               </View>
               <TrophyOrProgress progress={progress} />
             </View>
-            <Body style={styles.description}>{description}</Body>
-            <Title style={styles.subtitle}>De Route</Title>
+            <Body variant="b3" style={styles.description}>
+              {description}
+            </Body>
+            <Title style={styles.subtitle} variant="h3">
+              De Route
+            </Title>
           </ContentLayout>
           <View>
             {tasks.map((task, index) => (
@@ -100,12 +108,10 @@ function RouteDetailsScreen({navigation, route}) {
 
         <View style={styles.buttonContainer}>
           {tasksToDo.length === 0 ? (
-            <Body stlye={styles.balanceIndicatorText}>
-              Je hebt alle taken afgerond
-            </Body>
+            <Body variant="b3">Je hebt alle taken afgerond</Body>
           ) : (
             <React.Fragment>
-              <Body stlye={styles.balanceIndicatorText}>
+              <Body variant="b3">
                 {numberOfSteps === tasksToDo.length
                   ? 'Begin bij het begin'
                   : 'Ga verder'}
@@ -140,7 +146,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 40,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -153,7 +160,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     marginTop: 40,
-    fontSize: 22,
   },
   tipsChip: {
     position: 'absolute',
