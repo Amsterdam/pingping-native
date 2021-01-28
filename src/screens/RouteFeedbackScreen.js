@@ -77,7 +77,9 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
             {displayError.show && (
               <MinimalErrorComponent message={displayError.message} />
             )}
-            <Title style={styles.title}>Wat vond je van de route?</Title>
+            <Title variant="h2" style={styles.title}>
+              Wat vond je van de route?
+            </Title>
             <View style={styles.starContainer}>
               <StarRating
                 numberActive={state.numberActive}

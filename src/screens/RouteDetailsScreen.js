@@ -88,7 +88,9 @@ function RouteDetailsScreen({navigation, route}) {
             <Body variant="b3" style={styles.description}>
               {description}
             </Body>
-            <Title style={styles.subtitle}>De Route</Title>
+            <Title style={styles.subtitle} variant="h4">
+              De Route
+            </Title>
           </ContentLayout>
           <View>
             {tasks.map((task, index) => (

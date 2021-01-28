@@ -147,7 +147,7 @@ const TaskScreen = ({navigation, route}) => {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {task?.media && renderMedia(task.media)}
           <ContentLayout>
-            <Title>{task.title}</Title>
+            <Title variant="h3">{task.title}</Title>
             <HTML
               html={task.description}
               baseFontStyle={styles.htmlFontStyle}
@@ -240,6 +240,8 @@ const styles = StyleSheet.create({
   },
   completedTagLine: {
     color: appColors.primary,
+    marginTop: 10,
+    marginBottom: 20,
   },
 });
 
