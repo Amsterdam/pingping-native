@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>pingpingNative</string>
+				<string>pingpingnative</string>
 			</array>
 		</dict>
 	</array>
