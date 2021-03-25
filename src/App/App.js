@@ -10,6 +10,7 @@ import userStatus from '../helpers/authHelper';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Loading from '../components/shared/LoadingComponent';
 import ErrorComponent from '../components/shared/ErrorComponent';
+import linking from './linking';
 
 export default function App() {
   React.useEffect(() => {
@@ -83,5 +84,7 @@ export default function App() {
     return <Loading />;
   };
 
-  return <NavigationContainer>{renderApp()}</NavigationContainer>;
+  return (
+    <NavigationContainer linking={linking}>{renderApp()}</NavigationContainer>
+  );
 }

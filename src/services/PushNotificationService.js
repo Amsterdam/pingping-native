@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect} from 'react';
-import {Platform} from 'react-native';
+import {Linking, Platform} from 'react-native';
 import {Container} from 'native-base';
 import {Notifications} from 'react-native-notifications';
 
@@ -28,14 +28,28 @@ const PushNotificationManager = ({children}) => {
       .then((notification) => {
         if (notification) {
           console.log('GOT INITIAL NOTIFICATION');
-          console.log({notification});
+          console.log(notification.payload.aps.custom.type);
+          if (notification) {
+            if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
+              setTimeout(() => {
+                Linking.openURL(
+                  `pingpingNative://route/${notification.payload.aps.custom.routeId}`,
+                );
+              }, 1000);
+            }
+          }
         }
       })
       .catch((err) => console.error('getInitialNotifiation() failed', err));
 
     Notifications.events().registerNotificationOpened(
       (notification, completion) => {
-        console.log('opened Notifcation');
+        if (notification) {
+          console.log('GOT REGISTER OPEN');
+          if (notification.type === 'NAVIGATE_TO_ROUTE') {
+            Linking.openURL('pingpingNative://route/1231');
+          }
+        }
         completion();
       },
     );
