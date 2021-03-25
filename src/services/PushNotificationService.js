@@ -15,7 +15,6 @@ const PushNotificationManager = ({children}) => {
   const registerNotificationEvents = useCallback(async () => {
     Notifications.events().registerNotificationReceivedForeground(
       (notification, completion) => {
-        console.log('GOT FOREGROUND NOTIFICAITON');
         completion({
           alert: true,
           sound: true,
@@ -27,16 +26,12 @@ const PushNotificationManager = ({children}) => {
     Notifications.getInitialNotification()
       .then((notification) => {
         if (notification) {
-          console.log('GOT INITIAL NOTIFICATION');
-          console.log(notification.payload.aps.custom.type);
-          if (notification) {
-            if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
-              setTimeout(() => {
-                Linking.openURL(
-                  `pingpingNative://route/${notification.payload.aps.custom.routeId}`,
-                );
-              }, 1000);
-            }
+          if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
+            setTimeout(() => {
+              Linking.openURL(
+                `pingpingnative://route/${notification.payload.aps.custom.routeId}`,
+              );
+            }, 1000);
           }
         }
       })
@@ -45,9 +40,10 @@ const PushNotificationManager = ({children}) => {
     Notifications.events().registerNotificationOpened(
       (notification, completion) => {
         if (notification) {
-          console.log('GOT REGISTER OPEN');
-          if (notification.type === 'NAVIGATE_TO_ROUTE') {
-            Linking.openURL('pingpingNative://route/1231');
+          if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
+            Linking.openURL(
+              `pingpingnative://route/${notification.payload.aps.custom.routeId}`,
+            );
           }
         }
         completion();

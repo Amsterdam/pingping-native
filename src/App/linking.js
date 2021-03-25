@@ -1,7 +1,7 @@
 import routes from './stacks/routes';
 
 const linking = {
-  prefixes: ['pingpingNative://'],
+  prefixes: ['pingpingnative://'],
   config: {
     [routes.routeStack.name]: {
       screens: {
