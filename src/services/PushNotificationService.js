@@ -15,6 +15,7 @@ const PushNotificationManager = ({children}) => {
   const registerNotificationEvents = useCallback(async () => {
     Notifications.events().registerNotificationReceivedForeground(
       (notification, completion) => {
+        console.log('GOT FOREGROUND NOTIFICAITON');
         completion({
           alert: true,
           sound: true,
@@ -26,25 +27,22 @@ const PushNotificationManager = ({children}) => {
     Notifications.getInitialNotification()
       .then((notification) => {
         if (notification) {
-          if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
-            setTimeout(() => {
-              Linking.openURL(
-                `pingpingnative://route/${notification.payload.aps.custom.routeId}`,
-              );
-            }, 1000);
-          }
+          //   if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
+          setTimeout(() => {
+            Linking.openURL('pingpingnative://route/financieleBasis');
+          }, 1000);
+          //   }
         }
       })
       .catch((err) => console.error('getInitialNotifiation() failed', err));
 
     Notifications.events().registerNotificationOpened(
       (notification, completion) => {
+        console.log('REGISTER NOTIFICATION OPENED');
         if (notification) {
-          if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
-            Linking.openURL(
-              `pingpingnative://route/${notification.payload.aps.custom.routeId}`,
-            );
-          }
+          //   if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
+          Linking.openURL('pingpingnative://route/financieleBasis');
+          //   }
         }
         completion();
       },
