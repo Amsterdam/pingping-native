@@ -11,13 +11,10 @@ const notificationTypes = {
 const platform = Platform.OS;
 
 const handleNotifcationWithType = (payload) => {
-  console.log('NOTIFICATION WITH TYPE RECEIVED', payload);
-  console.log(payload.routeId);
   if (
     payload.type.toLowerCase() ===
     notificationTypes.remindUserToContinueRoute.toLowerCase()
   ) {
-    console.log(`pingpingnative://route/${payload.routeId}`);
     setTimeout(() => {
       Linking.openURL(`pingpingnative://route/${payload.routeId}`);
     }, 1000);
