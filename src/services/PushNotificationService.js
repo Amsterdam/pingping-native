@@ -67,7 +67,7 @@ const PushNotificationManager = ({children}) => {
         if (notification?.payload?.type) {
           handleNotifcationWithType(notification.payload);
         }
-        completion();
+        completion({alert: true, sound: true, badge: false});
       },
     );
 
