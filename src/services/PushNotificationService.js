@@ -36,7 +36,7 @@ const PushNotificationManager = ({children}) => {
     Notifications.events().registerNotificationReceivedForeground(
       (notification, completion) => {
         if (notification) {
-          console.log('FOREGROUND NOTIFICATION RECEIVED', notification);
+          // if we want to handle notifications within the android app we can do it here with
         }
         completion({
           alert: true,
@@ -67,17 +67,13 @@ const PushNotificationManager = ({children}) => {
         if (notification?.payload?.type) {
           handleNotifcationWithType(notification.payload);
         }
-        completion({alert: true, sound: true, badge: false});
+        completion();
       },
     );
 
     Notifications.events().registerNotificationReceivedBackground(
       (notification, completion) => {
         if (notification) {
-          console.log(
-            'Notification Received - Background',
-            notification.payload,
-          );
         }
         completion({alert: true, sound: true, badge: false});
       },
