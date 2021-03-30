@@ -17,10 +17,7 @@
 		<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 		<meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_notifications" />
 		<meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/app_notif" />
-		<meta-data android:name="com.google.firebase.messaging."/>
-		<service
-			android:name="com.wix.reactnativenotifications.fcm.FcmInstanceIdListenerService"
-			android:exported="false">
+		<service android:name="com.wix.reactnativenotifications.fcm.FcmInstanceIdListenerService" android:exported="false">
 			<intent-filter>
 				<action android:name="com.google.firebase.MESSAGING_EVENT" />
 			</intent-filter>

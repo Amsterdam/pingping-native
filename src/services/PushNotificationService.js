@@ -3,7 +3,26 @@ import {Linking, Platform} from 'react-native';
 import {Container} from 'native-base';
 import {Notifications} from 'react-native-notifications';
 
+const notificationTypes = {
+  remindUserToCompleteOnboarding: 'RemindUserToCompleteOnboarding',
+  remindUserToContinueRoute: 'RemindUserToContinueRoute',
+};
+
 const platform = Platform.OS;
+
+const handleNotifcationWithType = (payload) => {
+  console.log('NOTIFICATION WITH TYPE RECEIVED', payload);
+  console.log(payload.routeId);
+  if (
+    payload.type.toLowerCase() ===
+    notificationTypes.remindUserToContinueRoute.toLowerCase()
+  ) {
+    console.log(`pingpingnative://route/${payload.routeId}`);
+    setTimeout(() => {
+      Linking.openURL(`pingpingnative://route/${payload.routeId}`);
+    }, 1000);
+  }
+};
 
 const PushNotificationManager = ({children}) => {
   useEffect(() => {
@@ -13,9 +32,15 @@ const PushNotificationManager = ({children}) => {
   }, [registerNotificationEvents]);
 
   const registerNotificationEvents = useCallback(async () => {
+    /**
+     * Event listener for notifications that are received in the foreground - so when using the app
+     * @param {object} notification A notification component containing a payload including title, body and type
+     */
     Notifications.events().registerNotificationReceivedForeground(
       (notification, completion) => {
-        console.log('GOT FOREGROUND NOTIFICAITON');
+        if (notification) {
+          console.log('FOREGROUND NOTIFICATION RECEIVED', notification);
+        }
         completion({
           alert: true,
           sound: true,
@@ -24,25 +49,26 @@ const PushNotificationManager = ({children}) => {
       },
     );
 
+    /**
+     * Event listener for initial notifications, initial notifications are notifications that are received when the app is fully closed
+     * @param {object} notification A notification component containing a payload including title, body and type
+     */
     Notifications.getInitialNotification()
       .then((notification) => {
-        if (notification) {
-          //   if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
-          setTimeout(() => {
-            Linking.openURL('pingpingnative://route/financieleBasis');
-          }, 1000);
-          //   }
+        if (notification?.payload?.type) {
+          handleNotifcationWithType(notification.payload);
         }
       })
       .catch((err) => console.error('getInitialNotifiation() failed', err));
 
+    /**
+     * Event listener for notifications that are opened when the app is open or in the background
+     * @param {object} notification A notification component containing a payload including title, body and type
+     */
     Notifications.events().registerNotificationOpened(
       (notification, completion) => {
-        console.log('REGISTER NOTIFICATION OPENED');
-        if (notification) {
-          //   if (notification.payload.aps.custom.type === 'NAVIGATE_TO_ROUTE') {
-          Linking.openURL('pingpingnative://route/financieleBasis');
-          //   }
+        if (notification?.payload?.type) {
+          handleNotifcationWithType(notification.payload);
         }
         completion();
       },
@@ -50,7 +76,12 @@ const PushNotificationManager = ({children}) => {
 
     Notifications.events().registerNotificationReceivedBackground(
       (notification, completion) => {
-        console.log('Notification Received - Background', notification.payload);
+        if (notification) {
+          console.log(
+            'Notification Received - Background',
+            notification.payload,
+          );
+        }
         completion({alert: true, sound: true, badge: false});
       },
     );
