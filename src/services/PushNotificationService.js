@@ -2,6 +2,7 @@ import React, {useCallback, useEffect} from 'react';
 import {Linking, Platform} from 'react-native';
 import {Container} from 'native-base';
 import {Notifications} from 'react-native-notifications';
+import sentryHelper from '../helpers/sentryHelper';
 
 const notificationTypes = {
   remindUserToCompleteOnboarding: 'RemindUserToCompleteOnboarding',
@@ -56,7 +57,7 @@ const PushNotificationManager = ({children}) => {
           handleNotifcationWithType(notification.payload);
         }
       })
-      .catch((err) => console.error('getInitialNotifiation() failed', err));
+      .catch((error) => sentryHelper(error.message));
 
     /**
      * Event listener for notifications that are opened when the app is open or in the background
