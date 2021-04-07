@@ -39,11 +39,6 @@ const PushNotificationManager = ({children}) => {
         if (notification) {
           // if we want to handle notifications within the android app we can do it here with
         }
-        completion({
-          alert: true,
-          sound: true,
-          badge: true,
-        });
       },
     );
 
@@ -68,15 +63,6 @@ const PushNotificationManager = ({children}) => {
         if (notification?.payload?.type) {
           handleNotifcationWithType(notification.payload);
         }
-        completion();
-      },
-    );
-
-    Notifications.events().registerNotificationReceivedBackground(
-      (notification, completion) => {
-        if (notification) {
-        }
-        completion({alert: true, sound: true, badge: false});
       },
     );
   }, []);
