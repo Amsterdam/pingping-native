@@ -194,12 +194,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     width: '100%',
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.background,
   },
   videoContainer: {
     width: Dimensions.get('window').width,
     height: 200,
-    backgroundColor: appColors.bl,
+    backgroundColor: ppBaseColors.PP_BLACK,
   },
   activivityIndicator: {
     position: 'absolute',

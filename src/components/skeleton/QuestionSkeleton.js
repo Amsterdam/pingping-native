@@ -33,7 +33,7 @@ const QuestionSkeleton = () => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.background,
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 50,

@@ -5,7 +5,7 @@ import {StyleSheet} from 'react-native';
 
 import HeaderTemplate from './HeaderTemplate';
 
-import {appColors} from '../../config/colors';
+import {appColors, ppBaseColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const SimpleHeader = ({title = '', color = 'primary'}) => {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     color: appColors.primary,
   },
   titleWhite: {
-    color: appColors.white,
+    color: ppBaseColors.PP_WHITE,
   },
 });
 

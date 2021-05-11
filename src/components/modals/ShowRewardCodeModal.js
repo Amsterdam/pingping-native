@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   code: {
     marginTop: 5,
-    color: appColors.white,
+    color: ppBaseColors.PP_WHITE,
   },
 });
 

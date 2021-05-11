@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     paddingTop: 3,
     fontFamily: 'Heavitas',
     fontSize: normalizeValue(14),
-    color: appColors.white,
+    color: ppBaseColors.PP_WHITE,
   },
   icon: {
     color: ppBaseColors.PP_WHITE,
