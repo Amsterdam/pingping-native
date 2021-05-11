@@ -1,6 +1,8 @@
 import React from 'react';
-import TipScreen from '../src/screens/TipScreen';
+
 import renderer from 'react-test-renderer';
+
+import TipScreen from '../src/screens/TipScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

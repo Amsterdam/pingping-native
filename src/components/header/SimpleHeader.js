@@ -1,9 +1,12 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
+
 import HeaderTemplate from './HeaderTemplate';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import Title from '../typography/Title';
-import {appColors} from '../../config/colors';
 
 const SimpleHeader = ({title = '', color = 'primary'}) => {
   return (
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
     color: appColors.primary,
   },
   titleWhite: {
-    color: appColors.white,
+    color: ppBaseColors.PP_WHITE,
   },
 });
 

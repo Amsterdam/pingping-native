@@ -1,12 +1,13 @@
 import React, {memo} from 'react';
-import {StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
-import {appColors} from '../../config/colors';
-import Card from '../shared/Card';
+import {StyleSheet, View} from 'react-native';
+
 import routes from '../../App/stacks/routes';
 import normalizeValue from '../../helpers/normalizeValue';
+import Card from '../shared/Card';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const RewardCardMini = ({
   navigation,
@@ -59,10 +60,6 @@ const styles = StyleSheet.create({
   cardFont: {
     marginTop: 10,
     lineHeight: normalizeValue(20),
-  },
-  rewardType: {
-    color: appColors.primary,
-    marginBottom: 5,
   },
 });
 

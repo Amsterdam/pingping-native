@@ -1,12 +1,14 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
+import {ppBaseColors} from './colors';
+
 export const commonStyles = StyleSheet.create({
   logoFont: {
     fontSize: 50,
     letterSpacing: 3,
     textTransform: 'uppercase',
     textAlign: 'center',
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontFamily: 'Heavitas',
   },
   subTitle: {
@@ -14,12 +16,12 @@ export const commonStyles = StyleSheet.create({
     letterSpacing: 5,
     textTransform: 'uppercase',
     textAlign: 'center',
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontFamily: 'Heavitas',
     marginTop: 30,
   },
   shadow: {
-    shadowColor: '#000',
+    shadowColor: ppBaseColors.PP_BLACK,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -29,7 +31,7 @@ export const commonStyles = StyleSheet.create({
     elevation: 5,
   },
   textShadow: {
-    textShadowColor: '#000',
+    textShadowColor: ppBaseColors.PP_BLACK,
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10,
   },

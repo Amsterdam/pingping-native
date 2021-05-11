@@ -1,8 +1,10 @@
 import React from 'react';
+
+import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Icon} from 'native-base';
-import {appColors} from '../../config/colors';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const IconButton = ({
@@ -47,11 +49,8 @@ const IconButton = ({
       alignItems: 'center',
     },
     icon: {
-      color: '#fff',
+      color: ppBaseColors.PP_WHITE,
       fontSize: normalizeValue(iconSize),
-    },
-    color: {
-      color: appColors.greyedOut,
     },
   });
   return (
@@ -76,6 +75,7 @@ IconButton.propTypes = {
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   size: PropTypes.string.isRequired,
+  testID: PropTypes.string,
 };
 
 IconButton.defaultProps = {

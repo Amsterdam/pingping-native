@@ -1,11 +1,15 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
-import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
-import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
-import ClaimedRewardModalScreen from '../../screens/ClaimedRewardModalScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import PropTypes from 'prop-types';
+
 import routes from './routes';
+
+import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
+import ClaimedRewardModalScreen from '../../screens/ClaimedRewardModalScreen';
+import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
+import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -36,6 +40,7 @@ function RootStackScreen({navigation, route}) {
       navigation.setOptions({tabBarVisible: true});
     }
   }, [navigation, route]);
+
   return (
     <RootStack.Navigator mode="modal" headerMode="none">
       <RootStack.Screen name="Main" component={CityPingsStackScreen} />
@@ -54,5 +59,10 @@ function RootStackScreen({navigation, route}) {
     </RootStack.Navigator>
   );
 }
+
+RootStackScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
+};
 
 export default RootStackScreen;

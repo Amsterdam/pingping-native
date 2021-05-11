@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
 
 function Export(props) {

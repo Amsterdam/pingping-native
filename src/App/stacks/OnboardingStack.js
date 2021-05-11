@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import {createStackNavigator} from '@react-navigation/stack';
+import PropTypes from 'prop-types';
+
+import routes from './routes';
+
+import ImportDataScreen from '../../screens/ImportDataScreen';
+import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
 import OnboardingScreen from '../../screens/OnboardingScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import QuestionScreen from '../../screens/QuestionScreen';
-import NotificationDecisionScreen from '../../screens/NotificationDecisionScreen';
-import ImportDataScreen from '../../screens/ImportDataScreen';
-import routes from './routes';
 
 const Stack = createStackNavigator();
 

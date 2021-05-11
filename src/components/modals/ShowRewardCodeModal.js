@@ -1,12 +1,14 @@
 import React from 'react';
-import {Dimensions, Modal, StyleSheet, View} from 'react-native';
+
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
-import normalizeValue from '../../helpers/normalizeValue';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
-import {appColors} from '../../config/colors';
+import {Dimensions, Modal, StyleSheet, View} from 'react-native';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
+import normalizeValue from '../../helpers/normalizeValue';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -69,13 +71,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+    backgroundColor: appColors.modalBackground,
   },
   modalView: {
     width: screenWidth * 0.9,
-    backgroundColor: 'white',
+    backgroundColor: ppBaseColors.PP_WHITE,
     borderRadius: 5,
-    shadowColor: '#000',
+    shadowColor: ppBaseColors.PP_BLACK,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: normalizeValue(24),
-    color: '#000',
+    color: ppBaseColors.PP_BLACK,
   },
   title: {
     marginBottom: 5,
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
   },
   code: {
     marginTop: 5,
-    color: appColors.white,
+    color: ppBaseColors.PP_WHITE,
   },
 });
 
@@ -119,6 +121,7 @@ ShowRewardCodeModal.propTypes = {
   setOpen: PropTypes.func.isRequired,
   validUntil: PropTypes.string,
   code: PropTypes.string,
+  expiryDate: PropTypes.string,
 };
 ShowRewardCodeModal.defaultProps = {
   validUntil: '',

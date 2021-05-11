@@ -1,17 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+
+import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Container} from 'native-base';
 import HTML from 'react-native-render-html';
-import Button from '../components/shared/RoundedButton';
-import ContentLayout from '../components/layout/ContentLayout';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
+
 import ClaimedTicketsLarge from '../assets/svg/ClaimedTicketsLarge';
-import {appColors} from '../config/colors';
+import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
+import ContentLayout from '../components/layout/ContentLayout';
 import ShowRewardCodeModal from '../components/modals/ShowRewardCodeModal';
 import WebViewModal from '../components/modals/WebViewModal';
+import Button from '../components/shared/RoundedButton';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 import normalizeValue from '../helpers/normalizeValue';
 
 const MARGIN_BOTTOM = 25;
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
 
 ClaimedRewardModalScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
 };
 
 export default ClaimedRewardModalScreen;

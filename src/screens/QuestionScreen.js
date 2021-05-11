@@ -1,14 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet} from 'react-native';
+
 import {useMutation, useQuery} from '@apollo/client';
 import PropTypes from 'prop-types';
+import {StyleSheet} from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
-import ErrorComponent from '../components/shared/ErrorComponent';
-import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
-import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
+
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
+import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import QuestionComponent from '../components/onboarding/QuestionComponent';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import {
   revertTaskFunc,
   setRevertedQuestionValues,

@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
-import OnboardingScreen from '../src/screens/OnboardingScreen';
+
 import GET_STATUS_QUERY from '../src/apollo/Query/getStatusQuery';
+import OnboardingScreen from '../src/screens/OnboardingScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

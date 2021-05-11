@@ -1,10 +1,12 @@
 import React from 'react';
+
+import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
-import {Icon} from 'native-base';
 import {View} from 'react-native-animatable';
-import Body from '../typography/Body';
+
 import {appColors} from '../../config/colors';
+import Body from '../typography/Body';
 
 const MinimalErrorComponent = ({message}) => {
   return (

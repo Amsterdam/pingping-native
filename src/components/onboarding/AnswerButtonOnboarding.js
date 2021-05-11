@@ -1,7 +1,9 @@
 import React from 'react';
+
+import {Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
-import {Button, Text} from 'native-base';
+
 import {appColors, ppBaseColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -40,7 +42,7 @@ AnswerButtonOnboarding.defaultProps = {
 const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     marginBottom: 20,
     borderRadius: BORDER_RADIUS,
     borderColor: appColors.primary,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   activeText: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
   },
   label: {
     paddingTop: 3,

@@ -1,11 +1,13 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Icon} from 'native-base';
-import Title from '../typography/Title';
-import {appColors} from '../../config/colors';
+import PropTypes from 'prop-types';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+
 import routes from '../../App/stacks/routes';
+import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
+import Title from '../typography/Title';
 
 const TipsChip = ({navigation, tips}) => {
   return (
@@ -35,18 +37,19 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   title: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     marginTop: 5,
     marginLeft: 5,
   },
   icon: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontSize: normalizeValue(18),
   },
 });
 
 TipsChip.propTypes = {
   navigation: PropTypes.object.isRequired,
+  tips: PropTypes.array.isRequired,
 };
 
 export default TipsChip;

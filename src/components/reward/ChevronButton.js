@@ -1,7 +1,9 @@
 import React from 'react';
+
+import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Icon} from 'native-base';
+
 import normalizeValue from '../../helpers/normalizeValue';
 import Body from '../typography/Body';
 

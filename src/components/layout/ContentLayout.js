@@ -1,6 +1,7 @@
 import React from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
+import {Dimensions, StyleSheet, View} from 'react-native';
 
 const ContentLayout = ({children = [], style = {}}) => {
   return <View style={{...styles.container, ...style}}>{children}</View>;

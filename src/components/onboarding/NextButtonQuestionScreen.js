@@ -1,10 +1,12 @@
 import React from 'react';
+
+import {Button} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
-import {Button} from 'native-base';
-import normalizeValue from '../../helpers/normalizeValue';
-import {appColors} from '../../config/colors';
+
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import {appColors} from '../../config/colors';
+import normalizeValue from '../../helpers/normalizeValue';
 
 const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
   return (

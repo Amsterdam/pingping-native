@@ -1,8 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+
 import PropTypes from 'prop-types';
+import {StyleSheet, Text} from 'react-native';
+
 import normalizeValue from '../../helpers/normalizeValue';
 
+/* eslint-disable react-native/no-unused-styles */
 const styles = StyleSheet.create({
   base: {
     fontFamily: 'Raleway-Regular',
@@ -23,6 +26,8 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+/* eslint-enable react-native/no-unused-styles */
 
 const Body = ({
   children = [],
@@ -52,6 +57,7 @@ Body.propTypes = {
   style: PropTypes.object,
   numberOfLines: PropTypes.number,
   ellipsizeMode: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Body.defaultProps = {
@@ -59,6 +65,7 @@ Body.defaultProps = {
   style: {},
   numberOfLines: 0,
   ellipsizeMode: 'tail',
+  variant: 'b1',
 };
 
 export default Body;

@@ -78,12 +78,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fb9f00",
-                "fontSize": 14,
               },
             ]
           }
@@ -131,12 +134,15 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
+                  },
+                  Object {
+                    "fontSize": 22,
+                  },
+                  Object {
                     "textAlign": "left",
                   },
                   Object {
                     "color": "#b9b9b9",
-                    "fontSize": 12,
                   },
                 ]
               }
@@ -148,6 +154,27 @@ exports[`renders correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
+  <Text
+    ellipsizeMode="tail"
+    numberOfLines={0}
+    style={
+      Array [
+        Object {
+          "fontFamily": "Raleway-Regular",
+          "lineHeight": 46,
+        },
+        Object {
+          "fontSize": 29,
+        },
+        Object {
+          "textAlign": "center",
+        },
+        Object {},
+      ]
+    }
+  >
+    1.0.5 beta
+  </Text>
   <View
     onLayout={[Function]}
     style={
@@ -1224,15 +1251,16 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 30,
-                      "textAlign": "left",
+                    },
+                    Object {
+                      "fontSize": 51,
+                    },
+                    Object {
+                      "textAlign": "center",
                     },
                     Object {
                       "color": "#000",
-                      "fontSize": 28,
-                      "fontWeight": "400",
                       "marginBottom": 20,
-                      "textAlign": "center",
                     },
                   ]
                 }
@@ -1243,13 +1271,21 @@ exports[`renders correctly 1`] = `
                 ellipsizeMode="tail"
                 numberOfLines={0}
                 style={
-                  Object {
-                    "color": undefined,
-                    "fontFamily": "Raleway-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 25,
-                    "textAlign": "center",
-                  }
+                  Array [
+                    Object {
+                      "fontFamily": "Raleway-Regular",
+                      "lineHeight": 46,
+                    },
+                    Object {
+                      "fontSize": 29,
+                    },
+                    Object {
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": undefined,
+                    },
+                  ]
                 }
               >
                 Maak je persoonlijke routeplan om je (financiële) basis op orde te hebben.
@@ -1318,7 +1354,7 @@ exports[`renders correctly 1`] = `
                         Object {
                           "color": "#fff",
                           "fontFamily": "Heavitas",
-                          "fontSize": 14,
+                          "fontSize": 26,
                           "paddingTop": 3,
                         },
                         Object {},
@@ -2663,15 +2699,16 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 30,
-                      "textAlign": "left",
+                    },
+                    Object {
+                      "fontSize": 51,
+                    },
+                    Object {
+                      "textAlign": "center",
                     },
                     Object {
                       "color": "#000",
-                      "fontSize": 28,
-                      "fontWeight": "400",
                       "marginBottom": 20,
-                      "textAlign": "center",
                     },
                   ]
                 }
@@ -2682,13 +2719,21 @@ exports[`renders correctly 1`] = `
                 ellipsizeMode="tail"
                 numberOfLines={0}
                 style={
-                  Object {
-                    "color": undefined,
-                    "fontFamily": "Raleway-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 25,
-                    "textAlign": "center",
-                  }
+                  Array [
+                    Object {
+                      "fontFamily": "Raleway-Regular",
+                      "lineHeight": 46,
+                    },
+                    Object {
+                      "fontSize": 29,
+                    },
+                    Object {
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": undefined,
+                    },
+                  ]
                 }
               >
                 Met elke stap die je afrondt kom je dichter bij je doel en verdien je city pings
@@ -2757,7 +2802,7 @@ exports[`renders correctly 1`] = `
                         Object {
                           "color": "#fff",
                           "fontFamily": "Heavitas",
-                          "fontSize": 14,
+                          "fontSize": 26,
                           "paddingTop": 3,
                         },
                         Object {},
@@ -4005,15 +4050,16 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 30,
-                      "textAlign": "left",
+                    },
+                    Object {
+                      "fontSize": 51,
+                    },
+                    Object {
+                      "textAlign": "center",
                     },
                     Object {
                       "color": "#000",
-                      "fontSize": 28,
-                      "fontWeight": "400",
                       "marginBottom": 20,
-                      "textAlign": "center",
                     },
                   ]
                 }
@@ -4024,13 +4070,21 @@ exports[`renders correctly 1`] = `
                 ellipsizeMode="tail"
                 numberOfLines={0}
                 style={
-                  Object {
-                    "color": undefined,
-                    "fontFamily": "Raleway-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 25,
-                    "textAlign": "center",
-                  }
+                  Array [
+                    Object {
+                      "fontFamily": "Raleway-Regular",
+                      "lineHeight": 46,
+                    },
+                    Object {
+                      "fontSize": 29,
+                    },
+                    Object {
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": undefined,
+                    },
+                  ]
                 }
               >
                 Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings
@@ -4099,7 +4153,7 @@ exports[`renders correctly 1`] = `
                         Object {
                           "color": "#fff",
                           "fontFamily": "Heavitas",
-                          "fontSize": 14,
+                          "fontSize": 26,
                           "paddingTop": 3,
                         },
                         Object {},

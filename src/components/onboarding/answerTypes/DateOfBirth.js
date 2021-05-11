@@ -1,11 +1,14 @@
 import React from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+
 import {Picker} from '@react-native-community/picker';
 import PropTypes from 'prop-types';
-import {getDays, getMonths, getYears} from '../../../helpers/birthDayHelper';
-import {testIDs} from '../../../../e2e/modulesTestIDs';
-import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import {Platform, StyleSheet, View} from 'react-native';
+
 import AnswerTemplate from './AnswerTemplate';
+
+import {testIDs} from '../../../../e2e/modulesTestIDs';
+import {getDays, getMonths, getYears} from '../../../helpers/birthDayHelper';
+import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 
 const DateOfBirth = ({
   currentTask = {},
@@ -76,26 +79,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'stretch',
   },
-  questionContainer: {
-    flex: 1,
-    marginTop: 50,
-    justifyContent: 'space-evenly',
-  },
   pickerContainer: {flex: 1},
-  content: {flex: 1, padding: 20},
   pickerAndroid: {
     borderWidth: 1,
     borderRadius: 5,
     marginRight: 5,
   },
-  title: {
-    textAlign: 'center',
-  },
 });
 
-DateOfBirth.propTyes = {
+DateOfBirth.propTypes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
+  doUpdateTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

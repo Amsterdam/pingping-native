@@ -1,4 +1,7 @@
 import React from 'react';
+
+import {useMutation} from '@apollo/client';
+import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {
   KeyboardAvoidingView,
@@ -8,17 +11,15 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {Container} from 'native-base';
-import {useMutation} from '@apollo/client';
-import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../apollo/Mutation/submitRouteFeedback';
-import RoundedButton from '../components/shared/RoundedButton';
-import StarRating from '../components/route/StarRating';
-import ThankYouFeedbackModal from '../components/modals/ThankYouFeedbackModal';
-import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
 import GET_ROUTES from '../apollo/Query/getRoutes';
+import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
+import ThankYouFeedbackModal from '../components/modals/ThankYouFeedbackModal';
+import StarRating from '../components/route/StarRating';
+import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
+import RoundedButton from '../components/shared/RoundedButton';
+import Title from '../components/typography/Title';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
@@ -120,38 +121,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 20,
   },
-  container: {
-    backgroundColor: appColors.background,
-    flex: 1,
-  },
-  content: {flexGrow: 1},
-  label: {
-    color: appColors.primary,
-  },
+
   title: {
     marginTop: MARGIN,
   },
-  description: {
-    marginTop: MARGIN,
-  },
+
   starContainer: {
     flexDirection: 'row',
     marginVertical: 30,
     justifyContent: 'space-around',
-  },
-  buttonContainer: {
-    paddingHorizontal: 40,
-    marginVertical: MARGIN,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  inputContainerMultiline: {
-    borderColor: 'gray',
-    borderWidth: 1,
-    padding: 5,
-    minHeight: 150,
-    color: 'black',
   },
   anyTips: {
     marginBottom: MARGIN,

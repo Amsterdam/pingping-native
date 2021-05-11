@@ -1,4 +1,8 @@
 import React from 'react';
+
+import {useLazyQuery} from '@apollo/client';
+import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
 import {
   Animated,
   RefreshControl,
@@ -7,18 +11,16 @@ import {
   View,
 } from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
-import PropTypes from 'prop-types';
-import {Container, Content} from 'native-base';
-import {useLazyQuery} from '@apollo/client';
+
+import {testIDs} from '../../e2e/modulesTestIDs';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
-import Title from '../components/typography/Title';
 import RouteCard from '../components/route/RouteCard';
-import ErrorComponent from '../components/shared/ErrorComponent';
 import EmptyContentNotifier from '../components/shared/EmptyContentNotifier';
+import ErrorComponent from '../components/shared/ErrorComponent';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
-import {appColors} from '../config/colors';
-import {testIDs} from '../../e2e/modulesTestIDs';
+import Title from '../components/typography/Title';
+import {appColors, ppBaseColors} from '../config/colors';
 
 const HEADER_HEIGHT = 200;
 
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   title: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
   },
   subTitle: {
     color: appColors.primary,

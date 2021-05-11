@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
+
 import sentryHelper from '../helpers/sentryHelper';
 
 export async function doRegisterDevice(

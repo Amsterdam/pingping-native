@@ -1,8 +1,9 @@
 import React from 'react';
-import {MockedProvider} from '@apollo/client/testing';
-import QuestionScreen from '../src/screens/QuestionScreen';
 
+import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+
+import QuestionScreen from '../src/screens/QuestionScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

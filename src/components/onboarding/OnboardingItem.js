@@ -1,12 +1,14 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
+
 import AsyncStorage from '@react-native-community/async-storage';
-import Button from '../shared/RoundedButton';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
-import {appColors} from '../../config/colors';
+import PropTypes from 'prop-types';
+import {StyleSheet, View} from 'react-native';
+
 import routes from '../../App/stacks/routes';
+import {appColors} from '../../config/colors';
+import Button from '../shared/RoundedButton';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
   const navigator = async () => {
@@ -60,9 +62,6 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: appColors.primary,
-  },
-  buttonLabel: {
-    fontWeight: 'bold',
   },
 });
 

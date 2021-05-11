@@ -45,7 +45,7 @@ exports[`renders correctly 1`] = `
               onLoad={[Function]}
               source={
                 Object {
-                  "uri": "https://api.pingping.amsterdam.nlundefined",
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
                 }
               }
               style={
@@ -57,7 +57,7 @@ exports[`renders correctly 1`] = `
               }
               thumbnailSource={
                 Object {
-                  "uri": "https://api.pingping.amsterdam.nlundefined",
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
                 }
               }
             />
@@ -66,7 +66,7 @@ exports[`renders correctly 1`] = `
               onLoad={[Function]}
               source={
                 Object {
-                  "uri": "https://api.pingping.amsterdam.nlundefined",
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
                 }
               }
               style={
@@ -83,7 +83,7 @@ exports[`renders correctly 1`] = `
               }
               thumbnailSource={
                 Object {
-                  "uri": "https://api.pingping.amsterdam.nlundefined",
+                  "uri": "https://acc.api.pingping.amsterdam.nlundefined",
                 }
               }
             />
@@ -122,6 +122,7 @@ exports[`renders correctly 1`] = `
                   "width": 38,
                 }
               }
+              testID="IMAGE_OVERLAY_BACK_BUTTON"
             >
               <Text
                 allowFontScaling={false}
@@ -142,7 +143,7 @@ exports[`renders correctly 1`] = `
                       },
                       Object {
                         "color": "#fff",
-                        "fontSize": 22,
+                        "fontSize": 40,
                       },
                       false,
                     ],
@@ -272,12 +273,15 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 30,
+                    },
+                    Object {
+                      "fontSize": 26,
+                    },
+                    Object {
                       "textAlign": "left",
                     },
                     Object {
                       "color": "#fff",
-                      "fontSize": 12,
                       "paddingTop": 5,
                     },
                   ]
@@ -300,13 +304,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "color": "#fb9f00",
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#fb9f00",
+                },
+              ]
             }
           >
             Rewards
@@ -324,7 +336,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 51,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
@@ -442,14 +458,22 @@ exports[`renders correctly 1`] = `
                 ellipsizeMode="tail"
                 numberOfLines={0}
                 style={
-                  Object {
-                    "color": "#b9b9b9",
-                    "fontFamily": "Raleway-Regular",
-                    "fontSize": 15,
-                    "lineHeight": 25,
-                    "marginLeft": 5,
-                    "textAlign": "left",
-                  }
+                  Array [
+                    Object {
+                      "fontFamily": "Raleway-Regular",
+                      "lineHeight": 46,
+                    },
+                    Object {
+                      "fontSize": 29,
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#b9b9b9",
+                      "marginLeft": 5,
+                    },
+                  ]
                 }
               >
                 0
@@ -531,8 +555,8 @@ exports[`renders correctly 1`] = `
                   style={
                     Object {
                       "fontFamily": "Raleway-Regular",
-                      "fontSize": 15,
-                      "lineHeight": 25,
+                      "fontSize": 27,
+                      "lineHeight": 46,
                     }
                   }
                 >
@@ -550,7 +574,8 @@ exports[`renders correctly 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "space-between",
-          "marginVertical": 10,
+          "marginBottom": 20,
+          "marginTop": 10,
           "paddingHorizontal": 40,
         }
       }
@@ -559,12 +584,19 @@ exports[`renders correctly 1`] = `
         ellipsizeMode="tail"
         numberOfLines={0}
         style={
-          Object {
-            "fontFamily": "Raleway-Regular",
-            "fontSize": 15,
-            "lineHeight": 25,
-            "textAlign": "left",
-          }
+          Array [
+            Object {
+              "fontFamily": "Raleway-Regular",
+              "lineHeight": 46,
+            },
+            Object {
+              "fontSize": 29,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {},
+          ]
         }
       >
         Nog even doorsparen !
@@ -584,7 +616,7 @@ exports[`renders correctly 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "flex-start",
-            "backgroundColor": "gray",
+            "backgroundColor": "#b9b9b9",
             "borderBottomWidth": null,
             "borderColor": "#007aff",
             "borderLeftWidth": null,
@@ -631,7 +663,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 14,
+                  "fontSize": 26,
                   "paddingTop": 3,
                 },
                 Object {},
@@ -792,7 +824,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 58,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {

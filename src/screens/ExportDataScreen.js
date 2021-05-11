@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
-import {Container, Content} from 'native-base';
+
 import {useQuery} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import ContentLayout from '../components/layout/ContentLayout';
-import LabeledHeader from '../components/header/LabeledHeader';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import QrCode from '../components/account/QrCode';
-import {appColors} from '../config/colors';
+import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {StyleSheet, View} from 'react-native';
+
 import {resetStore} from '../apollo/apolloClient';
+import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import QrCode from '../components/account/QrCode';
+import LabeledHeader from '../components/header/LabeledHeader';
+import ContentLayout from '../components/layout/ContentLayout';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
 
 const ExportDataScreen = ({navigation, setLogOut}) => {
   const {data, error} = useQuery(GET_STATUS_QUERY, {
@@ -58,27 +59,11 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: '#000',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
   margin: {
     marginBottom: 30,
   },
-  inputContainer: {alignItems: 'center', justifyContent: 'center'},
   qrContainer: {
     alignItems: 'center',
-  },
-  qrCode: {
-    borderWidth: 5,
-    padding: 10,
-    borderRadius: 5,
-    borderColor: appColors.primary,
   },
 });
 

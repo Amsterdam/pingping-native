@@ -1,17 +1,19 @@
 import React from 'react';
-import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {useMutation} from '@apollo/client';
 import {Container, Header, Left, Right} from 'native-base';
-import Button from '../components/shared/RoundedButton';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import {appColors} from '../config/colors';
-import Bell from '../assets/svg/Bell';
+import PropTypes from 'prop-types';
+import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Notifications} from 'react-native-notifications';
+
+import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import {testIDs} from '../../e2e/modulesTestIDs';
+import Bell from '../assets/svg/Bell';
+import Button from '../components/shared/RoundedButton';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 import sentryHelper from '../helpers/sentryHelper';
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
@@ -117,9 +119,6 @@ const styles = StyleSheet.create({
   },
   headerSubButton: {
     color: appColors.greyedOut,
-  },
-  buttonLabel: {
-    fontWeight: 'bold',
   },
   header: {
     backgroundColor: appColors.background,

@@ -79,13 +79,15 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 44,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
                   "color": "#fff",
-                  "fontSize": 24,
-                  "textAlign": "left",
                 },
               ]
             }
@@ -189,7 +191,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 14,
+                  "fontSize": 26,
                 },
                 Object {
                   "color": "#fff",
@@ -258,7 +260,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 12,
+                  "fontSize": 22,
                 },
                 Object {
                   "color": "#fff",
@@ -324,7 +326,7 @@ exports[`renders correctly 1`] = `
               Object {
                 "color": "#fff",
                 "fontFamily": "Heavitas",
-                "fontSize": 14,
+                "fontSize": 26,
               }
             }
             backgroundColor="#f7fbff"
@@ -344,7 +346,7 @@ exports[`renders correctly 1`] = `
               Object {
                 "color": "#fff",
                 "fontFamily": "Heavitas",
-                "fontSize": 12,
+                "fontSize": 22,
               }
             }
           >

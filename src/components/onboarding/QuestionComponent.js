@@ -1,10 +1,13 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import DateOfBirth from './answerTypes/DateOfBirth';
-import YesOrNo from './answerTypes/YesOrNo';
+
 import Confirm from './answerTypes/Confirm';
+import DateOfBirth from './answerTypes/DateOfBirth';
 import GoBack from './answerTypes/GoBack';
 import MultipleChoice from './answerTypes/MultipleChoice';
+import YesOrNo from './answerTypes/YesOrNo';
+
 import {questionTypes} from '../../config/questionTypes';
 
 const QuestionComponent = ({
