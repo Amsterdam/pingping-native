@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+
 import MEDIA_FRAGMENT from './mediaFragment';
 
 const ROUTES_FRAGMENT = gql`

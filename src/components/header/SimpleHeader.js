@@ -1,9 +1,12 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
+
 import HeaderTemplate from './HeaderTemplate';
-import Title from '../typography/Title';
+
 import {appColors} from '../../config/colors';
+import Title from '../typography/Title';
 
 const SimpleHeader = ({title = '', color = 'primary'}) => {
   return (

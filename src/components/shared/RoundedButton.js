@@ -1,7 +1,9 @@
 import React from 'react';
+
+import {Button, Icon, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {Button, Icon, Text} from 'native-base';
+
 import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 
@@ -60,12 +62,12 @@ const styles = StyleSheet.create({
     color: appColors.white,
   },
   icon: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontSize: normalizeValue(24),
   },
   disabled: {
     ...buttonBase,
-    backgroundColor: 'gray',
+    backgroundColor: ppBaseColors.PP_GRAY,
   },
   deleteButton: {
     backgroundColor: ppBaseColors.PP_PINK,
@@ -88,6 +90,7 @@ RoundedButton.propTypes = {
   testid: PropTypes.string,
   full: PropTypes.bool,
   labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 RoundedButton.defaultProps = {

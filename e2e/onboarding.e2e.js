@@ -5,7 +5,6 @@ import {
   goBack,
   pressMultipleChoiceOption,
   pressNo,
-  pressNoAndNext,
   pressYes,
   pressYesAndNext,
   setBirthDate,

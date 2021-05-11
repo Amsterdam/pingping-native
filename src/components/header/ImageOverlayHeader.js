@@ -1,11 +1,13 @@
 import React from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import CitypingsChip from '../shared/CitypingsChip';
-import ProgressiveImage from '../shared/ProgressiveImage';
-import IconButton from '../shared/IconButton';
-import {BASE_URL} from '../../config/initialSettings';
+import {Dimensions, StyleSheet, View} from 'react-native';
+
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import {BASE_URL} from '../../config/initialSettings';
+import CitypingsChip from '../shared/CitypingsChip';
+import IconButton from '../shared/IconButton';
+import ProgressiveImage from '../shared/ProgressiveImage';
 
 const screenHeight = Dimensions.get('window').height;
 

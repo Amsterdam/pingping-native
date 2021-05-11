@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import PropTypes from 'prop-types';
 import {
   ActivityIndicator,
@@ -8,8 +9,9 @@ import {
   View,
 } from 'react-native';
 import WebView from 'react-native-webview';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import Title from '../typography/Title';
-import {appColors} from '../../config/colors';
 
 const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
   const [loading, setLoading] = useState(false);
@@ -52,14 +54,14 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+    backgroundColor: appColors.modalBackground,
   },
   modalView: {
     marginTop: 75,
     flex: 1,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
   },
   activivityIndicator: {
     position: 'absolute',
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     marginTop: 10,
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
   },
 });
 

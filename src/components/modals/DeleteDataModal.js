@@ -1,13 +1,15 @@
 import React from 'react';
-import {Modal, StyleSheet, View} from 'react-native';
+
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
-import normalizeValue from '../../helpers/normalizeValue';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
-import RoundedButton from '../shared/RoundedButton';
-import {appColors} from '../../config/colors';
+import {Modal, StyleSheet, View} from 'react-native';
+
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import {appColors, ppBaseColors} from '../../config/colors';
+import normalizeValue from '../../helpers/normalizeValue';
+import RoundedButton from '../shared/RoundedButton';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const DeleteDataModal = ({
   open = false,
@@ -74,15 +76,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+    backgroundColor: appColors.modalBackground,
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: ppBaseColors.PP_WHITE,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: ppBaseColors.PP_BLACK,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: normalizeValue(24),
-    color: '#000',
+    color: ppBaseColors.PP_BLACK,
   },
   title: {
     marginBottom: 25,

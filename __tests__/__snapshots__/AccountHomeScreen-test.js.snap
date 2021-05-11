@@ -71,13 +71,14 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Array [
-                Object {
-                  "fontSize": 14,
-                },
                 Object {
                   "color": "#fff",
                 },
@@ -346,13 +347,14 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
-                    "textAlign": "left",
                   },
                   Object {
-                    "fontSize": 14,
+                    "fontSize": 26,
+                  },
+                  Object {
                     "textAlign": "center",
                   },
+                  Object {},
                 ]
               }
             >
@@ -525,13 +527,14 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
-                    "textAlign": "left",
                   },
                   Object {
-                    "fontSize": 14,
+                    "fontSize": 26,
+                  },
+                  Object {
                     "textAlign": "center",
                   },
+                  Object {},
                 ]
               }
             >
@@ -733,13 +736,14 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
-                    "textAlign": "left",
                   },
                   Object {
-                    "fontSize": 14,
+                    "fontSize": 26,
+                  },
+                  Object {
                     "textAlign": "center",
                   },
+                  Object {},
                 ]
               }
             >

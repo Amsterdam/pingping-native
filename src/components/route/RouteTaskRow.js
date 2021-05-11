@@ -1,12 +1,13 @@
 import React, {memo} from 'react';
+
+import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
-import Badge from '../../assets/svg/Badge';
-import PropTypes from 'prop-types';
-import Title from '../typography/Title';
-import {appColors} from '../../config/colors';
+
 import routes from '../../App/stacks/routes';
-import normalizeValue from '../../helpers/normalizeValue';
+import Badge from '../../assets/svg/Badge';
+import {appColors, ppBaseColors} from '../../config/colors';
+import Title from '../typography/Title';
 
 const CIRCLE_RADIUS = 30;
 
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.primary,
   },
   label: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     marginLeft: 1,
   },
   title: {
@@ -92,11 +93,7 @@ const styles = StyleSheet.create({
   },
   badge: {marginLeft: 5},
   background: {
-    backgroundColor: 'rgba(191, 233, 238, 0.3)',
-  },
-  icon: {
-    color: '#fff',
-    fontSize: normalizeValue(12),
+    backgroundColor: appColors.taskRowBackground,
   },
 });
 
@@ -105,6 +102,7 @@ RouteTaskRow.propTypes = {
   index: PropTypes.number.isRequired,
   navigation: PropTypes.object.isRequired,
   routeId: PropTypes.string.isRequired,
+  tasksToDo: PropTypes.array.isRequired,
 };
 
 export default memo(RouteTaskRow);

@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
-import {Container, Content} from 'native-base';
+
 import {useLazyQuery, useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import ContentLayout from '../components/layout/ContentLayout';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import QrScanner from '../components/onboarding/QrScanner';
-import LabeledHeader from '../components/header/LabeledHeader';
-import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
-import {doRegisterDevice} from '../helpers/authHelper';
+import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {StyleSheet} from 'react-native';
+
 import {testIDs} from '../../e2e/modulesTestIDs';
+import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import LabeledHeader from '../components/header/LabeledHeader';
+import ContentLayout from '../components/layout/ContentLayout';
+import QrScanner from '../components/onboarding/QrScanner';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {doRegisterDevice} from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
 const ImportDataScreen = ({navigation}) => {
@@ -67,15 +69,6 @@ const ImportDataScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: '#000',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
   margin: {
     marginBottom: 30,
   },

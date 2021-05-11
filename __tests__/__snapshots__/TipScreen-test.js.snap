@@ -158,12 +158,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fb9f00",
-                "fontSize": 14,
                 "marginTop": 5,
               },
             ]

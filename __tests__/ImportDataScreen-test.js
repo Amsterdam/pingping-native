@@ -1,7 +1,9 @@
 import React from 'react';
-import ImportDataScreen from '../src/screens/ImportDataScreen';
-import ShallowRenderer from 'react-test-renderer/shallow';
+
 import {MockedProvider} from '@apollo/client/testing';
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+import ImportDataScreen from '../src/screens/ImportDataScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

@@ -1,12 +1,14 @@
 import React from 'react';
+
+import {Header, Icon, Left, Button as NbButton, Right} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import {Header, Icon, Left, Button as NbButton, Right} from 'native-base';
+
+import {testIDs} from '../../../e2e/modulesTestIDs';
+import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
-import {appColors} from '../../config/colors';
 import ProgressBar from '../shared/ProgressBar';
 import Title from '../typography/Title';
-import {testIDs} from '../../../e2e/modulesTestIDs';
 
 const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
   return (
@@ -37,7 +39,6 @@ const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
 };
 
 const styles = StyleSheet.create({
-  content: {flex: 1, padding: 20},
   header: {
     alignItems: 'center',
   },
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     color: appColors.primary,
   },
   icon: {
-    color: '#000',
+    color: ppBaseColors.PP_BLACK,
     fontSize: normalizeValue(32),
   },
   flex: {flex: 1},

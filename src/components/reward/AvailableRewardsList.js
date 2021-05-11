@@ -1,11 +1,15 @@
 import React from 'react';
-import {RefreshControl} from 'react-native';
+
 import {Content} from 'native-base';
-import CardSkeleton from '../skeleton/CardSkeleton';
+import PropTypes from 'prop-types';
+import {RefreshControl} from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
-import ContentLayout from '../layout/ContentLayout';
+
 import RewardCard from './RewardCard';
+
 import {appColors} from '../../config/colors';
+import ContentLayout from '../layout/ContentLayout';
+import CardSkeleton from '../skeleton/CardSkeleton';
 
 const AvailableRewardsList = ({
   availableRewards,
@@ -45,6 +49,14 @@ const AvailableRewardsList = ({
       </ContentLayout>
     </Content>
   );
+};
+
+AvailableRewardsList.propTypes = {
+  availableRewards: PropTypes.object.isRequired,
+  balance: PropTypes.number.isRequired,
+  navigation: PropTypes.object.isRequired,
+  refreshing: PropTypes.bool.isRequired,
+  onRefresh: PropTypes.func.isRequired,
 };
 
 export default AvailableRewardsList;

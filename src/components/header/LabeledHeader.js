@@ -1,10 +1,13 @@
 import React from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Header, Left, Right} from 'native-base';
-import Title from '../typography/Title';
+import PropTypes from 'prop-types';
+import {StatusBar, StyleSheet} from 'react-native';
+
 import HeaderBackButton from './HeaderBackButton';
-import {appColors} from '../../config/colors';
+
+import {appColors, ppBaseColors} from '../../config/colors';
+import Title from '../typography/Title';
 
 const LabeledHeader = ({
   navigation = () => {},
@@ -18,7 +21,7 @@ const LabeledHeader = ({
     },
     headerTitle: {
       marginTop: 5,
-      color: filledHeader ? '#fff' : appColors.primary,
+      color: filledHeader ? ppBaseColors.PP_WHITE : appColors.primary,
     },
     filledHeader: {
       backgroundColor: appColors.headerColor,

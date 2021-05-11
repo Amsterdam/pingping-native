@@ -1,8 +1,9 @@
 import React from 'react';
-import {MockedProvider} from '@apollo/client/testing';
-import RewardDetailModalScreen from '../src/screens/RewardDetailModalScreen';
 
+import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+
+import RewardDetailModalScreen from '../src/screens/RewardDetailModalScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

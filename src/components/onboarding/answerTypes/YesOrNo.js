@@ -1,9 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import Button from '../../onboarding/AnswerButtonOnboarding';
+import {View} from 'react-native';
+
 import AnswerTemplate from './AnswerTemplate';
+
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import Button from '../../onboarding/AnswerButtonOnboarding';
 
 const YesOrNo = ({
   currentTask = {},
@@ -45,6 +48,7 @@ YesOrNo.propTypes = {
   doRevertTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
+  doUpdateTask: PropTypes.func.isRequired,
 };
 
 export default YesOrNo;

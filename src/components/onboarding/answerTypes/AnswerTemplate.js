@@ -1,9 +1,11 @@
 import React from 'react';
+
+import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
-import {Container, Content} from 'native-base';
-import Title from '../../typography/Title';
+
 import QuestionScreenHeader from '../../header/QuestionScreenHeader';
+import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
 const AnswerTemplate = ({

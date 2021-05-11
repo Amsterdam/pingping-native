@@ -78,12 +78,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fb9f00",
-                "fontSize": 14,
               },
             ]
           }
@@ -131,12 +134,15 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
+                  },
+                  Object {
+                    "fontSize": 22,
+                  },
+                  Object {
                     "textAlign": "left",
                   },
                   Object {
                     "color": "#b9b9b9",
-                    "fontSize": 12,
                   },
                 ]
               }
@@ -261,15 +267,17 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "fontFamily": "Heavitas",
-              "fontSize": 30,
-              "textAlign": "left",
+            },
+            Object {
+              "fontSize": 58,
+            },
+            Object {
+              "textAlign": "center",
             },
             Object {
               "color": "#000",
-              "fontSize": 26,
               "fontWeight": "400",
               "marginBottom": 20,
-              "textAlign": "center",
             },
           ]
         }
@@ -280,13 +288,21 @@ exports[`renders correctly 1`] = `
         ellipsizeMode="tail"
         numberOfLines={0}
         style={
-          Object {
-            "color": undefined,
-            "fontFamily": "Raleway-Regular",
-            "fontSize": 14,
-            "lineHeight": 25,
-            "textAlign": "center",
-          }
+          Array [
+            Object {
+              "fontFamily": "Raleway-Regular",
+              "lineHeight": 46,
+            },
+            Object {
+              "fontSize": 29,
+            },
+            Object {
+              "textAlign": "center",
+            },
+            Object {
+              "color": undefined,
+            },
+          ]
         }
       >
         Wil je een berichtje krijgen voor een actie die je nog moet doen of als er een nieuwe route is toegevoegd?
@@ -355,7 +371,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 14,
+                  "fontSize": 26,
                   "paddingTop": 3,
                 },
                 Object {},

@@ -1,10 +1,13 @@
 import React from 'react';
-import {RefreshControl} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {RefreshControl} from 'react-native';
+
+import RewardCard from './RewardCard';
+
 import {appColors} from '../../config/colors';
 import ContentLayout from '../layout/ContentLayout';
-import RewardCard from './RewardCard';
 
 const ClaimedRewardsList = ({
   claimedRewards,

@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+
 import ROUTES_FRAGMENT from '../Fragment/routesFragment';
 
 const GET_ROUTES_QUERY = gql`

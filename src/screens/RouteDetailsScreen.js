@@ -1,21 +1,23 @@
 import React from 'react';
-import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
-import {Container} from 'native-base';
+
 import {useQuery} from '@apollo/client';
+import {Container} from 'native-base';
+import PropTypes from 'prop-types';
+import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
+
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
-import {appColors} from '../config/colors';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import Button from '../components/shared/RoundedButton';
-import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import TrophyOrProgress from '../components/route/TrophyOrProgress';
-import TipsChip from '../components/route/TipsChip';
-import RouteTaskRow from '../components/route/RouteTaskRow';
-import ContentLayout from '../components/layout/ContentLayout';
-import ErrorComponent from '../components/shared/ErrorComponent';
-import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 import routes from '../App/stacks/routes';
+import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
+import ContentLayout from '../components/layout/ContentLayout';
+import RouteTaskRow from '../components/route/RouteTaskRow';
+import TipsChip from '../components/route/TipsChip';
+import TrophyOrProgress from '../components/route/TrophyOrProgress';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import Button from '../components/shared/RoundedButton';
+import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 
 const screenHeight = Dimensions.get('window').height;
 function RouteDetailsScreen({navigation, route}) {
@@ -131,10 +133,6 @@ function RouteDetailsScreen({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  contentContainer: {
-    paddingHorizontal: 40,
-    paddingVertical: 20,
-  },
   label: {
     color: appColors.primary,
   },

@@ -1,7 +1,10 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
 
 const CardSkeleton = ({withTitle = true}) => (
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   paper: {
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
     marginVertical: 10,

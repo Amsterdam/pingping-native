@@ -28,6 +28,8 @@ export const appColors = {
   greyedOut: ppBaseColors.PP_GRAY,
   subtleGrey: ppBaseColors.PP_LIGHT_GRAY,
   almostNotBlue: ppBaseColors.PP_BACKGROUND,
+  modalBackground: 'rgba(1,1,1,0.8)',
+  taskRowBackground: 'rgba(191, 233, 238, 0.3)',
 };
 
 export function setHeaderColor(color) {

@@ -1,14 +1,16 @@
 import React, {memo} from 'react';
-import {StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
+import {StyleSheet, View} from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
-import CityPingsBalance from '../shared/CityPingsBalance';
-import Card from '../shared/Card';
-import {appColors} from '../../config/colors';
-import ClaimedTickets from '../../assets/svg/ClaimedTickets';
+
 import routes from '../../App/stacks/routes';
+import ClaimedTickets from '../../assets/svg/ClaimedTickets';
+import {appColors} from '../../config/colors';
+import Card from '../shared/Card';
+import CityPingsBalance from '../shared/CityPingsBalance';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const RewardCard = ({
   navigation,

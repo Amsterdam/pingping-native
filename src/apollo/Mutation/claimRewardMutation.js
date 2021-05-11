@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+
 import REWARD_FRAGMENT from '../Fragment/rewardFragment';
 
 const CLAIM_REWARD_MUTATION = gql`

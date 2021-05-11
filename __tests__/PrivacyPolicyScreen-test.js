@@ -1,8 +1,9 @@
 import React from 'react';
-import PrivacyPolicyScreen from '../src/screens/PrivacyPolicyScreen';
-import {MockedProvider} from '@apollo/client/testing';
 
+import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+
+import PrivacyPolicyScreen from '../src/screens/PrivacyPolicyScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

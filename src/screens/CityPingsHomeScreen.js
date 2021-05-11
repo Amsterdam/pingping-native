@@ -1,16 +1,18 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
-import {Container, Header, Tab, Tabs} from 'native-base';
+
 import {useLazyQuery} from '@apollo/client';
-import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
-import CitypingsChip from '../components/shared/CitypingsChip';
-import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
+import {Container, Header, Tab, Tabs} from 'native-base';
+import PropTypes from 'prop-types';
+import {StatusBar, StyleSheet, View} from 'react-native';
+
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import ErrorComponent from '../components/shared/ErrorComponent';
 import AvailableRewardsList from '../components/reward/AvailableRewardsList';
+import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
+import CitypingsChip from '../components/shared/CitypingsChip';
+import ErrorComponent from '../components/shared/ErrorComponent';
+import Title from '../components/typography/Title';
+import {appColors, ppBaseColors} from '../config/colors';
 import normalizeValue from '../helpers/normalizeValue';
 
 const CityPingsHomeScreen = ({navigation}) => {
@@ -106,14 +108,14 @@ const styles = StyleSheet.create({
   },
   container: {backgroundColor: appColors.almostNotBlue},
   title: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
   },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   tabBarUnderlineStyle: {
-    backgroundColor: '#fff',
+    backgroundColor: ppBaseColors.PP_WHITE,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
@@ -121,12 +123,12 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.primary,
   },
   textStyle: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontFamily: 'Heavitas',
     fontSize: normalizeValue(12),
   },
   activeTextStyle: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     fontFamily: 'Heavitas',
     fontSize: normalizeValue(14),
   },

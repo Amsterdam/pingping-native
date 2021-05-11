@@ -1,12 +1,15 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
+
+import {testIDs} from '../../../e2e/modulesTestIDs';
+import FeedbackIcon from '../../assets/svg/FeedbackIcon';
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
 import Button from '../shared/RoundedButton';
-import Title from '../typography/Title';
 import Body from '../typography/Body';
-import FeedbackIcon from '../../assets/svg/FeedbackIcon';
-import {testIDs} from '../../../e2e/modulesTestIDs';
+import Title from '../typography/Title';
 
 const MARGIN = 5;
 
@@ -36,7 +39,7 @@ const FeedbackCard = ({style, onPress}) => {
 
 const styles = StyleSheet.create({
   paper: {
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
     marginVertical: 10,

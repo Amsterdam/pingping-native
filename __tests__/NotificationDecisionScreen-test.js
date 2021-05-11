@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {MockedProvider} from '@apollo/client/testing';
-import NotificationDecisionScreen from '../src/screens/NotificationDecisionScreen';
 import renderer from 'react-test-renderer';
+
+import NotificationDecisionScreen from '../src/screens/NotificationDecisionScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

@@ -1,11 +1,13 @@
 import React from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import QRCodeScanner from 'react-native-qrcode-scanner';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
-import Button from '../shared/RoundedButton';
+import QRCodeScanner from 'react-native-qrcode-scanner';
+
 import {appColors, ppBaseColors} from '../../config/colors';
 import Loading from '../shared/LoadingComponent';
+import Button from '../shared/RoundedButton';
 
 const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
   return (

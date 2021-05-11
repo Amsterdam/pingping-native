@@ -1,21 +1,23 @@
 import React, {useState} from 'react';
+
+import {useMutation, useQuery} from '@apollo/client';
+import {Container, Root, Toast} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Container, Root, Toast} from 'native-base';
-import {useMutation, useQuery} from '@apollo/client';
 import HTML from 'react-native-render-html';
+
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import routes from '../App/stacks/routes';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import {appColors} from '../config/colors';
+import WebViewModal from '../components/modals/WebViewModal';
 import CityPingsBalance from '../components/shared/CityPingsBalance';
 import Button from '../components/shared/RoundedButton';
-import WebViewModal from '../components/modals/WebViewModal';
-import routes from '../App/stacks/routes';
-import sentryHelper from '../helpers/sentryHelper';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 import normalizeValue from '../helpers/normalizeValue';
+import sentryHelper from '../helpers/sentryHelper';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {price, title, description, rewardId, cover} = route.params;

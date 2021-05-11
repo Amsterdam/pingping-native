@@ -1,15 +1,17 @@
 import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Container} from 'native-base';
-import SimpleHeader from '../components/header/SimpleHeader';
-import Export from '../assets/svg/Export';
-import Trashcan from '../assets/svg/Trashcan';
-import Lock from '../assets/svg/Lock';
-import AccountBlockButton from '../components/account/AccountBlockButton';
-import {appColors} from '../config/colors';
+import PropTypes from 'prop-types';
+import {FlatList, StyleSheet} from 'react-native';
+
 import {testIDs} from '../../e2e/modulesTestIDs';
 import routes from '../App/stacks/routes';
+import Export from '../assets/svg/Export';
+import Lock from '../assets/svg/Lock';
+import Trashcan from '../assets/svg/Trashcan';
+import AccountBlockButton from '../components/account/AccountBlockButton';
+import SimpleHeader from '../components/header/SimpleHeader';
+import {appColors} from '../config/colors';
 
 const AccountHomeScreen = ({navigation}) => {
   const buttons = [

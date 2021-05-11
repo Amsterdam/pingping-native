@@ -1,12 +1,16 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import RouteHomeScreen from '../../screens/RouteHomeScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import PropTypes from 'prop-types';
+
+import routes from './routes';
+
 import RouteDetailsScreen from '../../screens/RouteDetailsScreen';
 import RouteFeedbackScreen from '../../screens/RouteFeedbackScreen';
+import RouteHomeScreen from '../../screens/RouteHomeScreen';
 import TaskScreen from '../../screens/TaskScreen';
 import TipScreen from '../../screens/TipScreen';
-import routes from './routes';
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -18,7 +22,7 @@ const tabHiddenRoutes = [
   routes.routeStack.tipScreen,
 ];
 
-const RouteStack = ({navigation, route}) => {
+const RouteStack = () => {
   return (
     <MainStack.Navigator
       initialRouteName={routes.citypingsStack.homeScreen}
@@ -61,5 +65,10 @@ function RootStackScreen({navigation, route}) {
     </RootStack.Navigator>
   );
 }
+
+RootStackScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
+};
 
 export default RootStackScreen;

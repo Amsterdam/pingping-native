@@ -160,12 +160,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fff",
-                "fontSize": 14,
                 "marginTop": 5,
               },
             ]
@@ -275,7 +278,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 58,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
@@ -290,13 +297,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "marginBottom": 30,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
+                },
+              ]
             }
           >
             Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en prestaties op Ping Ping verloren gaan!
@@ -305,13 +320,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "marginBottom": 30,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
+                },
+              ]
             }
           >
             Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Open op je nieuwe device de app en klik rechtsboven op inloggen. Vervolgens scan je de onderstaande QRCode en zo simpel is het!
