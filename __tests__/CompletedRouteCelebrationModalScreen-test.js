@@ -1,7 +1,9 @@
 import React from 'react';
-import CompletedRouteCelebrationModalScreen from '../src/screens/CompletedRouteCelebrationModalScreen';
-import ShallowRenderer from 'react-test-renderer/shallow';
+
 import {MockedProvider} from '@apollo/client/testing';
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+import CompletedRouteCelebrationModalScreen from '../src/screens/CompletedRouteCelebrationModalScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

@@ -1,11 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {StyleSheet, View} from 'react-native';
+
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
-import Title from '../components/typography/Title';
 import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
 
 const TipScreen = ({navigation, route}) => {
   const {tips} = route.params;

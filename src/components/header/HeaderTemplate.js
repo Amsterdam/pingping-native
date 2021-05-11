@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import {Header} from 'native-base';
-import {setHeaderColor} from '../../config/colors';
+import PropTypes from 'prop-types';
+
 import DynamicStatusbar from './DynamicStatusbar';
+
+import {setHeaderColor} from '../../config/colors';
 
 const HeaderTemplate = ({style, children, color = 'primary'}) => {
   return (

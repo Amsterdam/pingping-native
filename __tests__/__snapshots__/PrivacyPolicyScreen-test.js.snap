@@ -161,12 +161,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fff",
-                "fontSize": 14,
                 "marginTop": 5,
               },
             ]
@@ -714,15 +717,16 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
-                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontSize": 58,
+                  },
+                  Object {
+                    "textAlign": "center",
                   },
                   Object {
                     "color": "#000",
-                    "fontSize": 28,
-                    "fontWeight": "400",
                     "marginBottom": 20,
-                    "textAlign": "center",
                   },
                 ]
               }
@@ -733,13 +737,21 @@ exports[`renders correctly 1`] = `
               ellipsizeMode="tail"
               numberOfLines={0}
               style={
-                Object {
-                  "color": undefined,
-                  "fontFamily": "Raleway-Regular",
-                  "fontSize": 14,
-                  "lineHeight": 25,
-                  "textAlign": "center",
-                }
+                Array [
+                  Object {
+                    "fontFamily": "Raleway-Regular",
+                    "lineHeight": 46,
+                  },
+                  Object {
+                    "fontSize": 29,
+                  },
+                  Object {
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": undefined,
+                  },
+                ]
               }
             >
               Om Ping Ping optimaal te laten functioneren verzamelen wij informatie. Klik hieronder om meer hierover te lezen. Wij slaan zo min mogelijk informatie op.
@@ -788,13 +800,14 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "fontFamily": "Heavitas",
-                      "fontSize": 30,
-                      "textAlign": "left",
                     },
                     Object {
-                      "fontSize": 12,
+                      "fontSize": 22,
+                    },
+                    Object {
                       "textAlign": "center",
                     },
+                    Object {},
                   ]
                 }
               >
@@ -818,7 +831,7 @@ exports[`renders correctly 1`] = `
                         "fontSize": 30,
                       },
                       Object {
-                        "fontSize": 16,
+                        "fontSize": 29,
                         "marginLeft": 8,
                       },
                     ],

@@ -1,9 +1,12 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Text} from 'native-base';
+import PropTypes from 'prop-types';
+import {StyleSheet} from 'react-native';
+
 import normalizeValue from '../../helpers/normalizeValue';
 
+/* eslint-disable react-native/no-unused-styles */
 const styles = StyleSheet.create({
   base: {
     fontFamily: 'Heavitas',
@@ -27,6 +30,8 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+/* eslint-enable react-native/no-unused-styles */
 
 const Title = ({
   children = [],
@@ -60,6 +65,7 @@ Title.propTypes = {
   numberOfLines: PropTypes.number,
   ellipsizeMode: PropTypes.string,
   selectable: PropTypes.bool,
+  variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7']),
 };
 
 Title.defaultProps = {

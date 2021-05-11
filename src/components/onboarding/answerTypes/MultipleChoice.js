@@ -1,12 +1,15 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import Button from '../../onboarding/AnswerButtonOnboarding';
-import {ppBaseColors} from '../../../config/colors';
-import Body from '../../typography/Body';
-import {testIDs} from '../../../../e2e/modulesTestIDs';
-import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import {StyleSheet, View} from 'react-native';
+
 import AnswerTemplate from './AnswerTemplate';
+
+import {testIDs} from '../../../../e2e/modulesTestIDs';
+import {ppBaseColors} from '../../../config/colors';
+import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import Button from '../../onboarding/AnswerButtonOnboarding';
+import Body from '../../typography/Body';
 
 const MultipleChoice = ({
   currentTask = {},
@@ -62,16 +65,8 @@ const MultipleChoice = ({
 };
 
 const styles = StyleSheet.create({
-  whiteButton: {
-    backgroundColor: '#fff',
-    marginBottom: 20,
-  },
-  activeButton: {
-    backgroundColor: ppBaseColors.PP_ORANGE,
-    marginBottom: 20,
-  },
   activeText: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
   },
   bodyText: {
     marginBottom: 20,
@@ -81,6 +76,7 @@ const styles = StyleSheet.create({
 MultipleChoice.propTypes = {
   currentTask: PropTypes.object.isRequired,
   doRevertTask: PropTypes.func.isRequired,
+  doUpdateTask: PropTypes.func.isRequired,
   state: PropTypes.object.isRequired,
   setState: PropTypes.func.isRequired,
 };

@@ -1,14 +1,17 @@
 import React, {memo} from 'react';
-import {StyleSheet, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
+import {StyleSheet, View} from 'react-native';
+
+import FeedbackCard from './FeedBackCard';
+import TrophyOrProgress from './TrophyOrProgress';
+
+import {testIDs} from '../../../e2e/modulesTestIDs';
+import routes from '../../App/stacks/routes';
 import {appColors} from '../../config/colors';
 import Card from '../shared/Card';
-import TrophyOrProgress from './TrophyOrProgress';
-import {testIDs} from '../../../e2e/modulesTestIDs';
-import FeedbackCard from './FeedBackCard';
-import routes from '../../App/stacks/routes';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const MARGIN = 15;
 

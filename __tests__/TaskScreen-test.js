@@ -1,7 +1,9 @@
 import React from 'react';
-import TaskScreen from '../src/screens/TaskScreen';
+
 import {MockedProvider} from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
+
+import TaskScreen from '../src/screens/TaskScreen';
 
 const task = {title: 'A title', description: 'a description'};
 

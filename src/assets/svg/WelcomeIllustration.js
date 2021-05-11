@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Svg, {Circle, G, Mask, Path, Rect} from 'react-native-svg';
 
 function WelcomeIllustration(props) {

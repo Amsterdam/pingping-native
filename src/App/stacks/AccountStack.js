@@ -1,11 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import {createStackNavigator} from '@react-navigation/stack';
+import PropTypes from 'prop-types';
+
+import routes from './routes';
+
 import AccountHomeScreen from '../../screens/AccountHomeScreen';
-import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import DeleteDataScreen from '../../screens/DeleteDataScreen';
 import ExportDataScreen from '../../screens/ExportDataScreen';
-import routes from './routes';
+import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 
 const Stack = createStackNavigator();
 

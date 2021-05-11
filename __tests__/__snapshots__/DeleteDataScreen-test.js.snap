@@ -161,12 +161,15 @@ exports[`renders correctly 1`] = `
               },
               Object {
                 "fontFamily": "Heavitas",
-                "fontSize": 30,
+              },
+              Object {
+                "fontSize": 26,
+              },
+              Object {
                 "textAlign": "left",
               },
               Object {
                 "color": "#fff",
-                "fontSize": 14,
                 "marginTop": 5,
               },
             ]
@@ -276,7 +279,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 58,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
@@ -303,13 +310,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "marginBottom": 30,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
+                },
+              ]
             }
           >
             Wij van Ping Ping gebruiken de door jouw ingevulde gegevens alleen om jouw route te bepalen en de app te verbeteren. Wij zullen nooit jouw gegevens verkopen aan andere partijen.
@@ -318,13 +333,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "marginBottom": 30,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 30,
+                },
+              ]
             }
           >
             Wil je toch graag je inloggegevens verwijderen? Druk simpelweg op de knop hieronder om je gegevens uit ons systeem te halen. Hierdoor gaat je voortgang verloren.
@@ -405,7 +428,7 @@ exports[`renders correctly 1`] = `
                         },
                         Object {
                           "color": "#fff",
-                          "fontSize": 24,
+                          "fontSize": 44,
                         },
                       ],
                       Object {
@@ -436,7 +459,7 @@ exports[`renders correctly 1`] = `
                       Object {
                         "color": "#fff",
                         "fontFamily": "Heavitas",
-                        "fontSize": 14,
+                        "fontSize": 26,
                         "paddingTop": 3,
                       },
                       Object {},
@@ -474,7 +497,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "white",
+            "backgroundColor": "#fff",
             "borderRadius": 5,
             "elevation": 5,
             "justifyContent": "center",
@@ -558,7 +581,7 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "color": "#000",
-                      "fontSize": 24,
+                      "fontSize": 44,
                     },
                   ],
                   Object {
@@ -587,7 +610,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 58,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
@@ -602,13 +629,21 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             numberOfLines={0}
             style={
-              Object {
-                "fontFamily": "Raleway-Regular",
-                "fontSize": 15,
-                "lineHeight": 25,
-                "marginBottom": 20,
-                "textAlign": "left",
-              }
+              Array [
+                Object {
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "marginBottom": 20,
+                },
+              ]
             }
           >
             Weet je zeker dat je jouw gegevens wilt verwijderen? Wanneer je de gegevens hebt verwijdered is er geen mogelijkheid meer om deze terug te halen..
@@ -677,7 +712,7 @@ exports[`renders correctly 1`] = `
                       Object {
                         "color": "#fff",
                         "fontFamily": "Heavitas",
-                        "fontSize": 14,
+                        "fontSize": 26,
                         "paddingTop": 3,
                       },
                       Object {},
@@ -757,7 +792,7 @@ exports[`renders correctly 1`] = `
                         },
                         Object {
                           "color": "#fff",
-                          "fontSize": 24,
+                          "fontSize": 44,
                         },
                       ],
                       Object {
@@ -788,7 +823,7 @@ exports[`renders correctly 1`] = `
                       Object {
                         "color": "#fff",
                         "fontFamily": "Heavitas",
-                        "fontSize": 14,
+                        "fontSize": 26,
                         "paddingTop": 3,
                       },
                       Object {},

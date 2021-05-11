@@ -1,12 +1,15 @@
 import React from 'react';
-import {Dimensions, Modal, StyleSheet, View} from 'react-native';
+
 import {Button, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import {Dimensions, Modal, StyleSheet, View} from 'react-native';
+
+import {testIDs} from '../../../e2e/modulesTestIDs';
+import {ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
-import Title from '../typography/Title';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
-import {testIDs} from '../../../e2e/modulesTestIDs';
+import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -62,13 +65,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+    backgroundColor: ppBaseColors.PP_BLACK,
   },
   modalView: {
     width: screenWidth * 0.9,
-    backgroundColor: 'white',
+    backgroundColor: ppBaseColors.PP_WHITE,
     borderRadius: 5,
-    shadowColor: '#000',
+    shadowColor: ppBaseColors.PP_BLACK,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: normalizeValue(24),
-    color: '#000',
+    color: ppBaseColors.PP_BLACK,
   },
   title: {
     marginBottom: 5,

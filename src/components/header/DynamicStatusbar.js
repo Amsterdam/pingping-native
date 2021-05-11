@@ -1,6 +1,8 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+
 import PropTypes from 'prop-types';
+import {StatusBar} from 'react-native';
+
 import {setHeaderColor} from '../../config/colors';
 
 const DynamicStatusbar = ({color}) => {

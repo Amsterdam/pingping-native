@@ -1,7 +1,10 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
+
 import ProgressBar from './ProgressBar';
+
 import CityPingCoin from '../../assets/svg/CityPingCoin';
 import {appColors} from '../../config/colors';
 import Body from '../typography/Body';

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
 import {
   ActivityIndicator,
   Dimensions,
@@ -6,10 +8,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
-import Title from '../typography/Title';
+
 import ThankYou from '../../assets/svg/ThankYou';
-import {appColors} from '../../config/colors';
+import {appColors, ppBaseColors} from '../../config/colors';
+import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -40,13 +42,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(1,1,1,0.8)',
+    backgroundColor: appColors.modalBackground,
   },
   modalView: {
     width: screenWidth * 0.9,
-    backgroundColor: 'white',
+    backgroundColor: ppBaseColors.PP_WHITE,
     borderRadius: 5,
-    shadowColor: '#000',
+    shadowColor: ppBaseColors.PP_BLACK,
     shadowOffset: {
       width: 0,
       height: 2,

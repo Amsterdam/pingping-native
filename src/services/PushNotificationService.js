@@ -1,7 +1,10 @@
 import React, {useCallback, useEffect} from 'react';
-import {Linking, Platform} from 'react-native';
+
 import {Container} from 'native-base';
+import PropTypes from 'prop-types';
+import {Linking, Platform} from 'react-native';
 import {Notifications} from 'react-native-notifications';
+
 import sentryHelper from '../helpers/sentryHelper';
 
 const notificationTypes = {
@@ -68,6 +71,10 @@ const PushNotificationManager = ({children}) => {
   }, []);
 
   return <Container>{children}</Container>;
+};
+
+PushNotificationManager.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 };
 
 export default PushNotificationManager;

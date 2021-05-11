@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
+
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {appColors} from '../../config/colors';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import Body from '../typography/Body';
 
 const Loading = () => {
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: ppBaseColors.PP_WHITE,
     opacity: 0.8,
   },
 });

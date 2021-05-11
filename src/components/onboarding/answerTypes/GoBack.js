@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
+
+import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import HTML from 'react-native-render-html';
-import PropTypes from 'prop-types';
-import normalizeValue from '../../../helpers/normalizeValue';
-import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
-import Title from '../../typography/Title';
-import Button from '../../shared/RoundedButton';
-import WebViewModal from '../../modals/WebViewModal';
-import ContentLayout from '../../layout/ContentLayout';
-import {appColors} from '../../../config/colors';
+
 import {testIDs} from '../../../../e2e/modulesTestIDs';
+import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
+import {appColors} from '../../../config/colors';
+import normalizeValue from '../../../helpers/normalizeValue';
+import ContentLayout from '../../layout/ContentLayout';
+import WebViewModal from '../../modals/WebViewModal';
+import Button from '../../shared/RoundedButton';
+import Title from '../../typography/Title';
 
 const GoBack = ({currentTask, doRevertTask}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');

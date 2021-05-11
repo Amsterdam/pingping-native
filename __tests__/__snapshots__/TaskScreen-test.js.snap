@@ -167,12 +167,15 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 26,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {
                   "color": "#fff",
-                  "fontSize": 14,
                   "marginTop": 5,
                 },
               ]
@@ -232,7 +235,11 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "Heavitas",
-                  "fontSize": 30,
+                },
+                Object {
+                  "fontSize": 44,
+                },
+                Object {
                   "textAlign": "left",
                 },
                 Object {},
@@ -259,8 +266,8 @@ exports[`renders correctly 1`] = `
                 style={
                   Object {
                     "fontFamily": "Raleway-Regular",
-                    "fontSize": 15,
-                    "lineHeight": 25,
+                    "fontSize": 27,
+                    "lineHeight": 46,
                   }
                 }
               >
@@ -277,7 +284,8 @@ exports[`renders correctly 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "space-between",
-          "marginVertical": 10,
+          "marginBottom": 20,
+          "marginTop": 10,
           "paddingHorizontal": 40,
         }
       }
@@ -346,7 +354,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 14,
+                  "fontSize": 26,
                   "paddingTop": 3,
                 },
                 Object {},
@@ -419,7 +427,7 @@ exports[`renders correctly 1`] = `
                 Object {
                   "color": "#fff",
                   "fontFamily": "Heavitas",
-                  "fontSize": 14,
+                  "fontSize": 26,
                   "paddingTop": 3,
                 },
                 Object {},
@@ -493,7 +501,11 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "fontFamily": "Heavitas",
-                    "fontSize": 30,
+                  },
+                  Object {
+                    "fontSize": 58,
+                  },
+                  Object {
                     "textAlign": "left",
                   },
                   Object {

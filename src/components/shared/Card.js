@@ -1,11 +1,15 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+
 import PropTypes from 'prop-types';
-import ProgressiveImage from './ProgressiveImage';
-import CitypingsChip from './CitypingsChip';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+
 import CardDisabledOverlay from './CardDisabledOverlay';
-import {BASE_URL} from '../../config/initialSettings';
+import CitypingsChip from './CitypingsChip';
+import ProgressiveImage from './ProgressiveImage';
+
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
+import {BASE_URL} from '../../config/initialSettings';
 
 const Card = ({
   onPress = () => {},
@@ -46,7 +50,7 @@ const Card = ({
 
 const styles = StyleSheet.create({
   paper: {
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     alignSelf: 'stretch',
     borderRadius: BORDER_RADIUS,
     marginVertical: 10,
@@ -81,6 +85,7 @@ Card.propTypes = {
   testID: PropTypes.string,
   disabledString: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {

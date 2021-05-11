@@ -1,25 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Animated, StatusBar, StyleSheet, View} from 'react-native';
-import {Container, Content} from 'native-base';
+
 import {useQuery} from '@apollo/client';
 import LottieView from 'lottie-react-native';
-import GET_ROUTES from '../apollo/Query/getRoutes';
+import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {Animated, StatusBar, StyleSheet, View} from 'react-native';
+
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
-import {appColors} from '../config/colors';
-import {commonStyles} from '../config/commonStyles';
-import CityPingsCoin from '../assets/svg/CityPingCoin';
+import GET_ROUTES from '../apollo/Query/getRoutes';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import {BORDER_RADIUS} from '../config/commonStyles';
-import confettiCelebration from '../assets/lottieFiles/confetti-celebration.json';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import RouteCard from '../components/route/RouteCard';
-import RewardCardMini from '../components/reward/RewardCardMini';
-import ChevronButton from '../components/reward/ChevronButton';
-import ContentLayout from '../components/layout/ContentLayout';
-import CitypingsChip from '../components/shared/CitypingsChip';
 import routes from '../App/stacks/routes';
+import confettiCelebration from '../assets/lottieFiles/confetti-celebration.json';
+import CityPingsCoin from '../assets/svg/CityPingCoin';
+import ContentLayout from '../components/layout/ContentLayout';
+import ChevronButton from '../components/reward/ChevronButton';
+import RewardCardMini from '../components/reward/RewardCardMini';
+import RouteCard from '../components/route/RouteCard';
+import CitypingsChip from '../components/shared/CitypingsChip';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
+import {BORDER_RADIUS, commonStyles} from '../config/commonStyles';
 
 const HEADER_HEIGHT = 200;
 
@@ -158,15 +159,17 @@ const styles = StyleSheet.create({
     right: 0,
     position: 'absolute',
   },
-  title: {
-    color: '#fff',
-  },
   coinContainer: {
     marginVertical: 15,
   },
-  subTitle: {
-    color: '#000',
-    marginVertical: 10,
+  paper: {
+    ...commonStyles.shadow,
+    backgroundColor: appColors.background,
+    alignSelf: 'stretch',
+    borderRadius: BORDER_RADIUS,
+    marginVertical: 20,
+    padding: 15,
+    alignItems: 'center',
   },
   content: {
     position: 'absolute',
@@ -187,15 +190,6 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  paper: {
-    ...commonStyles.shadow,
-    backgroundColor: '#fff',
-    alignSelf: 'stretch',
-    borderRadius: BORDER_RADIUS,
-    marginVertical: 20,
-    padding: 15,
     alignItems: 'center',
   },
   rowFlex: {

@@ -1,11 +1,14 @@
 import React from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
-import PropTypes from 'prop-types';
+
 import {Icon} from 'native-base';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
+import PropTypes from 'prop-types';
+import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
+
+import {appColors, ppBaseColors} from '../../config/colors';
 import {faqItems} from '../../helpers/faqItems';
 import normalizeValue from '../../helpers/normalizeValue';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
   return (
@@ -70,9 +73,9 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
 
 const styles = StyleSheet.create({
   policyContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     margin: 15,
-    borderColor: '#000',
+    borderColor: ppBaseColors.PP_BLACK,
     borderWidth: 1,
     alignSelf: 'stretch',
   },

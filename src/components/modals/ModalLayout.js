@@ -1,4 +1,6 @@
 import React from 'react';
+
+import {Root} from 'native-base';
 import PropTypes from 'prop-types';
 import {
   Dimensions,
@@ -10,9 +12,9 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {Root} from 'native-base';
-import IconButton from '../shared/IconButton';
+
 import {appColors} from '../../config/colors';
+import IconButton from '../shared/IconButton';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -65,9 +67,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {flexGrow: 1},
-  textContainer: {
-    marginBottom: 25,
-  },
   image: {
     width: '100%',
     height: screenHeight * 0.2,

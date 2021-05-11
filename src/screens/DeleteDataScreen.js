@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Container, Content} from 'native-base';
-import PropTypes from 'prop-types';
+
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {appColors} from '../config/colors';
-import ContentLayout from '../components/layout/ContentLayout';
-import LabeledHeader from '../components/header/LabeledHeader';
-import Title from '../components/typography/Title';
-import Body from '../components/typography/Body';
-import Button from '../components/shared/RoundedButton';
-import DeleteDataModal from '../components/modals/DeleteDataModal';
-import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
-import {resetStore} from '../apollo/apolloClient';
+import {Container, Content} from 'native-base';
+import PropTypes from 'prop-types';
+import {StyleSheet, Text, View} from 'react-native';
+
 import {testIDs} from '../../e2e/modulesTestIDs';
+import {resetStore} from '../apollo/apolloClient';
+import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
+import LabeledHeader from '../components/header/LabeledHeader';
+import ContentLayout from '../components/layout/ContentLayout';
+import DeleteDataModal from '../components/modals/DeleteDataModal';
+import Button from '../components/shared/RoundedButton';
+import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
 import sentryHelper from '../helpers/sentryHelper';
 
 const DeleteDataScreen = ({navigation, setLogOut}) => {
@@ -83,16 +84,6 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    alignSelf: 'stretch',
-    borderColor: appColors.primary,
-    borderWidth: 1,
-    borderRadius: 50,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
   margin: {
     marginBottom: 30,
   },

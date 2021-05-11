@@ -1,6 +1,9 @@
 import React from 'react';
+
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 
 const QuestionSkeleton = () => (
@@ -30,7 +33,7 @@ const QuestionSkeleton = () => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: appColors.background,
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 50,
@@ -38,9 +41,6 @@ const styles = StyleSheet.create({
   subContainer: {
     justifyContent: 'space-between',
     flex: 1,
-  },
-  questionContainer: {
-    justifyContent: 'center',
   },
   backButton: {
     width: 30,
@@ -72,6 +72,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  steps: {width: 120, height: 15, borderRadius: 4},
 });
 export default QuestionSkeleton;

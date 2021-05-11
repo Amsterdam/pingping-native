@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import PropTypes from 'prop-types';
-import SimpleHeader from '../../header/SimpleHeader';
+
 import {Container} from 'native-base';
-import Button from '../../shared/RoundedButton';
-import {BASE_URL} from '../../../config/initialSettings';
-import Title from '../../typography/Title';
-import Body from '../../typography/Body';
+import PropTypes from 'prop-types';
+import {Image, StyleSheet, View} from 'react-native';
+
 import {appColors} from '../../../config/colors';
+import {BASE_URL} from '../../../config/initialSettings';
+import SimpleHeader from '../../header/SimpleHeader';
 import ConfirmModal from '../../modals/ConfirmModal';
+import Button from '../../shared/RoundedButton';
+import Body from '../../typography/Body';
+import Title from '../../typography/Title';
 
 const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
@@ -71,7 +73,6 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
 
 const styles = StyleSheet.create({
   image: {width: 150, height: 150, alignSelf: 'center'},
-  content: {flex: 1, padding: 20},
   button: {
     alignSelf: 'center',
     width: '60%',
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   whiteButton: {
-    backgroundColor: 'white',
+    backgroundColor: appColors.background,
     borderColor: appColors.primary,
     borderWidth: 1,
   },

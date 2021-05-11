@@ -1,20 +1,22 @@
 import React, {useEffect, useRef, useState} from 'react';
-import PropTypes from 'prop-types';
+
+import {useQuery} from '@apollo/client';
 import {Container, Header, Left, Right} from 'native-base';
+import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper';
-import {version} from '../../package.json';
-import {appColors, ppBaseColors} from '../config/colors';
-import OnboardingItem from '../components/onboarding/OnboardingItem';
-import Title from '../components/typography/Title';
-import Vault from '../assets/svg/Vault';
-import BackPack from '../assets/svg/BackPack';
-import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
+
 import {testIDs} from '../../e2e/modulesTestIDs';
-import {useQuery} from '@apollo/client';
+import {version} from '../../package.json';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
+import BackPack from '../assets/svg/BackPack';
+import Vault from '../assets/svg/Vault';
+import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
+import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Body from '../components/typography/Body';
+import Title from '../components/typography/Title';
+import {appColors, ppBaseColors} from '../config/colors';
 
 const onboardingViews = [
   {

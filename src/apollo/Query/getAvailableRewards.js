@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+
 import REWARD_FRAGMENT from '../Fragment/rewardFragment';
 
 const GET_AVAILABLE_REWARDS_QUERY = gql`

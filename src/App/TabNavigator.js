@@ -1,13 +1,16 @@
 import React from 'react';
+
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import RouteStack from './stacks/RouteStack';
-import CityPingsStack from './stacks/CityPingsStack';
+
 import AccountStack from './stacks/AccountStack';
+import CityPingsStack from './stacks/CityPingsStack';
+import routes from './stacks/routes';
+import RouteStack from './stacks/RouteStack';
+
 import {testIDs} from '../../e2e/modulesTestIDs';
 import {appColors} from '../config/colors';
-import routes from './stacks/routes';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,13 +26,15 @@ const TabNavigator = ({setLogOut}) => (
       component={CityPingsStack}
       options={{
         tabBarLabel: routes.citypingsStack.label,
-        tabBarIcon: ({color, size}) => (
-          <Icon
-            name="price-ribbon"
-            type="Entypo"
-            style={{color: color, fontSize: size}}
-          />
-        ),
+        tabBarIcon: function tabBarIcon({color, size}) {
+          return (
+            <Icon
+              name="price-ribbon"
+              type="Entypo"
+              style={{color: color, fontSize: size}}
+            />
+          );
+        },
       }}
     />
 
@@ -38,13 +43,15 @@ const TabNavigator = ({setLogOut}) => (
       component={RouteStack}
       options={{
         tabBarLabel: routes.routeStack.label,
-        tabBarIcon: ({color, size}) => (
-          <Icon
-            name="stars"
-            type="MaterialIcons"
-            style={{color: color, fontSize: size}}
-          />
-        ),
+        tabBarIcon: function tabBarIcon({color, size}) {
+          return (
+            <Icon
+              name="stars"
+              type="MaterialIcons"
+              style={{color: color, fontSize: size}}
+            />
+          );
+        },
       }}
     />
 
@@ -53,14 +60,16 @@ const TabNavigator = ({setLogOut}) => (
       options={{
         tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
         tabBarLabel: routes.accountStack.label,
-        tabBarIcon: ({color, size}) => (
-          <Icon
-            name="user-circle"
-            type="FontAwesome"
-            style={{color: color, fontSize: size}}
-            size={size}
-          />
-        ),
+        tabBarIcon: function tabBarIcon({color, size}) {
+          return (
+            <Icon
+              name="user-circle"
+              type="FontAwesome"
+              style={{color: color, fontSize: size}}
+              size={size}
+            />
+          );
+        },
       }}>
       {(props) => <AccountStack {...props} setLogOut={setLogOut} />}
     </Tab.Screen>

@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
-import {RefreshControl, StyleSheet, View} from 'react-native';
+
 import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
-import {appColors} from '../../config/colors';
-import ErrorIllustration from '../../assets/svg/ErrorIllustration';
+import {RefreshControl, StyleSheet, View} from 'react-native';
+
 import AstronautSitting from '../../assets/svg/AstronautSitting';
-import Title from '../typography/Title';
-import Body from '../typography/Body';
+import ErrorIllustration from '../../assets/svg/ErrorIllustration';
+import {appColors} from '../../config/colors';
 import Button from '../shared/RoundedButton';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
 
 const errorTypes = {
   somethingWentWrong: {

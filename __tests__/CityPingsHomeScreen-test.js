@@ -1,7 +1,9 @@
 import React from 'react';
-import CityPingsHomeScreen from '../src/screens/CityPingsHomeScreen';
-import renderer from 'react-test-renderer';
+
 import {MockedProvider} from '@apollo/client/testing';
+import renderer from 'react-test-renderer';
+
+import CityPingsHomeScreen from '../src/screens/CityPingsHomeScreen';
 
 jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};

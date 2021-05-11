@@ -1,9 +1,11 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
+
 import CityPingCoin from '../../assets/svg/CityPingCoin';
-import Title from '../typography/Title';
 import {ppBaseColors} from '../../config/colors';
+import Title from '../typography/Title';
 
 const CitypingsChip = ({value = 0, mini = false}) => {
   if (!value) {
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   cpLabel: {
-    color: '#fff',
+    color: ppBaseColors.PP_WHITE,
     paddingTop: 5,
   },
   coin: {

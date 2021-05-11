@@ -1,6 +1,7 @@
 import {gql} from '@apollo/client';
-import REWARD_FRAGMENT from '../Fragment/rewardFragment';
+
 import MEDIA_FRAGMENT from '../Fragment/mediaFragment';
+import REWARD_FRAGMENT from '../Fragment/rewardFragment';
 
 const GET_STATUS_QUERY = gql`
   query getStatus {
