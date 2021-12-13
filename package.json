@@ -44,7 +44,7 @@
     "react-native-qrcode-svg": "^6.1.2",
     "react-native-render-html": "^6.3.1",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^2.15.0",
+    "react-native-screens": "^3.10.1",
     "react-native-skeleton-placeholder": "^2.0.11",
     "react-native-svg": "^12.1.1",
     "react-native-swiper": "^1.6.0",
