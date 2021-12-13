@@ -204,7 +204,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.40.0):
     - React-Core
-  - react-native-netinfo (5.9.9):
+  - react-native-netinfo (7.1.6):
     - React-Core
   - react-native-notifications (3.4.1):
     - React-Core
@@ -478,7 +478,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
-  react-native-netinfo: 0212ce8604e88edf686f1481b925b17a42a52449
+  react-native-netinfo: 6f98a7fb549351a8f7f9a6d1ca80afc23e320045
   react-native-notifications: 77c7c863273e79caaa2523f239e714b033995262
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-webview: e89bf2dba26a04cda967814df3ed1be99f291233
