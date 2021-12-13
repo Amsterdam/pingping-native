@@ -2,24 +2,19 @@ import React, {useState} from 'react';
 
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
-import HTML from 'react-native-render-html';
 
 import {testIDs} from '../../../../e2e/modulesTestIDs';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
 import {appColors} from '../../../config/colors';
-import normalizeValue from '../../../helpers/normalizeValue';
 import ContentLayout from '../../layout/ContentLayout';
 import WebViewModal from '../../modals/WebViewModal';
+import HTMLRenderer from '../../shared/HTMLRenderer';
 import Button from '../../shared/RoundedButton';
 import Title from '../../typography/Title';
 
 const GoBack = ({currentTask, doRevertTask}) => {
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
-  const linkPressed = (event, href) => {
-    setUrlToVisit(href);
-    setWebviewOpen(true);
-  };
 
   const closeModal = () => {
     setWebviewOpen(false);
@@ -31,12 +26,10 @@ const GoBack = ({currentTask, doRevertTask}) => {
         <AmsterdamBuildings />
         <View style={styles.subContainer}>
           <Title style={styles.title}>{currentTask.title}</Title>
-          <HTML
+          <HTMLRenderer
             html={currentTask.description}
-            baseFontStyle={styles.htmlFontStyle}
-            onLinkPress={(event, href) => {
-              linkPressed(event, href);
-            }}
+            setUrlToVisit={setUrlToVisit}
+            setWebviewOpen={setWebviewOpen}
           />
         </View>
         <View>
@@ -73,12 +66,6 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     marginBottom: 15,
-  },
-  htmlFontStyle: {
-    fontFamily: 'Raleway-Regular',
-    textAlign: 'center',
-    fontSize: normalizeValue(15),
-    lineHeight: normalizeValue(25),
   },
 });
 

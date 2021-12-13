@@ -10,7 +10,6 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import HTML from 'react-native-render-html';
 import YouTube from 'react-native-youtube';
 
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
@@ -19,6 +18,7 @@ import routes from '../App/stacks/routes';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import WebViewModal from '../components/modals/WebViewModal';
+import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import Button from '../components/shared/RoundedButton';
@@ -26,7 +26,6 @@ import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
 import {BASE_URL} from '../config/initialSettings';
 import {YOUTUBE_API_KEY} from '../config/keys';
-import normalizeValue from '../helpers/normalizeValue';
 import sentryHelper from '../helpers/sentryHelper';
 
 const TaskScreen = ({navigation, route}) => {
@@ -113,11 +112,6 @@ const TaskScreen = ({navigation, route}) => {
     }
   };
 
-  const linkPressed = (event, href) => {
-    setUrlToVisit(href);
-    setWebviewOpen(true);
-  };
-
   const closeModal = () => {
     setWebviewOpen(false);
   };
@@ -150,12 +144,10 @@ const TaskScreen = ({navigation, route}) => {
           {task?.media && renderMedia(task.media)}
           <ContentLayout>
             <Title variant="h3">{task.title}</Title>
-            <HTML
+            <HTMLRenderer
               html={task.description}
-              baseFontStyle={styles.htmlFontStyle}
-              onLinkPress={(event, href) => {
-                linkPressed(event, href);
-              }}
+              setUrlToVisit={setUrlToVisit}
+              setWebviewOpen={setWebviewOpen}
             />
           </ContentLayout>
         </ScrollView>
@@ -228,11 +220,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     justifyContent: 'center',
-  },
-  htmlFontStyle: {
-    fontFamily: 'Raleway-Regular',
-    fontSize: normalizeValue(15),
-    lineHeight: normalizeValue(25),
   },
   completedTagLineContainer: {
     padding: 10,

@@ -3,18 +3,17 @@ import React, {useState} from 'react';
 import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import HTML from 'react-native-render-html';
 
 import ClaimedTicketsLarge from '../assets/svg/ClaimedTicketsLarge';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import ShowRewardCodeModal from '../components/modals/ShowRewardCodeModal';
 import WebViewModal from '../components/modals/WebViewModal';
+import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {appColors} from '../config/colors';
-import normalizeValue from '../helpers/normalizeValue';
 
 const MARGIN_BOTTOM = 25;
 
@@ -22,11 +21,6 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
   const [open, setOpen] = useState(false);
   const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
   const [webViewOpen, setWebviewOpen] = useState(false);
-
-  const linkPressed = (event, href) => {
-    setUrlToVisit(href);
-    setWebviewOpen(true);
-  };
 
   const closeModal = () => {
     setWebviewOpen(false);
@@ -66,13 +60,7 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
                 onPress={() => setOpen(true)}
                 label="Bekijk je code"
               />
-              <HTML
-                html={description}
-                baseFontStyle={styles.htmlFontStyle}
-                onLinkPress={(event, href) => {
-                  linkPressed(event, href);
-                }}
-              />
+              <HTMLRenderer html={description} setUrlToVisit={setUrlToVisit} />
             </View>
           </ContentLayout>
           <ShowRewardCodeModal
@@ -110,11 +98,6 @@ const styles = StyleSheet.create({
   rewardType: {
     color: appColors.primary,
     marginBottom: 10,
-  },
-  htmlFontStyle: {
-    fontFamily: 'Raleway-Regular',
-    fontSize: normalizeValue(15),
-    lineHeight: normalizeValue(25),
   },
 });
 
