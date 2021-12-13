@@ -4,7 +4,6 @@ import {useMutation, useQuery} from '@apollo/client';
 import {Container, Root, Toast} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import HTML from 'react-native-render-html';
 
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -12,11 +11,11 @@ import routes from '../App/stacks/routes';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import WebViewModal from '../components/modals/WebViewModal';
 import CityPingsBalance from '../components/shared/CityPingsBalance';
+import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {appColors} from '../config/colors';
-import normalizeValue from '../helpers/normalizeValue';
 import sentryHelper from '../helpers/sentryHelper';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
@@ -29,11 +28,6 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
   const {data, refetch} = useQuery(GET_STATUS_QUERY, {
     fetchPolicy: 'cache-first',
   });
-
-  const linkPressed = (event, href) => {
-    setUrlToVisit(href);
-    setWebviewOpen(true);
-  };
 
   const closeModal = () => {
     setWebviewOpen(false);
@@ -101,12 +95,10 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
             </Title>
             <CityPingsBalance balance={balance} price={price} />
             <View style={styles.description}>
-              <HTML
+              <HTMLRenderer
                 html={description}
-                baseFontStyle={styles.htmlFontStyle}
-                onLinkPress={(event, href) => {
-                  linkPressed(event, href);
-                }}
+                setUrlToVisit={setUrlToVisit}
+                setWebviewOpen={setWebviewOpen}
               />
             </View>
           </View>
@@ -154,11 +146,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  htmlFontStyle: {
-    fontFamily: 'Raleway-Regular',
-    fontSize: normalizeValue(15),
-    lineHeight: normalizeValue(25),
   },
 });
 
