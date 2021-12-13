@@ -286,8 +286,9 @@ PODS:
     - React-Core
   - RNPermissions (3.2.0):
     - React-Core
-  - RNScreens (2.15.0):
+  - RNScreens (3.10.1):
     - React-Core
+    - React-RCTImage
   - RNSentry (2.0.2):
     - React-Core
     - Sentry (= 6.0.9)
@@ -498,7 +499,7 @@ SPEC CHECKSUMS:
   RNDeviceInfo: 6cf87235aa11e675b93b31aa9b88a825753eea2f
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNPermissions: f7ebe52db07c00901127966ca080b4ec6a6ceb0a
-  RNScreens: 2ad555d4d9fa10b91bb765ca07fe9b29d59573f0
+  RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   RNSentry: 5ebc2926dbcbb9b77857ba6df0754a869037123d
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
