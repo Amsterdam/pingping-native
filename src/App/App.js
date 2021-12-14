@@ -46,6 +46,8 @@ export default function App() {
     setLoggedIn(true);
   };
 
+  //   @todo handle this with context
+
   const setLogOut = async () => {
     setLoggedIn(false);
     setOnboarder(true);

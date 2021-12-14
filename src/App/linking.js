@@ -1,5 +1,7 @@
 import routes from './stacks/routes';
 
+// @todo test if linking works with new configuration
+
 const linking = {
   prefixes: ['pingpingnative://'],
   config: {

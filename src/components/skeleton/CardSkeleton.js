@@ -7,6 +7,8 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {appColors} from '../../config/colors';
 import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
 
+// @todo skeletons do not work properly after new updated deps check this again.
+
 const CardSkeleton = ({withTitle = true}) => (
   <SkeletonPlaceholder>
     {withTitle ? <View style={styles.title} /> : <></>}
