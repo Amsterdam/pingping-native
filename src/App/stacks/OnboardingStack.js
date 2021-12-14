@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const OnboardingStack = ({setLogin}) => (
   <Stack.Navigator
     initialRouteName={routes.onboardingStack.homeScreen}
-    headerMode="none">
+    screenOptions={{headerShown: false}}>
     <Stack.Screen
       name={routes.onboardingStack.homeScreen}
       component={OnboardingScreen}

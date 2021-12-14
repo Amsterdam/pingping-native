@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const AccountStack = ({setLogOut}) => (
   <Stack.Navigator
     initialRouteName={routes.accountStack.homeScreen}
-    headerMode="none">
+    screenOptions={{headerShown: false}}>
     <Stack.Screen
       name={routes.accountStack.homeScreen}
       component={AccountHomeScreen}

@@ -11,7 +11,6 @@ import ClaimedRewardModalScreen from '../../screens/ClaimedRewardModalScreen';
 import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
 import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
 
-const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
 
 const tabHiddenRoutes = [
@@ -19,20 +18,8 @@ const tabHiddenRoutes = [
   routes.citypingsStack.claimedRewardModalScreen,
 ];
 
-const CityPingsStackScreen = () => {
-  return (
-    <MainStack.Navigator
-      initialRouteName={routes.citypingsStack.homeScreen}
-      headerMode="none">
-      <MainStack.Screen
-        name={routes.citypingsStack.homeScreen}
-        component={CityPingsHomeScreen}
-      />
-    </MainStack.Navigator>
-  );
-};
-
 function RootStackScreen({navigation, route}) {
+  // @todo - hiding tabs need to be reimplemented after react-navigation/stack is updated
   React.useEffect(() => {
     if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
       navigation.setOptions({tabBarVisible: false});
@@ -42,20 +29,27 @@ function RootStackScreen({navigation, route}) {
   }, [navigation, route]);
 
   return (
-    <RootStack.Navigator mode="modal" headerMode="none">
-      <RootStack.Screen name="Main" component={CityPingsStackScreen} />
-      <RootStack.Screen
-        name={routes.citypingsStack.rewardDetailModalScreen}
-        component={RewardDetailModalScreen}
-      />
-      <RootStack.Screen
-        name={routes.citypingsStack.claimedRewardModalScreen}
-        component={ClaimedRewardModalScreen}
-      />
-      <RootStack.Screen
-        name={routes.citypingsStack.completedRouteCelebrationModalScreen}
-        component={CompletedRouteCelebrationModalScreen}
-      />
+    <RootStack.Navigator screenOptions={{headerShown: false}}>
+      <RootStack.Group>
+        <RootStack.Screen
+          name={routes.citypingsStack.homeScreen}
+          component={CityPingsHomeScreen}
+        />
+      </RootStack.Group>
+      <RootStack.Group screenOptions={{presentation: 'modal'}}>
+        <RootStack.Screen
+          name={routes.citypingsStack.rewardDetailModalScreen}
+          component={RewardDetailModalScreen}
+        />
+        <RootStack.Screen
+          name={routes.citypingsStack.claimedRewardModalScreen}
+          component={ClaimedRewardModalScreen}
+        />
+        <RootStack.Screen
+          name={routes.citypingsStack.completedRouteCelebrationModalScreen}
+          component={CompletedRouteCelebrationModalScreen}
+        />
+      </RootStack.Group>
     </RootStack.Navigator>
   );
 }
