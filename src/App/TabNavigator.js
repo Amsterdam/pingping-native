@@ -17,10 +17,10 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = ({setLogOut}) => (
   <Tab.Navigator
     initialRouteName={routes.routeStack.name}
-    screenOptions={{headerShown: false}}
-    tabBarOptions={{
-      labelStyle: {fontFamily: 'Raleway-Regular'},
-      activeTintColor: appColors.primary,
+    screenOptions={{
+      headerShown: false,
+      tabBarLabelStyle: {fontFamily: 'Raleway-Regular'},
+      tabBarActiveTintColor: appColors.primary,
     }}>
     <Tab.Screen
       name={routes.citypingsStack.name}
