@@ -1,6 +1,5 @@
 # PingPing React Native &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-
 ## Security
 
 If you see or suspect any vulnerabilities please read the [security policy](SECURITY.md) in order to report them.
@@ -11,7 +10,7 @@ First read [contributing](CONTRIBUTING.md)
 
 ### Setup
 
-:rotating_light:Make sure you have Xcode 12 installed !
+:rotating_light:Make sure you have Xcode 13 installed !
 
 Before executing the steps listed in the list below, please checkout the [environment setup of react native](https://reactnative.dev/docs/environment-setup). Follow the steps under the React Native CLI Quickstart. Until you have installed the cocoapods for Xcode
 
