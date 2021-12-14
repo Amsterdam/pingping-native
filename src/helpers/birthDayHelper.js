@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Picker} from '@react-native-community/picker';
+import {Picker} from '@react-native-picker/picker';
 
 export function getDays() {
   const days = [];

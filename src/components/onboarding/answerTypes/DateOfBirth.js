@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Picker} from '@react-native-community/picker';
+import {Picker} from '@react-native-picker/picker';
 import PropTypes from 'prop-types';
 import {Platform, StyleSheet, View} from 'react-native';
 
@@ -47,7 +47,7 @@ const DateOfBirth = ({
               setState({...state, month: itemValue})
             }>
             <Picker.Item label="maand" value="" />
-            {getMonths().map((month) => (
+            {getMonths().map(month => (
               <Picker.Item
                 label={month.label}
                 value={month.value}
