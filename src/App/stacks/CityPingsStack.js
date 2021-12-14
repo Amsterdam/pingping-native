@@ -19,6 +19,7 @@ const tabHiddenRoutes = [
 ];
 
 function RootStackScreen({navigation, route}) {
+  // @todo - hiding tabs need to be reimplemented after react-navigation/stack is updated
   React.useEffect(() => {
     if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
       navigation.setOptions({tabBarVisible: false});
