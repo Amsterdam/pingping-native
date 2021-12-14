@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Picker} from '@react-native-community/picker';
+import {Picker} from '@react-native-picker/picker';
 import PropTypes from 'prop-types';
 import {Platform, StyleSheet, View} from 'react-native';
 
@@ -28,7 +28,7 @@ const DateOfBirth = ({
       doUpdateTask={doUpdateTask}>
       <View style={styles.container}>
         <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
-          <Picker
+          {/* <Picker
             testID={testIDs.QUESTION.PICKER_DAY}
             selectedValue={state.day}
             onValueChange={(itemValue, itemIndex) =>
@@ -36,10 +36,10 @@ const DateOfBirth = ({
             }>
             <Picker.Item label="Dag" value="" />
             {getDays()}
-          </Picker>
+          </Picker> */}
         </View>
 
-        <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
+        {/* <View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
           <Picker
             testID={testIDs.QUESTION.PICKER_MONTH}
             selectedValue={state.month}
@@ -47,7 +47,7 @@ const DateOfBirth = ({
               setState({...state, month: itemValue})
             }>
             <Picker.Item label="maand" value="" />
-            {getMonths().map((month) => (
+            {getMonths().map(month => (
               <Picker.Item
                 label={month.label}
                 value={month.value}
@@ -67,7 +67,7 @@ const DateOfBirth = ({
             <Picker.Item label="jaar" value="" />
             {getYears()}
           </Picker>
-        </View>
+        </View>*/}
       </View>
     </AnswerTemplate>
   );
