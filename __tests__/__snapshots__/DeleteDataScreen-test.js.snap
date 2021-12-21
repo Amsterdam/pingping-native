@@ -70,8 +70,10 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
             forwardedRef={[Function]}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -174,6 +176,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
+          uppercase={false}
         >
           Privacy
         </Text>
@@ -291,6 +294,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Jouw eigen gegevens
           </Text>
@@ -361,9 +365,16 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
               accessible={true}
+              collapsable={false}
               focusable={true}
               forwardedRef={[Function]}
+              nativeID="animatedComponent"
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -465,6 +476,7 @@ exports[`renders correctly 1`] = `
                       Object {},
                     ]
                   }
+                  uppercase={false}
                 >
                   Verwijder mijn gegevens
                 </Text>
@@ -522,8 +534,10 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
             forwardedRef={[Function]}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -622,6 +636,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Gegevens Verwijderen
           </Text>
@@ -650,9 +665,16 @@ exports[`renders correctly 1`] = `
           </Text>
           <View>
             <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
               accessible={true}
+              collapsable={false}
               focusable={true}
               forwardedRef={[Function]}
+              nativeID="animatedComponent"
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -718,15 +740,23 @@ exports[`renders correctly 1`] = `
                       Object {},
                     ]
                   }
+                  uppercase={false}
                 >
                   Niet verwijderen
                 </Text>
               </View>
             </View>
             <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
               accessible={true}
+              collapsable={false}
               focusable={true}
               forwardedRef={[Function]}
+              nativeID="animatedComponent"
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -829,6 +859,7 @@ exports[`renders correctly 1`] = `
                       Object {},
                     ]
                   }
+                  uppercase={false}
                 >
                   Verwijder mijn gegevens
                 </Text>

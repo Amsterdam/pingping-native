@@ -10,15 +10,15 @@ const navigation = {navigate: jest.fn()};
 const setLogin = jest.fn();
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(
-      <MockedProvider mocks={[]}>
-        <NotificationDecisionScreen
-          navigation={navigation}
-          setLogin={setLogin}
-        />
-      </MockedProvider>,
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+	const tree = renderer
+		.create(
+			<MockedProvider mocks={[]}>
+				<NotificationDecisionScreen
+					navigation={navigation}
+					setLogin={setLogin}
+				/>
+			</MockedProvider>,
+		)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
 });

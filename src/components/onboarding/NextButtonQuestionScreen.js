@@ -9,48 +9,48 @@ import {appColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
-  return (
-    <Button
-      onPress={submitAnswer}
-      testID={testIDs.QUESTION.NEXT_QUESTION_BUTTON}
-      transparent
-      disabled={nextButtonDisabled}
-      style={styles.nextButton}>
-      <Text
-        style={[
-          styles.nextButtonLabel,
-          !nextButtonDisabled && styles.nextButtonActive,
-          nextButtonDisabled && styles.nextButtonDisabled,
-        ]}>
-        Volgende
-      </Text>
-    </Button>
-  );
+	return (
+		<Button
+			onPress={submitAnswer}
+			testID={testIDs.QUESTION.NEXT_QUESTION_BUTTON}
+			transparent
+			disabled={nextButtonDisabled}
+			style={styles.nextButton}>
+			<Text
+				style={[
+					styles.nextButtonLabel,
+					!nextButtonDisabled && styles.nextButtonActive,
+					nextButtonDisabled && styles.nextButtonDisabled,
+				]}>
+				Volgende
+			</Text>
+		</Button>
+	);
 };
 
 const styles = StyleSheet.create({
-  nextButtonLabel: {
-    fontFamily: 'Raleway-Regular',
-    fontSize: normalizeValue(18),
-  },
-  nextButton: {
-    paddingBottom: 0,
-    paddingTop: 0,
-    paddingLeft: 0,
-    paddingRight: 0,
-    alignSelf: 'flex-end',
-  },
-  nextButtonDisabled: {
-    color: appColors.greyedOut,
-  },
-  nextButtonActive: {
-    color: appColors.primary,
-  },
+	nextButtonLabel: {
+		fontFamily: 'Raleway-Regular',
+		fontSize: normalizeValue(18),
+	},
+	nextButton: {
+		paddingBottom: 0,
+		paddingTop: 0,
+		paddingLeft: 0,
+		paddingRight: 0,
+		alignSelf: 'flex-end',
+	},
+	nextButtonDisabled: {
+		color: appColors.greyedOut,
+	},
+	nextButtonActive: {
+		color: appColors.primary,
+	},
 });
 
 NextButtonQuestionScreen.propTypes = {
-  nextButtonDisabled: PropTypes.bool.isRequired,
-  submitAnswer: PropTypes.func.isRequired,
+	nextButtonDisabled: PropTypes.bool.isRequired,
+	submitAnswer: PropTypes.func.isRequired,
 };
 
 export default NextButtonQuestionScreen;

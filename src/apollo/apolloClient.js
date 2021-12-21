@@ -9,57 +9,57 @@ import {API_URL} from '../config/initialSettings';
 import {SENTRY_DSN} from '../config/keys';
 
 if (!__DEV__) {
-  Sentry.init({
-    dsn: SENTRY_DSN,
-  });
+	Sentry.init({
+		dsn: SENTRY_DSN,
+	});
 }
 
 const inMemoryCache = new InMemoryCache();
 
 const authLink = setContext(async (_, {headers}) => {
-  // get the authentication token from local storage if it exists
-  const token = await AsyncStorage.getItem('@access_token');
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
+	// get the authentication token from local storage if it exists
+	const token = await AsyncStorage.getItem('@access_token');
+	// return the headers to the context so httpLink can read them
+	return {
+		headers: {
+			...headers,
+			authorization: token ? `Bearer ${token}` : '',
+		},
+	};
 });
 
 const errorLink = onError(({graphQLErrors, networkError}) => {
-  if (graphQLErrors) {
-    graphQLErrors.map(({message, locations, path}) => {
-      return Sentry.captureMessage(message);
-    });
-  }
-  if (networkError) {
-    Sentry.captureException(networkError);
-  }
+	if (graphQLErrors) {
+		graphQLErrors.map(({message, locations, path}) => {
+			return Sentry.captureMessage(message);
+		});
+	}
+	if (networkError) {
+		Sentry.captureException(networkError);
+	}
 });
 
 const httpLink = createHttpLink({
-  uri: API_URL,
-  fetch: unfetch,
+	uri: API_URL,
+	fetch: unfetch,
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(errorLink).concat(httpLink),
-  cache: inMemoryCache,
-  resolvers: {
-    Mutation: {},
-  },
+	link: authLink.concat(errorLink).concat(httpLink),
+	cache: inMemoryCache,
+	resolvers: {
+		Mutation: {},
+	},
 });
 
 async function writeInitialData() {
-  return;
+	return;
 }
 
 export async function resetStore() {
-  await client.clearStore();
-  await writeInitialData();
-  await client.reFetchObservableQueries();
+	await client.clearStore();
+	await writeInitialData();
+	await client.reFetchObservableQueries();
 }
 
 writeInitialData();

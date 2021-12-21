@@ -41,7 +41,9 @@ exports[`renders correctly 1`] = `
           >
             <Image
               blurRadius={1}
+              collapsable={false}
               mainColor=""
+              nativeID="animatedComponent"
               onLoad={[Function]}
               source={
                 Object {
@@ -62,7 +64,9 @@ exports[`renders correctly 1`] = `
               }
             />
             <Image
+              collapsable={false}
               mainColor=""
+              nativeID="animatedComponent"
               onLoad={[Function]}
               source={
                 Object {
@@ -101,8 +105,15 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
               accessible={true}
+              collapsable={false}
               focusable={true}
+              nativeID="animatedComponent"
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -286,6 +297,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
+                uppercase={false}
               >
                 10 CityPings
               </Text>
@@ -348,6 +360,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             test
           </Text>
@@ -510,6 +523,8 @@ exports[`renders correctly 1`] = `
               useNativeDriver={true}
             >
               <View
+                collapsable={false}
+                nativeID="animatedComponent"
                 style={
                   Object {
                     "backgroundColor": "#2dbcca",
@@ -538,31 +553,43 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              style={Object {}}
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                  undefined,
+                ]
+              }
+              testID="html"
             >
-              <Text
-                allowFontScaling={true}
-                selectable={false}
+              <View
                 style={
                   Array [
                     Object {},
-                    Object {},
+                    undefined,
+                    undefined,
                   ]
                 }
+                testID="body"
               >
                 <Text
                   allowFontScaling={true}
+                  selectable={false}
                   style={
-                    Object {
-                      "fontFamily": "Raleway-Regular",
-                      "fontSize": 27,
-                      "lineHeight": 46,
-                    }
+                    Array [
+                      Object {
+                        "fontFamily": "Raleway-Regular",
+                        "fontSize": 27,
+                        "lineHeight": 46,
+                      },
+                      undefined,
+                      undefined,
+                    ]
                   }
                 >
                   123123
                 </Text>
-              </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -602,9 +629,16 @@ exports[`renders correctly 1`] = `
         Nog even doorsparen !
       </Text>
       <View
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         forwardedRef={[Function]}
+        nativeID="animatedComponent"
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -669,6 +703,7 @@ exports[`renders correctly 1`] = `
                 Object {},
               ]
             }
+            uppercase={false}
           >
             Claim
           </Text>
@@ -684,7 +719,9 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
+        collapsable={false}
         focusable={true}
+        nativeID="animatedComponent"
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -703,7 +740,9 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
+          collapsable={false}
           focusable={false}
+          nativeID="animatedComponent"
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -724,16 +763,12 @@ exports[`renders correctly 1`] = `
         >
           <RCTScrollView
             data={Array []}
-            disableVirtualization={false}
             getItem={[Function]}
             getItemCount={[Function]}
-            horizontal={false}
-            initialNumToRender={10}
             keyExtractor={[Function]}
-            maxToRenderPerBatch={10}
             onContentSizeChange={[Function]}
-            onEndReachedThreshold={2}
             onLayout={[Function]}
+            onMomentumScrollBegin={[Function]}
             onMomentumScrollEnd={[Function]}
             onScroll={[Function]}
             onScrollBeginDrag={[Function]}
@@ -752,9 +787,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
-            updateCellsBatchingPeriod={50}
             viewabilityConfigCallbackPairs={Array []}
-            windowSize={21}
           >
             <View />
           </RCTScrollView>
@@ -792,7 +825,9 @@ exports[`renders correctly 1`] = `
       >
         <View
           accessible={true}
+          collapsable={false}
           focusable={true}
+          nativeID="animatedComponent"
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -837,6 +872,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             SLUITEN
           </Text>

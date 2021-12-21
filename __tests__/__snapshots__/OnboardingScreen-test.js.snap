@@ -90,6 +90,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
+          uppercase={false}
         >
           INTRODUCTIE
         </Text>
@@ -106,7 +107,9 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -146,6 +149,7 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
+              uppercase={false}
             >
               Inloggen
             </Text>
@@ -1264,6 +1268,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
+                uppercase={false}
               >
                 WAT IS PING PING
               </Text>
@@ -1293,9 +1298,16 @@ exports[`renders correctly 1`] = `
             </View>
             <View>
               <View
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
                 accessible={true}
+                collapsable={false}
                 focusable={true}
                 forwardedRef={[Function]}
+                nativeID="animatedComponent"
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -1360,6 +1372,7 @@ exports[`renders correctly 1`] = `
                         Object {},
                       ]
                     }
+                    uppercase={false}
                   >
                     Volgende
                   </Text>
@@ -2712,6 +2725,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
+                uppercase={false}
               >
                 WAT IS PING PING
               </Text>
@@ -2741,9 +2755,16 @@ exports[`renders correctly 1`] = `
             </View>
             <View>
               <View
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
                 accessible={true}
+                collapsable={false}
                 focusable={true}
                 forwardedRef={[Function]}
+                nativeID="animatedComponent"
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -2808,6 +2829,7 @@ exports[`renders correctly 1`] = `
                         Object {},
                       ]
                     }
+                    uppercase={false}
                   >
                     Volgende
                   </Text>
@@ -4063,6 +4085,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
+                uppercase={false}
               >
                 Wat is PING PING
               </Text>
@@ -4092,9 +4115,16 @@ exports[`renders correctly 1`] = `
             </View>
             <View>
               <View
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
                 accessible={true}
+                collapsable={false}
                 focusable={true}
                 forwardedRef={[Function]}
+                nativeID="animatedComponent"
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -4159,6 +4189,7 @@ exports[`renders correctly 1`] = `
                         Object {},
                       ]
                     }
+                    uppercase={false}
                   >
                     Volgende
                   </Text>

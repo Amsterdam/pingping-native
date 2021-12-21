@@ -15,61 +15,61 @@ import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 
 const ExportDataScreen = ({navigation, setLogOut}) => {
-  const {data, error} = useQuery(GET_STATUS_QUERY, {
-    pollInterval: 1000,
-    fetchPolicy: 'network-only',
-  });
+	const {data, error} = useQuery(GET_STATUS_QUERY, {
+		pollInterval: 1000,
+		fetchPolicy: 'network-only',
+	});
 
-  const exportToken = data?.getStatus?.exportToken;
+	const exportToken = data?.getStatus?.exportToken;
 
-  useEffect(() => {
-    async function checkForErrors() {
-      if (error?.message === 'unauthorized') {
-        await AsyncStorage.clear();
-        setLogOut();
-        resetStore();
-      }
-    }
-    checkForErrors();
-  }, [error, setLogOut]);
+	useEffect(() => {
+		async function checkForErrors() {
+			if (error?.message === 'unauthorized') {
+				await AsyncStorage.clear();
+				setLogOut();
+				resetStore();
+			}
+		}
+		checkForErrors();
+	}, [error, setLogOut]);
 
-  return (
-    <Container>
-      <LabeledHeader filledHeader navigation={navigation} title="Profiel" />
-      <Content>
-        <ContentLayout>
-          <Title style={styles.margin}>Gegevens Exporteren</Title>
-          <Body variant="b3" style={styles.margin}>
-            Als je van device switcht wil je natuurlijk niet dat al jouw
-            gegevens en prestaties op Ping Ping verloren gaan!
-          </Body>
-          <Body variant="b3" style={styles.margin}>
-            Het is heel simpel om jouw gegevens te exporteren naar een nieuw
-            device. Open op je nieuwe device de app en klik rechtsboven op
-            inloggen. Vervolgens scan je de onderstaande QRCode en zo simpel is
-            het!
-          </Body>
-          <View style={styles.qrContainer}>
-            <QrCode exportToken={exportToken} />
-          </View>
-        </ContentLayout>
-      </Content>
-    </Container>
-  );
+	return (
+		<Container>
+			<LabeledHeader filledHeader navigation={navigation} title="Profiel" />
+			<Content>
+				<ContentLayout>
+					<Title style={styles.margin}>Gegevens Exporteren</Title>
+					<Body variant="b3" style={styles.margin}>
+						Als je van device switcht wil je natuurlijk niet dat al jouw
+						gegevens en prestaties op Ping Ping verloren gaan!
+					</Body>
+					<Body variant="b3" style={styles.margin}>
+						Het is heel simpel om jouw gegevens te exporteren naar een nieuw
+						device. Open op je nieuwe device de app en klik rechtsboven op
+						inloggen. Vervolgens scan je de onderstaande QRCode en zo simpel is
+						het!
+					</Body>
+					<View style={styles.qrContainer}>
+						<QrCode exportToken={exportToken} />
+					</View>
+				</ContentLayout>
+			</Content>
+		</Container>
+	);
 };
 
 const styles = StyleSheet.create({
-  margin: {
-    marginBottom: 30,
-  },
-  qrContainer: {
-    alignItems: 'center',
-  },
+	margin: {
+		marginBottom: 30,
+	},
+	qrContainer: {
+		alignItems: 'center',
+	},
 });
 
 ExportDataScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  setLogOut: PropTypes.func.isRequired,
+	navigation: PropTypes.object.isRequired,
+	setLogOut: PropTypes.func.isRequired,
 };
 
 export default ExportDataScreen;

@@ -7,7 +7,7 @@ const IPHONE_11_VIEWPORT = 414;
 const scale = SCREEN_WIDTH / IPHONE_11_VIEWPORT;
 
 export default function normalizeValue(size) {
-  const newSize = size * scale;
+	const newSize = size * scale;
 
-  return Math.round(PixelRatio.roundToNearestPixel(newSize));
+	return Math.round(PixelRatio.roundToNearestPixel(newSize));
 }

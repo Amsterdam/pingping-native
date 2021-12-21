@@ -33,6 +33,8 @@ exports[`renders correctly 1`] = `
     testID="ANIMATED_VIEW"
   />
   <View
+    collapsable={false}
+    nativeID="animatedComponent"
     noShadow={true}
     style={
       Object {
@@ -148,892 +150,360 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              style={
-                Object {
-                  "position": "relative",
-                }
-              }
+              onLayout={[Function]}
             >
               <View
                 style={
-                  Array [
-                    Object {
-                      "borderRadius": 4,
-                      "height": 30,
-                      "marginVertical": 10,
-                      "width": "90%",
-                    },
-                    Object {
-                      "backgroundColor": "#E1E9EE",
-                      "overflow": "hidden",
-                    },
-                  ]
+                  Object {
+                    "position": "relative",
+                  }
                 }
               >
                 <View
                   style={
-                    Object {
-                      "bottom": 0,
-                      "left": 0,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                      "transform": Array [
-                        Object {
-                          "translateX": -350,
-                        },
-                      ],
-                    }
+                    Array [
+                      Object {
+                        "borderRadius": 4,
+                        "height": 30,
+                        "marginVertical": 10,
+                        "width": "90%",
+                      },
+                      Object {
+                        "backgroundColor": "#E1E9EE",
+                        "overflow": "hidden",
+                      },
+                    ]
                   }
-                >
-                  <BVLinearGradient
-                    colors={
-                      Array [
-                        4292995566,
-                        4294113532,
-                        4292995566,
-                      ]
-                    }
-                    endPoint={
-                      Object {
-                        "x": 1,
-                        "y": 0,
-                      }
-                    }
-                    locations={null}
-                    startPoint={
-                      Object {
-                        "x": 0,
-                        "y": 0,
-                      }
-                    }
-                    style={
-                      Object {
-                        "flex": 1,
-                      }
-                    }
-                  />
-                </View>
+                />
               </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignSelf": "stretch",
-                    "backgroundColor": "#fff",
-                    "borderRadius": 5,
-                    "marginVertical": 10,
-                  },
-                  Object {
-                    "elevation": 5,
-                    "shadowColor": "#000",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.25,
-                    "shadowRadius": 3.84,
-                  },
-                ]
-              }
-            >
-              <View>
-                <View
-                  style={
+              <View
+                style={
+                  Array [
                     Object {
-                      "position": "relative",
-                    }
-                  }
-                >
+                      "alignSelf": "stretch",
+                      "backgroundColor": "#fff",
+                      "borderRadius": 5,
+                      "marginVertical": 10,
+                    },
+                    Object {
+                      "elevation": 5,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.25,
+                      "shadowRadius": 3.84,
+                    },
+                  ]
+                }
+              >
+                <View>
                   <View
                     style={
-                      Array [
-                        Object {
-                          "height": 125,
-                          "width": "100%",
-                        },
-                        Object {
-                          "backgroundColor": "#E1E9EE",
-                          "overflow": "hidden",
-                        },
-                      ]
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "height": 125,
+                            "width": "100%",
+                          },
+                          Object {
+                            "backgroundColor": "#E1E9EE",
+                            "overflow": "hidden",
+                          },
+                        ]
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 10,
+                        "padding": 20,
+                      }
                     }
                   >
                     <View
                       style={
                         Object {
-                          "bottom": 0,
-                          "left": 0,
-                          "position": "absolute",
-                          "right": 0,
-                          "top": 0,
-                          "transform": Array [
-                            Object {
-                              "translateX": -350,
-                            },
-                          ],
+                          "position": "relative",
                         }
                       }
                     >
-                      <BVLinearGradient
-                        colors={
+                      <View
+                        style={
                           Array [
-                            4292995566,
-                            4294113532,
-                            4292995566,
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "width": "90%",
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
                           ]
                         }
-                        endPoint={
-                          Object {
-                            "x": 1,
-                            "y": 0,
-                          }
+                      />
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "position": "relative",
                         }
-                        locations={null}
-                        startPoint={
-                          Object {
-                            "x": 0,
-                            "y": 0,
-                          }
-                        }
+                      }
+                    >
+                      <View
                         style={
-                          Object {
-                            "flex": 1,
-                          }
+                          Array [
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "marginTop": 6,
+                              "width": "80%",
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "position": "relative",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "marginTop": 6,
+                              "width": 80,
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        Object {
+                          "position": "relative",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "alignSelf": "flex-end",
+                              "borderRadius": 4,
+                              "height": 10,
+                              "marginTop": 6,
+                              "width": 50,
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
                         }
                       />
                     </View>
                   </View>
                 </View>
-                <View
-                  style={
-                    Object {
-                      "marginTop": 10,
-                      "padding": 20,
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "width": "90%",
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "marginTop": 6,
-                            "width": "80%",
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "marginTop": 6,
-                            "width": 80,
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignSelf": "flex-end",
-                            "borderRadius": 4,
-                            "height": 10,
-                            "marginTop": 6,
-                            "width": 50,
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
-                    </View>
-                  </View>
-                </View>
               </View>
             </View>
             <View
-              style={
-                Object {
-                  "position": "relative",
-                }
-              }
+              onLayout={[Function]}
             >
               <View
                 style={
-                  Array [
-                    Object {
-                      "borderRadius": 4,
-                      "height": 30,
-                      "marginVertical": 10,
-                      "width": "90%",
-                    },
-                    Object {
-                      "backgroundColor": "#E1E9EE",
-                      "overflow": "hidden",
-                    },
-                  ]
+                  Object {
+                    "position": "relative",
+                  }
                 }
               >
                 <View
                   style={
-                    Object {
-                      "bottom": 0,
-                      "left": 0,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                      "transform": Array [
-                        Object {
-                          "translateX": -350,
-                        },
-                      ],
-                    }
+                    Array [
+                      Object {
+                        "borderRadius": 4,
+                        "height": 30,
+                        "marginVertical": 10,
+                        "width": "90%",
+                      },
+                      Object {
+                        "backgroundColor": "#E1E9EE",
+                        "overflow": "hidden",
+                      },
+                    ]
                   }
-                >
-                  <BVLinearGradient
-                    colors={
-                      Array [
-                        4292995566,
-                        4294113532,
-                        4292995566,
-                      ]
-                    }
-                    endPoint={
-                      Object {
-                        "x": 1,
-                        "y": 0,
-                      }
-                    }
-                    locations={null}
-                    startPoint={
-                      Object {
-                        "x": 0,
-                        "y": 0,
-                      }
-                    }
-                    style={
-                      Object {
-                        "flex": 1,
-                      }
-                    }
-                  />
-                </View>
+                />
               </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignSelf": "stretch",
-                    "backgroundColor": "#fff",
-                    "borderRadius": 5,
-                    "marginVertical": 10,
-                  },
-                  Object {
-                    "elevation": 5,
-                    "shadowColor": "#000",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.25,
-                    "shadowRadius": 3.84,
-                  },
-                ]
-              }
-            >
-              <View>
-                <View
-                  style={
+              <View
+                style={
+                  Array [
                     Object {
-                      "position": "relative",
-                    }
-                  }
-                >
+                      "alignSelf": "stretch",
+                      "backgroundColor": "#fff",
+                      "borderRadius": 5,
+                      "marginVertical": 10,
+                    },
+                    Object {
+                      "elevation": 5,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.25,
+                      "shadowRadius": 3.84,
+                    },
+                  ]
+                }
+              >
+                <View>
                   <View
                     style={
-                      Array [
-                        Object {
-                          "height": 125,
-                          "width": "100%",
-                        },
-                        Object {
-                          "backgroundColor": "#E1E9EE",
-                          "overflow": "hidden",
-                        },
-                      ]
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "height": 125,
+                            "width": "100%",
+                          },
+                          Object {
+                            "backgroundColor": "#E1E9EE",
+                            "overflow": "hidden",
+                          },
+                        ]
+                      }
+                    />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "marginTop": 10,
+                        "padding": 20,
+                      }
                     }
                   >
                     <View
                       style={
                         Object {
-                          "bottom": 0,
-                          "left": 0,
-                          "position": "absolute",
-                          "right": 0,
-                          "top": 0,
-                          "transform": Array [
-                            Object {
-                              "translateX": -350,
-                            },
-                          ],
+                          "position": "relative",
                         }
                       }
                     >
-                      <BVLinearGradient
-                        colors={
-                          Array [
-                            4292995566,
-                            4294113532,
-                            4292995566,
-                          ]
-                        }
-                        endPoint={
-                          Object {
-                            "x": 1,
-                            "y": 0,
-                          }
-                        }
-                        locations={null}
-                        startPoint={
-                          Object {
-                            "x": 0,
-                            "y": 0,
-                          }
-                        }
+                      <View
                         style={
-                          Object {
-                            "flex": 1,
-                          }
+                          Array [
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "width": "90%",
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
                         }
                       />
                     </View>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Object {
-                      "marginTop": 10,
-                      "padding": 20,
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
                     <View
                       style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "width": "90%",
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
+                        Object {
+                          "position": "relative",
+                        }
                       }
                     >
                       <View
                         style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
+                          Array [
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "marginTop": 6,
+                              "width": "80%",
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
                         }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
+                      />
                     </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
                     <View
                       style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "marginTop": 6,
-                            "width": "80%",
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
+                        Object {
+                          "position": "relative",
+                        }
                       }
                     >
                       <View
                         style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
+                          Array [
+                            Object {
+                              "borderRadius": 4,
+                              "height": 20,
+                              "marginTop": 6,
+                              "width": 80,
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
                         }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
+                      />
                     </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
                     <View
                       style={
-                        Array [
-                          Object {
-                            "borderRadius": 4,
-                            "height": 20,
-                            "marginTop": 6,
-                            "width": 80,
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
+                        Object {
+                          "position": "relative",
+                        }
                       }
                     >
                       <View
                         style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
+                          Array [
+                            Object {
+                              "alignSelf": "flex-end",
+                              "borderRadius": 4,
+                              "height": 10,
+                              "marginTop": 6,
+                              "width": 50,
+                            },
+                            Object {
+                              "backgroundColor": "#E1E9EE",
+                              "overflow": "hidden",
+                            },
+                          ]
                         }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    style={
-                      Object {
-                        "position": "relative",
-                      }
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignSelf": "flex-end",
-                            "borderRadius": 4,
-                            "height": 10,
-                            "marginTop": 6,
-                            "width": 50,
-                          },
-                          Object {
-                            "backgroundColor": "#E1E9EE",
-                            "overflow": "hidden",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "translateX": -350,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <BVLinearGradient
-                          colors={
-                            Array [
-                              4292995566,
-                              4294113532,
-                              4292995566,
-                            ]
-                          }
-                          endPoint={
-                            Object {
-                              "x": 1,
-                              "y": 0,
-                            }
-                          }
-                          locations={null}
-                          startPoint={
-                            Object {
-                              "x": 0,
-                              "y": 0,
-                            }
-                          }
-                          style={
-                            Object {
-                              "flex": 1,
-                            }
-                          }
-                        />
-                      </View>
+                      />
                     </View>
                   </View>
                 </View>

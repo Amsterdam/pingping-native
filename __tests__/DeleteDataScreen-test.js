@@ -10,12 +10,12 @@ const navigation = {navigate: jest.fn()};
 const setLogOut = jest.fn();
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(
-      <MockedProvider mocks={[]}>
-        <DeleteDataScreen navigation={navigation} setLogOut={setLogOut} />
-      </MockedProvider>,
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+	const tree = renderer
+		.create(
+			<MockedProvider mocks={[]}>
+				<DeleteDataScreen navigation={navigation} setLogOut={setLogOut} />
+			</MockedProvider>,
+		)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
 });

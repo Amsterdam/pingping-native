@@ -11,9 +11,9 @@ import {name as appName} from './src/App/app.json';
 enableScreens();
 
 const PingPingNative = () => (
-  <ApolloProvider client={client}>
-    <RootApp />
-  </ApolloProvider>
+	<ApolloProvider client={client}>
+		<RootApp />
+	</ApolloProvider>
 );
 
 AppRegistry.registerComponent(appName, () => PingPingNative);
