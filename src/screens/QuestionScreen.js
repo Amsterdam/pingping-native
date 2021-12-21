@@ -12,117 +12,117 @@ import QuestionComponent from '../components/onboarding/QuestionComponent';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import {
-  revertTaskFunc,
-  setRevertedQuestionValues,
-  submitAnswer,
-  updateConfirmTask,
+	revertTaskFunc,
+	setRevertedQuestionValues,
+	submitAnswer,
+	updateConfirmTask,
 } from '../helpers/questionAnswerHelpers';
 
 const INITIAL_STATE = {
-  answerSelected: false,
-  day: '',
-  month: '',
-  year: '',
-  choices: [],
+	answerSelected: false,
+	day: '',
+	month: '',
+	year: '',
+	choices: [],
 };
 
 const QuestionScreen = ({navigation}) => {
-  const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
-  const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
-  const [revertTask] = useMutation(REVERT_TASK_MUTATION);
-  const [loadingQuestion, setLoadingQuestion] = useState(false);
-  const animationRef = useRef(null);
-  const current = data?.getStatus?.currentTask;
-  const answeredBefore = current?.answer;
-  const currentTask = current?.task;
-  const previousTask = data?.getStatus?.previousTask?.task;
-  const [state, setState] = useState(INITIAL_STATE);
+	const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
+	const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+	const [revertTask] = useMutation(REVERT_TASK_MUTATION);
+	const [loadingQuestion, setLoadingQuestion] = useState(false);
+	const animationRef = useRef(null);
+	const current = data?.getStatus?.currentTask;
+	const answeredBefore = current?.answer;
+	const currentTask = current?.task;
+	const previousTask = data?.getStatus?.previousTask?.task;
+	const [state, setState] = useState(INITIAL_STATE);
 
-  useEffect(() => {
-    if (answeredBefore) {
-      setRevertedQuestionValues(currentTask, answeredBefore, setState);
-    }
-  }, [answeredBefore, currentTask, navigation]);
+	useEffect(() => {
+		if (answeredBefore) {
+			setRevertedQuestionValues(currentTask, answeredBefore, setState);
+		}
+	}, [answeredBefore, currentTask, navigation]);
 
-  if (error) {
-    return (
-      <ErrorComponent
-        functionToRetry={refetch}
-        somethingWentWrong
-        onPress={() => navigation.goBack()}
-      />
-    );
-  }
+	if (error) {
+		return (
+			<ErrorComponent
+				functionToRetry={refetch}
+				somethingWentWrong
+				onPress={() => navigation.goBack()}
+			/>
+		);
+	}
 
-  if (data && currentTask) {
-    const doRevertTask = () => {
-      revertTaskFunc(
-        setLoadingQuestion,
-        previousTask,
-        navigation,
-        refetch,
-        revertTask,
-        animationRef,
-      );
-    };
+	if (data && currentTask) {
+		const doRevertTask = () => {
+			revertTaskFunc(
+				setLoadingQuestion,
+				previousTask,
+				navigation,
+				refetch,
+				revertTask,
+				animationRef,
+			);
+		};
 
-    const doUpdateTask = () => {
-      submitAnswer(
-        currentTask,
-        state,
-        setLoadingQuestion,
-        updateTask,
-        setState,
-        refetch,
-        INITIAL_STATE,
-        animationRef,
-      );
-    };
+		const doUpdateTask = () => {
+			submitAnswer(
+				currentTask,
+				state,
+				setLoadingQuestion,
+				updateTask,
+				setState,
+				refetch,
+				INITIAL_STATE,
+				animationRef,
+			);
+		};
 
-    const doUpdateConfirmTask = (answer) => {
-      updateConfirmTask(
-        answer,
-        updateTask,
-        currentTask,
-        refetch,
-        animationRef,
-        setLoadingQuestion,
-      );
-    };
+		const doUpdateConfirmTask = answer => {
+			updateConfirmTask(
+				answer,
+				updateTask,
+				currentTask,
+				refetch,
+				animationRef,
+				setLoadingQuestion,
+			);
+		};
 
-    return (
-      <AnimatableView
-        style={styles.flex}
-        duration={400}
-        ref={animationRef}
-        useNativeDriver>
-        {!loadingQuestion && (
-          <QuestionComponent
-            currentTask={currentTask}
-            updateTask={updateTask}
-            refetch={refetch}
-            doRevertTask={doRevertTask}
-            state={state}
-            setState={setState}
-            doUpdateTask={doUpdateTask}
-            setLoadingQuestion={setLoadingQuestion}
-            doUpdateConfirmTask={doUpdateConfirmTask}
-          />
-        )}
+		if (loadingQuestion || loading) {
+			return <QuestionSkeleton />;
+		}
 
-        {(loadingQuestion || loading) && <QuestionSkeleton />}
-      </AnimatableView>
-    );
-  }
-  return <></>;
+		return (
+			<AnimatableView
+				style={styles.flex}
+				duration={400}
+				ref={animationRef}
+				useNativeDriver>
+				<QuestionComponent
+					currentTask={currentTask}
+					updateTask={updateTask}
+					refetch={refetch}
+					doRevertTask={doRevertTask}
+					state={state}
+					setState={setState}
+					doUpdateTask={doUpdateTask}
+					setLoadingQuestion={setLoadingQuestion}
+					doUpdateConfirmTask={doUpdateConfirmTask}
+				/>
+			</AnimatableView>
+		);
+	}
+	return <></>;
 };
 
 const styles = StyleSheet.create({
-  flex: {flex: 1},
+	flex: {flex: 1},
 });
 
 QuestionScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
+	navigation: PropTypes.object.isRequired,
 };
 
 export default QuestionScreen;
