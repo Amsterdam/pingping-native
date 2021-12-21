@@ -2,22 +2,14 @@ import React from 'react';
 
 import {Dimensions, StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+
 import {BORDER_RADIUS} from '../../config/commonStyles';
 
-import {appColors} from '../../config/colors';
-
 const screenHeight = Dimensions.get('window').height;
-const screenWidth = Dimensions.get('window').width;
 
 const RouteDetailSkeleton = () => (
 	<SkeletonPlaceholder>
-		<View
-			style={{
-				flexDirection: 'column',
-				justifyContent: 'space-between',
-				height: screenHeight,
-				padding: 20,
-			}}>
+		<View style={styles.container}>
 			<View style={styles.row}>
 				<View style={styles.backButton} />
 				<View style={styles.headerTitle} />
@@ -42,6 +34,12 @@ const RouteDetailSkeleton = () => (
 );
 
 const styles = StyleSheet.create({
+	container: {
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		height: screenHeight,
+		padding: 20,
+	},
 	row: {
 		marginTop: 25,
 		marginBottom: 35,

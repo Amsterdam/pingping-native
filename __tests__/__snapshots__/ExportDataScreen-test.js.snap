@@ -69,8 +69,10 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
             forwardedRef={[Function]}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -173,6 +175,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
+          uppercase={false}
         >
           Profiel
         </Text>
@@ -290,6 +293,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Gegevens Exporteren
           </Text>
@@ -357,10 +361,7 @@ exports[`renders correctly 1`] = `
               }
             >
               <ActivityIndicator
-                animating={true}
                 color="#fb9f00"
-                hidesWhenStopped={true}
-                size="small"
               />
             </View>
           </View>

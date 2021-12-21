@@ -91,6 +91,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Rewards
           </Text>
@@ -142,7 +143,9 @@ exports[`renders correctly 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        nativeID="animatedComponent"
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -198,6 +201,7 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Rewards
           </Text>
@@ -212,7 +216,9 @@ exports[`renders correctly 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        nativeID="animatedComponent"
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -267,12 +273,15 @@ exports[`renders correctly 1`] = `
                 },
               ]
             }
+            uppercase={false}
           >
             Geclaimed
           </Text>
         </View>
       </View>
       <View
+        collapsable={false}
+        nativeID="animatedComponent"
         style={
           Object {
             "backgroundColor": "#fff",

@@ -90,6 +90,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
+          uppercase={false}
         >
           Notificaties
         </Text>
@@ -106,7 +107,9 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -146,6 +149,7 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
+              uppercase={false}
             >
               Overslaan
             </Text>
@@ -281,6 +285,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
+        uppercase={false}
       >
         NOTIFICATIES
       </Text>
@@ -310,9 +315,16 @@ exports[`renders correctly 1`] = `
     </View>
     <View>
       <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         forwardedRef={[Function]}
+        nativeID="animatedComponent"
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -377,6 +389,7 @@ exports[`renders correctly 1`] = `
                 Object {},
               ]
             }
+            uppercase={false}
           >
             ACCEPTEREN
           </Text>

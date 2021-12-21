@@ -86,6 +86,7 @@ exports[`renders correctly 1`] = `
               ],
             ]
           }
+          uppercase={false}
         >
           Gegevens
         </Text>
@@ -139,16 +140,12 @@ exports[`renders correctly 1`] = `
         },
       ]
     }
-    disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
     keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
     onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
@@ -157,9 +154,7 @@ exports[`renders correctly 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
-    updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
     <View>
       <View
@@ -182,7 +177,9 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -357,13 +354,16 @@ exports[`renders correctly 1`] = `
                   Object {},
                 ]
               }
+              uppercase={false}
             >
               Exporteer gegevens
             </Text>
           </View>
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -537,6 +537,7 @@ exports[`renders correctly 1`] = `
                   Object {},
                 ]
               }
+              uppercase={false}
             >
               Privacy
             </Text>
@@ -563,7 +564,9 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -746,6 +749,7 @@ exports[`renders correctly 1`] = `
                   Object {},
                 ]
               }
+              uppercase={false}
             >
               Verwijder gegevens
             </Text>

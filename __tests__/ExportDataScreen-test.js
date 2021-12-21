@@ -9,12 +9,12 @@ jest.useFakeTimers();
 const navigation = {navigate: jest.fn()};
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(
-      <MockedProvider mocks={[]}>
-        <ExportDataScreen navigation={navigation} setLogOut={() => {}} />
-      </MockedProvider>,
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+	const tree = renderer
+		.create(
+			<MockedProvider mocks={[]}>
+				<ExportDataScreen navigation={navigation} setLogOut={() => {}} />
+			</MockedProvider>,
+		)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
 });

@@ -14,59 +14,59 @@ import Title from '../typography/Title';
 const MARGIN = 5;
 
 const FeedbackCard = ({style, onPress}) => {
-  return (
-    <View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
-      <View style={styles.descriptionContainer}>
-        <View style={styles.titleContainer}>
-          <Title style={styles.title} variant="h4">
-            Feedback please
-          </Title>
-          <FeedbackIcon />
-        </View>
-        <Body variant="b4" style={styles.body}>
-          Wat vond je van deze route? Help ons de app te verbeteren
-        </Body>
-        <Button
-          full
-          style={styles.button}
-          onPress={onPress}
-          label="Feedback geven"
-        />
-      </View>
-    </View>
-  );
+	return (
+		<View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
+			<View style={styles.descriptionContainer}>
+				<View style={styles.titleContainer}>
+					<Title style={styles.title} variant="h4">
+						Feedback please
+					</Title>
+					<FeedbackIcon />
+				</View>
+				<Body variant="b4" style={styles.body}>
+					Wat vond je van deze route? Help ons de app te verbeteren
+				</Body>
+				<Button
+					full
+					style={styles.button}
+					onPress={onPress}
+					label="Feedback geven"
+				/>
+			</View>
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({
-  paper: {
-    backgroundColor: appColors.background,
-    alignSelf: 'stretch',
-    borderRadius: BORDER_RADIUS,
-    marginVertical: 10,
-    ...commonStyles.shadow,
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-  },
-  title: {
-    marginBottom: MARGIN,
-  },
-  body: {
-    marginBottom: MARGIN,
-  },
-  descriptionContainer: {
-    padding: 20,
-  },
+	paper: {
+		backgroundColor: appColors.background,
+		alignSelf: 'stretch',
+		borderRadius: BORDER_RADIUS,
+		marginVertical: 10,
+		...commonStyles.shadow,
+	},
+	titleContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'flex-end',
+	},
+	title: {
+		marginBottom: MARGIN,
+	},
+	body: {
+		marginBottom: MARGIN,
+	},
+	descriptionContainer: {
+		padding: 20,
+	},
 });
 
 FeedbackCard.propTypes = {
-  style: PropTypes.object,
-  onPress: PropTypes.func.isRequired,
+	style: PropTypes.object,
+	onPress: PropTypes.func.isRequired,
 };
 FeedbackCard.defaultProps = {
-  style: {},
+	style: {},
 };
 
 export default FeedbackCard;

@@ -9,8 +9,8 @@ const navigation = {navigate: jest.fn()};
 const route = {params: {tips: []}};
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(<TipScreen navigation={navigation} route={route} />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+	const tree = renderer
+		.create(<TipScreen navigation={navigation} route={route} />)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
 });

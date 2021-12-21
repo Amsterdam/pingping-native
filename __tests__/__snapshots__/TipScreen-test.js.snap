@@ -67,8 +67,10 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
+            collapsable={false}
             focusable={true}
             forwardedRef={[Function]}
+            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -171,6 +173,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
+          uppercase={false}
         >
           Tips
         </Text>
