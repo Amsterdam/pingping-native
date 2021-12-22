@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
-import {VStack} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	KeyboardAvoidingView,
@@ -20,6 +19,7 @@ import StarRating from '../components/route/StarRating';
 import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
 import RoundedButton from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
@@ -71,10 +71,8 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
-			style={{backgroundColor: 'white', flex: 1}}>
-			<ScrollView
-				keyboardShouldPersistTaps="handled"
-				contentContainerStyle={{backgroundColor: 'white'}}>
+			style={styles.container}>
+			<ScrollView keyboardShouldPersistTaps="handled">
 				<ImageOverlayHeader navigation={navigation} cover={cover} />
 				<View style={styles.contentContainer}>
 					{displayError.show && (
@@ -118,6 +116,10 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 }
 
 const styles = StyleSheet.create({
+	container: {
+		backgroundColor: appColors.white,
+		flex: 1,
+	},
 	contentContainer: {
 		paddingHorizontal: 40,
 		paddingVertical: 20,

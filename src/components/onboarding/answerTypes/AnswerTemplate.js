@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
 import QuestionScreenHeader from '../../header/QuestionScreenHeader';
+import Container from '../../shared/Container';
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
@@ -16,7 +17,7 @@ const AnswerTemplate = ({
 	doRevertTask = () => {},
 }) => {
 	return (
-		<View style={{flex: 1}}>
+		<Container>
 			<QuestionScreenHeader
 				currentTask={currentTask}
 				doRevertTask={doRevertTask}
@@ -31,7 +32,7 @@ const AnswerTemplate = ({
 					submitAnswer={doUpdateTask}
 				/>
 			</ScrollView>
-		</View>
+		</Container>
 	);
 };
 

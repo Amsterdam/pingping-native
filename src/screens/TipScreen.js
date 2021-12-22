@@ -5,13 +5,14 @@ import {StyleSheet, View, ScrollView} from 'react-native';
 
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
+import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 
 const TipScreen = ({navigation, route}) => {
 	const {tips} = route.params;
 	return (
-		<View style={{flex: 1, backgroundColor: 'white'}}>
+		<Container>
 			<LabeledHeader title="Tips" navigation={navigation} />
 			<ContentLayout>
 				<ScrollView contentContainerStyle={styles.content}>
@@ -26,7 +27,7 @@ const TipScreen = ({navigation, route}) => {
 						))}
 				</ScrollView>
 			</ContentLayout>
-		</View>
+		</Container>
 	);
 };
 

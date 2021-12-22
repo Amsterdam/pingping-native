@@ -1,27 +1,19 @@
 import React from 'react';
 
-import {Button, Icon} from 'native-base';
+import {IconButton, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import {AntDesign} from 'react-native-vector-icons';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {ppBaseColors} from '../../config/colors';
 
 const HeaderBackButton = ({navigation, style, color = 'white'}) => {
 	return (
-		<Button
-			transparent
+		<IconButton
 			onPress={() => navigation.goBack()}
-			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
-			<Icon
-				name="arrowleft"
-				type="AntDesign"
-				style={{
-					...style,
-					color:
-						color === 'white' ? ppBaseColors.PP_BLACK : ppBaseColors.PP_WHITE,
-				}}
-			/>
-		</Button>
+			style={style}
+			icon={<Icon as={AntDesign} name="emoji-happy" color={color} />}
+			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
+		/>
 	);
 };
 

@@ -2,9 +2,8 @@ import React from 'react';
 
 import {useQuery} from '@apollo/client';
 import LottieView from 'lottie-react-native';
-import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
-import {Animated, StatusBar, StyleSheet, View} from 'react-native';
+import {Animated, StatusBar, StyleSheet, View, ScrollView} from 'react-native';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_ROUTES from '../apollo/Query/getRoutes';
@@ -17,6 +16,7 @@ import ChevronButton from '../components/reward/ChevronButton';
 import RewardCardMini from '../components/reward/RewardCardMini';
 import RouteCard from '../components/route/RouteCard';
 import CitypingsChip from '../components/shared/CitypingsChip';
+import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {appColors} from '../config/colors';
@@ -44,7 +44,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 	balance = me.data?.getStatus?.user?.balance;
 
 	return (
-		<Container style={styles.container}>
+		<Container>
 			<StatusBar
 				backgroundColor={appColors.headerColor}
 				barStyle="light-content"
@@ -56,7 +56,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 				noShadow
 			/>
 
-			<Content
+			<ScrollView
 				onScroll={e => {
 					scrollY.setValue(e.nativeEvent.contentOffset.y);
 				}}
@@ -140,16 +140,13 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 						</View>
 					)}
 				</ContentLayout>
-			</Content>
+			</ScrollView>
 			<View style={styles.underLayer} />
 		</Container>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
-		backgroundColor: appColors.primary,
-	},
 	header: {
 		flexDirection: 'column',
 		backgroundColor: appColors.primary,

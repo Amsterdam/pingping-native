@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {VStack} from 'native-base';
+import PropTypes from 'prop-types';
 import {StyleSheet, SafeAreaView} from 'react-native';
 
 import {appColors} from '../../config/colors';
@@ -25,5 +26,10 @@ const styles = StyleSheet.create({
 		flex: 0,
 	},
 });
+
+Container.propTypes = {
+	children: PropTypes.node.isRequired,
+	statusBarColor: PropTypes.string,
+};
 
 export default Container;

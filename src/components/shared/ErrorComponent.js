@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {RefreshControl, StyleSheet, View, ScrollView} from 'react-native';
 

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Box} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import HeaderBackButton from './HeaderBackButton';
 
@@ -18,6 +17,7 @@ const LabeledHeader = ({
 		header: {
 			alignItems: 'center',
 			justifyContent: 'center',
+			flexDirection: 'row',
 		},
 		headerTitle: {
 			marginTop: 5,
@@ -29,16 +29,13 @@ const LabeledHeader = ({
 	});
 
 	return (
-		<Box style={[styles.header, filledHeader && styles.filledHeader]}>
-			<HeaderBackButton
-				color={filledHeader ? 'black' : 'white'}
-				navigation={navigation}
-			/>
+		<View style={[styles.header, filledHeader && styles.filledHeader]}>
+			<HeaderBackButton navigation={navigation} />
 
 			<Title style={styles.headerTitle} variant="h6">
 				{title}
 			</Title>
-		</Box>
+		</View>
 	);
 };
 

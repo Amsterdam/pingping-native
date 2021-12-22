@@ -1,53 +1,44 @@
 import React from 'react';
 
-import {Box, Icon, Button as NbButton} from 'native-base';
+import {IconButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {appColors, ppBaseColors} from '../../config/colors';
-import normalizeValue from '../../helpers/normalizeValue';
+import {appColors} from '../../config/colors';
 import ProgressBar from '../shared/ProgressBar';
 import Title from '../typography/Title';
 
 const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
 	return (
-		<Box style={styles.header}>
+		<View style={styles.header}>
 			<StatusBar
 				barStyle="dark-content"
 				backgroundColor={appColors.background}
 			/>
-			<View style={styles.flex}>
-				<NbButton
-					transparent
-					onPress={doRevertTask}
-					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
-					<Icon name="arrowleft" type="AntDesign" style={styles.icon} />
-				</NbButton>
-			</View>
+			<IconButton
+				colorScheme="indigo"
+				onPress={doRevertTask}
+				testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
+			/>
+
 			<Title style={styles.headerTitle} variant="h6">
 				{currentTask && currentTask.headerTitle}
 			</Title>
 
-			<View>
-				<ProgressBar progress={currentTask.progress} />
-			</View>
-		</Box>
+			<ProgressBar progress={currentTask.progress} />
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	header: {
 		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	headerTitle: {
 		color: appColors.primary,
 	},
-	icon: {
-		color: ppBaseColors.PP_BLACK,
-		fontSize: normalizeValue(32),
-	},
-	flex: {flex: 1},
 });
 
 QuestionScreenHeader.propTypes = {

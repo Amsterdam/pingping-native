@@ -1,6 +1,5 @@
-import React, {useCallback, useEffect} from 'react';
+import {useCallback, useEffect} from 'react';
 
-import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {Linking, Platform} from 'react-native';
 import {Notifications} from 'react-native-notifications';

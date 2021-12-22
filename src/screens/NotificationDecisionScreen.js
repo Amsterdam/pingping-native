@@ -10,7 +10,7 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Bell from '../assets/svg/Bell';
-import SimpleHeader from '../components/header/SimpleHeader';
+import Container from '../components/shared/Container';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
@@ -53,10 +53,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 	};
 
 	return (
-		<Box
-			testID={testIDs.NOTIFICATON.SCREEN}
-			style={{flex: 1, backgroundColor: 'white'}}
-			safeArea>
+		<Container>
 			<Box style={styles.header} transparent noShadow>
 				<StatusBar
 					barStyle="dark-content"
@@ -97,7 +94,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 					/>
 				</View>
 			</View>
-		</Box>
+		</Container>
 	);
 };
 
@@ -129,9 +126,6 @@ const styles = StyleSheet.create({
 	},
 	headerTitle: {
 		color: appColors.primary,
-	},
-	flex: {
-		flex: 1,
 	},
 });
 

@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {VStack} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
@@ -90,9 +89,6 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 const styles = StyleSheet.create({
 	margin: {
 		marginBottom: 30,
-	},
-	container: {
-		backgroundColor: appColors.headerColor,
 	},
 	scrollView: {
 		backgroundColor: appColors.white,

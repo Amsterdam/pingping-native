@@ -25,6 +25,7 @@ import sentryHelper from '../helpers/sentryHelper';
 // this screen is used in both the onboardingscreen and the settingscreen
 // therefore we configure it based on if the user has accepted the privacy policy
 // we need to set the color accordingly
+
 const PrivacyPolicyScreen = ({navigation}) => {
 	useEffect(() => {
 		async function policyCheck() {
