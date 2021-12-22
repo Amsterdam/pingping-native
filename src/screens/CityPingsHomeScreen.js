@@ -15,7 +15,6 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
-import normalizeValue from '../helpers/normalizeValue';
 
 const CityPingsHomeScreen = ({navigation}) => {
 	React.useEffect(() => {
@@ -145,36 +144,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
-	tabBarUnderlineStyle: {
-		backgroundColor: ppBaseColors.PP_WHITE,
-		borderTopRightRadius: 10,
-		borderTopLeftRadius: 10,
-	},
-	tabStyle: {
-		backgroundColor: appColors.primary,
-	},
-	textStyle: {
-		color: ppBaseColors.PP_WHITE,
-		fontFamily: 'Heavitas',
-		fontSize: normalizeValue(12),
-	},
-	activeTextStyle: {
-		color: ppBaseColors.PP_WHITE,
-		fontFamily: 'Heavitas',
-		fontSize: normalizeValue(14),
-	},
-	shadowRemover: {
-		elevation: 0,
-	},
 });
-
-const TAB_STYLE = {
-	tabStyle: styles.tabStyle,
-	activeTabStyle: styles.tabStyle,
-	textStyle: styles.textStyle,
-	activeTextStyle: styles.activeTextStyle,
-	backgroundColor: appColors.almostNotBlue,
-};
 
 CityPingsHomeScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
