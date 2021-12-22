@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		color: appColors.text,
-		marginBottom: 20,
 	},
 	onboardingText: {
 		color: appColors.subText,

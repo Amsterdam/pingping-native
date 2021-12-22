@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
-import {Container, Header, Left, Right} from 'native-base';
+import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Notifications} from 'react-native-notifications';
@@ -10,6 +10,7 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Bell from '../assets/svg/Bell';
+import SimpleHeader from '../components/header/SimpleHeader';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
@@ -52,26 +53,28 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 	};
 
 	return (
-		<Container testID={testIDs.NOTIFICATON.SCREEN}>
-			<Header style={styles.header} transparent noShadow>
+		<Box
+			testID={testIDs.NOTIFICATON.SCREEN}
+			style={{flex: 1, backgroundColor: 'white'}}
+			safeArea>
+			<Box style={styles.header} transparent noShadow>
 				<StatusBar
 					barStyle="dark-content"
 					backgroundColor={appColors.background}
 				/>
-				<Left style={styles.flex} />
+
 				<Title style={styles.headerTitle} variant="h6">
 					Notificaties
 				</Title>
-				<Right>
-					<TouchableOpacity
-						onPress={declineNotifications}
-						testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
-						<Title style={styles.headerSubButton} variant="h7">
-							Overslaan
-						</Title>
-					</TouchableOpacity>
-				</Right>
-			</Header>
+
+				<TouchableOpacity
+					onPress={declineNotifications}
+					testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
+					<Title style={styles.headerSubButton} variant="h7">
+						Overslaan
+					</Title>
+				</TouchableOpacity>
+			</Box>
 			<View style={styles.viewContainer}>
 				<View>
 					<Bell Bell />
@@ -94,7 +97,7 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 					/>
 				</View>
 			</View>
-		</Container>
+		</Box>
 	);
 };
 

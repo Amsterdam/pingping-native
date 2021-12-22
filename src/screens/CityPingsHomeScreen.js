@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useLazyQuery} from '@apollo/client';
-import {Container, Header, Tab, Tabs} from 'native-base';
+import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 
@@ -10,6 +10,7 @@ import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import AvailableRewardsList from '../components/reward/AvailableRewardsList';
 import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
 import CitypingsChip from '../components/shared/CitypingsChip';
+import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
@@ -59,7 +60,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 
 	return (
 		<Container style={styles.container}>
-			<Header style={styles.header} transparent noShadow hasTabs>
+			<Box style={styles.header}>
 				<StatusBar
 					backgroundColor={appColors.primary}
 					barStyle="light-content"
@@ -70,8 +71,8 @@ const CityPingsHomeScreen = ({navigation}) => {
 					</Title>
 					<CitypingsChip value={balance} />
 				</View>
-			</Header>
-			<Tabs
+			</Box>
+			{/* <Tabs
 				tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
 				tabContainerStyle={styles.shadowRemover}>
 				<Tab heading="Rewards" {...TAB_STYLE}>
@@ -94,7 +95,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 						refreshing={refreshing}
 					/>
 				</Tab>
-			</Tabs>
+			</Tabs> */}
 		</Container>
 	);
 };
@@ -102,11 +103,11 @@ const CityPingsHomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 	header: {
 		flexDirection: 'column',
-		margin: 15,
+		padding: 15,
 		backgroundColor: appColors.primary,
 		height: 100,
 	},
-	container: {backgroundColor: appColors.almostNotBlue},
+	container: {backgroundColor: appColors.primary},
 	title: {
 		color: ppBaseColors.PP_WHITE,
 	},

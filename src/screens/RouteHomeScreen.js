@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useLazyQuery} from '@apollo/client';
-import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	Animated,
@@ -9,6 +8,7 @@ import {
 	StatusBar,
 	StyleSheet,
 	View,
+	ScrollView,
 } from 'react-native';
 import {View as AnimatableView} from 'react-native-animatable';
 
@@ -124,7 +124,7 @@ const RouteHomeScreen = ({navigation}) => {
 	};
 
 	return (
-		<Container style={styles.container} testID={testIDs.ROUTES.SCREEN}>
+		<View style={styles.container} testID={testIDs.ROUTES.SCREEN}>
 			<View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
 			<StatusBar
 				backgroundColor={appColors.headerColor}
@@ -136,7 +136,7 @@ const RouteHomeScreen = ({navigation}) => {
 				noShadow
 			/>
 
-			<Content
+			<ScrollView
 				onScroll={e => {
 					scrollY.setValue(e.nativeEvent.contentOffset.y);
 				}}
@@ -159,14 +159,15 @@ const RouteHomeScreen = ({navigation}) => {
 					)}
 					{routes.data && renderRoutes()}
 				</ContentLayout>
-			</Content>
-		</Container>
+			</ScrollView>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: appColors.headerColor,
+		position: 'relative',
 	},
 	header: {
 		flexDirection: 'column',
@@ -185,7 +186,6 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	content: {
-		position: 'absolute',
 		top: 25,
 		paddingBottom: 75,
 	},

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-import {Container, Content} from 'native-base';
+import {Container} from 'native-base';
 import PropTypes from 'prop-types';
-import {RefreshControl, StyleSheet, View} from 'react-native';
+import {RefreshControl, StyleSheet, View, ScrollView} from 'react-native';
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
@@ -66,38 +66,36 @@ const ErrorComponent = ({
 	const errorType = determineErrorType();
 
 	return (
-		<Container>
-			<Content
-				contentContainerStyle={styles.container}
-				refreshControl={
-					<RefreshControl
-						refreshing={refreshing}
-						onRefresh={onRefresh}
-						tintColor={appColors.primary}
-					/>
-				}>
-				{errorType.illustration}
-
-				<View style={styles.textContainer}>
-					<Title
-						style={styles.title}
-						align="center"
-						variant="h2"
-						numberOfLines={3}>
-						{errorType.title}
-					</Title>
-					<Body variant="b3" align="center">
-						{errorType.body}
-					</Body>
-				</View>
-
-				<Button
-					label={deafultLabelOverRide ? deafultLabelOverRide : errorType.label}
-					onPress={() => onPress()}
-					style={styles.button}
+		<ScrollView
+			contentContainerStyle={styles.container}
+			refreshControl={
+				<RefreshControl
+					refreshing={refreshing}
+					onRefresh={onRefresh}
+					tintColor={appColors.primary}
 				/>
-			</Content>
-		</Container>
+			}>
+			{errorType.illustration}
+
+			<View style={styles.textContainer}>
+				<Title
+					style={styles.title}
+					align="center"
+					variant="h2"
+					numberOfLines={3}>
+					{errorType.title}
+				</Title>
+				<Body variant="b3" align="center">
+					{errorType.body}
+				</Body>
+			</View>
+
+			<Button
+				label={deafultLabelOverRide ? deafultLabelOverRide : errorType.label}
+				onPress={() => onPress()}
+				style={styles.button}
+			/>
+		</ScrollView>
 	);
 };
 

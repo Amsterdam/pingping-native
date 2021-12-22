@@ -1,21 +1,16 @@
 import React from 'react';
 
-import {Header} from 'native-base';
+import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 
 import DynamicStatusbar from './DynamicStatusbar';
 
-import {setHeaderColor} from '../../config/colors';
-
 const HeaderTemplate = ({style, children, color = 'primary'}) => {
 	return (
-		<Header
-			style={{backgroundColor: setHeaderColor(color), ...style}}
-			transparent
-			noShadow>
+		<Box safeAreaTop style={style}>
 			<DynamicStatusbar color={color} />
 			{children}
-		</Header>
+		</Box>
 	);
 };
 

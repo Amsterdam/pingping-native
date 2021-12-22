@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Header, Icon, Left, Button as NbButton, Right} from 'native-base';
+import {Box, Icon, Button as NbButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 
@@ -12,29 +12,27 @@ import Title from '../typography/Title';
 
 const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
 	return (
-		<Header style={styles.header} transparent noShadow>
+		<Box style={styles.header}>
 			<StatusBar
 				barStyle="dark-content"
 				backgroundColor={appColors.background}
 			/>
-			<Left style={styles.flex}>
+			<View style={styles.flex}>
 				<NbButton
 					transparent
 					onPress={doRevertTask}
 					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
 					<Icon name="arrowleft" type="AntDesign" style={styles.icon} />
 				</NbButton>
-			</Left>
+			</View>
 			<Title style={styles.headerTitle} variant="h6">
 				{currentTask && currentTask.headerTitle}
 			</Title>
 
-			<Right>
-				<View>
-					<ProgressBar progress={currentTask.progress} />
-				</View>
-			</Right>
-		</Header>
+			<View>
+				<ProgressBar progress={currentTask.progress} />
+			</View>
+		</Box>
 	);
 };
 

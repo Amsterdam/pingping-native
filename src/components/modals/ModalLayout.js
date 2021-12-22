@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {Root} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	Dimensions,
@@ -34,29 +33,27 @@ const ModalLayout = ({
 				backgroundColor={appColors.headerColor}
 				barStyle="light-content"
 			/>
-			<Root>
-				<KeyboardAvoidingView
-					behavior="position"
-					style={styles.container}
-					contentContainerStyle={styles.content}>
-					<ScrollView
-						contentContainerStyle={styles.content}
-						keyboardShouldPersistTaps={'handled'}>
-						<View style={styles.imageContainer}>
-							<Image source={image} style={styles.image} />
-							<View style={styles.imageOverlay}>
-								<IconButton
-									iconName="close"
-									iconType="MaterialIcons"
-									onPress={closeModal}
-									size="L"
-								/>
-							</View>
+			<KeyboardAvoidingView
+				behavior="position"
+				style={styles.container}
+				contentContainerStyle={styles.content}>
+				<ScrollView
+					contentContainerStyle={styles.content}
+					keyboardShouldPersistTaps={'handled'}>
+					<View style={styles.imageContainer}>
+						<Image source={image} style={styles.image} />
+						<View style={styles.imageOverlay}>
+							<IconButton
+								iconName="close"
+								iconType="MaterialIcons"
+								onPress={closeModal}
+								size="L"
+							/>
 						</View>
-						{children}
-					</ScrollView>
-				</KeyboardAvoidingView>
-			</Root>
+					</View>
+					{children}
+				</ScrollView>
+			</KeyboardAvoidingView>
 		</Modal>
 	);
 };

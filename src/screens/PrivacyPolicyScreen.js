@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Container, Content} from 'native-base';
+import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
@@ -12,6 +12,7 @@ import routes from '../App/stacks/routes';
 import FloppyDisk from '../assets/svg/FloppyDisk';
 import LabeledHeader from '../components/header/LabeledHeader';
 import SimpleHeader from '../components/header/SimpleHeader';
+import Container from '../components/shared/Container';
 import Loading from '../components/shared/LoadingComponent';
 import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion';
 import Button from '../components/shared/RoundedButton';
@@ -21,6 +22,9 @@ import {appColors} from '../config/colors';
 import {doRegisterDevice} from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
+// this screen is used in both the onboardingscreen and the settingscreen
+// therefore we configure it based on if the user has accepted the privacy policy
+// we need to set the color accordingly
 const PrivacyPolicyScreen = ({navigation}) => {
 	useEffect(() => {
 		async function policyCheck() {
@@ -55,13 +59,15 @@ const PrivacyPolicyScreen = ({navigation}) => {
 	};
 
 	return (
-		<Container testID={testIDs.PRIVACY.SCREEN}>
+		<Container
+			testID={testIDs.PRIVACY.SCREEN}
+			statusBarColor={policyAccepted ? appColors.headerColor : appColors.white}>
 			{policyAccepted ? (
 				<LabeledHeader filledHeader navigation={navigation} title="Privacy" />
 			) : (
 				<SimpleHeader title="Privacy" color="white" />
 			)}
-			<Content contentContainerStyle={styles.content}>
+			<ScrollView contentContainerStyle={styles.content}>
 				<View style={styles.viewContainer}>
 					<View>
 						<FloppyDisk />
@@ -87,7 +93,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
 						</View>
 					)}
 				</View>
-			</Content>
+			</ScrollView>
 			{loading && <Loading />}
 		</Container>
 	);

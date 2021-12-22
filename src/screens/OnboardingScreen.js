@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 
 import {useQuery} from '@apollo/client';
-import {Container, Header, Left, Right} from 'native-base';
+import {HStack} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
+import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
@@ -14,6 +14,7 @@ import BackPack from '../assets/svg/BackPack';
 import Vault from '../assets/svg/Vault';
 import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import OnboardingItem from '../components/onboarding/OnboardingItem';
+import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
@@ -71,33 +72,38 @@ const OnboardingScreen = ({navigation}) => {
 	}, [swiper, data, navigation]);
 
 	return (
-		<Container testID={testIDs.ONBOARDING.SCREEN}>
-			<Header style={styles.header} transparent noShadow>
+		<Container testID={testIDs.ONBOARDING.SCREEN} safeArea>
+			<HStack>
 				<StatusBar
 					barStyle="dark-content"
 					backgroundColor={appColors.background}
 				/>
-				<Left style={styles.flex} />
-				<Title style={styles.headerTitle} variant="h6">
-					INTRODUCTIE
-				</Title>
-				<Right>
+
+				<View>
+					<Title style={styles.headerTitle} variant="h6">
+						INTRODUCTIE
+					</Title>
+				</View>
+
+				<View>
 					<TouchableOpacity
 						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
 						onPress={() =>
 							navigation.navigate(routes.onboardingStack.importDataScreen)
 						}>
-						<Title style={styles.buttonLabel} variant="h7">
+						<Title style={styles.buttonLabel} variant="h7" align="right">
 							Inloggen
 						</Title>
 					</TouchableOpacity>
-				</Right>
-			</Header>
+				</View>
+			</HStack>
+
 			{debugMode ? (
 				<Body variant="b3" align="center">{`${version} beta`}</Body>
 			) : (
 				<></>
 			)}
+
 			<Swiper
 				loop={false}
 				dotColor={ppBaseColors.PP_GRAY}
@@ -118,18 +124,11 @@ const OnboardingScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-	header: {
-		backgroundColor: appColors.background,
-		alignItems: 'center',
-	},
 	headerTitle: {
 		color: appColors.primary,
 	},
 	buttonLabel: {
 		color: appColors.greyedOut,
-	},
-	flex: {
-		flex: 1,
 	},
 });
 

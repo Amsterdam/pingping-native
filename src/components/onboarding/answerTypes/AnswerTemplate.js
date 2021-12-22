@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Container, Content} from 'native-base';
+import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
@@ -16,12 +16,12 @@ const AnswerTemplate = ({
 	doRevertTask = () => {},
 }) => {
 	return (
-		<Container>
+		<View style={{flex: 1}}>
 			<QuestionScreenHeader
 				currentTask={currentTask}
 				doRevertTask={doRevertTask}
 			/>
-			<Content contentContainerStyle={styles.content}>
+			<ScrollView contentContainerStyle={styles.content}>
 				<Title variant="h2" align="center">
 					{currentTask.title}
 				</Title>
@@ -30,8 +30,8 @@ const AnswerTemplate = ({
 					nextButtonDisabled={nextButtonDisabled}
 					submitAnswer={doUpdateTask}
 				/>
-			</Content>
-		</Container>
+			</ScrollView>
+		</View>
 	);
 };
 

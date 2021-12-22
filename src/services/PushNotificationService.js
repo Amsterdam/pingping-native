@@ -70,7 +70,7 @@ const PushNotificationManager = ({children}) => {
 		);
 	}, []);
 
-	return <Container>{children}</Container>;
+	return children;
 };
 
 PushNotificationManager.propTypes = {

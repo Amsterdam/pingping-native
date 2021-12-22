@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Header, Left, Right} from 'native-base';
+import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet} from 'react-native';
 
@@ -26,31 +26,19 @@ const LabeledHeader = ({
 		filledHeader: {
 			backgroundColor: appColors.headerColor,
 		},
-		flex: {
-			flex: 1,
-		},
 	});
 
 	return (
-		<Header
-			style={[styles.header, filledHeader && styles.filledHeader]}
-			transparent
-			noShadow>
-			<StatusBar
-				barStyle={filledHeader ? 'light-content' : 'dark-content'}
-				backgroundColor={appColors.headerColor}
+		<Box style={[styles.header, filledHeader && styles.filledHeader]}>
+			<HeaderBackButton
+				color={filledHeader ? 'black' : 'white'}
+				navigation={navigation}
 			/>
-			<Left style={styles.flex}>
-				<HeaderBackButton
-					color={filledHeader ? 'black' : 'white'}
-					navigation={navigation}
-				/>
-			</Left>
+
 			<Title style={styles.headerTitle} variant="h6">
 				{title}
 			</Title>
-			<Right style={styles.flex} />
-		</Header>
+		</Box>
 	);
 };
 

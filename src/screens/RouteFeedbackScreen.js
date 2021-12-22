@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
-import {Container} from 'native-base';
+import {VStack} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	KeyboardAvoidingView,
@@ -69,50 +69,51 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 	};
 
 	return (
-		<Container>
-			<KeyboardAvoidingView
-				behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
-				<ScrollView keyboardShouldPersistTaps="handled">
-					<ImageOverlayHeader navigation={navigation} cover={cover} />
-					<View style={styles.contentContainer}>
-						{displayError.show && (
-							<MinimalErrorComponent message={displayError.message} />
-						)}
-						<Title variant="h2" style={styles.title}>
-							Wat vond je van de route?
-						</Title>
-						<View style={styles.starContainer}>
-							<StarRating
-								numberActive={state.numberActive}
-								numberOfStars={5}
-								onRate={onRate}
-							/>
-						</View>
-						<View style={styles.inputContainer}>
-							<Title style={styles.anyTips} variant="h4">
-								Heb je nog tips om de app te verbeteren?
-							</Title>
-							<TextInput
-								style={styles.inputContainerMultiline}
-								onChangeText={text => setState({...state, feedback: text})}
-								value={state.feedback}
-								placeholder="Wat vind jij dat er beter kan?"
-								multiline
-								scrollEnabled={false}
-								numberOfLines={6}
-							/>
-						</View>
-						<RoundedButton
-							label="verstuur"
-							style={styles.button}
-							onPress={doSubmit}
-							disabled={!state.numberActive > 0}
+		<KeyboardAvoidingView
+			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
+			style={{backgroundColor: 'white', flex: 1}}>
+			<ScrollView
+				keyboardShouldPersistTaps="handled"
+				contentContainerStyle={{backgroundColor: 'white'}}>
+				<ImageOverlayHeader navigation={navigation} cover={cover} />
+				<View style={styles.contentContainer}>
+					{displayError.show && (
+						<MinimalErrorComponent message={displayError.message} />
+					)}
+					<Title variant="h2" style={styles.title}>
+						Wat vond je van de route?
+					</Title>
+					<View style={styles.starContainer}>
+						<StarRating
+							numberActive={state.numberActive}
+							numberOfStars={5}
+							onRate={onRate}
 						/>
 					</View>
-				</ScrollView>
-			</KeyboardAvoidingView>
-			<ThankYouFeedbackModal open={thankYouOpen} />
-		</Container>
+					<View style={styles.inputContainer}>
+						<Title style={styles.anyTips} variant="h4">
+							Heb je nog tips om de app te verbeteren?
+						</Title>
+						<TextInput
+							style={styles.inputContainerMultiline}
+							onChangeText={text => setState({...state, feedback: text})}
+							value={state.feedback}
+							placeholder="Wat vind jij dat er beter kan?"
+							multiline
+							scrollEnabled={false}
+							numberOfLines={6}
+						/>
+					</View>
+					<RoundedButton
+						label="verstuur"
+						style={styles.button}
+						onPress={doSubmit}
+						disabled={!state.numberActive > 0}
+					/>
+				</View>
+				<ThankYouFeedbackModal open={thankYouOpen} />
+			</ScrollView>
+		</KeyboardAvoidingView>
 	);
 }
 

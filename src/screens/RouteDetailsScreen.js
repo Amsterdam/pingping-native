@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useQuery} from '@apollo/client';
-import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 
@@ -12,6 +11,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import RouteTaskRow from '../components/route/RouteTaskRow';
 import TipsChip from '../components/route/TipsChip';
 import TrophyOrProgress from '../components/route/TrophyOrProgress';
+import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Button from '../components/shared/RoundedButton';
 import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
