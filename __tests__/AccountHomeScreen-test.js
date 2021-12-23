@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {NativeBaseProvider} from 'native-base';
 import renderer from 'react-test-renderer';
 
 import AccountHomeScreen from '../src/screens/AccountHomeScreen';
@@ -9,7 +10,11 @@ const navigation = {navigate: jest.fn()};
 
 test('renders correctly', () => {
 	const tree = renderer
-		.create(<AccountHomeScreen navigation={navigation} />)
+		.create(
+			<NativeBaseProvider>
+				<AccountHomeScreen navigation={navigation} />
+			</NativeBaseProvider>,
+		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

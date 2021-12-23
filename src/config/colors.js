@@ -31,16 +31,3 @@ export const appColors = {
 	modalBackground: 'rgba(1,1,1,0.8)',
 	taskRowBackground: 'rgba(191, 233, 238, 0.3)',
 };
-
-export function setHeaderColor(color) {
-	switch (color) {
-		case 'primary':
-			return appColors.headerColor;
-
-		case 'white':
-			return appColors.white;
-
-		default:
-			return '#000';
-	}
-}

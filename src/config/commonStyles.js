@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-import {ppBaseColors} from './colors';
+import {appColors, ppBaseColors} from './colors';
 
 export const commonStyles = StyleSheet.create({
 	logoFont: {
@@ -48,6 +48,10 @@ export const commonStyles = StyleSheet.create({
 		fontFamily: 'Heavitas',
 		textAlign: 'center',
 		fontSize: 40,
+	},
+	iconButton: {
+		backgroundColor: appColors.headerColor,
+		borderRadius: 50,
 	},
 });
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import {useLazyQuery, useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Container, Content} from 'native-base';
+import {Container, ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 
@@ -43,7 +43,7 @@ const ImportDataScreen = ({navigation}) => {
 	return (
 		<Container testID={testIDs.IMPORT_DATA.SCREEN}>
 			<LabeledHeader navigation={navigation} title="INLOGGEN" />
-			<Content>
+			<ScrollView>
 				<ContentLayout>
 					<Title style={styles.margin}>Gegevens Importeren</Title>
 					<Body variant="b3" style={styles.margin}>
@@ -63,7 +63,7 @@ const ImportDataScreen = ({navigation}) => {
 						loading={loading}
 					/>
 				</ContentLayout>
-			</Content>
+			</ScrollView>
 		</Container>
 	);
 };

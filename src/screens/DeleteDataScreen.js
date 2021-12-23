@@ -2,19 +2,21 @@ import React, {useState} from 'react';
 
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
 import {resetStore} from '../apollo/apolloClient';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
+import TrashIcon from '../assets/svg/icons/TrashIcon';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
+import Container from '../components/shared/Container';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 import sentryHelper from '../helpers/sentryHelper';
 
 const DeleteDataScreen = ({navigation, setLogOut}) => {
@@ -40,9 +42,11 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 	};
 
 	return (
-		<Container testID={testIDs.DELETE_DATA.SCREEN}>
+		<Container
+			testID={testIDs.DELETE_DATA.SCREEN}
+			statusBarColor={appColors.headerColor}>
 			<LabeledHeader filledHeader navigation={navigation} title="Privacy" />
-			<Content>
+			<ScrollView contentContainerStyle={styles.scrollView}>
 				<ContentLayout>
 					<Title style={styles.margin}>Jouw eigen gegevens</Title>
 					<View style={styles.emojiContainer}>
@@ -61,8 +65,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 					<View style={styles.inputContainer}>
 						<Button
 							deleteButton
-							iconName="delete"
-							iconType="AntDesign"
+							icon={<TrashIcon height={20} color={appColors.white} />}
 							label="Verwijder mijn gegevens"
 							onPress={() => setOpen(true)}
 							testid={testIDs.DELETE_DATA.DELETE_BUTTON}
@@ -70,7 +73,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 						/>
 					</View>
 				</ContentLayout>
-			</Content>
+			</ScrollView>
 			<DeleteDataModal
 				open={open}
 				setOpen={setOpen}
@@ -86,6 +89,10 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 const styles = StyleSheet.create({
 	margin: {
 		marginBottom: 30,
+	},
+	scrollView: {
+		backgroundColor: appColors.white,
+		flex: 1,
 	},
 	inputContainer: {alignItems: 'center', justifyContent: 'center'},
 	emojiContainer: {

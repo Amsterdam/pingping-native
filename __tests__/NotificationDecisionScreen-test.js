@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {MockedProvider} from '@apollo/client/testing';
+import {NativeBaseProvider} from 'native-base';
 import renderer from 'react-test-renderer';
 
 import NotificationDecisionScreen from '../src/screens/NotificationDecisionScreen';
@@ -12,12 +13,14 @@ const setLogin = jest.fn();
 test('renders correctly', () => {
 	const tree = renderer
 		.create(
-			<MockedProvider mocks={[]}>
-				<NotificationDecisionScreen
-					navigation={navigation}
-					setLogin={setLogin}
-				/>
-			</MockedProvider>,
+			<NativeBaseProvider>
+				<MockedProvider mocks={[]}>
+					<NotificationDecisionScreen
+						navigation={navigation}
+						setLogin={setLogin}
+					/>
+				</MockedProvider>
+			</NativeBaseProvider>,
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
-import {Container, Root, Toast} from 'native-base';
+import {Toast} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -11,6 +11,7 @@ import routes from '../App/stacks/routes';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import WebViewModal from '../components/modals/WebViewModal';
 import CityPingsBalance from '../components/shared/CityPingsBalance';
+import Container from '../components/shared/Container';
 import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
@@ -79,42 +80,41 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 	return (
 		<Container>
-			<Root>
-				<ScrollView>
-					<ImageOverlayHeader
-						navigation={navigation}
-						cover={cover}
-						cityPings={price}
-					/>
-					<View style={styles.contentContainer}>
-						<Body variant="b3" style={styles.label}>
-							Rewards
-						</Body>
-						<Title variant="h2" style={styles.title}>
-							{title}
-						</Title>
-						<CityPingsBalance balance={balance} price={price} />
-						<View style={styles.description}>
-							<HTMLRenderer
-								html={description}
-								setUrlToVisit={setUrlToVisit}
-								setWebviewOpen={setWebviewOpen}
-							/>
-						</View>
-					</View>
-				</ScrollView>
-				<View style={styles.buttonContainer}>
-					<Body variant="b3" stlye={styles.balanceIndicatorText}>
-						{available ? 'Lets go!' : 'Nog even doorsparen !'}
+			<ScrollView>
+				<ImageOverlayHeader
+					navigation={navigation}
+					cover={cover}
+					cityPings={price}
+				/>
+				<View style={styles.contentContainer}>
+					<Body variant="b3" style={styles.label}>
+						Rewards
 					</Body>
-					<Button
-						style={styles.button}
-						disabled={!available || loading}
-						label="Claim"
-						onPress={doClaimReward}
-					/>
+					<Title variant="h2" style={styles.title}>
+						{title}
+					</Title>
+					<CityPingsBalance balance={balance} price={price} />
+					<View style={styles.description}>
+						<HTMLRenderer
+							html={description}
+							setUrlToVisit={setUrlToVisit}
+							setWebviewOpen={setWebviewOpen}
+						/>
+					</View>
 				</View>
-			</Root>
+			</ScrollView>
+			<View style={styles.buttonContainer}>
+				<Body variant="b3" stlye={styles.balanceIndicatorText}>
+					{available ? 'Lets go!' : 'Nog even doorsparen !'}
+				</Body>
+				<Button
+					style={styles.button}
+					disabled={!available || loading}
+					label="Claim"
+					onPress={doClaimReward}
+				/>
+			</View>
+
 			<WebViewModal
 				urlToVisit={urlToVisit}
 				closeModal={closeModal}

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
-import {Container, Root, Toast} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	ActivityIndicator,
@@ -18,6 +17,7 @@ import routes from '../App/stacks/routes';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import WebViewModal from '../components/modals/WebViewModal';
+import Container from '../components/shared/Container';
 import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
@@ -121,12 +121,12 @@ const TaskScreen = ({navigation, route}) => {
 			throw new Error('Om Hulp Gevraagd');
 		} catch (error) {
 			sentryHelper(error.message);
-			Toast.show({
-				text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
-				textStyle: {fontFamily: 'Raleway-Regular'},
-				style: {backgroundColor: ppBaseColors.PP_BLACK, borderRadius: 10},
-				duration: 2000,
-			}); // change the error message once complete
+			// Toast.show({
+			// 	text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
+			// 	textStyle: {fontFamily: 'Raleway-Regular'},
+			// 	style: {backgroundColor: ppBaseColors.PP_BLACK, borderRadius: 10},
+			// 	duration: 2000,
+			// }); // change the error message once complete
 		}
 	};
 
@@ -134,50 +134,48 @@ const TaskScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<Root>
-				<LabeledHeader
-					filledHeader
-					navigation={navigation}
-					title={task.headerTitle}
-				/>
-				<ScrollView contentContainerStyle={styles.contentContainer}>
-					{task?.media && renderMedia(task.media)}
-					<ContentLayout>
-						<Title variant="h3">{task.title}</Title>
-						<HTMLRenderer
-							html={task.description}
-							setUrlToVisit={setUrlToVisit}
-							setWebviewOpen={setWebviewOpen}
+			<LabeledHeader
+				filledHeader
+				navigation={navigation}
+				title={task.headerTitle}
+			/>
+			<ScrollView contentContainerStyle={styles.contentContainer}>
+				{task?.media && renderMedia(task.media)}
+				<ContentLayout>
+					<Title variant="h3">{task.title}</Title>
+					<HTMLRenderer
+						html={task.description}
+						setUrlToVisit={setUrlToVisit}
+						setWebviewOpen={setWebviewOpen}
+					/>
+				</ContentLayout>
+			</ScrollView>
+
+			{taskStatus ? (
+				<View style={styles.completedTagLineContainer}>
+					<Title style={styles.completedTagLine} variant="h6" align="center">
+						Je {task.headerTitle} is gefikst
+					</Title>
+				</View>
+			) : (
+				<View style={styles.buttonContainer}>
+					<React.Fragment>
+						<Button
+							style={styles.buttonHelp}
+							label="Hulp nodig?"
+							onPress={needHelp}
 						/>
-					</ContentLayout>
-				</ScrollView>
+						<Button label="Gelukt!" onPress={doCompleteTask} />
+					</React.Fragment>
+				</View>
+			)}
 
-				{taskStatus ? (
-					<View style={styles.completedTagLineContainer}>
-						<Title style={styles.completedTagLine} variant="h6" align="center">
-							Je {task.headerTitle} is gefikst
-						</Title>
-					</View>
-				) : (
-					<View style={styles.buttonContainer}>
-						<React.Fragment>
-							<Button
-								style={styles.buttonHelp}
-								label="Hulp nodig?"
-								onPress={needHelp}
-							/>
-							<Button label="Gelukt!" onPress={doCompleteTask} />
-						</React.Fragment>
-					</View>
-				)}
-
-				{loading && <Loading />}
-				<WebViewModal
-					urlToVisit={urlToVisit}
-					closeModal={closeModal}
-					webViewOpen={webViewOpen}
-				/>
-			</Root>
+			{loading && <Loading />}
+			<WebViewModal
+				urlToVisit={urlToVisit}
+				closeModal={closeModal}
+				webViewOpen={webViewOpen}
+			/>
 		</Container>
 	);
 };

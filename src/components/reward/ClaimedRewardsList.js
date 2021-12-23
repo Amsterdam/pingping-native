@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Content} from 'native-base';
 import PropTypes from 'prop-types';
-import {RefreshControl} from 'react-native';
+import {RefreshControl, ScrollView} from 'react-native';
 
 import RewardCard from './RewardCard';
 
@@ -17,7 +16,7 @@ const ClaimedRewardsList = ({
 	onRefresh,
 }) => {
 	return (
-		<Content
+		<ScrollView
 			style={{backgroundColor: appColors.almostNotBlue}}
 			refreshControl={
 				<RefreshControl
@@ -38,7 +37,7 @@ const ClaimedRewardsList = ({
 					/>
 				))}
 			</ContentLayout>
-		</Content>
+		</ScrollView>
 	);
 };
 

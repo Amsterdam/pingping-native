@@ -1,12 +1,14 @@
 import React from 'react';
 
+import {ChevronLeftIcon, IconButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import {appColors} from '../../config/colors';
+import {commonStyles} from '../../config/commonStyles';
 import {BASE_URL} from '../../config/initialSettings';
 import CitypingsChip from '../shared/CitypingsChip';
-import IconButton from '../shared/IconButton';
 import ProgressiveImage from '../shared/ProgressiveImage';
 
 const screenHeight = Dimensions.get('window').height;
@@ -30,11 +32,10 @@ const ImageOverlayHeader = ({
 			/>
 			<View style={styles.imageOverlay}>
 				<IconButton
-					iconName="chevron-left"
-					iconType="MaterialIcons"
 					onPress={() => navigation.goBack()}
-					size="L"
-					testID={testIDs.NAVIGATION.IMAGE_OVERLAY_BACK_BUTTON}
+					style={commonStyles.iconButton}
+					icon={<ChevronLeftIcon color={appColors.white} />}
+					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
 				/>
 				<CitypingsChip value={cityPings} />
 			</View>

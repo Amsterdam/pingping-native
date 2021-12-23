@@ -2,17 +2,18 @@ import React, {useEffect} from 'react';
 
 import {useQuery} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 
 import {resetStore} from '../apollo/apolloClient';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import QrCode from '../components/account/QrCode';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
+import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
+import {appColors} from '../config/colors';
 
 const ExportDataScreen = ({navigation, setLogOut}) => {
 	const {data, error} = useQuery(GET_STATUS_QUERY, {
@@ -34,9 +35,9 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 	}, [error, setLogOut]);
 
 	return (
-		<Container>
+		<Container statusBarColor={appColors.headerColor}>
 			<LabeledHeader filledHeader navigation={navigation} title="Profiel" />
-			<Content>
+			<ScrollView>
 				<ContentLayout>
 					<Title style={styles.margin}>Gegevens Exporteren</Title>
 					<Body variant="b3" style={styles.margin}>
@@ -53,7 +54,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 						<QrCode exportToken={exportToken} />
 					</View>
 				</ContentLayout>
-			</Content>
+			</ScrollView>
 		</Container>
 	);
 };

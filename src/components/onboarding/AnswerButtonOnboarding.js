@@ -18,9 +18,7 @@ const AnswerButtonOnboarding = ({
 		<Button
 			testID={testid}
 			style={[styles.button, active && styles.activeButton]}
-			transparent
-			bordered
-			full
+			variant="outline"
 			onPress={onPress}>
 			<Text style={[styles.label, active && styles.activeText]}>{label}</Text>
 		</Button>

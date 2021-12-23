@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {Container, Content} from 'native-base';
+import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
 import QuestionScreenHeader from '../../header/QuestionScreenHeader';
+import Container from '../../shared/Container';
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
@@ -21,7 +22,7 @@ const AnswerTemplate = ({
 				currentTask={currentTask}
 				doRevertTask={doRevertTask}
 			/>
-			<Content contentContainerStyle={styles.content}>
+			<ScrollView contentContainerStyle={styles.content}>
 				<Title variant="h2" align="center">
 					{currentTask.title}
 				</Title>
@@ -30,7 +31,7 @@ const AnswerTemplate = ({
 					nextButtonDisabled={nextButtonDisabled}
 					submitAnswer={doUpdateTask}
 				/>
-			</Content>
+			</ScrollView>
 		</Container>
 	);
 };

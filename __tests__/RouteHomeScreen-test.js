@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {MockedProvider} from '@apollo/client/testing';
+import {NativeBaseProvider} from 'native-base';
 import renderer from 'react-test-renderer';
 
 import RouteHomeScreen from '../src/screens/RouteHomeScreen';
@@ -11,9 +12,11 @@ const navigation = {navigate: jest.fn(), addListener: jest.fn()};
 test('renders correctly', () => {
 	const tree = renderer
 		.create(
-			<MockedProvider mocks={[]}>
-				<RouteHomeScreen navigation={navigation} />
-			</MockedProvider>,
+			<NativeBaseProvider>
+				<MockedProvider mocks={[]}>
+					<RouteHomeScreen navigation={navigation} />
+				</MockedProvider>
+			</NativeBaseProvider>,
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

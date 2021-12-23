@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Header, Left, Right} from 'native-base';
+import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import HeaderBackButton from './HeaderBackButton';
 
@@ -13,11 +13,14 @@ const LabeledHeader = ({
 	navigation = () => {},
 	filledHeader = false,
 	title = 'none',
+	color = 'primary',
 }) => {
 	const styles = StyleSheet.create({
 		header: {
-			alignItems: 'center',
+			flexDirection: 'row',
 			justifyContent: 'center',
+			alignItems: 'center',
+			minHeight: 56,
 		},
 		headerTitle: {
 			marginTop: 5,
@@ -26,31 +29,25 @@ const LabeledHeader = ({
 		filledHeader: {
 			backgroundColor: appColors.headerColor,
 		},
-		flex: {
-			flex: 1,
+		backButton: {
+			position: 'absolute',
+			left: 0,
 		},
 	});
 
 	return (
-		<Header
-			style={[styles.header, filledHeader && styles.filledHeader]}
-			transparent
-			noShadow>
+		<View style={[styles.header, filledHeader && styles.filledHeader]}>
 			<StatusBar
-				barStyle={filledHeader ? 'light-content' : 'dark-content'}
-				backgroundColor={appColors.headerColor}
+				barStyle={color === 'primary' ? 'light-content' : 'dark-content'}
 			/>
-			<Left style={styles.flex}>
-				<HeaderBackButton
-					color={filledHeader ? 'black' : 'white'}
-					navigation={navigation}
-				/>
-			</Left>
+			<View style={styles.backButton}>
+				<HeaderBackButton navigation={navigation} />
+			</View>
+
 			<Title style={styles.headerTitle} variant="h6">
 				{title}
 			</Title>
-			<Right style={styles.flex} />
-		</Header>
+		</View>
 	);
 };
 
@@ -58,10 +55,12 @@ LabeledHeader.propTypes = {
 	navigation: PropTypes.object.isRequired,
 	filledHeader: PropTypes.bool,
 	title: PropTypes.string,
+	color: PropTypes.string,
 };
 LabeledHeader.defaultProps = {
 	filledHeader: false,
 	title: '',
+	color: 'primary',
 };
 
 export default LabeledHeader;

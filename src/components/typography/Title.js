@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Text} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
 import normalizeValue from '../../helpers/normalizeValue';
 

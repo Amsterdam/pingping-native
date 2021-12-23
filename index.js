@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {ApolloProvider} from '@apollo/client';
+import {NativeBaseProvider} from 'native-base';
 import {AppRegistry} from 'react-native';
 import {enableScreens} from 'react-native-screens';
 
@@ -12,7 +13,9 @@ enableScreens();
 
 const PingPingNative = () => (
 	<ApolloProvider client={client}>
-		<RootApp />
+		<NativeBaseProvider>
+			<RootApp />
+		</NativeBaseProvider>
 	</ApolloProvider>
 );
 
