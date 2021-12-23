@@ -9,7 +9,7 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import {resetStore} from '../apollo/apolloClient';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
 import TrashIcon from '../assets/svg/icons/TrashIcon';
-import LabeledHeader from '../components/header/LabeledHeader';
+import FilledHeader from '../components/header/FilledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
 import Container from '../components/shared/Container';
@@ -45,7 +45,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 		<Container
 			testID={testIDs.DELETE_DATA.SCREEN}
 			statusBarColor={appColors.headerColor}>
-			<LabeledHeader filledHeader navigation={navigation} title="Privacy" />
+			FilledHeader navigation={navigation} title="Privacy" />
 			<ScrollView contentContainerStyle={styles.scrollView}>
 				<ContentLayout>
 					<Title style={styles.margin}>Jouw eigen gegevens</Title>
