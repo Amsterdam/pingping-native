@@ -9,12 +9,19 @@ import HeaderBackButton from './HeaderBackButton';
 import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
-const FilledHeader = ({navigation = () => {}, title = 'none'}) => {
+const FilledHeader = ({
+	navigation = () => {},
+	title = 'none',
+	color = 'light',
+}) => {
 	return (
 		<View style={[styles.header, styles.filledHeader]}>
 			<StatusBar barStyle={'light-content'} />
 			<View style={styles.backButton}>
-				<HeaderBackButton onPressAction={() => navigation.goBack()} />
+				<HeaderBackButton
+					onPressAction={() => navigation.goBack()}
+					color={color}
+				/>
 			</View>
 
 			<Title style={styles.headerTitle} variant="h6">
@@ -47,9 +54,11 @@ const styles = StyleSheet.create({
 FilledHeader.propTypes = {
 	navigation: PropTypes.object.isRequired,
 	title: PropTypes.string,
+	color: PropTypes.string,
 };
 FilledHeader.defaultProps = {
 	title: '',
+	color: 'light',
 };
 
 export default FilledHeader;
