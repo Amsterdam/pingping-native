@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ScrollView} from 'react-native';
 
-import LabeledHeader from '../components/header/LabeledHeader';
+import Header from '../components/header/Header';
+import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
@@ -13,7 +14,15 @@ const TipScreen = ({navigation, route}) => {
 	const {tips} = route.params;
 	return (
 		<Container>
-			<LabeledHeader title="Tips" navigation={navigation} />
+			<Header
+				title="Tips"
+				left={
+					<HeaderBackButton
+						onPressAction={() => navigation.goBack()}
+						color="dark"
+					/>
+				}
+			/>
 			<ContentLayout>
 				<ScrollView contentContainerStyle={styles.content}>
 					{tips?.length > 0 &&
