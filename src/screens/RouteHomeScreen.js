@@ -132,8 +132,6 @@ const RouteHomeScreen = ({navigation}) => {
 			/>
 			<Animated.View
 				style={[styles.header, {transform: [{translateY: translateY}]}]}
-				transparent
-				noShadow
 			/>
 
 			<ScrollView

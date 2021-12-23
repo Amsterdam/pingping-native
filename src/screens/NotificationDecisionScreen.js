@@ -1,15 +1,15 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
-import {Box} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Notifications} from 'react-native-notifications';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Bell from '../assets/svg/Bell';
+import Header from '../components/header/Header';
 import Container from '../components/shared/Container';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
@@ -54,24 +54,19 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 
 	return (
 		<Container>
-			<Box style={styles.header} transparent noShadow>
-				<StatusBar
-					barStyle="dark-content"
-					backgroundColor={appColors.background}
-				/>
-
-				<Title style={styles.headerTitle} variant="h6">
-					Notificaties
-				</Title>
-
-				<TouchableOpacity
-					onPress={declineNotifications}
-					testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
-					<Title style={styles.headerSubButton} variant="h7">
-						Overslaan
-					</Title>
-				</TouchableOpacity>
-			</Box>
+			<Header
+				title="Notificaties"
+				right={
+					<TouchableOpacity
+						onPress={declineNotifications}
+						testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
+						<Title style={styles.headerSubButton} variant="h7">
+							Overslaan
+						</Title>
+					</TouchableOpacity>
+				}
+				color="light"
+			/>
 			<View style={styles.viewContainer}>
 				<View>
 					<Bell Bell />
@@ -119,13 +114,6 @@ const styles = StyleSheet.create({
 	},
 	headerSubButton: {
 		color: appColors.greyedOut,
-	},
-	header: {
-		backgroundColor: appColors.background,
-		alignItems: 'center',
-	},
-	headerTitle: {
-		color: appColors.primary,
 	},
 });
 

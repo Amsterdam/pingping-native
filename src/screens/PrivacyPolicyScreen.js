@@ -10,8 +10,8 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import routes from '../App/stacks/routes';
 import FloppyDisk from '../assets/svg/FloppyDisk';
+import Header from '../components/header/Header';
 import LabeledHeader from '../components/header/LabeledHeader';
-import SimpleHeader from '../components/header/SimpleHeader';
 import Container from '../components/shared/Container';
 import Loading from '../components/shared/LoadingComponent';
 import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion';
@@ -66,7 +66,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
 			{policyAccepted ? (
 				<LabeledHeader filledHeader navigation={navigation} title="Privacy" />
 			) : (
-				<SimpleHeader title="Privacy" color="white" />
+				<Header title="Privacy" color="light" />
 			)}
 			<ScrollView contentContainerStyle={styles.content}>
 				<View style={styles.viewContainer}>

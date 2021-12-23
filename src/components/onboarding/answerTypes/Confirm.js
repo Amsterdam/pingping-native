@@ -5,7 +5,7 @@ import {Image, StyleSheet, View} from 'react-native';
 
 import {appColors} from '../../../config/colors';
 import {BASE_URL} from '../../../config/initialSettings';
-import SimpleHeader from '../../header/SimpleHeader';
+import Header from '../../header/Header';
 import ConfirmModal from '../../modals/ConfirmModal';
 import Container from '../../shared/Container';
 import Button from '../../shared/RoundedButton';
@@ -41,7 +41,7 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
 
 	return (
 		<Container>
-			<SimpleHeader title={currentTask.headerTitle} color="white" />
+			<Header title={currentTask.headerTitle} color="light" />
 			<View style={styles.viewContainer}>
 				<View>
 					{currentTask.media?.value && (

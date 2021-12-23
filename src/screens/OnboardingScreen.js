@@ -1,9 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 
 import {useQuery} from '@apollo/client';
-import {HStack} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
@@ -13,6 +12,7 @@ import routes from '../App/stacks/routes';
 import BackPack from '../assets/svg/BackPack';
 import Vault from '../assets/svg/Vault';
 import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
+import Header from '../components/header/Header';
 import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
@@ -73,31 +73,22 @@ const OnboardingScreen = ({navigation}) => {
 
 	return (
 		<Container testID={testIDs.ONBOARDING.SCREEN} safeArea>
-			<View style={styles.header}>
-				<StatusBar
-					barStyle="dark-content"
-					backgroundColor={appColors.background}
-				/>
-
-				<View>
-					<Title style={styles.headerTitle} variant="h6" align="center">
-						INTRODUCTIE
-					</Title>
-				</View>
-
-				<View style={styles.right}>
+			<Header
+				title="INTRODUCTIE"
+				actionLabel="INLOGGEN"
+				right={
 					<TouchableOpacity
 						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
 						onPress={() =>
 							navigation.navigate(routes.onboardingStack.importDataScreen)
 						}>
 						<Title style={styles.buttonLabel} variant="h7" align="right">
-							Inloggen
+							INLOGGEN
 						</Title>
 					</TouchableOpacity>
-				</View>
-			</View>
-
+				}
+			/>
+			<Header />
 			{debugMode ? (
 				<Body variant="b3" align="center">{`${version} beta`}</Body>
 			) : (
@@ -124,19 +115,6 @@ const OnboardingScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-	header: {
-		flexdirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	right: {
-		position: 'absolute',
-		margin: 5,
-		right: 0,
-	},
-	headerTitle: {
-		color: appColors.primary,
-	},
 	buttonLabel: {
 		color: appColors.greyedOut,
 	},

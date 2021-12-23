@@ -13,7 +13,7 @@ const LabeledHeader = ({
 	navigation = () => {},
 	filledHeader = false,
 	title = 'none',
-	color = 'primary',
+	color = 'light',
 }) => {
 	const styles = StyleSheet.create({
 		header: {
@@ -38,10 +38,10 @@ const LabeledHeader = ({
 	return (
 		<View style={[styles.header, filledHeader && styles.filledHeader]}>
 			<StatusBar
-				barStyle={color === 'primary' ? 'light-content' : 'dark-content'}
+				barStyle={color === 'light' ? 'light-content' : 'dark-content'}
 			/>
 			<View style={styles.backButton}>
-				<HeaderBackButton navigation={navigation} />
+				<HeaderBackButton navigation={navigation} color={color} />
 			</View>
 
 			<Title style={styles.headerTitle} variant="h6">
@@ -60,7 +60,7 @@ LabeledHeader.propTypes = {
 LabeledHeader.defaultProps = {
 	filledHeader: false,
 	title: '',
-	color: 'primary',
+	color: 'light',
 };
 
 export default LabeledHeader;
