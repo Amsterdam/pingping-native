@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {MockedProvider} from '@apollo/client/testing';
+import {NativeBaseProvider} from 'native-base';
 import renderer from 'react-test-renderer';
 
 import DeleteDataScreen from '../src/screens/DeleteDataScreen';
@@ -12,9 +13,11 @@ const setLogOut = jest.fn();
 test('renders correctly', () => {
 	const tree = renderer
 		.create(
-			<MockedProvider mocks={[]}>
-				<DeleteDataScreen navigation={navigation} setLogOut={setLogOut} />
-			</MockedProvider>,
+			<NativeBaseProvider>
+				<MockedProvider mocks={[]}>
+					<DeleteDataScreen navigation={navigation} setLogOut={setLogOut} />
+				</MockedProvider>
+			</NativeBaseProvider>,
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
