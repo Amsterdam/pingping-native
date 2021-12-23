@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, Icon, Text} from 'native-base';
+import {Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 

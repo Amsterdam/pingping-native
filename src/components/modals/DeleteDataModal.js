@@ -52,7 +52,7 @@ const DeleteDataModal = ({
 								full
 							/>
 							<RoundedButton
-								icon={<TrashIcon height="20" color={appColors.text} />}
+								icon={<TrashIcon height={20} color={appColors.text} />}
 								style={[styles.button, styles.removeButton]}
 								labelStyle={styles.buttonLabel}
 								label="Verwijder mijn gegevens"

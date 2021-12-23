@@ -6,7 +6,6 @@ import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
 import {appColors, ppBaseColors} from '../../config/colors';
 import {faqItems} from '../../helpers/faqItems';
-import normalizeValue from '../../helpers/normalizeValue';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 

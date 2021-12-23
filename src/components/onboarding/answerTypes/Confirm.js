@@ -41,7 +41,7 @@ const Confirm = ({currentTask = {}, doUpdateConfirmTask = () => {}}) => {
 
 	return (
 		<Container>
-			<SimpleHeader color="white" />
+			<SimpleHeader title={currentTask.headerTitle} color="white" />
 			<View style={styles.viewContainer}>
 				<View>
 					{currentTask.media?.value && (

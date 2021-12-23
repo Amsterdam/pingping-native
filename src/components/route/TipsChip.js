@@ -1,13 +1,11 @@
 import React from 'react';
 
-import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import LightBulb from '../../assets/svg/icons/LightBulb';
 import {appColors, ppBaseColors} from '../../config/colors';
-import normalizeValue from '../../helpers/normalizeValue';
 import Title from '../typography/Title';
 
 const TipsChip = ({navigation, tips}) => {

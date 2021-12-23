@@ -23,7 +23,7 @@ const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
 			/>
 
 			<Title style={styles.headerTitle} variant="h6">
-				{currentTask && currentTask.headerTitle}
+				{currentTask.headerTitle}
 			</Title>
 
 			<ProgressBar progress={currentTask.progress} />

@@ -65,7 +65,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 					<View style={styles.inputContainer}>
 						<Button
 							deleteButton
-							icon={<TrashIcon height="20" color={appColors.white} />}
+							icon={<TrashIcon height={20} color={appColors.white} />}
 							label="Verwijder mijn gegevens"
 							onPress={() => setOpen(true)}
 							testid={testIDs.DELETE_DATA.DELETE_BUTTON}
