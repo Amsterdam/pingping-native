@@ -4,8 +4,10 @@ import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
-import QuestionScreenHeader from '../../header/QuestionScreenHeader';
+import Header from '../../header/Header';
+import HeaderBackButton from '../../header/HeaderBackButton';
 import Container from '../../shared/Container';
+import ProgressBar from '../../shared/ProgressBar';
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
@@ -18,9 +20,10 @@ const AnswerTemplate = ({
 }) => {
 	return (
 		<Container>
-			<QuestionScreenHeader
-				currentTask={currentTask}
-				doRevertTask={doRevertTask}
+			<Header
+				left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
+				right={<ProgressBar progress={currentTask.progress} />}
+				title={currentTask.headerTitle}
 			/>
 			<ScrollView contentContainerStyle={styles.content}>
 				<Title variant="h2" align="center">

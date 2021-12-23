@@ -14,7 +14,7 @@ import YouTube from 'react-native-youtube';
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import routes from '../App/stacks/routes';
-import LabeledHeader from '../components/header/LabeledHeader';
+import FilledHeader from '../components/header/FilledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import WebViewModal from '../components/modals/WebViewModal';
 import Container from '../components/shared/Container';
@@ -134,11 +134,7 @@ const TaskScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<LabeledHeader
-				filledHeader
-				navigation={navigation}
-				title={task.headerTitle}
-			/>
+			<FilledHeader navigation={navigation} title={task.headerTitle} />
 			<ScrollView contentContainerStyle={styles.contentContainer}>
 				{task?.media && renderMedia(task.media)}
 				<ContentLayout>
@@ -150,7 +146,6 @@ const TaskScreen = ({navigation, route}) => {
 					/>
 				</ContentLayout>
 			</ScrollView>
-
 			{taskStatus ? (
 				<View style={styles.completedTagLineContainer}>
 					<Title style={styles.completedTagLine} variant="h6" align="center">
@@ -169,7 +164,6 @@ const TaskScreen = ({navigation, route}) => {
 					</React.Fragment>
 				</View>
 			)}
-
 			{loading && <Loading />}
 			<WebViewModal
 				urlToVisit={urlToVisit}

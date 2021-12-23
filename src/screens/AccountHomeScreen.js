@@ -9,7 +9,7 @@ import Export from '../assets/svg/Export';
 import Lock from '../assets/svg/Lock';
 import Trashcan from '../assets/svg/Trashcan';
 import AccountBlockButton from '../components/account/AccountBlockButton';
-import SimpleHeader from '../components/header/SimpleHeader';
+import Header from '../components/header/Header';
 import Container from '../components/shared/Container';
 import {appColors} from '../config/colors';
 
@@ -39,11 +39,7 @@ const AccountHomeScreen = ({navigation}) => {
 			style={styles.container}
 			testID={testIDs.ACCOUNT.SCREEN}
 			statusBarColor={appColors.almostNotBlue}>
-			<SimpleHeader
-				style={{backgroundColor: appColors.almostNotBlue}}
-				title="Gegevens"
-				color="secondary"
-			/>
+			<Header title="Gegevens" />
 
 			<FlatList
 				data={buttons}

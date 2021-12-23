@@ -8,7 +8,7 @@ import {StyleSheet, View, ScrollView} from 'react-native';
 import {resetStore} from '../apollo/apolloClient';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import QrCode from '../components/account/QrCode';
-import LabeledHeader from '../components/header/LabeledHeader';
+import FilledHeader from '../components/header/FilledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
@@ -36,7 +36,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 
 	return (
 		<Container statusBarColor={appColors.headerColor}>
-			<LabeledHeader filledHeader navigation={navigation} title="Profiel" />
+			<FilledHeader navigation={navigation} title="Profiel" />
 			<ScrollView>
 				<ContentLayout>
 					<Title style={styles.margin}>Gegevens Exporteren</Title>

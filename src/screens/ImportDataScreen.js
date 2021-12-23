@@ -2,16 +2,17 @@ import React, {useState} from 'react';
 
 import {useLazyQuery, useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {Container, ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import LabeledHeader from '../components/header/LabeledHeader';
+import Header from '../components/header/Header';
+import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
 import QrScanner from '../components/onboarding/QrScanner';
+import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {doRegisterDevice} from '../helpers/authHelper';
@@ -42,7 +43,15 @@ const ImportDataScreen = ({navigation}) => {
 
 	return (
 		<Container testID={testIDs.IMPORT_DATA.SCREEN}>
-			<LabeledHeader navigation={navigation} title="INLOGGEN" />
+			<Header
+				left={
+					<HeaderBackButton
+						onPressAction={() => navigation.goBack()}
+						color="dark"
+					/>
+				}
+				title="INLOGGEN"
+			/>
 			<ScrollView>
 				<ContentLayout>
 					<Title style={styles.margin}>Gegevens Importeren</Title>
