@@ -45,7 +45,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 		<Container
 			testID={testIDs.DELETE_DATA.SCREEN}
 			statusBarColor={appColors.headerColor}>
-			FilledHeader navigation={navigation} title="Privacy" />
+			<FilledHeader navigation={navigation} title="Privacy" />
 			<ScrollView contentContainerStyle={styles.scrollView}>
 				<ContentLayout>
 					<Title style={styles.margin}>Jouw eigen gegevens</Title>

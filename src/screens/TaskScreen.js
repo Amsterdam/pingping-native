@@ -134,7 +134,7 @@ const TaskScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			FilledHeader navigation={navigation} title={task.headerTitle} />
+			<FilledHeader navigation={navigation} title={task.headerTitle} />
 			<ScrollView contentContainerStyle={styles.contentContainer}>
 				{task?.media && renderMedia(task.media)}
 				<ContentLayout>

@@ -36,7 +36,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 
 	return (
 		<Container statusBarColor={appColors.headerColor}>
-			FilledHeader navigation={navigation} title="Profiel" />
+			<FilledHeader navigation={navigation} title="Profiel" />
 			<ScrollView>
 				<ContentLayout>
 					<Title style={styles.margin}>Gegevens Exporteren</Title>

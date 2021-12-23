@@ -10,8 +10,8 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import routes from '../App/stacks/routes';
 import FloppyDisk from '../assets/svg/FloppyDisk';
-import Header from '../components/header/Header';
 import FilledHeader from '../components/header/FilledHeader';
+import Header from '../components/header/Header';
 import Container from '../components/shared/Container';
 import Loading from '../components/shared/LoadingComponent';
 import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion';
@@ -64,7 +64,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
 			testID={testIDs.PRIVACY.SCREEN}
 			statusBarColor={policyAccepted ? appColors.headerColor : appColors.white}>
 			{policyAccepted ? (
-				FilledHeader navigation={navigation} title="Privacy" />
+				<FilledHeader navigation={navigation} title="Privacy" />
 			) : (
 				<Header title="Privacy" color="light" />
 			)}
