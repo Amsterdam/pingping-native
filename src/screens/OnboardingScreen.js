@@ -73,19 +73,19 @@ const OnboardingScreen = ({navigation}) => {
 
 	return (
 		<Container testID={testIDs.ONBOARDING.SCREEN} safeArea>
-			<HStack>
+			<View style={styles.header}>
 				<StatusBar
 					barStyle="dark-content"
 					backgroundColor={appColors.background}
 				/>
 
 				<View>
-					<Title style={styles.headerTitle} variant="h6">
+					<Title style={styles.headerTitle} variant="h6" align="center">
 						INTRODUCTIE
 					</Title>
 				</View>
 
-				<View>
+				<View style={styles.right}>
 					<TouchableOpacity
 						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
 						onPress={() =>
@@ -96,7 +96,7 @@ const OnboardingScreen = ({navigation}) => {
 						</Title>
 					</TouchableOpacity>
 				</View>
-			</HStack>
+			</View>
 
 			{debugMode ? (
 				<Body variant="b3" align="center">{`${version} beta`}</Body>
@@ -124,6 +124,16 @@ const OnboardingScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+	header: {
+		flexdirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	right: {
+		position: 'absolute',
+		margin: 5,
+		right: 0,
+	},
 	headerTitle: {
 		color: appColors.primary,
 	},

@@ -36,7 +36,7 @@ const PrivacyPolicyScreen = ({navigation}) => {
 	}, []);
 
 	const [open, setOpen] = useState(false);
-	const [policyAccepted, setPolicy] = useState(true);
+	const [policyAccepted, setPolicy] = useState(false);
 	const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 	const [loading, setLoading] = useState(false);
 
