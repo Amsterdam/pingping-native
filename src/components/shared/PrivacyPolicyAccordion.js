@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Icon} from 'native-base';
+import {ChevronDownIcon, ChevronUpIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
@@ -18,12 +18,8 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
 					<Title style={styles.title} variant="h7" align="center">
 						Privacy Policy
 					</Title>
-					<Icon
-						name={open ? 'caretup' : 'caretdown'}
-						type="AntDesign"
-						color="#000"
-						style={styles.icon}
-					/>
+
+					{open ? <ChevronUpIcon size="5" /> : <ChevronDownIcon size="5" />}
 				</View>
 			</TouchableWithoutFeedback>
 			{open ? (
@@ -84,10 +80,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		padding: 10,
-	},
-	icon: {
-		fontSize: normalizeValue(16),
-		marginLeft: 8,
 	},
 	paddingPolicy: {
 		padding: 20,

@@ -12,8 +12,7 @@ const RoundedButton = ({
 	disabled = false,
 	onPress = () => {},
 	deleteButton = false,
-	iconName = null,
-	iconType = null,
+	icon = null,
 	style = {},
 	loading = false,
 	testid = '',
@@ -37,9 +36,7 @@ const RoundedButton = ({
 					<ActivityIndicator color={appColors.danger} />
 				) : (
 					<React.Fragment>
-						{iconName && iconType && (
-							<Icon name={iconName} type={iconType} style={styles.icon} />
-						)}
+						{icon && icon}
 						<Text style={[styles.label, labelStyle]}>{label}</Text>
 					</React.Fragment>
 				)}
@@ -61,10 +58,6 @@ const styles = StyleSheet.create({
 		fontSize: normalizeValue(14),
 		color: ppBaseColors.PP_WHITE,
 	},
-	icon: {
-		color: ppBaseColors.PP_WHITE,
-		fontSize: normalizeValue(24),
-	},
 	disabled: {
 		...buttonBase,
 		backgroundColor: ppBaseColors.PP_GRAY,
@@ -83,8 +76,7 @@ RoundedButton.propTypes = {
 	disabled: PropTypes.bool,
 	onPress: PropTypes.func.isRequired,
 	deleteButton: PropTypes.bool,
-	iconName: PropTypes.string,
-	iconType: PropTypes.string,
+	icon: PropTypes.element,
 	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 	loading: PropTypes.bool,
 	testid: PropTypes.string,
@@ -96,8 +88,7 @@ RoundedButton.propTypes = {
 RoundedButton.defaultProps = {
 	disabled: false,
 	deleteButton: false,
-	iconName: null,
-	iconType: null,
+	icon: null,
 	style: {},
 	loading: false,
 	testid: '',

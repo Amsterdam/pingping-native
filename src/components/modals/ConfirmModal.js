@@ -1,12 +1,11 @@
 import React from 'react';
 
-import {Button, Icon} from 'native-base';
+import {CloseIcon, IconButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import {ppBaseColors} from '../../config/colors';
-import normalizeValue from '../../helpers/normalizeValue';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -33,13 +32,11 @@ const ConfirmModal = ({
 				testID={testIDs.QUESTION.SKIP_QUESTIONS_MODAL}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
-						<Button
-							rounded
-							transparent
+						<IconButton
+							onPress={closeModal}
 							style={styles.closeButton}
-							onPress={closeModal}>
-							<Icon name="close" type="AntDesign" style={styles.icon} />
-						</Button>
+							icon={<CloseIcon style={styles.icon} size="5" />}
+						/>
 						<Title style={styles.title}>Vragen Overslaan</Title>
 
 						<Body variant="b3" style={styles.body}>
@@ -85,12 +82,13 @@ const styles = StyleSheet.create({
 		position: 'relative',
 	},
 	closeButton: {
+		borderRadius: 50,
 		position: 'absolute',
 		right: 0,
 	},
 	icon: {
-		fontSize: normalizeValue(24),
 		color: ppBaseColors.PP_BLACK,
+		margin: 10,
 	},
 	title: {
 		marginBottom: 5,

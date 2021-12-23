@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {IconButton, Icon} from 'native-base';
+import {IconButton, ArrowBackIcon} from 'native-base';
 import PropTypes from 'prop-types';
-import {AntDesign} from 'react-native-vector-icons';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 
@@ -11,7 +10,7 @@ const HeaderBackButton = ({navigation, style, color = 'white'}) => {
 		<IconButton
 			onPress={() => navigation.goBack()}
 			style={style}
-			icon={<Icon as={AntDesign} name="emoji-happy" color={color} />}
+			icon={<ArrowBackIcon color={color} />}
 			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
 		/>
 	);

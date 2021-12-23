@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
 
 import AccountStack from './stacks/AccountStack';
@@ -10,6 +9,9 @@ import routes from './stacks/routes';
 import RouteStack from './stacks/RouteStack';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
+import AccountIcon from '../assets/svg/icons/AccountIcon';
+import CityPingsIcon from '../assets/svg/icons/CityPingsIcon ';
+import LifeEventsIcon from '../assets/svg/icons/LifeEventsIcon';
 import {appColors} from '../config/colors';
 
 const Tab = createBottomTabNavigator();
@@ -28,13 +30,7 @@ const TabNavigator = ({setLogOut}) => (
 			options={{
 				tabBarLabel: routes.citypingsStack.label,
 				tabBarIcon: function tabBarIcon({color, size}) {
-					return (
-						<Icon
-							name="price-ribbon"
-							type="Entypo"
-							style={{color: color, fontSize: size}}
-						/>
-					);
+					return <CityPingsIcon style={{fontSize: size}} color={color} />;
 				},
 			}}
 		/>
@@ -45,13 +41,7 @@ const TabNavigator = ({setLogOut}) => (
 			options={{
 				tabBarLabel: routes.routeStack.label,
 				tabBarIcon: function tabBarIcon({color, size}) {
-					return (
-						<Icon
-							name="stars"
-							type="MaterialIcons"
-							style={{color: color, fontSize: size}}
-						/>
-					);
+					return <LifeEventsIcon style={{fontSize: size}} color={color} />;
 				},
 			}}
 		/>
@@ -62,14 +52,7 @@ const TabNavigator = ({setLogOut}) => (
 				tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
 				tabBarLabel: routes.accountStack.label,
 				tabBarIcon: function tabBarIcon({color, size}) {
-					return (
-						<Icon
-							name="user-circle"
-							type="FontAwesome"
-							style={{color: color, fontSize: size}}
-							size={size}
-						/>
-					);
+					return <AccountIcon style={{fontSize: size}} color={color} />;
 				},
 			}}>
 			{props => <AccountStack {...props} setLogOut={setLogOut} />}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {IconButton} from 'native-base';
+import {ArrowBackIcon, IconButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 
@@ -17,8 +17,8 @@ const QuestionScreenHeader = ({currentTask, doRevertTask}) => {
 				backgroundColor={appColors.background}
 			/>
 			<IconButton
-				colorScheme="indigo"
 				onPress={doRevertTask}
+				icon={<ArrowBackIcon color={appColors.text} />}
 				testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
 			/>
 

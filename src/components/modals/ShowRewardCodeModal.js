@@ -1,12 +1,11 @@
 import React from 'react';
 
-import {Button, Icon} from 'native-base';
+import {Button, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
 import {appColors, ppBaseColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
-import normalizeValue from '../../helpers/normalizeValue';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
@@ -36,7 +35,7 @@ const ShowRewardCodeModal = ({
 							transparent
 							style={styles.closeButton}
 							onPress={closeModal}>
-							<Icon name="close" type="AntDesign" style={styles.icon} />
+							<CloseIcon size="3" />
 						</Button>
 						<Title style={styles.title}>Jouw Code</Title>
 						{expiryDate ? (
@@ -93,10 +92,6 @@ const styles = StyleSheet.create({
 	closeButton: {
 		position: 'absolute',
 		right: 0,
-	},
-	icon: {
-		fontSize: normalizeValue(24),
-		color: ppBaseColors.PP_BLACK,
 	},
 	title: {
 		marginBottom: 5,

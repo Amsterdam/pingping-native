@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import routes from '../../App/stacks/routes';
+import LightBulb from '../../assets/svg/icons/LightBulb';
 import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 import Title from '../typography/Title';
@@ -18,7 +19,7 @@ const TipsChip = ({navigation, tips}) => {
 					tips,
 				})
 			}>
-			<Icon name="lightbulb-o" type="FontAwesome" style={styles.icon} />
+			<LightBulb />
 			<Title style={styles.title} variant="h5">
 				Tips
 			</Title>
@@ -40,10 +41,6 @@ const styles = StyleSheet.create({
 		color: ppBaseColors.PP_WHITE,
 		marginTop: 5,
 		marginLeft: 5,
-	},
-	icon: {
-		color: ppBaseColors.PP_WHITE,
-		fontSize: normalizeValue(18),
 	},
 });
 

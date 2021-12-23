@@ -1,11 +1,9 @@
 import React from 'react';
 
-import {Icon} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
-import {ppBaseColors} from '../../config/colors';
-import normalizeValue from '../../helpers/normalizeValue';
+import StarIcon from '../../assets/svg/icons/StarIcon';
 
 const StarRating = ({
 	numberActive = 0,
@@ -17,29 +15,15 @@ const StarRating = ({
 		const active = index < numberActive;
 		starElements.push(
 			<TouchableOpacity
-				style={styles.button}
 				onPress={onRate(index + 1)}
 				activeOpacity={0.5}
 				key={`${index}-star`}>
-				<Icon
-					style={[styles.icon, active && styles.activeIcon]}
-					name={active ? 'star' : 'staro'}
-					type={'AntDesign'}
-				/>
+				<StarIcon color={active ? '#F2C13B' : '#fff'} />
 			</TouchableOpacity>,
 		);
 	}
 	return starElements;
 };
-
-const styles = StyleSheet.create({
-	icon: {
-		fontSize: normalizeValue(30),
-	},
-	activeIcon: {
-		color: ppBaseColors.PP_GOLD,
-	},
-});
 
 StarRating.propTypes = {
 	numberActive: PropTypes.number.isRequired,

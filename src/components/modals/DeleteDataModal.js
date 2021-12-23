@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {Button, Icon} from 'native-base';
+import {CloseIcon, IconButton} from 'native-base';
 import PropTypes from 'prop-types';
 import {Modal, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
+import TrashIcon from '../../assets/svg/icons/TrashIcon';
 import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 import RoundedButton from '../shared/RoundedButton';
@@ -30,13 +31,11 @@ const DeleteDataModal = ({
 			<View style={styles.centeredView} testID={testIDs.DELETE_DATA.MODAL}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
-						<Button
-							rounded
-							transparent
+						<IconButton
+							onPress={closeModal}
 							style={styles.closeButton}
-							onPress={closeModal}>
-							<Icon name="close" type="AntDesign" style={styles.icon} />
-						</Button>
+							icon={<CloseIcon style={styles.icon} size="5" />}
+						/>
 						<Title style={styles.title}>Gegevens Verwijderen</Title>
 						<Body variant="b3" style={styles.body}>
 							Weet je zeker dat je jouw gegevens wilt verwijderen? Wanneer je de
@@ -53,9 +52,9 @@ const DeleteDataModal = ({
 								full
 							/>
 							<RoundedButton
-								iconName="delete"
-								iconType="AntDesign"
+								icon={<TrashIcon height="20" color={appColors.text} />}
 								style={[styles.button, styles.removeButton]}
+								labelStyle={styles.buttonLabel}
 								label="Verwijder mijn gegevens"
 								onPress={doDeleteUser}
 								loading={loading}
@@ -100,9 +99,11 @@ const styles = StyleSheet.create({
 	closeButton: {
 		position: 'absolute',
 		right: 0,
+		margin: 5,
+		borderRadius: 50,
 	},
 	icon: {
-		fontSize: normalizeValue(24),
+		fontSize: normalizeValue(10),
 		color: ppBaseColors.PP_BLACK,
 	},
 	title: {
@@ -117,6 +118,9 @@ const styles = StyleSheet.create({
 	},
 	removeButton: {
 		backgroundColor: appColors.subtleGrey,
+	},
+	buttonLabel: {
+		color: appColors.text,
 	},
 });
 

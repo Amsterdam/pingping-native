@@ -8,6 +8,7 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {testIDs} from '../../e2e/modulesTestIDs';
 import {resetStore} from '../apollo/apolloClient';
 import DELETE_USER_MUTATION from '../apollo/Mutation/deleteUserMutation';
+import TrashIcon from '../assets/svg/icons/TrashIcon';
 import LabeledHeader from '../components/header/LabeledHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import DeleteDataModal from '../components/modals/DeleteDataModal';
@@ -64,8 +65,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 					<View style={styles.inputContainer}>
 						<Button
 							deleteButton
-							iconName="delete"
-							iconType="AntDesign"
+							icon={<TrashIcon height="20" color={appColors.white} />}
 							label="Verwijder mijn gegevens"
 							onPress={() => setOpen(true)}
 							testid={testIDs.DELETE_DATA.DELETE_BUTTON}
