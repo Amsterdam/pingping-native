@@ -41,7 +41,10 @@ const LabeledHeader = ({
 				barStyle={color === 'light' ? 'light-content' : 'dark-content'}
 			/>
 			<View style={styles.backButton}>
-				<HeaderBackButton navigation={navigation} color={color} />
+				<HeaderBackButton
+					onPressAction={() => navigation.goBack()}
+					color={color}
+				/>
 			</View>
 
 			<Title style={styles.headerTitle} variant="h6">

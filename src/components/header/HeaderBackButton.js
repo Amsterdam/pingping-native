@@ -20,8 +20,6 @@ const HeaderBackButton = ({onPressAction = () => {}, color = 'light'}) => {
 };
 
 HeaderBackButton.propTypes = {
-	navigation: PropTypes.object.isRequired,
-	style: PropTypes.object,
 	color: PropTypes.string,
 	onPressAction: PropTypes.func.isRequired,
 };

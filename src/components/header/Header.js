@@ -7,7 +7,7 @@ import {StatusBar, StyleSheet, View} from 'react-native';
 import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
-const QuestionScreenHeader = ({title, left, right, color = 'light'}) => {
+const Header = ({title = '', left, right, color = 'light'}) => {
 	return (
 		<Box safeAreaTop>
 			<View style={styles.header}>
@@ -49,13 +49,11 @@ const styles = StyleSheet.create({
 	},
 });
 
-QuestionScreenHeader.propTypes = {
-	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
+Header.propTypes = {
 	title: PropTypes.string,
 	left: PropTypes.element,
 	right: PropTypes.element,
 	color: PropTypes.string,
 };
 
-export default QuestionScreenHeader;
+export default Header;
