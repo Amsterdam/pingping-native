@@ -2,7 +2,6 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import {RefreshControl, ScrollView} from 'react-native';
-import {View as AnimatableView} from 'react-native-animatable';
 
 import RewardCard from './RewardCard';
 
@@ -28,23 +27,16 @@ const AvailableRewardsList = ({
 				/>
 			}>
 			<ContentLayout>
-				{availableRewards.loading && (
-					<AnimatableView animation="fadeIn">
-						<CardSkeleton withTitle={false} />
-					</AnimatableView>
-				)}
-				{availableRewards.data && (
-					<AnimatableView animation="fadeIn">
-						{availableRewards.data.getAvailableRewards.map(reward => (
-							<RewardCard
-								navigation={navigation}
-								reward={reward}
-								key={reward.rewardId}
-								balance={balance}
-							/>
-						))}
-					</AnimatableView>
-				)}
+				{availableRewards.loading && <CardSkeleton withTitle={false} />}
+				{availableRewards.data &&
+					availableRewards.data.getAvailableRewards.map(reward => (
+						<RewardCard
+							navigation={navigation}
+							reward={reward}
+							key={reward.rewardId}
+							balance={balance}
+						/>
+					))}
 			</ContentLayout>
 		</ScrollView>
 	);
@@ -52,7 +44,7 @@ const AvailableRewardsList = ({
 
 AvailableRewardsList.propTypes = {
 	availableRewards: PropTypes.object.isRequired,
-	balance: PropTypes.number.isRequired,
+	balance: PropTypes.number,
 	navigation: PropTypes.object.isRequired,
 	refreshing: PropTypes.bool.isRequired,
 	onRefresh: PropTypes.func.isRequired,

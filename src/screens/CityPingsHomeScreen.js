@@ -91,6 +91,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 		rewards: FirstRoute,
 		geclaimed: SecondRoute,
 	});
+
 	const renderTabBar = props => (
 		<TabBar
 			{...props}

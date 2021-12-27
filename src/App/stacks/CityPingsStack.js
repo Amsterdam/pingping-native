@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -19,12 +19,13 @@ const tabHiddenRoutes = [
 ];
 
 function RootStackScreen({navigation, route}) {
-	// @todo - hiding tabs need to be reimplemented after react-navigation/stack is updated
-	React.useEffect(() => {
+	useEffect(() => {
 		if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
-			navigation.setOptions({tabBarVisible: false});
+			navigation.setOptions({tabBarStyle: {display: 'none'}});
 		} else {
-			navigation.setOptions({tabBarVisible: true});
+			setTimeout(() => {
+				navigation.setOptions({tabBarStyle: {display: ''}});
+			}, 550);
 		}
 	}, [navigation, route]);
 
