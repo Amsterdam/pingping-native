@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Button} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import {appColors} from '../../config/colors';
@@ -10,7 +9,7 @@ import normalizeValue from '../../helpers/normalizeValue';
 
 const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
 	return (
-		<Button
+		<TouchableOpacity
 			onPress={submitAnswer}
 			testID={testIDs.QUESTION.NEXT_QUESTION_BUTTON}
 			variant="text"
@@ -24,7 +23,7 @@ const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
 				]}>
 				Volgende
 			</Text>
-		</Button>
+		</TouchableOpacity>
 	);
 };
 

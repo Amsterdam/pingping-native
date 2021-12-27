@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
-import {Toast} from 'native-base';
+import {StatusBar, Toast} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -80,6 +80,7 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 	return (
 		<Container>
+			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 			<ScrollView>
 				<ImageOverlayHeader
 					navigation={navigation}
