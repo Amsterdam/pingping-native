@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
-import {StatusBar, Toast} from 'native-base';
+import {StatusBar, useToast} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -24,6 +24,7 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
 	const [webViewOpen, setWebviewOpen] = useState(false);
 	const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
+	const toast = useToast();
 
 	const [loading, setLoading] = useState(false);
 	const {data, refetch} = useQuery(GET_STATUS_QUERY, {
@@ -55,16 +56,17 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 		} catch (error) {
 			if (error.message.includes('reward_not_available')) {
 				sentryHelper(error.message);
-				return Toast.show({
-					text:
+				return toast.show({
+					description:
 						'Deze reward is op dit moment niet beschikbaar, probeer het later nog eens.',
 					textStyle: {fontFamily: 'Raleway-Regular'},
 					style: {backgroundColor: '#000', borderRadius: 10},
 					duration: 2000,
 				});
 			}
-			Toast.show({
-				text: 'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
+			toast.show({
+				description:
+					'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
 				textStyle: {fontFamily: 'Raleway-Regular'},
 				style: {backgroundColor: '#000', borderRadius: 10},
 				duration: 2000,

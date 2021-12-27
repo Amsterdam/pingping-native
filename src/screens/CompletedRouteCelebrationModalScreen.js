@@ -195,6 +195,9 @@ const styles = StyleSheet.create({
 	lottieView: {
 		margin: 5,
 	},
+	title: {
+		color: appColors.white,
+	},
 });
 
 CompletedRouteCelebrationModalScreen.propTypes = {

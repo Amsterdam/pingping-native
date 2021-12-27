@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
+import {useToast} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	ActivityIndicator,
@@ -38,6 +39,7 @@ const TaskScreen = ({navigation, route}) => {
 	const [webViewOpen, setWebviewOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [videoReady, setVideoReady] = useState(false);
+	const toast = useToast();
 
 	const doCompleteTask = async () => {
 		setLoading(true);
@@ -121,12 +123,12 @@ const TaskScreen = ({navigation, route}) => {
 			throw new Error('Om Hulp Gevraagd');
 		} catch (error) {
 			sentryHelper(error.message);
-			// Toast.show({
-			// 	text: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
-			// 	textStyle: {fontFamily: 'Raleway-Regular'},
-			// 	style: {backgroundColor: ppBaseColors.PP_BLACK, borderRadius: 10},
-			// 	duration: 2000,
-			// }); // change the error message once complete
+			toast.show({
+				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
+				textStyle: {fontFamily: 'Raleway-Regular'},
+				style: {backgroundColor: ppBaseColors.PP_BLACK, borderRadius: 10},
+				duration: 2000,
+			}); // change the error message once complete
 		}
 	};
 
