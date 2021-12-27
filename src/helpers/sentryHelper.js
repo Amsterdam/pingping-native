@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/react-native';
+import Sentry from '@sentry/react-native';
 
 export default function sentryHelper(message) {
 	if (!__DEV__) {

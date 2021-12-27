@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -12,7 +12,7 @@ import RouteHomeScreen from '../../screens/RouteHomeScreen';
 import TaskScreen from '../../screens/TaskScreen';
 import TipScreen from '../../screens/TipScreen';
 
-const RootStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 const tabHiddenRoutes = [
 	routes.routeStack.routeFeedbackScreen,
@@ -22,42 +22,43 @@ const tabHiddenRoutes = [
 ];
 
 function RouteStack({navigation, route}) {
-	// @todo - hiding tabs need to be reimplemented after react-navigation is updated
-	React.useEffect(() => {
+	useEffect(() => {
 		if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
-			navigation.setOptions({tabBarVisible: false});
+			navigation.setOptions({tabBarStyle: {display: 'none'}});
 		} else {
-			navigation.setOptions({tabBarVisible: true});
+			setTimeout(() => {
+				navigation.setOptions({tabBarStyle: {display: ''}});
+			}, 550);
 		}
 	}, [navigation, route]);
 
 	return (
-		<RootStack.Navigator screenOptions={{headerShown: false}}>
-			<RootStack.Group>
-				<RootStack.Screen
+		<Stack.Navigator screenOptions={{headerShown: false}}>
+			<Stack.Group>
+				<Stack.Screen
 					name={routes.routeStack.homeScreen}
 					component={RouteHomeScreen}
 				/>
-				<RootStack.Screen
+				<Stack.Screen
 					name={routes.routeStack.routeFeedbackScreen}
 					component={RouteFeedbackScreen}
 				/>
-			</RootStack.Group>
-			<RootStack.Group screenOptions={{presentation: 'modal'}}>
-				<RootStack.Screen
+			</Stack.Group>
+			<Stack.Group screenOptions={{presentation: 'modal'}}>
+				<Stack.Screen
 					name={routes.routeStack.taskScreen}
 					component={TaskScreen}
 				/>
-				<RootStack.Screen
+				<Stack.Screen
 					name={routes.routeStack.routeDetailsScreen}
 					component={RouteDetailsScreen}
 				/>
-				<RootStack.Screen
+				<Stack.Screen
 					name={routes.routeStack.tipScreen}
 					component={TipScreen}
 				/>
-			</RootStack.Group>
-		</RootStack.Navigator>
+			</Stack.Group>
+		</Stack.Navigator>
 	);
 }
 
