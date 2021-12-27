@@ -3,7 +3,7 @@ import React from 'react';
 import {useLazyQuery} from '@apollo/client';
 import {Box} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, View, useWindowDimensions} from 'react-native';
+import {StyleSheet, View, useWindowDimensions} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {
 	Animated,
 	RefreshControl,
-	StatusBar,
 	StyleSheet,
 	View,
 	ScrollView,
