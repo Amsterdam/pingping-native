@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
 		height: CIRCLE_RADIUS,
 		width: CIRCLE_RADIUS,
 		borderRadius: 100,
-		padding: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 		marginRight: 15,

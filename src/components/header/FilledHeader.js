@@ -16,7 +16,10 @@ const FilledHeader = ({
 }) => {
 	return (
 		<View style={[styles.header, styles.filledHeader]}>
-			<StatusBar barStyle={'light-content'} />
+			<StatusBar
+				barStyle={'light-content'}
+				backgroundColor={appColors.headerColor}
+			/>
 			<View style={styles.backButton}>
 				<HeaderBackButton
 					onPressAction={() => navigation.goBack()}

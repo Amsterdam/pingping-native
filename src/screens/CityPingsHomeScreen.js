@@ -13,6 +13,7 @@ import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
 import CitypingsChip from '../components/shared/CitypingsChip';
 import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
+import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
 
@@ -108,7 +109,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 	return (
 		<Container style={styles.container}>
 			<Box style={styles.header}>
-				<StatusBar
+				<FocusAwareStatusBar
 					backgroundColor={appColors.primary}
 					barStyle="light-content"
 				/>
