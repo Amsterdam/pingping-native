@@ -1,8 +1,13 @@
 import React from 'react';
 
-import {Button, Text} from 'native-base';
+import {Text} from 'native-base';
 import PropTypes from 'prop-types';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {
+	ActivityIndicator,
+	StyleSheet,
+	View,
+	TouchableOpacity,
+} from 'react-native';
 
 import {appColors, ppBaseColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -20,16 +25,16 @@ const RoundedButton = ({
 	labelStyle = {},
 }) => {
 	return (
-		<Button
+		<TouchableOpacity
 			style={[
-				styles.button,
+				buttonBase,
 				disabled && styles.disabled,
 				deleteButton && styles.deleteButton,
 				style,
 			]}
-			full={full}
 			testID={testid}
-			disabled={disabled}
+			activeOpacity={0.1}
+			isDisabled={disabled}
 			onPress={onPress}>
 			<View style={styles.innerContainer}>
 				{loading ? (
@@ -41,22 +46,25 @@ const RoundedButton = ({
 					</React.Fragment>
 				)}
 			</View>
-		</Button>
+		</TouchableOpacity>
 	);
 };
 
 const buttonBase = {
 	backgroundColor: appColors.primary,
-	borderRadius: 10,
+	borderRadius: 5,
+	justifyContent: 'center',
+	flexDirection: 'row',
+	padding: 10,
 };
 
 const styles = StyleSheet.create({
-	button: {...buttonBase},
 	label: {
 		paddingTop: 3,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
 		color: ppBaseColors.PP_WHITE,
+		alignItems: 'center',
 	},
 	disabled: {
 		...buttonBase,

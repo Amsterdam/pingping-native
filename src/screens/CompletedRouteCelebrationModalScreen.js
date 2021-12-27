@@ -45,10 +45,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<StatusBar
-				backgroundColor={appColors.headerColor}
-				barStyle="light-content"
-			/>
+			<StatusBar backgroundColor={appColors.primary} barStyle="light-content" />
 
 			<Animated.View
 				style={[styles.header, {transform: [{translateY: translateY}]}]}
@@ -197,6 +194,9 @@ const styles = StyleSheet.create({
 	},
 	lottieView: {
 		margin: 5,
+	},
+	title: {
+		color: appColors.white,
 	},
 });
 

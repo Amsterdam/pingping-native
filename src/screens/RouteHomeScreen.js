@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {
 	Animated,
 	RefreshControl,
-	StatusBar,
 	StyleSheet,
 	View,
 	ScrollView,
@@ -18,6 +17,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import RouteCard from '../components/route/RouteCard';
 import EmptyContentNotifier from '../components/shared/EmptyContentNotifier';
 import ErrorComponent from '../components/shared/ErrorComponent';
+import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
@@ -126,7 +126,7 @@ const RouteHomeScreen = ({navigation}) => {
 	return (
 		<View style={styles.container} testID={testIDs.ROUTES.SCREEN}>
 			<View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
-			<StatusBar
+			<FocusAwareStatusBar
 				backgroundColor={appColors.headerColor}
 				barStyle="light-content"
 			/>

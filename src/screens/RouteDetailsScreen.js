@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {useQuery} from '@apollo/client';
+import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 
@@ -65,6 +66,7 @@ function RouteDetailsScreen({navigation, route}) {
 
 		return (
 			<Container>
+				<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 				<ScrollView showsVerticalScrollIndicator={false}>
 					<ImageOverlayHeader
 						navigation={navigation}

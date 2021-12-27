@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
+import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	KeyboardAvoidingView,
@@ -72,6 +73,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 		<KeyboardAvoidingView
 			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 			style={styles.container}>
+			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 			<ScrollView keyboardShouldPersistTaps="handled">
 				<ImageOverlayHeader navigation={navigation} cover={cover} />
 				<View style={styles.contentContainer}>

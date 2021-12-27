@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import PropTypes from 'prop-types';
 
 import routes from './routes';
 
+import tabBarDisplayHelper from '../../helpers/tabBarDisplayHelper';
 import RouteDetailsScreen from '../../screens/RouteDetailsScreen';
 import RouteFeedbackScreen from '../../screens/RouteFeedbackScreen';
 import RouteHomeScreen from '../../screens/RouteHomeScreen';
@@ -14,22 +14,11 @@ import TipScreen from '../../screens/TipScreen';
 
 const Stack = createStackNavigator();
 
-const tabHiddenRoutes = [
-	routes.routeStack.routeFeedbackScreen,
-	routes.routeStack.taskScreen,
-	routes.routeStack.routeDetailsScreen,
-	routes.routeStack.tipScreen,
-];
-
 function RouteStack({navigation, route}) {
+	// hide tab bar on modal screens
 	useEffect(() => {
-		if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
-			navigation.setOptions({tabBarStyle: {display: 'none'}});
-		} else {
-			setTimeout(() => {
-				navigation.setOptions({tabBarStyle: {display: ''}});
-			}, 550);
-		}
+		// hides tab bar on modal screens
+		tabBarDisplayHelper(navigation, route);
 	}, [navigation, route]);
 
 	return (

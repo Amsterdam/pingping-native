@@ -3,7 +3,7 @@ import React from 'react';
 import {useLazyQuery} from '@apollo/client';
 import {Box} from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, View, useWindowDimensions} from 'react-native';
+import {StyleSheet, View, useWindowDimensions} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
@@ -13,6 +13,7 @@ import ClaimedRewardsList from '../components/reward/ClaimedRewardsList';
 import CitypingsChip from '../components/shared/CitypingsChip';
 import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
+import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import {appColors, ppBaseColors} from '../config/colors';
 
@@ -108,7 +109,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 	return (
 		<Container style={styles.container}>
 			<Box style={styles.header}>
-				<StatusBar
+				<FocusAwareStatusBar
 					backgroundColor={appColors.primary}
 					barStyle="light-content"
 				/>

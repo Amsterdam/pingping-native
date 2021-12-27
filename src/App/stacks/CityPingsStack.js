@@ -1,32 +1,21 @@
 import React, {useEffect} from 'react';
 
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import PropTypes from 'prop-types';
 
 import routes from './routes';
 
+import tabBarDisplayHelper from '../../helpers/tabBarDisplayHelper';
 import CityPingsHomeScreen from '../../screens/CityPingsHomeScreen';
 import ClaimedRewardModalScreen from '../../screens/ClaimedRewardModalScreen';
 import CompletedRouteCelebrationModalScreen from '../../screens/CompletedRouteCelebrationModalScreen';
 import RewardDetailModalScreen from '../../screens/RewardDetailModalScreen';
 
 const RootStack = createStackNavigator();
-
-const tabHiddenRoutes = [
-	routes.citypingsStack.rewardDetailModalScreen,
-	routes.citypingsStack.claimedRewardModalScreen,
-];
-
 function RootStackScreen({navigation, route}) {
 	useEffect(() => {
-		if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
-			navigation.setOptions({tabBarStyle: {display: 'none'}});
-		} else {
-			setTimeout(() => {
-				navigation.setOptions({tabBarStyle: {display: ''}});
-			}, 550);
-		}
+		// hides tab bar on modal screens
+		tabBarDisplayHelper(navigation, route);
 	}, [navigation, route]);
 
 	return (
