@@ -38,7 +38,7 @@ export const commonStyles = StyleSheet.create({
 	buttonStyle: {
 		width: Dimensions.get('window').width - 60,
 		justifyContent: 'center',
-		marginBottom: 5,
+		marginBottom: theme.spacing.xxs,
 	},
 	buttonLabel: {
 		textAlign: 'center',

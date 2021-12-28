@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	blockContainer: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	lottieView: {
 		margin: theme.spacing.xxs,

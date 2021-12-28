@@ -24,8 +24,6 @@ import theme from '../config/theme';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
-const MARGIN = theme.spacing.l;
-
 function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 	const {cover, routeId} = route.params;
 	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
@@ -128,19 +126,19 @@ const styles = StyleSheet.create({
 	},
 
 	title: {
-		marginTop: MARGIN,
+		marginTop: theme.spacing.l,
 	},
 
 	starContainer: {
 		flexDirection: 'row',
-		marginVertical: MARGIN,
+		marginVertical: theme.spacing.l,
 		justifyContent: 'space-around',
 	},
 	anyTips: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.l,
 	},
 	button: {
-		marginTop: MARGIN,
+		marginTop: theme.spacing.l,
 		alignSelf: 'flex-end',
 	},
 });
