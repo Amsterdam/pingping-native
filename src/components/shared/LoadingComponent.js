@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Body from '../typography/Body';
 
 const Loading = () => {
@@ -27,7 +27,7 @@ const Loading = () => {
 	}
 	return (
 		<View style={styles.acitivityContainer}>
-			<ActivityIndicator size="large" color={appColors.primary} />
+			<ActivityIndicator size="large" color={theme.colors.primary} />
 			{showText && (
 				<React.Fragment>
 					<Body variant="b3">Het laden duurt langer dan normaal</Body>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 		bottom: 0,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		opacity: 0.8,
 	},
 });

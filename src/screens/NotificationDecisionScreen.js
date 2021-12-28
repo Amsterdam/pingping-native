@@ -15,7 +15,7 @@ import Button from '../components/shared/RoundedButton';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
 const NotificationDecisionScreen = ({navigation, setLogin}) => {
@@ -97,19 +97,19 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
-		backgroundColor: appColors.background,
-		paddingHorizontal: 25,
+		backgroundColor: theme.colors.background,
+		paddingHorizontal: theme.spacing.l,
 	},
 	title: {
 		fontWeight: '400',
-		color: appColors.text,
-		marginBottom: 20,
+		color: theme.colors.text,
+		marginBottom: theme.spacing.m,
 	},
 	onboardingText: {
-		color: appColors.subText,
+		color: theme.colors.subText,
 	},
 	button: {
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 	},
 });
 

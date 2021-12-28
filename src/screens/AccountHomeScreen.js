@@ -12,7 +12,7 @@ import AccountBlockButton from '../components/account/AccountBlockButton';
 import Container from '../components/shared/Container';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const AccountHomeScreen = ({navigation}) => {
 	const buttons = [
@@ -39,9 +39,9 @@ const AccountHomeScreen = ({navigation}) => {
 		<Container
 			style={styles.container}
 			testID={testIDs.ACCOUNT.SCREEN}
-			statusBarColor={appColors.almostNotBlue}>
+			statusBarColor={theme.colors.almostNotBlue}>
 			<FocusAwareStatusBar
-				backgroundColor={appColors.almostNotBlue}
+				backgroundColor={theme.colors.almostNotBlue}
 				barStyle="dark-content"
 			/>
 
@@ -66,21 +66,21 @@ const AccountHomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 	flatListColumn: {
 		justifyContent: 'space-between',
-		paddingHorizontal: 25,
-		paddingVertical: 10,
+		paddingHorizontal: theme.spacing.l,
+		paddingVertical: theme.spacing.xs,
 	},
 	container: {
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 	},
 	flatList: {
-		backgroundColor: appColors.almostNotBlue,
-		marginTop: 12,
+		backgroundColor: theme.colors.almostNotBlue,
+		marginTop: theme.spacing.xs,
 	},
 	image: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	title: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 });
 

@@ -23,7 +23,7 @@ import Button from '../components/shared/RoundedButton';
 import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const screenHeight = Dimensions.get('window').height;
 function RouteDetailsScreen({navigation, route}) {
@@ -141,30 +141,30 @@ function RouteDetailsScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	title: {
-		marginVertical: 20,
+		marginVertical: theme.spacing.m,
 	},
 	description: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: 40,
-		marginTop: 10,
-		marginBottom: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	balanceContainer: {
-		marginTop: 10,
+		marginTop: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	subtitle: {
-		marginTop: 40,
+		marginTop: theme.spacing.multiplier(8),
 	},
 	tipsChip: {
 		position: 'absolute',

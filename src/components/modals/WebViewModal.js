@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import WebView from 'react-native-webview';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
@@ -39,7 +39,7 @@ const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
 						/>
 						{loading && (
 							<ActivityIndicator
-								color={appColors.primary}
+								color={theme.colors.primary}
 								style={styles.activivityIndicator}
 							/>
 						)}
@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor: appColors.modalBackground,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
-		marginTop: 75,
+		marginTop: theme.spacing.multiplier(15),
 		flex: 1,
-		borderTopLeftRadius: 35,
-		borderTopRightRadius: 35,
-		backgroundColor: appColors.background,
+		borderTopLeftRadius: theme.spacing.xxl,
+		borderTopRightRadius: theme.spacing.xxl,
+		backgroundColor: theme.colors.background,
 	},
 	activivityIndicator: {
 		position: 'absolute',
@@ -73,17 +73,17 @@ const styles = StyleSheet.create({
 	closeButton: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 		borderTopLeftRadius: 35,
 		borderTopRightRadius: 35,
 	},
 	webView: {
 		flex: 1,
-		padding: 5,
+		padding: theme.spacing.xxs,
 	},
 	buttonLabel: {
-		marginTop: 10,
-		color: appColors.white,
+		marginTop: theme.spacing.xs,
+		color: theme.colors.white,
 	},
 });
 

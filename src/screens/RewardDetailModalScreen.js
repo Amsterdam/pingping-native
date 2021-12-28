@@ -16,7 +16,7 @@ import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
@@ -130,22 +130,22 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 const styles = StyleSheet.create({
 	contentContainer: {
-		paddingHorizontal: 40,
-		paddingVertical: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingVertical: theme.spacing.m,
 	},
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	title: {
-		marginVertical: 20,
+		marginVertical: theme.spacing.m,
 	},
 	description: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: 40,
-		marginTop: 10,
-		marginBottom: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

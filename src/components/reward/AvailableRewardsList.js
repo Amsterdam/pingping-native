@@ -5,7 +5,7 @@ import {RefreshControl, ScrollView} from 'react-native';
 
 import RewardCard from './RewardCard';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import ContentLayout from '../layout/ContentLayout';
 import CardSkeleton from '../skeleton/CardSkeleton';
 
@@ -18,12 +18,12 @@ const AvailableRewardsList = ({
 }) => {
 	return (
 		<ScrollView
-			style={{backgroundColor: appColors.almostNotBlue}}
+			style={{backgroundColor: theme.colors.almostNotBlue}}
 			refreshControl={
 				<RefreshControl
 					refreshing={refreshing}
 					onRefresh={onRefresh}
-					tintColor={appColors.primary}
+					tintColor={theme.colors.primary}
 				/>
 			}>
 			<ContentLayout>

@@ -5,7 +5,7 @@ import {Dimensions, StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Loading from '../shared/LoadingComponent';
 import Button from '../shared/RoundedButton';
 
@@ -19,7 +19,7 @@ const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
 						flashMode={RNCamera.Constants.FlashMode.off}
 						containerStyle={styles.cameraContainerStyle}
 						showMarker
-						markerStyle={{borderColor: appColors.danger}}
+						markerStyle={{borderColor: theme.colors.danger}}
 					/>
 					{loading && <Loading />}
 				</React.Fragment>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').width - 100,
 		width: Dimensions.get('window').width - 100,
 		borderRadius: 5,
-		borderColor: appColors.primary,
+		borderColor: theme.colors.primary,
 		justifyContent: 'center',
 		alignItems: 'center',
 		overflow: 'hidden',

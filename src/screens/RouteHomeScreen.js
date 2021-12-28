@@ -20,7 +20,7 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
@@ -127,7 +127,7 @@ const RouteHomeScreen = ({navigation}) => {
 		<View style={styles.container} testID={testIDs.ROUTES.SCREEN}>
 			<View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
 			<FocusAwareStatusBar
-				backgroundColor={appColors.headerColor}
+				backgroundColor={theme.colors.headerColor}
 				barStyle="light-content"
 			/>
 			<Animated.View
@@ -144,8 +144,8 @@ const RouteHomeScreen = ({navigation}) => {
 					<RefreshControl
 						refreshing={refreshing}
 						onRefresh={onRefresh}
-						tintColor={appColors.primary}
-						style={{backgroundColor: appColors.headerColor}}
+						tintColor={theme.colors.primary}
+						style={{backgroundColor: theme.colors.headerColor}}
 					/>
 				}>
 				<ContentLayout>
@@ -164,12 +164,12 @@ const RouteHomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		position: 'relative',
 	},
 	header: {
 		flexDirection: 'column',
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		height: HEADER_HEIGHT,
 		left: 0,
 		top: 0,
@@ -177,22 +177,22 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	title: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 	subTitle: {
-		color: appColors.primary,
-		marginVertical: 10,
+		color: theme.colors.primary,
+		marginVertical: theme.spacing.xs,
 	},
 	content: {
 		top: 25,
-		paddingBottom: 75,
+		paddingBottom: theme.spacing.multiplier(15),
 	},
 	underLayer: {
 		position: 'absolute',
 		flex: 1,
 		zIndex: -5,
 		elevation: 0,
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 		top: 100, // replace this with a percentage of the screenheight to be responsive
 		bottom: 0,
 		left: 0,

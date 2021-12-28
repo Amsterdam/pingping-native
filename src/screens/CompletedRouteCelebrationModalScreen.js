@@ -19,8 +19,8 @@ import CitypingsChip from '../components/shared/CitypingsChip';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../config/commonStyles';
+import {commonStyles} from '../config/commonStyles';
+import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
@@ -45,7 +45,10 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<StatusBar backgroundColor={appColors.primary} barStyle="light-content" />
+			<StatusBar
+				backgroundColor={theme.colors.primary}
+				barStyle="light-content"
+			/>
 
 			<Animated.View
 				style={[styles.header, {transform: [{translateY: translateY}]}]}
@@ -144,7 +147,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
 	header: {
 		flexDirection: 'column',
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 		height: HEADER_HEIGHT,
 		left: 0,
 		top: 0,
@@ -152,28 +155,28 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	coinContainer: {
-		marginVertical: 15,
+		marginVertical: theme.spacing.s,
 	},
 	paper: {
 		...commonStyles.shadow,
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
-		marginVertical: 20,
-		padding: 15,
+		borderRadius: theme.borderRadius,
+		marginVertical: theme.spacing.m,
+		padding: theme.spacing.s,
 		alignItems: 'center',
 	},
 	content: {
 		position: 'absolute',
 		top: 25,
-		paddingBottom: 75,
+		paddingBottom: theme.spacing.multiplier(15),
 	},
 	underLayer: {
 		position: 'absolute',
 		flex: 1,
 		zIndex: -1,
 		elevation: 0,
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 		top: 100, // replace this with a percentage of the screenheight to be responsive
 		bottom: 0,
 		left: 0,
@@ -190,13 +193,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	blockContainer: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	lottieView: {
-		margin: 5,
+		margin: theme.spacing.xxs,
 	},
 	title: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 });
 

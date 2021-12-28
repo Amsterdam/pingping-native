@@ -9,7 +9,7 @@ import {
 	Text,
 } from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const RoundedButton = ({
@@ -38,7 +38,7 @@ const RoundedButton = ({
 			onPress={onPress}>
 			<View style={styles.innerContainer}>
 				{loading ? (
-					<ActivityIndicator color={appColors.danger} />
+					<ActivityIndicator color={theme.colors.danger} />
 				) : (
 					<React.Fragment>
 						{icon && icon}
@@ -51,27 +51,27 @@ const RoundedButton = ({
 };
 
 const buttonBase = {
-	backgroundColor: appColors.primary,
+	backgroundColor: theme.colors.primary,
 	borderRadius: 5,
 	justifyContent: 'center',
 	flexDirection: 'row',
-	padding: 10,
+	padding: theme.spacing.xs,
 };
 
 const styles = StyleSheet.create({
 	label: {
-		paddingTop: 3,
+		paddingTop: theme.spacing.xxs,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
-		color: appColors.white,
+		color: theme.colors.white,
 		alignItems: 'center',
 	},
 	disabled: {
 		...buttonBase,
-		backgroundColor: appColors.greyedOut,
+		backgroundColor: theme.colors.greyedOut,
 	},
 	deleteButton: {
-		backgroundColor: appColors.danger,
+		backgroundColor: theme.colors.danger,
 	},
 	innerContainer: {
 		flexDirection: 'row',

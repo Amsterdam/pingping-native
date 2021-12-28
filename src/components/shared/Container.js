@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, SafeAreaView, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 
 const Container = ({children, statusBarColor, ...rest}) => {
 	return (
@@ -19,7 +19,7 @@ const Container = ({children, statusBarColor, ...rest}) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 	},
 	safeAreaView: {
 		flex: 0,

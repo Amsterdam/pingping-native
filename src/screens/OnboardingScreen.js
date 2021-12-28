@@ -16,7 +16,7 @@ import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Container from '../components/shared/Container';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const onboardingViews = [
 	{
@@ -94,8 +94,8 @@ const OnboardingScreen = ({navigation}) => {
 
 			<Swiper
 				loop={false}
-				dotColor={appColors.greyedOut}
-				activeDotColor={appColors.primary}
+				dotColor={theme.colors.greyedOut}
+				activeDotColor={theme.colors.primary}
 				ref={swiperRef}>
 				{onboardingViews.map((view, index) => (
 					<OnboardingItem

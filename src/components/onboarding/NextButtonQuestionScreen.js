@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const NextButtonQuestionScreen = ({nextButtonDisabled, submitAnswer}) => {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 	nextButtonLabel: {
 		fontFamily: 'Raleway-Regular',
 		fontSize: normalizeValue(18),
-		margin: 10,
+		margin: theme.spacing.xs,
 	},
 	nextButton: {
 		paddingBottom: 0,
@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-end',
 	},
 	nextButtonDisabled: {
-		color: appColors.greyedOut,
+		color: theme.colors.greyedOut,
 	},
 	nextButtonActive: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 });
 

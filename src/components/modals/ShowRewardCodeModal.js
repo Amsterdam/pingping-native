@@ -4,8 +4,7 @@ import {IconButton, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS} from '../../config/commonStyles';
+import theme from '../../config/theme';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
@@ -69,13 +68,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.modalBackground,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -85,29 +84,29 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		position: 'relative',
 	},
 	closeButton: {
 		position: 'absolute',
 		right: 0,
-		margin: 5,
+		margin: theme.spacing.xxs,
 	},
 	title: {
-		marginBottom: 5,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: 20,
-		color: appColors.primary,
+		marginBottom: theme.spacing.m,
+		color: theme.colors.primary,
 	},
 	codeContainer: {
-		backgroundColor: appColors.headerColor,
-		padding: 10,
-		borderRadius: BORDER_RADIUS,
+		backgroundColor: theme.colors.headerColor,
+		padding: theme.spacing.xs,
+		borderRadius: theme.borderRadius,
 	},
 	code: {
-		marginTop: 5,
-		color: appColors.white,
+		marginTop: theme.spacing.xxs,
+		color: theme.colors.white,
 	},
 });
 

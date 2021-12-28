@@ -15,6 +15,7 @@ import QrScanner from '../components/onboarding/QrScanner';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
+import theme from '../config/theme';
 import {doRegisterDevice} from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
@@ -79,7 +80,7 @@ const ImportDataScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
 	margin: {
-		marginBottom: 30,
+		marginBottom: theme.spacing.xl,
 	},
 });
 

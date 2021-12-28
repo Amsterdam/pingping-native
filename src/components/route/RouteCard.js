@@ -8,12 +8,10 @@ import TrophyOrProgress from './TrophyOrProgress';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import routes from '../../App/stacks/routes';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Card from '../shared/Card';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
-
-const MARGIN = 15;
 
 const RouteCard = ({
 	navigation,
@@ -79,17 +77,17 @@ const RouteCard = ({
 
 const styles = StyleSheet.create({
 	title: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.s,
 	},
 	rewardType: {
-		color: appColors.primary,
-		marginBottom: 20,
+		color: theme.colors.primary,
+		marginBottom: theme.spacing.m,
 	},
 	savings: {
-		color: appColors.subtleGrey,
+		color: theme.colors.subtleGrey,
 	},
 	balanceContainer: {
-		marginTop: 25,
+		marginTop: theme.spacing.l,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import ThankYou from '../../assets/svg/ThankYou';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
@@ -29,7 +29,7 @@ const ThankYouFeedbackModal = ({open = false}) => {
 							Bedankt voor je input!
 						</Title>
 						<ThankYou />
-						<ActivityIndicator color={appColors.primary} />
+						<ActivityIndicator color={theme.colors.primary} />
 					</View>
 				</View>
 			</View>
@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.modalBackground,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		alignItems: 'center',
 	},
 	title: {
-		marginBottom: 10,
+		marginBottom: theme.spacing.xs,
 	},
 });
 

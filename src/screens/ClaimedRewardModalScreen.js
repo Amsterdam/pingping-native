@@ -13,7 +13,7 @@ import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const MARGIN_BOTTOM = 25;
 
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
 		marginBottom: MARGIN_BOTTOM,
 	},
 	rewardType: {
-		color: appColors.primary,
-		marginBottom: 10,
+		color: theme.colors.primary,
+		marginBottom: theme.spacing.m,
 	},
 });
 

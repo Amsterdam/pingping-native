@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 import {View} from 'react-native-animatable';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Body from '../typography/Body';
 
 const MinimalErrorComponent = ({message}) => {
@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	icon: {
-		color: appColors.danger,
-		marginRight: 5,
+		color: theme.colors.danger,
+		marginRight: theme.spacing.xxs,
 	},
 	errorMessage: {
-		color: appColors.danger,
+		color: theme.colors.danger,
 	},
 });
 

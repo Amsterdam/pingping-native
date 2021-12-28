@@ -5,7 +5,7 @@ import {RefreshControl, StyleSheet, View, ScrollView} from 'react-native';
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -71,7 +71,7 @@ const ErrorComponent = ({
 				<RefreshControl
 					refreshing={refreshing}
 					onRefresh={onRefresh}
-					tintColor={appColors.primary}
+					tintColor={theme.colors.primary}
 				/>
 			}>
 			{errorType.illustration}
@@ -99,10 +99,21 @@ const ErrorComponent = ({
 };
 
 const styles = StyleSheet.create({
-	container: {justifyContent: 'space-evenly', alignItems: 'center', flex: 1},
-	textContainer: {alignItems: 'center', padding: 30},
-	title: {marginBottom: 24},
-	button: {alignSelf: 'center'},
+	container: {
+		justifyContent: 'space-evenly',
+		alignItems: 'center',
+		flex: 1,
+	},
+	textContainer: {
+		alignItems: 'center',
+		padding: theme.spacing.xl,
+	},
+	title: {
+		marginBottom: theme.spacing.l,
+	},
+	button: {
+		alignSelf: 'center',
+	},
 });
 
 ErrorComponent.propTypes = {

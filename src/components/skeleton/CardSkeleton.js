@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
+import theme from '../../config/theme';
 
 // @todo skeletons do not work properly after new updated deps check this again.
 
@@ -27,9 +27,14 @@ const CardSkeleton = ({withTitle = true}) => (
 );
 
 const styles = StyleSheet.create({
-	title: {marginVertical: 10, width: '90%', height: 30, borderRadius: 4},
+	title: {
+		marginVertical: theme.spacing.xs,
+		width: '90%',
+		height: 30,
+		borderRadius: 4,
+	},
 	image: {width: '100%', height: 125},
-	container: {marginTop: 10, padding: 20},
+	container: {marginTop: theme.spacing.m, padding: theme.spacing.m},
 	text: {width: '90%', height: 20, borderRadius: 4},
 	subText: {width: '80%', height: 20, marginTop: 6, borderRadius: 4},
 	shortText: {marginTop: 6, width: 80, height: 20, borderRadius: 4},
@@ -41,10 +46,10 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-end',
 	},
 	paper: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
-		marginVertical: 10,
+		borderRadius: theme.borderRadius,
+		marginVertical: theme.spacing.xs,
 	},
 	paperShadow: {
 		...commonStyles.shadow,

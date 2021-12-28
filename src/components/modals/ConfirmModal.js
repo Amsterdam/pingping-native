@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.black,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: appColors.black,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		position: 'relative',
 	},
 	closeButton: {
@@ -87,14 +87,14 @@ const styles = StyleSheet.create({
 		right: 0,
 	},
 	icon: {
-		color: appColors.black,
-		margin: 10,
+		color: theme.colors.black,
+		margin: theme.spacing.xs,
 	},
 	title: {
-		marginBottom: 5,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 });
 

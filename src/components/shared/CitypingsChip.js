@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
 import CityPingCoin from '../../assets/svg/CityPingCoin';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const CitypingsChip = ({value = 0, mini = false}) => {
@@ -23,19 +23,19 @@ const CitypingsChip = ({value = 0, mini = false}) => {
 
 const styles = StyleSheet.create({
 	cpBalance: {
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 10,
-		borderRadius: 5,
+		padding: theme.spacing.xs,
+		borderRadius: theme.borderRadius,
 	},
 	cpLabel: {
-		color: appColors.white,
-		paddingTop: 5,
+		color: theme.colors.white,
+		paddingTop: theme.spacing.xxs,
 	},
 	coin: {
-		marginRight: 5,
+		marginRight: theme.spacing.xxs,
 	},
 });
 

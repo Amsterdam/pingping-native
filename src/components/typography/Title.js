@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
 /* eslint-disable react-native/no-unused-styles */
 const styles = StyleSheet.create({
 	base: {
 		fontFamily: 'Heavitas',
-		color: appColors.text,
+		color: theme.colors.text,
 	},
 	h1: {
 		fontSize: normalizeValue(32),

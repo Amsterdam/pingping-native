@@ -4,7 +4,7 @@ import {ChevronDownIcon, ChevronUpIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import {faqItems} from '../../helpers/faqItems';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -68,9 +68,9 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
 
 const styles = StyleSheet.create({
 	policyContainer: {
-		backgroundColor: appColors.background,
-		margin: 15,
-		borderColor: appColors.black,
+		backgroundColor: theme.colors.background,
+		margin: theme.spacing.s,
+		borderColor: theme.colors.black,
 		borderWidth: 1,
 		alignSelf: 'stretch',
 	},
@@ -78,13 +78,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		padding: 10,
+		padding: theme.spacing.xs,
 	},
 	paddingPolicy: {
-		padding: 20,
+		padding: theme.spacing.m,
 	},
-	faqTitle: {marginTop: 10, marginBottom: 10},
-	faqItemContainer: {marginTop: 5, marginBottom: 5},
+	faqTitle: {marginTop: theme.spacing.m, marginBottom: theme.spacing.m},
+	faqItemContainer: {marginTop: theme.spacing.xxs, marginBottom: 5},
 });
 
 PrivacyPolicyAccordion.propTypes = {

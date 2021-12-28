@@ -7,6 +7,7 @@ import {Platform, StyleSheet, View} from 'react-native';
 import AnswerTemplate from './AnswerTemplate';
 
 import {testIDs} from '../../../../e2e/modulesTestIDs';
+import theme from '../../../config/theme';
 import {getDays, getMonths, getYears} from '../../../helpers/birthDayHelper';
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
 	pickerAndroid: {
 		borderWidth: 1,
 		borderRadius: 5,
-		marginRight: 5,
+		marginRight: theme.spacing.xxs,
 	},
 });
 

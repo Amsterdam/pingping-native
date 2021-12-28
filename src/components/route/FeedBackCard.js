@@ -5,13 +5,11 @@ import {StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import FeedbackIcon from '../../assets/svg/FeedbackIcon';
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
+import theme from '../../config/theme';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
-
-const MARGIN = 5;
 
 const FeedbackCard = ({style, onPress}) => {
 	return (
@@ -39,10 +37,10 @@ const FeedbackCard = ({style, onPress}) => {
 
 const styles = StyleSheet.create({
 	paper: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
-		marginVertical: 10,
+		borderRadius: theme.borderRadius,
+		marginVertical: theme.spacing.xs,
 		...commonStyles.shadow,
 	},
 	titleContainer: {
@@ -51,13 +49,13 @@ const styles = StyleSheet.create({
 		alignItems: 'flex-end',
 	},
 	title: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.xxs,
 	},
 	descriptionContainer: {
-		padding: 20,
+		padding: theme.spacing.m,
 	},
 });
 

@@ -9,6 +9,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
+import theme from '../config/theme';
 
 const TipScreen = ({navigation, route}) => {
 	const {tips} = route.params;
@@ -42,14 +43,14 @@ const TipScreen = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
 	content: {
-		margin: 10,
+		margin: theme.spacing.xs,
 		alignItems: 'center',
 	},
 	subTitle: {
-		marginBottom: 10,
+		marginBottom: theme.spacing.xs,
 	},
 	paragraphContainer: {
-		marginBottom: 25,
+		marginBottom: theme.spacing.l,
 	},
 });
 

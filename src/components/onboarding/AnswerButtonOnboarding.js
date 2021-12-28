@@ -4,8 +4,7 @@ import {Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS} from '../../config/commonStyles';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const AnswerButtonOnboarding = ({
@@ -40,23 +39,23 @@ AnswerButtonOnboarding.defaultProps = {
 const styles = StyleSheet.create({
 	button: {
 		justifyContent: 'center',
-		backgroundColor: appColors.background,
-		marginBottom: 20,
-		borderRadius: BORDER_RADIUS,
-		borderColor: appColors.primary,
+		backgroundColor: theme.colors.background,
+		marginBottom: theme.spacing.m,
+		borderRadius: theme.borderRadius,
+		borderColor: theme.colors.primary,
 	},
 	activeButton: {
-		backgroundColor: appColors.primary,
-		marginBottom: 20,
+		backgroundColor: theme.colors.primary,
+		marginBottom: theme.spacing.m,
 	},
 	activeText: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 	label: {
-		paddingTop: 3,
+		paddingTop: theme.spacing.xxs,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 });
 

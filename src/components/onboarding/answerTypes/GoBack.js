@@ -5,7 +5,7 @@ import {StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../../e2e/modulesTestIDs';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
-import {appColors} from '../../../config/colors';
+import theme from '../../../config/theme';
 import ContentLayout from '../../layout/ContentLayout';
 import WebViewModal from '../../modals/WebViewModal';
 import HTMLRenderer from '../../shared/HTMLRenderer';
@@ -53,7 +53,7 @@ const GoBack = ({currentTask, doRevertTask}) => {
 
 const styles = StyleSheet.create({
 	content: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 	},
 	container: {
 		flex: 1,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		textAlign: 'center',
-		marginBottom: 15,
+		marginBottom: theme.spacing.s,
 	},
 });
 

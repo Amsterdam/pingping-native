@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../../config/colors';
 import {BASE_URL} from '../../../config/initialSettings';
+import theme from '../../../config/theme';
 import Header from '../../header/Header';
 import ConfirmModal from '../../modals/ConfirmModal';
 import Container from '../../shared/Container';
@@ -77,30 +77,30 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		width: '60%',
 		justifyContent: 'center',
-		marginBottom: 10,
+		marginBottom: theme.spacing.xs,
 	},
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 		textAlign: 'center',
 	},
 	whiteButton: {
-		backgroundColor: appColors.background,
-		borderColor: appColors.primary,
+		backgroundColor: theme.colors.background,
+		borderColor: theme.colors.primary,
 		borderWidth: 1,
 	},
 	viewContainer: {
 		flex: 1,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
-		backgroundColor: appColors.background,
-		paddingHorizontal: 25,
+		backgroundColor: theme.colors.background,
+		paddingHorizontal: theme.spacing.l,
 	},
 	title: {
-		color: appColors.text,
-		marginBottom: 20,
+		color: theme.colors.text,
+		marginBottom: theme.spacing.m,
 	},
 	onboardingText: {
-		color: appColors.subText,
+		color: theme.colors.subText,
 	},
 	buttonContainer: {
 		alignSelf: 'stretch',
