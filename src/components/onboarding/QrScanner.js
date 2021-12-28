@@ -5,7 +5,7 @@ import {Dimensions, StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Loading from '../shared/LoadingComponent';
 import Button from '../shared/RoundedButton';
 
@@ -19,7 +19,7 @@ const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
 						flashMode={RNCamera.Constants.FlashMode.off}
 						containerStyle={styles.cameraContainerStyle}
 						showMarker
-						markerStyle={{borderColor: ppBaseColors.PP_PINK}}
+						markerStyle={{borderColor: appColors.danger}}
 					/>
 					{loading && <Loading />}
 				</React.Fragment>

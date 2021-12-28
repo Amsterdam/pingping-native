@@ -24,7 +24,7 @@ import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 import {BASE_URL} from '../config/initialSettings';
 import {YOUTUBE_API_KEY} from '../config/keys';
 import sentryHelper from '../helpers/sentryHelper';
@@ -126,7 +126,7 @@ const TaskScreen = ({navigation, route}) => {
 			toast.show({
 				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
 				textStyle: {fontFamily: 'Raleway-Regular'},
-				style: {backgroundColor: ppBaseColors.PP_BLACK, borderRadius: 10},
+				style: {backgroundColor: appColors.black, borderRadius: 10},
 				duration: 2000,
 			}); // change the error message once complete
 		}
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
 	videoContainer: {
 		width: Dimensions.get('window').width,
 		height: 200,
-		backgroundColor: ppBaseColors.PP_BLACK,
+		backgroundColor: appColors.black,
 	},
 	activivityIndicator: {
 		position: 'absolute',

@@ -4,7 +4,7 @@ import {Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet} from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 import normalizeValue from '../../helpers/normalizeValue';
 
@@ -46,11 +46,11 @@ const styles = StyleSheet.create({
 		borderColor: appColors.primary,
 	},
 	activeButton: {
-		backgroundColor: ppBaseColors.PP_ORANGE,
+		backgroundColor: appColors.primary,
 		marginBottom: 20,
 	},
 	activeText: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 	label: {
 		paddingTop: 3,

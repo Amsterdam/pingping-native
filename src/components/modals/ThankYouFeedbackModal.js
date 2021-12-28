@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import ThankYou from '../../assets/svg/ThankYou';
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: ppBaseColors.PP_WHITE,
+		backgroundColor: appColors.white,
 		borderRadius: 5,
-		shadowColor: ppBaseColors.PP_BLACK,
+		shadowColor: appColors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,

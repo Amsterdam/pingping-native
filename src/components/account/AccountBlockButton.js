@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const AccountBlockButton = ({button, navigation}) => {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: 20,
-		shadowColor: ppBaseColors.PP_BLACK,
+		shadowColor: appColors.black,
 		shadowOffset: {
 			width: 0,
 			height: 1,

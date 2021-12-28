@@ -9,7 +9,7 @@ import {
 	Text,
 } from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 
 const RoundedButton = ({
@@ -63,15 +63,15 @@ const styles = StyleSheet.create({
 		paddingTop: 3,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 		alignItems: 'center',
 	},
 	disabled: {
 		...buttonBase,
-		backgroundColor: ppBaseColors.PP_GRAY,
+		backgroundColor: appColors.greyedOut,
 	},
 	deleteButton: {
-		backgroundColor: ppBaseColors.PP_PINK,
+		backgroundColor: appColors.danger,
 	},
 	innerContainer: {
 		flexDirection: 'row',

@@ -14,7 +14,7 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 
 const CityPingsHomeScreen = ({navigation}) => {
 	React.useEffect(() => {
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 	},
 	container: {backgroundColor: appColors.primary},
 	title: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 	headerContainer: {
 		flexDirection: 'row',

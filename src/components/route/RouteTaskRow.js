@@ -6,7 +6,7 @@ import {View as AnimatableView} from 'react-native-animatable';
 
 import routes from '../../App/stacks/routes';
 import Badge from '../../assets/svg/Badge';
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const CIRCLE_RADIUS = 30;
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 		backgroundColor: appColors.primary,
 	},
 	label: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 		marginLeft: 1,
 	},
 	title: {

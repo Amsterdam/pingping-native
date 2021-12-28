@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useMutation} from '@apollo/client';
 import PropTypes from 'prop-types';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Notifications} from 'react-native-notifications';
 
 import {testIDs} from '../../e2e/modulesTestIDs';

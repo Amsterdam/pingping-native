@@ -4,7 +4,7 @@ import {IconButton, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: ppBaseColors.PP_WHITE,
+		backgroundColor: appColors.white,
 		borderRadius: 5,
-		shadowColor: ppBaseColors.PP_BLACK,
+		shadowColor: appColors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 	},
 	code: {
 		marginTop: 5,
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 });
 
