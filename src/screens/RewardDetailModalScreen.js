@@ -16,7 +16,7 @@ import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
 function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	title: {
 		marginVertical: 20,

@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../../config/colors';
 import {BASE_URL} from '../../../config/initialSettings';
+import theme from '../../../config/theme';
 import Header from '../../header/Header';
 import ConfirmModal from '../../modals/ConfirmModal';
 import Container from '../../shared/Container';
@@ -80,27 +80,27 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	},
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 		textAlign: 'center',
 	},
 	whiteButton: {
-		backgroundColor: appColors.background,
-		borderColor: appColors.primary,
+		backgroundColor: theme.colors.background,
+		borderColor: theme.colors.primary,
 		borderWidth: 1,
 	},
 	viewContainer: {
 		flex: 1,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		paddingHorizontal: 25,
 	},
 	title: {
-		color: appColors.text,
+		color: theme.colors.text,
 		marginBottom: 20,
 	},
 	onboardingText: {
-		color: appColors.subText,
+		color: theme.colors.subText,
 	},
 	buttonContainer: {
 		alignSelf: 'stretch',

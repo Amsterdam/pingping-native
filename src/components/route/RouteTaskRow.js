@@ -6,7 +6,7 @@ import {View as AnimatableView} from 'react-native-animatable';
 
 import routes from '../../App/stacks/routes';
 import Badge from '../../assets/svg/Badge';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const CIRCLE_RADIUS = 30;
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 		padding: 20,
 	},
 	circleStepIndicator: {
-		backgroundColor: appColors.secondary,
+		backgroundColor: theme.colors.secondary,
 		height: CIRCLE_RADIUS,
 		width: CIRCLE_RADIUS,
 		borderRadius: 100,
@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
 		marginRight: 15,
 	},
 	circleDisabled: {
-		backgroundColor: appColors.subtleGrey,
+		backgroundColor: theme.colors.subtleGrey,
 	},
 	circleActive: {
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 	},
 	label: {
-		color: appColors.white,
+		color: theme.colors.white,
 		marginLeft: 1,
 	},
 	title: {
@@ -88,11 +88,11 @@ const styles = StyleSheet.create({
 	},
 	disabled: {
 		flexGrow: 1,
-		color: appColors.subtleGrey,
+		color: theme.colors.subtleGrey,
 	},
 	badge: {marginLeft: 5},
 	background: {
-		backgroundColor: appColors.taskRowBackground,
+		backgroundColor: theme.colors.taskRowBackground,
 	},
 });
 

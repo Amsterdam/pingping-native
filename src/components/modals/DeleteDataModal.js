@@ -6,7 +6,7 @@ import {Modal, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import TrashIcon from '../../assets/svg/icons/TrashIcon';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
@@ -52,7 +52,7 @@ const DeleteDataModal = ({
 								full
 							/>
 							<RoundedButton
-								icon={<TrashIcon height={20} color={appColors.text} />}
+								icon={<TrashIcon height={20} color={theme.colors.text} />}
 								style={[styles.button, styles.removeButton]}
 								labelStyle={styles.buttonLabel}
 								label="Verwijder mijn gegevens"
@@ -75,15 +75,15 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.modalBackground,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		margin: 20,
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
 		justifyContent: 'center',
 		alignItems: 'center',
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		fontSize: normalizeValue(10),
-		color: appColors.black,
+		color: theme.colors.black,
 	},
 	title: {
 		marginBottom: 25,
@@ -117,10 +117,10 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	removeButton: {
-		backgroundColor: appColors.subtleGrey,
+		backgroundColor: theme.colors.subtleGrey,
 	},
 	buttonLabel: {
-		color: appColors.text,
+		color: theme.colors.text,
 	},
 });
 

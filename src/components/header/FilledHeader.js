@@ -5,7 +5,7 @@ import {View, StyleSheet, StatusBar} from 'react-native';
 
 import HeaderBackButton from './HeaderBackButton';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const FilledHeader = ({
@@ -17,7 +17,7 @@ const FilledHeader = ({
 		<View style={styles.header}>
 			<StatusBar
 				barStyle={'light-content'}
-				backgroundColor={appColors.headerColor}
+				backgroundColor={theme.colors.headerColor}
 			/>
 			<View style={styles.backButton}>
 				<HeaderBackButton
@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		minHeight: 56,
 		position: 'relative',
 	},
 	headerTitle: {
 		marginTop: 5,
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 	backButton: {
 		position: 'absolute',

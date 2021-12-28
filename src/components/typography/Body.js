@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
 /* eslint-disable react-native/no-unused-styles */
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 	base: {
 		fontFamily: 'Raleway-Regular',
 		lineHeight: normalizeValue(25),
-		color: appColors.text,
+		color: theme.colors.text,
 	},
 	b1: {fontSize: normalizeValue(20)},
 	b2: {fontSize: normalizeValue(18)},

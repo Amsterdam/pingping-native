@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 function TextButton({onPress, testID, label}) {
@@ -18,7 +18,7 @@ function TextButton({onPress, testID, label}) {
 
 const styles = StyleSheet.create({
 	buttonLabel: {
-		color: appColors.greyedOut,
+		color: theme.colors.greyedOut,
 		padding: 10,
 	},
 });

@@ -8,7 +8,7 @@ import TrophyOrProgress from './TrophyOrProgress';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import routes from '../../App/stacks/routes';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Card from '../shared/Card';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
 		marginBottom: MARGIN,
 	},
 	rewardType: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 		marginBottom: 20,
 	},
 	savings: {
-		color: appColors.subtleGrey,
+		color: theme.colors.subtleGrey,
 	},
 	balanceContainer: {
 		marginTop: 25,

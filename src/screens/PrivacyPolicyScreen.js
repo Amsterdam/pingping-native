@@ -17,7 +17,7 @@ import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion'
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 import {doRegisterDevice} from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
@@ -61,7 +61,9 @@ const PrivacyPolicyScreen = ({navigation}) => {
 	return (
 		<Container
 			testID={testIDs.PRIVACY.SCREEN}
-			statusBarColor={policyAccepted ? appColors.headerColor : appColors.white}>
+			statusBarColor={
+				policyAccepted ? theme.colors.headerColor : theme.colors.white
+			}>
 			{policyAccepted ? (
 				<FilledHeader navigation={navigation} title="Privacy" />
 			) : (
@@ -104,15 +106,15 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		padding: 15,
 	},
 	title: {
-		color: appColors.text,
+		color: theme.colors.text,
 		marginBottom: 20,
 	},
 	onboardingText: {
-		color: appColors.subText,
+		color: theme.colors.subText,
 	},
 	buttonContainer: {
 		alignItems: 'center',

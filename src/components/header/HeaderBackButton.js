@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {TouchableOpacity} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 
 const HeaderBackButton = ({onPressAction = () => {}, color = 'light'}) => {
 	return (
@@ -13,7 +13,7 @@ const HeaderBackButton = ({onPressAction = () => {}, color = 'light'}) => {
 			onPress={onPressAction}
 			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
 			<ArrowBackIcon
-				color={color === 'light' ? appColors.white : appColors.text}
+				color={color === 'light' ? theme.colors.white : theme.colors.text}
 			/>
 		</TouchableOpacity>
 	);

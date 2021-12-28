@@ -13,7 +13,7 @@ import ContentLayout from '../components/layout/ContentLayout';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const ExportDataScreen = ({navigation, setLogOut}) => {
 	const {data, error} = useQuery(GET_STATUS_QUERY, {
@@ -35,7 +35,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 	}, [error, setLogOut]);
 
 	return (
-		<Container statusBarColor={appColors.headerColor}>
+		<Container statusBarColor={theme.colors.headerColor}>
 			<FilledHeader navigation={navigation} title="Profiel" />
 			<ScrollView>
 				<ContentLayout>

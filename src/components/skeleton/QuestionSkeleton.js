@@ -3,7 +3,7 @@ import React from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-import {BORDER_RADIUS} from '../../config/commonStyles';
+import theme from '../../config/theme';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 		marginTop: 6,
 		width: '100%',
 		height: 50,
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 	},
 	nextButton: {
 		marginTop: 6,

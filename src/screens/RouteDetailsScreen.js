@@ -23,7 +23,7 @@ import Button from '../components/shared/RoundedButton';
 import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const screenHeight = Dimensions.get('window').height;
 function RouteDetailsScreen({navigation, route}) {
@@ -141,7 +141,7 @@ function RouteDetailsScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
 	label: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	title: {
 		marginVertical: 20,

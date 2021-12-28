@@ -4,7 +4,7 @@ import {ChevronDownIcon, ChevronUpIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import {faqItems} from '../../helpers/faqItems';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -68,9 +68,9 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
 
 const styles = StyleSheet.create({
 	policyContainer: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		margin: 15,
-		borderColor: appColors.black,
+		borderColor: theme.colors.black,
 		borderWidth: 1,
 		alignSelf: 'stretch',
 	},

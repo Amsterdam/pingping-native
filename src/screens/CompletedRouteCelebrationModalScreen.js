@@ -19,8 +19,8 @@ import CitypingsChip from '../components/shared/CitypingsChip';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../config/commonStyles';
+import {commonStyles} from '../config/commonStyles';
+import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
@@ -45,7 +45,10 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<StatusBar backgroundColor={appColors.primary} barStyle="light-content" />
+			<StatusBar
+				backgroundColor={theme.colors.primary}
+				barStyle="light-content"
+			/>
 
 			<Animated.View
 				style={[styles.header, {transform: [{translateY: translateY}]}]}
@@ -144,7 +147,7 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
 	header: {
 		flexDirection: 'column',
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 		height: HEADER_HEIGHT,
 		left: 0,
 		top: 0,
@@ -156,9 +159,9 @@ const styles = StyleSheet.create({
 	},
 	paper: {
 		...commonStyles.shadow,
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 		marginVertical: 20,
 		padding: 15,
 		alignItems: 'center',
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		zIndex: -1,
 		elevation: 0,
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 		top: 100, // replace this with a percentage of the screenheight to be responsive
 		bottom: 0,
 		left: 0,
@@ -196,7 +199,7 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	title: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 });
 

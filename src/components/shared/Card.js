@@ -7,9 +7,9 @@ import CardDisabledOverlay from './CardDisabledOverlay';
 import CitypingsChip from './CitypingsChip';
 import ProgressiveImage from './ProgressiveImage';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
 import {BASE_URL} from '../../config/initialSettings';
+import theme from '../../config/theme';
 
 const Card = ({
 	onPress = () => {},
@@ -50,9 +50,9 @@ const Card = ({
 
 const styles = StyleSheet.create({
 	paper: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 		marginVertical: 10,
 	},
 	paperShadow: {
@@ -61,14 +61,14 @@ const styles = StyleSheet.create({
 	imageContainer: {
 		position: 'relative',
 		height: 125,
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 	},
 	image: {
 		flex: 1,
 		width: '100%',
 		height: '100%',
-		borderTopRightRadius: BORDER_RADIUS,
-		borderTopLeftRadius: BORDER_RADIUS,
+		borderTopRightRadius: theme.borderRadius,
+		borderTopLeftRadius: theme.borderRadius,
 	},
 	overlayTop: {position: 'absolute', padding: 15, top: 0, right: 10},
 	descriptionContainer: {

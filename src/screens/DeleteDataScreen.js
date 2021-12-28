@@ -16,7 +16,7 @@ import Container from '../components/shared/Container';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
 const DeleteDataScreen = ({navigation, setLogOut}) => {
@@ -44,7 +44,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 	return (
 		<Container
 			testID={testIDs.DELETE_DATA.SCREEN}
-			statusBarColor={appColors.headerColor}>
+			statusBarColor={theme.colors.headerColor}>
 			<FilledHeader navigation={navigation} title="Privacy" />
 			<ScrollView contentContainerStyle={styles.scrollView}>
 				<ContentLayout>
@@ -65,7 +65,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 					<View style={styles.inputContainer}>
 						<Button
 							deleteButton
-							icon={<TrashIcon height={20} color={appColors.white} />}
+							icon={<TrashIcon height={20} color={theme.colors.white} />}
 							label="Verwijder mijn gegevens"
 							onPress={() => setOpen(true)}
 							testid={testIDs.DELETE_DATA.DELETE_BUTTON}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 		marginBottom: 30,
 	},
 	scrollView: {
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		flex: 1,
 	},
 	inputContainer: {alignItems: 'center', justifyContent: 'center'},

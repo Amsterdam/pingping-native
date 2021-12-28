@@ -6,7 +6,7 @@ import {StyleSheet, View} from 'react-native';
 import ProgressBar from './ProgressBar';
 
 import CityPingCoin from '../../assets/svg/CityPingCoin';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Body from '../typography/Body';
 
 const CityPingsBalance = ({price = 0, balance = 0}) => {
@@ -28,7 +28,7 @@ const CityPingsBalance = ({price = 0, balance = 0}) => {
 const styles = StyleSheet.create({
 	savings: {
 		marginLeft: 5,
-		color: appColors.greyedOut,
+		color: theme.colors.greyedOut,
 	},
 	balanceContainer: {
 		marginTop: 10,

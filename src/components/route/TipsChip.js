@@ -5,7 +5,7 @@ import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import LightBulb from '../../assets/svg/icons/LightBulb';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const TipsChip = ({navigation, tips}) => {
@@ -27,7 +27,7 @@ const TipsChip = ({navigation, tips}) => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 		zIndex: 10,
 	},
 	title: {
-		color: appColors.white,
+		color: theme.colors.white,
 		marginTop: 5,
 		marginLeft: 5,
 	},

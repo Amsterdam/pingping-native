@@ -14,7 +14,7 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const CityPingsHomeScreen = ({navigation}) => {
 	React.useEffect(() => {
@@ -95,10 +95,10 @@ const CityPingsHomeScreen = ({navigation}) => {
 	const renderTabBar = props => (
 		<TabBar
 			{...props}
-			indicatorStyle={{backgroundColor: appColors.white}}
-			style={{backgroundColor: appColors.primary}}
+			indicatorStyle={{backgroundColor: theme.colors.white}}
+			style={{backgroundColor: theme.colors.primary}}
 			renderLabel={({route, focused, color}) => (
-				<Title variant="h5" style={{color: appColors.white}}>
+				<Title variant="h5" style={{color: theme.colors.white}}>
 					{route.title}
 				</Title>
 			)}
@@ -109,7 +109,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 		<Container style={styles.container}>
 			<View style={styles.header}>
 				<FocusAwareStatusBar
-					backgroundColor={appColors.primary}
+					backgroundColor={theme.colors.primary}
 					barStyle="light-content"
 				/>
 				<View style={styles.headerContainer}>
@@ -134,12 +134,12 @@ const styles = StyleSheet.create({
 	header: {
 		flexDirection: 'column',
 		padding: 15,
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 		height: 100,
 	},
-	container: {backgroundColor: appColors.primary},
+	container: {backgroundColor: theme.colors.primary},
 	title: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 	headerContainer: {
 		flexDirection: 'row',

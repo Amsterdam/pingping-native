@@ -12,7 +12,7 @@ import {testIDs} from '../../e2e/modulesTestIDs';
 import AccountIcon from '../assets/svg/icons/AccountIcon';
 import CityPingsIcon from '../assets/svg/icons/CityPingsIcon ';
 import LifeEventsIcon from '../assets/svg/icons/LifeEventsIcon';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +22,7 @@ const TabNavigator = ({setLogOut}) => (
 		screenOptions={{
 			headerShown: false,
 			tabBarLabelStyle: {fontFamily: 'Raleway-Regular'},
-			tabBarActiveTintColor: appColors.primary,
+			tabBarActiveTintColor: theme.colors.primary,
 		}}>
 		<Tab.Screen
 			name={routes.citypingsStack.name}

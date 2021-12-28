@@ -4,8 +4,7 @@ import {IconButton, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS} from '../../config/commonStyles';
+import theme from '../../config/theme';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
@@ -69,13 +68,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: appColors.modalBackground,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -98,16 +97,16 @@ const styles = StyleSheet.create({
 	},
 	body: {
 		marginBottom: 20,
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	codeContainer: {
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		padding: 10,
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 	},
 	code: {
 		marginTop: 5,
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 });
 

@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-import {appColors} from './colors';
+import theme from './theme';
 
 export const commonStyles = StyleSheet.create({
 	logoFont: {
@@ -8,7 +8,7 @@ export const commonStyles = StyleSheet.create({
 		letterSpacing: 3,
 		textTransform: 'uppercase',
 		textAlign: 'center',
-		color: appColors.white,
+		color: theme.colors.white,
 		fontFamily: 'Heavitas',
 	},
 	subTitle: {
@@ -16,12 +16,12 @@ export const commonStyles = StyleSheet.create({
 		letterSpacing: 5,
 		textTransform: 'uppercase',
 		textAlign: 'center',
-		color: appColors.white,
+		color: theme.colors.white,
 		fontFamily: 'Heavitas',
 		marginTop: 30,
 	},
 	shadow: {
-		shadowColor: appColors.black,
+		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -31,7 +31,7 @@ export const commonStyles = StyleSheet.create({
 		elevation: 5,
 	},
 	textShadow: {
-		textShadowColor: appColors.black,
+		textShadowColor: theme.colors.black,
 		textShadowOffset: {width: -1, height: 1},
 		textShadowRadius: 10,
 	},
@@ -50,9 +50,7 @@ export const commonStyles = StyleSheet.create({
 		fontSize: 40,
 	},
 	iconButton: {
-		backgroundColor: appColors.headerColor,
+		backgroundColor: theme.colors.headerColor,
 		borderRadius: 50,
 	},
 });
-
-export const BORDER_RADIUS = 5;

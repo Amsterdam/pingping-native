@@ -24,9 +24,9 @@ import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
 import {BASE_URL} from '../config/initialSettings';
 import {YOUTUBE_API_KEY} from '../config/keys';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
 const TaskScreen = ({navigation, route}) => {
@@ -80,7 +80,7 @@ const TaskScreen = ({navigation, route}) => {
 					<View style={styles.videoContainer}>
 						{!videoReady && (
 							<ActivityIndicator
-								color={appColors.primary}
+								color={theme.colors.primary}
 								style={styles.activivityIndicator}
 							/>
 						)}
@@ -126,7 +126,7 @@ const TaskScreen = ({navigation, route}) => {
 			toast.show({
 				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
 				textStyle: {fontFamily: 'Raleway-Regular'},
-				style: {backgroundColor: appColors.black, borderRadius: 10},
+				style: {backgroundColor: theme.colors.black, borderRadius: 10},
 				duration: 2000,
 			}); // change the error message once complete
 		}
@@ -180,12 +180,12 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		alignItems: 'center',
 		width: '100%',
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 	},
 	videoContainer: {
 		width: Dimensions.get('window').width,
 		height: 200,
-		backgroundColor: appColors.black,
+		backgroundColor: theme.colors.black,
 	},
 	activivityIndicator: {
 		position: 'absolute',
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	buttonHelp: {
-		backgroundColor: appColors.greyedOut,
+		backgroundColor: theme.colors.greyedOut,
 		flex: 1,
 		marginRight: 10,
 		justifyContent: 'center',
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
 		padding: 10,
 	},
 	completedTagLine: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 		marginTop: 10,
 		marginBottom: 20,
 	},

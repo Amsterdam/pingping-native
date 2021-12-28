@@ -20,7 +20,7 @@ import StarRating from '../components/route/StarRating';
 import MinimalErrorComponent from '../components/shared/MinimalErrorComponent';
 import RoundedButton from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
@@ -119,7 +119,7 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: appColors.white,
+		backgroundColor: theme.colors.white,
 		flex: 1,
 	},
 	contentContainer: {

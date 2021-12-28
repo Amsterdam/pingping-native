@@ -4,7 +4,7 @@ import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, View} from 'react-native';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 const Header = ({title = '', left, right, color = 'light'}) => {
@@ -13,14 +13,14 @@ const Header = ({title = '', left, right, color = 'light'}) => {
 			<View style={styles.header}>
 				<StatusBar
 					barStyle={color === 'light' ? 'dark-content' : 'light-content'}
-					backgroundColor={appColors.background}
+					backgroundColor={theme.colors.background}
 				/>
 				<View style={styles.left}>{left}</View>
 
 				<Title
 					style={[
-						color === 'light' && {color: appColors.primary},
-						color === 'dark' && {color: appColors.white},
+						color === 'light' && {color: theme.colors.primary},
+						color === 'dark' && {color: theme.colors.white},
 					]}
 					variant="h6"
 					align="center">

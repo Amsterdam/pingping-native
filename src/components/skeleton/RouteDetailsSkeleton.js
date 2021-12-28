@@ -3,7 +3,7 @@ import React from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -47,7 +47,7 @@ const RouteDetailSkeleton = () => (
 );
 
 const styles = StyleSheet.create({
-	container: {backgroundColor: appColors.background, flex: 1},
+	container: {backgroundColor: theme.colors.background, flex: 1},
 	content: {padding: 20},
 	image: {width: '100%', height: screenHeight * 0.3},
 	shortText: {

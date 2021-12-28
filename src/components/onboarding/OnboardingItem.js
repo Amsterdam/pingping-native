@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
 import routes from '../../App/stacks/routes';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -50,17 +50,17 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		padding: 15,
 	},
 	title: {
-		color: appColors.text,
+		color: theme.colors.text,
 	},
 	onboardingText: {
-		color: appColors.subText,
+		color: theme.colors.subText,
 	},
 	button: {
-		backgroundColor: appColors.primary,
+		backgroundColor: theme.colors.primary,
 	},
 });
 

@@ -6,7 +6,7 @@ import {View as AnimatableView} from 'react-native-animatable';
 
 import routes from '../../App/stacks/routes';
 import ClaimedTickets from '../../assets/svg/ClaimedTickets';
-import {appColors} from '../../config/colors';
+import theme from '../../config/theme';
 import Card from '../shared/Card';
 import CityPingsBalance from '../shared/CityPingsBalance';
 import Body from '../typography/Body';
@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	},
 	rewardType: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 		marginBottom: 10,
 	},
 	expiryDate: {
-		color: appColors.primary,
+		color: theme.colors.primary,
 	},
 	typeContainer: {
 		flexDirection: 'row',

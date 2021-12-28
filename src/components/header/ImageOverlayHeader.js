@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import {Dimensions, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
-import {appColors} from '../../config/colors';
 import {commonStyles} from '../../config/commonStyles';
 import {BASE_URL} from '../../config/initialSettings';
+import theme from '../../config/theme';
 import CitypingsChip from '../shared/CitypingsChip';
 import ProgressiveImage from '../shared/ProgressiveImage';
 
@@ -34,7 +34,7 @@ const ImageOverlayHeader = ({
 				<IconButton
 					onPress={() => navigation.goBack()}
 					style={commonStyles.iconButton}
-					icon={<ChevronLeftIcon color={appColors.white} />}
+					icon={<ChevronLeftIcon color={theme.colors.white} />}
 					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
 				/>
 				<CitypingsChip value={cityPings} />

@@ -6,7 +6,7 @@ import {StyleSheet, View} from 'react-native';
 import AnswerTemplate from './AnswerTemplate';
 
 import {testIDs} from '../../../../e2e/modulesTestIDs';
-import {appColors} from '../../../config/colors';
+import theme from '../../../config/theme';
 import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
 import Button from '../../onboarding/AnswerButtonOnboarding';
 import Body from '../../typography/Body';
@@ -66,7 +66,7 @@ const MultipleChoice = ({
 
 const styles = StyleSheet.create({
 	activeText: {
-		color: appColors.white,
+		color: theme.colors.white,
 	},
 	bodyText: {
 		marginBottom: 20,

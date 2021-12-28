@@ -12,7 +12,7 @@ import AccountBlockButton from '../components/account/AccountBlockButton';
 import Container from '../components/shared/Container';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import {appColors} from '../config/colors';
+import theme from '../config/theme';
 
 const AccountHomeScreen = ({navigation}) => {
 	const buttons = [
@@ -39,9 +39,9 @@ const AccountHomeScreen = ({navigation}) => {
 		<Container
 			style={styles.container}
 			testID={testIDs.ACCOUNT.SCREEN}
-			statusBarColor={appColors.almostNotBlue}>
+			statusBarColor={theme.colors.almostNotBlue}>
 			<FocusAwareStatusBar
-				backgroundColor={appColors.almostNotBlue}
+				backgroundColor={theme.colors.almostNotBlue}
 				barStyle="dark-content"
 			/>
 
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 	},
 	container: {
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 	},
 	flatList: {
-		backgroundColor: appColors.almostNotBlue,
+		backgroundColor: theme.colors.almostNotBlue,
 		marginTop: 12,
 	},
 	image: {

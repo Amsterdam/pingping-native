@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-import {appColors} from '../../config/colors';
-import {BORDER_RADIUS, commonStyles} from '../../config/commonStyles';
+import {commonStyles} from '../../config/commonStyles';
+import theme from '../../config/theme';
 
 // @todo skeletons do not work properly after new updated deps check this again.
 
@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-end',
 	},
 	paper: {
-		backgroundColor: appColors.background,
+		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
-		borderRadius: BORDER_RADIUS,
+		borderRadius: theme.borderRadius,
 		marginVertical: 10,
 	},
 	paperShadow: {
