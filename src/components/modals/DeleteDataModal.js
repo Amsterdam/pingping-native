@@ -6,7 +6,7 @@ import {Modal, StyleSheet, View} from 'react-native';
 
 import {testIDs} from '../../../e2e/modulesTestIDs';
 import TrashIcon from '../../assets/svg/icons/TrashIcon';
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import normalizeValue from '../../helpers/normalizeValue';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		margin: 20,
-		backgroundColor: ppBaseColors.PP_WHITE,
+		backgroundColor: appColors.white,
 		borderRadius: 5,
 		justifyContent: 'center',
 		alignItems: 'center',
-		shadowColor: ppBaseColors.PP_BLACK,
+		shadowColor: appColors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		fontSize: normalizeValue(10),
-		color: ppBaseColors.PP_BLACK,
+		color: appColors.black,
 	},
 	title: {
 		marginBottom: 25,

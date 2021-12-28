@@ -1,9 +1,14 @@
 import React from 'react';
 
 import {useQuery} from '@apollo/client';
-import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
-import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
+import {
+	Dimensions,
+	ScrollView,
+	StyleSheet,
+	View,
+	StatusBar,
+} from 'react-native';
 
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import routes from '../App/stacks/routes';

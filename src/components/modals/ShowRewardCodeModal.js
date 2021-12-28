@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {Button, CloseIcon} from 'native-base';
+import {IconButton, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import {BORDER_RADIUS} from '../../config/commonStyles';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -30,13 +30,12 @@ const ShowRewardCodeModal = ({
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
-						<Button
-							rounded
-							transparent
+						<IconButton
+							onPress={closeModal}
 							style={styles.closeButton}
-							onPress={closeModal}>
-							<CloseIcon size="3" />
-						</Button>
+							icon={<CloseIcon style={styles.icon} size="4" />}
+						/>
+
 						<Title style={styles.title}>Jouw Code</Title>
 						{expiryDate ? (
 							<Body variant="b3" style={styles.body}>
@@ -74,9 +73,9 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: ppBaseColors.PP_WHITE,
+		backgroundColor: appColors.white,
 		borderRadius: 5,
-		shadowColor: ppBaseColors.PP_BLACK,
+		shadowColor: appColors.black,
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -92,6 +91,7 @@ const styles = StyleSheet.create({
 	closeButton: {
 		position: 'absolute',
 		right: 0,
+		margin: 5,
 	},
 	title: {
 		marginBottom: 5,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 	},
 	code: {
 		marginTop: 5,
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 });
 

@@ -4,7 +4,7 @@ import {ChevronDownIcon, ChevronUpIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import {faqItems} from '../../helpers/faqItems';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 	policyContainer: {
 		backgroundColor: appColors.background,
 		margin: 15,
-		borderColor: ppBaseColors.PP_BLACK,
+		borderColor: appColors.black,
 		borderWidth: 1,
 		alignSelf: 'stretch',
 	},

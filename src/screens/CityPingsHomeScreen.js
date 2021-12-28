@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useLazyQuery} from '@apollo/client';
-import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, useWindowDimensions} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
@@ -15,7 +14,7 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 
 const CityPingsHomeScreen = ({navigation}) => {
 	React.useEffect(() => {
@@ -108,7 +107,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 
 	return (
 		<Container style={styles.container}>
-			<Box style={styles.header}>
+			<View style={styles.header}>
 				<FocusAwareStatusBar
 					backgroundColor={appColors.primary}
 					barStyle="light-content"
@@ -119,7 +118,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 					</Title>
 					<CitypingsChip value={balance} />
 				</View>
-			</Box>
+			</View>
 			<TabView
 				navigationState={{index, routes}}
 				renderScene={renderScene}
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
 	},
 	container: {backgroundColor: appColors.primary},
 	title: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 	headerContainer: {
 		flexDirection: 'row',

@@ -5,7 +5,7 @@ import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import LightBulb from '../../assets/svg/icons/LightBulb';
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const TipsChip = ({navigation, tips}) => {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 		zIndex: 10,
 	},
 	title: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 		marginTop: 5,
 		marginLeft: 5,
 	},

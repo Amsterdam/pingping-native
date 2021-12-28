@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 
 import {useQuery} from '@apollo/client';
 import PropTypes from 'prop-types';
-import {TouchableOpacity, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
@@ -15,9 +14,9 @@ import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import Header from '../components/header/Header';
 import OnboardingItem from '../components/onboarding/OnboardingItem';
 import Container from '../components/shared/Container';
+import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
-import Title from '../components/typography/Title';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 
 const onboardingViews = [
 	{
@@ -77,15 +76,13 @@ const OnboardingScreen = ({navigation}) => {
 				title="INTRODUCTIE"
 				actionLabel="INLOGGEN"
 				right={
-					<TouchableOpacity
-						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
+					<TextButton
 						onPress={() =>
 							navigation.navigate(routes.onboardingStack.importDataScreen)
-						}>
-						<Title style={styles.buttonLabel} variant="h7" align="right">
-							INLOGGEN
-						</Title>
-					</TouchableOpacity>
+						}
+						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
+						label="INLOGGEN"
+					/>
 				}
 			/>
 			<Header />
@@ -97,7 +94,7 @@ const OnboardingScreen = ({navigation}) => {
 
 			<Swiper
 				loop={false}
-				dotColor={ppBaseColors.PP_GRAY}
+				dotColor={appColors.greyedOut}
 				activeDotColor={appColors.primary}
 				ref={swiperRef}>
 				{onboardingViews.map((view, index) => (
@@ -113,12 +110,6 @@ const OnboardingScreen = ({navigation}) => {
 		</Container>
 	);
 };
-
-const styles = StyleSheet.create({
-	buttonLabel: {
-		color: appColors.greyedOut,
-	},
-});
 
 OnboardingScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,

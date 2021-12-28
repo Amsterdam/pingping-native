@@ -45,7 +45,7 @@ const AccountHomeScreen = ({navigation}) => {
 				barStyle="dark-content"
 			/>
 
-			<Title variant="h4" align="center">
+			<Title variant="h4" align="center" style={styles.title}>
 				GEGEVENS
 			</Title>
 
@@ -78,6 +78,9 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		marginBottom: 20,
+	},
+	title: {
+		marginTop: 20,
 	},
 });
 

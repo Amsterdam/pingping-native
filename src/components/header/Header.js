@@ -37,15 +37,14 @@ const styles = StyleSheet.create({
 	header: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginHorizontal: 10,
 	},
 	left: {
 		position: 'absolute',
-		left: 0,
+		left: 5,
 	},
 	right: {
 		position: 'absolute',
-		right: 0,
+		right: 5,
 	},
 });
 

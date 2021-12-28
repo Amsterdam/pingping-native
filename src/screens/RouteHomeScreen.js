@@ -20,7 +20,7 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
-import {appColors, ppBaseColors} from '../config/colors';
+import {appColors} from '../config/colors';
 
 const HEADER_HEIGHT = 200;
 
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	title: {
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 	subTitle: {
 		color: appColors.primary,

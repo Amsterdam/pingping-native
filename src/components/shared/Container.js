@@ -1,24 +1,23 @@
 import React from 'react';
 
-import {VStack} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView, View} from 'react-native';
 
 import {appColors} from '../../config/colors';
 
 const Container = ({children, statusBarColor, ...rest}) => {
 	return (
-		<VStack {...rest} style={[styles.VStack, rest.style]}>
+		<View {...rest} style={[styles.container, rest.style]}>
 			<SafeAreaView
 				style={[styles.safeAreaView, {backgroundColor: statusBarColor}]}
 			/>
 			{children}
-		</VStack>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	VStack: {
+	container: {
 		flex: 1,
 		backgroundColor: appColors.white,
 	},

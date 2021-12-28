@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import WebView from 'react-native-webview';
 
-import {appColors, ppBaseColors} from '../../config/colors';
+import {appColors} from '../../config/colors';
 import Title from '../typography/Title';
 
 const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 	},
 	buttonLabel: {
 		marginTop: 10,
-		color: ppBaseColors.PP_WHITE,
+		color: appColors.white,
 	},
 });
 
