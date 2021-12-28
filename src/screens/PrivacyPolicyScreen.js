@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react';
 
 import {useMutation} from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
-import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, ScrollView, View} from 'react-native';
 
 import {testIDs} from '../../e2e/modulesTestIDs';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';

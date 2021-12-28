@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {Text} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	ActivityIndicator,
 	StyleSheet,
 	View,
 	TouchableOpacity,
+	Text,
 } from 'react-native';
 
 import {appColors, ppBaseColors} from '../../config/colors';

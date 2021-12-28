@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useLazyQuery} from '@apollo/client';
-import {Box} from 'native-base';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, useWindowDimensions} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
@@ -108,7 +107,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 
 	return (
 		<Container style={styles.container}>
-			<Box style={styles.header}>
+			<View style={styles.header}>
 				<FocusAwareStatusBar
 					backgroundColor={appColors.primary}
 					barStyle="light-content"
@@ -119,7 +118,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 					</Title>
 					<CitypingsChip value={balance} />
 				</View>
-			</Box>
+			</View>
 			<TabView
 				navigationState={{index, routes}}
 				renderScene={renderScene}

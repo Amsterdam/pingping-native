@@ -12,6 +12,7 @@ import Bell from '../assets/svg/Bell';
 import Header from '../components/header/Header';
 import Container from '../components/shared/Container';
 import Button from '../components/shared/RoundedButton';
+import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import {appColors} from '../config/colors';
@@ -57,13 +58,11 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 			<Header
 				title="Notificaties"
 				right={
-					<TouchableOpacity
+					<TextButton
 						onPress={declineNotifications}
-						testID={testIDs.NOTIFICATON.SKIP_BUTTON}>
-						<Title style={styles.headerSubButton} variant="h7">
-							Overslaan
-						</Title>
-					</TouchableOpacity>
+						testID={testIDs.NOTIFICATON.SKIP_BUTTON}
+						label="OVERSLAAN"
+					/>
 				}
 				color="light"
 			/>
@@ -111,9 +110,6 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		backgroundColor: appColors.primary,
-	},
-	headerSubButton: {
-		color: appColors.greyedOut,
 	},
 });
 

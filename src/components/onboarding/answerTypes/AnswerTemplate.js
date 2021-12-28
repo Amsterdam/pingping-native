@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {ScrollView} from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 
 import Header from '../../header/Header';
 import HeaderBackButton from '../../header/HeaderBackButton';

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {useMutation} from '@apollo/client';
-import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	KeyboardAvoidingView,
@@ -10,6 +9,7 @@ import {
 	StyleSheet,
 	TextInput,
 	View,
+	StatusBar,
 } from 'react-native';
 
 import SUBMIT_ROUTE_FEEDBACK_MUTATION from '../apollo/Mutation/submitRouteFeedback';

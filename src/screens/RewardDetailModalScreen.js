@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
 import {useMutation, useQuery} from '@apollo/client';
-import {StatusBar, useToast} from 'native-base';
+import {useToast} from 'native-base';
 import PropTypes from 'prop-types';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View, StatusBar} from 'react-native';
 
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {StatusBar} from 'native-base';
 import PropTypes from 'prop-types';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, StatusBar} from 'react-native';
 
 import HeaderBackButton from './HeaderBackButton';
 
@@ -15,7 +14,7 @@ const FilledHeader = ({
 	color = 'light',
 }) => {
 	return (
-		<View style={[styles.header, styles.filledHeader]}>
+		<View style={styles.header}>
 			<StatusBar
 				barStyle={'light-content'}
 				backgroundColor={appColors.headerColor}
@@ -39,18 +38,17 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
+		backgroundColor: appColors.headerColor,
 		minHeight: 56,
+		position: 'relative',
 	},
 	headerTitle: {
 		marginTop: 5,
 		color: appColors.white,
 	},
-	filledHeader: {
-		backgroundColor: appColors.headerColor,
-	},
 	backButton: {
 		position: 'absolute',
-		left: 0,
+		left: 5,
 	},
 });
 
