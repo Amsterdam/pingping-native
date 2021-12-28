@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import {Container} from 'native-base';
 import PropTypes from 'prop-types';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -9,6 +8,7 @@ import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
 import ContentLayout from '../components/layout/ContentLayout';
 import ShowRewardCodeModal from '../components/modals/ShowRewardCodeModal';
 import WebViewModal from '../components/modals/WebViewModal';
+import Container from '../components/shared/Container';
 import HTMLRenderer from '../components/shared/HTMLRenderer';
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';

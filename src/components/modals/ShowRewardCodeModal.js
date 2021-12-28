@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, CloseIcon} from 'native-base';
+import {IconButton, CloseIcon} from 'native-base';
 import PropTypes from 'prop-types';
 import {Dimensions, Modal, StyleSheet, View} from 'react-native';
 
@@ -30,13 +30,12 @@ const ShowRewardCodeModal = ({
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
-						<Button
-							rounded
-							transparent
+						<IconButton
+							onPress={closeModal}
 							style={styles.closeButton}
-							onPress={closeModal}>
-							<CloseIcon size="3" />
-						</Button>
+							icon={<CloseIcon style={styles.icon} size="5" />}
+						/>
+
 						<Title style={styles.title}>Jouw Code</Title>
 						{expiryDate ? (
 							<Body variant="b3" style={styles.body}>
@@ -92,6 +91,7 @@ const styles = StyleSheet.create({
 	closeButton: {
 		position: 'absolute',
 		right: 0,
+		margin: 5,
 	},
 	title: {
 		marginBottom: 5,
