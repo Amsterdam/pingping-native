@@ -33,7 +33,7 @@ const ShowRewardCodeModal = ({
 						<IconButton
 							onPress={closeModal}
 							style={styles.closeButton}
-							icon={<CloseIcon style={styles.icon} size="5" />}
+							icon={<CloseIcon style={styles.icon} size="4" />}
 						/>
 
 						<Title style={styles.title}>Jouw Code</Title>
