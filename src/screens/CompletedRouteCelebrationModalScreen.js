@@ -155,21 +155,21 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	coinContainer: {
-		marginVertical: 15,
+		marginVertical: theme.spacing.s,
 	},
 	paper: {
 		...commonStyles.shadow,
 		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
 		borderRadius: theme.borderRadius,
-		marginVertical: 20,
-		padding: 15,
+		marginVertical: theme.spacing.m,
+		padding: theme.spacing.s,
 		alignItems: 'center',
 	},
 	content: {
 		position: 'absolute',
 		top: 25,
-		paddingBottom: 75,
+		paddingBottom: theme.spacing.multiplier(15),
 	},
 	underLayer: {
 		position: 'absolute',
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	lottieView: {
-		margin: 5,
+		margin: theme.spacing.xxs,
 	},
 	title: {
 		color: theme.colors.white,

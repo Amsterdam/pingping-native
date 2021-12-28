@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
-		margin: 20,
+		margin: theme.spacing.m,
 		backgroundColor: theme.colors.white,
 		borderRadius: 5,
 		justifyContent: 'center',
@@ -93,13 +93,13 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		position: 'relative',
 	},
 	closeButton: {
 		position: 'absolute',
 		right: 0,
-		margin: 5,
+		margin: theme.spacing.xxs,
 		borderRadius: 50,
 	},
 	icon: {
@@ -107,13 +107,13 @@ const styles = StyleSheet.create({
 		color: theme.colors.black,
 	},
 	title: {
-		marginBottom: 25,
+		marginBottom: theme.spacing.l,
 	},
 	body: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	button: {
-		marginVertical: 5,
+		marginVertical: theme.spacing.xxs,
 		justifyContent: 'center',
 	},
 	removeButton: {

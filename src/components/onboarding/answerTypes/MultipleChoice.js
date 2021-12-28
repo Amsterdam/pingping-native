@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 		color: theme.colors.white,
 	},
 	bodyText: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 });
 

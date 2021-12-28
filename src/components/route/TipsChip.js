@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 10,
-		borderRadius: 5,
+		padding: theme.spacing.xs,
+		borderRadius: theme.borderRadius,
 		zIndex: 10,
 	},
 	title: {
 		color: theme.colors.white,
-		marginTop: 5,
-		marginLeft: 5,
+		marginTop: theme.spacing.xxs,
+		marginLeft: theme.spacing.xxs,
 	},
 });
 

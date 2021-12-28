@@ -69,7 +69,7 @@ const PrivacyPolicyAccordion = ({open, toggleOpen}) => {
 const styles = StyleSheet.create({
 	policyContainer: {
 		backgroundColor: theme.colors.background,
-		margin: 15,
+		margin: theme.spacing.s,
 		borderColor: theme.colors.black,
 		borderWidth: 1,
 		alignSelf: 'stretch',
@@ -78,13 +78,13 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		padding: 10,
+		padding: theme.spacing.xs,
 	},
 	paddingPolicy: {
-		padding: 20,
+		padding: theme.spacing.m,
 	},
-	faqTitle: {marginTop: 10, marginBottom: 10},
-	faqItemContainer: {marginTop: 5, marginBottom: 5},
+	faqTitle: {marginTop: theme.spacing.m, marginBottom: theme.spacing.m},
+	faqItemContainer: {marginTop: theme.spacing.xxs, marginBottom: 5},
 });
 
 PrivacyPolicyAccordion.propTypes = {

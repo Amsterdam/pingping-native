@@ -47,22 +47,30 @@ const RouteDetailSkeleton = () => (
 );
 
 const styles = StyleSheet.create({
-	container: {backgroundColor: theme.colors.background, flex: 1},
-	content: {padding: 20},
-	image: {width: '100%', height: screenHeight * 0.3},
+	container: {
+		backgroundColor: theme.colors.background,
+		flex: 1,
+	},
+	content: {
+		padding: theme.spacing.m,
+	},
+	image: {
+		width: '100%',
+		height: screenHeight * 0.3,
+	},
 	shortText: {
 		width: '30%',
 		borderRadius: 4,
 		height: 10,
 	},
 	title: {
-		marginVertical: 15,
+		marginVertical: theme.spacing.s,
 		width: '80%',
 		borderRadius: 4,
 		height: 40,
 	},
 	subTitle: {
-		marginTop: 25,
+		marginTop: theme.spacing.l,
 		width: '40%',
 		borderRadius: 4,
 		height: 25,
@@ -80,13 +88,13 @@ const styles = StyleSheet.create({
 		height: 15,
 	},
 	row: {
-		marginTop: 25,
+		marginTop: theme.spacing.l,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	task: {
-		marginTop: 25,
+		marginTop: theme.spacing.l,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},

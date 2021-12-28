@@ -61,7 +61,7 @@ const ExportDataScreen = ({navigation, setLogOut}) => {
 
 const styles = StyleSheet.create({
 	margin: {
-		marginBottom: 30,
+		marginBottom: theme.spacing.xl,
 	},
 	qrContainer: {
 		alignItems: 'center',

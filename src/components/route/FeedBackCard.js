@@ -11,8 +11,6 @@ import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const MARGIN = 5;
-
 const FeedbackCard = ({style, onPress}) => {
 	return (
 		<View style={[styles.paper, style]} testID={testIDs.ROUTES.FEEDBACK_CARD}>
@@ -42,7 +40,7 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
 		borderRadius: theme.borderRadius,
-		marginVertical: 10,
+		marginVertical: theme.spacing.xs,
 		...commonStyles.shadow,
 	},
 	titleContainer: {
@@ -51,13 +49,13 @@ const styles = StyleSheet.create({
 		alignItems: 'flex-end',
 	},
 	title: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.xxs,
 	},
 	descriptionContainer: {
-		padding: 20,
+		padding: theme.spacing.m,
 	},
 });
 

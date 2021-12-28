@@ -202,9 +202,9 @@ const styles = StyleSheet.create({
 		height: 200,
 	},
 	buttonContainer: {
-		paddingHorizontal: 40,
-		marginTop: 10,
-		marginBottom: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -212,16 +212,16 @@ const styles = StyleSheet.create({
 	buttonHelp: {
 		backgroundColor: theme.colors.greyedOut,
 		flex: 1,
-		marginRight: 10,
+		marginRight: theme.spacing.xs,
 		justifyContent: 'center',
 	},
 	completedTagLineContainer: {
-		padding: 10,
+		padding: theme.spacing.xs,
 	},
 	completedTagLine: {
 		color: theme.colors.primary,
-		marginTop: 10,
-		marginBottom: 20,
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 	},
 });
 

@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: theme.colors.black,
+		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
 		width: screenWidth * 0.9,
-		backgroundColor: theme.colors.black,
+		backgroundColor: theme.colors.white,
 		borderRadius: 5,
 		shadowColor: theme.colors.black,
 		shadowOffset: {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		position: 'relative',
 	},
 	closeButton: {
@@ -88,13 +88,13 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		color: theme.colors.black,
-		margin: 10,
+		margin: theme.spacing.xs,
 	},
 	title: {
-		marginBottom: 5,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 });
 

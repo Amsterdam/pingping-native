@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ScrollView} from 'react-native';
 
+import theme from '../../../config/theme';
 import Header from '../../header/Header';
 import HeaderBackButton from '../../header/HeaderBackButton';
 import Container from '../../shared/Container';
@@ -39,7 +40,7 @@ const AnswerTemplate = ({
 };
 
 const styles = StyleSheet.create({
-	content: {flex: 1, padding: 20},
+	content: {flex: 1, padding: theme.spacing.m},
 	questionContainer: {
 		flex: 1,
 		justifyContent: 'center',

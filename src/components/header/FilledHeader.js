@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
 		position: 'relative',
 	},
 	headerTitle: {
-		marginTop: 5,
+		marginTop: theme.spacing.xxs,
 		color: theme.colors.white,
 	},
 	backButton: {
 		position: 'absolute',
-		left: 5,
+		left: theme.spacing.xxs,
 	},
 });
 

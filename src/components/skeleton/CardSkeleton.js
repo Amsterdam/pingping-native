@@ -27,9 +27,14 @@ const CardSkeleton = ({withTitle = true}) => (
 );
 
 const styles = StyleSheet.create({
-	title: {marginVertical: 10, width: '90%', height: 30, borderRadius: 4},
+	title: {
+		marginVertical: theme.spacing.xs,
+		width: '90%',
+		height: 30,
+		borderRadius: 4,
+	},
 	image: {width: '100%', height: 125},
-	container: {marginTop: 10, padding: 20},
+	container: {marginTop: theme.spacing.m, padding: theme.spacing.m},
 	text: {width: '90%', height: 20, borderRadius: 4},
 	subText: {width: '80%', height: 20, marginTop: 6, borderRadius: 4},
 	shortText: {marginTop: 6, width: 80, height: 20, borderRadius: 4},
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
 		borderRadius: theme.borderRadius,
-		marginVertical: 10,
+		marginVertical: theme.spacing.xs,
 	},
 	paperShadow: {
 		...commonStyles.shadow,

@@ -181,11 +181,11 @@ const styles = StyleSheet.create({
 	},
 	subTitle: {
 		color: theme.colors.primary,
-		marginVertical: 10,
+		marginVertical: theme.spacing.xs,
 	},
 	content: {
 		top: 25,
-		paddingBottom: 75,
+		paddingBottom: theme.spacing.multiplier(15),
 	},
 	underLayer: {
 		position: 'absolute',

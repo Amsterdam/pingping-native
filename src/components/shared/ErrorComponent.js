@@ -99,10 +99,21 @@ const ErrorComponent = ({
 };
 
 const styles = StyleSheet.create({
-	container: {justifyContent: 'space-evenly', alignItems: 'center', flex: 1},
-	textContainer: {alignItems: 'center', padding: 30},
-	title: {marginBottom: 24},
-	button: {alignSelf: 'center'},
+	container: {
+		justifyContent: 'space-evenly',
+		alignItems: 'center',
+		flex: 1,
+	},
+	textContainer: {
+		alignItems: 'center',
+		padding: theme.spacing.xl,
+	},
+	title: {
+		marginBottom: theme.spacing.l,
+	},
+	button: {
+		alignSelf: 'center',
+	},
 });
 
 ErrorComponent.propTypes = {

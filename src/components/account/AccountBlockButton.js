@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 		width: '45%',
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: 20,
+		padding: theme.spacing.m,
 		shadowColor: theme.colors.black,
 		shadowOffset: {
 			width: 0,

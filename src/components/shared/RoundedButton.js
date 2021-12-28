@@ -55,12 +55,12 @@ const buttonBase = {
 	borderRadius: 5,
 	justifyContent: 'center',
 	flexDirection: 'row',
-	padding: 10,
+	padding: theme.spacing.xs,
 };
 
 const styles = StyleSheet.create({
 	label: {
-		paddingTop: 3,
+		paddingTop: theme.spacing.xxs,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
 		color: theme.colors.white,

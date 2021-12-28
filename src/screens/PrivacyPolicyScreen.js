@@ -107,11 +107,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
 		backgroundColor: theme.colors.background,
-		padding: 15,
+		padding: theme.spacing.s,
 	},
 	title: {
 		color: theme.colors.text,
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	onboardingText: {
 		color: theme.colors.subText,

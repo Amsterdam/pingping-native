@@ -24,7 +24,7 @@ import theme from '../config/theme';
 
 const INITIAL_STATE = {feedback: '', numberActive: 0};
 
-const MARGIN = 30;
+const MARGIN = theme.spacing.l;
 
 function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 	const {cover, routeId} = route.params;
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	contentContainer: {
-		paddingHorizontal: 40,
-		paddingVertical: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingVertical: theme.spacing.m,
 	},
 
 	title: {
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
 
 	starContainer: {
 		flexDirection: 'row',
-		marginVertical: 30,
+		marginVertical: MARGIN,
 		justifyContent: 'space-around',
 	},
 	anyTips: {

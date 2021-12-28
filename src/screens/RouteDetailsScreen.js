@@ -144,27 +144,27 @@ const styles = StyleSheet.create({
 		color: theme.colors.primary,
 	},
 	title: {
-		marginVertical: 20,
+		marginVertical: theme.spacing.m,
 	},
 	description: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: 40,
-		marginTop: 10,
-		marginBottom: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	balanceContainer: {
-		marginTop: 10,
+		marginTop: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
 	},
 	subtitle: {
-		marginTop: 40,
+		marginTop: theme.spacing.multiplier(8),
 	},
 	tipsChip: {
 		position: 'absolute',

@@ -84,28 +84,28 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		position: 'relative',
 	},
 	closeButton: {
 		position: 'absolute',
 		right: 0,
-		margin: 5,
+		margin: theme.spacing.xxs,
 	},
 	title: {
-		marginBottom: 5,
+		marginBottom: theme.spacing.xxs,
 	},
 	body: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 		color: theme.colors.primary,
 	},
 	codeContainer: {
 		backgroundColor: theme.colors.headerColor,
-		padding: 10,
+		padding: theme.spacing.xs,
 		borderRadius: theme.borderRadius,
 	},
 	code: {
-		marginTop: 5,
+		marginTop: theme.spacing.xxs,
 		color: theme.colors.white,
 	},
 });

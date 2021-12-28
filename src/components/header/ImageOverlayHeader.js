@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		width: '100%',
-		paddingHorizontal: 20,
+		paddingHorizontal: theme.spacing.m,
 		position: 'absolute',
 		top: 80,
 	},

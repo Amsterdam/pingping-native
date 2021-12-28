@@ -27,15 +27,15 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 10,
-		borderRadius: 5,
+		padding: theme.spacing.xs,
+		borderRadius: theme.borderRadius,
 	},
 	cpLabel: {
 		color: theme.colors.white,
-		paddingTop: 5,
+		paddingTop: theme.spacing.xxs,
 	},
 	coin: {
-		marginRight: 5,
+		marginRight: theme.spacing.xxs,
 	},
 });
 

@@ -133,7 +133,7 @@ const CityPingsHomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 	header: {
 		flexDirection: 'column',
-		padding: 15,
+		padding: theme.spacing.s,
 		backgroundColor: theme.colors.primary,
 		height: 100,
 	},

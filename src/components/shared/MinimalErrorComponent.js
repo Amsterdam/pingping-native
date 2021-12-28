@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		color: theme.colors.danger,
-		marginRight: 5,
+		marginRight: theme.spacing.xxs,
 	},
 	errorMessage: {
 		color: theme.colors.danger,

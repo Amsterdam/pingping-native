@@ -18,7 +18,7 @@ export const commonStyles = StyleSheet.create({
 		textAlign: 'center',
 		color: theme.colors.white,
 		fontFamily: 'Heavitas',
-		marginTop: 30,
+		marginTop: theme.spacing.xl,
 	},
 	shadow: {
 		shadowColor: theme.colors.black,

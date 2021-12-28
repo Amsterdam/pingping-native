@@ -13,8 +13,6 @@ import Card from '../shared/Card';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const MARGIN = 15;
-
 const RouteCard = ({
 	navigation,
 	route: {
@@ -79,17 +77,17 @@ const RouteCard = ({
 
 const styles = StyleSheet.create({
 	title: {
-		marginBottom: MARGIN,
+		marginBottom: theme.spacing.s,
 	},
 	rewardType: {
 		color: theme.colors.primary,
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	savings: {
 		color: theme.colors.subtleGrey,
 	},
 	balanceContainer: {
-		marginTop: 25,
+		marginTop: theme.spacing.l,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

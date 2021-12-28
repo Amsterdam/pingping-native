@@ -66,21 +66,21 @@ const AccountHomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 	flatListColumn: {
 		justifyContent: 'space-between',
-		paddingHorizontal: 25,
-		paddingVertical: 10,
+		paddingHorizontal: theme.spacing.l,
+		paddingVertical: theme.spacing.xs,
 	},
 	container: {
 		backgroundColor: theme.colors.almostNotBlue,
 	},
 	flatList: {
 		backgroundColor: theme.colors.almostNotBlue,
-		marginTop: 12,
+		marginTop: theme.spacing.xs,
 	},
 	image: {
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	title: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 });
 

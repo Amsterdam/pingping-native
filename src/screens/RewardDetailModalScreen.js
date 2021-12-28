@@ -130,22 +130,22 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 const styles = StyleSheet.create({
 	contentContainer: {
-		paddingHorizontal: 40,
-		paddingVertical: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingVertical: theme.spacing.m,
 	},
 	label: {
 		color: theme.colors.primary,
 	},
 	title: {
-		marginVertical: 20,
+		marginVertical: theme.spacing.m,
 	},
 	description: {
-		marginTop: 20,
+		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: 40,
-		marginTop: 10,
-		marginBottom: 20,
+		paddingHorizontal: theme.spacing.multiplier(8),
+		marginTop: theme.spacing.m,
+		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

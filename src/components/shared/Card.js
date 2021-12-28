@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.background,
 		alignSelf: 'stretch',
 		borderRadius: theme.borderRadius,
-		marginVertical: 10,
+		marginVertical: theme.spacing.xs,
 	},
 	paperShadow: {
 		...commonStyles.shadow,
@@ -70,9 +70,14 @@ const styles = StyleSheet.create({
 		borderTopRightRadius: theme.borderRadius,
 		borderTopLeftRadius: theme.borderRadius,
 	},
-	overlayTop: {position: 'absolute', padding: 15, top: 0, right: 10},
+	overlayTop: {
+		position: 'absolute',
+		padding: theme.spacing.s,
+		top: 0,
+		right: 10,
+	},
 	descriptionContainer: {
-		padding: 20,
+		padding: theme.spacing.m,
 	},
 });
 

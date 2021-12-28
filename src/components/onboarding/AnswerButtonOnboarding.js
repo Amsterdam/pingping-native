@@ -40,19 +40,19 @@ const styles = StyleSheet.create({
 	button: {
 		justifyContent: 'center',
 		backgroundColor: theme.colors.background,
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 		borderRadius: theme.borderRadius,
 		borderColor: theme.colors.primary,
 	},
 	activeButton: {
 		backgroundColor: theme.colors.primary,
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	activeText: {
 		color: theme.colors.white,
 	},
 	label: {
-		paddingTop: 3,
+		paddingTop: theme.spacing.xxs,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
 		color: theme.colors.primary,

@@ -19,7 +19,7 @@ function TextButton({onPress, testID, label}) {
 const styles = StyleSheet.create({
 	buttonLabel: {
 		color: theme.colors.greyedOut,
-		padding: 10,
+		padding: theme.spacing.xs,
 	},
 });
 

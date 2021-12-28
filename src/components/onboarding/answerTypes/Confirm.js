@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		width: '60%',
 		justifyContent: 'center',
-		marginBottom: 10,
+		marginBottom: theme.spacing.xs,
 	},
 	label: {
 		color: theme.colors.primary,
@@ -93,11 +93,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
 		backgroundColor: theme.colors.background,
-		paddingHorizontal: 25,
+		paddingHorizontal: theme.spacing.l,
 	},
 	title: {
 		color: theme.colors.text,
-		marginBottom: 20,
+		marginBottom: theme.spacing.m,
 	},
 	onboardingText: {
 		color: theme.colors.subText,

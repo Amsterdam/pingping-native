@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	modalContainer: {
-		padding: 35,
+		padding: theme.spacing.xxl,
 		alignItems: 'center',
 	},
 	title: {
-		marginBottom: 10,
+		marginBottom: theme.spacing.xs,
 	},
 });
 

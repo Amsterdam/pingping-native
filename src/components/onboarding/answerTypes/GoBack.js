@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		textAlign: 'center',
-		marginBottom: 15,
+		marginBottom: theme.spacing.s,
 	},
 });
 

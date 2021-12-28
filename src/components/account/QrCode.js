@@ -21,7 +21,7 @@ const QrCode = ({exportToken = ''}) => {
 const styles = StyleSheet.create({
 	qrCode: {
 		borderWidth: 5,
-		padding: 10,
+		padding: theme.spacing.xs,
 		borderRadius: 5,
 		borderColor: theme.colors.primary,
 	},

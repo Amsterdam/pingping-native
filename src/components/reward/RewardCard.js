@@ -85,14 +85,14 @@ const RewardCard = ({
 
 const styles = StyleSheet.create({
 	descriptionContainer: {
-		paddingHorizontal: 10,
+		paddingHorizontal: theme.spacing.xs,
 	},
 	title: {
-		marginBottom: 10,
+		marginBottom: theme.spacing.m,
 	},
 	rewardType: {
 		color: theme.colors.primary,
-		marginBottom: 10,
+		marginBottom: theme.spacing.m,
 	},
 	expiryDate: {
 		color: theme.colors.primary,

@@ -19,7 +19,7 @@ const EmptyContentNotifier = ({text}) => {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: theme.colors.background,
-		padding: 20,
+		padding: theme.spacing.xs,
 		borderRadius: 5,
 	},
 });

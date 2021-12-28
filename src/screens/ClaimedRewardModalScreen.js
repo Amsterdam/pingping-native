@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 	},
 	rewardType: {
 		color: theme.colors.primary,
-		marginBottom: 10,
+		marginBottom: theme.spacing.m,
 	},
 });
 

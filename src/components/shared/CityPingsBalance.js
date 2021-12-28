@@ -27,11 +27,11 @@ const CityPingsBalance = ({price = 0, balance = 0}) => {
 
 const styles = StyleSheet.create({
 	savings: {
-		marginLeft: 5,
+		marginLeft: theme.spacing.xxs,
 		color: theme.colors.greyedOut,
 	},
 	balanceContainer: {
-		marginTop: 10,
+		marginTop: theme.spacing.m,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

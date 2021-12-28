@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.modalBackground,
 	},
 	modalView: {
-		marginTop: 75,
+		marginTop: theme.spacing.multiplier(15),
 		flex: 1,
-		borderTopLeftRadius: 35,
-		borderTopRightRadius: 35,
+		borderTopLeftRadius: theme.spacing.xxl,
+		borderTopRightRadius: theme.spacing.xxl,
 		backgroundColor: theme.colors.background,
 	},
 	activivityIndicator: {
@@ -79,10 +79,10 @@ const styles = StyleSheet.create({
 	},
 	webView: {
 		flex: 1,
-		padding: 5,
+		padding: theme.spacing.xxs,
 	},
 	buttonLabel: {
-		marginTop: 10,
+		marginTop: theme.spacing.xs,
 		color: theme.colors.white,
 	},
 });

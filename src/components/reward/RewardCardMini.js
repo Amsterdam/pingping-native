@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {StyleSheet, View} from 'react-native';
 
 import routes from '../../App/stacks/routes';
+import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 import Card from '../shared/Card';
 import Body from '../typography/Body';
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
 		width: '45%',
 	},
 	cardFont: {
-		marginTop: 10,
+		marginTop: theme.spacing.m,
 		lineHeight: normalizeValue(20),
 	},
 });

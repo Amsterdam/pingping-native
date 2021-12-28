@@ -88,7 +88,7 @@ const DeleteDataScreen = ({navigation, setLogOut}) => {
 
 const styles = StyleSheet.create({
 	margin: {
-		marginBottom: 30,
+		marginBottom: theme.spacing.xl,
 	},
 	scrollView: {
 		backgroundColor: theme.colors.white,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 	inputContainer: {alignItems: 'center', justifyContent: 'center'},
 	emojiContainer: {
 		alignItems: 'center',
-		marginBottom: 10,
+		marginBottom: theme.spacing.m,
 	},
 });
 

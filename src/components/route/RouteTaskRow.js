@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		width: '100%',
-		padding: 20,
+		padding: theme.spacing.m,
 	},
 	circleStepIndicator: {
 		backgroundColor: theme.colors.secondary,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 		borderRadius: 100,
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginRight: 15,
+		marginRight: theme.spacing.s,
 	},
 	circleDisabled: {
 		backgroundColor: theme.colors.subtleGrey,
@@ -90,7 +90,9 @@ const styles = StyleSheet.create({
 		flexGrow: 1,
 		color: theme.colors.subtleGrey,
 	},
-	badge: {marginLeft: 5},
+	badge: {
+		marginLeft: theme.spacing.xxs,
+	},
 	background: {
 		backgroundColor: theme.colors.taskRowBackground,
 	},

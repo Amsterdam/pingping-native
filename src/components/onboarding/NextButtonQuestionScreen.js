@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 	nextButtonLabel: {
 		fontFamily: 'Raleway-Regular',
 		fontSize: normalizeValue(18),
-		margin: 10,
+		margin: theme.spacing.xs,
 	},
 	nextButton: {
 		paddingBottom: 0,
