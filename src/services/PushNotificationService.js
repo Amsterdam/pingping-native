@@ -24,6 +24,8 @@ const handleNotifcationWithType = payload => {
 	}
 };
 
+// @todo handle initial notification in linking.js
+
 const PushNotificationManager = ({children}) => {
 	useEffect(() => {
 		Notifications.registerRemoteNotifications();
