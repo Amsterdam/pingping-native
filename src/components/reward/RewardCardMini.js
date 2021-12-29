@@ -1,7 +1,7 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import theme from '../../config/theme';
@@ -12,22 +12,34 @@ import Title from '../typography/Title';
 
 const RewardCardMini = ({
 	navigation,
-	reward: {price, description, title, rewardId, cover, status},
+	reward: {
+		price,
+		description,
+		title,
+		rewardId,
+		cover,
+		status,
+	},
 	balance,
 }) => {
 	const doNavigation = () => {
-		navigation.navigate(routes.citypingsStack.name, {
-			screen: routes.citypingsStack.rewardDetailModalScreen,
-			initial: false,
-			params: {
-				price,
-				balance,
-				description,
-				title,
-				rewardId,
-				cover,
+		navigation.navigate(
+			routes.citypingsStack.name,
+			{
+				screen:
+					routes.citypingsStack
+						.rewardDetailModalScreen,
+				initial: false,
+				params: {
+					price,
+					balance,
+					description,
+					title,
+					rewardId,
+					cover,
+				},
 			},
-		});
+		);
 	};
 
 	return (
@@ -37,16 +49,22 @@ const RewardCardMini = ({
 			pings={price}
 			style={styles.card}
 			disabled={status === 'NotAvailable'}
-			mini>
+			mini
+		>
 			<View style={styles.descriptionContainer}>
-				<Title variant="h7" numberOfLines={2} ellipsizeMode="tail">
+				<Title
+					variant="h7"
+					numberOfLines={2}
+					ellipsizeMode="tail"
+				>
 					{title}
 				</Title>
 				<Body
 					variant="b4"
 					numberOfLines={2}
 					ellipsizeMode="tail"
-					style={styles.cardFont}>
+					style={styles.cardFont}
+				>
 					{description}
 				</Body>
 			</View>

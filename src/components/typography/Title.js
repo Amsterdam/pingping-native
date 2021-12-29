@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, Text} from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -15,12 +15,12 @@ const styles = StyleSheet.create({
 	h1: {
 		fontSize: normalizeValue(32),
 	},
-	h2: {fontSize: normalizeValue(28)},
-	h3: {fontSize: normalizeValue(24)},
-	h4: {fontSize: normalizeValue(20)},
-	h5: {fontSize: normalizeValue(16)},
-	h6: {fontSize: normalizeValue(14)},
-	h7: {fontSize: normalizeValue(12)},
+	h2: { fontSize: normalizeValue(28) },
+	h3: { fontSize: normalizeValue(24) },
+	h4: { fontSize: normalizeValue(20) },
+	h5: { fontSize: normalizeValue(16) },
+	h6: { fontSize: normalizeValue(14) },
+	h7: { fontSize: normalizeValue(12) },
 	left: {
 		textAlign: 'left',
 	},
@@ -45,10 +45,16 @@ const Title = ({
 }) => {
 	return (
 		<Text
-			style={[styles.base, styles[variant], styles[align], style]}
+			style={[
+				styles.base,
+				styles[variant],
+				styles[align],
+				style,
+			]}
 			numberOfLines={numberOfLines}
 			ellipsizeMode={ellipsizeMode}
-			selectable={selectable}>
+			selectable={selectable}
+		>
 			{children}
 		</Text>
 	);
@@ -62,11 +68,22 @@ Title.propTypes = {
 		PropTypes.number,
 	]).isRequired,
 	align: PropTypes.string,
-	style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+	style: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]).isRequired,
 	numberOfLines: PropTypes.number,
 	ellipsizeMode: PropTypes.string,
 	selectable: PropTypes.bool,
-	variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7']),
+	variant: PropTypes.oneOf([
+		'h1',
+		'h2',
+		'h3',
+		'h4',
+		'h5',
+		'h6',
+		'h7',
+	]),
 };
 
 Title.defaultProps = {

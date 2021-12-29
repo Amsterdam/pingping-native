@@ -1,11 +1,15 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 
-import {useQuery} from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-swiper';
 
-import {testIDs} from '../../e2e/modulesTestIDs';
-import {version} from '../../package.json';
+import { testIDs } from '../../e2e/modulesTestIDs';
+import { version } from '../../package.json';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
 import BackPack from '../assets/svg/BackPack';
@@ -45,11 +49,11 @@ const onboardingViews = [
 	},
 ];
 
-const OnboardingScreen = ({navigation}) => {
+const OnboardingScreen = ({ navigation }) => {
 	const [swiper, setSwiper] = useState(null);
 	const debugMode = __DEV__;
 	const swiperRef = useRef(null);
-	const {data} = useQuery(GET_STATUS_QUERY, {
+	const { data } = useQuery(GET_STATUS_QUERY, {
 		fetchPolicy: 'cache-only',
 	});
 
@@ -59,35 +63,54 @@ const OnboardingScreen = ({navigation}) => {
 			// if the user has completed all onboardingtasks, current tasks should be null
 			// we send the user to the notification decisionscreen
 			if (!data.getStatus.currentTask) {
-				navigation.navigate(routes.onboardingStack.notificationDecisionScreen);
+				navigation.navigate(
+					routes.onboardingStack
+						.notificationDecisionScreen,
+				);
 			}
 			// if the user has already completed an onboarding tasks we do not have
 			// to show the user the onboarding again, we send this user to the question screen
-			if (data.getStatus.previousTask && data.getStatus.currentTask) {
-				navigation.navigate(routes.onboardingStack.questionScreen);
+			if (
+				data.getStatus.previousTask &&
+				data.getStatus.currentTask
+			) {
+				navigation.navigate(
+					routes.onboardingStack.questionScreen,
+				);
 			}
 		};
 		data && guideUser();
 	}, [swiper, data, navigation]);
 
 	return (
-		<Container testID={testIDs.ONBOARDING.SCREEN} safeArea>
+		<Container
+			testID={testIDs.ONBOARDING.SCREEN}
+			safeArea
+		>
 			<Header
 				title="INTRODUCTIE"
 				actionLabel="INLOGGEN"
 				right={
 					<TextButton
 						onPress={() =>
-							navigation.navigate(routes.onboardingStack.importDataScreen)
+							navigation.navigate(
+								routes.onboardingStack
+									.importDataScreen,
+							)
 						}
-						testID={testIDs.ONBOARDING.LOG_IN_BUTTON}
+						testID={
+							testIDs.ONBOARDING.LOG_IN_BUTTON
+						}
 						label="INLOGGEN"
 					/>
 				}
 			/>
 			<Header />
 			{debugMode ? (
-				<Body variant="b3" align="center">{`${version} beta`}</Body>
+				<Body
+					variant="b3"
+					align="center"
+				>{`${version} beta`}</Body>
 			) : (
 				<></>
 			)}
@@ -96,14 +119,17 @@ const OnboardingScreen = ({navigation}) => {
 				loop={false}
 				dotColor={theme.colors.greyedOut}
 				activeDotColor={theme.colors.primary}
-				ref={swiperRef}>
+				ref={swiperRef}
+			>
 				{onboardingViews.map((view, index) => (
 					<OnboardingItem
 						view={view}
 						key={view.title}
 						buttonAction={swiperRef?.current}
 						navigation={navigation}
-						isLastItem={onboardingViews.length - 1 === index}
+						isLastItem={
+							onboardingViews.length - 1 === index
+						}
 					/>
 				))}
 			</Swiper>

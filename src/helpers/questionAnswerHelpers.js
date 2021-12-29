@@ -1,4 +1,4 @@
-import {questionTypes} from '../config/questionTypes';
+import { questionTypes } from '../config/questionTypes';
 import sentryHelper from '../helpers/sentryHelper';
 
 // submits an answer and formats the variables for the mutation in order to save according to correct questiontype
@@ -83,7 +83,7 @@ export const revertTaskFunc = async (
 	}
 	try {
 		await revertTask({
-			variables: {taskId: previousTask.taskId},
+			variables: { taskId: previousTask.taskId },
 		});
 		await refetch();
 		setLoadingQuestion(false);
@@ -95,8 +95,15 @@ export const revertTaskFunc = async (
 };
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(currentTask, answer, setState) {
-	if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
+export function setRevertedQuestionValues(
+	currentTask,
+	answer,
+	setState,
+) {
+	if (
+		currentTask.type ===
+		questionTypes.DATE_OF_BIRTH
+	) {
 		const splitDate = answer.split('-');
 		setState(state => ({
 			...state,
@@ -105,13 +112,18 @@ export function setRevertedQuestionValues(currentTask, answer, setState) {
 			day: splitDate[2],
 		}));
 	}
-	if (currentTask.type === questionTypes.YES_OR_NO) {
+	if (
+		currentTask.type === questionTypes.YES_OR_NO
+	) {
 		setState(state => ({
 			...state,
 			answerSelected: answer,
 		}));
 	}
-	if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
+	if (
+		currentTask.type ===
+		questionTypes.MULTIPLE_CHOICES
+	) {
 		setState(state => ({
 			...state,
 			choices: answer.split(','),
@@ -120,10 +132,15 @@ export function setRevertedQuestionValues(currentTask, answer, setState) {
 }
 
 // checks if the next button on the question screen should be disabled/enabled
-export const checkDisabled = (currentTask, state) => {
+export const checkDisabled = (
+	currentTask,
+	state,
+) => {
 	switch (currentTask.type) {
 		case questionTypes.DATE_OF_BIRTH:
-			return !state.day || !state.month || !state.year;
+			return (
+				!state.day || !state.month || !state.year
+			);
 		case questionTypes.MULTIPLE_CHOICES:
 			return state.choices.length < 1;
 		default:

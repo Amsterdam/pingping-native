@@ -1,8 +1,8 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
-import {View as AnimatableView} from 'react-native-animatable';
+import { StyleSheet, View } from 'react-native';
+import { View as AnimatableView } from 'react-native-animatable';
 
 import routes from '../../App/stacks/routes';
 import ClaimedTickets from '../../assets/svg/ClaimedTickets';
@@ -14,7 +14,14 @@ import Title from '../typography/Title';
 
 const RewardCard = ({
 	navigation,
-	reward: {price, description, title, rewardId, cover, status},
+	reward: {
+		price,
+		description,
+		title,
+		rewardId,
+		cover,
+		status,
+	},
 	data,
 	balance = 0,
 	claimed = false,
@@ -22,7 +29,8 @@ const RewardCard = ({
 	const doNavigation = async () => {
 		if (claimed) {
 			return navigation.navigate(
-				routes.citypingsStack.claimedRewardModalScreen,
+				routes.citypingsStack
+					.claimedRewardModalScreen,
 				{
 					title,
 					cover,
@@ -34,14 +42,18 @@ const RewardCard = ({
 				},
 			);
 		}
-		return navigation.navigate(routes.citypingsStack.rewardDetailModalScreen, {
-			price,
-			balance,
-			description,
-			title,
-			cover,
-			rewardId,
-		});
+		return navigation.navigate(
+			routes.citypingsStack
+				.rewardDetailModalScreen,
+			{
+				price,
+				balance,
+				description,
+				title,
+				cover,
+				rewardId,
+			},
+		);
 	};
 
 	return (
@@ -49,14 +61,21 @@ const RewardCard = ({
 			onPress={doNavigation}
 			pings={price}
 			cover={cover}
-			disabled={status === 'NotAvailable'}>
+			disabled={status === 'NotAvailable'}
+		>
 			<View style={styles.descriptionContainer}>
 				<View style={styles.typeContainer}>
-					<Body variant="b3" style={styles.rewardType}>
+					<Body
+						variant="b3"
+						style={styles.rewardType}
+					>
 						Reward
 					</Body>
 					{data?.expiryDate && (
-						<Body variant="b3" style={styles.expiryDate}>
+						<Body
+							variant="b3"
+							style={styles.expiryDate}
+						>
 							Geldig tot {data.expiryDate}
 						</Body>
 					)}
@@ -64,7 +83,11 @@ const RewardCard = ({
 				<Title variant="h3" style={styles.title}>
 					{title}
 				</Title>
-				<Body variant="b3" numberOfLines={3} ellipsizeMode="tail">
+				<Body
+					variant="b3"
+					numberOfLines={3}
+					ellipsizeMode="tail"
+				>
 					{description}
 				</Body>
 
@@ -72,11 +95,15 @@ const RewardCard = ({
 					<AnimatableView
 						animation="bounceIn"
 						delay={200}
-						style={styles.illustration}>
+						style={styles.illustration}
+					>
 						<ClaimedTickets />
 					</AnimatableView>
 				) : (
-					<CityPingsBalance price={price} balance={balance} />
+					<CityPingsBalance
+						price={price}
+						balance={balance}
+					/>
 				)}
 			</View>
 		</Card>
@@ -101,7 +128,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},
-	illustration: {alignSelf: 'flex-end'},
+	illustration: { alignSelf: 'flex-end' },
 });
 
 RewardCard.propTypes = {

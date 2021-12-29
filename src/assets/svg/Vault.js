@@ -1,10 +1,16 @@
 import React from 'react';
 
-import Svg, {G, Path} from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
 function Vault(props) {
 	return (
-		<Svg width={375} height={225} viewBox="0 0 375 225" fill="none" {...props}>
+		<Svg
+			width={375}
+			height={225}
+			viewBox="0 0 375 225"
+			fill="none"
+			{...props}
+		>
 			<Path
 				d="M183.734 230c39.065 0 70.733-4.01 70.733-8.958 0-4.947-31.668-8.957-70.733-8.957-39.065 0-70.734 4.01-70.734 8.957 0 4.948 31.669 8.958 70.734 8.958z"
 				fill="#212552"

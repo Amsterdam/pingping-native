@@ -1,10 +1,16 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 function MapIllustration(props) {
 	return (
-		<Svg width={172} height={169} viewBox="0 0 172 169" fill="none" {...props}>
+		<Svg
+			width={172}
+			height={169}
+			viewBox="0 0 172 169"
+			fill="none"
+			{...props}
+		>
 			<Path
 				opacity={0.4}
 				d="M165.033 135.718l-35.853 22.609a14.838 14.838 0 01-12.449 1.575l-39.3-12.633a14.82 14.82 0 00-12.517 1.618L36.14 167.254a6.722 6.722 0 01-8.542-1.14 6.715 6.715 0 01-1.509-2.697L1.258 76.36a6.72 6.72 0 012.872-7.523l36.235-22.9a16.239 16.239 0 0113.644-1.734l38.046 12.23a16.237 16.237 0 0013.687-1.76l27.247-17.338a6.717 6.717 0 0110.069 3.825l24.829 87.045a6.724 6.724 0 01-2.854 7.513z"

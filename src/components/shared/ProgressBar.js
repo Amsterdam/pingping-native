@@ -1,11 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {Bar} from 'react-native-progress';
+import { Bar } from 'react-native-progress';
 
 import theme from '../../config/theme';
 
-const ProgressBar = ({progress}) => {
+const ProgressBar = ({ progress }) => {
 	return (
 		<Bar
 			progress={progress}

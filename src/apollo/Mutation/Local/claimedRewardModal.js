@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const CLAIMED_REWARD_MODAL = gql`
 	mutation claimedRewardModal(

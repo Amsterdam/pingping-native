@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, Text} from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
 		lineHeight: normalizeValue(25),
 		color: theme.colors.text,
 	},
-	b1: {fontSize: normalizeValue(20)},
-	b2: {fontSize: normalizeValue(18)},
-	b3: {fontSize: normalizeValue(16)},
-	b4: {fontSize: normalizeValue(14)},
-	b5: {fontSize: normalizeValue(12)},
+	b1: { fontSize: normalizeValue(20) },
+	b2: { fontSize: normalizeValue(18) },
+	b3: { fontSize: normalizeValue(16) },
+	b4: { fontSize: normalizeValue(14) },
+	b5: { fontSize: normalizeValue(12) },
 	left: {
 		textAlign: 'left',
 	},
@@ -41,9 +41,15 @@ const Body = ({
 }) => {
 	return (
 		<Text
-			style={[styles.base, styles[variant], styles[align], style]}
+			style={[
+				styles.base,
+				styles[variant],
+				styles[align],
+				style,
+			]}
 			numberOfLines={numberOfLines}
-			ellipsizeMode={ellipsizeMode}>
+			ellipsizeMode={ellipsizeMode}
+		>
 			{children}
 		</Text>
 	);

@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const TOGGLE_MODAL = gql`
 	mutation toggleModal($pings: Int!) {

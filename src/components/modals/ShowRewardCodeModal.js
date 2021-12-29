@@ -1,14 +1,23 @@
 import React from 'react';
 
-import {IconButton, CloseIcon} from 'native-base';
+import {
+	IconButton,
+	CloseIcon,
+} from 'native-base';
 import PropTypes from 'prop-types';
-import {Dimensions, Modal, StyleSheet, View} from 'react-native';
+import {
+	Dimensions,
+	Modal,
+	StyleSheet,
+	View,
+} from 'react-native';
 
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get('window')
+	.width;
 
 const ShowRewardCodeModal = ({
 	open = false,
@@ -25,19 +34,30 @@ const ShowRewardCodeModal = ({
 			animationType="fade"
 			transparent={true}
 			visible={open}
-			statusBarTranslucent>
+			statusBarTranslucent
+		>
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
 							onPress={closeModal}
 							style={styles.closeButton}
-							icon={<CloseIcon style={styles.icon} size="4" />}
+							icon={
+								<CloseIcon
+									style={styles.icon}
+									size="4"
+								/>
+							}
 						/>
 
-						<Title style={styles.title}>Jouw Code</Title>
+						<Title style={styles.title}>
+							Jouw Code
+						</Title>
 						{expiryDate ? (
-							<Body variant="b3" style={styles.body}>
+							<Body
+								variant="b3"
+								style={styles.body}
+							>
 								Geldig tot: {expiryDate}
 							</Body>
 						) : (
@@ -49,7 +69,8 @@ const ShowRewardCodeModal = ({
 									selectable
 									style={styles.code}
 									align="center"
-									variant="h4">
+									variant="h4"
+								>
 									{code}
 								</Title>
 							) : (

@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {
+	ScrollView,
+	StyleSheet,
+	View,
+} from 'react-native';
 
 import ClaimedTicketsLarge from '../assets/svg/ClaimedTicketsLarge';
 import ImageOverlayHeader from '../components/header/ImageOverlayHeader';
@@ -17,24 +21,44 @@ import theme from '../config/theme';
 
 const MARGIN_BOTTOM = 25;
 
-const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
+const ClaimedRewardModalScreen = ({
+	navigation = () => {},
+	route = {},
+}) => {
 	const [open, setOpen] = useState(false);
-	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
-	const [webViewOpen, setWebviewOpen] = useState(false);
+	const [urlToVisit, setUrlToVisit] = useState(
+		'https://amsterdam.nl',
+	);
+	const [webViewOpen, setWebviewOpen] = useState(
+		false,
+	);
 
 	const closeModal = () => {
 		setWebviewOpen(false);
 	};
 
 	if (route?.params) {
-		const {title, description, cover, expiryDate, pin, code} = route.params;
+		const {
+			title,
+			description,
+			cover,
+			expiryDate,
+			pin,
+			code,
+		} = route.params;
 
 		return (
 			<Container>
 				<ScrollView>
-					<ImageOverlayHeader navigation={navigation} cover={cover} />
+					<ImageOverlayHeader
+						navigation={navigation}
+						cover={cover}
+					/>
 					<ContentLayout style={styles.container}>
-						<Body variant="b3" style={styles.rewardType}>
+						<Body
+							variant="b3"
+							style={styles.rewardType}
+						>
 							Reward
 						</Body>
 						<View style={styles.textContainer}>
@@ -42,12 +66,18 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
 						</View>
 
 						<View>
-							<ClaimedTicketsLarge style={styles.illustration} />
+							<ClaimedTicketsLarge
+								style={styles.illustration}
+							/>
 							<Title variant="h2" align="center">
 								GECLAIMED
 							</Title>
 							{expiryDate ? (
-								<Body variant="b3" align="center" style={styles.rewardType}>
+								<Body
+									variant="b3"
+									align="center"
+									style={styles.rewardType}
+								>
 									Geldig tot {expiryDate}
 								</Body>
 							) : (
@@ -60,7 +90,10 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
 								onPress={() => setOpen(true)}
 								label="Bekijk je code"
 							/>
-							<HTMLRenderer html={description} setUrlToVisit={setUrlToVisit} />
+							<HTMLRenderer
+								html={description}
+								setUrlToVisit={setUrlToVisit}
+							/>
 						</View>
 					</ContentLayout>
 					<ShowRewardCodeModal
@@ -83,7 +116,7 @@ const ClaimedRewardModalScreen = ({navigation = () => {}, route = {}}) => {
 };
 
 const styles = StyleSheet.create({
-	container: {flex: 1},
+	container: { flex: 1 },
 	textContainer: {
 		marginBottom: MARGIN_BOTTOM,
 	},

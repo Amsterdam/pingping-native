@@ -1,14 +1,16 @@
-import {useCallback, useEffect} from 'react';
+import { useCallback, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import {Linking, Platform} from 'react-native';
-import {Notifications} from 'react-native-notifications';
+import { Linking, Platform } from 'react-native';
+import { Notifications } from 'react-native-notifications';
 
 import sentryHelper from '../helpers/sentryHelper';
 
 const notificationTypes = {
-	remindUserToCompleteOnboarding: 'RemindUserToCompleteOnboarding',
-	remindUserToContinueRoute: 'RemindUserToContinueRoute',
+	remindUserToCompleteOnboarding:
+		'RemindUserToCompleteOnboarding',
+	remindUserToContinueRoute:
+		'RemindUserToContinueRoute',
 };
 
 const platform = Platform.OS;
@@ -19,18 +21,23 @@ const handleNotifcationWithType = payload => {
 		notificationTypes.remindUserToContinueRoute.toLowerCase()
 	) {
 		setTimeout(() => {
-			Linking.openURL(`pingpingnative://route/${payload.routeId}`);
+			Linking.openURL(
+				`pingpingnative://route/${payload.routeId}`,
+			);
 		}, 1000);
 	}
 };
 
 // @todo handle initial notification in linking.js
 
-const PushNotificationManager = ({children}) => {
+const PushNotificationManager = ({
+	children,
+}) => {
 	useEffect(() => {
 		Notifications.registerRemoteNotifications();
 		registerNotificationEvents();
-		platform === 'ios' && Notifications.ios.setBadgeCount(0);
+		platform === 'ios' &&
+			Notifications.ios.setBadgeCount(0);
 	}, [registerNotificationEvents]);
 
 	const registerNotificationEvents = useCallback(async () => {
@@ -53,10 +60,14 @@ const PushNotificationManager = ({children}) => {
 		Notifications.getInitialNotification()
 			.then(notification => {
 				if (notification?.payload?.type) {
-					handleNotifcationWithType(notification.payload);
+					handleNotifcationWithType(
+						notification.payload,
+					);
 				}
 			})
-			.catch(error => sentryHelper(error.message));
+			.catch(error =>
+				sentryHelper(error.message),
+			);
 
 		/**
 		 * Event listener for notifications that are opened when the app is open or in the background
@@ -65,7 +76,9 @@ const PushNotificationManager = ({children}) => {
 		Notifications.events().registerNotificationOpened(
 			(notification, completion) => {
 				if (notification?.payload?.type) {
-					handleNotifcationWithType(notification.payload);
+					handleNotifcationWithType(
+						notification.payload,
+					);
 				}
 			},
 		);
@@ -75,7 +88,10 @@ const PushNotificationManager = ({children}) => {
 };
 
 PushNotificationManager.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]).isRequired,
 };
 
 export default PushNotificationManager;

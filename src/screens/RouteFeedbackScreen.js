@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useMutation} from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import PropTypes from 'prop-types';
 import {
 	KeyboardAvoidingView,
@@ -22,20 +22,36 @@ import RoundedButton from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 
-const INITIAL_STATE = {feedback: '', numberActive: 0};
+const INITIAL_STATE = {
+	feedback: '',
+	numberActive: 0,
+};
 
-function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
-	const {cover, routeId} = route.params;
-	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
-	const [state, setState] = React.useState(INITIAL_STATE);
-	const [displayError, setDisplayError] = React.useState({
+function RouteFeedbackScreen({
+	navigation = () => {},
+	route = {},
+}) {
+	const { cover, routeId } = route.params;
+	const [submitFeedback] = useMutation(
+		SUBMIT_ROUTE_FEEDBACK_MUTATION,
+	);
+	const [state, setState] = React.useState(
+		INITIAL_STATE,
+	);
+	const [
+		displayError,
+		setDisplayError,
+	] = React.useState({
 		show: false,
 		message: '',
 	});
-	const [thankYouOpen, setThankYouOpen] = React.useState(false);
+	const [
+		thankYouOpen,
+		setThankYouOpen,
+	] = React.useState(false);
 
 	const onRate = stars => () => {
-		setState({...state, numberActive: stars});
+		setState({ ...state, numberActive: stars });
 	};
 
 	const doSubmit = async () => {
@@ -69,16 +85,32 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 
 	return (
 		<KeyboardAvoidingView
-			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
-			style={styles.container}>
-			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
+			behavior={
+				Platform.OS === 'ios'
+					? 'position'
+					: 'height'
+			}
+			style={styles.container}
+		>
+			<StatusBar
+				backgroundColor={cover.color}
+				barStyle="light-content"
+			/>
 			<ScrollView keyboardShouldPersistTaps="handled">
-				<ImageOverlayHeader navigation={navigation} cover={cover} />
+				<ImageOverlayHeader
+					navigation={navigation}
+					cover={cover}
+				/>
 				<View style={styles.contentContainer}>
 					{displayError.show && (
-						<MinimalErrorComponent message={displayError.message} />
+						<MinimalErrorComponent
+							message={displayError.message}
+						/>
 					)}
-					<Title variant="h2" style={styles.title}>
+					<Title
+						variant="h2"
+						style={styles.title}
+					>
 						Wat vond je van de route?
 					</Title>
 					<View style={styles.starContainer}>
@@ -89,12 +121,23 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 						/>
 					</View>
 					<View style={styles.inputContainer}>
-						<Title style={styles.anyTips} variant="h4">
-							Heb je nog tips om de app te verbeteren?
+						<Title
+							style={styles.anyTips}
+							variant="h4"
+						>
+							Heb je nog tips om de app te
+							verbeteren?
 						</Title>
 						<TextInput
-							style={styles.inputContainerMultiline}
-							onChangeText={text => setState({...state, feedback: text})}
+							style={
+								styles.inputContainerMultiline
+							}
+							onChangeText={text =>
+								setState({
+									...state,
+									feedback: text,
+								})
+							}
 							value={state.feedback}
 							placeholder="Wat vind jij dat er beter kan?"
 							multiline
@@ -109,7 +152,9 @@ function RouteFeedbackScreen({navigation = () => {}, route = {}}) {
 						disabled={!state.numberActive > 0}
 					/>
 				</View>
-				<ThankYouFeedbackModal open={thankYouOpen} />
+				<ThankYouFeedbackModal
+					open={thankYouOpen}
+				/>
 			</ScrollView>
 		</KeyboardAvoidingView>
 	);
@@ -121,7 +166,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	contentContainer: {
-		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingHorizontal: theme.spacing.multiplier(
+			8,
+		),
 		paddingVertical: theme.spacing.m,
 	},
 

@@ -1,9 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {useMutation, useQuery} from '@apollo/client';
-import {useToast} from 'native-base';
+import {
+	useMutation,
+	useQuery,
+} from '@apollo/client';
+import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
-import {ScrollView, StyleSheet, View, StatusBar} from 'react-native';
+import {
+	ScrollView,
+	StyleSheet,
+	View,
+	StatusBar,
+} from 'react-native';
 
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -19,17 +27,35 @@ import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
-function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
-	const {price, title, description, rewardId, cover} = route.params;
-	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
-	const [webViewOpen, setWebviewOpen] = useState(false);
-	const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
+function RewardDetailModalScreen({
+	navigation = () => {},
+	route = {},
+}) {
+	const {
+		price,
+		title,
+		description,
+		rewardId,
+		cover,
+	} = route.params;
+	const [urlToVisit, setUrlToVisit] = useState(
+		'https://amsterdam.nl',
+	);
+	const [webViewOpen, setWebviewOpen] = useState(
+		false,
+	);
+	const [claimReward] = useMutation(
+		CLAIM_REWARD_MUTATION,
+	);
 	const toast = useToast();
 
 	const [loading, setLoading] = useState(false);
-	const {data, refetch} = useQuery(GET_STATUS_QUERY, {
-		fetchPolicy: 'cache-first',
-	});
+	const { data, refetch } = useQuery(
+		GET_STATUS_QUERY,
+		{
+			fetchPolicy: 'cache-first',
+		},
+	);
 
 	const closeModal = () => {
 		setWebviewOpen(false);
@@ -44,31 +70,63 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 				},
 			});
 			await refetch();
-			navigation.navigate(routes.citypingsStack.claimedRewardModalScreen, {
-				pin: claimResponse.data.claimReward.data?.pin,
-				code: claimResponse.data.claimReward.data?.code,
-				expiryDate: claimResponse.data.claimReward.data?.expiryDate,
-				title: claimResponse.data.claimReward.reward.title,
-				cover: claimResponse.data.claimReward.reward.cover,
-				rewardId: claimResponse.data.claimReward.reward.rewardId,
-				description: claimResponse.data.claimReward.reward.description,
-			});
+			navigation.navigate(
+				routes.citypingsStack
+					.claimedRewardModalScreen,
+				{
+					pin:
+						claimResponse.data.claimReward.data
+							?.pin,
+					code:
+						claimResponse.data.claimReward.data
+							?.code,
+					expiryDate:
+						claimResponse.data.claimReward.data
+							?.expiryDate,
+					title:
+						claimResponse.data.claimReward.reward
+							.title,
+					cover:
+						claimResponse.data.claimReward.reward
+							.cover,
+					rewardId:
+						claimResponse.data.claimReward.reward
+							.rewardId,
+					description:
+						claimResponse.data.claimReward.reward
+							.description,
+				},
+			);
 		} catch (error) {
-			if (error.message.includes('reward_not_available')) {
+			if (
+				error.message.includes(
+					'reward_not_available',
+				)
+			) {
 				sentryHelper(error.message);
 				return toast.show({
 					description:
 						'Deze reward is op dit moment niet beschikbaar, probeer het later nog eens.',
-					textStyle: {fontFamily: 'Raleway-Regular'},
-					style: {backgroundColor: '#000', borderRadius: 10},
+					textStyle: {
+						fontFamily: 'Raleway-Regular',
+					},
+					style: {
+						backgroundColor: '#000',
+						borderRadius: 10,
+					},
 					duration: 2000,
 				});
 			}
 			toast.show({
 				description:
 					'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
-				textStyle: {fontFamily: 'Raleway-Regular'},
-				style: {backgroundColor: '#000', borderRadius: 10},
+				textStyle: {
+					fontFamily: 'Raleway-Regular',
+				},
+				style: {
+					backgroundColor: '#000',
+					borderRadius: 10,
+				},
 				duration: 2000,
 			});
 		} finally {
@@ -82,7 +140,10 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 	return (
 		<Container>
-			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
+			<StatusBar
+				backgroundColor={cover.color}
+				barStyle="light-content"
+			/>
 			<ScrollView>
 				<ImageOverlayHeader
 					navigation={navigation}
@@ -93,10 +154,16 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 					<Body variant="b3" style={styles.label}>
 						Rewards
 					</Body>
-					<Title variant="h2" style={styles.title}>
+					<Title
+						variant="h2"
+						style={styles.title}
+					>
 						{title}
 					</Title>
-					<CityPingsBalance balance={balance} price={price} />
+					<CityPingsBalance
+						balance={balance}
+						price={price}
+					/>
 					<View style={styles.description}>
 						<HTMLRenderer
 							html={description}
@@ -107,8 +174,13 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 				</View>
 			</ScrollView>
 			<View style={styles.buttonContainer}>
-				<Body variant="b3" stlye={styles.balanceIndicatorText}>
-					{available ? 'Lets go!' : 'Nog even doorsparen !'}
+				<Body
+					variant="b3"
+					stlye={styles.balanceIndicatorText}
+				>
+					{available
+						? 'Lets go!'
+						: 'Nog even doorsparen !'}
 				</Body>
 				<Button
 					style={styles.button}
@@ -130,7 +202,9 @@ function RewardDetailModalScreen({navigation = () => {}, route = {}}) {
 
 const styles = StyleSheet.create({
 	contentContainer: {
-		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingHorizontal: theme.spacing.multiplier(
+			8,
+		),
 		paddingVertical: theme.spacing.m,
 	},
 	label: {
@@ -143,7 +217,9 @@ const styles = StyleSheet.create({
 		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingHorizontal: theme.spacing.multiplier(
+			8,
+		),
 		marginTop: theme.spacing.m,
 		marginBottom: theme.spacing.m,
 		flexDirection: 'row',

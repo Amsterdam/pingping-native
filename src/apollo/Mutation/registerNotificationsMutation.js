@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const REGISTER_NOTIFICATIONS_MUTATION = gql`
 	mutation REGISTER_NOTIFICATIONS_MUTATION(

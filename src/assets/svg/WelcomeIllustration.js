@@ -1,27 +1,90 @@
 import React from 'react';
 
-import Svg, {Circle, G, Mask, Path, Rect} from 'react-native-svg';
+import Svg, {
+	Circle,
+	G,
+	Mask,
+	Path,
+	Rect,
+} from 'react-native-svg';
 
 function WelcomeIllustration(props) {
 	return (
-		<Svg width={263} height={231} viewBox="0 0 263 231" fill="none" {...props}>
-			<Rect y={66} width={219} height={23} rx={11.5} fill="#BAF" />
-			<Rect x={5} y={157} width={238} height={23} rx={11.5} fill="#BAF" />
-			<Rect x={27} y={111} width={236} height={24} rx={12} fill="#BAF" />
-			<Circle cx={127.5} cy={115.5} r={115.5} fill="#D7CDFF" />
+		<Svg
+			width={263}
+			height={231}
+			viewBox="0 0 263 231"
+			fill="none"
+			{...props}
+		>
+			<Rect
+				y={66}
+				width={219}
+				height={23}
+				rx={11.5}
+				fill="#BAF"
+			/>
+			<Rect
+				x={5}
+				y={157}
+				width={238}
+				height={23}
+				rx={11.5}
+				fill="#BAF"
+			/>
+			<Rect
+				x={27}
+				y={111}
+				width={236}
+				height={24}
+				rx={12}
+				fill="#BAF"
+			/>
+			<Circle
+				cx={127.5}
+				cy={115.5}
+				r={115.5}
+				fill="#D7CDFF"
+			/>
 			<Mask
 				id="prefix__a"
 				maskUnits="userSpaceOnUse"
 				x={12}
 				y={0}
 				width={231}
-				height={231}>
-				<Circle cx={127.5} cy={115.5} r={115.5} fill="#C4C4C4" />
+				height={231}
+			>
+				<Circle
+					cx={127.5}
+					cy={115.5}
+					r={115.5}
+					fill="#C4C4C4"
+				/>
 			</Mask>
 			<G mask="url(#prefix__a)">
-				<Rect y={66} width={219} height={23} rx={11.5} fill="#BAF" />
-				<Rect x={5} y={157} width={238} height={23} rx={11.5} fill="#BAF" />
-				<Rect x={27} y={111} width={249} height={24} rx={12} fill="#BAF" />
+				<Rect
+					y={66}
+					width={219}
+					height={23}
+					rx={11.5}
+					fill="#BAF"
+				/>
+				<Rect
+					x={5}
+					y={157}
+					width={238}
+					height={23}
+					rx={11.5}
+					fill="#BAF"
+				/>
+				<Rect
+					x={27}
+					y={111}
+					width={249}
+					height={24}
+					rx={12}
+					fill="#BAF"
+				/>
 				<Path
 					fillRule="evenodd"
 					clipRule="evenodd"
@@ -359,12 +422,42 @@ function WelcomeIllustration(props) {
 					d="M219.926 106.621a1.556 1.556 0 10.322-3.096 1.556 1.556 0 00-.322 3.096z"
 					fill="#BCBCBC"
 				/>
-				<Circle cx={185.161} cy={42.627} r={10.789} fill="#512C20" />
-				<Circle cx={168.358} cy={49.171} r={9.198} fill="#512C20" />
-				<Circle cx={160.045} cy={42.273} r={7.959} fill="#512C20" />
-				<Circle cx={155.092} cy={50.056} r={7.959} fill="#512C20" />
-				<Circle cx={173.311} cy={35.729} r={8.49} fill="#512C20" />
-				<Circle cx={84.342} cy={142.031} r={7.959} fill="#E53E46" />
+				<Circle
+					cx={185.161}
+					cy={42.627}
+					r={10.789}
+					fill="#512C20"
+				/>
+				<Circle
+					cx={168.358}
+					cy={49.171}
+					r={9.198}
+					fill="#512C20"
+				/>
+				<Circle
+					cx={160.045}
+					cy={42.273}
+					r={7.959}
+					fill="#512C20"
+				/>
+				<Circle
+					cx={155.092}
+					cy={50.056}
+					r={7.959}
+					fill="#512C20"
+				/>
+				<Circle
+					cx={173.311}
+					cy={35.729}
+					r={8.49}
+					fill="#512C20"
+				/>
+				<Circle
+					cx={84.342}
+					cy={142.031}
+					r={7.959}
+					fill="#E53E46"
+				/>
 				<Path
 					fillRule="evenodd"
 					clipRule="evenodd"

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
 import AnswerTemplate from './AnswerTemplate';
 
-import {checkDisabled} from '../../../helpers/questionAnswerHelpers';
+import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
 import Button from '../../onboarding/AnswerButtonOnboarding';
 
 const YesOrNo = ({
@@ -17,13 +17,20 @@ const YesOrNo = ({
 }) => {
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(currentTask.choices)) {
+		for (const [key, value] of Object.entries(
+			currentTask.choices,
+		)) {
 			buttonArray.push(
 				<Button
 					label={value}
 					key={key}
 					active={key === state.answerSelected}
-					onPress={() => setState({...state, answerSelected: key})}
+					onPress={() =>
+						setState({
+							...state,
+							answerSelected: key,
+						})
+					}
 					testid={`${key}_BUTTON`.toUpperCase()}
 				/>,
 			);
@@ -31,13 +38,17 @@ const YesOrNo = ({
 		return buttonArray;
 	};
 
-	const nextButtonDisabled = checkDisabled(currentTask, state);
+	const nextButtonDisabled = checkDisabled(
+		currentTask,
+		state,
+	);
 	return (
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
 			doRevertTask={doRevertTask}
-			doUpdateTask={doUpdateTask}>
+			doUpdateTask={doUpdateTask}
+		>
 			<View>{mapButtons()}</View>
 		</AnswerTemplate>
 	);

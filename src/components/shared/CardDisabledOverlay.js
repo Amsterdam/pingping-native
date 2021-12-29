@@ -1,9 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-const CardDisabledOverlay = ({disabledString = ''}) => {
+const CardDisabledOverlay = ({
+	disabledString = '',
+}) => {
 	return <View style={styles.disabledStyle} />;
 };
 

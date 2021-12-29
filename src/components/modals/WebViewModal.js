@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import {
@@ -13,7 +13,11 @@ import WebView from 'react-native-webview';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
+const WebViewModal = ({
+	closeModal,
+	urlToVisit,
+	webViewOpen,
+}) => {
 	const [loading, setLoading] = useState(false);
 
 	const handleWebViewNavigationStateChange = newNavState => {
@@ -26,16 +30,24 @@ const WebViewModal = ({closeModal, urlToVisit, webViewOpen}) => {
 			transparent={true}
 			visible={webViewOpen}
 			statusBarTranslucent
-			onRequestClose={closeModal}>
+			onRequestClose={closeModal}
+		>
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
-					<TouchableOpacity onPress={closeModal} style={styles.closeButton}>
-						<Title style={styles.buttonLabel}>SLUITEN</Title>
+					<TouchableOpacity
+						onPress={closeModal}
+						style={styles.closeButton}
+					>
+						<Title style={styles.buttonLabel}>
+							SLUITEN
+						</Title>
 					</TouchableOpacity>
 					<View style={styles.webView}>
 						<WebView
-							source={{uri: urlToVisit}}
-							onNavigationStateChange={handleWebViewNavigationStateChange}
+							source={{ uri: urlToVisit }}
+							onNavigationStateChange={
+								handleWebViewNavigationStateChange
+							}
 						/>
 						{loading && (
 							<ActivityIndicator

@@ -1,7 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {Animated, StyleSheet, View} from 'react-native';
+import {
+	Animated,
+	StyleSheet,
+	View,
+} from 'react-native';
 
 function ProgressiveImage(props) {
 	const thumbnailAnimated = new Animated.Value(0);
@@ -21,21 +25,38 @@ function ProgressiveImage(props) {
 		}).start();
 	};
 
-	const {thumbnailSource, source, style, mainColor = 'black'} = props;
+	const {
+		thumbnailSource,
+		source,
+		style,
+		mainColor = 'black',
+	} = props;
 
 	return (
-		<View style={[{backgroundColor: mainColor}, style]}>
+		<View
+			style={[
+				{ backgroundColor: mainColor },
+				style,
+			]}
+		>
 			<Animated.Image
 				{...props}
 				source={thumbnailSource}
-				style={[style, {opacity: thumbnailAnimated}]}
+				style={[
+					style,
+					{ opacity: thumbnailAnimated },
+				]}
 				onLoad={handleThumbnailLoad}
 				blurRadius={1}
 			/>
 			<Animated.Image
 				{...props}
 				source={source}
-				style={[styles.imageOverlay, {opacity: imageAnimated}, style]}
+				style={[
+					styles.imageOverlay,
+					{ opacity: imageAnimated },
+					style,
+				]}
 				onLoad={onImageLoad}
 			/>
 		</View>
@@ -53,8 +74,14 @@ const styles = StyleSheet.create({
 });
 
 ProgressiveImage.propTypes = {
-	thumbnailSource: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-	source: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+	thumbnailSource: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.object,
+	]),
+	source: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.object,
+	]),
 	style: PropTypes.object,
 	mainColor: PropTypes.string,
 };

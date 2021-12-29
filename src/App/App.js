@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {useQuery} from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import NetInfo from '@react-native-community/netinfo';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import RNBootSplash from 'react-native-bootsplash';
 
 import linking from './linking';
@@ -18,26 +18,44 @@ import PushNotificationService from '../services/PushNotificationService';
 export default function App() {
 	React.useEffect(() => {
 		NetInfo.addEventListener(netInfoState => {
-			RNBootSplash.hide({fade: true});
+			RNBootSplash.hide({ fade: true });
 			// here we check if there is an internect connection
 			// if we have an internet connection we will move with executing functions
 			// otherwise we present the user with a no connections screen
-			if (netInfoState.isInternetReachable === true) {
+			if (
+				netInfoState.isInternetReachable === true
+			) {
 				setConnected(true);
 				checkUserStatus(); // this function controls the AuthState of the app, onboarder/loggedin
 			}
-			if (netInfoState.isInternetReachable === false) {
+			if (
+				netInfoState.isInternetReachable === false
+			) {
 				setConnected(false);
 			}
 		});
 	}, [checkUserStatus]);
 
-	const [loggedIn, setLoggedIn] = React.useState(false);
-	const [onboarder, setOnboarder] = React.useState(false);
-	const [connected, setConnected] = React.useState(null);
-	const [backEndIssue, setBackEndIssue] = React.useState(false);
-	const [somethingWentWrong, setSomethingWentWrong] = React.useState(false);
-	const {refetch} = useQuery(GET_STATUS_QUERY, {
+	const [loggedIn, setLoggedIn] = React.useState(
+		false,
+	);
+	const [
+		onboarder,
+		setOnboarder,
+	] = React.useState(false);
+	const [
+		connected,
+		setConnected,
+	] = React.useState(null);
+	const [
+		backEndIssue,
+		setBackEndIssue,
+	] = React.useState(false);
+	const [
+		somethingWentWrong,
+		setSomethingWentWrong,
+	] = React.useState(false);
+	const { refetch } = useQuery(GET_STATUS_QUERY, {
 		fetchPolicy: 'network-only',
 		skip: 'true',
 	});
@@ -64,7 +82,11 @@ export default function App() {
 	}, [refetch]);
 
 	const renderApp = () => {
-		if (connected === false || somethingWentWrong || backEndIssue) {
+		if (
+			connected === false ||
+			somethingWentWrong ||
+			backEndIssue
+		) {
 			return (
 				<ErrorComponent
 					functionToRetry={checkUserStatus}
@@ -84,12 +106,16 @@ export default function App() {
 			);
 		}
 		if (onboarder) {
-			return <OnboardingStack setLogin={setLogin} />;
+			return (
+				<OnboardingStack setLogin={setLogin} />
+			);
 		}
 		return <Loading />;
 	};
 
 	return (
-		<NavigationContainer linking={linking}>{renderApp()}</NavigationContainer>
+		<NavigationContainer linking={linking}>
+			{renderApp()}
+		</NavigationContainer>
 	);
 }

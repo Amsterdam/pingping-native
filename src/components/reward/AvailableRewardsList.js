@@ -1,7 +1,10 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {RefreshControl, ScrollView} from 'react-native';
+import {
+	RefreshControl,
+	ScrollView,
+} from 'react-native';
 
 import RewardCard from './RewardCard';
 
@@ -18,25 +21,33 @@ const AvailableRewardsList = ({
 }) => {
 	return (
 		<ScrollView
-			style={{backgroundColor: theme.colors.almostNotBlue}}
+			style={{
+				backgroundColor:
+					theme.colors.almostNotBlue,
+			}}
 			refreshControl={
 				<RefreshControl
 					refreshing={refreshing}
 					onRefresh={onRefresh}
 					tintColor={theme.colors.primary}
 				/>
-			}>
+			}
+		>
 			<ContentLayout>
-				{availableRewards.loading && <CardSkeleton withTitle={false} />}
+				{availableRewards.loading && (
+					<CardSkeleton withTitle={false} />
+				)}
 				{availableRewards.data &&
-					availableRewards.data.getAvailableRewards.map(reward => (
-						<RewardCard
-							navigation={navigation}
-							reward={reward}
-							key={reward.rewardId}
-							balance={balance}
-						/>
-					))}
+					availableRewards.data.getAvailableRewards.map(
+						reward => (
+							<RewardCard
+								navigation={navigation}
+								reward={reward}
+								key={reward.rewardId}
+								balance={balance}
+							/>
+						),
+					)}
 			</ContentLayout>
 		</ScrollView>
 	);

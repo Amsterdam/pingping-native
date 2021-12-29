@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {RefreshControl, StyleSheet, View, ScrollView} from 'react-native';
+import {
+	RefreshControl,
+	StyleSheet,
+	View,
+	ScrollView,
+} from 'react-native';
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
@@ -26,7 +31,8 @@ const errorTypes = {
 		label: 'Probeer opnieuw',
 	},
 	backEndProblem: {
-		title: 'Het ligt niet aan jou, het ligt aan ons',
+		title:
+			'Het ligt niet aan jou, het ligt aan ons',
 		body:
 			'Er gaat iets niet helemaal goed aan onze kant, we zijn druk bezig met het oplossen van het probleem. Probeer later weer gebruik te maken van Ping Ping.',
 		illustration: <AstronautSitting />,
@@ -42,7 +48,9 @@ const ErrorComponent = ({
 	onPress = () => {},
 	deafultLabelOverRide = '',
 }) => {
-	const [refreshing, setRefreshing] = useState(false);
+	const [refreshing, setRefreshing] = useState(
+		false,
+	);
 
 	const onRefresh = () => {
 		setRefreshing(true);
@@ -73,7 +81,8 @@ const ErrorComponent = ({
 					onRefresh={onRefresh}
 					tintColor={theme.colors.primary}
 				/>
-			}>
+			}
+		>
 			{errorType.illustration}
 
 			<View style={styles.textContainer}>
@@ -81,7 +90,8 @@ const ErrorComponent = ({
 					style={styles.title}
 					align="center"
 					variant="h2"
-					numberOfLines={3}>
+					numberOfLines={3}
+				>
 					{errorType.title}
 				</Title>
 				<Body variant="b3" align="center">
@@ -90,7 +100,11 @@ const ErrorComponent = ({
 			</View>
 
 			<Button
-				label={deafultLabelOverRide ? deafultLabelOverRide : errorType.label}
+				label={
+					deafultLabelOverRide
+						? deafultLabelOverRide
+						: errorType.label
+				}
 				onPress={() => onPress()}
 				style={styles.button}
 			/>

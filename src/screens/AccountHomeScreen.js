@@ -1,9 +1,12 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {FlatList, StyleSheet} from 'react-native';
+import {
+	FlatList,
+	StyleSheet,
+} from 'react-native';
 
-import {testIDs} from '../../e2e/modulesTestIDs';
+import { testIDs } from '../../e2e/modulesTestIDs';
 import routes from '../App/stacks/routes';
 import Export from '../assets/svg/Export';
 import Lock from '../assets/svg/Lock';
@@ -14,7 +17,7 @@ import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 
-const AccountHomeScreen = ({navigation}) => {
+const AccountHomeScreen = ({ navigation }) => {
 	const buttons = [
 		{
 			title: 'Exporteer gegevens',
@@ -25,27 +28,36 @@ const AccountHomeScreen = ({navigation}) => {
 		{
 			title: 'Privacy',
 			image: <Lock style={styles.image} />,
-			route: routes.accountStack.privacyPolicyScreen,
+			route:
+				routes.accountStack.privacyPolicyScreen,
 			testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
 		},
 		{
 			title: 'Verwijder gegevens',
 			image: <Trashcan style={styles.image} />,
 			route: routes.accountStack.deleteDataScreen,
-			testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
+			testID:
+				testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
 		},
 	];
 	return (
 		<Container
 			style={styles.container}
 			testID={testIDs.ACCOUNT.SCREEN}
-			statusBarColor={theme.colors.almostNotBlue}>
+			statusBarColor={theme.colors.almostNotBlue}
+		>
 			<FocusAwareStatusBar
-				backgroundColor={theme.colors.almostNotBlue}
+				backgroundColor={
+					theme.colors.almostNotBlue
+				}
 				barStyle="dark-content"
 			/>
 
-			<Title variant="h4" align="center" style={styles.title}>
+			<Title
+				variant="h4"
+				align="center"
+				style={styles.title}
+			>
 				GEGEVENS
 			</Title>
 
@@ -53,8 +65,11 @@ const AccountHomeScreen = ({navigation}) => {
 				data={buttons}
 				contentContainerStyle={styles.flatList}
 				columnWrapperStyle={styles.flatListColumn}
-				renderItem={({item}) => (
-					<AccountBlockButton button={item} navigation={navigation} />
+				renderItem={({ item }) => (
+					<AccountBlockButton
+						button={item}
+						navigation={navigation}
+					/>
 				)}
 				numColumns={2}
 				keyExtractor={item => item.title}

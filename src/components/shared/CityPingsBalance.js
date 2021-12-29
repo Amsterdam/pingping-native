@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import ProgressBar from './ProgressBar';
 
@@ -9,7 +9,10 @@ import CityPingCoin from '../../assets/svg/CityPingCoin';
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 
-const CityPingsBalance = ({price = 0, balance = 0}) => {
+const CityPingsBalance = ({
+	price = 0,
+	balance = 0,
+}) => {
 	const progress = balance / price;
 
 	return (

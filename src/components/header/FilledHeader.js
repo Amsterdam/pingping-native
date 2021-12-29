@@ -1,7 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {View, StyleSheet, StatusBar} from 'react-native';
+import {
+	View,
+	StyleSheet,
+	StatusBar,
+} from 'react-native';
 
 import HeaderBackButton from './HeaderBackButton';
 
@@ -21,12 +25,17 @@ const FilledHeader = ({
 			/>
 			<View style={styles.backButton}>
 				<HeaderBackButton
-					onPressAction={() => navigation.goBack()}
+					onPressAction={() =>
+						navigation.goBack()
+					}
 					color={color}
 				/>
 			</View>
 
-			<Title style={styles.headerTitle} variant="h6">
+			<Title
+				style={styles.headerTitle}
+				variant="h6"
+			>
 				{title}
 			</Title>
 		</View>

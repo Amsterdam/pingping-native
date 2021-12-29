@@ -35,14 +35,21 @@ const RoundedButton = ({
 			testID={testid}
 			activeOpacity={0.1}
 			isDisabled={disabled}
-			onPress={onPress}>
+			onPress={onPress}
+		>
 			<View style={styles.innerContainer}>
 				{loading ? (
-					<ActivityIndicator color={theme.colors.danger} />
+					<ActivityIndicator
+						color={theme.colors.danger}
+					/>
 				) : (
 					<React.Fragment>
 						{icon && icon}
-						<Text style={[styles.label, labelStyle]}>{label}</Text>
+						<Text
+							style={[styles.label, labelStyle]}
+						>
+							{label}
+						</Text>
 					</React.Fragment>
 				)}
 			</View>
@@ -85,12 +92,21 @@ RoundedButton.propTypes = {
 	onPress: PropTypes.func.isRequired,
 	deleteButton: PropTypes.bool,
 	icon: PropTypes.element,
-	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	children: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]),
 	loading: PropTypes.bool,
 	testid: PropTypes.string,
 	full: PropTypes.bool,
-	labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-	style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	labelStyle: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]),
+	style: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]),
 };
 
 RoundedButton.defaultProps = {

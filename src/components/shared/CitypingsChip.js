@@ -1,20 +1,26 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import CityPingCoin from '../../assets/svg/CityPingCoin';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const CitypingsChip = ({value = 0, mini = false}) => {
+const CitypingsChip = ({
+	value = 0,
+	mini = false,
+}) => {
 	if (!value) {
 		return <></>;
 	}
 	return (
 		<View style={styles.cpBalance}>
 			<CityPingCoin style={styles.coin} />
-			<Title style={styles.cpLabel} variant="h6">{`${value} ${
+			<Title
+				style={styles.cpLabel}
+				variant="h6"
+			>{`${value} ${
 				mini ? '' : 'CityPings'
 			}`}</Title>
 		</View>

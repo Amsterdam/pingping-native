@@ -1,6 +1,11 @@
 import React from 'react';
 
-import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
+import Svg, {
+	ClipPath,
+	Defs,
+	G,
+	Path,
+} from 'react-native-svg';
 
 function ThankYou(props) {
 	return (
@@ -10,7 +15,8 @@ function ThankYou(props) {
 			viewBox="0 0 120 120"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}>
+			{...props}
+		>
 			<G clipPath="url(#prefix__clip0)">
 				<Path
 					d="M60 105.212c25.543 0 46.25-20.706 46.25-46.25 0-25.542-20.707-46.25-46.25-46.25S13.75 33.42 13.75 58.963c0 25.544 20.707 46.25 46.25 46.25z"

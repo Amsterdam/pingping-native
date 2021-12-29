@@ -1,9 +1,16 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 
-import {useMutation, useQuery} from '@apollo/client';
+import {
+	useMutation,
+	useQuery,
+} from '@apollo/client';
 import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
-import {View as AnimatableView} from 'react-native-animatable';
+import { StyleSheet } from 'react-native';
+import { View as AnimatableView } from 'react-native-animatable';
 
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
@@ -26,21 +33,40 @@ const INITIAL_STATE = {
 	choices: [],
 };
 
-const QuestionScreen = ({navigation}) => {
-	const {data, loading, error, refetch} = useQuery(GET_STATUS_QUERY);
-	const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
-	const [revertTask] = useMutation(REVERT_TASK_MUTATION);
-	const [loadingQuestion, setLoadingQuestion] = useState(false);
+const QuestionScreen = ({ navigation }) => {
+	const {
+		data,
+		loading,
+		error,
+		refetch,
+	} = useQuery(GET_STATUS_QUERY);
+	const [updateTask] = useMutation(
+		UPDATE_TASK_MUTATION,
+	);
+	const [revertTask] = useMutation(
+		REVERT_TASK_MUTATION,
+	);
+	const [
+		loadingQuestion,
+		setLoadingQuestion,
+	] = useState(false);
 	const animationRef = useRef(null);
 	const current = data?.getStatus?.currentTask;
 	const answeredBefore = current?.answer;
 	const currentTask = current?.task;
-	const previousTask = data?.getStatus?.previousTask?.task;
-	const [state, setState] = useState(INITIAL_STATE);
+	const previousTask =
+		data?.getStatus?.previousTask?.task;
+	const [state, setState] = useState(
+		INITIAL_STATE,
+	);
 
 	useEffect(() => {
 		if (answeredBefore) {
-			setRevertedQuestionValues(currentTask, answeredBefore, setState);
+			setRevertedQuestionValues(
+				currentTask,
+				answeredBefore,
+				setState,
+			);
 		}
 	}, [answeredBefore, currentTask, navigation]);
 
@@ -99,7 +125,8 @@ const QuestionScreen = ({navigation}) => {
 				style={styles.flex}
 				duration={400}
 				ref={animationRef}
-				useNativeDriver>
+				useNativeDriver
+			>
 				<QuestionComponent
 					currentTask={currentTask}
 					updateTask={updateTask}
@@ -109,7 +136,9 @@ const QuestionScreen = ({navigation}) => {
 					setState={setState}
 					doUpdateTask={doUpdateTask}
 					setLoadingQuestion={setLoadingQuestion}
-					doUpdateConfirmTask={doUpdateConfirmTask}
+					doUpdateConfirmTask={
+						doUpdateConfirmTask
+					}
 				/>
 			</AnimatableView>
 		);
@@ -118,7 +147,7 @@ const QuestionScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-	flex: {flex: 1},
+	flex: { flex: 1 },
 });
 
 QuestionScreen.propTypes = {

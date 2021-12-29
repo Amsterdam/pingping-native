@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {testIDs} from '../../../../e2e/modulesTestIDs';
+import { testIDs } from '../../../../e2e/modulesTestIDs';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
 import theme from '../../../config/theme';
 import ContentLayout from '../../layout/ContentLayout';
@@ -12,9 +12,16 @@ import HTMLRenderer from '../../shared/HTMLRenderer';
 import Button from '../../shared/RoundedButton';
 import Title from '../../typography/Title';
 
-const GoBack = ({currentTask, doRevertTask}) => {
-	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
-	const [webViewOpen, setWebviewOpen] = useState(false);
+const GoBack = ({
+	currentTask,
+	doRevertTask,
+}) => {
+	const [urlToVisit, setUrlToVisit] = useState(
+		'https://amsterdam.nl',
+	);
+	const [webViewOpen, setWebviewOpen] = useState(
+		false,
+	);
 
 	const closeModal = () => {
 		setWebviewOpen(false);
@@ -22,10 +29,15 @@ const GoBack = ({currentTask, doRevertTask}) => {
 
 	return (
 		<ContentLayout style={styles.content}>
-			<View style={styles.container} testID={testIDs.GO_BACK_SCREEN.SCREEN}>
+			<View
+				style={styles.container}
+				testID={testIDs.GO_BACK_SCREEN.SCREEN}
+			>
 				<AmsterdamBuildings />
 				<View style={styles.subContainer}>
-					<Title style={styles.title}>{currentTask.title}</Title>
+					<Title style={styles.title}>
+						{currentTask.title}
+					</Title>
 					<HTMLRenderer
 						html={currentTask.description}
 						setUrlToVisit={setUrlToVisit}
@@ -37,7 +49,10 @@ const GoBack = ({currentTask, doRevertTask}) => {
 						style={styles.button}
 						onPress={doRevertTask}
 						label="TERUG"
-						testid={testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON}
+						testid={
+							testIDs.GO_BACK_SCREEN
+								.GO_BACK_BUTTON
+						}
 					/>
 				</View>
 				<WebViewModal

@@ -1,16 +1,23 @@
 import React from 'react';
 
-import Svg, {G, Path} from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
 function BackPack(props) {
 	return (
-		<Svg width={375} height={230} viewBox="0 0 375 230" fill="none" {...props}>
+		<Svg
+			width={375}
+			height={230}
+			viewBox="0 0 375 230"
+			fill="none"
+			{...props}
+		>
 			<G
 				opacity={0.17}
 				stroke="#1B3242"
 				strokeWidth={2.236}
 				strokeLinecap="round"
-				strokeLinejoin="round">
+				strokeLinejoin="round"
+			>
 				<Path d="M124.889 127.668v11.434h-22.866M147.755 139.102h-22.866v-11.434M113.456 139.102h22.866v11.433h-22.866zM131.402 161.996h-6.513v-11.461h22.866" />
 				<Path d="M102.023 150.535h22.866v11.461h-18.561M94.224 139.102h19.232v11.433h-11.433M152.842 150.535h-16.52v-11.433h7.939" />
 			</G>
@@ -18,12 +25,16 @@ function BackPack(props) {
 				opacity={0.17}
 				stroke="#1B3242"
 				strokeLinecap="round"
-				strokeLinejoin="round">
+				strokeLinejoin="round"
+			>
 				<Path
 					strokeWidth={2.795}
 					d="M229.604 222.348h8.386v6.429h-8.386zM261.275 222.348h8.386v6.429h-8.386zM276.748 76.695v145.639h-54.23V76.694z"
 				/>
-				<Path strokeWidth={2.795} d="M227.563 81.741h44.167v132.501h-44.167z" />
+				<Path
+					strokeWidth={2.795}
+					d="M227.563 81.741h44.167v132.501h-44.167z"
+				/>
 				<Path
 					strokeWidth={2.795}
 					d="M263.903 93.285h7.827v31.168h-7.827zM232.534 169.806v-7.408h31.168v7.408zM236.624 162.384v-7.408h31.168v7.408z"
@@ -32,8 +43,14 @@ function BackPack(props) {
 					strokeWidth={2.795}
 					d="M232.717 155.025v-6.178h31.168v6.178zM263.903 101.029h7.827M257.25 95.578h6.653v28.876h-6.653zM257.25 102.734h6.653M251.48 97.435l5.421 3.13-13.6 23.555-5.421-3.131zM248.109 103.265l5.423 3.131M244.866 155.007v7.38M239.723 148.829v6.122M240.533 162.387v7.408M227.563 125.824h44.167v4.137h-44.167zM227.563 169.795h44.167v4.193h-44.167z"
 				/>
-				<Path strokeWidth={2.795} d="M227.563 171.891h44.167v42.35h-44.167z" />
-				<Path d="M261.75 183.827v18.478" strokeWidth={3.075} />
+				<Path
+					strokeWidth={2.795}
+					d="M227.563 171.891h44.167v42.35h-44.167z"
+				/>
+				<Path
+					d="M261.75 183.827v18.478"
+					strokeWidth={3.075}
+				/>
 			</G>
 			<Path
 				d="M277.768 228.777h2.068M255.237 228.777h12.579M131.318 228.777h118.384M108.983 228.777h15.906"

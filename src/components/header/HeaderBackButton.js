@@ -1,19 +1,29 @@
 import React from 'react';
 
-import {ArrowBackIcon} from 'native-base';
+import { ArrowBackIcon } from 'native-base';
 import PropTypes from 'prop-types';
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
-import {testIDs} from '../../../e2e/modulesTestIDs';
+import { testIDs } from '../../../e2e/modulesTestIDs';
 import theme from '../../config/theme';
 
-const HeaderBackButton = ({onPressAction = () => {}, color = 'light'}) => {
+const HeaderBackButton = ({
+	onPressAction = () => {},
+	color = 'light',
+}) => {
 	return (
 		<TouchableOpacity
 			onPress={onPressAction}
-			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
+			testID={
+				testIDs.NAVIGATION.HEADER_BACK_BUTTON
+			}
+		>
 			<ArrowBackIcon
-				color={color === 'light' ? theme.colors.white : theme.colors.text}
+				color={
+					color === 'light'
+						? theme.colors.white
+						: theme.colors.text
+				}
 			/>
 		</TouchableOpacity>
 	);
