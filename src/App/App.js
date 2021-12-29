@@ -18,7 +18,6 @@ import PushNotificationService from '../services/PushNotificationService';
 export default function App() {
 	React.useEffect(() => {
 		NetInfo.addEventListener(netInfoState => {
-			RNBootSplash.hide({ fade: true });
 			// here we check if there is an internect connection
 			// if we have an internet connection we will move with executing functions
 			// otherwise we present the user with a no connections screen
@@ -114,7 +113,12 @@ export default function App() {
 	};
 
 	return (
-		<NavigationContainer linking={linking}>
+		<NavigationContainer
+			linking={linking}
+			onReady={() =>
+				RNBootSplash.hide({ fade: true })
+			}
+		>
 			{renderApp()}
 		</NavigationContainer>
 	);

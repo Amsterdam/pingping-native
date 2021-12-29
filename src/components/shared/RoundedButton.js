@@ -67,7 +67,6 @@ const buttonBase = {
 
 const styles = StyleSheet.create({
 	label: {
-		paddingTop: theme.spacing.xxs,
 		fontFamily: 'Heavitas',
 		fontSize: normalizeValue(14),
 		color: theme.colors.white,

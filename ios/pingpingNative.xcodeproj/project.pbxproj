@@ -15,7 +15,7 @@
 		641551A8B66F1587BBCDBA46 /* libPods-pingpingNative-pingpingNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E90463DA807AEF2DABA09124 /* libPods-pingpingNative-pingpingNativeTests.a */; };
 		7484840326B1410F9BAA3E6A /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9671884E2F494DD7807C82A8 /* Raleway-Regular.ttf */; };
 		BA4D86A484C141C09AEBB65D /* Heavitas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C92DC371D234AF6ACE99281 /* Heavitas.ttf */; };
-		F55927522767972D0055E798 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55927512767972D0055E798 /* File.swift */; };
+		F5728A76277C73EC005A7D10 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5728A75277C73EC005A7D10 /* File.swift */; };
 		F5A7F0DE251A19E600AACBEA /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		E90463DA807AEF2DABA09124 /* libPods-pingpingNative-pingpingNativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pingpingNative-pingpingNativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EDB287495AEF17036F35FE15 /* Pods-pingpingNative-pingpingNativeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingpingNative-pingpingNativeTests.debug.xcconfig"; path = "Target Support Files/Pods-pingpingNative-pingpingNativeTests/Pods-pingpingNative-pingpingNativeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F55927512767972D0055E798 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F5728A75277C73EC005A7D10 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = pingpingNative/BootSplash.storyboard; sourceTree = "<group>"; };
 		F5C9113F24F7E1E600C564B2 /* pingpingNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = pingpingNative.entitlements; path = pingpingNative/pingpingNative.entitlements; sourceTree = "<group>"; };
 		FE246028E556476CB5EBC79D /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 		13B07FAE1A68108700A75B9A /* pingpingNative */ = {
 			isa = PBXGroup;
 			children = (
+				F5728A75277C73EC005A7D10 /* File.swift */,
 				F5C9113F24F7E1E600C564B2 /* pingpingNative.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -121,7 +122,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				F5A7F0DD251A19E600AACBEA /* BootSplash.storyboard */,
-				F55927512767972D0055E798 /* File.swift */,
 			);
 			name = pingpingNative;
 			sourceTree = "<group>";
@@ -459,7 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				F55927522767972D0055E798 /* File.swift in Sources */,
+				F5728A76277C73EC005A7D10 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
