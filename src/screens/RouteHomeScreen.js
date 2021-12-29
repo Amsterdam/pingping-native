@@ -189,13 +189,14 @@ const RouteHomeScreen = ({ navigation }) => {
 				}
 			>
 				<ContentLayout>
-					{!routes.data && (
+					{!routes.data ? (
 						<AnimatableView animation="fadeIn">
 							<CardSkeleton />
 							<CardSkeleton />
 						</AnimatableView>
+					) : (
+						renderRoutes()
 					)}
-					{routes.data && renderRoutes()}
 				</ContentLayout>
 			</ScrollView>
 		</View>

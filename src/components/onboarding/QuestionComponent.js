@@ -12,7 +12,6 @@ import { questionTypes } from '../../config/questionTypes';
 
 const QuestionComponent = ({
 	currentTask,
-	updateTask,
 	refetch,
 	doRevertTask,
 	state,

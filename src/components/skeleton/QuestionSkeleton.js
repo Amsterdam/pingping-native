@@ -1,99 +1,100 @@
 import React from 'react';
 
-import {
-	Dimensions,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Dimensions } from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 import theme from '../../config/theme';
+import Container from '../shared/Container';
 
-const screenHeight = Dimensions.get('window')
-	.height;
-
-const RouteDetailSkeleton = () => (
-	<SkeletonPlaceholder>
-		<View style={styles.container}>
-			<View style={styles.row}>
-				<View style={styles.backButton} />
-				<View style={styles.headerTitle} />
-				<View style={styles.progressBar} />
-			</View>
-
-			<View>
-				<View style={styles.title} />
-				<View style={styles.subTitle} />
-			</View>
-
-			<View>
-				<View style={styles.button} />
-				<View style={styles.button} />
-			</View>
-
-			<View>
-				<View style={styles.nextButton} />
-			</View>
-		</View>
-	</SkeletonPlaceholder>
+const { height, width } = Dimensions.get(
+	'window',
 );
 
-const styles = StyleSheet.create({
-	container: {
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		height: screenHeight,
-		padding: theme.spacing.m,
-	},
-	row: {
-		marginTop: theme.spacing.l,
-		marginBottom: theme.spacing.xxl,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-	},
-	backButton: {
-		width: 30,
-		height: 30,
-		borderRadius: 10,
-		marginTop: theme.spacing.m,
-	},
-	headerTitle: {
-		width: 100,
-		height: 20,
-		borderRadius: 10,
-		marginTop: theme.spacing.m,
-	},
-	progressBar: {
-		width: 70,
-		height: 20,
-		borderRadius: 10,
-		marginTop: theme.spacing.m,
-	},
-	title: {
-		width: '100%',
-		height: 40,
-		borderRadius: 10,
-		marginTop: theme.spacing.m,
-	},
-	subTitle: {
-		width: '80%',
-		height: 40,
-		marginTop: 6,
-		borderRadius: 10,
-	},
-	button: {
-		marginTop: 6,
-		width: '100%',
-		height: 50,
-		borderRadius: theme.borderRadius,
-	},
-	nextButton: {
-		marginTop: 6,
-		width: 100,
-		height: 25,
-		borderRadius: 6,
-		alignSelf: 'flex-end',
-	},
-});
+const RouteDetailSkeleton = () => (
+	<Container>
+		<SkeletonPlaceholder>
+			<SkeletonPlaceholder.Item
+				flexDirection="column"
+				justifyContent="space-between"
+				height={height - 25}
+			>
+				<SkeletonPlaceholder.Item>
+					{/* Header */}
+					<SkeletonPlaceholder.Item
+						flexDirection="row"
+						alignItems="center"
+						justifyContent="space-between"
+						width="100%"
+						padding={theme.spacing.s}
+					>
+						<SkeletonPlaceholder.Item
+							width={30}
+							height={30}
+							borderRadius={10}
+						/>
+						<SkeletonPlaceholder.Item
+							width={100}
+							height={30}
+							borderRadius={10}
+						/>
+						<SkeletonPlaceholder.Item
+							width={70}
+							height={20}
+							borderRadius={10}
+						/>
+					</SkeletonPlaceholder.Item>
+					{/* End Header */}
+
+					{/* Question */}
+					<SkeletonPlaceholder.Item
+						padding={theme.spacing.m}
+					>
+						<SkeletonPlaceholder.Item
+							width={width - 70}
+							height={40}
+							borderRadius={10}
+							marginBottom={theme.spacing.xxs}
+						/>
+						<SkeletonPlaceholder.Item
+							width={width - 100}
+							height={40}
+							borderRadius={10}
+						/>
+					</SkeletonPlaceholder.Item>
+					{/* End Question */}
+				</SkeletonPlaceholder.Item>
+
+				{/* Button */}
+				<SkeletonPlaceholder.Item
+					padding={theme.spacing.l}
+				>
+					<SkeletonPlaceholder.Item
+						width={width - 50}
+						height={50}
+						borderRadius={theme.borderRadius}
+						marginBottom={theme.spacing.s}
+					/>
+					<SkeletonPlaceholder.Item
+						width={width - 50}
+						height={50}
+						borderRadius={theme.borderRadius}
+					/>
+				</SkeletonPlaceholder.Item>
+				{/* End Button */}
+
+				<SkeletonPlaceholder.Item
+					padding={theme.spacing.l}
+				>
+					<SkeletonPlaceholder.Item
+						width={100}
+						height={25}
+						borderRadius={theme.borderRadius}
+						alignSelf="flex-end"
+					/>
+				</SkeletonPlaceholder.Item>
+			</SkeletonPlaceholder.Item>
+		</SkeletonPlaceholder>
+	</Container>
+);
+
 export default RouteDetailSkeleton;

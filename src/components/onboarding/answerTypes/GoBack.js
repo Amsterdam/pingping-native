@@ -6,7 +6,6 @@ import { StyleSheet, View } from 'react-native';
 import { testIDs } from '../../../../e2e/modulesTestIDs';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
 import theme from '../../../config/theme';
-import ContentLayout from '../../layout/ContentLayout';
 import WebViewModal from '../../modals/WebViewModal';
 import HTMLRenderer from '../../shared/HTMLRenderer';
 import Button from '../../shared/RoundedButton';
@@ -28,48 +27,42 @@ const GoBack = ({
 	};
 
 	return (
-		<ContentLayout style={styles.content}>
-			<View
-				style={styles.container}
-				testID={testIDs.GO_BACK_SCREEN.SCREEN}
-			>
-				<AmsterdamBuildings />
-				<View style={styles.subContainer}>
-					<Title style={styles.title}>
-						{currentTask.title}
-					</Title>
-					<HTMLRenderer
-						html={currentTask.description}
-						setUrlToVisit={setUrlToVisit}
-						setWebviewOpen={setWebviewOpen}
-					/>
-				</View>
-				<View>
-					<Button
-						style={styles.button}
-						onPress={doRevertTask}
-						label="TERUG"
-						testid={
-							testIDs.GO_BACK_SCREEN
-								.GO_BACK_BUTTON
-						}
-					/>
-				</View>
-				<WebViewModal
-					urlToVisit={urlToVisit}
-					closeModal={closeModal}
-					webViewOpen={webViewOpen}
+		<View
+			style={styles.container}
+			testID={testIDs.GO_BACK_SCREEN.SCREEN}
+		>
+			<AmsterdamBuildings />
+			<View style={styles.subContainer}>
+				<Title style={styles.title}>
+					{currentTask.title}
+				</Title>
+				<HTMLRenderer
+					html={currentTask.description}
+					setUrlToVisit={setUrlToVisit}
 					setWebviewOpen={setWebviewOpen}
 				/>
 			</View>
-		</ContentLayout>
+			<View>
+				<Button
+					style={styles.button}
+					onPress={doRevertTask}
+					label="TERUG"
+					testid={
+						testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON
+					}
+				/>
+			</View>
+			<WebViewModal
+				urlToVisit={urlToVisit}
+				closeModal={closeModal}
+				webViewOpen={webViewOpen}
+				setWebviewOpen={setWebviewOpen}
+			/>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	content: {
-		backgroundColor: theme.colors.background,
-	},
 	container: {
 		flex: 1,
 		justifyContent: 'space-evenly',

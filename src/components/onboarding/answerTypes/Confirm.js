@@ -9,9 +9,7 @@ import {
 
 import { BASE_URL } from '../../../config/initialSettings';
 import theme from '../../../config/theme';
-import Header from '../../header/Header';
 import ConfirmModal from '../../modals/ConfirmModal';
-import Container from '../../shared/Container';
 import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
@@ -61,49 +59,43 @@ const Confirm = ({
 	};
 
 	return (
-		<Container>
-			<Header
-				title={currentTask.headerTitle}
-				color="light"
-			/>
-			<View style={styles.viewContainer}>
-				<View>
-					{currentTask.media?.value && (
-						<Image
-							source={{
-								uri: `${BASE_URL}${currentTask.media.value}`,
-							}}
-							style={styles.image}
-						/>
-					)}
-				</View>
-				<View>
-					<Title
-						style={styles.title}
-						variant="h2"
-						align="center"
-					>
-						{currentTask.title}
-					</Title>
-					<Body
-						variant="b4"
-						align="center"
-						style={styles.onboardingText}
-					>
-						{currentTask.description}
-					</Body>
-				</View>
+		<View style={styles.viewContainer}>
+			<View>
+				{currentTask.media?.value && (
+					<Image
+						source={{
+							uri: `${BASE_URL}${currentTask.media.value}`,
+						}}
+						style={styles.image}
+					/>
+				)}
+			</View>
+			<View>
+				<Title
+					style={styles.title}
+					variant="h2"
+					align="center"
+				>
+					{currentTask.title}
+				</Title>
+				<Body
+					variant="b4"
+					align="center"
+					style={styles.onboardingText}
+				>
+					{currentTask.description}
+				</Body>
+			</View>
 
-				<View style={styles.buttonContainer}>
-					{mapButtons()}
-				</View>
+			<View style={styles.buttonContainer}>
+				{mapButtons()}
 			</View>
 			<ConfirmModal
 				open={confirmModalOpen}
 				setOpen={setConfirmModalOpen}
 				doUpdateConfirmTask={doUpdateConfirmTask}
 			/>
-		</Container>
+		</View>
 	);
 };
 

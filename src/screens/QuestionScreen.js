@@ -15,8 +15,13 @@ import { View as AnimatableView } from 'react-native-animatable';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import Header from '../components/header/Header';
+import HeaderBackButton from '../components/header/HeaderBackButton';
+import ContentLayout from '../components/layout/ContentLayout';
 import QuestionComponent from '../components/onboarding/QuestionComponent';
+import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
+import ProgressBar from '../components/shared/ProgressBar';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import {
 	revertTaskFunc,
@@ -80,6 +85,10 @@ const QuestionScreen = ({ navigation }) => {
 		);
 	}
 
+	if (loadingQuestion || loading) {
+		return <QuestionSkeleton />;
+	}
+
 	if (data && currentTask) {
 		const doRevertTask = () => {
 			revertTaskFunc(
@@ -116,10 +125,6 @@ const QuestionScreen = ({ navigation }) => {
 			);
 		};
 
-		if (loadingQuestion || loading) {
-			return <QuestionSkeleton />;
-		}
-
 		return (
 			<AnimatableView
 				style={styles.flex}
@@ -127,23 +132,43 @@ const QuestionScreen = ({ navigation }) => {
 				ref={animationRef}
 				useNativeDriver
 			>
-				<QuestionComponent
-					currentTask={currentTask}
-					updateTask={updateTask}
-					refetch={refetch}
-					doRevertTask={doRevertTask}
-					state={state}
-					setState={setState}
-					doUpdateTask={doUpdateTask}
-					setLoadingQuestion={setLoadingQuestion}
-					doUpdateConfirmTask={
-						doUpdateConfirmTask
-					}
-				/>
+				<Container>
+					<Header
+						left={
+							<HeaderBackButton
+								onPressAction={doRevertTask}
+								color="dark"
+							/>
+						}
+						right={
+							<ProgressBar
+								progress={currentTask.progress}
+							/>
+						}
+						title={currentTask.headerTitle}
+					/>
+					<ContentLayout>
+						<QuestionComponent
+							currentTask={currentTask}
+							updateTask={updateTask}
+							refetch={refetch}
+							doRevertTask={doRevertTask}
+							state={state}
+							setState={setState}
+							doUpdateTask={doUpdateTask}
+							setLoadingQuestion={
+								setLoadingQuestion
+							}
+							doUpdateConfirmTask={
+								doUpdateConfirmTask
+							}
+						/>
+					</ContentLayout>
+				</Container>
 			</AnimatableView>
 		);
 	}
-	return <></>;
+	return <QuestionSkeleton />;
 };
 
 const styles = StyleSheet.create({
