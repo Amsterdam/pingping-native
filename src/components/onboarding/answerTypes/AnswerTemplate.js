@@ -7,11 +7,6 @@ import {
 	ScrollView,
 } from 'react-native';
 
-import theme from '../../../config/theme';
-import Header from '../../header/Header';
-import HeaderBackButton from '../../header/HeaderBackButton';
-import Container from '../../shared/Container';
-import ProgressBar from '../../shared/ProgressBar';
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
@@ -20,44 +15,27 @@ const AnswerTemplate = ({
 	doUpdateTask = () => {},
 	children = [],
 	currentTask = {},
-	doRevertTask = () => {},
 }) => {
 	return (
-		<Container>
-			<Header
-				left={
-					<HeaderBackButton
-						onPressAction={doRevertTask}
-						color="dark"
-					/>
-				}
-				right={
-					<ProgressBar
-						progress={currentTask.progress}
-					/>
-				}
-				title={currentTask.headerTitle}
+		<ScrollView
+			contentContainerStyle={styles.content}
+		>
+			<Title variant="h2" align="center">
+				{currentTask.title}
+			</Title>
+			<View style={styles.questionContainer}>
+				{children}
+			</View>
+			<NextButtonQuestionScreen
+				nextButtonDisabled={nextButtonDisabled}
+				submitAnswer={doUpdateTask}
 			/>
-			<ScrollView
-				contentContainerStyle={styles.content}
-			>
-				<Title variant="h2" align="center">
-					{currentTask.title}
-				</Title>
-				<View style={styles.questionContainer}>
-					{children}
-				</View>
-				<NextButtonQuestionScreen
-					nextButtonDisabled={nextButtonDisabled}
-					submitAnswer={doUpdateTask}
-				/>
-			</ScrollView>
-		</Container>
+		</ScrollView>
 	);
 };
 
 const styles = StyleSheet.create({
-	content: { flex: 1, padding: theme.spacing.m },
+	content: { flex: 1 },
 	questionContainer: {
 		flex: 1,
 		justifyContent: 'center',
