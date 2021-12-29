@@ -1,8 +1,13 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const UPDATE_TASK_MUTATION = gql`
-	mutation updateTask($answer: String!, $taskId: String!) {
-		updateTask(input: {answer: $answer, taskId: $taskId}) {
+	mutation updateTask(
+		$answer: String!
+		$taskId: String!
+	) {
+		updateTask(
+			input: { answer: $answer, taskId: $taskId }
+		) {
 			previousTask {
 				status
 				task {

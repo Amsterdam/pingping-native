@@ -1,7 +1,9 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const REVERT_TASK_MUTATION = gql`
-	mutation REVERT_TASK_MUTATION($taskId: String!) {
+	mutation REVERT_TASK_MUTATION(
+		$taskId: String!
+	) {
 		revertTask(taskId: $taskId)
 	}
 `;

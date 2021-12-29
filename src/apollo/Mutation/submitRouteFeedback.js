@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const SUBMIT_ROUTE_FEEDBACK_MUTATION = gql`
 	mutation SUBMIT_ROUTE_FEEDBACK_MUTATION(
@@ -7,7 +7,11 @@ const SUBMIT_ROUTE_FEEDBACK_MUTATION = gql`
 		$feedback: String
 	) {
 		createRouteFeedback(
-			input: {routeId: $routeId, rating: $rating, feedback: $feedback}
+			input: {
+				routeId: $routeId
+				rating: $rating
+				feedback: $feedback
+			}
 		) {
 			feedback
 		}

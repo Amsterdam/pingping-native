@@ -1,18 +1,24 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {
+	ActivityIndicator,
+	StyleSheet,
+	View,
+} from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 
 import theme from '../../config/theme';
 
-const QrCode = ({exportToken = ''}) => {
+const QrCode = ({ exportToken = '' }) => {
 	return (
 		<View style={styles.qrCode}>
 			{exportToken ? (
 				<QRCode value={exportToken} size={200} />
 			) : (
-				<ActivityIndicator color={theme.colors.primary} />
+				<ActivityIndicator
+					color={theme.colors.primary}
+				/>
 			)}
 		</View>
 	);

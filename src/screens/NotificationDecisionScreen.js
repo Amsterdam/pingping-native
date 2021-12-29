@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {useMutation} from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
-import {Notifications} from 'react-native-notifications';
+import { StyleSheet, View } from 'react-native';
+import { Notifications } from 'react-native-notifications';
 
-import {testIDs} from '../../e2e/modulesTestIDs';
+import { testIDs } from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Bell from '../assets/svg/Bell';
@@ -18,14 +18,22 @@ import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
-const NotificationDecisionScreen = ({navigation, setLogin}) => {
-	const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
+const NotificationDecisionScreen = ({
+	navigation,
+	setLogin,
+}) => {
+	const [registerNotifications] = useMutation(
+		REGISTER_NOTIFICATIONS_MUTATION,
+	);
 
 	const acceptNotifications = async () => {
 		Notifications.registerRemoteNotifications();
 		Notifications.events().registerRemoteNotificationsRegistered(
 			async event => {
-				await doRegister('Approved', event.deviceToken);
+				await doRegister(
+					'Approved',
+					event.deviceToken,
+				);
 			},
 		);
 	};
@@ -60,7 +68,9 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 				right={
 					<TextButton
 						onPress={declineNotifications}
-						testID={testIDs.NOTIFICATON.SKIP_BUTTON}
+						testID={
+							testIDs.NOTIFICATON.SKIP_BUTTON
+						}
 						label="OVERSLAAN"
 					/>
 				}
@@ -71,19 +81,30 @@ const NotificationDecisionScreen = ({navigation, setLogin}) => {
 					<Bell Bell />
 				</View>
 				<View>
-					<Title style={styles.title} variant="h1" align="center">
+					<Title
+						style={styles.title}
+						variant="h1"
+						align="center"
+					>
 						NOTIFICATIES
 					</Title>
-					<Body variant="b3" style={styles.onboardingText} align="center">
-						Wil je een berichtje krijgen voor een actie die je nog moet doen of
-						als er een nieuwe route is toegevoegd?
+					<Body
+						variant="b3"
+						style={styles.onboardingText}
+						align="center"
+					>
+						Wil je een berichtje krijgen voor een
+						actie die je nog moet doen of als er
+						een nieuwe route is toegevoegd?
 					</Body>
 				</View>
 				<View>
 					<Button
 						style={styles.button}
 						onPress={acceptNotifications}
-						testid={testIDs.NOTIFICATON.ACCEPT_BUTTON}
+						testid={
+							testIDs.NOTIFICATON.ACCEPT_BUTTON
+						}
 						label="ACCEPTEREN"
 					/>
 				</View>

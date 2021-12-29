@@ -1,11 +1,16 @@
 import React from 'react';
 
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {
+	Dimensions,
+	StyleSheet,
+	View,
+} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 import theme from '../../config/theme';
 
-const screenHeight = Dimensions.get('window').height;
+const screenHeight = Dimensions.get('window')
+	.height;
 
 const RouteDetailSkeleton = () => (
 	<SkeletonPlaceholder>
@@ -71,7 +76,12 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		marginTop: theme.spacing.m,
 	},
-	subTitle: {width: '80%', height: 40, marginTop: 6, borderRadius: 10},
+	subTitle: {
+		width: '80%',
+		height: 40,
+		marginTop: 6,
+		borderRadius: 10,
+	},
 	button: {
 		marginTop: 6,
 		width: '100%',

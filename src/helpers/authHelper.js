@@ -13,7 +13,7 @@ export async function doRegisterDevice(
 		const deviceOs = await DeviceInfo.getSystemName();
 		const {
 			data: {
-				registerDevice: {accessToken},
+				registerDevice: { accessToken },
 			},
 		} = await registerDeviceCallback({
 			variables: {
@@ -23,7 +23,10 @@ export async function doRegisterDevice(
 				exportToken,
 			},
 		});
-		await AsyncStorage.setItem('@access_token', accessToken);
+		await AsyncStorage.setItem(
+			'@access_token',
+			accessToken,
+		);
 	} catch (error) {
 		sentryHelper(error.message);
 	}
@@ -37,7 +40,9 @@ const userStatus = async (
 	setSomethingWentWrong,
 ) => {
 	try {
-		const token = await AsyncStorage.getItem('@access_token');
+		const token = await AsyncStorage.getItem(
+			'@access_token',
+		);
 		if (token === null) {
 			return setOnboarder(true); // I AM A NEW USER
 		}
@@ -45,7 +50,10 @@ const userStatus = async (
 		setBackEndIssue(false); // clear any errors from previous retries
 		setSomethingWentWrong(false); // clear any errors from previous retries
 		if (me && me.data) {
-			if (me.data.getStatus.device.notificationStatus === 'Initial') {
+			if (
+				me.data.getStatus.device
+					.notificationStatus === 'Initial'
+			) {
 				return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
 			}
 			return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING

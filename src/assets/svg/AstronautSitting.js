@@ -1,10 +1,21 @@
 import React from 'react';
 
-import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
+import Svg, {
+	ClipPath,
+	Defs,
+	G,
+	Path,
+} from 'react-native-svg';
 
 function AstronautSitting(props) {
 	return (
-		<Svg width={136} height={136} viewBox="0 0 136 136" fill="none" {...props}>
+		<Svg
+			width={136}
+			height={136}
+			viewBox="0 0 136 136"
+			fill="none"
+			{...props}
+		>
 			<G clipPath="url(#prefix__clip0)">
 				<Path
 					d="M89.533 123.216a29.469 29.469 0 01-45.107 0 176.787 176.787 0 0045.107 0z"

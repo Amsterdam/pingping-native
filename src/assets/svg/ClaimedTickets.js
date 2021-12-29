@@ -1,22 +1,40 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 function ClaimedTickets(props) {
 	return (
-		<Svg width={36} height={36} viewBox="0 0 36 36" fill="none" {...props}>
+		<Svg
+			width={36}
+			height={36}
+			viewBox="0 0 36 36"
+			fill="none"
+			{...props}
+		>
 			<Path
 				d="M27.922 9.622a3 3 0 01-4.244-4.244L21 2.7 5.4 18.3h20.4l5.4-5.4-3.278-3.278z"
 				fill="#FFD884"
 			/>
-			<Path d="M5.4 18.3h20.4l5.4-5.4L9 14.7l-3.6 3.6z" fill="#FFBF41" />
-			<Path d="M9.6 17.7l9-9 6.6 6.6-2.4 2.4H9.6z" fill="#EC7422" />
-			<Path d="M11.4 17.7l7.16-7.2 4.84 4.84-2.32 2.36H11.4z" fill="#F6F6E7" />
+			<Path
+				d="M5.4 18.3h20.4l5.4-5.4L9 14.7l-3.6 3.6z"
+				fill="#FFBF41"
+			/>
+			<Path
+				d="M9.6 17.7l9-9 6.6 6.6-2.4 2.4H9.6z"
+				fill="#EC7422"
+			/>
+			<Path
+				d="M11.4 17.7l7.16-7.2 4.84 4.84-2.32 2.36H11.4z"
+				fill="#F6F6E7"
+			/>
 			<Path
 				d="M32.4 25.5a3 3 0 013-3v-4.8H.6v4.8a3 3 0 010 6v4.8h34.8v-4.8a3 3 0 01-3-3z"
 				fill="#FFD884"
 			/>
-			<Path d="M.6 33.3h34.8v-4.8a3 3 0 010-6v-4.8L.6 33.3z" fill="#FFBF41" />
+			<Path
+				d="M.6 33.3h34.8v-4.8a3 3 0 010-6v-4.8L.6 33.3z"
+				fill="#FFBF41"
+			/>
 			<Path
 				d="M28.8 19.5H30v2.4h-1.2v-2.4zM28.8 23.1H30v2.4h-1.2v-2.4zM28.8 26.7H30v2.4h-1.2v-2.4zM28.8 30.3H30v2.4h-1.2v-2.4zM6 17.7h1.2v2.4H6v-2.4zM6 21.3h1.2v2.4H6v-2.4zM6 24.9h1.2v2.4H6v-2.4zM6 28.5h1.2v2.4H6v-2.4zM6 32.1h1.2v1.2H6v-1.2z"
 				fill="#fff"

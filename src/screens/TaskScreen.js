@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {useMutation, useQuery} from '@apollo/client';
-import {useToast} from 'native-base';
+import {
+	useMutation,
+	useQuery,
+} from '@apollo/client';
+import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
 import {
 	ActivityIndicator,
@@ -24,44 +27,62 @@ import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
-import {BASE_URL} from '../config/initialSettings';
-import {YOUTUBE_API_KEY} from '../config/keys';
+import { BASE_URL } from '../config/initialSettings';
+import { YOUTUBE_API_KEY } from '../config/keys';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
-const TaskScreen = ({navigation, route}) => {
-	const {task, routeId} = route.params;
-	const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
-	const {refetch} = useQuery(GET_ROUTE_QUERY, {
-		variables: {routeId},
+const TaskScreen = ({ navigation, route }) => {
+	const { task, routeId } = route.params;
+	const [completeTask] = useMutation(
+		COMPLETE_TASK_MUTATION,
+	);
+	const { refetch } = useQuery(GET_ROUTE_QUERY, {
+		variables: { routeId },
 	});
-	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
-	const [webViewOpen, setWebviewOpen] = useState(false);
+	const [urlToVisit, setUrlToVisit] = useState(
+		'https://amsterdam.nl',
+	);
+	const [webViewOpen, setWebviewOpen] = useState(
+		false,
+	);
 	const [loading, setLoading] = useState(false);
-	const [videoReady, setVideoReady] = useState(false);
+	const [videoReady, setVideoReady] = useState(
+		false,
+	);
 	const toast = useToast();
 
 	const doCompleteTask = async () => {
 		setLoading(true);
 		try {
 			await completeTask({
-				variables: {taskId: task.taskId},
+				variables: { taskId: task.taskId },
 			});
 
 			/* This code checks if the route is done in order to show the celebration modal yes/no */
 			const routeResponse = await refetch();
 			const routeDone =
 				routeResponse?.data?.getRoute?.tasks.filter(
-					routeTask => routeTask.status !== 'Completed',
+					routeTask =>
+						routeTask.status !== 'Completed',
 				).length === 0;
 
 			if (routeDone) {
 				setLoading(false);
-				navigation.navigate(routes.citypingsStack.name, {
-					screen: routes.citypingsStack.completedRouteCelebrationModalScreen,
-					params: {pings: routeResponse.data.getRoute.totalPoints},
-					initial: false,
-				});
+				navigation.navigate(
+					routes.citypingsStack.name,
+					{
+						screen:
+							routes.citypingsStack
+								.completedRouteCelebrationModalScreen,
+						params: {
+							pings:
+								routeResponse.data.getRoute
+									.totalPoints,
+						},
+						initial: false,
+					},
+				);
 				return navigation.popToTop();
 			}
 
@@ -91,9 +112,12 @@ const TaskScreen = ({navigation, route}) => {
 							apiKey={YOUTUBE_API_KEY}
 							style={[
 								styles.videoContainer,
-								!videoReady && styles.videoNotReady,
+								!videoReady &&
+									styles.videoNotReady,
 							]}
-							onError={error => sentryHelper(error.message)}
+							onError={error =>
+								sentryHelper(error.message)
+							}
 							onReady={() => setVideoReady(true)}
 							resumePlayAndroid={false}
 							showFullscreenButton={false}
@@ -103,8 +127,12 @@ const TaskScreen = ({navigation, route}) => {
 			case 'Image':
 				return (
 					<ProgressiveImage
-						source={{uri: `${BASE_URL}${task.media.value}`}}
-						thumbnailSource={{uri: `${BASE_URL}${task.media.thumbnail}`}}
+						source={{
+							uri: `${BASE_URL}${task.media.value}`,
+						}}
+						thumbnailSource={{
+							uri: `${BASE_URL}${task.media.thumbnail}`,
+						}}
 						mainColor={task.media.color}
 						style={styles.imageContainer}
 					/>
@@ -124,9 +152,15 @@ const TaskScreen = ({navigation, route}) => {
 		} catch (error) {
 			sentryHelper(error.message);
 			toast.show({
-				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
-				textStyle: {fontFamily: 'Raleway-Regular'},
-				style: {backgroundColor: theme.colors.black, borderRadius: 10},
+				description:
+					'Het is op dit moment nog niet mogelijk om hulp te vragen',
+				textStyle: {
+					fontFamily: 'Raleway-Regular',
+				},
+				style: {
+					backgroundColor: theme.colors.black,
+					borderRadius: 10,
+				},
 				duration: 2000,
 			}); // change the error message once complete
 		}
@@ -136,8 +170,15 @@ const TaskScreen = ({navigation, route}) => {
 
 	return (
 		<Container>
-			<FilledHeader navigation={navigation} title={task.headerTitle} />
-			<ScrollView contentContainerStyle={styles.contentContainer}>
+			<FilledHeader
+				navigation={navigation}
+				title={task.headerTitle}
+			/>
+			<ScrollView
+				contentContainerStyle={
+					styles.contentContainer
+				}
+			>
 				{task?.media && renderMedia(task.media)}
 				<ContentLayout>
 					<Title variant="h3">{task.title}</Title>
@@ -149,8 +190,14 @@ const TaskScreen = ({navigation, route}) => {
 				</ContentLayout>
 			</ScrollView>
 			{taskStatus ? (
-				<View style={styles.completedTagLineContainer}>
-					<Title style={styles.completedTagLine} variant="h6" align="center">
+				<View
+					style={styles.completedTagLineContainer}
+				>
+					<Title
+						style={styles.completedTagLine}
+						variant="h6"
+						align="center"
+					>
 						Je {task.headerTitle} is gefikst
 					</Title>
 				</View>
@@ -162,7 +209,10 @@ const TaskScreen = ({navigation, route}) => {
 							label="Hulp nodig?"
 							onPress={needHelp}
 						/>
-						<Button label="Gelukt!" onPress={doCompleteTask} />
+						<Button
+							label="Gelukt!"
+							onPress={doCompleteTask}
+						/>
 					</React.Fragment>
 				</View>
 			)}
@@ -202,7 +252,9 @@ const styles = StyleSheet.create({
 		height: 200,
 	},
 	buttonContainer: {
-		paddingHorizontal: theme.spacing.multiplier(8),
+		paddingHorizontal: theme.spacing.multiplier(
+			8,
+		),
 		marginTop: theme.spacing.m,
 		marginBottom: theme.spacing.m,
 		flexDirection: 'row',

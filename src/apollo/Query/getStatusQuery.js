@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import MEDIA_FRAGMENT from '../Fragment/mediaFragment';
 import REWARD_FRAGMENT from '../Fragment/rewardFragment';

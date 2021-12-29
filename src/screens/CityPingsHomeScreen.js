@@ -1,9 +1,17 @@
 import React from 'react';
 
-import {useLazyQuery} from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, useWindowDimensions} from 'react-native';
-import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
+import {
+	StyleSheet,
+	View,
+	useWindowDimensions,
+} from 'react-native';
+import {
+	TabView,
+	TabBar,
+	SceneMap,
+} from 'react-native-tab-view';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -16,29 +24,43 @@ import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 
-const CityPingsHomeScreen = ({navigation}) => {
+const CityPingsHomeScreen = ({ navigation }) => {
 	React.useEffect(() => {
-		const unsubscribe = navigation.addListener('focus', () => {
-			getAvailableRewards();
-			getStatus();
-		});
+		const unsubscribe = navigation.addListener(
+			'focus',
+			() => {
+				getAvailableRewards();
+				getStatus();
+			},
+		);
 		return unsubscribe;
-	}, [navigation, getAvailableRewards, getStatus]);
+	}, [
+		navigation,
+		getAvailableRewards,
+		getStatus,
+	]);
 	const layout = useWindowDimensions();
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
-		{key: 'rewards', title: 'Rewards'},
-		{key: 'geclaimed', title: 'Geclaimed'},
+		{ key: 'rewards', title: 'Rewards' },
+		{ key: 'geclaimed', title: 'Geclaimed' },
 	]);
 
-	const [getAvailableRewards, availableRewards] = useLazyQuery(
-		GET_AVAILABLE_REWARDS,
+	const [
+		getAvailableRewards,
+		availableRewards,
+	] = useLazyQuery(GET_AVAILABLE_REWARDS);
+	const [getStatus, me] = useLazyQuery(
+		GET_STATUS_QUERY,
+		{
+			fetchPolicy: 'cache-and-network',
+		},
 	);
-	const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
-		fetchPolicy: 'cache-and-network',
-	});
-	const [refreshing, setRefreshing] = React.useState(false);
+	const [
+		refreshing,
+		setRefreshing,
+	] = React.useState(false);
 
 	const onRefresh = () => {
 		setRefreshing(true);
@@ -62,8 +84,10 @@ const CityPingsHomeScreen = ({navigation}) => {
 		);
 	}
 
-	const balance = me?.data?.getStatus?.user.balance; // maybe move this part to either localstate or the tabnavigator
-	const claimedRewards = me?.data?.getStatus?.user.rewards;
+	const balance =
+		me?.data?.getStatus?.user.balance; // maybe move this part to either localstate or the tabnavigator
+	const claimedRewards =
+		me?.data?.getStatus?.user.rewards;
 
 	const FirstRoute = () => (
 		<AvailableRewardsList
@@ -95,10 +119,21 @@ const CityPingsHomeScreen = ({navigation}) => {
 	const renderTabBar = props => (
 		<TabBar
 			{...props}
-			indicatorStyle={{backgroundColor: theme.colors.white}}
-			style={{backgroundColor: theme.colors.primary}}
-			renderLabel={({route, focused, color}) => (
-				<Title variant="h5" style={{color: theme.colors.white}}>
+			indicatorStyle={{
+				backgroundColor: theme.colors.white,
+			}}
+			style={{
+				backgroundColor: theme.colors.primary,
+			}}
+			renderLabel={({
+				route,
+				focused,
+				color,
+			}) => (
+				<Title
+					variant="h5"
+					style={{ color: theme.colors.white }}
+				>
 					{route.title}
 				</Title>
 			)}
@@ -113,18 +148,21 @@ const CityPingsHomeScreen = ({navigation}) => {
 					barStyle="light-content"
 				/>
 				<View style={styles.headerContainer}>
-					<Title style={styles.title} variant="h3">
+					<Title
+						style={styles.title}
+						variant="h3"
+					>
 						Rewards
 					</Title>
 					<CitypingsChip value={balance} />
 				</View>
 			</View>
 			<TabView
-				navigationState={{index, routes}}
+				navigationState={{ index, routes }}
 				renderScene={renderScene}
 				renderTabBar={renderTabBar}
 				onIndexChange={setIndex}
-				initialLayout={{width: layout.width}}
+				initialLayout={{ width: layout.width }}
 			/>
 		</Container>
 	);
@@ -137,7 +175,9 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.primary,
 		height: 100,
 	},
-	container: {backgroundColor: theme.colors.primary},
+	container: {
+		backgroundColor: theme.colors.primary,
+	},
 	title: {
 		color: theme.colors.white,
 	},

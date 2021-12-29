@@ -1,12 +1,18 @@
 import React from 'react';
 
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {
+	Dimensions,
+	StyleSheet,
+	View,
+} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 import theme from '../../config/theme';
 
-const screenHeight = Dimensions.get('window').height;
-const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window')
+	.height;
+const screenWidth = Dimensions.get('window')
+	.width;
 
 const RouteDetailSkeleton = () => (
 	<View style={styles.container}>
@@ -98,8 +104,20 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 	},
-	steps: {width: 120, height: 15, borderRadius: 4},
-	circle: {width: 30, height: 30, borderRadius: 50, marginRight: 20},
-	taskTitle: {width: screenWidth - 100, height: 20},
+	steps: {
+		width: 120,
+		height: 15,
+		borderRadius: 4,
+	},
+	circle: {
+		width: 30,
+		height: 30,
+		borderRadius: 50,
+		marginRight: 20,
+	},
+	taskTitle: {
+		width: screenWidth - 100,
+		height: 20,
+	},
 });
 export default RouteDetailSkeleton;

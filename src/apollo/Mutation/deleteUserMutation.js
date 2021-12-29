@@ -1,7 +1,9 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const DELETE_USER_MUTATION = gql`
-	mutation DELETE_USER_MUTATION($confirm: String!) {
+	mutation DELETE_USER_MUTATION(
+		$confirm: String!
+	) {
 		deleteUser(confirm: $confirm) {
 			message
 		}

@@ -1,9 +1,15 @@
 import React from 'react';
 
-import {useQuery} from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import LottieView from 'lottie-react-native';
 import PropTypes from 'prop-types';
-import {Animated, StatusBar, StyleSheet, View, ScrollView} from 'react-native';
+import {
+	Animated,
+	StatusBar,
+	StyleSheet,
+	View,
+	ScrollView,
+} from 'react-native';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_ROUTES from '../apollo/Query/getRoutes';
@@ -19,18 +25,28 @@ import CitypingsChip from '../components/shared/CitypingsChip';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import {commonStyles} from '../config/commonStyles';
+import { commonStyles } from '../config/commonStyles';
 import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
-const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
-	const {pings} = route.params;
-	const routeData = useQuery(GET_ROUTES, {fetchPolicy: 'cache-and-network'});
-	const rewardData = useQuery(GET_AVAILABLE_REWARDS, {
+const CompletedRouteCelebrationModalScreen = ({
+	navigation,
+	route,
+}) => {
+	const { pings } = route.params;
+	const routeData = useQuery(GET_ROUTES, {
 		fetchPolicy: 'cache-and-network',
 	});
-	const me = useQuery(GET_STATUS_QUERY, {fetchPolicy: 'cache-and-network'});
+	const rewardData = useQuery(
+		GET_AVAILABLE_REWARDS,
+		{
+			fetchPolicy: 'cache-and-network',
+		},
+	);
+	const me = useQuery(GET_STATUS_QUERY, {
+		fetchPolicy: 'cache-and-network',
+	});
 
 	const scrollY = new Animated.Value(0);
 	const translateY = scrollY.interpolate({
@@ -39,8 +55,10 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 	});
 
 	let balance = 0;
-	const availableRoutes = routeData?.data?.getRoutes?.availableRoutes;
-	const availableRewards = rewardData?.data?.getAvailableRewards;
+	const availableRoutes =
+		routeData?.data?.getRoutes?.availableRoutes;
+	const availableRewards =
+		rewardData?.data?.getAvailableRewards;
 	balance = me.data?.getStatus?.user?.balance;
 
 	return (
@@ -51,18 +69,32 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 			/>
 
 			<Animated.View
-				style={[styles.header, {transform: [{translateY: translateY}]}]}
+				style={[
+					styles.header,
+					{
+						transform: [
+							{ translateY: translateY },
+						],
+					},
+				]}
 			/>
 
 			<ScrollView
 				onScroll={e => {
-					scrollY.setValue(e.nativeEvent.contentOffset.y);
+					scrollY.setValue(
+						e.nativeEvent.contentOffset.y,
+					);
 				}}
 				scrollEventThrottle={16}
-				contentContainerStyle={styles.content}>
+				contentContainerStyle={styles.content}
+			>
 				<ContentLayout>
 					<View style={styles.headerContainer}>
-						<Title style={styles.title} variant="h3" align="left">
+						<Title
+							style={styles.title}
+							variant="h3"
+							align="left"
+						>
 							GOED BEZIG!
 						</Title>
 						<CitypingsChip value={balance} />
@@ -76,10 +108,14 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 							style={styles.lottieView}
 						/>
 						<Body variant="b3" align="center">
-							Je hebt weer een aantal CityPings verdiend!
+							Je hebt weer een aantal CityPings
+							verdiend!
 						</Body>
 						<View style={styles.coinContainer}>
-							<CityPingsCoin height={30} width={30} />
+							<CityPingsCoin
+								height={30}
+								width={30}
+							/>
 						</View>
 						<Title>{pings}</Title>
 					</View>
@@ -87,15 +123,22 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 					{availableRewards?.length > 0 && (
 						<View style={styles.blockContainer}>
 							<View style={styles.rowFlex}>
-								<Title style={styles.subTitle} variant="h3" align="left">
+								<Title
+									style={styles.subTitle}
+									variant="h3"
+									align="left"
+								>
 									Verzilveren
 								</Title>
 								<ChevronButton
 									onPress={() =>
-										navigation.navigate(routes.citypingsStack.name, {
-											screen: 'Main',
-											initial: false,
-										})
+										navigation.navigate(
+											routes.citypingsStack.name,
+											{
+												screen: 'Main',
+												initial: false,
+											},
+										)
 									}
 								/>
 							</View>
@@ -115,25 +158,35 @@ const CompletedRouteCelebrationModalScreen = ({navigation, route}) => {
 					{availableRoutes?.length > 0 && (
 						<View style={styles.blockContainer}>
 							<View style={styles.rowFlex}>
-								<Title variant="h3" style={styles.subTitle}>
+								<Title
+									variant="h3"
+									style={styles.subTitle}
+								>
 									Nieuwe Route
 								</Title>
 								<ChevronButton
 									onPress={() =>
-										navigation.navigate(routes.routeStack.name, {
-											screen: routes.routeStack.homeScreen,
-										})
+										navigation.navigate(
+											routes.routeStack.name,
+											{
+												screen:
+													routes.routeStack
+														.homeScreen,
+											},
+										)
 									}
 								/>
 							</View>
 							<View>
-								{availableRoutes.map(availableRoute => (
-									<RouteCard
-										navigation={navigation}
-										route={availableRoute}
-										key={availableRoute.routeId}
-									/>
-								))}
+								{availableRoutes.map(
+									availableRoute => (
+										<RouteCard
+											navigation={navigation}
+											route={availableRoute}
+											key={availableRoute.routeId}
+										/>
+									),
+								)}
 							</View>
 						</View>
 					)}

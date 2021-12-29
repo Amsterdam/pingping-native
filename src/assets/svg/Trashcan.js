@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 function Trashcan(props) {
 	return (
@@ -10,7 +10,8 @@ function Trashcan(props) {
 			viewBox="0 0 56 56"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}>
+			{...props}
+		>
 			<Path
 				d="M34.64.82H15.484c-.87 0-1.574.705-1.574 1.574v33.354c0 .869.705 1.573 1.574 1.573h25.018c.868 0 1.573-.704 1.573-1.573V8.255L34.64.82z"
 				fill="#FAFAFF"

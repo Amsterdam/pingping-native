@@ -1,7 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {
+	StyleSheet,
+	View,
+	ScrollView,
+} from 'react-native';
 
 import theme from '../../../config/theme';
 import Header from '../../header/Header';
@@ -21,15 +25,28 @@ const AnswerTemplate = ({
 	return (
 		<Container>
 			<Header
-				left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
-				right={<ProgressBar progress={currentTask.progress} />}
+				left={
+					<HeaderBackButton
+						onPressAction={doRevertTask}
+						color="dark"
+					/>
+				}
+				right={
+					<ProgressBar
+						progress={currentTask.progress}
+					/>
+				}
 				title={currentTask.headerTitle}
 			/>
-			<ScrollView contentContainerStyle={styles.content}>
+			<ScrollView
+				contentContainerStyle={styles.content}
+			>
 				<Title variant="h2" align="center">
 					{currentTask.title}
 				</Title>
-				<View style={styles.questionContainer}>{children}</View>
+				<View style={styles.questionContainer}>
+					{children}
+				</View>
 				<NextButtonQuestionScreen
 					nextButtonDisabled={nextButtonDisabled}
 					submitAnswer={doUpdateTask}
@@ -40,7 +57,7 @@ const AnswerTemplate = ({
 };
 
 const styles = StyleSheet.create({
-	content: {flex: 1, padding: theme.spacing.m},
+	content: { flex: 1, padding: theme.spacing.m },
 	questionContainer: {
 		flex: 1,
 		justifyContent: 'center',
@@ -50,7 +67,10 @@ const styles = StyleSheet.create({
 AnswerTemplate.propTypes = {
 	nextButtonDisabled: PropTypes.bool.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
-	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object,
+	]).isRequired,
 	currentTask: PropTypes.object.isRequired,
 	doRevertTask: PropTypes.func.isRequired,
 };

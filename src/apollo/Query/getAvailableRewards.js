@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import REWARD_FRAGMENT from '../Fragment/rewardFragment';
 

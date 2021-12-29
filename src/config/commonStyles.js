@@ -1,4 +1,7 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {
+	Dimensions,
+	StyleSheet,
+} from 'react-native';
 
 import theme from './theme';
 
@@ -32,7 +35,7 @@ export const commonStyles = StyleSheet.create({
 	},
 	textShadow: {
 		textShadowColor: theme.colors.black,
-		textShadowOffset: {width: -1, height: 1},
+		textShadowOffset: { width: -1, height: 1 },
 		textShadowRadius: 10,
 	},
 	buttonStyle: {

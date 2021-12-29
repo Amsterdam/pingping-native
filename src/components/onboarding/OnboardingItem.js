@@ -2,7 +2,7 @@ import React from 'react';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import theme from '../../config/theme';
@@ -10,14 +10,26 @@ import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
+const OnboardingItem = ({
+	view,
+	buttonAction,
+	isLastItem,
+	navigation,
+}) => {
 	const navigator = async () => {
 		if (isLastItem) {
-			const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
+			const acceptedPolicy = await AsyncStorage.getItem(
+				'@acceptedPolicy',
+			);
 			if (acceptedPolicy) {
-				return navigation.navigate(routes.onboardingStack.questionScreen);
+				return navigation.navigate(
+					routes.onboardingStack.questionScreen,
+				);
 			}
-			return navigation.navigate(routes.onboardingStack.privacyPolicyScreen);
+			return navigation.navigate(
+				routes.onboardingStack
+					.privacyPolicyScreen,
+			);
 		}
 		return buttonAction.scrollBy(1);
 	};
@@ -26,10 +38,18 @@ const OnboardingItem = ({view, buttonAction, isLastItem, navigation}) => {
 		<View style={styles.viewContainer}>
 			<View>{view.svg}</View>
 			<View>
-				<Title style={styles.title} variant="h2" align="center">
+				<Title
+					style={styles.title}
+					variant="h2"
+					align="center"
+				>
 					{view.title}
 				</Title>
-				<Body variant="b3" align="center" style={styles.onboardingText}>
+				<Body
+					variant="b3"
+					align="center"
+					style={styles.onboardingText}
+				>
 					{view.text}
 				</Body>
 			</View>

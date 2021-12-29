@@ -1,17 +1,26 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {
+	StyleSheet,
+	TouchableOpacity,
+} from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const AccountBlockButton = ({button, navigation}) => {
+const AccountBlockButton = ({
+	button,
+	navigation,
+}) => {
 	return (
 		<TouchableOpacity
 			testID={button.testID}
 			style={styles.accountMainButton}
-			onPress={() => navigation.navigate(button.route)}>
+			onPress={() =>
+				navigation.navigate(button.route)
+			}
+		>
 			{button.image}
 			<Title variant="h6" align="center">
 				{button.title}

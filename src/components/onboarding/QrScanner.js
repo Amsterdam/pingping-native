@@ -1,25 +1,40 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {Dimensions, StyleSheet, View} from 'react-native';
-import {RNCamera} from 'react-native-camera';
+import {
+	Dimensions,
+	StyleSheet,
+	View,
+} from 'react-native';
+import { RNCamera } from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 import theme from '../../config/theme';
 import Loading from '../shared/LoadingComponent';
 import Button from '../shared/RoundedButton';
 
-const QrScanner = ({onSuccess, scanning, setScanning, loading}) => {
+const QrScanner = ({
+	onSuccess,
+	scanning,
+	setScanning,
+	loading,
+}) => {
 	return (
 		<View style={styles.mainContainer}>
 			{scanning ? (
 				<React.Fragment>
 					<QRCodeScanner
 						onRead={onSuccess}
-						flashMode={RNCamera.Constants.FlashMode.off}
-						containerStyle={styles.cameraContainerStyle}
+						flashMode={
+							RNCamera.Constants.FlashMode.off
+						}
+						containerStyle={
+							styles.cameraContainerStyle
+						}
 						showMarker
-						markerStyle={{borderColor: theme.colors.danger}}
+						markerStyle={{
+							borderColor: theme.colors.danger,
+						}}
 					/>
 					{loading && <Loading />}
 				</React.Fragment>

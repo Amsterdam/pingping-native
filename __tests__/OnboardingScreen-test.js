@@ -1,14 +1,14 @@
 import React from 'react';
 
-import {MockedProvider} from '@apollo/client/testing';
-import {NativeBaseProvider} from 'native-base';
+import { MockedProvider } from '@apollo/client/testing';
+import { NativeBaseProvider } from 'native-base';
 import renderer from 'react-test-renderer';
 
 import GET_STATUS_QUERY from '../src/apollo/Query/getStatusQuery';
 import OnboardingScreen from '../src/screens/OnboardingScreen';
 
 jest.useFakeTimers();
-const navigation = {navigate: jest.fn()};
+const navigation = { navigate: jest.fn() };
 
 const mocks = [
 	{
@@ -24,7 +24,9 @@ test('renders correctly', () => {
 		.create(
 			<NativeBaseProvider>
 				<MockedProvider mocks={mocks}>
-					<OnboardingScreen navigation={navigation} />
+					<OnboardingScreen
+						navigation={navigation}
+					/>
 				</MockedProvider>
 			</NativeBaseProvider>,
 		)

@@ -1,29 +1,49 @@
 import React from 'react';
 
-import {Box} from 'native-base';
+import { Box } from 'native-base';
 import PropTypes from 'prop-types';
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {
+	StatusBar,
+	StyleSheet,
+	View,
+} from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const Header = ({title = '', left, right, color = 'light'}) => {
+const Header = ({
+	title = '',
+	left,
+	right,
+	color = 'light',
+}) => {
 	return (
 		<Box safeAreaTop>
 			<View style={styles.header}>
 				<StatusBar
-					barStyle={color === 'light' ? 'dark-content' : 'light-content'}
-					backgroundColor={theme.colors.background}
+					barStyle={
+						color === 'light'
+							? 'dark-content'
+							: 'light-content'
+					}
+					backgroundColor={
+						theme.colors.background
+					}
 				/>
 				<View style={styles.left}>{left}</View>
 
 				<Title
 					style={[
-						color === 'light' && {color: theme.colors.primary},
-						color === 'dark' && {color: theme.colors.white},
+						color === 'light' && {
+							color: theme.colors.primary,
+						},
+						color === 'dark' && {
+							color: theme.colors.white,
+						},
 					]}
 					variant="h6"
-					align="center">
+					align="center"
+				>
 					{title}
 				</Title>
 

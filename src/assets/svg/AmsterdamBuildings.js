@@ -1,10 +1,21 @@
 import React from 'react';
 
-import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
+import Svg, {
+	ClipPath,
+	Defs,
+	G,
+	Path,
+} from 'react-native-svg';
 
 function AmsterdamBuildings(props) {
 	return (
-		<Svg width={125} height={125} viewBox="0 0 125 125" fill="none" {...props}>
+		<Svg
+			width={125}
+			height={125}
+			viewBox="0 0 125 125"
+			fill="none"
+			{...props}
+		>
 			<G clipPath="url(#prefix__clip0)">
 				<Path
 					d="M64.673 1.831h-4.311l-16.81 30.347v68.997h37.875V32.178L64.673 1.831z"
@@ -18,7 +29,10 @@ function AmsterdamBuildings(props) {
 					d="M81.427 30.347H43.552a1.831 1.831 0 000 3.662h37.875a1.831 1.831 0 000-3.662z"
 					fill="#F2F2F2"
 				/>
-				<Path d="M81.427 6.515h37.875v8.45H81.427v-8.45z" fill="#AB7C5E" />
+				<Path
+					d="M81.427 6.515h37.875v8.45H81.427v-8.45z"
+					fill="#AB7C5E"
+				/>
 				<Path
 					d="M43.552 32.187H5.677v-4.153a4.883 4.883 0 014.883-4.883h28.11a4.883 4.883 0 014.882 4.883v4.153z"
 					fill="#F2F2F2"
@@ -35,9 +49,18 @@ function AmsterdamBuildings(props) {
 					d="M43.552 55.213H5.677a1.831 1.831 0 000 3.662h37.875M5.677 82.249h37.875v18.926H5.677V82.249z"
 					fill="#F2F2F2"
 				/>
-				<Path d="M33.787 82.249h9.765v18.926h-9.765V82.249z" fill="#EDEDED" />
-				<Path d="M43.552 55.213h37.875v45.962H43.552V55.213z" fill="#F2F2F2" />
-				<Path d="M71.661 55.213h9.766v45.962H71.66V55.213z" fill="#EDEDED" />
+				<Path
+					d="M33.787 82.249h9.765v18.926h-9.765V82.249z"
+					fill="#EDEDED"
+				/>
+				<Path
+					d="M43.552 55.213h37.875v45.962H43.552V55.213z"
+					fill="#F2F2F2"
+				/>
+				<Path
+					d="M71.661 55.213h9.766v45.962H71.66V55.213z"
+					fill="#EDEDED"
+				/>
 				<Path
 					d="M14.057 63.469h7.355v12.21h-7.355v-12.21zM27.818 63.469h7.355v12.21h-7.355v-12.21z"
 					fill="#F2F2F2"
@@ -66,7 +89,10 @@ function AmsterdamBuildings(props) {
 					d="M39.29 13.518H9.778a1.83 1.83 0 01-1.599-2.722C11.945 4.036 18.06 0 24.534 0c6.474 0 12.589 4.036 16.356 10.796a1.831 1.831 0 01-1.6 2.722zM13.16 9.856h22.75c-3.049-3.972-7.072-6.194-11.375-6.194-4.302 0-8.326 2.222-11.375 6.194z"
 					fill="#F2F2F2"
 				/>
-				<Path d="M43.552 82.249h37.875v6.96H43.552v-6.96z" fill="#AB7C5E" />
+				<Path
+					d="M43.552 82.249h37.875v6.96H43.552v-6.96z"
+					fill="#AB7C5E"
+				/>
 				<Path
 					d="M119.302 101.175H81.427v-86.21h9.77l9.167-13.134 9.167 13.135h9.771v86.209z"
 					fill="#FFDB0D"
@@ -87,12 +113,18 @@ function AmsterdamBuildings(props) {
 					d="M89.806 83.56h7.343v17.615h-7.343V83.559zM103.573 83.56h7.343v17.615h-7.343V83.559z"
 					fill="#359DB6"
 				/>
-				<Path d="M1.832 112.174H123.17v10.995H1.832v-10.995z" fill="#D6EEFF" />
+				<Path
+					d="M1.832 112.174H123.17v10.995H1.832v-10.995z"
+					fill="#D6EEFF"
+				/>
 				<Path
 					d="M113.404 112.174h9.766v10.995h-9.766v-10.995z"
 					fill="#C9E9FF"
 				/>
-				<Path d="M1.832 101.175H123.17v10.999H1.832v-10.999z" fill="#AB7C5E" />
+				<Path
+					d="M1.832 101.175H123.17v10.999H1.832v-10.999z"
+					fill="#AB7C5E"
+				/>
 				<Path
 					d="M113.404 101.175h9.766v10.999h-9.766v-10.999z"
 					fill="#A17152"

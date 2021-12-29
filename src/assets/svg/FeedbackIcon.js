@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 function FeedbackIcon(props) {
 	return (
@@ -10,7 +10,8 @@ function FeedbackIcon(props) {
 			viewBox="0 0 30 30"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}>
+			{...props}
+		>
 			<Path
 				d="M21.544 2.498h-3.622c-7.067 0-12.796 5.729-12.796 12.796 0 2.65.806 5.113 2.186 7.155 1.168.449 2.436.696 3.762.696h1.582v3.814c.202.092.407.178.615.259l4.073-4.073h1.582c5.792 0 10.488-4.696 10.488-10.488 0-4.889-3.345-8.996-7.87-10.159z"
 				fill="#C9F3FF"

@@ -1,10 +1,16 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 function Bell(props) {
 	return (
-		<Svg width={375} height={300} viewBox="0 0 375 300" fill="none" {...props}>
+		<Svg
+			width={375}
+			height={300}
+			viewBox="0 0 375 300"
+			fill="none"
+			{...props}
+		>
 			<Path
 				d="M241.091 167.579c4.344 2.507 3.896 13.933 2.386 15.442H132.273c-1.509-1.509-1.958-12.934 2.387-15.442 12.127-6.998 16.407-25.981 17.839-44.616 1.432-18.635 17.189-32.954 35.376-32.954 18.188 0 33.945 14.319 35.377 32.954 1.431 18.635 5.711 37.618 17.839 44.616z"
 				fill="#FFCE00"

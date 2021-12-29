@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Button, Text} from 'native-base';
+import { Button, Text } from 'native-base';
 import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -16,10 +16,21 @@ const AnswerButtonOnboarding = ({
 	return (
 		<Button
 			testID={testid}
-			style={[styles.button, active && styles.activeButton]}
+			style={[
+				styles.button,
+				active && styles.activeButton,
+			]}
 			variant="outline"
-			onPress={onPress}>
-			<Text style={[styles.label, active && styles.activeText]}>{label}</Text>
+			onPress={onPress}
+		>
+			<Text
+				style={[
+					styles.label,
+					active && styles.activeText,
+				]}
+			>
+				{label}
+			</Text>
 		</Button>
 	);
 };

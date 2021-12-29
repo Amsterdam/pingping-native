@@ -8,7 +8,7 @@ import GoBack from './answerTypes/GoBack';
 import MultipleChoice from './answerTypes/MultipleChoice';
 import YesOrNo from './answerTypes/YesOrNo';
 
-import {questionTypes} from '../../config/questionTypes';
+import { questionTypes } from '../../config/questionTypes';
 
 const QuestionComponent = ({
 	currentTask,
@@ -28,14 +28,23 @@ const QuestionComponent = ({
 				return (
 					<Confirm
 						currentTask={currentTask}
-						doUpdateConfirmTask={doUpdateConfirmTask}
+						doUpdateConfirmTask={
+							doUpdateConfirmTask
+						}
 						refetch={refetch}
-						setLoadingQuestion={setLoadingQuestion}
+						setLoadingQuestion={
+							setLoadingQuestion
+						}
 						animationRef={animationRef}
 					/>
 				);
 			case questionTypes.GO_BACK:
-				return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+				return (
+					<GoBack
+						currentTask={currentTask}
+						doRevertTask={doRevertTask}
+					/>
+				);
 
 			case questionTypes.YES_OR_NO:
 				return (

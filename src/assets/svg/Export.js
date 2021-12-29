@@ -1,6 +1,11 @@
 import React from 'react';
 
-import Svg, {ClipPath, Defs, G, Path} from 'react-native-svg';
+import Svg, {
+	ClipPath,
+	Defs,
+	G,
+	Path,
+} from 'react-native-svg';
 
 function Export(props) {
 	return (
@@ -10,7 +15,8 @@ function Export(props) {
 			viewBox="0 0 56 56"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			{...props}>
+			{...props}
+		>
 			<G clipPath="url(#prefix__clip0)">
 				<Path
 					d="M10.188 23.475v23.168c0 .854.53 1.618 1.329 1.919l16.596 6.235 16.596-6.235a2.05 2.05 0 001.33-1.92v-22.5"
