@@ -59,7 +59,6 @@ const userStatus = async (
 			return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
 		}
 	} catch (error) {
-		console.error(error);
 		sentryHelper(error.message);
 		if (error.message === 'unauthorized') {
 			await AsyncStorage.clear(); // Token is not valid, clear all.

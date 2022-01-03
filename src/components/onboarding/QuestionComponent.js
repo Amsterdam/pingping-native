@@ -9,6 +9,7 @@ import MultipleChoice from './answerTypes/MultipleChoice';
 import YesOrNo from './answerTypes/YesOrNo';
 
 import { questionTypes } from '../../config/questionTypes';
+import UpdateApp from '../shared/UpdateApp';
 
 const QuestionComponent = ({
 	currentTask,
@@ -75,9 +76,12 @@ const QuestionComponent = ({
 						doUpdateTask={doUpdateTask}
 					/>
 				);
-
 			default:
-				break;
+				// If there is no match for the question type then we can assume that the question is not implemented yet
+				// in the current version of the app. Therefore we will show a message to the user that the app is to be updated.
+				// This is mainly an issue for current users of the app who end up in the onboarding again. This is very unlikely
+				// but at least we can handle it.
+				return <UpdateApp />;
 		}
 	};
 	return renderQuestionType();
