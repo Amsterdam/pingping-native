@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		alignSelf: 'center',
-		width: '60%',
+		width: '65%',
 		justifyContent: 'center',
 		marginBottom: theme.spacing.xs,
 	},
@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
 		backgroundColor: theme.colors.background,
-		paddingHorizontal: theme.spacing.l,
 	},
 	title: {
 		color: theme.colors.text,

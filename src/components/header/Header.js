@@ -6,13 +6,10 @@ import {
 	StatusBar,
 	StyleSheet,
 	View,
-	Platform,
 } from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
-
-const isAndroid = Platform.OS === 'android';
 
 const Header = ({
 	title = '',
@@ -21,15 +18,8 @@ const Header = ({
 	color = 'light',
 }) => {
 	return (
-		<Box safeAreaTop>
-			<View
-				style={[
-					styles.header,
-					isAndroid && {
-						paddingTop: theme.spacing.s,
-					},
-				]}
-			>
+		<Box>
+			<View style={styles.header}>
 				<StatusBar
 					barStyle={
 						color === 'light'
@@ -68,6 +58,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		marginHorizontal: theme.spacing.xs,
+		marginTop: theme.spacing.s,
 	},
 	left: {
 		position: 'absolute',
