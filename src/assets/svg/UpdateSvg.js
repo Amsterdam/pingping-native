@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import PropTypes from 'prop-types';
 import Svg, {
 	Ellipse,
 	G,
@@ -8,10 +9,10 @@ import Svg, {
 	ClipPath,
 } from 'react-native-svg';
 
-const SvgComponent = props => (
+const UpdateSvg = props => (
 	<Svg
-		width={140}
-		height={137}
+		width={props.width}
+		height={props.height}
 		viewBox="0 0 140 137"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -73,4 +74,14 @@ const SvgComponent = props => (
 	</Svg>
 );
 
-export default SvgComponent;
+UpdateSvg.propTypes = {
+	height: PropTypes.number,
+	width: PropTypes.number,
+};
+
+UpdateSvg.defaultProps = {
+	height: 137,
+	width: 140,
+};
+
+export default UpdateSvg;

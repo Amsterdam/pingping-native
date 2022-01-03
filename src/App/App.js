@@ -10,6 +10,7 @@ import OnboardingStack from './stacks/OnboardingStack';
 import TabNavigator from './TabNavigator';
 
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import UpdateAppModal from '../components/modals/UpdateAppModal';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Loading from '../components/shared/LoadingComponent';
 import userStatus from '../helpers/authHelper';
@@ -101,6 +102,7 @@ export default function App() {
 			return (
 				<PushNotificationService>
 					<TabNavigator setLogOut={setLogOut} />
+					<UpdateAppModal />
 				</PushNotificationService>
 			);
 		}

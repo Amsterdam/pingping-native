@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import {
 	StyleSheet,
 	View,
@@ -48,7 +47,7 @@ function UpdateApp() {
 				<Body variant="b3" align="center">
 					De app is toe aan een update. Zonder
 					update werkt de app niet zoals het
-					hoort. Selecteer de knop hieronder om de
+					hoort. Druk op de knop hieronder om de
 					update te starten.
 				</Body>
 			</View>

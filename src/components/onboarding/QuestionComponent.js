@@ -23,7 +23,7 @@ const QuestionComponent = ({
 	doUpdateConfirmTask,
 }) => {
 	const renderQuestionType = () => {
-		switch (currentTask.type + 1) {
+		switch (currentTask.type) {
 			case questionTypes.CONFIRM:
 				return (
 					<Confirm
