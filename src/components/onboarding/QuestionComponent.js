@@ -9,6 +9,7 @@ import MultipleChoice from './answerTypes/MultipleChoice';
 import YesOrNo from './answerTypes/YesOrNo';
 
 import { questionTypes } from '../../config/questionTypes';
+import UpdateApp from '../shared/UpdateApp';
 
 const QuestionComponent = ({
 	currentTask,
@@ -22,7 +23,7 @@ const QuestionComponent = ({
 	doUpdateConfirmTask,
 }) => {
 	const renderQuestionType = () => {
-		switch (currentTask.type) {
+		switch (currentTask.type + 1) {
 			case questionTypes.CONFIRM:
 				return (
 					<Confirm
@@ -75,9 +76,8 @@ const QuestionComponent = ({
 						doUpdateTask={doUpdateTask}
 					/>
 				);
-
 			default:
-				break;
+				return <UpdateApp />;
 		}
 	};
 	return renderQuestionType();

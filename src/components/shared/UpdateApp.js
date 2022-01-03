@@ -1,0 +1,82 @@
+import React from 'react';
+
+import PropTypes from 'prop-types';
+import {
+	StyleSheet,
+	View,
+	StatusBar,
+	Platform,
+	Linking,
+} from 'react-native';
+
+import UpdateSvg from '../../assets/svg/UpdateSvg';
+import theme from '../../config/theme';
+import Container from '../shared/Container';
+import Button from '../shared/RoundedButton';
+import Body from '../typography/Body';
+import Title from '../typography/Title';
+
+function UpdateApp() {
+	const openAppStore = () => {
+		const link =
+			Platform.OS === 'ios'
+				? 'itms-apps://apps.apple.com/nl/app/pingping/id1531867912?l=nl'
+				: 'market://details?id=com.pingpingnative';
+		Linking.canOpenURL(link).then(
+			supported => {
+				supported && Linking.openURL(link);
+			},
+			err => console.error(err),
+		);
+	};
+	return (
+		<Container style={styles.container}>
+			<StatusBar
+				backgroundColor={theme.colors.white}
+				barStyle="dark-content"
+			/>
+			<UpdateSvg />
+			<View style={styles.textContainer}>
+				<Title
+					style={styles.title}
+					align="center"
+					variant="h2"
+					numberOfLines={3}
+				>
+					Tijd voor een update
+				</Title>
+				<Body variant="b3" align="center">
+					De app is toe aan een update. Zonder
+					update werkt de app niet zoals het
+					hoort. Selecteer de knop hieronder om de
+					update te starten.
+				</Body>
+			</View>
+
+			<Button
+				label="Start update"
+				onPress={openAppStore}
+				style={styles.button}
+			/>
+		</Container>
+	);
+}
+
+const styles = StyleSheet.create({
+	container: {
+		alignItems: 'center',
+		justifyContent: 'space-evenly',
+	},
+	textContainer: {
+		alignItems: 'center',
+		padding: theme.spacing.xl,
+	},
+	title: {
+		marginBottom: theme.spacing.l,
+	},
+	button: {
+		alignSelf: 'center',
+	},
+});
+
+export default UpdateApp;
