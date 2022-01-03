@@ -77,6 +77,10 @@ const QuestionComponent = ({
 					/>
 				);
 			default:
+				// If there is no match for the question type then we can assume that the question is not implemented yet
+				// in the current version of the app. Therefore we will show a message to the user that the app is to be updated.
+				// This is mainly an issue for current users of the app who end up in the onboarding again. This is very unlikely
+				// but at least we can handle it.
 				return <UpdateApp />;
 		}
 	};
