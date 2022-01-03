@@ -17,14 +17,13 @@ import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
+import useAppContext from '../hooks/useAppContext';
 
-const NotificationDecisionScreen = ({
-	navigation,
-	setLogin,
-}) => {
+const NotificationDecisionScreen = () => {
 	const [registerNotifications] = useMutation(
 		REGISTER_NOTIFICATIONS_MUTATION,
 	);
+	const { setUserState } = useAppContext();
 
 	const acceptNotifications = async () => {
 		Notifications.registerRemoteNotifications();
@@ -55,7 +54,7 @@ const NotificationDecisionScreen = ({
 					},
 				],
 			});
-			setLogin(true);
+			setUserState('LOGGED_IN');
 		} catch (error) {
 			sentryHelper(error.message);
 		}
@@ -136,7 +135,6 @@ const styles = StyleSheet.create({
 
 NotificationDecisionScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
-	setLogin: PropTypes.func.isRequired,
 };
 
 export default NotificationDecisionScreen;

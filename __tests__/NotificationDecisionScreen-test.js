@@ -8,7 +8,6 @@ import NotificationDecisionScreen from '../src/screens/NotificationDecisionScree
 
 jest.useFakeTimers();
 const navigation = { navigate: jest.fn() };
-const setLogin = jest.fn();
 
 test('renders correctly', () => {
 	const tree = renderer
@@ -17,7 +16,6 @@ test('renders correctly', () => {
 				<MockedProvider mocks={[]}>
 					<NotificationDecisionScreen
 						navigation={navigation}
-						setLogin={setLogin}
 					/>
 				</MockedProvider>
 			</NativeBaseProvider>,

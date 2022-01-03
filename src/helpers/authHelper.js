@@ -34,8 +34,7 @@ export async function doRegisterDevice(
 
 const userStatus = async (
 	refetch,
-	setLoggedIn,
-	setOnboarder,
+	setUserState,
 	setBackEndIssue,
 	setSomethingWentWrong,
 ) => {
@@ -44,7 +43,7 @@ const userStatus = async (
 			'@access_token',
 		);
 		if (token === null) {
-			return setOnboarder(true); // I AM A NEW USER
+			return setUserState('ONBOARDER'); // I AM A NEW USER
 		}
 		let me = await refetch();
 		setBackEndIssue(false); // clear any errors from previous retries
@@ -54,15 +53,15 @@ const userStatus = async (
 				me.data.getStatus.device
 					.notificationStatus === 'Initial'
 			) {
-				return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
+				return setUserState('ONBOARDER'); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
 			}
-			return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
+			return setUserState('LOGGED_IN'); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
 		}
 	} catch (error) {
 		sentryHelper(error.message);
 		if (error.message === 'unauthorized') {
 			await AsyncStorage.clear(); // Token is not valid, clear all.
-			setOnboarder(true);
+			setUserState('ONBOARDER');
 		}
 		if (error.message === 'undefined') {
 			return setBackEndIssue(true);

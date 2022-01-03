@@ -18,11 +18,9 @@ import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import useAppContext from '../hooks/useAppContext';
 
-const ExportDataScreen = ({
-	navigation,
-	setLogOut,
-}) => {
+const ExportDataScreen = ({ navigation }) => {
 	const { data, error } = useQuery(
 		GET_STATUS_QUERY,
 		{
@@ -31,6 +29,7 @@ const ExportDataScreen = ({
 		},
 	);
 
+	const { setUserState } = useAppContext();
 	const exportToken =
 		data?.getStatus?.exportToken;
 
@@ -38,12 +37,12 @@ const ExportDataScreen = ({
 		async function checkForErrors() {
 			if (error?.message === 'unauthorized') {
 				await AsyncStorage.clear();
-				setLogOut();
+				setUserState('ONBOARDER');
 				resetStore();
 			}
 		}
 		checkForErrors();
-	}, [error, setLogOut]);
+	}, [error, setUserState]);
 
 	return (
 		<Container
@@ -98,7 +97,6 @@ const styles = StyleSheet.create({
 
 ExportDataScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
-	setLogOut: PropTypes.func.isRequired,
 };
 
 export default ExportDataScreen;

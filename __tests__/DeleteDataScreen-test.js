@@ -8,7 +8,6 @@ import DeleteDataScreen from '../src/screens/DeleteDataScreen';
 
 jest.useFakeTimers();
 const navigation = { navigate: jest.fn() };
-const setLogOut = jest.fn();
 
 test('renders correctly', () => {
 	const tree = renderer
@@ -17,7 +16,6 @@ test('renders correctly', () => {
 				<MockedProvider mocks={[]}>
 					<DeleteDataScreen
 						navigation={navigation}
-						setLogOut={setLogOut}
 					/>
 				</MockedProvider>
 			</NativeBaseProvider>,

@@ -13,7 +13,7 @@ import QuestionScreen from '../../screens/QuestionScreen';
 
 const Stack = createStackNavigator();
 
-const OnboardingStack = ({ setLogin }) => (
+const OnboardingStack = () => (
 	<Stack.Navigator
 		initialRouteName={
 			routes.onboardingStack.screens.homeScreen
@@ -52,19 +52,9 @@ const OnboardingStack = ({ setLogin }) => (
 				routes.onboardingStack.screens
 					.notificationDecisionScreen
 			}
-		>
-			{props => (
-				<NotificationDecisionScreen
-					{...props}
-					setLogin={setLogin}
-				/>
-			)}
-		</Stack.Screen>
+			component={NotificationDecisionScreen}
+		/>
 	</Stack.Navigator>
 );
-
-OnboardingStack.propTypes = {
-	setLogin: PropTypes.func.isRequired,
-};
 
 export default OnboardingStack;

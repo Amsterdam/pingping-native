@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import PropTypes from 'prop-types';
 
 import AccountStack from './stacks/AccountStack';
 import CityPingsStack from './stacks/CityPingsStack';
@@ -16,7 +15,7 @@ import theme from '../config/theme';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = ({ setLogOut }) => (
+const TabNavigator = () => (
 	<Tab.Navigator
 		initialRouteName={routes.routeStack.name}
 		screenOptions={{
@@ -67,6 +66,7 @@ const TabNavigator = ({ setLogOut }) => (
 
 		<Tab.Screen
 			name={routes.accountStack.name}
+			component={AccountStack}
 			options={{
 				tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
 				tabBarLabel: routes.accountStack.label,
@@ -82,19 +82,8 @@ const TabNavigator = ({ setLogOut }) => (
 					);
 				},
 			}}
-		>
-			{props => (
-				<AccountStack
-					{...props}
-					setLogOut={setLogOut}
-				/>
-			)}
-		</Tab.Screen>
+		/>
 	</Tab.Navigator>
 );
-
-TabNavigator.propTypes = {
-	setLogOut: PropTypes.func.isRequired,
-};
 
 export default TabNavigator;
