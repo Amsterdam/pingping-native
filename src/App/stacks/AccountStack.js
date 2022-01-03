@@ -15,22 +15,28 @@ const Stack = createStackNavigator();
 const AccountStack = ({ setLogOut }) => (
 	<Stack.Navigator
 		initialRouteName={
-			routes.accountStack.homeScreen
+			routes.accountStack.screens.homeScreen
 		}
 		screenOptions={{ headerShown: false }}
 	>
 		<Stack.Screen
-			name={routes.accountStack.homeScreen}
+			name={
+				routes.accountStack.screens.homeScreen
+			}
 			component={AccountHomeScreen}
 		/>
 		<Stack.Screen
 			name={
-				routes.accountStack.privacyPolicyScreen
+				routes.accountStack.screens
+					.privacyPolicyScreen
 			}
 			component={PrivacyPolicyScreen}
 		/>
 		<Stack.Screen
-			name={routes.accountStack.deleteDataScreen}
+			name={
+				routes.accountStack.screens
+					.deleteDataScreen
+			}
 		>
 			{props => (
 				<DeleteDataScreen
@@ -40,7 +46,10 @@ const AccountStack = ({ setLogOut }) => (
 			)}
 		</Stack.Screen>
 		<Stack.Screen
-			name={routes.accountStack.exportDataScreen}
+			name={
+				routes.accountStack.screens
+					.exportDataScreen
+			}
 		>
 			{props => (
 				<ExportDataScreen

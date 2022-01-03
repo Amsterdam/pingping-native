@@ -70,7 +70,8 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 			if (token) {
 				setLoading(false);
 				navigation.navigate(
-					routes.onboardingStack.questionScreen,
+					routes.onboardingStack.screens
+						.questionScreen,
 				);
 			}
 		} catch (error) {

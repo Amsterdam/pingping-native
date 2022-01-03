@@ -22,20 +22,25 @@ const AccountHomeScreen = ({ navigation }) => {
 		{
 			title: 'Exporteer gegevens',
 			image: <Export style={styles.image} />,
-			route: routes.accountStack.exportDataScreen,
+			route:
+				routes.accountStack.screens
+					.exportDataScreen,
 			testID: testIDs.ACCOUNT.EXPORT_DATA_BUTTON,
 		},
 		{
 			title: 'Privacy',
 			image: <Lock style={styles.image} />,
 			route:
-				routes.accountStack.privacyPolicyScreen,
+				routes.accountStack.screens
+					.privacyPolicyScreen,
 			testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
 		},
 		{
 			title: 'Verwijder gegevens',
 			image: <Trashcan style={styles.image} />,
-			route: routes.accountStack.deleteDataScreen,
+			route:
+				routes.accountStack.screens
+					.deleteDataScreen,
 			testID:
 				testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
 		},

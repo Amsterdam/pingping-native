@@ -39,7 +39,8 @@ const RouteCard = ({
 		<React.Fragment>
 			<Card
 				onPress={doNavigation(
-					routes.routeStack.routeDetailsScreen,
+					routes.routeStack.screens
+						.routeDetailsScreen,
 				)}
 				pings={totalPoints}
 				cover={cover}
@@ -80,7 +81,7 @@ const RouteCard = ({
 				!hasSubmittedFeedback && (
 					<FeedbackCard
 						onPress={doNavigation(
-							routes.routeStack
+							routes.routeStack.screens
 								.routeFeedbackScreen,
 						)}
 					/>

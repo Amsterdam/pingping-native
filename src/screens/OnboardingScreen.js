@@ -64,7 +64,7 @@ const OnboardingScreen = ({ navigation }) => {
 			// we send the user to the notification decisionscreen
 			if (!data.getStatus.currentTask) {
 				navigation.navigate(
-					routes.onboardingStack
+					routes.onboardingStack.screens
 						.notificationDecisionScreen,
 				);
 			}
@@ -75,7 +75,8 @@ const OnboardingScreen = ({ navigation }) => {
 				data.getStatus.currentTask
 			) {
 				navigation.navigate(
-					routes.onboardingStack.questionScreen,
+					routes.onboardingStack.screens
+						.questionScreen,
 				);
 			}
 		};
@@ -94,7 +95,7 @@ const OnboardingScreen = ({ navigation }) => {
 					<TextButton
 						onPress={() =>
 							navigation.navigate(
-								routes.onboardingStack
+								routes.onboardingStack.screens
 									.importDataScreen,
 							)
 						}

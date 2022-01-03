@@ -17,7 +17,7 @@ const TipsChip = ({ navigation, tips }) => {
 			style={styles.container}
 			onPress={() =>
 				navigation.navigate(
-					routes.routeStack.tipScreen,
+					routes.routeStack.screens.tipScreen,
 					{
 						tips,
 					},

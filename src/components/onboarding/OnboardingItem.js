@@ -23,11 +23,12 @@ const OnboardingItem = ({
 			);
 			if (acceptedPolicy) {
 				return navigation.navigate(
-					routes.onboardingStack.questionScreen,
+					routes.onboardingStack.screens
+						.questionScreen,
 				);
 			}
 			return navigation.navigate(
-				routes.onboardingStack
+				routes.onboardingStack.screens
 					.privacyPolicyScreen,
 			);
 		}

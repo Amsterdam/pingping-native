@@ -16,33 +16,40 @@ const Stack = createStackNavigator();
 const OnboardingStack = ({ setLogin }) => (
 	<Stack.Navigator
 		initialRouteName={
-			routes.onboardingStack.homeScreen
+			routes.onboardingStack.screens.homeScreen
 		}
 		screenOptions={{ headerShown: false }}
 	>
 		<Stack.Screen
-			name={routes.onboardingStack.homeScreen}
+			name={
+				routes.onboardingStack.screens.homeScreen
+			}
 			component={OnboardingScreen}
 		/>
 		<Stack.Screen
 			name={
-				routes.onboardingStack.privacyPolicyScreen
+				routes.onboardingStack.screens
+					.privacyPolicyScreen
 			}
 			component={PrivacyPolicyScreen}
 		/>
 		<Stack.Screen
-			name={routes.onboardingStack.questionScreen}
+			name={
+				routes.onboardingStack.screens
+					.questionScreen
+			}
 			component={QuestionScreen}
 		/>
 		<Stack.Screen
 			name={
-				routes.onboardingStack.importDataScreen
+				routes.onboardingStack.screens
+					.importDataScreen
 			}
 			component={ImportDataScreen}
 		/>
 		<Stack.Screen
 			name={
-				routes.onboardingStack
+				routes.onboardingStack.screens
 					.notificationDecisionScreen
 			}
 		>

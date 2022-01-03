@@ -27,7 +27,7 @@ const RewardCardMini = ({
 			routes.citypingsStack.name,
 			{
 				screen:
-					routes.citypingsStack
+					routes.citypingsStack.screens
 						.rewardDetailModalScreen,
 				initial: false,
 				params: {

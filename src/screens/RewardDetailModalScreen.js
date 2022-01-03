@@ -71,7 +71,7 @@ function RewardDetailModalScreen({
 			});
 			await refetch();
 			navigation.navigate(
-				routes.citypingsStack
+				routes.citypingsStack.screens
 					.claimedRewardModalScreen,
 				{
 					pin:

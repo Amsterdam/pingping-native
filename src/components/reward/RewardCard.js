@@ -29,7 +29,7 @@ const RewardCard = ({
 	const doNavigation = async () => {
 		if (claimed) {
 			return navigation.navigate(
-				routes.citypingsStack
+				routes.citypingsStack.screens
 					.claimedRewardModalScreen,
 				{
 					title,
@@ -43,7 +43,7 @@ const RewardCard = ({
 			);
 		}
 		return navigation.navigate(
-			routes.citypingsStack
+			routes.citypingsStack.screens
 				.rewardDetailModalScreen,
 			{
 				price,
