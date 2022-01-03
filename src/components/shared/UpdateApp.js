@@ -10,6 +10,7 @@ import {
 
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import theme from '../../config/theme';
+import sentryHelper from '../../helpers/sentryHelper';
 import Container from '../shared/Container';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
@@ -25,7 +26,7 @@ function UpdateApp() {
 			supported => {
 				supported && Linking.openURL(link);
 			},
-			err => console.error(err),
+			error => sentryHelper(error.message),
 		);
 	};
 	return (

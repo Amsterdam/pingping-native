@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {
+	useEffect,
+	useState,
+} from 'react';
 
+import AsyncStorage from '@react-native-community/async-storage';
 import {
 	CloseIcon,
 	IconButton,
 } from 'native-base';
-import PropTypes from 'prop-types';
 import {
 	Dimensions,
 	Modal,
@@ -13,9 +16,12 @@ import {
 	Linking,
 	View,
 } from 'react-native';
+import checkVersion from 'react-native-store-version';
 
+import { version } from '../../../package.json';
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import theme from '../../config/theme';
+import sentryHelper from '../../helpers/sentryHelper';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -23,13 +29,59 @@ import Title from '../typography/Title';
 const screenWidth = Dimensions.get('window')
 	.width;
 
-const UpdateAppModal = ({
-	open = false,
-	setOpen = () => {},
-}) => {
-	function closeModal() {
+function UpdateAppModal() {
+	const [open, setOpen] = useState(false);
+	const [
+		versionResult,
+		setVersionResult,
+	] = useState(null);
+
+	useEffect(() => {
+		//  init() checks the current version of the app with the remote version of the app
+		//  if the remote version is higher than the current version, the user is prompted to update.
+		//  The user can also dismiss the prompt by clicking the close button on the top right of the modal.
+		//  If the user dismisses the prompt, the modal will not be shown again. This is to prevent the user from
+		//  being prompted to update the app everytime they open the app. We keep track of the version in AsyncStorage
+		//  so that we can check if the user has dismissed the prompt or not. We register the local-version and the
+		//  remote-version at the time of dismissing the prompt. Only if the app is updated again the user will be prompted again.
+		const init = async () => {
+			try {
+				const check = await checkVersion({
+					version,
+					iosStoreURL:
+						'https://apps.apple.com/app/id1531867912',
+					androidStoreURL:
+						'https://play.google.com/store/apps/details?id=com.pingpingnative',
+					country: 'nl',
+				});
+
+				setVersionResult(check);
+				if (check.result === 'new') {
+					const dismissedUpdate = await AsyncStorage.getItem(
+						'@dismissedUpdate',
+					);
+					if (
+						dismissedUpdate ===
+						`${check.local}-${check.remote}`
+					) {
+						return;
+					}
+					setOpen(true);
+				}
+			} catch (error) {
+				sentryHelper(error.message);
+			}
+		};
+		init();
+	}, []);
+
+	const closeModal = async () => {
+		await AsyncStorage.setItem(
+			'@dismissedUpdate',
+			`${versionResult.local}-${versionResult.remote}`,
+		);
 		setOpen(false);
-	}
+	};
 
 	const openAppStore = () => {
 		const link =
@@ -40,7 +92,7 @@ const UpdateAppModal = ({
 			supported => {
 				supported && Linking.openURL(link);
 			},
-			err => console.error(err),
+			error => sentryHelper(error.message),
 		);
 	};
 
@@ -48,7 +100,7 @@ const UpdateAppModal = ({
 		<Modal
 			animationType="fade"
 			transparent={true}
-			visible={true}
+			visible={open}
 			statusBarTranslucent
 		>
 			<View style={styles.centeredView}>
@@ -92,7 +144,7 @@ const UpdateAppModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {
@@ -138,11 +190,5 @@ const styles = StyleSheet.create({
 		marginVertical: theme.spacing.l,
 	},
 });
-
-UpdateAppModal.propTypes = {
-	open: PropTypes.bool.isRequired,
-	setOpen: PropTypes.func.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
-};
 
 export default UpdateAppModal;
