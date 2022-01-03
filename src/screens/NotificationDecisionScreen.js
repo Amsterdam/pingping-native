@@ -16,6 +16,7 @@ import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { USER_STATES } from '../config/types';
 import sentryHelper from '../helpers/sentryHelper';
 import useAppContext from '../hooks/useAppContext';
 
@@ -54,7 +55,7 @@ const NotificationDecisionScreen = () => {
 					},
 				],
 			});
-			setUserState('LOGGED_IN');
+			setUserState(USER_STATES.loggedIn);
 		} catch (error) {
 			sentryHelper(error.message);
 		}

@@ -10,13 +10,13 @@ import NetInfo from '@react-native-community/netinfo';
 import PropTypes from 'prop-types';
 
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import { ERROR_TYPES } from '../config/types';
 import userStatus from '../helpers/authHelper';
 
 export const AppContext = createContext({
 	userState: null,
-	connected: false,
-	backEndIssue: false,
-	somethingWentWrong: false,
+	bootIssue: '',
+	setUserState: () => {},
 });
 
 export default function AppContextProvider({
@@ -30,17 +30,7 @@ export default function AppContextProvider({
 		null,
 	);
 
-	const [connected, setConnected] = useState(
-		null,
-	);
-	const [
-		backEndIssue,
-		setBackEndIssue,
-	] = useState(false);
-	const [
-		somethingWentWrong,
-		setSomethingWentWrong,
-	] = useState(false);
+	const [bootIssue, setBootIssue] = useState('');
 
 	useEffect(() => {
 		NetInfo.addEventListener(netInfoState => {
@@ -50,27 +40,23 @@ export default function AppContextProvider({
 			if (
 				netInfoState.isInternetReachable === true
 			) {
-				setConnected(true);
 				userStatus(
 					refetch,
 					setUserState,
-					setBackEndIssue,
-					setSomethingWentWrong,
+					setBootIssue,
 				);
 			}
 			if (
 				netInfoState.isInternetReachable === false
 			) {
-				setConnected(false);
+				setBootIssue(ERROR_TYPES.networkError);
 			}
 		});
 	}, [refetch]);
 
 	const contextValue = {
-		connected,
 		userState,
-		backEndIssue,
-		somethingWentWrong,
+		bootIssue,
 		setUserState: useCallback(
 			value => setUserState(value),
 			[],

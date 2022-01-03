@@ -18,6 +18,7 @@ import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { USER_STATES } from '../config/types';
 import useAppContext from '../hooks/useAppContext';
 
 const ExportDataScreen = ({ navigation }) => {
@@ -37,7 +38,7 @@ const ExportDataScreen = ({ navigation }) => {
 		async function checkForErrors() {
 			if (error?.message === 'unauthorized') {
 				await AsyncStorage.clear();
-				setUserState('ONBOARDER');
+				setUserState(USER_STATES.onboarder);
 				resetStore();
 			}
 		}

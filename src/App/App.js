@@ -10,35 +10,28 @@ import TabNavigator from './TabNavigator';
 import UpdateAppModal from '../components/modals/UpdateAppModal';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Loading from '../components/shared/LoadingComponent';
+import { USER_STATES } from '../config/types';
 import useAppContext from '../hooks/useAppContext';
 import PushNotificationService from '../services/PushNotificationService';
 
 export default function App() {
 	const {
-		connected,
+		bootIssue,
 		userState,
-		backEndIssue,
-		somethingWentWrong,
 	} = useAppContext();
 
 	const renderApp = () => {
-		if (
-			connected === false ||
-			somethingWentWrong ||
-			backEndIssue
-		) {
+		if (bootIssue) {
 			return (
 				<ErrorComponent
 					functionToRetry={() => {}}
+					bootIssue={bootIssue}
 					onPress={() => {}}
-					disconnected={!connected}
-					backEndIssue={backEndIssue}
-					somethingWentWrong={somethingWentWrong}
 					deafultLabelOverRide="Probeer Opnieuw"
 				/>
 			);
 		}
-		if (userState === 'LOGGED_IN') {
+		if (userState === USER_STATES.loggedIn) {
 			return (
 				<PushNotificationService>
 					<TabNavigator />
@@ -46,7 +39,7 @@ export default function App() {
 				</PushNotificationService>
 			);
 		}
-		if (userState === 'ONBOARDER') {
+		if (userState === USER_STATES.onboarder) {
 			return <OnboardingStack />;
 		}
 		return <Loading />;

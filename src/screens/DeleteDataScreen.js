@@ -22,6 +22,7 @@ import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { USER_STATES } from '../config/types';
 import sentryHelper from '../helpers/sentryHelper';
 import useAppContext from '../hooks/useAppContext';
 
@@ -42,7 +43,7 @@ const DeleteDataScreen = ({ navigation }) => {
 				},
 			});
 			await AsyncStorage.clear();
-			setUserState('ONBOARDER');
+			setUserState(USER_STATES.onboarder);
 			resetStore();
 		} catch (error) {
 			setLoading(false);

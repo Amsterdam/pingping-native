@@ -5,17 +5,13 @@ import { AppContext } from '../App/AppContext';
 function useAppContext() {
 	const {
 		userState,
-		connected,
-		backEndIssue,
-		somethingWentWrong,
+		bootIssue,
 		setUserState,
 	} = useContext(AppContext);
 
 	return {
 		userState,
-		connected,
-		backEndIssue,
-		somethingWentWrong,
+		bootIssue,
 		setUserState,
 	};
 }
