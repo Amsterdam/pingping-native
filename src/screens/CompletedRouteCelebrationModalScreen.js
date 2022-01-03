@@ -133,7 +133,8 @@ const CompletedRouteCelebrationModalScreen = ({
 								<ChevronButton
 									onPress={() =>
 										navigation.navigate(
-											routes.citypingsStack.name,
+											routes.citypingsStack
+												.screens.homeScreen,
 											{
 												screen: 'Main',
 												initial: false,
@@ -171,7 +172,7 @@ const CompletedRouteCelebrationModalScreen = ({
 											{
 												screen:
 													routes.routeStack
-														.homeScreen,
+														.screens.homeScreen,
 											},
 										)
 									}

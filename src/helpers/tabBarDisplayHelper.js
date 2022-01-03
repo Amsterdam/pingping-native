@@ -4,12 +4,16 @@ import { Platform } from 'react-native';
 import routes from '../App/stacks/routes';
 
 const tabHiddenRoutes = [
-	routes.citypingsStack.rewardDetailModalScreen,
-	routes.citypingsStack.claimedRewardModalScreen,
-	routes.routeStack.routeFeedbackScreen,
-	routes.routeStack.taskScreen,
-	routes.routeStack.routeDetailsScreen,
-	routes.routeStack.tipScreen,
+	routes.citypingsStack.screens
+		.rewardDetailModalScreen,
+	routes.citypingsStack.screens
+		.claimedRewardModalScreen,
+	routes.citypingsStack.screens
+		.completedRouteCelebrationModalScreen,
+	routes.routeStack.screens.routeFeedbackScreen,
+	routes.routeStack.screens.taskScreen,
+	routes.routeStack.screens.routeDetailsScreen,
+	routes.routeStack.screens.tipScreen,
 ];
 
 export default function tabBarDisplayHelper(

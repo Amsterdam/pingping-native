@@ -27,12 +27,15 @@ function RouteStack({ navigation, route }) {
 		>
 			<Stack.Group>
 				<Stack.Screen
-					name={routes.routeStack.homeScreen}
+					name={
+						routes.routeStack.screens.homeScreen
+					}
 					component={RouteHomeScreen}
 				/>
 				<Stack.Screen
 					name={
-						routes.routeStack.routeFeedbackScreen
+						routes.routeStack.screens
+							.routeFeedbackScreen
 					}
 					component={RouteFeedbackScreen}
 				/>
@@ -41,17 +44,22 @@ function RouteStack({ navigation, route }) {
 				screenOptions={{ presentation: 'modal' }}
 			>
 				<Stack.Screen
-					name={routes.routeStack.taskScreen}
+					name={
+						routes.routeStack.screens.taskScreen
+					}
 					component={TaskScreen}
 				/>
 				<Stack.Screen
 					name={
-						routes.routeStack.routeDetailsScreen
+						routes.routeStack.screens
+							.routeDetailsScreen
 					}
 					component={RouteDetailsScreen}
 				/>
 				<Stack.Screen
-					name={routes.routeStack.tipScreen}
+					name={
+						routes.routeStack.screens.tipScreen
+					}
 					component={TipScreen}
 				/>
 			</Stack.Group>

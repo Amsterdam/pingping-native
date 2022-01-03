@@ -8,9 +8,10 @@ const linking = {
 		screens: {
 			[routes.routeStack.name]: {
 				screens: {
-					[routes.routeStack.routeDetailsScreen]:
+					[routes.routeStack.screens
+						.routeDetailsScreen]:
 						'route/:routeId',
-					[routes.routeStack.taskScreen]:
+					[routes.routeStack.screens.taskScreen]:
 						'route/:routeId/:task',
 				},
 			},

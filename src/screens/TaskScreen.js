@@ -73,7 +73,7 @@ const TaskScreen = ({ navigation, route }) => {
 					routes.citypingsStack.name,
 					{
 						screen:
-							routes.citypingsStack
+							routes.citypingsStack.screens
 								.completedRouteCelebrationModalScreen,
 						params: {
 							pings:

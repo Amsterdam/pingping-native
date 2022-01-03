@@ -72,7 +72,7 @@ function RouteDetailsScreen({
 
 		const startTasks = () => {
 			navigation.navigate(
-				routes.routeStack.taskScreen,
+				routes.routeStack.screens.taskScreen,
 				{
 					routeId,
 					task: {

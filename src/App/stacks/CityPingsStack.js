@@ -24,7 +24,10 @@ function RootStackScreen({ navigation, route }) {
 		>
 			<RootStack.Group>
 				<RootStack.Screen
-					name={routes.citypingsStack.homeScreen}
+					name={
+						routes.citypingsStack.screens
+							.homeScreen
+					}
 					component={CityPingsHomeScreen}
 				/>
 			</RootStack.Group>
@@ -33,21 +36,21 @@ function RootStackScreen({ navigation, route }) {
 			>
 				<RootStack.Screen
 					name={
-						routes.citypingsStack
+						routes.citypingsStack.screens
 							.rewardDetailModalScreen
 					}
 					component={RewardDetailModalScreen}
 				/>
 				<RootStack.Screen
 					name={
-						routes.citypingsStack
+						routes.citypingsStack.screens
 							.claimedRewardModalScreen
 					}
 					component={ClaimedRewardModalScreen}
 				/>
 				<RootStack.Screen
 					name={
-						routes.citypingsStack
+						routes.citypingsStack.screens
 							.completedRouteCelebrationModalScreen
 					}
 					component={

@@ -29,7 +29,7 @@ const RouteTaskRow = ({
 
 	const doNavigate = () => {
 		navigation.navigate(
-			routes.routeStack.taskScreen,
+			routes.routeStack.screens.taskScreen,
 			{
 				routeId,
 				task: { ...task, status },
