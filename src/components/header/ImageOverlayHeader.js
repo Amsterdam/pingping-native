@@ -22,7 +22,7 @@ const screenHeight = Dimensions.get('window')
 	.height;
 
 const ImageOverlayHeader = ({
-	navigation = () => {},
+	navigate = () => {},
 	cover = {
 		value: '',
 		color: '#fff',
@@ -44,7 +44,7 @@ const ImageOverlayHeader = ({
 			/>
 			<View style={styles.imageOverlay}>
 				<IconButton
-					onPress={() => navigation.goBack()}
+					onPress={navigate}
 					style={commonStyles.iconButton}
 					icon={
 						<ChevronLeftIcon
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 });
 
 ImageOverlayHeader.propTypes = {
-	navigation: PropTypes.object.isRequired,
+	navigate: PropTypes.func.isRequired,
 	cover: PropTypes.object.isRequired,
 	cityPings: PropTypes.number,
 };

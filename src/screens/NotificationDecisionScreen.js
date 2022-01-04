@@ -46,8 +46,10 @@ const NotificationDecisionScreen = () => {
 		try {
 			await registerNotifications({
 				variables: {
-					deviceToken: token,
-					notificationStatus: decision,
+					input: {
+						deviceToken: token,
+						notificationStatus: decision,
+					},
 				},
 				refetchQueries: [
 					{

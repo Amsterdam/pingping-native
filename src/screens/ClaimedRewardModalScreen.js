@@ -51,7 +51,7 @@ const ClaimedRewardModalScreen = ({
 			<Container>
 				<ScrollView>
 					<ImageOverlayHeader
-						navigation={navigation}
+						navigate={() => navigation.goBack()}
 						cover={cover}
 					/>
 					<ContentLayout style={styles.container}>

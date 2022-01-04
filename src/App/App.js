@@ -12,7 +12,7 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import Loading from '../components/shared/LoadingComponent';
 import { USER_STATES } from '../config/types';
 import useAppContext from '../hooks/useAppContext';
-import PushNotificationService from '../services/PushNotificationService';
+import PushNotifications from '../services/PushNotifications';
 
 export default function App() {
 	const {
@@ -32,10 +32,11 @@ export default function App() {
 		}
 		if (userState === USER_STATES.loggedIn) {
 			return (
-				<PushNotificationService>
+				<>
 					<TabNavigator />
 					<UpdateAppModal />
-				</PushNotificationService>
+					<PushNotifications />
+				</>
 			);
 		}
 		if (userState === USER_STATES.onboarder) {
