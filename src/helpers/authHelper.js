@@ -1,6 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
 
+import {
+	ERROR_TYPES,
+	USER_STATES,
+} from '../config/types';
 import sentryHelper from '../helpers/sentryHelper';
 
 export async function doRegisterDevice(
@@ -34,40 +38,41 @@ export async function doRegisterDevice(
 
 const userStatus = async (
 	refetch,
-	setLoggedIn,
-	setOnboarder,
-	setBackEndIssue,
-	setSomethingWentWrong,
+	setUserState,
+	setBootIssue,
 ) => {
 	try {
 		const token = await AsyncStorage.getItem(
 			'@access_token',
 		);
 		if (token === null) {
-			return setOnboarder(true); // I AM A NEW USER
+			return setUserState(USER_STATES.onboarder); // I AM A NEW USER
 		}
 		let me = await refetch();
-		setBackEndIssue(false); // clear any errors from previous retries
-		setSomethingWentWrong(false); // clear any errors from previous retries
+		setBootIssue(''); // clear any errors from previous retries
 		if (me && me.data) {
 			if (
 				me.data.getStatus.device
 					.notificationStatus === 'Initial'
 			) {
-				return setOnboarder(true); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
+				return setUserState(
+					USER_STATES.onboarder,
+				); // IF I AM AUTHENTICATED AND HAVE ONBOARDING TASKS OPEN, KEEP ME IN THE ONBOARDING
 			}
-			return setLoggedIn(true); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
+			return setUserState(USER_STATES.loggedIn); // I HAVE A VALID ACCESS TOKEN AND AM AUTHORIZED AND I HAVE COMPLETED THE ONBOARDING
 		}
 	} catch (error) {
 		sentryHelper(error.message);
 		if (error.message === 'unauthorized') {
 			await AsyncStorage.clear(); // Token is not valid, clear all.
-			setOnboarder(true);
+			setUserState(USER_STATES.onboarder);
 		}
 		if (error.message === 'undefined') {
-			return setBackEndIssue(true);
+			return setBootIssue(
+				ERROR_TYPES.backendError,
+			);
 		}
-		return setSomethingWentWrong(true);
+		return setBootIssue(ERROR_TYPES.networkError);
 	}
 };
 

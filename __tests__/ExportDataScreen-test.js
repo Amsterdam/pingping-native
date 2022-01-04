@@ -16,7 +16,6 @@ test('renders correctly', () => {
 				<MockedProvider mocks={[]}>
 					<ExportDataScreen
 						navigation={navigation}
-						setLogOut={() => {}}
 					/>
 				</MockedProvider>
 			</NativeBaseProvider>,

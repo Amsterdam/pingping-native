@@ -22,17 +22,17 @@ import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { USER_STATES } from '../config/types';
 import sentryHelper from '../helpers/sentryHelper';
+import useAppContext from '../hooks/useAppContext';
 
-const DeleteDataScreen = ({
-	navigation,
-	setLogOut,
-}) => {
+const DeleteDataScreen = ({ navigation }) => {
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [deleteUser] = useMutation(
 		DELETE_USER_MUTATION,
 	);
+	const { setUserState } = useAppContext();
 
 	const doDeleteUser = async () => {
 		setLoading(true);
@@ -43,7 +43,7 @@ const DeleteDataScreen = ({
 				},
 			});
 			await AsyncStorage.clear();
-			setLogOut();
+			setUserState(USER_STATES.onboarder);
 			resetStore();
 		} catch (error) {
 			setLoading(false);
@@ -58,7 +58,7 @@ const DeleteDataScreen = ({
 		>
 			<FilledHeader
 				navigation={navigation}
-				title="Privacy"
+				title="Gegevens"
 			/>
 			<ScrollView
 				contentContainerStyle={styles.scrollView}
@@ -112,7 +112,6 @@ const DeleteDataScreen = ({
 			<DeleteDataModal
 				open={open}
 				setOpen={setOpen}
-				setLogOut={setLogOut}
 				navigation={navigation}
 				doDeleteUser={doDeleteUser}
 				loading={loading}
@@ -141,7 +140,6 @@ const styles = StyleSheet.create({
 
 DeleteDataScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
-	setLogOut: PropTypes.func.isRequired,
 };
 
 export default DeleteDataScreen;

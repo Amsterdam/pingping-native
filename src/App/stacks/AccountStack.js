@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import PropTypes from 'prop-types';
 
 import routes from './routes';
 
@@ -12,7 +11,7 @@ import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 
 const Stack = createStackNavigator();
 
-const AccountStack = ({ setLogOut }) => (
+const AccountStack = () => (
 	<Stack.Navigator
 		initialRouteName={
 			routes.accountStack.screens.homeScreen
@@ -37,32 +36,16 @@ const AccountStack = ({ setLogOut }) => (
 				routes.accountStack.screens
 					.deleteDataScreen
 			}
-		>
-			{props => (
-				<DeleteDataScreen
-					{...props}
-					setLogOut={setLogOut}
-				/>
-			)}
-		</Stack.Screen>
+			component={DeleteDataScreen}
+		/>
 		<Stack.Screen
 			name={
 				routes.accountStack.screens
 					.exportDataScreen
 			}
-		>
-			{props => (
-				<ExportDataScreen
-					{...props}
-					setLogOut={setLogOut}
-				/>
-			)}
-		</Stack.Screen>
+			component={ExportDataScreen}
+		/>
 	</Stack.Navigator>
 );
-
-AccountStack.propTypes = {
-	setLogOut: PropTypes.func.isRequired,
-};
 
 export default AccountStack;

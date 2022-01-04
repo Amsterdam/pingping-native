@@ -11,26 +11,27 @@ import {
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
 import theme from '../../config/theme';
+import { ERROR_TYPES } from '../../config/types';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
 const errorTypes = {
-	somethingWentWrong: {
+	[ERROR_TYPES.unkownError]: {
 		title: 'Oeps... Er is iets fout gegaan',
 		body:
-			'A wild error appeared. It’s super effective. Zo te zien er is iets fout gegaan. Ga terug of probeer de app opnieuw op te starten. Sorry voor het ongemak.',
+			'A wild error appeared. Its super effective. Zo te zien er is iets fout gegaan. Ga terug of probeer de app opnieuw op te starten. Sorry voor het ongemak.',
 		illustration: <ErrorIllustration />,
 		label: 'Terug',
 	},
-	connectionProblem: {
+	[ERROR_TYPES.networkError]: {
 		title: 'Slechte verbinding',
 		body:
 			'Daar zit je dan zonder internet. Maak opnieuw verbinding met het internet of probeer het later nog eens.',
 		illustration: <AstronautSitting />,
 		label: 'Probeer opnieuw',
 	},
-	backEndProblem: {
+	[ERROR_TYPES.backendError]: {
 		title:
 			'Het ligt niet aan jou, het ligt aan ons',
 		body:
@@ -41,9 +42,7 @@ const errorTypes = {
 };
 
 const ErrorComponent = ({
-	disconnected = false,
-	backEndIssue = false,
-	somethingWentWrong = false,
+	bootIssue,
 	functionToRetry = () => {},
 	onPress = () => {},
 	deafultLabelOverRide = '',
@@ -58,19 +57,7 @@ const ErrorComponent = ({
 		setRefreshing(false);
 	};
 
-	const determineErrorType = () => {
-		if (disconnected) {
-			return errorTypes.connectionProblem;
-		}
-		if (backEndIssue) {
-			return errorTypes.backEndProblem;
-		}
-		if (somethingWentWrong) {
-			return errorTypes.somethingWentWrong;
-		}
-	};
-
-	const errorType = determineErrorType();
+	const errorType = errorTypes[bootIssue];
 
 	return (
 		<ScrollView
@@ -131,18 +118,13 @@ const styles = StyleSheet.create({
 });
 
 ErrorComponent.propTypes = {
-	disconnected: PropTypes.bool,
-	backEndIssue: PropTypes.bool,
-	somethingWentWrong: PropTypes.bool,
-	functionToRetry: PropTypes.func.isRequired,
+	bootIssue: PropTypes.string.isRequired,
 	onPress: PropTypes.func.isRequired,
 	deafultLabelOverRide: PropTypes.string,
 };
 
 ErrorComponent.defaultProps = {
-	somethingWentWrong: false,
-	disconnected: false,
-	backEndIssue: false,
+	bootIssue: ERROR_TYPES.unkownError,
 	deafultLabelOverRide: '',
 };
 
