@@ -18,16 +18,15 @@ export default function App() {
 	const {
 		bootIssue,
 		userState,
+		retry,
 	} = useAppContext();
 
 	const renderApp = () => {
 		if (bootIssue) {
 			return (
 				<ErrorComponent
-					functionToRetry={() => {}}
-					bootIssue={bootIssue}
-					onPress={() => {}}
-					deafultLabelOverRide="Probeer Opnieuw"
+					functionToRetry={retry}
+					error={bootIssue}
 				/>
 			);
 		}

@@ -17,6 +17,7 @@ export const AppContext = createContext({
 	userState: null,
 	bootIssue: '',
 	setUserState: () => {},
+	retry: () => {},
 });
 
 export default function AppContextProvider({
@@ -26,6 +27,7 @@ export default function AppContextProvider({
 		fetchPolicy: 'network-only',
 		skip: 'true',
 	});
+
 	const [userState, setUserState] = useState(
 		null,
 	);
@@ -54,9 +56,18 @@ export default function AppContextProvider({
 		});
 	}, [refetch]);
 
+	const retry = () => {
+		userStatus(
+			refetch,
+			setUserState,
+			setBootIssue,
+		);
+	};
+
 	const contextValue = {
 		userState,
 		bootIssue,
+		retry,
 		setUserState: useCallback(
 			value => setUserState(value),
 			[],

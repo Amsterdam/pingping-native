@@ -24,6 +24,7 @@ import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { ERROR_TYPES } from '../config/types';
 
 const screenHeight = Dimensions.get('window')
 	.height;
@@ -48,8 +49,8 @@ function RouteDetailsScreen({
 		return (
 			<ErrorComponent
 				functionToRetry={refetch}
-				somethingWentWrong
-				onPress={navigation.goBack}
+				error={ERROR_TYPES.UNKNOWN_ERROR}
+				navigation={navigation}
 			/>
 		);
 	}

@@ -7,12 +7,14 @@ function useAppContext() {
 		userState,
 		bootIssue,
 		setUserState,
+		retry,
 	} = useContext(AppContext);
 
 	return {
 		userState,
 		bootIssue,
 		setUserState,
+		retry,
 	};
 }
 
