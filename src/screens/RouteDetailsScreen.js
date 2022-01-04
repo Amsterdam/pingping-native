@@ -96,7 +96,12 @@ function RouteDetailsScreen({
 					showsVerticalScrollIndicator={false}
 				>
 					<ImageOverlayHeader
-						navigation={navigation}
+						navigate={() =>
+							navigation.navigate(
+								routes.routeStack.screens
+									.homeScreen,
+							)
+						}
 						cityPings={totalPoints}
 						cover={cover}
 					/>

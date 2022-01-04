@@ -98,7 +98,7 @@ function RouteFeedbackScreen({
 			/>
 			<ScrollView keyboardShouldPersistTaps="handled">
 				<ImageOverlayHeader
-					navigation={navigation}
+					navigate={() => navigation.goBack()}
 					cover={cover}
 				/>
 				<View style={styles.contentContainer}>

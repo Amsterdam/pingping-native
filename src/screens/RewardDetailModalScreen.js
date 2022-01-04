@@ -146,7 +146,7 @@ function RewardDetailModalScreen({
 			/>
 			<ScrollView>
 				<ImageOverlayHeader
-					navigation={navigation}
+					navigate={() => navigation.goBack()}
 					cover={cover}
 					cityPings={price}
 				/>
