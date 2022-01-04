@@ -4,9 +4,7 @@ import { Notifications } from 'react-native-notifications';
 import routes from './stacks/routes';
 
 import sentryHelper from '../helpers/sentryHelper';
-import { notificationTypes } from '../services/PushNotifications/notificationTypes';
-
-// @todo test if linking works with new configuration
+import notificationHandler from '../services/PushNotifications/notificationHandler';
 
 const linking = {
 	prefixes: ['pingpingnative://'],
@@ -34,12 +32,11 @@ const linking = {
 
 			// Check if there is an initial notification with a payload and a type
 			const initialNotification = await Notifications.getInitialNotification();
-			if (
-				initialNotification?.payload?.type.toLowerCase() ===
-					notificationTypes.remindUserToContinueRoute.toLowerCase() &&
-				initialNotification?.payload?.routeId
-			) {
-				return `pingpingnative://route/${initialNotification.payload.routeId}`;
+			if (initialNotification) {
+				return notificationHandler(
+					initialNotification.payload,
+					true,
+				);
 			}
 			return null;
 		} catch (error) {

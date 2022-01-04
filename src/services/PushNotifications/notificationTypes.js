@@ -1,6 +1,9 @@
 export const notificationTypes = {
-	remindUserToCompleteOnboarding:
-		'RemindUserToCompleteOnboarding',
-	remindUserToContinueRoute:
-		'RemindUserToContinueRoute',
+	RemindUserToCompleteOnboarding: {
+		id: 'RemindUserToCompleteOnboarding',
+	},
+	RemindUserToContinueRoute: {
+		id: 'RemindUserToContinueRoute',
+		route: 'pingpingnative://route/',
+	},
 };

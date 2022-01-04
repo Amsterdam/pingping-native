@@ -1,26 +1,15 @@
 import { useCallback, useEffect } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { Linking, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { Notifications } from 'react-native-notifications';
 
-import { notificationTypes } from './notificationTypes';
+import notificationHandler from './notificationHandler';
 
 import REGISTER_NOTIFICATIONS_MUTATION from '../../apollo/Mutation/registerNotificationsMutation';
 import sentryHelper from '../../helpers/sentryHelper';
 
 const isIos = Platform.OS === 'ios';
-
-const handleNotifcationWithType = payload => {
-	if (
-		payload.type.toLowerCase() ===
-		notificationTypes.remindUserToContinueRoute.toLowerCase()
-	) {
-		Linking.openURL(
-			`pingpingnative://route/${payload.routeId}`,
-		);
-	}
-};
 
 /** The PushNotificationService initializes all listeners with regards to pushnotifications
  * initialnotifications (notifications that are received when the application is in a killed state) are handled
@@ -73,7 +62,7 @@ const PushNotificationService = () => {
 		Notifications.events().registerNotificationOpened(
 			(notification, completion) => {
 				if (notification?.payload?.type) {
-					handleNotifcationWithType(
+					notificationHandler(
 						notification.payload,
 					);
 				}
