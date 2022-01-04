@@ -23,6 +23,7 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import ProgressBar from '../components/shared/ProgressBar';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
+import { ERROR_TYPES } from '../config/types';
 import {
 	revertTaskFunc,
 	setRevertedQuestionValues,
@@ -79,8 +80,8 @@ const QuestionScreen = ({ navigation }) => {
 		return (
 			<ErrorComponent
 				functionToRetry={refetch}
-				somethingWentWrong
-				onPress={() => navigation.goBack()}
+				error={ERROR_TYPES.unkownError}
+				navigation={navigation}
 			/>
 		);
 	}

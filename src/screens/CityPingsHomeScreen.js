@@ -23,6 +23,7 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { ERROR_TYPES } from '../config/types';
 
 const CityPingsHomeScreen = ({ navigation }) => {
 	React.useEffect(() => {
@@ -77,9 +78,8 @@ const CityPingsHomeScreen = ({ navigation }) => {
 		return (
 			<ErrorComponent
 				functionToRetry={retry}
-				somethingWentWrong
-				deafultLabelOverRide="Probeer Opnieuw"
-				onPress={availableRewards.refetch}
+				error={ERROR_TYPES.UNKNOWN_ERROR}
+				navigation={navigation}
 			/>
 		);
 	}

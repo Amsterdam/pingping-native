@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useLazyQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import {
 	Animated,
@@ -21,6 +21,7 @@ import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { ERROR_TYPES } from '../config/types';
 
 const HEADER_HEIGHT = 200;
 
@@ -29,11 +30,11 @@ const RouteHomeScreen = ({ navigation }) => {
 		const unsubscribe = navigation.addListener(
 			'focus',
 			() => {
-				getRoutes();
+				refetch();
 			},
 		);
 		return unsubscribe;
-	}, [navigation, getRoutes]);
+	}, [navigation, refetch]);
 
 	const scrollY = new Animated.Value(0);
 	const translateY = scrollY.interpolate({
@@ -41,31 +42,31 @@ const RouteHomeScreen = ({ navigation }) => {
 		outputRange: [0, -HEADER_HEIGHT],
 	});
 
-	const [getRoutes, routes] = useLazyQuery(
+	const { data, error, refetch } = useQuery(
 		GET_ROUTES,
 		{
 			fetchPolicy: 'cache-and-network',
 		},
 	);
+
 	const [
 		refreshing,
 		setRefreshing,
 	] = React.useState(false);
 
-	if (routes.error) {
+	if (error) {
 		return (
 			<ErrorComponent
-				functionToRetry={routes.refetch}
-				somethingWentWrong
-				onPress={routes.refetch}
-				deafultLabelOverRide="Probeer Opnieuw"
+				functionToRetry={refetch}
+				issue={ERROR_TYPES.UNKNOWN_ERROR}
+				navigation={navigation}
 			/>
 		);
 	}
 
 	const onRefresh = () => {
 		setRefreshing(true);
-		routes.refetch();
+		refetch();
 		setRefreshing(false);
 	};
 
@@ -78,7 +79,7 @@ const RouteHomeScreen = ({ navigation }) => {
 			availableRoutes,
 			currentRoutes,
 			//   archivedRoutes,
-		} = routes.data.getRoutes;
+		} = data.getRoutes;
 
 		const suggestedRoutes = [];
 		const otherRoutes = [];
@@ -189,7 +190,7 @@ const RouteHomeScreen = ({ navigation }) => {
 				}
 			>
 				<ContentLayout>
-					{!routes.data ? (
+					{!data ? (
 						<AnimatableView animation="fadeIn">
 							<CardSkeleton />
 							<CardSkeleton />

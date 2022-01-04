@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	RefreshControl,
-	StyleSheet,
-	View,
-	ScrollView,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import Container from './Container';
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
 import theme from '../../config/theme';
 import { ERROR_TYPES } from '../../config/types';
+import Header from '../header/Header';
+import HeaderBackButton from '../header/HeaderBackButton';
+import LoadingComponent from '../shared/LoadingComponent';
+import MinimalErrorComponent from '../shared/MinimalErrorComponent';
 import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -22,7 +23,7 @@ const errorTypes = {
 		body:
 			'A wild error appeared. Its super effective. Zo te zien er is iets fout gegaan. Ga terug of probeer de app opnieuw op te starten. Sorry voor het ongemak.',
 		illustration: <ErrorIllustration />,
-		label: 'Terug',
+		label: 'Probeer Opnieuw',
 	},
 	[ERROR_TYPES.networkError]: {
 		title: 'Slechte verbinding',
@@ -41,63 +42,79 @@ const errorTypes = {
 	},
 };
 
-const ErrorComponent = ({
-	bootIssue,
+function ErrorComponent({
+	error,
 	functionToRetry = () => {},
-	onPress = () => {},
-	deafultLabelOverRide = '',
-}) => {
-	const [refreshing, setRefreshing] = useState(
-		false,
-	);
+	label = '',
+	navigation,
+}) {
+	const errorType = errorTypes[error];
+	const [loading, setLoading] = useState(false);
+	const [
+		errorMessage,
+		setErrorMessage,
+	] = useState('');
 
-	const onRefresh = () => {
-		setRefreshing(true);
-		functionToRetry();
-		setRefreshing(false);
+	const retry = async () => {
+		setLoading(true);
+		try {
+			await functionToRetry();
+		} catch (error) {
+			if (error.message) {
+				setErrorMessage(error.message);
+			}
+		} finally {
+			setLoading(false);
+		}
 	};
 
-	const errorType = errorTypes[bootIssue];
-
 	return (
-		<ScrollView
-			contentContainerStyle={styles.container}
-			refreshControl={
-				<RefreshControl
-					refreshing={refreshing}
-					onRefresh={onRefresh}
-					tintColor={theme.colors.primary}
+		<Container>
+			{navigation && (
+				<Header
+					left={
+						<HeaderBackButton
+							onPressAction={() =>
+								navigation.goBack()
+							}
+							color="dark"
+						/>
+					}
 				/>
-			}
-		>
-			{errorType.illustration}
+			)}
 
-			<View style={styles.textContainer}>
-				<Title
-					style={styles.title}
-					align="center"
-					variant="h2"
-					numberOfLines={3}
-				>
-					{errorType.title}
-				</Title>
-				<Body variant="b3" align="center">
-					{errorType.body}
-				</Body>
+			<View style={styles.container}>
+				{errorType.illustration}
+
+				<View style={styles.textContainer}>
+					<Title
+						style={styles.title}
+						align="center"
+						variant="h2"
+						numberOfLines={3}
+					>
+						{errorType.title}
+					</Title>
+					<Body variant="b3" align="center">
+						{errorType.body}
+					</Body>
+				</View>
+
+				<Button
+					label={label ? label : errorType.label}
+					onPress={retry}
+					style={styles.button}
+				/>
+				{errorMessage ? (
+					<MinimalErrorComponent />
+				) : (
+					<></>
+				)}
+				{loading && <LoadingComponent />}
 			</View>
-
-			<Button
-				label={
-					deafultLabelOverRide
-						? deafultLabelOverRide
-						: errorType.label
-				}
-				onPress={() => onPress()}
-				style={styles.button}
-			/>
-		</ScrollView>
+		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {
@@ -118,14 +135,17 @@ const styles = StyleSheet.create({
 });
 
 ErrorComponent.propTypes = {
-	bootIssue: PropTypes.string.isRequired,
-	onPress: PropTypes.func.isRequired,
-	deafultLabelOverRide: PropTypes.string,
+	error: PropTypes.string.isRequired,
+	functionToRetry: PropTypes.func,
+	label: PropTypes.string,
+	navigation: PropTypes.object,
 };
 
 ErrorComponent.defaultProps = {
-	bootIssue: ERROR_TYPES.unkownError,
-	deafultLabelOverRide: '',
+	error: ERROR_TYPES.unkownError,
+	functionToRetry: () => {},
+	label: '',
+	navigation: null,
 };
 
 export default ErrorComponent;

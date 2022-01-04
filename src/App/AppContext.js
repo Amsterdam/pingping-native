@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 import { useQuery } from '@apollo/client';
-import NetInfo from '@react-native-community/netinfo';
+import { useNetInfo } from '@react-native-community/netinfo';
 import PropTypes from 'prop-types';
 
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -17,15 +17,18 @@ export const AppContext = createContext({
 	userState: null,
 	bootIssue: '',
 	setUserState: () => {},
+	retry: () => {},
 });
 
 export default function AppContextProvider({
 	children,
 }) {
+	const netInfo = useNetInfo();
 	const { refetch } = useQuery(GET_STATUS_QUERY, {
 		fetchPolicy: 'network-only',
 		skip: 'true',
 	});
+
 	const [userState, setUserState] = useState(
 		null,
 	);
@@ -33,30 +36,33 @@ export default function AppContextProvider({
 	const [bootIssue, setBootIssue] = useState('');
 
 	useEffect(() => {
-		NetInfo.addEventListener(netInfoState => {
-			// here we check if there is an internect connection
-			// if we have an internet connection we will move with executing functions
-			// otherwise we present the user with a no connections screen
-			if (
-				netInfoState.isInternetReachable === true
-			) {
-				userStatus(
-					refetch,
-					setUserState,
-					setBootIssue,
-				);
-			}
-			if (
-				netInfoState.isInternetReachable === false
-			) {
-				setBootIssue(ERROR_TYPES.networkError);
-			}
-		});
-	}, [refetch]);
+		// here we check if there is an internect connection
+		// if we have an internet connection we will move with executing functions
+		// otherwise we present the user with a no connections screen
+		if (netInfo.isInternetReachable === true) {
+			userStatus(
+				refetch,
+				setUserState,
+				setBootIssue,
+			);
+		}
+		if (netInfo.isInternetReachable === false) {
+			setBootIssue(ERROR_TYPES.networkError);
+		}
+	}, [netInfo.isInternetReachable, refetch]);
+
+	const retry = async () => {
+		await userStatus(
+			refetch,
+			setUserState,
+			setBootIssue,
+		);
+	};
 
 	const contextValue = {
 		userState,
 		bootIssue,
+		retry,
 		setUserState: useCallback(
 			value => setUserState(value),
 			[],
