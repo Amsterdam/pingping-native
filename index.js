@@ -1,19 +1,28 @@
 import React from 'react';
 
-import {ApolloProvider} from '@apollo/client';
-import {AppRegistry} from 'react-native';
-import {enableScreens} from 'react-native-screens';
+import { ApolloProvider } from '@apollo/client';
+import { NativeBaseProvider } from 'native-base';
+import { AppRegistry } from 'react-native';
+import { enableScreens } from 'react-native-screens';
 
 import client from './src/apollo/apolloClient';
 import RootApp from './src/App/App';
-import {name as appName} from './src/App/app.json';
+import { name as appName } from './src/App/app.json';
+import AppContext from './src/App/AppContext';
 
 enableScreens();
 
 const PingPingNative = () => (
-  <ApolloProvider client={client}>
-    <RootApp />
-  </ApolloProvider>
+	<ApolloProvider client={client}>
+		<NativeBaseProvider>
+			<AppContext>
+				<RootApp />
+			</AppContext>
+		</NativeBaseProvider>
+	</ApolloProvider>
 );
 
-AppRegistry.registerComponent(appName, () => PingPingNative);
+AppRegistry.registerComponent(
+	appName,
+	() => PingPingNative,
+);

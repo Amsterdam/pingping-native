@@ -1,39 +1,42 @@
 import React from 'react';
 
-import {Button, Icon} from 'native-base';
+import { ArrowBackIcon } from 'native-base';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native';
 
-import {testIDs} from '../../../e2e/modulesTestIDs';
-import {ppBaseColors} from '../../config/colors';
+import { testIDs } from '../../../e2e/modulesTestIDs';
+import theme from '../../config/theme';
 
-const HeaderBackButton = ({navigation, style, color = 'white'}) => {
-  return (
-    <Button
-      transparent
-      onPress={() => navigation.goBack()}
-      testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
-      <Icon
-        name="arrowleft"
-        type="AntDesign"
-        style={{
-          ...style,
-          color:
-            color === 'white' ? ppBaseColors.PP_BLACK : ppBaseColors.PP_WHITE,
-        }}
-      />
-    </Button>
-  );
+const HeaderBackButton = ({
+	onPressAction = () => {},
+	color = 'light',
+}) => {
+	return (
+		<TouchableOpacity
+			onPress={onPressAction}
+			testID={
+				testIDs.NAVIGATION.HEADER_BACK_BUTTON
+			}
+		>
+			<ArrowBackIcon
+				color={
+					color === 'light'
+						? theme.colors.white
+						: theme.colors.text
+				}
+			/>
+		</TouchableOpacity>
+	);
 };
 
 HeaderBackButton.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  style: PropTypes.object,
-  color: PropTypes.string,
+	color: PropTypes.string,
+	onPressAction: PropTypes.func.isRequired,
 };
 
 HeaderBackButton.defaultProps = {
-  style: {},
-  color: 'white',
+	style: {},
+	color: 'light',
 };
 
 export default HeaderBackButton;

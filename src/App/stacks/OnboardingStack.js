@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {createStackNavigator} from '@react-navigation/stack';
-import PropTypes from 'prop-types';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import routes from './routes';
 
@@ -13,34 +12,48 @@ import QuestionScreen from '../../screens/QuestionScreen';
 
 const Stack = createStackNavigator();
 
-const OnboardingStack = ({setLogin}) => (
-  <Stack.Navigator
-    initialRouteName={routes.onboardingStack.homeScreen}
-    headerMode="none">
-    <Stack.Screen
-      name={routes.onboardingStack.homeScreen}
-      component={OnboardingScreen}
-    />
-    <Stack.Screen
-      name={routes.onboardingStack.privacyPolicyScreen}
-      component={PrivacyPolicyScreen}
-    />
-    <Stack.Screen
-      name={routes.onboardingStack.questionScreen}
-      component={QuestionScreen}
-    />
-    <Stack.Screen
-      name={routes.onboardingStack.importDataScreen}
-      component={ImportDataScreen}
-    />
-    <Stack.Screen name={routes.onboardingStack.notificationDecisionScreen}>
-      {(props) => <NotificationDecisionScreen {...props} setLogin={setLogin} />}
-    </Stack.Screen>
-  </Stack.Navigator>
+const OnboardingStack = () => (
+	<Stack.Navigator
+		initialRouteName={
+			routes.onboardingStack.screens.homeScreen
+		}
+		screenOptions={{ headerShown: false }}
+	>
+		<Stack.Screen
+			name={
+				routes.onboardingStack.screens.homeScreen
+			}
+			component={OnboardingScreen}
+		/>
+		<Stack.Screen
+			name={
+				routes.onboardingStack.screens
+					.privacyPolicyScreen
+			}
+			component={PrivacyPolicyScreen}
+		/>
+		<Stack.Screen
+			name={
+				routes.onboardingStack.screens
+					.questionScreen
+			}
+			component={QuestionScreen}
+		/>
+		<Stack.Screen
+			name={
+				routes.onboardingStack.screens
+					.importDataScreen
+			}
+			component={ImportDataScreen}
+		/>
+		<Stack.Screen
+			name={
+				routes.onboardingStack.screens
+					.notificationDecisionScreen
+			}
+			component={NotificationDecisionScreen}
+		/>
+	</Stack.Navigator>
 );
-
-OnboardingStack.propTypes = {
-  setLogin: PropTypes.func.isRequired,
-};
 
 export default OnboardingStack;

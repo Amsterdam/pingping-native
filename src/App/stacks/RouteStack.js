@@ -1,74 +1,75 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import PropTypes from 'prop-types';
 
 import routes from './routes';
 
+import tabBarDisplayHelper from '../../helpers/tabBarDisplayHelper';
 import RouteDetailsScreen from '../../screens/RouteDetailsScreen';
 import RouteFeedbackScreen from '../../screens/RouteFeedbackScreen';
 import RouteHomeScreen from '../../screens/RouteHomeScreen';
 import TaskScreen from '../../screens/TaskScreen';
 import TipScreen from '../../screens/TipScreen';
 
-const MainStack = createStackNavigator();
-const RootStack = createStackNavigator();
+const Stack = createStackNavigator();
 
-const tabHiddenRoutes = [
-  routes.routeStack.routeFeedbackScreen,
-  routes.routeStack.taskScreen,
-  routes.routeStack.routeDetailsScreen,
-  routes.routeStack.tipScreen,
-];
+function RouteStack({ navigation, route }) {
+	// hide tab bar on modal screens
+	useEffect(() => {
+		// hides tab bar on modal screens
+		tabBarDisplayHelper(navigation, route);
+	}, [navigation, route]);
 
-const RouteStack = () => {
-  return (
-    <MainStack.Navigator
-      initialRouteName={routes.citypingsStack.homeScreen}
-      headerMode="none">
-      <MainStack.Screen
-        name={routes.routeStack.homeScreen}
-        component={RouteHomeScreen}
-      />
-    </MainStack.Navigator>
-  );
-};
-
-function RootStackScreen({navigation, route}) {
-  React.useEffect(() => {
-    if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
-      navigation.setOptions({tabBarVisible: false});
-    } else {
-      navigation.setOptions({tabBarVisible: true});
-    }
-  }, [navigation, route]);
-  return (
-    <RootStack.Navigator mode="modal" headerMode="none">
-      <RootStack.Screen name="Main" component={RouteStack} />
-      <RootStack.Screen
-        name={routes.routeStack.routeFeedbackScreen}
-        component={RouteFeedbackScreen}
-      />
-      <RootStack.Screen
-        name={routes.routeStack.taskScreen}
-        component={TaskScreen}
-      />
-      <MainStack.Screen
-        name={routes.routeStack.routeDetailsScreen}
-        component={RouteDetailsScreen}
-      />
-      <RootStack.Screen
-        name={routes.routeStack.tipScreen}
-        component={TipScreen}
-      />
-    </RootStack.Navigator>
-  );
+	return (
+		<Stack.Navigator
+			screenOptions={{ headerShown: false }}
+		>
+			<Stack.Group>
+				<Stack.Screen
+					name={
+						routes.routeStack.screens.homeScreen
+					}
+					component={RouteHomeScreen}
+				/>
+				<Stack.Screen
+					name={
+						routes.routeStack.screens
+							.routeFeedbackScreen
+					}
+					component={RouteFeedbackScreen}
+				/>
+			</Stack.Group>
+			<Stack.Group
+				screenOptions={{ presentation: 'modal' }}
+			>
+				<Stack.Screen
+					name={
+						routes.routeStack.screens.taskScreen
+					}
+					component={TaskScreen}
+				/>
+				<Stack.Screen
+					name={
+						routes.routeStack.screens
+							.routeDetailsScreen
+					}
+					component={RouteDetailsScreen}
+				/>
+				<Stack.Screen
+					name={
+						routes.routeStack.screens.tipScreen
+					}
+					component={TipScreen}
+				/>
+			</Stack.Group>
+		</Stack.Navigator>
+	);
 }
 
-RootStackScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  route: PropTypes.object.isRequired,
+RouteStack.propTypes = {
+	navigation: PropTypes.object.isRequired,
+	route: PropTypes.object.isRequired,
 };
 
-export default RootStackScreen;
+export default RouteStack;
