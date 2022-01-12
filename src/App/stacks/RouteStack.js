@@ -23,6 +23,9 @@ function RouteStack({ navigation, route }) {
 
 	return (
 		<Stack.Navigator
+			initialRouteName={
+				routes.routeStack.screens.homeScreen
+			}
 			screenOptions={{ headerShown: false }}
 		>
 			<Stack.Group>
