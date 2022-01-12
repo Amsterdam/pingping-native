@@ -20,6 +20,9 @@ function RootStackScreen({ navigation, route }) {
 
 	return (
 		<RootStack.Navigator
+			initialRouteName={
+				routes.citypingsStack.screens.homeScreen
+			}
 			screenOptions={{ headerShown: false }}
 		>
 			<RootStack.Group>
