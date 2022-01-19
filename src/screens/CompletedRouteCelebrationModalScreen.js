@@ -48,7 +48,7 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 	balance = me.data?.getStatus?.user?.balance;
 
 	return (
-		<Container>
+		<Container style={styles.container}>
 			<StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
 
 			<Animated.View
@@ -155,6 +155,9 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
+	container: {
+		backgroundColor: theme.colors.almostNotBlue,
+	},
 	header: {
 		flexDirection: 'column',
 		backgroundColor: theme.colors.primary,
