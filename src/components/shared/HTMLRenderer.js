@@ -1,22 +1,12 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	Dimensions,
-	StyleSheet,
-	Linking,
-} from 'react-native';
-import HTML, {
-	defaultSystemFonts,
-} from 'react-native-render-html';
+import { Dimensions, StyleSheet, Linking } from 'react-native';
+import HTML, { defaultSystemFonts } from 'react-native-render-html';
 
 import normalizeValue from '../../helpers/normalizeValue';
 
-function HTMLRenderer({
-	html,
-	setUrlToVisit,
-	setWebviewOpen,
-}) {
+function HTMLRenderer({ html = '', setUrlToVisit = '', setWebviewOpen = false }) {
 	const renderersProps = {
 		a: {
 			onPress(_, url) {
@@ -24,13 +14,11 @@ function HTMLRenderer({
 					setUrlToVisit(url);
 					setWebviewOpen(true);
 				} else {
-					Linking.canOpenURL(url).then(
-						supported => {
-							if (supported) {
-								Linking.openURL(url);
-							}
-						},
-					);
+					Linking.canOpenURL(url).then((supported) => {
+						if (supported) {
+							Linking.openURL(url);
+						}
+					});
 				}
 			},
 		},
@@ -40,22 +28,17 @@ function HTMLRenderer({
 		<HTML
 			source={{ html }}
 			baseStyle={styles.htmlFontStyle}
-			contentWidth={
-				Dimensions.get('window').width
-			}
+			contentWidth={Dimensions.get('window').width}
 			renderersProps={renderersProps}
-			systemFonts={[
-				...defaultSystemFonts,
-				'Raleway-Regular',
-			]}
+			systemFonts={[...defaultSystemFonts, 'Raleway-Regular']}
 		/>
 	);
 }
 
 HTMLRenderer.propTypes = {
 	html: PropTypes.string.isRequired,
-	setUrlToVisit: PropTypes.func,
-	setWebviewOpen: PropTypes.func,
+	setUrlToVisit: PropTypes.func.isRequired,
+	setWebviewOpen: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

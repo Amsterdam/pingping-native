@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
 import testIDs from '../../../e2e/modulesTestIDs';
-import { commonStyles } from '../../config/commonStyles';
+import commonStyles from '../../config/commonStyles';
 import { BASE_URL } from '../../config/initialSettings';
 import theme from '../../config/theme';
 import CitypingsChip from '../shared/CitypingsChip';

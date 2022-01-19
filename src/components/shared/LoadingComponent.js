@@ -1,13 +1,6 @@
-import React, {
-	useEffect,
-	useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {
-	ActivityIndicator,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import theme from '../../config/theme';
 import Body from '../typography/Body';
@@ -30,22 +23,15 @@ function Loading() {
 	}, []);
 
 	if (!loading) {
-		return <></>;
+		return false;
 	}
 	return (
 		<View style={styles.acitivityContainer}>
-			<ActivityIndicator
-				size="large"
-				color={theme.colors.primary}
-			/>
+			<ActivityIndicator size="large" color={theme.colors.primary} />
 			{showText && (
 				<>
-					<Body variant="b3">
-						Het laden duurt langer dan normaal
-					</Body>
-					<Body variant="b3">
-						Nog even wachten
-					</Body>
+					<Body variant="b3">Het laden duurt langer dan normaal</Body>
+					<Body variant="b3">Nog even wachten</Body>
 				</>
 			)}
 		</View>

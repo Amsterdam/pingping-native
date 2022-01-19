@@ -1,19 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-import Svg, {
-	Circle,
-	Path,
-} from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 
 function FloppyDisk(props) {
 	return (
-		<Svg
-			width={160}
-			height={160}
-			viewBox="0 0 160 160"
-			fill="none"
-			{...props}
-		>
+		<Svg width={160} height={160} viewBox="0 0 160 160" fill="none" {...props}>
 			<Path
 				d="M145.238 2H21.606c-1.524 0-3.047.61-4.114 1.727L3.727 17.492A5.81 5.81 0 002 21.606v123.632c0 5.029 4.114 9.143 9.143 9.143h134.095c5.029 0 9.143-4.114 9.143-9.143V11.143c0-5.029-4.114-9.143-9.143-9.143z"
 				fill="#747178"
@@ -43,12 +35,7 @@ function FloppyDisk(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Circle
-				cx={78.191}
-				cy={80.73}
-				r={21.333}
-				fill="#C9C9C9"
-			/>
+			<Circle cx={78.191} cy={80.73} r={21.333} fill="#C9C9C9" />
 			<Circle
 				cx={78.191}
 				cy={80.73}
@@ -70,10 +57,7 @@ function FloppyDisk(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Path
-				fill="#413E51"
-				d="M137.873 132.54h7.111v7.111h-7.111z"
-			/>
+			<Path fill="#413E51" d="M137.873 132.54h7.111v7.111h-7.111z" />
 			<Path
 				stroke="#413E51"
 				strokeWidth={3.048}
@@ -88,10 +72,7 @@ function FloppyDisk(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Path
-				fill="#413E51"
-				d="M75.397 77.683h4.571v4.571h-4.571z"
-			/>
+			<Path fill="#413E51" d="M75.397 77.683h4.571v4.571h-4.571z" />
 			<Path
 				stroke="#413E51"
 				strokeWidth={3.048}
@@ -99,10 +80,7 @@ function FloppyDisk(props) {
 				strokeLinejoin="round"
 				d="M75.397 77.683h4.571v4.571h-4.571z"
 			/>
-			<Path
-				fill="#413E51"
-				d="M78.608 88.907l9.587-3.362 1.68 4.794-9.586 3.362z"
-			/>
+			<Path fill="#413E51" d="M78.608 88.907l9.587-3.362 1.68 4.794-9.586 3.362z" />
 			<Path
 				stroke="#413E51"
 				strokeWidth={3.048}
@@ -134,18 +112,8 @@ function FloppyDisk(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Circle
-				cx={13.022}
-				cy={41.365}
-				r={4.317}
-				fill="#413E51"
-			/>
-			<Circle
-				cx={140.26}
-				cy={41.365}
-				r={4.317}
-				fill="#413E51"
-			/>
+			<Circle cx={13.022} cy={41.365} r={4.317} fill="#413E51" />
+			<Circle cx={140.26} cy={41.365} r={4.317} fill="#413E51" />
 			<Path
 				d="M124.413 48.73H54.317c-5.028 0-9.142-4.114-9.142-9.143V2h88.381v37.587c0 5.08-4.115 9.143-9.143 9.143z"
 				fill="#514E55"
@@ -191,15 +159,8 @@ function FloppyDisk(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Path
-				fill="#514E55"
-				d="M56.654 7.587h12.191v29.46H56.654z"
-			/>
-			<Path
-				opacity={0.48}
-				fill="#413E51"
-				d="M56.654 7.587h6.806v29.46h-6.806z"
-			/>
+			<Path fill="#514E55" d="M56.654 7.587h12.191v29.46H56.654z" />
+			<Path opacity={0.48} fill="#413E51" d="M56.654 7.587h6.806v29.46h-6.806z" />
 			<Path
 				stroke="#413E51"
 				strokeWidth={3.048}

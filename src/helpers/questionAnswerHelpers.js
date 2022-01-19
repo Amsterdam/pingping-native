@@ -1,6 +1,6 @@
 import sentryHelper from './sentryHelper';
 
-import { questionTypes } from '../config/questionTypes';
+import questionTypes from '../config/questionTypes';
 
 // submits an answer and formats the variables for the mutation in order to save according to correct questiontype
 export const submitAnswer = async (

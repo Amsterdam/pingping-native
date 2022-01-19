@@ -2,13 +2,7 @@ import React from 'react';
 
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {
-	Animated,
-	RefreshControl,
-	StyleSheet,
-	View,
-	ScrollView,
-} from 'react-native';
+import { Animated, RefreshControl, StyleSheet, View, ScrollView } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
 
 import testIDs from '../../e2e/modulesTestIDs';
@@ -89,19 +83,11 @@ function RouteHomeScreen({ navigation }) {
 			<AnimatableView animation="fadeIn">
 				{suggestedRoutes.length > 0 && (
 					<>
-						<Title
-							style={styles.title}
-							variant="h2"
-							align="left"
-						>
+						<Title style={styles.title} variant="h2" align="left">
 							Aanbevolen
 						</Title>
 						{suggestedRoutes.map((route) => (
-							<RouteCard
-								navigation={navigation}
-								route={route}
-								key={route.routeId}
-							/>
+							<RouteCard navigation={navigation} route={route} key={route.routeId} />
 						))}
 					</>
 				)}
@@ -110,11 +96,7 @@ function RouteHomeScreen({ navigation }) {
 					<Title
 						variant="h3"
 						align="left"
-						style={
-							suggestedRoutes.length > 0
-								? styles.subTitle
-								: styles.title
-						}
+						style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}
 					>
 						Andere life events
 					</Title>
@@ -122,11 +104,7 @@ function RouteHomeScreen({ navigation }) {
 					<EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
 
 					{otherRoutes.map((route) => (
-						<RouteCard
-							navigation={navigation}
-							route={route}
-							key={route.routeId}
-						/>
+						<RouteCard navigation={navigation} route={route} key={route.routeId} />
 					))}
 				</>
 			</AnimatableView>
@@ -135,10 +113,7 @@ function RouteHomeScreen({ navigation }) {
 
 	return (
 		<View style={styles.container} testID={testIDs.ROUTES.SCREEN}>
-			<View
-				style={styles.underLayer}
-				testID={testIDs.ROUTES.ANIMATED_VIEW}
-			/>
+			<View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
 			<FocusAwareStatusBar
 				backgroundColor={theme.colors.headerColor}
 				barStyle="light-content"

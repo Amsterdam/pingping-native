@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -32,14 +33,9 @@ function TabNavigator() {
 				component={CityPingsStack}
 				options={{
 					tabBarLabel: routes.citypingsStack.label,
-					tabBarIcon: function tabBarIcon({ color, size }) {
-						return (
-							<CityPingsIcon
-								style={{ fontSize: size }}
-								color={color}
-							/>
-						);
-					},
+					tabBarIcon: ({ color, size }) => (
+						<CityPingsIcon style={{ fontSize: size }} color={color} />
+					),
 				}}
 			/>
 
@@ -48,14 +44,9 @@ function TabNavigator() {
 				component={RouteStack}
 				options={{
 					tabBarLabel: routes.routeStack.label,
-					tabBarIcon: function tabBarIcon({ color, size }) {
-						return (
-							<LifeEventsIcon
-								style={{ fontSize: size }}
-								color={color}
-							/>
-						);
-					},
+					tabBarIcon: ({ color, size }) => (
+						<LifeEventsIcon style={{ fontSize: size }} color={color} />
+					),
 				}}
 			/>
 
@@ -65,14 +56,9 @@ function TabNavigator() {
 				options={{
 					tabBarTestID: testIDs.ACCOUNT.TAB_BUTTON,
 					tabBarLabel: routes.accountStack.label,
-					tabBarIcon: function tabBarIcon({ color, size }) {
-						return (
-							<AccountIcon
-								style={{ fontSize: size }}
-								color={color}
-							/>
-						);
-					},
+					tabBarIcon: ({ color, size }) => (
+						<AccountIcon style={{ fontSize: size }} color={color} />
+					),
 				}}
 			/>
 		</Tab.Navigator>

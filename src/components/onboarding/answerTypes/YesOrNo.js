@@ -6,7 +6,7 @@ import { View } from 'react-native';
 import AnswerTemplate from './AnswerTemplate';
 
 import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
-import Button from "../AnswerButtonOnboarding";
+import Button from '../AnswerButtonOnboarding';
 
 function YesOrNo({
 	currentTask = {},
@@ -17,9 +17,7 @@ function YesOrNo({
 }) {
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(
-			currentTask.choices,
-		)) {
+		for (const [key, value] of Object.entries(currentTask.choices)) {
 			buttonArray.push(
 				<Button
 					label={value}
@@ -32,16 +30,13 @@ function YesOrNo({
 						})
 					}
 					testid={`${key}_BUTTON`.toUpperCase()}
-				/>,
+				/>
 			);
 		}
 		return buttonArray;
 	};
 
-	const nextButtonDisabled = checkDisabled(
-		currentTask,
-		state,
-	);
+	const nextButtonDisabled = checkDisabled(currentTask, state);
 	return (
 		<AnswerTemplate
 			currentTask={currentTask}

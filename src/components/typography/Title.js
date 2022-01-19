@@ -45,12 +45,7 @@ function Title({
 }) {
 	return (
 		<Text
-			style={[
-				styles.base,
-				styles[variant],
-				styles[align],
-				style,
-			]}
+			style={[styles.base, styles[variant], styles[align], style]}
 			numberOfLines={numberOfLines}
 			ellipsizeMode={ellipsizeMode}
 			selectable={selectable}
@@ -68,22 +63,11 @@ Title.propTypes = {
 		PropTypes.number,
 	]).isRequired,
 	align: PropTypes.string,
-	style: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]).isRequired,
+	style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 	numberOfLines: PropTypes.number,
 	ellipsizeMode: PropTypes.string,
 	selectable: PropTypes.bool,
-	variant: PropTypes.oneOf([
-		'h1',
-		'h2',
-		'h3',
-		'h4',
-		'h5',
-		'h6',
-		'h7',
-	]),
+	variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7']),
 };
 
 Title.defaultProps = {
@@ -91,6 +75,7 @@ Title.defaultProps = {
 	align: 'left',
 	style: {},
 	numberOfLines: 0,
+	variant: 'h1',
 	ellipsizeMode: 'tail',
 };
 

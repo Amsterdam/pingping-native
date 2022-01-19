@@ -1,11 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	View,
-	ScrollView,
-} from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
@@ -17,15 +13,11 @@ function AnswerTemplate({
 	currentTask = {},
 }) {
 	return (
-		<ScrollView
-			contentContainerStyle={styles.content}
-		>
+		<ScrollView contentContainerStyle={styles.content}>
 			<Title variant="h2" align="center">
 				{currentTask.title}
 			</Title>
-			<View style={styles.questionContainer}>
-				{children}
-			</View>
+			<View style={styles.questionContainer}>{children}</View>
 			<NextButtonQuestionScreen
 				nextButtonDisabled={nextButtonDisabled}
 				submitAnswer={doUpdateTask}
@@ -45,12 +37,8 @@ const styles = StyleSheet.create({
 AnswerTemplate.propTypes = {
 	nextButtonDisabled: PropTypes.bool.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]).isRequired,
+	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
 };
 
 export default AnswerTemplate;

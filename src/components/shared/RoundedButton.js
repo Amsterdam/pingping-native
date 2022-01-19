@@ -1,13 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	ActivityIndicator,
-	StyleSheet,
-	View,
-	TouchableOpacity,
-	Text,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -21,7 +15,6 @@ function RoundedButton({
 	style = {},
 	loading = false,
 	testid = '',
-	full = false,
 	labelStyle = {},
 }) {
 	return (
@@ -39,17 +32,11 @@ function RoundedButton({
 		>
 			<View style={styles.innerContainer}>
 				{loading ? (
-					<ActivityIndicator
-						color={theme.colors.danger}
-					/>
+					<ActivityIndicator color={theme.colors.danger} />
 				) : (
 					<>
 						{icon && icon}
-						<Text
-							style={[styles.label, labelStyle]}
-						>
-							{label}
-						</Text>
+						<Text style={[styles.label, labelStyle]}>{label}</Text>
 					</>
 				)}
 			</View>
@@ -91,21 +78,10 @@ RoundedButton.propTypes = {
 	onPress: PropTypes.func.isRequired,
 	deleteButton: PropTypes.bool,
 	icon: PropTypes.element,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
 	loading: PropTypes.bool,
 	testid: PropTypes.string,
-	full: PropTypes.bool,
-	labelStyle: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
-	style: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
+	labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 RoundedButton.defaultProps = {
@@ -115,7 +91,6 @@ RoundedButton.defaultProps = {
 	style: {},
 	loading: false,
 	testid: '',
-	full: false,
 	labelStyle: {},
 };
 

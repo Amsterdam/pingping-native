@@ -7,20 +7,14 @@ import CityPingCoin from '../../assets/svg/CityPingCoin';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-function CitypingsChip({
-	value = 0,
-	mini = false,
-}) {
+function CitypingsChip({ value = 0, mini = false }) {
 	if (!value) {
-		return <></>;
+		return false;
 	}
 	return (
 		<View style={styles.cpBalance}>
 			<CityPingCoin style={styles.coin} />
-			<Title
-				style={styles.cpLabel}
-				variant="h6"
-			>{`${value} ${
+			<Title style={styles.cpLabel} variant="h6">{`${value} ${
 				mini ? '' : 'CityPings'
 			}`}</Title>
 		</View>

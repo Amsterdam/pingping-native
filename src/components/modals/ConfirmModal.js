@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { CloseIcon, IconButton } from 'native-base';
 import PropTypes from 'prop-types';
@@ -12,53 +12,33 @@ import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
-function ConfirmModal({
-	open = false,
-	setOpen = () => {},
-	doUpdateConfirmTask = () => {},
-}) {
-	function closeModal() {
+function ConfirmModal({ open = false, setOpen = () => {}, doUpdateConfirmTask = () => {} }) {
+	const closeModal = useCallback(() => {
 		setOpen(false);
-	}
+	}, [setOpen]);
 
 	return (
-		<Modal
-			animationType="fade"
-			transparent
-			visible={open}
-			statusBarTranslucent
-		>
-			<View
-				style={styles.centeredView}
-				testID={testIDs.QUESTION.SKIP_QUESTIONS_MODAL}
-			>
+		<Modal animationType="fade" transparent visible={open} statusBarTranslucent>
+			<View style={styles.centeredView} testID={testIDs.QUESTION.SKIP_QUESTIONS_MODAL}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
 							onPress={closeModal}
 							style={styles.closeButton}
-							icon={
-								<CloseIcon style={styles.icon} size="5" />
-							}
+							icon={<CloseIcon style={styles.icon} size="5" />}
 						/>
-						<Title style={styles.title}>
-							Vragen Overslaan
-						</Title>
+						<Title style={styles.title}>Vragen Overslaan</Title>
 
 						<Body variant="b3" style={styles.body}>
-							Als je er voor kiest om zonder vragen te
-							beantwoorden door te gaan zal de route niet
-							persoonlijk op jou aangepast worden en krijg je
-							de volledige route te zien met alle stappen.
+							Als je er voor kiest om zonder vragen te beantwoorden door te gaan zal
+							de route niet persoonlijk op jou aangepast worden en krijg je de
+							volledige route te zien met alle stappen.
 						</Body>
 						<RoundedButton
 							label="Vragen Overslaan"
 							full
 							onPress={() => doUpdateConfirmTask('no')}
-							testid={
-								testIDs.QUESTION
-									.CONFIRM_SKIP_QUESTIONS_BUTTON
-							}
+							testid={testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON}
 						/>
 					</View>
 				</View>

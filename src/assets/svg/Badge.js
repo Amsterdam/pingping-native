@@ -1,22 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-import Svg, {
-	Circle,
-	ClipPath,
-	Defs,
-	G,
-	Path,
-} from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, Path } from 'react-native-svg';
 
 function Badge(props) {
 	return (
-		<Svg
-			width={30}
-			height={30}
-			viewBox="0 0 30 30"
-			fill="none"
-			{...props}
-		>
+		<Svg width={30} height={30} viewBox="0 0 30 30" fill="none" {...props}>
 			<G clipPath="url(#prefix__clip0)">
 				<Path
 					d="M26.305 26.282l-3.454-.76-1.07 3.38a.293.293 0 01-.534.057l-4.273-7.423a10.61 10.61 0 005.416-3.04l4.232 7.353a.293.293 0 01-.317.433z"
@@ -81,12 +70,7 @@ function Badge(props) {
 					fill="#000"
 				/>
 			</G>
-			<Circle
-				cx={15}
-				cy={11}
-				r={10.5}
-				stroke="#000"
-			/>
+			<Circle cx={15} cy={11} r={10.5} stroke="#000" />
 			<Defs>
 				<ClipPath id="prefix__clip0">
 					<Path fill="#fff" d="M0 0h30v30H0z" />

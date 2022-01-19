@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	Image,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import { BASE_URL } from '../../../config/initialSettings';
 import theme from '../../../config/theme';
@@ -14,45 +10,28 @@ import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
-function Confirm({
-	currentTask = {},
-	doUpdateConfirmTask = () => {},
-}) {
-	const [
-		confirmModalOpen,
-		setConfirmModalOpen,
-	] = useState(false);
+function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
+	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
-	const handleOnPress = answer => {
-		if (
-			currentTask.taskId ===
-				'onboarding.welcome' &&
-			answer === 'no'
-		) {
+	const handleOnPress = (answer) => {
+		if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
 			return setConfirmModalOpen(true);
 		}
-		doUpdateConfirmTask(answer);
+		return doUpdateConfirmTask(answer);
 	};
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(
-			currentTask.choices,
-		)) {
+		for (const [key, value] of Object.entries(currentTask.choices)) {
 			buttonArray.push(
 				<Button
 					label={value}
 					key={key}
-					style={[
-						styles.button,
-						key === 'no' && styles.whiteButton,
-					]}
-					labelStyle={[
-						key === 'no' && styles.label,
-					]}
+					style={[styles.button, key === 'no' && styles.whiteButton]}
+					labelStyle={[key === 'no' && styles.label]}
 					onPress={() => handleOnPress(key)}
 					testid={`${key}_BUTTON`.toUpperCase()}
-				/>,
+				/>
 			);
 		}
 		return buttonArray;
@@ -71,25 +50,15 @@ function Confirm({
 				)}
 			</View>
 			<View>
-				<Title
-					style={styles.title}
-					variant="h2"
-					align="center"
-				>
+				<Title style={styles.title} variant="h2" align="center">
 					{currentTask.title}
 				</Title>
-				<Body
-					variant="b4"
-					align="center"
-					style={styles.onboardingText}
-				>
+				<Body variant="b4" align="center" style={styles.onboardingText}>
 					{currentTask.description}
 				</Body>
 			</View>
 
-			<View style={styles.buttonContainer}>
-				{mapButtons()}
-			</View>
+			<View style={styles.buttonContainer}>{mapButtons()}</View>
 			<ConfirmModal
 				open={confirmModalOpen}
 				setOpen={setConfirmModalOpen}

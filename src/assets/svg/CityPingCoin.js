@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
 import PropTypes from 'prop-types';
@@ -5,13 +6,7 @@ import Svg, { Path } from 'react-native-svg';
 
 function CityPingCoin(props) {
 	return (
-		<Svg
-			width={props.width}
-			height={props.height}
-			viewBox="0 0 16 16"
-			fill="none"
-			{...props}
-		>
+		<Svg width={props.width} height={props.height} viewBox="0 0 16 16" fill="none" {...props}>
 			<Path
 				fillRule="evenodd"
 				clipRule="evenodd"

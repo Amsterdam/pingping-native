@@ -1,17 +1,13 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import CardDisabledOverlay from './CardDisabledOverlay';
 import CitypingsChip from './CitypingsChip';
 import ProgressiveImage from './ProgressiveImage';
 
-import { commonStyles } from '../../config/commonStyles';
+import commonStyles from '../../config/commonStyles';
 import { BASE_URL } from '../../config/initialSettings';
 import theme from '../../config/theme';
 
@@ -27,14 +23,7 @@ function Card({
 	disabledString = '',
 }) {
 	return (
-		<View
-			style={[
-				styles.paper,
-				!disabled && styles.paperShadow,
-				style,
-			]}
-			testID={testID}
-		>
+		<View style={[styles.paper, !disabled && styles.paperShadow, style]} testID={testID}>
 			<TouchableOpacity onPress={onPress}>
 				<View>
 					<View style={styles.imageContainer}>
@@ -49,25 +38,14 @@ function Card({
 							style={styles.image}
 						/>
 						<View style={styles.overlayTop}>
-							<CitypingsChip
-								value={pings}
-								mini={mini}
-							/>
+							<CitypingsChip value={pings} mini={mini} />
 						</View>
 					</View>
-					<View
-						style={styles.descriptionContainer}
-					>
-						{children}
-					</View>
+					<View style={styles.descriptionContainer}>{children}</View>
 				</View>
 			</TouchableOpacity>
 
-			{disabled && (
-				<CardDisabledOverlay
-					disabledString={disabledString}
-				/>
-			)}
+			{disabled && <CardDisabledOverlay disabledString={disabledString} />}
 		</View>
 	);
 }
@@ -113,10 +91,7 @@ Card.propTypes = {
 	disabled: PropTypes.bool,
 	testID: PropTypes.string,
 	disabledString: PropTypes.string,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]).isRequired,
+	children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 	onPress: PropTypes.func.isRequired,
 };
 
@@ -131,7 +106,6 @@ Card.defaultProps = {
 	mini: false,
 	disabled: false,
 	testID: '',
-	mainColor: '',
 	disabledString: '',
 };
 

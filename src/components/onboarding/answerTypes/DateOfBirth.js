@@ -8,11 +8,7 @@ import AnswerTemplate from './AnswerTemplate';
 
 import testIDs from '../../../../e2e/modulesTestIDs';
 import theme from '../../../config/theme';
-import {
-	getDays,
-	getMonths,
-	getYears,
-} from '../../../helpers/birthDayHelper';
+import { getDays, getMonths, getYears } from '../../../helpers/birthDayHelper';
 import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
 
 function DateOfBirth({
@@ -33,16 +29,11 @@ function DateOfBirth({
 			doUpdateTask={doUpdateTask}
 		>
 			<View style={styles.container}>
-				<View
-					style={[
-						styles.pickerContainer,
-						!isIos && styles.pickerAndroid,
-					]}
-				>
+				<View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
 					<Picker
 						testID={testIDs.QUESTION.PICKER_DAY}
 						selectedValue={state.day}
-						onValueChange={(itemValue, itemIndex) =>
+						onValueChange={(itemValue) =>
 							setState({
 								...state,
 								day: itemValue,
@@ -54,16 +45,11 @@ function DateOfBirth({
 					</Picker>
 				</View>
 
-				<View
-					style={[
-						styles.pickerContainer,
-						!isIos && styles.pickerAndroid,
-					]}
-				>
+				<View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
 					<Picker
 						testID={testIDs.QUESTION.PICKER_MONTH}
 						selectedValue={state.month}
-						onValueChange={(itemValue, itemIndex) =>
+						onValueChange={(itemValue) =>
 							setState({
 								...state,
 								month: itemValue,
@@ -72,25 +58,16 @@ function DateOfBirth({
 					>
 						<Picker.Item label="maand" value="" />
 						{getMonths().map((month) => (
-							<Picker.Item
-								label={month.label}
-								value={month.value}
-								key={month}
-							/>
+							<Picker.Item label={month.label} value={month.value} key={month} />
 						))}
 					</Picker>
 				</View>
 
-				<View
-					style={[
-						styles.pickerContainer,
-						!isIos && styles.pickerAndroid,
-					]}
-				>
+				<View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
 					<Picker
 						testID={testIDs.QUESTION.PICKER_YEAR}
 						selectedValue={state.year}
-						onValueChange={(itemValue, itemIndex) =>
+						onValueChange={(itemValue) =>
 							setState({
 								...state,
 								year: itemValue,

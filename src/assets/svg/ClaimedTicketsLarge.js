@@ -1,16 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
 import Svg, { Path } from 'react-native-svg';
 
 function ClaimedTicketsLarge(props) {
 	return (
-		<Svg
-			width={177}
-			height={90}
-			viewBox="0 0 177 90"
-			fill="none"
-			{...props}
-		>
+		<Svg width={177} height={90} viewBox="0 0 177 90" fill="none" {...props}>
 			<Path
 				d="M6.45 33.188h7.72M10.335 29.352v7.72"
 				stroke="#F7931E"
@@ -93,26 +88,14 @@ function ClaimedTicketsLarge(props) {
 				d="M113.804 24.054a7.501 7.501 0 01-10.608-10.608L96.5 6.75l-39 39h51l13.5-13.5-8.196-8.196z"
 				fill="#FFD884"
 			/>
-			<Path
-				d="M57.5 45.75h51l13.5-13.5-55.5 4.5-9 9z"
-				fill="#FFBF41"
-			/>
-			<Path
-				d="M68 44.25l22.5-22.5 16.5 16.5-6 6H68z"
-				fill="#EC7422"
-			/>
-			<Path
-				d="M72.5 44.25l17.9-18 12.1 12.1-5.8 5.9H72.5z"
-				fill="#F6F6E7"
-			/>
+			<Path d="M57.5 45.75h51l13.5-13.5-55.5 4.5-9 9z" fill="#FFBF41" />
+			<Path d="M68 44.25l22.5-22.5 16.5 16.5-6 6H68z" fill="#EC7422" />
+			<Path d="M72.5 44.25l17.9-18 12.1 12.1-5.8 5.9H72.5z" fill="#F6F6E7" />
 			<Path
 				d="M125 63.75a7.5 7.5 0 017.5-7.5v-12h-87v12a7.5 7.5 0 010 15v12h87v-12a7.5 7.5 0 01-7.5-7.5z"
 				fill="#FFD884"
 			/>
-			<Path
-				d="M45.5 83.25h87v-12a7.5 7.5 0 010-15v-12l-87 39z"
-				fill="#FFBF41"
-			/>
+			<Path d="M45.5 83.25h87v-12a7.5 7.5 0 010-15v-12l-87 39z" fill="#FFBF41" />
 			<Path
 				d="M116 48.75h2.999v6H116v-6zM116 57.75h2.999v6H116v-6zM116 66.75h2.999v6H116v-6zM116 75.75h2.999v6H116v-6zM59 44.25h3v6h-3v-6zM59 53.25h3v6h-3v-6zM59 62.25h3v6h-3v-6zM59 71.25h3v6h-3v-6zM59 80.25h3v3h-3v-3z"
 				fill="#fff"
