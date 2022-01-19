@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 
-import {
-	useMutation,
-	useQuery,
-} from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
 import {
@@ -32,24 +29,16 @@ import { YOUTUBE_API_KEY } from '../config/keys';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
-const TaskScreen = ({ navigation, route }) => {
+function TaskScreen({ navigation, route }) {
 	const { task, routeId } = route.params;
-	const [completeTask] = useMutation(
-		COMPLETE_TASK_MUTATION,
-	);
+	const [completeTask] = useMutation(COMPLETE_TASK_MUTATION);
 	const { refetch } = useQuery(GET_ROUTE_QUERY, {
 		variables: { routeId },
 	});
-	const [urlToVisit, setUrlToVisit] = useState(
-		'https://amsterdam.nl',
-	);
-	const [webViewOpen, setWebviewOpen] = useState(
-		false,
-	);
+	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
+	const [webViewOpen, setWebviewOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const [videoReady, setVideoReady] = useState(
-		false,
-	);
+	const [videoReady, setVideoReady] = useState(false);
 	const toast = useToast();
 
 	const doCompleteTask = async () => {
@@ -63,38 +52,31 @@ const TaskScreen = ({ navigation, route }) => {
 			const routeResponse = await refetch();
 			const routeDone =
 				routeResponse?.data?.getRoute?.tasks.filter(
-					routeTask =>
-						routeTask.status !== 'Completed',
+					(routeTask) => routeTask.status !== 'Completed'
 				).length === 0;
 
 			if (routeDone) {
 				setLoading(false);
-				navigation.navigate(
-					routes.citypingsStack.name,
-					{
-						screen:
-							routes.citypingsStack.screens
-								.completedRouteCelebrationModalScreen,
-						params: {
-							pings:
-								routeResponse.data.getRoute
-									.totalPoints,
-						},
-						initial: false,
+				navigation.navigate(routes.citypingsStack.name, {
+					screen: routes.citypingsStack.screens
+						.completedRouteCelebrationModalScreen,
+					params: {
+						pings: routeResponse.data.getRoute.totalPoints,
 					},
-				);
+					initial: false,
+				});
 				return navigation.popToTop();
 			}
 
 			return navigation.goBack();
 		} catch (error) {
-			sentryHelper(error.message);
+			return sentryHelper(error.message);
 		} finally {
 			setLoading(false);
 		}
 	};
 
-	const renderMedia = media => {
+	const renderMedia = (media) => {
 		switch (media.type) {
 			case 'YouTube':
 				return (
@@ -112,10 +94,9 @@ const TaskScreen = ({ navigation, route }) => {
 							apiKey={YOUTUBE_API_KEY}
 							style={[
 								styles.videoContainer,
-								!videoReady &&
-									styles.videoNotReady,
+								!videoReady && styles.videoNotReady,
 							]}
-							onError={error =>
+							onError={(error) =>
 								sentryHelper(error.message)
 							}
 							onReady={() => setVideoReady(true)}
@@ -138,7 +119,7 @@ const TaskScreen = ({ navigation, route }) => {
 					/>
 				);
 			default:
-				break;
+				return <Title>Media could not be loaded</Title>;
 		}
 	};
 
@@ -174,11 +155,7 @@ const TaskScreen = ({ navigation, route }) => {
 				navigation={navigation}
 				title={task.headerTitle}
 			/>
-			<ScrollView
-				contentContainerStyle={
-					styles.contentContainer
-				}
-			>
+			<ScrollView contentContainerStyle={styles.contentContainer}>
 				{task?.media && renderMedia(task.media)}
 				<ContentLayout>
 					<Title variant="h3">{task.title}</Title>
@@ -190,9 +167,7 @@ const TaskScreen = ({ navigation, route }) => {
 				</ContentLayout>
 			</ScrollView>
 			{taskStatus ? (
-				<View
-					style={styles.completedTagLineContainer}
-				>
+				<View style={styles.completedTagLineContainer}>
 					<Title
 						style={styles.completedTagLine}
 						variant="h6"
@@ -203,17 +178,14 @@ const TaskScreen = ({ navigation, route }) => {
 				</View>
 			) : (
 				<View style={styles.buttonContainer}>
-					<React.Fragment>
+					<>
 						<Button
 							style={styles.buttonHelp}
 							label="Hulp nodig?"
 							onPress={needHelp}
 						/>
-						<Button
-							label="Gelukt!"
-							onPress={doCompleteTask}
-						/>
-					</React.Fragment>
+						<Button label="Gelukt!" onPress={doCompleteTask} />
+					</>
 				</View>
 			)}
 			{loading && <Loading />}
@@ -224,7 +196,7 @@ const TaskScreen = ({ navigation, route }) => {
 			/>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	contentContainer: {
@@ -252,9 +224,7 @@ const styles = StyleSheet.create({
 		height: 200,
 	},
 	buttonContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		marginTop: theme.spacing.m,
 		marginBottom: theme.spacing.m,
 		flexDirection: 'row',

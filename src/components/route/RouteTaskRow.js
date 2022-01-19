@@ -15,13 +15,13 @@ import Title from '../typography/Title';
 
 const CIRCLE_RADIUS = 30;
 
-const RouteTaskRow = ({
+function RouteTaskRow({
 	task: { task, status },
 	index,
 	navigation,
 	routeId,
 	tasksToDo,
-}) => {
+}) {
 	const isCompleted = status === 'Completed';
 	const isCurrentTask =
 		tasksToDo.length > 0 &&
@@ -79,7 +79,7 @@ const RouteTaskRow = ({
 			</View>
 		</TouchableOpacity>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

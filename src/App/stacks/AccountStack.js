@@ -11,8 +11,8 @@ import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 
 const Stack = createStackNavigator();
 
-const AccountStack = () => (
-	<Stack.Navigator
+function AccountStack() {
+  return <Stack.Navigator
 		initialRouteName={
 			routes.accountStack.screens.homeScreen
 		}
@@ -46,6 +46,6 @@ const AccountStack = () => (
 			component={ExportDataScreen}
 		/>
 	</Stack.Navigator>
-);
+}
 
 export default AccountStack;

@@ -1,18 +1,11 @@
-import React, {
-	useEffect,
-	useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	ScrollView,
-	View,
-} from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 
-import { testIDs } from '../../e2e/modulesTestIDs';
+import testIDs from '../../e2e/modulesTestIDs';
 import REGISTER_DEVICE_MUTATION from '../apollo/Mutation/registerDeviceMutation';
 import routes from '../App/stacks/routes';
 import FloppyDisk from '../assets/svg/FloppyDisk';
@@ -32,11 +25,11 @@ import sentryHelper from '../helpers/sentryHelper';
 // therefore we configure it based on if the user has accepted the privacy policy
 // we need to set the color accordingly
 
-const PrivacyPolicyScreen = ({ navigation }) => {
+function PrivacyPolicyScreen({ navigation }) {
 	useEffect(() => {
 		async function policyCheck() {
 			const acceptedPolicy = await AsyncStorage.getItem(
-				'@acceptedPolicy',
+				'@acceptedPolicy'
 			);
 			setPolicy(acceptedPolicy);
 		}
@@ -44,12 +37,8 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 	}, []);
 
 	const [open, setOpen] = useState(false);
-	const [policyAccepted, setPolicy] = useState(
-		false,
-	);
-	const [registerDevice] = useMutation(
-		REGISTER_DEVICE_MUTATION,
-	);
+	const [policyAccepted, setPolicy] = useState(false);
+	const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 	const [loading, setLoading] = useState(false);
 
 	const toggleOpen = () => {
@@ -62,16 +51,13 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 			await doRegisterDevice(registerDevice);
 			await AsyncStorage.setItem(
 				'@acceptedPolicy',
-				JSON.stringify(true),
+				JSON.stringify(true)
 			);
-			const token = await AsyncStorage.getItem(
-				'@access_token',
-			);
+			const token = await AsyncStorage.getItem('@access_token');
 			if (token) {
 				setLoading(false);
 				navigation.navigate(
-					routes.onboardingStack.screens
-						.questionScreen,
+					routes.onboardingStack.screens.questionScreen
 				);
 			}
 		} catch (error) {
@@ -89,16 +75,11 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 			}
 		>
 			{policyAccepted ? (
-				<FilledHeader
-					navigation={navigation}
-					title="Privacy"
-				/>
+				<FilledHeader navigation={navigation} title="Privacy" />
 			) : (
 				<Header title="Privacy" color="light" />
 			)}
-			<ScrollView
-				contentContainerStyle={styles.content}
-			>
+			<ScrollView contentContainerStyle={styles.content}>
 				<View style={styles.viewContainer}>
 					<View>
 						<FloppyDisk />
@@ -116,10 +97,9 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 							style={styles.onboardingText}
 							align="center"
 						>
-							Om Ping Ping optimaal te laten
-							functioneren verzamelen wij
-							informatie. Klik hieronder om meer
-							hierover te lezen. Wij slaan zo min
+							Om Ping Ping optimaal te laten functioneren
+							verzamelen wij informatie. Klik hieronder om
+							meer hierover te lezen. Wij slaan zo min
 							mogelijk informatie op.
 						</Body>
 					</View>
@@ -131,8 +111,7 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 						<View style={styles.buttonContainer}>
 							<Button
 								testid={
-									testIDs.PRIVACY
-										.PRIVACY_ACCEPT_BUTTON
+									testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON
 								}
 								onPress={doAcceptPolicy}
 								label="Accepteren"
@@ -144,7 +123,7 @@ const PrivacyPolicyScreen = ({ navigation }) => {
 			{loading && <Loading />}
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	viewContainer: {

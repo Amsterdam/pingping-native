@@ -9,10 +9,10 @@ import {
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const AccountBlockButton = ({
+function AccountBlockButton({
 	button,
 	navigation,
-}) => {
+}) {
 	return (
 		<TouchableOpacity
 			testID={button.testID}
@@ -27,7 +27,7 @@ const AccountBlockButton = ({
 			</Title>
 		</TouchableOpacity>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	accountMainButton: {

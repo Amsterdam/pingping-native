@@ -9,9 +9,9 @@ import {
 
 import Body from '../typography/Body';
 
-const ChevronButton = ({
+function ChevronButton({
 	onPress = () => {},
-}) => {
+}) {
 	return (
 		<TouchableOpacity
 			style={styles.rowFlex}
@@ -21,7 +21,7 @@ const ChevronButton = ({
 			<ChevronRightIcon size="4" />
 		</TouchableOpacity>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	rowFlex: {

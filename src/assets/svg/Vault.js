@@ -1,16 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
 import Svg, { G, Path } from 'react-native-svg';
 
 function Vault(props) {
 	return (
-		<Svg
-			width={375}
-			height={225}
-			viewBox="0 0 375 225"
-			fill="none"
-			{...props}
-		>
+		<Svg width={375} height={225} viewBox="0 0 375 225" fill="none" {...props}>
 			<Path
 				d="M183.734 230c39.065 0 70.733-4.01 70.733-8.958 0-4.947-31.668-8.957-70.733-8.957-39.065 0-70.734 4.01-70.734 8.957 0 4.948 31.669 8.958 70.734 8.958z"
 				fill="#212552"
@@ -143,10 +138,7 @@ function Vault(props) {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<Path
-				d="M206.9 176.873h-6.178l2.409 8.793 1.127 2.944 2.642-11.737z"
-				fill="#A78B75"
-			/>
+			<Path d="M206.9 176.873h-6.178l2.409 8.793 1.127 2.944 2.642-11.737z" fill="#A78B75" />
 			<Path
 				d="M199.11 190.463h-12.887c-2.399 0-3.87-1.99-3.289-4.254l1.896-7.651c.31-1.327 1.896-2.303 3.522-2.303h8.707c1.625 0 3.173.976 3.522 2.303l1.896 7.651c.503 2.225-.967 4.254-3.367 4.254z"
 				fill="#FFE07D"

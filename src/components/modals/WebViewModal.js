@@ -13,11 +13,11 @@ import WebView from 'react-native-webview';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const WebViewModal = ({
+function WebViewModal({
 	closeModal,
 	urlToVisit,
 	webViewOpen,
-}) => {
+}) {
 	const [loading, setLoading] = useState(false);
 
 	const handleWebViewNavigationStateChange = newNavState => {
@@ -27,7 +27,7 @@ const WebViewModal = ({
 	return (
 		<Modal
 			animationType="slide"
-			transparent={true}
+			transparent
 			visible={webViewOpen}
 			statusBarTranslucent
 			onRequestClose={closeModal}
@@ -60,7 +60,7 @@ const WebViewModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {

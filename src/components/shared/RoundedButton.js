@@ -1,18 +1,12 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	ActivityIndicator,
-	StyleSheet,
-	View,
-	TouchableOpacity,
-	Text,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
-const RoundedButton = ({
+function RoundedButton({
 	label = '',
 	disabled = false,
 	onPress = () => {},
@@ -21,9 +15,8 @@ const RoundedButton = ({
 	style = {},
 	loading = false,
 	testid = '',
-	full = false,
 	labelStyle = {},
-}) => {
+}) {
 	return (
 		<TouchableOpacity
 			style={[
@@ -39,23 +32,17 @@ const RoundedButton = ({
 		>
 			<View style={styles.innerContainer}>
 				{loading ? (
-					<ActivityIndicator
-						color={theme.colors.danger}
-					/>
+					<ActivityIndicator color={theme.colors.danger} />
 				) : (
-					<React.Fragment>
+					<>
 						{icon && icon}
-						<Text
-							style={[styles.label, labelStyle]}
-						>
-							{label}
-						</Text>
-					</React.Fragment>
+						<Text style={[styles.label, labelStyle]}>{label}</Text>
+					</>
 				)}
 			</View>
 		</TouchableOpacity>
 	);
-};
+}
 
 const buttonBase = {
 	backgroundColor: theme.colors.primary,
@@ -91,21 +78,10 @@ RoundedButton.propTypes = {
 	onPress: PropTypes.func.isRequired,
 	deleteButton: PropTypes.bool,
 	icon: PropTypes.element,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
 	loading: PropTypes.bool,
 	testid: PropTypes.string,
-	full: PropTypes.bool,
-	labelStyle: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
-	style: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
+	labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 RoundedButton.defaultProps = {
@@ -115,7 +91,6 @@ RoundedButton.defaultProps = {
 	style: {},
 	loading: false,
 	testid: '',
-	full: false,
 	labelStyle: {},
 };
 

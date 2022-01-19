@@ -13,16 +13,16 @@ import theme from '../../config/theme';
 import Loading from '../shared/LoadingComponent';
 import Button from '../shared/RoundedButton';
 
-const QrScanner = ({
+function QrScanner({
 	onSuccess,
 	scanning,
 	setScanning,
 	loading,
-}) => {
+}) {
 	return (
 		<View style={styles.mainContainer}>
 			{scanning ? (
-				<React.Fragment>
+				<>
 					<QRCodeScanner
 						onRead={onSuccess}
 						flashMode={
@@ -37,17 +37,17 @@ const QrScanner = ({
 						}}
 					/>
 					{loading && <Loading />}
-				</React.Fragment>
+				</>
 			) : (
 				<Button
-					full={true}
+					full
 					onPress={() => setScanning(true)}
 					label="Opnieuw scannen"
 				/>
 			)}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	mainContainer: {

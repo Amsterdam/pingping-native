@@ -15,7 +15,7 @@ import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 
-const TipScreen = ({ navigation, route }) => {
+function TipScreen({ navigation, route }) {
 	const { tips } = route.params;
 	return (
 		<Container>
@@ -55,7 +55,7 @@ const TipScreen = ({ navigation, route }) => {
 			</ContentLayout>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	content: {

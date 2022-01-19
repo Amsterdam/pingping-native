@@ -6,7 +6,7 @@ import { View as AnimatableView } from 'react-native-animatable';
 import Trophy from '../../assets/svg/Trohpy';
 import ProgressBar from '../shared/ProgressBar';
 
-const TrophyOrProgress = ({ progress }) => {
+function TrophyOrProgress({ progress }) {
 	if (progress === 1) {
 		return (
 			<AnimatableView
@@ -18,7 +18,7 @@ const TrophyOrProgress = ({ progress }) => {
 		);
 	}
 	return <ProgressBar progress={progress} />;
-};
+}
 
 TrophyOrProgress.propTypes = {
 	progress: PropTypes.number,

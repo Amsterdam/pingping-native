@@ -6,20 +6,18 @@ import { View } from 'react-native';
 import AnswerTemplate from './AnswerTemplate';
 
 import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
-import Button from '../../onboarding/AnswerButtonOnboarding';
+import Button from '../AnswerButtonOnboarding';
 
-const YesOrNo = ({
+function YesOrNo({
 	currentTask = {},
 	doRevertTask = () => {},
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
-}) => {
+}) {
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(
-			currentTask.choices,
-		)) {
+		Object.entries(currentTask.choices).forEach(([key, value]) => {
 			buttonArray.push(
 				<Button
 					label={value}
@@ -32,16 +30,13 @@ const YesOrNo = ({
 						})
 					}
 					testid={`${key}_BUTTON`.toUpperCase()}
-				/>,
+				/>
 			);
-		}
+		});
 		return buttonArray;
 	};
 
-	const nextButtonDisabled = checkDisabled(
-		currentTask,
-		state,
-	);
+	const nextButtonDisabled = checkDisabled(currentTask, state);
 	return (
 		<AnswerTemplate
 			currentTask={currentTask}
@@ -52,7 +47,7 @@ const YesOrNo = ({
 			<View>{mapButtons()}</View>
 		</AnswerTemplate>
 	);
-};
+}
 
 YesOrNo.propTypes = {
 	currentTask: PropTypes.object.isRequired,

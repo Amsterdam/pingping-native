@@ -11,7 +11,7 @@ import LightBulb from '../../assets/svg/icons/LightBulb';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const TipsChip = ({ navigation, tips }) => {
+function TipsChip({ navigation, tips }) {
 	return (
 		<TouchableOpacity
 			style={styles.container}
@@ -30,7 +30,7 @@ const TipsChip = ({ navigation, tips }) => {
 			</Title>
 		</TouchableOpacity>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

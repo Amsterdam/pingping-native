@@ -4,15 +4,9 @@ import { Picker } from '@react-native-picker/picker';
 
 export function getDays() {
 	const days = [];
-	for (let index = 1; index < 32; index++) {
+	for (let index = 1; index < 32; index += 1) {
 		const value = index.toString();
-		days.push(
-			<Picker.Item
-				label={value}
-				value={value}
-				key={value}
-			/>,
-		);
+		days.push(<Picker.Item label={value} value={value} key={value} />);
 	}
 	return days;
 }
@@ -37,15 +31,9 @@ export function getMonths() {
 
 export function getYears() {
 	const years = [];
-	for (let index = 1994; index < 2020; index++) {
+	for (let index = 1994; index < 2020; index += 1) {
 		const value = index.toString();
-		years.push(
-			<Picker.Item
-				label={value}
-				value={value}
-				key={value}
-			/>,
-		);
+		years.push(<Picker.Item label={value} value={value} key={value} />);
 	}
 	return years;
 }

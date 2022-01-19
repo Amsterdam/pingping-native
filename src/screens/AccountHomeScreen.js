@@ -1,12 +1,9 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	FlatList,
-	StyleSheet,
-} from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
-import { testIDs } from '../../e2e/modulesTestIDs';
+import testIDs from '../../e2e/modulesTestIDs';
 import routes from '../App/stacks/routes';
 import Export from '../assets/svg/Export';
 import Lock from '../assets/svg/Lock';
@@ -17,32 +14,25 @@ import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 
-const AccountHomeScreen = ({ navigation }) => {
+function AccountHomeScreen({ navigation }) {
 	const buttons = [
 		{
 			title: 'Exporteer gegevens',
 			image: <Export style={styles.image} />,
-			route:
-				routes.accountStack.screens
-					.exportDataScreen,
+			route: routes.accountStack.screens.exportDataScreen,
 			testID: testIDs.ACCOUNT.EXPORT_DATA_BUTTON,
 		},
 		{
 			title: 'Privacy',
 			image: <Lock style={styles.image} />,
-			route:
-				routes.accountStack.screens
-					.privacyPolicyScreen,
+			route: routes.accountStack.screens.privacyPolicyScreen,
 			testID: testIDs.ACCOUNT.VIEW_PRIVACY_BUTTON,
 		},
 		{
 			title: 'Verwijder gegevens',
 			image: <Trashcan style={styles.image} />,
-			route:
-				routes.accountStack.screens
-					.deleteDataScreen,
-			testID:
-				testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
+			route: routes.accountStack.screens.deleteDataScreen,
+			testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
 		},
 	];
 	return (
@@ -52,17 +42,11 @@ const AccountHomeScreen = ({ navigation }) => {
 			statusBarColor={theme.colors.almostNotBlue}
 		>
 			<FocusAwareStatusBar
-				backgroundColor={
-					theme.colors.almostNotBlue
-				}
+				backgroundColor={theme.colors.almostNotBlue}
 				barStyle="dark-content"
 			/>
 
-			<Title
-				variant="h4"
-				align="center"
-				style={styles.title}
-			>
+			<Title variant="h4" align="center" style={styles.title}>
 				GEGEVENS
 			</Title>
 
@@ -77,11 +61,11 @@ const AccountHomeScreen = ({ navigation }) => {
 					/>
 				)}
 				numColumns={2}
-				keyExtractor={item => item.title}
+				keyExtractor={(item) => item.title}
 			/>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	flatListColumn: {

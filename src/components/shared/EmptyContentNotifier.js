@@ -6,7 +6,7 @@ import { StyleSheet, View } from 'react-native';
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 
-const EmptyContentNotifier = ({ text }) => {
+function EmptyContentNotifier({ text }) {
 	return (
 		<View style={styles.container}>
 			<Body variant="b3" style={styles.text}>
@@ -14,7 +14,7 @@ const EmptyContentNotifier = ({ text }) => {
 			</Body>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

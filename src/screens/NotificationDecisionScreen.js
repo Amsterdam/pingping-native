@@ -1,11 +1,10 @@
 import React from 'react';
 
 import { useMutation } from '@apollo/client';
-import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 import { Notifications } from 'react-native-notifications';
 
-import { testIDs } from '../../e2e/modulesTestIDs';
+import testIDs from '../../e2e/modulesTestIDs';
 import REGISTER_NOTIFICATIONS_MUTATION from '../apollo/Mutation/registerNotificationsMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import Bell from '../assets/svg/Bell';
@@ -20,21 +19,18 @@ import { USER_STATES } from '../config/types';
 import sentryHelper from '../helpers/sentryHelper';
 import useAppContext from '../hooks/useAppContext';
 
-const NotificationDecisionScreen = () => {
+function NotificationDecisionScreen() {
 	const [registerNotifications] = useMutation(
-		REGISTER_NOTIFICATIONS_MUTATION,
+		REGISTER_NOTIFICATIONS_MUTATION
 	);
 	const { setUserState } = useAppContext();
 
 	const acceptNotifications = async () => {
 		Notifications.registerRemoteNotifications();
 		Notifications.events().registerRemoteNotificationsRegistered(
-			async event => {
-				await doRegister(
-					'Approved',
-					event.deviceToken,
-				);
-			},
+			async (event) => {
+				await doRegister('Approved', event.deviceToken);
+			}
 		);
 	};
 
@@ -70,9 +66,7 @@ const NotificationDecisionScreen = () => {
 				right={
 					<TextButton
 						onPress={declineNotifications}
-						testID={
-							testIDs.NOTIFICATON.SKIP_BUTTON
-						}
+						testID={testIDs.NOTIFICATON.SKIP_BUTTON}
 						label="OVERSLAAN"
 					/>
 				}
@@ -95,25 +89,23 @@ const NotificationDecisionScreen = () => {
 						style={styles.onboardingText}
 						align="center"
 					>
-						Wil je een berichtje krijgen voor een
-						actie die je nog moet doen of als er
-						een nieuwe route is toegevoegd?
+						Wil je een berichtje krijgen voor een actie die je
+						nog moet doen of als er een nieuwe route is
+						toegevoegd?
 					</Body>
 				</View>
 				<View>
 					<Button
 						style={styles.button}
 						onPress={acceptNotifications}
-						testid={
-							testIDs.NOTIFICATON.ACCEPT_BUTTON
-						}
+						testid={testIDs.NOTIFICATON.ACCEPT_BUTTON}
 						label="ACCEPTEREN"
 					/>
 				</View>
 			</View>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	viewContainer: {
@@ -135,9 +127,5 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.primary,
 	},
 });
-
-NotificationDecisionScreen.propTypes = {
-	navigation: PropTypes.object.isRequired,
-};
 
 export default NotificationDecisionScreen;

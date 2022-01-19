@@ -15,28 +15,23 @@ const isIos = Platform.OS === 'ios';
  * initialnotifications (notifications that are received when the application is in a killed state) are handled
  * in the linking object of react-native-navigation
  */
-const PushNotificationService = () => {
+function PushNotificationService() {
 	const [registerNotifications] = useMutation(
-		REGISTER_NOTIFICATIONS_MUTATION,
+		REGISTER_NOTIFICATIONS_MUTATION
 	);
 
 	useEffect(() => {
 		Notifications.registerRemoteNotifications();
 		Notifications.events().registerRemoteNotificationsRegistered(
-			async event => {
-				await registerClientToken(
-					event.deviceToken,
-				);
-			},
+			async (event) => {
+				await registerClientToken(event.deviceToken);
+			}
 		);
 		registerNotificationEvents();
 		if (isIos) {
 			Notifications.ios.setBadgeCount(0);
 		}
-	}, [
-		registerNotificationEvents,
-		registerClientToken,
-	]);
+	}, [registerNotificationEvents, registerClientToken]);
 
 	const registerNotificationEvents = useCallback(async () => {
 		/**
@@ -52,7 +47,7 @@ const PushNotificationService = () => {
 					sound: true,
 					badge: false,
 				});
-			},
+			}
 		);
 
 		/**
@@ -62,17 +57,15 @@ const PushNotificationService = () => {
 		Notifications.events().registerNotificationOpened(
 			(notification, completion) => {
 				if (notification?.payload?.type) {
-					notificationHandler(
-						notification.payload,
-					);
+					notificationHandler(notification.payload);
 				}
 				completion();
-			},
+			}
 		);
 	}, []);
 
 	const registerClientToken = useCallback(
-		async token => {
+		async (token) => {
 			try {
 				await registerNotifications({
 					variables: {
@@ -86,10 +79,10 @@ const PushNotificationService = () => {
 				sentryHelper(error.message);
 			}
 		},
-		[registerNotifications],
+		[registerNotifications]
 	);
 
 	return null;
-};
+}
 
 export default PushNotificationService;

@@ -2,33 +2,18 @@ import React from 'react';
 
 import { Box } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	StatusBar,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const Header = ({
-	title = '',
-	left,
-	right,
-	color = 'light',
-}) => {
+function Header({ title = '', left, right, color = 'light' }) {
 	return (
 		<Box>
 			<View style={styles.header}>
 				<StatusBar
-					barStyle={
-						color === 'light'
-							? 'dark-content'
-							: 'light-content'
-					}
-					backgroundColor={
-						theme.colors.background
-					}
+					barStyle={color === 'light' ? 'dark-content' : 'light-content'}
+					backgroundColor={theme.colors.background}
 				/>
 				<View style={styles.left}>{left}</View>
 
@@ -51,7 +36,7 @@ const Header = ({
 			</View>
 		</Box>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	header: {
@@ -75,6 +60,13 @@ Header.propTypes = {
 	left: PropTypes.element,
 	right: PropTypes.element,
 	color: PropTypes.string,
+};
+
+Header.defaultProps = {
+	title: '',
+	left: null,
+	right: null,
+	color: 'light',
 };
 
 export default Header;

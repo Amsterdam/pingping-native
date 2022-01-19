@@ -10,27 +10,14 @@ import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const OnboardingItem = ({
-	view,
-	buttonAction,
-	isLastItem,
-	navigation,
-}) => {
+function OnboardingItem({ view, buttonAction, isLastItem, navigation }) {
 	const navigator = async () => {
 		if (isLastItem) {
-			const acceptedPolicy = await AsyncStorage.getItem(
-				'@acceptedPolicy',
-			);
+			const acceptedPolicy = await AsyncStorage.getItem('@acceptedPolicy');
 			if (acceptedPolicy) {
-				return navigation.navigate(
-					routes.onboardingStack.screens
-						.questionScreen,
-				);
+				return navigation.navigate(routes.onboardingStack.screens.questionScreen);
 			}
-			return navigation.navigate(
-				routes.onboardingStack.screens
-					.privacyPolicyScreen,
-			);
+			return navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen);
 		}
 		return buttonAction.scrollBy(1);
 	};
@@ -39,18 +26,10 @@ const OnboardingItem = ({
 		<View style={styles.viewContainer}>
 			<View>{view.svg}</View>
 			<View>
-				<Title
-					style={styles.title}
-					variant="h2"
-					align="center"
-				>
+				<Title style={styles.title} variant="h2" align="center">
 					{view.title}
 				</Title>
-				<Body
-					variant="b3"
-					align="center"
-					style={styles.onboardingText}
-				>
+				<Body variant="b3" align="center" style={styles.onboardingText}>
 					{view.text}
 				</Body>
 			</View>
@@ -64,7 +43,7 @@ const OnboardingItem = ({
 			</View>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	viewContainer: {
@@ -90,6 +69,10 @@ OnboardingItem.propTypes = {
 	buttonAction: PropTypes.object,
 	isLastItem: PropTypes.bool.isRequired,
 	navigation: PropTypes.object.isRequired,
+};
+
+OnboardingItem.defaultProps = {
+	buttonAction: () => {},
 };
 
 export default OnboardingItem;

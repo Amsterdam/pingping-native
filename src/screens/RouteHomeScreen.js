@@ -2,16 +2,10 @@ import React from 'react';
 
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {
-	Animated,
-	RefreshControl,
-	StyleSheet,
-	View,
-	ScrollView,
-} from 'react-native';
+import { Animated, RefreshControl, StyleSheet, View, ScrollView } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
 
-import { testIDs } from '../../e2e/modulesTestIDs';
+import testIDs from '../../e2e/modulesTestIDs';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import ContentLayout from '../components/layout/ContentLayout';
 import RouteCard from '../components/route/RouteCard';
@@ -25,14 +19,11 @@ import { ERROR_TYPES } from '../config/types';
 
 const HEADER_HEIGHT = 200;
 
-const RouteHomeScreen = ({ navigation }) => {
+function RouteHomeScreen({ navigation }) {
 	React.useEffect(() => {
-		const unsubscribe = navigation.addListener(
-			'focus',
-			() => {
-				refetch();
-			},
-		);
+		const unsubscribe = navigation.addListener('focus', () => {
+			refetch();
+		});
 		return unsubscribe;
 	}, [navigation, refetch]);
 
@@ -42,17 +33,11 @@ const RouteHomeScreen = ({ navigation }) => {
 		outputRange: [0, -HEADER_HEIGHT],
 	});
 
-	const { data, error, refetch } = useQuery(
-		GET_ROUTES,
-		{
-			fetchPolicy: 'cache-and-network',
-		},
-	);
+	const { data, error, refetch } = useQuery(GET_ROUTES, {
+		fetchPolicy: 'cache-and-network',
+	});
 
-	const [
-		refreshing,
-		setRefreshing,
-	] = React.useState(false);
+	const [refreshing, setRefreshing] = React.useState(false);
 
 	if (error) {
 		return (
@@ -83,11 +68,8 @@ const RouteHomeScreen = ({ navigation }) => {
 
 		const suggestedRoutes = [];
 		const otherRoutes = [];
-		const mergedRoutes = [
-			...availableRoutes,
-			...currentRoutes,
-		];
-		mergedRoutes.forEach(route => {
+		const mergedRoutes = [...availableRoutes, ...currentRoutes];
+		mergedRoutes.forEach((route) => {
 			if (route.isSuggested) {
 				return suggestedRoutes.push(route);
 			}
@@ -100,60 +82,38 @@ const RouteHomeScreen = ({ navigation }) => {
 		return (
 			<AnimatableView animation="fadeIn">
 				{suggestedRoutes.length > 0 && (
-					<React.Fragment>
-						<Title
-							style={styles.title}
-							variant="h2"
-							align="left"
-						>
+					<>
+						<Title style={styles.title} variant="h2" align="left">
 							Aanbevolen
 						</Title>
-						{suggestedRoutes.map(route => (
-							<RouteCard
-								navigation={navigation}
-								route={route}
-								key={route.routeId}
-							/>
+						{suggestedRoutes.map((route) => (
+							<RouteCard navigation={navigation} route={route} key={route.routeId} />
 						))}
-					</React.Fragment>
+					</>
 				)}
 
-				<React.Fragment>
+				<>
 					<Title
 						variant="h3"
 						align="left"
-						style={
-							suggestedRoutes.length > 0
-								? styles.subTitle
-								: styles.title
-						}
+						style={suggestedRoutes.length > 0 ? styles.subTitle : styles.title}
 					>
 						Andere life events
 					</Title>
 
 					<EmptyContentNotifier text="In de toekomst krijg je een notificatie wanneer een nieuwe route beschikbaar is." />
 
-					{otherRoutes.map(route => (
-						<RouteCard
-							navigation={navigation}
-							route={route}
-							key={route.routeId}
-						/>
+					{otherRoutes.map((route) => (
+						<RouteCard navigation={navigation} route={route} key={route.routeId} />
 					))}
-				</React.Fragment>
+				</>
 			</AnimatableView>
 		);
 	};
 
 	return (
-		<View
-			style={styles.container}
-			testID={testIDs.ROUTES.SCREEN}
-		>
-			<View
-				style={styles.underLayer}
-				testID={testIDs.ROUTES.ANIMATED_VIEW}
-			/>
+		<View style={styles.container} testID={testIDs.ROUTES.SCREEN}>
+			<View style={styles.underLayer} testID={testIDs.ROUTES.ANIMATED_VIEW} />
 			<FocusAwareStatusBar
 				backgroundColor={theme.colors.headerColor}
 				barStyle="light-content"
@@ -162,18 +122,14 @@ const RouteHomeScreen = ({ navigation }) => {
 				style={[
 					styles.header,
 					{
-						transform: [
-							{ translateY: translateY },
-						],
+						transform: [{ translateY }],
 					},
 				]}
 			/>
 
 			<ScrollView
-				onScroll={e => {
-					scrollY.setValue(
-						e.nativeEvent.contentOffset.y,
-					);
+				onScroll={(e) => {
+					scrollY.setValue(e.nativeEvent.contentOffset.y);
 				}}
 				scrollEventThrottle={16}
 				contentContainerStyle={styles.content}
@@ -183,8 +139,7 @@ const RouteHomeScreen = ({ navigation }) => {
 						onRefresh={onRefresh}
 						tintColor={theme.colors.primary}
 						style={{
-							backgroundColor:
-								theme.colors.headerColor,
+							backgroundColor: theme.colors.headerColor,
 						}}
 					/>
 				}
@@ -202,7 +157,7 @@ const RouteHomeScreen = ({ navigation }) => {
 			</ScrollView>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

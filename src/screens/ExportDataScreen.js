@@ -21,7 +21,7 @@ import theme from '../config/theme';
 import { USER_STATES } from '../config/types';
 import useAppContext from '../hooks/useAppContext';
 
-const ExportDataScreen = ({ navigation }) => {
+function ExportDataScreen({ navigation }) {
 	const { data, error } = useQuery(
 		GET_STATUS_QUERY,
 		{
@@ -85,7 +85,7 @@ const ExportDataScreen = ({ navigation }) => {
 			</ScrollView>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	margin: {

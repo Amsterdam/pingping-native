@@ -12,8 +12,8 @@ import QuestionScreen from '../../screens/QuestionScreen';
 
 const Stack = createStackNavigator();
 
-const OnboardingStack = () => (
-	<Stack.Navigator
+function OnboardingStack() {
+  return <Stack.Navigator
 		initialRouteName={
 			routes.onboardingStack.screens.homeScreen
 		}
@@ -54,6 +54,6 @@ const OnboardingStack = () => (
 			component={NotificationDecisionScreen}
 		/>
 	</Stack.Navigator>
-);
+}
 
 export default OnboardingStack;

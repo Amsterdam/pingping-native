@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
 
 /* eslint-enable react-native/no-unused-styles */
 
-const Body = ({
+function Body({
 	children = [],
 	style = {},
 	numberOfLines = 0,
 	ellipsizeMode = '',
 	variant = 'b1',
 	align,
-}) => {
+}) {
 	return (
 		<Text
 			style={[
@@ -53,7 +53,7 @@ const Body = ({
 			{children}
 		</Text>
 	);
-};
+}
 
 Body.propTypes = {
 	children: PropTypes.oneOfType([

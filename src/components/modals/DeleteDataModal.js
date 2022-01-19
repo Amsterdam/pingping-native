@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-import {
-	CloseIcon,
-	IconButton,
-} from 'native-base';
+import { CloseIcon, IconButton } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	Modal,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Modal, StyleSheet, View } from 'react-native';
 
-import { testIDs } from '../../../e2e/modulesTestIDs';
+import testIDs from '../../../e2e/modulesTestIDs';
 import TrashIcon from '../../assets/svg/icons/TrashIcon';
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -19,20 +12,20 @@ import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const DeleteDataModal = ({
+function DeleteDataModal({
 	open = false,
 	setOpen = () => {},
 	doDeleteUser = () => {},
 	loading = false,
-}) => {
-	function closeModal() {
+}) {
+	const closeModal = useCallback(() => {
 		setOpen(false);
-	}
+	}, [setOpen]);
 
 	return (
 		<Modal
 			animationType="fade"
-			transparent={true}
+			transparent
 			visible={open}
 			statusBarTranslucent
 		>
@@ -46,24 +39,17 @@ const DeleteDataModal = ({
 							onPress={closeModal}
 							style={styles.closeButton}
 							icon={
-								<CloseIcon
-									style={styles.icon}
-									size="5"
-								/>
+								<CloseIcon style={styles.icon} size="5" />
 							}
 						/>
 						<Title style={styles.title}>
 							Gegevens Verwijderen
 						</Title>
-						<Body
-							variant="b3"
-							style={styles.body}
-						>
-							Weet je zeker dat je jouw gegevens
-							wilt verwijderen? Wanneer je de
-							gegevens hebt verwijdered is er geen
-							mogelijkheid meer om deze terug te
-							halen..
+						<Body variant="b3" style={styles.body}>
+							Weet je zeker dat je jouw gegevens wilt
+							verwijderen? Wanneer je de gegevens hebt
+							verwijdered is er geen mogelijkheid meer om
+							deze terug te halen..
 						</Body>
 						<View>
 							<RoundedButton
@@ -102,7 +88,7 @@ const DeleteDataModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {
@@ -159,7 +145,6 @@ const styles = StyleSheet.create({
 });
 
 DeleteDataModal.propTypes = {
-	navigation: PropTypes.object.isRequired,
 	open: PropTypes.bool.isRequired,
 	setOpen: PropTypes.func.isRequired,
 	doDeleteUser: PropTypes.func.isRequired,

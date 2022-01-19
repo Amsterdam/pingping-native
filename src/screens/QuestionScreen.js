@@ -39,7 +39,7 @@ const INITIAL_STATE = {
 	choices: [],
 };
 
-const QuestionScreen = ({ navigation }) => {
+function QuestionScreen({ navigation }) {
 	const {
 		data,
 		loading,
@@ -170,7 +170,7 @@ const QuestionScreen = ({ navigation }) => {
 		);
 	}
 	return <QuestionSkeleton />;
-};
+}
 
 const styles = StyleSheet.create({
 	flex: { flex: 1 },

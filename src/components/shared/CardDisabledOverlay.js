@@ -1,13 +1,10 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
-const CardDisabledOverlay = ({
-	disabledString = '',
-}) => {
+function CardDisabledOverlay() {
 	return <View style={styles.disabledStyle} />;
-};
+}
 
 const styles = {
 	disabledStyle: {
@@ -22,10 +19,6 @@ const styles = {
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
-};
-
-CardDisabledOverlay.propTypes = {
-	disabledString: PropTypes.string.isRequired,
 };
 
 export default CardDisabledOverlay;
