@@ -28,16 +28,12 @@ function ClaimedRewardModalScreen({ navigation = () => {}, route = {} }) {
 	};
 
 	if (route?.params) {
-		const { title, description, cover, expiryDate, pin, code } =
-			route.params;
+		const { title, description, cover, expiryDate, pin, code } = route.params;
 
 		return (
 			<Container>
 				<ScrollView>
-					<ImageOverlayHeader
-						navigate={() => navigation.goBack()}
-						cover={cover}
-					/>
+					<ImageOverlayHeader navigate={() => navigation.goBack()} cover={cover} />
 					<ContentLayout style={styles.container}>
 						<Body variant="b3" style={styles.rewardType}>
 							Reward
@@ -47,18 +43,12 @@ function ClaimedRewardModalScreen({ navigation = () => {}, route = {} }) {
 						</View>
 
 						<View>
-							<ClaimedTicketsLarge
-								style={styles.illustration}
-							/>
+							<ClaimedTicketsLarge style={styles.illustration} />
 							<Title variant="h2" align="center">
 								GECLAIMED
 							</Title>
 							{expiryDate && (
-								<Body
-									variant="b3"
-									align="center"
-									style={styles.rewardType}
-								>
+								<Body variant="b3" align="center" style={styles.rewardType}>
 									Geldig tot {expiryDate}
 								</Body>
 							)}
@@ -72,6 +62,7 @@ function ClaimedRewardModalScreen({ navigation = () => {}, route = {} }) {
 							<HTMLRenderer
 								html={description}
 								setUrlToVisit={setUrlToVisit}
+								setWebviewOpen={setWebviewOpen}
 							/>
 						</View>
 					</ContentLayout>
