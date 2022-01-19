@@ -42,9 +42,7 @@ const errorLink = onError(
 	({ graphQLErrors, networkError }) => {
 		if (graphQLErrors) {
 			graphQLErrors.map(
-				({ message, locations, path }) => {
-					return Sentry.captureMessage(message);
-				},
+				({ message, locations, path }) => Sentry.captureMessage(message),
 			);
 		}
 		if (networkError) {
@@ -69,7 +67,7 @@ const client = new ApolloClient({
 });
 
 async function writeInitialData() {
-	return;
+	
 }
 
 export async function resetStore() {

@@ -1,4 +1,4 @@
-export const notificationTypes = {
+const notificationTypes = {
 	RemindUserToCompleteOnboarding: {
 		id: 'RemindUserToCompleteOnboarding',
 	},
@@ -7,3 +7,5 @@ export const notificationTypes = {
 		route: 'pingpingnative://route/',
 	},
 };
+
+export default notificationTypes;

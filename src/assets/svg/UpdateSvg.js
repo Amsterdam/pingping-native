@@ -9,8 +9,8 @@ import Svg, {
 	ClipPath,
 } from 'react-native-svg';
 
-const UpdateSvg = props => (
-	<Svg
+function UpdateSvg(props) {
+  return <Svg
 		width={props.width}
 		height={props.height}
 		viewBox="0 0 140 137"
@@ -72,7 +72,7 @@ const UpdateSvg = props => (
 			</ClipPath>
 		</Defs>
 	</Svg>
-);
+}
 
 UpdateSvg.propTypes = {
 	height: PropTypes.number,

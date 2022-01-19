@@ -1,5 +1,6 @@
+import sentryHelper from './sentryHelper';
+
 import { questionTypes } from '../config/questionTypes';
-import sentryHelper from '../helpers/sentryHelper';
 
 // submits an answer and formats the variables for the mutation in order to save according to correct questiontype
 export const submitAnswer = async (
@@ -10,7 +11,7 @@ export const submitAnswer = async (
 	setState,
 	refetch,
 	INITIAL_STATE,
-	animationRef,
+	animationRef
 ) => {
 	let answer = '';
 	answer = state.answerSelected;
@@ -49,7 +50,7 @@ export const updateConfirmTask = async (
 	currentTask,
 	refetch,
 	animationRef,
-	setLoadingQuestion,
+	setLoadingQuestion
 ) => {
 	setLoadingQuestion(true);
 	try {
@@ -75,7 +76,7 @@ export const revertTaskFunc = async (
 	navigation,
 	refetch,
 	revertTask,
-	animationRef,
+	animationRef
 ) => {
 	setLoadingQuestion(true);
 	if (!previousTask?.taskId) {
@@ -87,44 +88,32 @@ export const revertTaskFunc = async (
 		});
 		await refetch();
 		setLoadingQuestion(false);
-		animationRef.current?.fadeIn();
+		return animationRef.current?.fadeIn();
 	} catch (error) {
 		setLoadingQuestion(false);
-		sentryHelper(error.message);
+		return sentryHelper(error.message);
 	}
 };
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(
-	currentTask,
-	answer,
-	setState,
-) {
-	if (
-		currentTask.type ===
-		questionTypes.DATE_OF_BIRTH
-	) {
+export function setRevertedQuestionValues(currentTask, answer, setState) {
+	if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
 		const splitDate = answer.split('-');
-		setState(state => ({
+		setState((state) => ({
 			...state,
 			year: splitDate[0],
 			month: splitDate[1],
 			day: splitDate[2],
 		}));
 	}
-	if (
-		currentTask.type === questionTypes.YES_OR_NO
-	) {
-		setState(state => ({
+	if (currentTask.type === questionTypes.YES_OR_NO) {
+		setState((state) => ({
 			...state,
 			answerSelected: answer,
 		}));
 	}
-	if (
-		currentTask.type ===
-		questionTypes.MULTIPLE_CHOICES
-	) {
-		setState(state => ({
+	if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
+		setState((state) => ({
 			...state,
 			choices: answer.split(','),
 		}));
@@ -132,15 +121,10 @@ export function setRevertedQuestionValues(
 }
 
 // checks if the next button on the question screen should be disabled/enabled
-export const checkDisabled = (
-	currentTask,
-	state,
-) => {
+export const checkDisabled = (currentTask, state) => {
 	switch (currentTask.type) {
 		case questionTypes.DATE_OF_BIRTH:
-			return (
-				!state.day || !state.month || !state.year
-			);
+			return !state.day || !state.month || !state.year;
 		case questionTypes.MULTIPLE_CHOICES:
 			return state.choices.length < 1;
 		default:

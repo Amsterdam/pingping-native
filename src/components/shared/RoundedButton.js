@@ -12,7 +12,7 @@ import {
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
-const RoundedButton = ({
+function RoundedButton({
 	label = '',
 	disabled = false,
 	onPress = () => {},
@@ -23,7 +23,7 @@ const RoundedButton = ({
 	testid = '',
 	full = false,
 	labelStyle = {},
-}) => {
+}) {
 	return (
 		<TouchableOpacity
 			style={[
@@ -43,19 +43,19 @@ const RoundedButton = ({
 						color={theme.colors.danger}
 					/>
 				) : (
-					<React.Fragment>
+					<>
 						{icon && icon}
 						<Text
 							style={[styles.label, labelStyle]}
 						>
 							{label}
 						</Text>
-					</React.Fragment>
+					</>
 				)}
 			</View>
 		</TouchableOpacity>
 	);
-};
+}
 
 const buttonBase = {
 	backgroundColor: theme.colors.primary,

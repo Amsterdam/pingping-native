@@ -83,7 +83,7 @@ function RouteDetailsScreen({
 				},
 			);
 
-			return;
+			
 		};
 
 		return (
@@ -167,7 +167,7 @@ function RouteDetailsScreen({
 							Je hebt alle taken afgerond
 						</Body>
 					) : (
-						<React.Fragment>
+						<>
 							<Body variant="b3">
 								{numberOfSteps ===
 								tasksToDo.length
@@ -179,7 +179,7 @@ function RouteDetailsScreen({
 								label="Let's Go"
 								onPress={startTasks}
 							/>
-						</React.Fragment>
+						</>
 					)}
 				</View>
 			</Container>

@@ -16,13 +16,13 @@ import Title from '../typography/Title';
 const screenWidth = Dimensions.get('window')
 	.width;
 
-const ThankYouFeedbackModal = ({
+function ThankYouFeedbackModal({
 	open = false,
-}) => {
+}) {
 	return (
 		<Modal
 			animationType="fade"
-			transparent={true}
+			transparent
 			visible={open}
 			statusBarTranslucent
 		>
@@ -44,7 +44,7 @@ const ThankYouFeedbackModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {

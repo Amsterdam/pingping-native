@@ -1,31 +1,22 @@
 import React from 'react';
 
-import {
-	CloseIcon,
-	IconButton,
-} from 'native-base';
+import { CloseIcon, IconButton } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	Dimensions,
-	Modal,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Dimensions, Modal, StyleSheet, View } from 'react-native';
 
-import { testIDs } from '../../../e2e/modulesTestIDs';
+import testIDs from '../../../e2e/modulesTestIDs';
 import theme from '../../config/theme';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window')
-	.width;
+const screenWidth = Dimensions.get('window').width;
 
-const ConfirmModal = ({
+function ConfirmModal({
 	open = false,
 	setOpen = () => {},
 	doUpdateConfirmTask = () => {},
-}) => {
+}) {
 	function closeModal() {
 		setOpen(false);
 	}
@@ -33,15 +24,13 @@ const ConfirmModal = ({
 	return (
 		<Modal
 			animationType="fade"
-			transparent={true}
+			transparent
 			visible={open}
 			statusBarTranslucent
 		>
 			<View
 				style={styles.centeredView}
-				testID={
-					testIDs.QUESTION.SKIP_QUESTIONS_MODAL
-				}
+				testID={testIDs.QUESTION.SKIP_QUESTIONS_MODAL}
 			>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
@@ -49,33 +38,23 @@ const ConfirmModal = ({
 							onPress={closeModal}
 							style={styles.closeButton}
 							icon={
-								<CloseIcon
-									style={styles.icon}
-									size="5"
-								/>
+								<CloseIcon style={styles.icon} size="5" />
 							}
 						/>
 						<Title style={styles.title}>
 							Vragen Overslaan
 						</Title>
 
-						<Body
-							variant="b3"
-							style={styles.body}
-						>
-							Als je er voor kiest om zonder
-							vragen te beantwoorden door te gaan
-							zal de route niet persoonlijk op jou
-							aangepast worden en krijg je de
-							volledige route te zien met alle
-							stappen.
+						<Body variant="b3" style={styles.body}>
+							Als je er voor kiest om zonder vragen te
+							beantwoorden door te gaan zal de route niet
+							persoonlijk op jou aangepast worden en krijg je
+							de volledige route te zien met alle stappen.
 						</Body>
 						<RoundedButton
 							label="Vragen Overslaan"
 							full
-							onPress={() =>
-								doUpdateConfirmTask('no')
-							}
+							onPress={() => doUpdateConfirmTask('no')}
 							testid={
 								testIDs.QUESTION
 									.CONFIRM_SKIP_QUESTIONS_BUTTON
@@ -86,7 +65,7 @@ const ConfirmModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {

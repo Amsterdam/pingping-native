@@ -1,27 +1,19 @@
 import React from 'react';
 
-import {
-	ChevronLeftIcon,
-	IconButton,
-} from 'native-base';
+import { ChevronLeftIcon, IconButton } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	Dimensions,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 
-import { testIDs } from '../../../e2e/modulesTestIDs';
+import testIDs from '../../../e2e/modulesTestIDs';
 import { commonStyles } from '../../config/commonStyles';
 import { BASE_URL } from '../../config/initialSettings';
 import theme from '../../config/theme';
 import CitypingsChip from '../shared/CitypingsChip';
 import ProgressiveImage from '../shared/ProgressiveImage';
 
-const screenHeight = Dimensions.get('window')
-	.height;
+const screenHeight = Dimensions.get('window').height;
 
-const ImageOverlayHeader = ({
+function ImageOverlayHeader({
 	navigate = () => {},
 	cover = {
 		value: '',
@@ -29,7 +21,7 @@ const ImageOverlayHeader = ({
 		thumbnail: '',
 	},
 	cityPings = 0,
-}) => {
+}) {
 	return (
 		<View style={styles.imageContainer}>
 			<ProgressiveImage
@@ -46,20 +38,14 @@ const ImageOverlayHeader = ({
 				<IconButton
 					onPress={navigate}
 					style={commonStyles.iconButton}
-					icon={
-						<ChevronLeftIcon
-							color={theme.colors.white}
-						/>
-					}
-					testID={
-						testIDs.NAVIGATION.HEADER_BACK_BUTTON
-					}
+					icon={<ChevronLeftIcon color={theme.colors.white} />}
+					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
 				/>
 				<CitypingsChip value={cityPings} />
 			</View>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	image: {

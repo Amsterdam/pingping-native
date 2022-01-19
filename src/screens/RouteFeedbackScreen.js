@@ -27,30 +27,17 @@ const INITIAL_STATE = {
 	numberActive: 0,
 };
 
-function RouteFeedbackScreen({
-	navigation = () => {},
-	route = {},
-}) {
+function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
 	const { cover, routeId } = route.params;
-	const [submitFeedback] = useMutation(
-		SUBMIT_ROUTE_FEEDBACK_MUTATION,
-	);
-	const [state, setState] = React.useState(
-		INITIAL_STATE,
-	);
-	const [
-		displayError,
-		setDisplayError,
-	] = React.useState({
+	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
+	const [state, setState] = React.useState(INITIAL_STATE);
+	const [displayError, setDisplayError] = React.useState({
 		show: false,
 		message: '',
 	});
-	const [
-		thankYouOpen,
-		setThankYouOpen,
-	] = React.useState(false);
+	const [thankYouOpen, setThankYouOpen] = React.useState(false);
 
-	const onRate = stars => () => {
+	const onRate = (stars) => () => {
 		setState({ ...state, numberActive: stars });
 	};
 
@@ -85,11 +72,7 @@ function RouteFeedbackScreen({
 
 	return (
 		<KeyboardAvoidingView
-			behavior={
-				Platform.OS === 'ios'
-					? 'position'
-					: 'height'
-			}
+			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 			style={styles.container}
 		>
 			<StatusBar
@@ -107,10 +90,7 @@ function RouteFeedbackScreen({
 							message={displayError.message}
 						/>
 					)}
-					<Title
-						variant="h2"
-						style={styles.title}
-					>
+					<Title variant="h2" style={styles.title}>
 						Wat vond je van de route?
 					</Title>
 					<View style={styles.starContainer}>
@@ -121,18 +101,12 @@ function RouteFeedbackScreen({
 						/>
 					</View>
 					<View style={styles.inputContainer}>
-						<Title
-							style={styles.anyTips}
-							variant="h4"
-						>
-							Heb je nog tips om de app te
-							verbeteren?
+						<Title style={styles.anyTips} variant="h4">
+							Heb je nog tips om de app te verbeteren?
 						</Title>
 						<TextInput
-							style={
-								styles.inputContainerMultiline
-							}
-							onChangeText={text =>
+							style={styles.inputContainerMultiline}
+							onChangeText={(text) =>
 								setState({
 									...state,
 									feedback: text,
@@ -152,9 +126,7 @@ function RouteFeedbackScreen({
 						disabled={!state.numberActive > 0}
 					/>
 				</View>
-				<ThankYouFeedbackModal
-					open={thankYouOpen}
-				/>
+				<ThankYouFeedbackModal open={thankYouOpen} />
 			</ScrollView>
 		</KeyboardAvoidingView>
 	);
@@ -166,9 +138,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	contentContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		paddingVertical: theme.spacing.m,
 	},
 
@@ -193,15 +163,6 @@ const styles = StyleSheet.create({
 RouteFeedbackScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
 	route: PropTypes.object.isRequired,
-	cover: PropTypes.object,
-};
-
-RouteFeedbackScreen.defaultProps = {
-	cover: {
-		value: '',
-		thumbnail: '',
-		color: '',
-	},
 };
 
 export default RouteFeedbackScreen;

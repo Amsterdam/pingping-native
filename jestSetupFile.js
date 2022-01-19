@@ -23,11 +23,9 @@ jest.mock(
 	'react-native-gesture-handler',
 	() => mockGesture,
 );
-jest.mock('react-native-device-info', () => {
-	return {
+jest.mock('react-native-device-info', () => ({
 		getModel: jest.fn(),
-	};
-});
+	}));
 
 jest.mock('react-native-notifications', () => ({
 	configure: jest.fn(),

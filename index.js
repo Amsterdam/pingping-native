@@ -12,15 +12,15 @@ import AppContext from './src/App/AppContext';
 
 enableScreens();
 
-const PingPingNative = () => (
-	<ApolloProvider client={client}>
+function PingPingNative() {
+  return <ApolloProvider client={client}>
 		<NativeBaseProvider>
 			<AppContext>
 				<RootApp />
 			</AppContext>
 		</NativeBaseProvider>
 	</ApolloProvider>
-);
+}
 
 AppRegistry.registerComponent(
 	appName,

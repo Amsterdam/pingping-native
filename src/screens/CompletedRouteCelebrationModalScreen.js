@@ -30,10 +30,10 @@ import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
-const CompletedRouteCelebrationModalScreen = ({
+function CompletedRouteCelebrationModalScreen({
 	navigation,
 	route,
-}) => {
+}) {
 	const { pings } = route.params;
 	const routeData = useQuery(GET_ROUTES, {
 		fetchPolicy: 'cache-and-network',
@@ -73,7 +73,7 @@ const CompletedRouteCelebrationModalScreen = ({
 					styles.header,
 					{
 						transform: [
-							{ translateY: translateY },
+							{ translateY },
 						],
 					},
 				]}
@@ -196,7 +196,7 @@ const CompletedRouteCelebrationModalScreen = ({
 			<View style={styles.underLayer} />
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	header: {

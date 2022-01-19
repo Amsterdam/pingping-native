@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-const LifeEventsIcon = props => (
-	<Svg
+function LifeEventsIcon(props) {
+  return <Svg
 		width={21}
 		height={24}
 		fill="none"
@@ -16,7 +16,7 @@ const LifeEventsIcon = props => (
 			fill={props.color}
 		/>
 	</Svg>
-);
+}
 
 LifeEventsIcon.propTypes = {
 	color: PropTypes.string,

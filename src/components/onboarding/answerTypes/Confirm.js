@@ -14,10 +14,10 @@ import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
-const Confirm = ({
+function Confirm({
 	currentTask = {},
 	doUpdateConfirmTask = () => {},
-}) => {
+}) {
 	const [
 		confirmModalOpen,
 		setConfirmModalOpen,
@@ -97,7 +97,7 @@ const Confirm = ({
 			/>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	image: {

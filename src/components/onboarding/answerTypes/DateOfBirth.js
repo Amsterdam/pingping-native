@@ -2,15 +2,11 @@ import React from 'react';
 
 import { Picker } from '@react-native-picker/picker';
 import PropTypes from 'prop-types';
-import {
-	Platform,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
 import AnswerTemplate from './AnswerTemplate';
 
-import { testIDs } from '../../../../e2e/modulesTestIDs';
+import testIDs from '../../../../e2e/modulesTestIDs';
 import theme from '../../../config/theme';
 import {
 	getDays,
@@ -19,18 +15,15 @@ import {
 } from '../../../helpers/birthDayHelper';
 import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
 
-const DateOfBirth = ({
+function DateOfBirth({
 	currentTask = {},
 	doRevertTask = () => {},
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
-}) => {
+}) {
 	const isIos = Platform.OS === 'ios';
-	const nextButtonDisabled = checkDisabled(
-		currentTask,
-		state,
-	);
+	const nextButtonDisabled = checkDisabled(currentTask, state);
 
 	return (
 		<AnswerTemplate
@@ -49,10 +42,7 @@ const DateOfBirth = ({
 					<Picker
 						testID={testIDs.QUESTION.PICKER_DAY}
 						selectedValue={state.day}
-						onValueChange={(
-							itemValue,
-							itemIndex,
-						) =>
+						onValueChange={(itemValue, itemIndex) =>
 							setState({
 								...state,
 								day: itemValue,
@@ -73,10 +63,7 @@ const DateOfBirth = ({
 					<Picker
 						testID={testIDs.QUESTION.PICKER_MONTH}
 						selectedValue={state.month}
-						onValueChange={(
-							itemValue,
-							itemIndex,
-						) =>
+						onValueChange={(itemValue, itemIndex) =>
 							setState({
 								...state,
 								month: itemValue,
@@ -84,7 +71,7 @@ const DateOfBirth = ({
 						}
 					>
 						<Picker.Item label="maand" value="" />
-						{getMonths().map(month => (
+						{getMonths().map((month) => (
 							<Picker.Item
 								label={month.label}
 								value={month.value}
@@ -103,10 +90,7 @@ const DateOfBirth = ({
 					<Picker
 						testID={testIDs.QUESTION.PICKER_YEAR}
 						selectedValue={state.year}
-						onValueChange={(
-							itemValue,
-							itemIndex,
-						) =>
+						onValueChange={(itemValue, itemIndex) =>
 							setState({
 								...state,
 								year: itemValue,
@@ -120,7 +104,7 @@ const DateOfBirth = ({
 			</View>
 		</AnswerTemplate>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

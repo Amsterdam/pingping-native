@@ -15,7 +15,7 @@ import { commonStyles } from '../../config/commonStyles';
 import { BASE_URL } from '../../config/initialSettings';
 import theme from '../../config/theme';
 
-const Card = ({
+function Card({
 	onPress = () => {},
 	children,
 	cover,
@@ -25,7 +25,7 @@ const Card = ({
 	testID = '',
 	disabled = false,
 	disabledString = '',
-}) => {
+}) {
 	return (
 		<View
 			style={[
@@ -70,7 +70,7 @@ const Card = ({
 			)}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	paper: {

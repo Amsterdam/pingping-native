@@ -1,11 +1,6 @@
 import React from 'react';
 
-import Svg, {
-	ClipPath,
-	Defs,
-	G,
-	Path,
-} from 'react-native-svg';
+import Svg, { ClipPath, Defs, G, Path } from 'react-native-svg';
 
 function AmsterdamBuildings(props) {
 	return (

@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-const TrashIcon = props => (
-	<Svg
+function TrashIcon(props) {
+  return <Svg
 		width={props.width}
 		height={props.height}
 		fill="none"
@@ -17,7 +17,7 @@ const TrashIcon = props => (
 			fill={props.color}
 		/>
 	</Svg>
-);
+}
 
 TrashIcon.defaultProps = {
 	color: '#000',

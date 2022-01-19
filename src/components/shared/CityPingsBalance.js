@@ -9,10 +9,10 @@ import CityPingCoin from '../../assets/svg/CityPingCoin';
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 
-const CityPingsBalance = ({
+function CityPingsBalance({
 	price = 0,
 	balance = 0,
-}) => {
+}) {
 	const progress = balance / price;
 
 	return (
@@ -26,7 +26,7 @@ const CityPingsBalance = ({
 			<ProgressBar progress={progress} />
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	savings: {

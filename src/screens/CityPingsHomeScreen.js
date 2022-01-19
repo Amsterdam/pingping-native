@@ -1,17 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useLazyQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	View,
-	useWindowDimensions,
-} from 'react-native';
-import {
-	TabView,
-	TabBar,
-	SceneMap,
-} from 'react-native-tab-view';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 
 import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -25,21 +17,14 @@ import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import { ERROR_TYPES } from '../config/types';
 
-const CityPingsHomeScreen = ({ navigation }) => {
+function CityPingsHomeScreen({ navigation }) {
 	React.useEffect(() => {
-		const unsubscribe = navigation.addListener(
-			'focus',
-			() => {
-				getAvailableRewards();
-				getStatus();
-			},
-		);
+		const unsubscribe = navigation.addListener('focus', () => {
+			getAvailableRewards();
+			getStatus();
+		});
 		return unsubscribe;
-	}, [
-		navigation,
-		getAvailableRewards,
-		getStatus,
-	]);
+	}, [navigation, getAvailableRewards, getStatus]);
 	const layout = useWindowDimensions();
 
 	const [index, setIndex] = React.useState(0);
@@ -48,32 +33,53 @@ const CityPingsHomeScreen = ({ navigation }) => {
 		{ key: 'geclaimed', title: 'Geclaimed' },
 	]);
 
-	const [
-		getAvailableRewards,
-		availableRewards,
-	] = useLazyQuery(GET_AVAILABLE_REWARDS);
-	const [getStatus, me] = useLazyQuery(
-		GET_STATUS_QUERY,
-		{
-			fetchPolicy: 'cache-and-network',
-		},
-	);
-	const [
-		refreshing,
-		setRefreshing,
-	] = React.useState(false);
+	const [getAvailableRewards, availableRewards] = useLazyQuery(GET_AVAILABLE_REWARDS);
+	const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
+		fetchPolicy: 'cache-and-network',
+	});
+	const [refreshing, setRefreshing] = React.useState(false);
 
-	const onRefresh = () => {
+	const onRefresh = useCallback(() => {
 		setRefreshing(true);
 		me.refetch();
 		setRefreshing(false);
-	};
+	}, [me, setRefreshing]);
 
 	const retry = async () => {
 		await availableRewards.refetch();
 		await me.refetch();
 	};
 
+	const balance = me?.data?.getStatus?.user.balance; // maybe move this part to either localstate or the tabnavigator
+	const claimedRewards = me?.data?.getStatus?.user.rewards;
+
+	const FirstRoute = useCallback(
+		() => (
+			<AvailableRewardsList
+				availableRewards={availableRewards}
+				navigation={navigation}
+				balance={balance}
+				getStatus={getStatus}
+				onRefresh={onRefresh}
+				refreshing={refreshing}
+			/>
+		),
+		[availableRewards, balance, getStatus, navigation, onRefresh, refreshing]
+	);
+
+	const SecondRoute = useCallback(
+		() => (
+			<ClaimedRewardsList
+				claimedRewards={claimedRewards}
+				navigation={navigation}
+				balance={balance}
+				getStatus={getStatus}
+				onRefresh={onRefresh}
+				refreshing={refreshing}
+			/>
+		),
+		[claimedRewards, balance, getStatus, navigation, onRefresh, refreshing]
+	);
 	if (availableRewards.error || me.error) {
 		return (
 			<ErrorComponent
@@ -83,40 +89,12 @@ const CityPingsHomeScreen = ({ navigation }) => {
 			/>
 		);
 	}
-
-	const balance =
-		me?.data?.getStatus?.user.balance; // maybe move this part to either localstate or the tabnavigator
-	const claimedRewards =
-		me?.data?.getStatus?.user.rewards;
-
-	const FirstRoute = () => (
-		<AvailableRewardsList
-			availableRewards={availableRewards}
-			navigation={navigation}
-			balance={balance}
-			getStatus={getStatus}
-			onRefresh={onRefresh}
-			refreshing={refreshing}
-		/>
-	);
-
-	const SecondRoute = () => (
-		<ClaimedRewardsList
-			claimedRewards={claimedRewards}
-			navigation={navigation}
-			balance={balance}
-			getStatus={getStatus}
-			onRefresh={onRefresh}
-			refreshing={refreshing}
-		/>
-	);
-
 	const renderScene = SceneMap({
 		rewards: FirstRoute,
 		geclaimed: SecondRoute,
 	});
 
-	const renderTabBar = props => (
+	const renderTabBar = (props) => (
 		<TabBar
 			{...props}
 			indicatorStyle={{
@@ -125,15 +103,8 @@ const CityPingsHomeScreen = ({ navigation }) => {
 			style={{
 				backgroundColor: theme.colors.primary,
 			}}
-			renderLabel={({
-				route,
-				focused,
-				color,
-			}) => (
-				<Title
-					variant="h5"
-					style={{ color: theme.colors.white }}
-				>
+			renderLabel={({ route }) => (
+				<Title variant="h5" style={{ color: theme.colors.white }}>
 					{route.title}
 				</Title>
 			)}
@@ -148,10 +119,7 @@ const CityPingsHomeScreen = ({ navigation }) => {
 					barStyle="light-content"
 				/>
 				<View style={styles.headerContainer}>
-					<Title
-						style={styles.title}
-						variant="h3"
-					>
+					<Title style={styles.title} variant="h3">
 						Rewards
 					</Title>
 					<CitypingsChip value={balance} />
@@ -166,7 +134,7 @@ const CityPingsHomeScreen = ({ navigation }) => {
 			/>
 		</Container>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	header: {

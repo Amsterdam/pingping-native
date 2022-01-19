@@ -9,11 +9,11 @@ import {
 
 import theme from '../../config/theme';
 
-const Container = ({
+function Container({
 	children,
 	statusBarColor,
 	...rest
-}) => {
+}) {
 	return (
 		<View
 			{...rest}
@@ -28,7 +28,7 @@ const Container = ({
 			{children}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

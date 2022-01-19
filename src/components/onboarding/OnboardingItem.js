@@ -10,12 +10,12 @@ import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const OnboardingItem = ({
+function OnboardingItem({
 	view,
 	buttonAction,
 	isLastItem,
 	navigation,
-}) => {
+}) {
 	const navigator = async () => {
 		if (isLastItem) {
 			const acceptedPolicy = await AsyncStorage.getItem(
@@ -64,7 +64,7 @@ const OnboardingItem = ({
 			</View>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	viewContainer: {

@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
-const CardDisabledOverlay = ({
+function CardDisabledOverlay({
 	disabledString = '',
-}) => {
+}) {
 	return <View style={styles.disabledStyle} />;
-};
+}
 
 const styles = {
 	disabledStyle: {

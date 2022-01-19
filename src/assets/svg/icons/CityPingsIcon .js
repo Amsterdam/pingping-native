@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-const CityPingsIcon = props => (
-	<Svg
+function CityPingsIcon(props) {
+  return <Svg
 		width={26}
 		height={26}
 		fill="none"
@@ -16,7 +16,7 @@ const CityPingsIcon = props => (
 			fill={props.color}
 		/>
 	</Svg>
-);
+}
 
 CityPingsIcon.defaultProps = {
 	color: '#FB9F4B',

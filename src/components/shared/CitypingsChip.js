@@ -7,10 +7,10 @@ import CityPingCoin from '../../assets/svg/CityPingCoin';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const CitypingsChip = ({
+function CitypingsChip({
 	value = 0,
 	mini = false,
-}) => {
+}) {
 	if (!value) {
 		return <></>;
 	}
@@ -25,7 +25,7 @@ const CitypingsChip = ({
 			}`}</Title>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	cpBalance: {

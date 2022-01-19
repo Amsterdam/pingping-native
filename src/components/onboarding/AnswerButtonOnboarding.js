@@ -7,12 +7,12 @@ import { StyleSheet } from 'react-native';
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
-const AnswerButtonOnboarding = ({
+function AnswerButtonOnboarding({
 	onPress = () => {},
 	label = 'no label',
 	active = false,
 	testid,
-}) => {
+}) {
 	return (
 		<Button
 			testID={testid}
@@ -33,7 +33,7 @@ const AnswerButtonOnboarding = ({
 			</Text>
 		</Button>
 	);
-};
+}
 
 AnswerButtonOnboarding.propTypes = {
 	onPress: PropTypes.func.isRequired,

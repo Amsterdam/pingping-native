@@ -1,8 +1,10 @@
+/* eslint-disable */
 const {
 	DetoxCircusEnvironment,
 	SpecReporter,
 	WorkerAssignReporter,
 } = require('detox/runners/jest-circus');
+/* eslint-enable */
 
 class CustomDetoxEnvironment extends DetoxCircusEnvironment {
 	constructor(config, context) {

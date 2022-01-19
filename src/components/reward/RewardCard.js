@@ -12,7 +12,7 @@ import CityPingsBalance from '../shared/CityPingsBalance';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const RewardCard = ({
+function RewardCard({
 	navigation,
 	reward: {
 		price,
@@ -25,7 +25,7 @@ const RewardCard = ({
 	data,
 	balance = 0,
 	claimed = false,
-}) => {
+}) {
 	const doNavigation = async () => {
 		if (claimed) {
 			return navigation.navigate(
@@ -108,7 +108,7 @@ const RewardCard = ({
 			</View>
 		</Card>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	descriptionContainer: {

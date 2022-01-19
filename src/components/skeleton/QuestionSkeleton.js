@@ -10,8 +10,8 @@ const { height, width } = Dimensions.get(
 	'window',
 );
 
-const RouteDetailSkeleton = () => (
-	<Container>
+function RouteDetailSkeleton() {
+  return <Container>
 		<SkeletonPlaceholder>
 			<SkeletonPlaceholder.Item
 				flexDirection="column"
@@ -95,6 +95,6 @@ const RouteDetailSkeleton = () => (
 			</SkeletonPlaceholder.Item>
 		</SkeletonPlaceholder>
 	</Container>
-);
+}
 
 export default RouteDetailSkeleton;

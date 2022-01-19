@@ -10,7 +10,7 @@ import Card from '../shared/Card';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const RewardCardMini = ({
+function RewardCardMini({
 	navigation,
 	reward: {
 		price,
@@ -21,7 +21,7 @@ const RewardCardMini = ({
 		status,
 	},
 	balance,
-}) => {
+}) {
 	const doNavigation = () => {
 		navigation.navigate(
 			routes.citypingsStack.name,
@@ -70,7 +70,7 @@ const RewardCardMini = ({
 			</View>
 		</Card>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	card: {

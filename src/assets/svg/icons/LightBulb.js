@@ -2,8 +2,8 @@ import React from 'react';
 
 import Svg, { Path } from 'react-native-svg';
 
-const LightBulb = props => (
-	<Svg
+function LightBulb(props) {
+  return <Svg
 		width={11}
 		height={16}
 		fill="none"
@@ -15,6 +15,6 @@ const LightBulb = props => (
 			fill="#fff"
 		/>
 	</Svg>
-);
+}
 
 export default LightBulb;

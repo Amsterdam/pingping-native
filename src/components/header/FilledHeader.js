@@ -12,15 +12,15 @@ import HeaderBackButton from './HeaderBackButton';
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const FilledHeader = ({
+function FilledHeader({
 	navigation = () => {},
 	title = 'none',
 	color = 'light',
-}) => {
+}) {
 	return (
 		<View style={styles.header}>
 			<StatusBar
-				barStyle={'light-content'}
+				barStyle="light-content"
 				backgroundColor={theme.colors.headerColor}
 			/>
 			<View style={styles.backButton}>
@@ -40,7 +40,7 @@ const FilledHeader = ({
 			</Title>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	header: {

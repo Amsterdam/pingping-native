@@ -12,13 +12,13 @@ import theme from '../../config/theme';
 import ContentLayout from '../layout/ContentLayout';
 import CardSkeleton from '../skeleton/CardSkeleton';
 
-const AvailableRewardsList = ({
+function AvailableRewardsList({
 	availableRewards,
 	balance,
 	navigation,
 	refreshing,
 	onRefresh,
-}) => {
+}) {
 	return (
 		<ScrollView
 			style={{
@@ -51,7 +51,7 @@ const AvailableRewardsList = ({
 			</ContentLayout>
 		</ScrollView>
 	);
-};
+}
 
 AvailableRewardsList.propTypes = {
 	availableRewards: PropTypes.object.isRequired,

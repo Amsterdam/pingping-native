@@ -99,7 +99,7 @@ function UpdateAppModal() {
 	return (
 		<Modal
 			animationType="fade"
-			transparent={true}
+			transparent
 			visible={open}
 			statusBarTranslucent
 		>

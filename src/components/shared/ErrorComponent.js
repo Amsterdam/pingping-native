@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 
 import Container from './Container';
+import LoadingComponent from "./LoadingComponent";
+import MinimalErrorComponent from "./MinimalErrorComponent";
+import Button from "./RoundedButton";
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
@@ -11,9 +14,6 @@ import theme from '../../config/theme';
 import { ERROR_TYPES } from '../../config/types';
 import Header from '../header/Header';
 import HeaderBackButton from '../header/HeaderBackButton';
-import LoadingComponent from '../shared/LoadingComponent';
-import MinimalErrorComponent from '../shared/MinimalErrorComponent';
-import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
@@ -101,7 +101,7 @@ function ErrorComponent({
 				</View>
 
 				<Button
-					label={label ? label : errorType.label}
+					label={label || errorType.label}
 					onPress={retry}
 					style={styles.button}
 				/>

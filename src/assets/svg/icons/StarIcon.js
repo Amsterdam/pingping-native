@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-const StarIcon = props => (
-	<Svg
+function StarIcon(props) {
+  return <Svg
 		width={34}
 		height={33}
 		fill="none"
@@ -18,7 +18,7 @@ const StarIcon = props => (
 			strokeWidth={2}
 		/>
 	</Svg>
-);
+}
 
 StarIcon.defaultProps = {
 	color: '#fff',

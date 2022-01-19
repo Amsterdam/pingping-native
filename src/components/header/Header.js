@@ -11,12 +11,12 @@ import {
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-const Header = ({
+function Header({
 	title = '',
 	left,
 	right,
 	color = 'light',
-}) => {
+}) {
 	return (
 		<Box>
 			<View style={styles.header}>
@@ -51,7 +51,7 @@ const Header = ({
 			</View>
 		</Box>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	header: {

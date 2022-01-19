@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-const AccountIcon = props => (
-	<Svg
+function AccountIcon(props) {
+  return <Svg
 		width={24}
 		height={24}
 		viewBox="0 0 24 24"
@@ -17,7 +17,7 @@ const AccountIcon = props => (
 			fill={props.color}
 		/>
 	</Svg>
-);
+}
 
 AccountIcon.defaultProps = {
 	color: '#FB9F4B',

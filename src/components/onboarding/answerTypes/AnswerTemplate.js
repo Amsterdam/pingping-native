@@ -10,12 +10,12 @@ import {
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
 
-const AnswerTemplate = ({
+function AnswerTemplate({
 	nextButtonDisabled = false,
 	doUpdateTask = () => {},
 	children = [],
 	currentTask = {},
-}) => {
+}) {
 	return (
 		<ScrollView
 			contentContainerStyle={styles.content}
@@ -32,7 +32,7 @@ const AnswerTemplate = ({
 			/>
 		</ScrollView>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	content: { flex: 1 },

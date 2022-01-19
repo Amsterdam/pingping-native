@@ -19,12 +19,12 @@ import Title from '../typography/Title';
 const screenWidth = Dimensions.get('window')
 	.width;
 
-const ShowRewardCodeModal = ({
+function ShowRewardCodeModal({
 	open = false,
 	setOpen = () => {},
 	expiryDate = '',
 	code = '',
-}) => {
+}) {
 	function closeModal() {
 		setOpen(false);
 	}
@@ -32,7 +32,7 @@ const ShowRewardCodeModal = ({
 	return (
 		<Modal
 			animationType="fade"
-			transparent={true}
+			transparent
 			visible={open}
 			statusBarTranslucent
 		>
@@ -82,7 +82,7 @@ const ShowRewardCodeModal = ({
 			</View>
 		</Modal>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {

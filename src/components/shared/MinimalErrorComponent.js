@@ -8,7 +8,7 @@ import { View } from 'react-native-animatable';
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 
-const MinimalErrorComponent = ({ message }) => {
+function MinimalErrorComponent({ message }) {
 	return (
 		<View
 			animation="bounceIn"
@@ -27,7 +27,7 @@ const MinimalErrorComponent = ({ message }) => {
 			</Body>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

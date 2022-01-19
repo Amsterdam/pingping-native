@@ -11,13 +11,13 @@ import RewardCard from './RewardCard';
 import theme from '../../config/theme';
 import ContentLayout from '../layout/ContentLayout';
 
-const ClaimedRewardsList = ({
+function ClaimedRewardsList({
 	claimedRewards,
 	balance,
 	navigation,
 	refreshing,
 	onRefresh,
-}) => {
+}) {
 	return (
 		<ScrollView
 			style={{
@@ -46,7 +46,7 @@ const ClaimedRewardsList = ({
 			</ContentLayout>
 		</ScrollView>
 	);
-};
+}
 
 ClaimedRewardsList.propTypes = {
 	claimedRewards: PropTypes.array,

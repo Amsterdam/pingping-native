@@ -10,7 +10,7 @@ import QRCode from 'react-native-qrcode-svg';
 
 import theme from '../../config/theme';
 
-const QrCode = ({ exportToken = '' }) => {
+function QrCode({ exportToken = '' }) {
 	return (
 		<View style={styles.qrCode}>
 			{exportToken ? (
@@ -22,7 +22,7 @@ const QrCode = ({ exportToken = '' }) => {
 			)}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	qrCode: {

@@ -7,8 +7,8 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import { commonStyles } from '../../config/commonStyles';
 import theme from '../../config/theme';
 
-const CardSkeleton = ({ withTitle = true }) => (
-	<SkeletonPlaceholder>
+function CardSkeleton({ withTitle = true }) {
+  return <SkeletonPlaceholder>
 		{withTitle ? (
 			<View style={styles.title} />
 		) : (
@@ -28,7 +28,7 @@ const CardSkeleton = ({ withTitle = true }) => (
 			</View>
 		</View>
 	</SkeletonPlaceholder>
-);
+}
 
 const styles = StyleSheet.create({
 	title: {

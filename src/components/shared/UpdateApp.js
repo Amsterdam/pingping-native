@@ -8,11 +8,12 @@ import {
 	Linking,
 } from 'react-native';
 
+import Container from "./Container";
+import Button from "./RoundedButton";
+
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import theme from '../../config/theme';
 import sentryHelper from '../../helpers/sentryHelper';
-import Container from '../shared/Container';
-import Button from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 

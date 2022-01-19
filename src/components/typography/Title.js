@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 /* eslint-enable react-native/no-unused-styles */
 
-const Title = ({
+function Title({
 	children = [],
 	variant = 'h1',
 	align = 'left',
@@ -42,7 +42,7 @@ const Title = ({
 	numberOfLines = 0,
 	ellipsizeMode = 'tail',
 	selectable = false,
-}) => {
+}) {
 	return (
 		<Text
 			style={[
@@ -58,7 +58,7 @@ const Title = ({
 			{children}
 		</Text>
 	);
-};
+}
 
 Title.propTypes = {
 	children: PropTypes.oneOfType([
