@@ -31,7 +31,7 @@ function MultipleChoice({
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(currentTask.choices)) {
+		Object.entries(currentTask.choices).forEach(([key, value]) => {
 			buttonArray.push(
 				<Button
 					label={value}
@@ -43,7 +43,7 @@ function MultipleChoice({
 					testid={testIDs.QUESTION.MULTIPLE_CHOICE_OPTION}
 				/>
 			);
-		}
+		});
 		return buttonArray;
 	};
 

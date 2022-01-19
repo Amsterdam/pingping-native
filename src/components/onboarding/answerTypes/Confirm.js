@@ -22,7 +22,7 @@ function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(currentTask.choices)) {
+		Object.entries(currentTask.choices).forEach(([key, value]) => {
 			buttonArray.push(
 				<Button
 					label={value}
@@ -33,7 +33,7 @@ function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 					testid={`${key}_BUTTON`.toUpperCase()}
 				/>
 			);
-		}
+		});
 		return buttonArray;
 	};
 

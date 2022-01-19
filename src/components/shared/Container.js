@@ -30,7 +30,7 @@ Container.propTypes = {
 };
 
 Container.defaultProps = {
-	statusBarColor: theme.colors.primary,
+	statusBarColor: theme.colors.white,
 };
 
 export default Container;
