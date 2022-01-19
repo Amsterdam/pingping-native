@@ -75,21 +75,11 @@ function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
 			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 			style={styles.container}
 		>
-			<StatusBar
-				backgroundColor={cover.color}
-				barStyle="light-content"
-			/>
+			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 			<ScrollView keyboardShouldPersistTaps="handled">
-				<ImageOverlayHeader
-					navigate={() => navigation.goBack()}
-					cover={cover}
-				/>
+				<ImageOverlayHeader navigate={() => navigation.goBack()} cover={cover} />
 				<View style={styles.contentContainer}>
-					{displayError.show && (
-						<MinimalErrorComponent
-							message={displayError.message}
-						/>
-					)}
+					{displayError.show && <MinimalErrorComponent message={displayError.message} />}
 					<Title variant="h2" style={styles.title}>
 						Wat vond je van de route?
 					</Title>
@@ -145,7 +135,12 @@ const styles = StyleSheet.create({
 	title: {
 		marginTop: theme.spacing.l,
 	},
-
+	inputContainerMultiline: {
+		borderWidth: 1,
+		borderRadius: theme.borderRadius,
+		padding: theme.spacing.s,
+		minHeight: 100,
+	},
 	starContainer: {
 		flexDirection: 'row',
 		marginVertical: theme.spacing.l,
