@@ -66,7 +66,7 @@ Header.defaultProps = {
 	title: '',
 	left: null,
 	right: null,
-	color: '',
+	color: 'light',
 };
 
 export default Header;
