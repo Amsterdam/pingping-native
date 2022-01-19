@@ -8,13 +8,10 @@ import theme from '../../config/theme';
 import Title from '../typography/Title';
 
 function CitypingsChip({ value = 0, mini = false }) {
-	if (!value) {
-		return false;
-	}
 	return (
 		<View style={styles.cpBalance}>
 			<CityPingCoin style={styles.coin} />
-			<Title style={styles.cpLabel} variant="h6">{`${value} ${
+			<Title style={styles.cpLabel} variant="h6">{`${value || 0} ${
 				mini ? '' : 'CityPings'
 			}`}</Title>
 		</View>

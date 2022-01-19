@@ -112,7 +112,7 @@ function CityPingsHomeScreen({ navigation }) {
 	);
 
 	return (
-		<Container style={styles.container}>
+		<Container style={styles.container} statusBarColor={theme.colors.primary}>
 			<View style={styles.header}>
 				<FocusAwareStatusBar
 					backgroundColor={theme.colors.primary}
