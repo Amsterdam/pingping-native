@@ -13,7 +13,7 @@ import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
-import { USER_STATES } from '../config/types';
+import { USER_STATES } from '../config/constants';
 import { clearAsyncStorage } from '../helpers/asyncStorageHelpers';
 import useAppContext from '../hooks/useAppContext';
 

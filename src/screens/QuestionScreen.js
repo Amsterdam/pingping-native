@@ -17,7 +17,7 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import ProgressBar from '../components/shared/ProgressBar';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
-import { ERROR_TYPES } from '../config/types';
+import { ERROR_TYPES, ONBOARDING_STATES } from '../config/constants';
 import { setAsyncStorage } from '../helpers/asyncStorageHelpers';
 import {
 	revertTaskFunc,
@@ -54,7 +54,10 @@ function QuestionScreen({ navigation }) {
 
 	useEffect(() => {
 		if (data && !currentTask) {
-			setAsyncStorage('@pingpingNative_onboardingStatus', 'QUESTIONS_FINISHED');
+			setAsyncStorage(
+				'@pingpingNative_onboardingStatus',
+				ONBOARDING_STATES.onboardingQuestionsFinished
+			);
 			navigation.navigate(routes.onboardingStack.screens.notificationDecisionScreen);
 		}
 	}, [currentTask, data, navigation]);

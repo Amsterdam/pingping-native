@@ -10,8 +10,8 @@ import Button from './RoundedButton';
 
 import AstronautSitting from '../../assets/svg/AstronautSitting';
 import ErrorIllustration from '../../assets/svg/ErrorIllustration';
+import { ERROR_TYPES } from '../../config/constants';
 import theme from '../../config/theme';
-import { ERROR_TYPES } from '../../config/types';
 import Header from '../header/Header';
 import HeaderBackButton from '../header/HeaderBackButton';
 import Body from '../typography/Body';

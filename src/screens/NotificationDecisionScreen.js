@@ -15,23 +15,19 @@ import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
-import { USER_STATES } from '../config/types';
+import { USER_STATES } from '../config/constants';
 import sentryHelper from '../helpers/sentryHelper';
 import useAppContext from '../hooks/useAppContext';
 
 function NotificationDecisionScreen() {
-	const [registerNotifications] = useMutation(
-		REGISTER_NOTIFICATIONS_MUTATION
-	);
+	const [registerNotifications] = useMutation(REGISTER_NOTIFICATIONS_MUTATION);
 	const { setUserState } = useAppContext();
 
 	const acceptNotifications = async () => {
 		Notifications.registerRemoteNotifications();
-		Notifications.events().registerRemoteNotificationsRegistered(
-			async (event) => {
-				await doRegister('Approved', event.deviceToken);
-			}
-		);
+		Notifications.events().registerRemoteNotificationsRegistered(async (event) => {
+			await doRegister('Approved', event.deviceToken);
+		});
 	};
 
 	const declineNotifications = async () => {
@@ -77,21 +73,12 @@ function NotificationDecisionScreen() {
 					<Bell Bell />
 				</View>
 				<View>
-					<Title
-						style={styles.title}
-						variant="h1"
-						align="center"
-					>
+					<Title style={styles.title} variant="h1" align="center">
 						NOTIFICATIES
 					</Title>
-					<Body
-						variant="b3"
-						style={styles.onboardingText}
-						align="center"
-					>
-						Wil je een berichtje krijgen voor een actie die je
-						nog moet doen of als er een nieuwe route is
-						toegevoegd?
+					<Body variant="b3" style={styles.onboardingText} align="center">
+						Wil je een berichtje krijgen voor een actie die je nog moet doen of als er
+						een nieuwe route is toegevoegd?
 					</Body>
 				</View>
 				<View>

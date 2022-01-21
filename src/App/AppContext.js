@@ -5,7 +5,7 @@ import { useNetInfo } from '@react-native-community/netinfo';
 import PropTypes from 'prop-types';
 
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
-import { ERROR_TYPES } from '../config/types';
+import { ERROR_TYPES } from '../config/constants';
 import userStatus from '../helpers/authHelper';
 
 export const AppContext = createContext({

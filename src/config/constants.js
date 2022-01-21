@@ -11,6 +11,12 @@ export const USER_STATES = {
 	loggedIn: 'LOGGED_IN',
 };
 
+export const ONBOARDING_STATES = {
+	onboardingSwiperCompleted: 'SWIPER_COMPLETED',
+	onboardingQuestionsStarted: 'QUESTIONS_STARTED',
+	onboardingQuestionsFinished: 'QUESTIONS_FINISHED',
+};
+
 export const navigationType = PropTypes.shape({
 	dispatch: PropTypes.func.isRequired,
 	goBack: PropTypes.func.isRequired,

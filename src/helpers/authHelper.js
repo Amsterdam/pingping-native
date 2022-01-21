@@ -3,7 +3,7 @@ import DeviceInfo from 'react-native-device-info';
 import { clearAsyncStorage, getFromAsyncStorage, setAsyncStorage } from './asyncStorageHelpers';
 import sentryHelper from './sentryHelper';
 
-import { ERROR_TYPES, USER_STATES } from '../config/types';
+import { ERROR_TYPES, USER_STATES } from '../config/constants';
 
 export async function doRegisterDevice(registerDeviceCallback = () => {}, exportToken = '') {
 	try {

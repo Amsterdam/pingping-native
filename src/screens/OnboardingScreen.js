@@ -13,6 +13,7 @@ import OnboardingPage from '../components/onboarding/OnboardingPage';
 import Container from '../components/shared/Container';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
+import { ONBOARDING_STATES } from '../config/constants';
 import onboardingViews from '../config/onboardingContent';
 import { getFromAsyncStorage, setAsyncStorage } from '../helpers/asyncStorageHelpers';
 
@@ -30,15 +31,15 @@ function OnboardingScreen({ navigation }) {
 			const onboardingStatus = await getFromAsyncStorage('@pingpingNative_onboardingStatus');
 
 			switch (onboardingStatus) {
-				case 'SWIPER_COMPLETED':
+				case ONBOARDING_STATES.onboardingSwiperCompleted:
 					navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen, {
 						fromOnboarding: true,
 					});
 					break;
-				case 'QUESTIONS_STARTED':
+				case ONBOARDING_STATES.onboardingQuestionsStarted:
 					navigation.navigate(routes.onboardingStack.screens.questionScreen);
 					break;
-				case 'QUESTIONS_FINISHED':
+				case ONBOARDING_STATES.onboardingQuestionsFinished:
 					navigation.navigate(routes.onboardingStack.screens.notificationDecisionScreen);
 					break;
 				default:
@@ -54,7 +55,10 @@ function OnboardingScreen({ navigation }) {
 
 	const handlePageChange = async (value) => {
 		if (isLastPage && value === 1) {
-			await setAsyncStorage('@pingpingNative_onboardingStatus', 'SWIPER_COMPLETED');
+			await setAsyncStorage(
+				'@pingpingNative_onboardingStatus',
+				ONBOARDING_STATES.onboardingSwiperCompleted
+			);
 			return navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen, {
 				fromOnboarding: true,
 			});
