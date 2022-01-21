@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
 
 import { useQuery } from '@apollo/client';
-import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	View,
-	ScrollView,
-} from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 import { resetStore } from '../apollo/apolloClient';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -19,25 +14,22 @@ import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import { USER_STATES } from '../config/types';
+import { clearAsyncStorage } from '../helpers/asyncStorageHelpers';
 import useAppContext from '../hooks/useAppContext';
 
 function ExportDataScreen({ navigation }) {
-	const { data, error } = useQuery(
-		GET_STATUS_QUERY,
-		{
-			pollInterval: 1000,
-			fetchPolicy: 'network-only',
-		},
-	);
+	const { data, error } = useQuery(GET_STATUS_QUERY, {
+		pollInterval: 1000,
+		fetchPolicy: 'network-only',
+	});
 
 	const { setUserState } = useAppContext();
-	const exportToken =
-		data?.getStatus?.exportToken;
+	const exportToken = data?.getStatus?.exportToken;
 
 	useEffect(() => {
 		async function checkForErrors() {
 			if (error?.message === 'unauthorized') {
-				await AsyncStorage.clear();
+				clearAsyncStorage();
 				setUserState(USER_STATES.onboarder);
 				resetStore();
 			}
@@ -46,37 +38,19 @@ function ExportDataScreen({ navigation }) {
 	}, [error, setUserState]);
 
 	return (
-		<Container
-			statusBarColor={theme.colors.headerColor}
-		>
-			<FilledHeader
-				navigation={navigation}
-				title="Profiel"
-			/>
+		<Container statusBarColor={theme.colors.headerColor}>
+			<FilledHeader navigation={navigation} title="Profiel" />
 			<ScrollView>
 				<ContentLayout>
-					<Title style={styles.margin}>
-						Gegevens Exporteren
-					</Title>
-					<Body
-						variant="b3"
-						style={styles.margin}
-					>
-						Als je van device switcht wil je
-						natuurlijk niet dat al jouw gegevens
-						en prestaties op Ping Ping verloren
-						gaan!
+					<Title style={styles.margin}>Gegevens Exporteren</Title>
+					<Body variant="b3" style={styles.margin}>
+						Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en
+						prestaties op Ping Ping verloren gaan!
 					</Body>
-					<Body
-						variant="b3"
-						style={styles.margin}
-					>
-						Het is heel simpel om jouw gegevens te
-						exporteren naar een nieuw device. Open
-						op je nieuwe device de app en klik
-						rechtsboven op inloggen. Vervolgens
-						scan je de onderstaande QRCode en zo
-						simpel is het!
+					<Body variant="b3" style={styles.margin}>
+						Het is heel simpel om jouw gegevens te exporteren naar een nieuw device.
+						Open op je nieuwe device de app en klik rechtsboven op inloggen. Vervolgens
+						scan je de onderstaande QRCode en zo simpel is het!
 					</Body>
 					<View style={styles.qrContainer}>
 						<QrCode exportToken={exportToken} />

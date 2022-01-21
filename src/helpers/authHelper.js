@@ -1,6 +1,6 @@
-import AsyncStorage from '@react-native-community/async-storage';
 import DeviceInfo from 'react-native-device-info';
 
+import { clearAsyncStorage, getFromAsyncStorage, setAsyncStorage } from './asyncStorageHelpers';
 import sentryHelper from './sentryHelper';
 
 import { ERROR_TYPES, USER_STATES } from '../config/types';
@@ -22,7 +22,7 @@ export async function doRegisterDevice(registerDeviceCallback = () => {}, export
 				exportToken,
 			},
 		});
-		await AsyncStorage.setItem('@access_token', accessToken);
+		await setAsyncStorage('@pingpingNative_accessToken', accessToken);
 	} catch (error) {
 		sentryHelper(error.message);
 	}
@@ -30,7 +30,7 @@ export async function doRegisterDevice(registerDeviceCallback = () => {}, export
 
 const userStatus = async (refetch, setUserState, setBootIssue) => {
 	try {
-		const token = await AsyncStorage.getItem('@access_token');
+		const token = await getFromAsyncStorage('@pingpingNative_accessToken');
 		if (token === null) {
 			return setUserState(USER_STATES.onboarder); // I AM A NEW USER
 		}
@@ -46,7 +46,7 @@ const userStatus = async (refetch, setUserState, setBootIssue) => {
 	} catch (error) {
 		sentryHelper(error.message);
 		if (error.message === 'unauthorized') {
-			await AsyncStorage.clear(); // Token is not valid, clear all.
+			await clearAsyncStorage(); // Token is not valid, clear all.
 			return setUserState(USER_STATES.onboarder);
 		}
 		if (error.message === 'undefined') {

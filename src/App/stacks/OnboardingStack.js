@@ -13,47 +13,33 @@ import QuestionScreen from '../../screens/QuestionScreen';
 const Stack = createStackNavigator();
 
 function OnboardingStack() {
-  return <Stack.Navigator
-		initialRouteName={
-			routes.onboardingStack.screens.homeScreen
-		}
-		screenOptions={{ headerShown: false }}
-	>
-		<Stack.Screen
-			name={
-				routes.onboardingStack.screens.homeScreen
-			}
-			component={OnboardingScreen}
-		/>
-		<Stack.Screen
-			name={
-				routes.onboardingStack.screens
-					.privacyPolicyScreen
-			}
-			component={PrivacyPolicyScreen}
-		/>
-		<Stack.Screen
-			name={
-				routes.onboardingStack.screens
-					.questionScreen
-			}
-			component={QuestionScreen}
-		/>
-		<Stack.Screen
-			name={
-				routes.onboardingStack.screens
-					.importDataScreen
-			}
-			component={ImportDataScreen}
-		/>
-		<Stack.Screen
-			name={
-				routes.onboardingStack.screens
-					.notificationDecisionScreen
-			}
-			component={NotificationDecisionScreen}
-		/>
-	</Stack.Navigator>
+	return (
+		<Stack.Navigator
+			initialRouteName={routes.onboardingStack.screens.homeScreen}
+			screenOptions={{ headerShown: false }}
+		>
+			<Stack.Screen
+				name={routes.onboardingStack.screens.homeScreen}
+				component={OnboardingScreen}
+			/>
+			<Stack.Screen
+				name={routes.onboardingStack.screens.privacyPolicyScreen}
+				component={PrivacyPolicyScreen}
+			/>
+			<Stack.Screen
+				name={routes.onboardingStack.screens.questionScreen}
+				component={QuestionScreen}
+			/>
+			<Stack.Screen
+				name={routes.onboardingStack.screens.importDataScreen}
+				component={ImportDataScreen}
+			/>
+			<Stack.Screen
+				name={routes.onboardingStack.screens.notificationDecisionScreen}
+				component={NotificationDecisionScreen}
+			/>
+		</Stack.Navigator>
+	);
 }
 
 export default OnboardingStack;

@@ -1,13 +1,6 @@
-import React, {
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-import {
-	useMutation,
-	useQuery,
-} from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import { StyleSheet } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
@@ -15,6 +8,7 @@ import { View as AnimatableView } from 'react-native-animatable';
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
 import UPDATE_TASK_MUTATION from '../apollo/Mutation/updateTaskMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
+import routes from '../App/stacks/routes';
 import Header from '../components/header/Header';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
@@ -24,6 +18,7 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import ProgressBar from '../components/shared/ProgressBar';
 import QuestionSkeleton from '../components/skeleton/QuestionSkeleton';
 import { ERROR_TYPES } from '../config/types';
+import { setAsyncStorage } from '../helpers/asyncStorageHelpers';
 import {
 	revertTaskFunc,
 	setRevertedQuestionValues,
@@ -40,41 +35,29 @@ const INITIAL_STATE = {
 };
 
 function QuestionScreen({ navigation }) {
-	const {
-		data,
-		loading,
-		error,
-		refetch,
-	} = useQuery(GET_STATUS_QUERY);
-	const [updateTask] = useMutation(
-		UPDATE_TASK_MUTATION,
-	);
-	const [revertTask] = useMutation(
-		REVERT_TASK_MUTATION,
-	);
-	const [
-		loadingQuestion,
-		setLoadingQuestion,
-	] = useState(false);
+	const { data, loading, error, refetch } = useQuery(GET_STATUS_QUERY);
+	const [updateTask] = useMutation(UPDATE_TASK_MUTATION);
+	const [revertTask] = useMutation(REVERT_TASK_MUTATION);
+	const [loadingQuestion, setLoadingQuestion] = useState(false);
 	const animationRef = useRef(null);
 	const current = data?.getStatus?.currentTask;
 	const answeredBefore = current?.answer;
 	const currentTask = current?.task;
-	const previousTask =
-		data?.getStatus?.previousTask?.task;
-	const [state, setState] = useState(
-		INITIAL_STATE,
-	);
+	const previousTask = data?.getStatus?.previousTask?.task;
+	const [state, setState] = useState(INITIAL_STATE);
 
 	useEffect(() => {
 		if (answeredBefore) {
-			setRevertedQuestionValues(
-				currentTask,
-				answeredBefore,
-				setState,
-			);
+			setRevertedQuestionValues(currentTask, answeredBefore, setState);
 		}
 	}, [answeredBefore, currentTask, navigation]);
+
+	useEffect(() => {
+		if (data && !currentTask) {
+			setAsyncStorage('@pingpingNative_onboardingStatus', 'QUESTIONS_FINISHED');
+			navigation.navigate(routes.onboardingStack.screens.notificationDecisionScreen);
+		}
+	}, [currentTask, data, navigation]);
 
 	if (error) {
 		return (
@@ -98,7 +81,7 @@ function QuestionScreen({ navigation }) {
 				navigation,
 				refetch,
 				revertTask,
-				animationRef,
+				animationRef
 			);
 		};
 
@@ -111,41 +94,27 @@ function QuestionScreen({ navigation }) {
 				setState,
 				refetch,
 				INITIAL_STATE,
-				animationRef,
+				animationRef
 			);
 		};
 
-		const doUpdateConfirmTask = answer => {
+		const doUpdateConfirmTask = (answer) => {
 			updateConfirmTask(
 				answer,
 				updateTask,
 				currentTask,
 				refetch,
 				animationRef,
-				setLoadingQuestion,
+				setLoadingQuestion
 			);
 		};
 
 		return (
-			<AnimatableView
-				style={styles.flex}
-				duration={400}
-				ref={animationRef}
-				useNativeDriver
-			>
+			<AnimatableView style={styles.flex} duration={400} ref={animationRef} useNativeDriver>
 				<Container>
 					<Header
-						left={
-							<HeaderBackButton
-								onPressAction={doRevertTask}
-								color="dark"
-							/>
-						}
-						right={
-							<ProgressBar
-								progress={currentTask.progress}
-							/>
-						}
+						left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
+						right={<ProgressBar progress={currentTask.progress} />}
 						title={currentTask.headerTitle}
 					/>
 					<ContentLayout>
@@ -157,12 +126,8 @@ function QuestionScreen({ navigation }) {
 							state={state}
 							setState={setState}
 							doUpdateTask={doUpdateTask}
-							setLoadingQuestion={
-								setLoadingQuestion
-							}
-							doUpdateConfirmTask={
-								doUpdateConfirmTask
-							}
+							setLoadingQuestion={setLoadingQuestion}
+							doUpdateConfirmTask={doUpdateConfirmTask}
 						/>
 					</ContentLayout>
 				</Container>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import AsyncStorage from '@react-native-community/async-storage';
 import { CloseIcon, IconButton } from 'native-base';
 import { Dimensions, Modal, StyleSheet, Platform, Linking, View } from 'react-native';
 import checkVersion from 'react-native-store-version';
@@ -8,6 +7,7 @@ import checkVersion from 'react-native-store-version';
 import { version } from '../../../package.json';
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import theme from '../../config/theme';
+import { getFromAsyncStorage, setAsyncStorage } from '../../helpers/asyncStorageHelpers';
 import sentryHelper from '../../helpers/sentryHelper';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
@@ -39,7 +39,9 @@ function UpdateAppModal() {
 
 				setVersionResult(check);
 				if (check.result === 'new') {
-					const dismissedUpdate = await AsyncStorage.getItem('@dismissedUpdate');
+					const dismissedUpdate = await getFromAsyncStorage(
+						'@pingpingNative_dismissedUpdate'
+					);
 					if (dismissedUpdate === `${check.local}-${check.remote}`) {
 						return;
 					}
@@ -53,8 +55,8 @@ function UpdateAppModal() {
 	}, []);
 
 	const closeModal = async () => {
-		await AsyncStorage.setItem(
-			'@dismissedUpdate',
+		await setAsyncStorage(
+			'@pingpingNative_dismissedUpdate',
 			`${versionResult.local}-${versionResult.remote}`
 		);
 		setOpen(false);
