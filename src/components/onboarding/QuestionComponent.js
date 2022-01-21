@@ -8,7 +8,7 @@ import GoBack from './answerTypes/GoBack';
 import MultipleChoice from './answerTypes/MultipleChoice';
 import YesOrNo from './answerTypes/YesOrNo';
 
-import questionTypes from '../../config/questionTypes';
+import { QUESTION_TYPES } from '../../config/constants';
 import UpdateApp from '../shared/UpdateApp';
 
 const QuestionComponent = ({
@@ -24,7 +24,7 @@ const QuestionComponent = ({
 }) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
-			case questionTypes.CONFIRM:
+			case QUESTION_TYPES.CONFIRM:
 				return (
 					<Confirm
 						currentTask={currentTask}
@@ -34,10 +34,10 @@ const QuestionComponent = ({
 						animationRef={animationRef}
 					/>
 				);
-			case questionTypes.GO_BACK:
+			case QUESTION_TYPES.GO_BACK:
 				return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
 
-			case questionTypes.YES_OR_NO:
+			case QUESTION_TYPES.YES_OR_NO:
 				return (
 					<YesOrNo
 						currentTask={currentTask}
@@ -47,7 +47,7 @@ const QuestionComponent = ({
 						doUpdateTask={doUpdateTask}
 					/>
 				);
-			case questionTypes.DATE_OF_BIRTH:
+			case QUESTION_TYPES.DATE_OF_BIRTH:
 				return (
 					<DateOfBirth
 						currentTask={currentTask}
@@ -57,7 +57,7 @@ const QuestionComponent = ({
 						doUpdateTask={doUpdateTask}
 					/>
 				);
-			case questionTypes.MULTIPLE_CHOICES:
+			case QUESTION_TYPES.MULTIPLE_CHOICES:
 				return (
 					<MultipleChoice
 						currentTask={currentTask}

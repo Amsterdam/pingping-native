@@ -1,71 +1,69 @@
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { useRef, useEffect, useState } from 'react';
 
-import { useQuery } from '@apollo/client';
-import PropTypes from 'prop-types';
-import Swiper from 'react-native-swiper';
+import { StyleSheet, Animated } from 'react-native';
+import PagerView from 'react-native-pager-view';
 
 import testIDs from '../../e2e/modulesTestIDs';
 import { version } from '../../package.json';
-import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
-import BackPack from '../assets/svg/BackPack';
-import Vault from '../assets/svg/Vault';
-import WelcomeIllustration from '../assets/svg/WelcomeIllustration';
 import Header from '../components/header/Header';
-import OnboardingItem from '../components/onboarding/OnboardingItem';
+import OnboardingFooter from '../components/onboarding/OnboardingFooter';
+import OnboardingPage from '../components/onboarding/OnboardingPage';
 import Container from '../components/shared/Container';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
-import theme from '../config/theme';
+import { ONBOARDING_STATES, ONBOARDING_VIEWS } from '../config/constants';
+import { getFromAsyncStorage, setAsyncStorage } from '../helpers/asyncStorageHelpers';
 
-const onboardingViews = [
-	{
-		title: 'WAT IS PING PING',
-		text: 'Maak je persoonlijke routeplan om je (financiële) basis op orde te hebben.',
-		svg: <WelcomeIllustration />,
-		buttonLabel: 'Volgende',
-		testid: testIDs.ONBOARDING.WHAT_BUTTON,
-	},
-	{
-		title: 'WAT IS PING PING',
-		text: 'Met elke stap die je afrondt kom je dichter bij je doel en verdien je city pings',
-		svg: <BackPack />,
-		buttonLabel: 'Volgende',
-		testid: testIDs.ONBOARDING.HOW_BUTTON,
-	},
-	{
-		title: 'Wat is PING PING',
-		text: 'Als je route klaar is heb je je basis gefikst en kun je je reward claimen met je city pings',
-		svg: <Vault />,
-		buttonLabel: 'Volgende',
-		testid: testIDs.ONBOARDING.WHERE_BUTTON,
-	},
-];
+const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 function OnboardingScreen({ navigation }) {
-	const [swiper, setSwiper] = useState(null);
-	const debugMode = __DEV__;
-	const swiperRef = useRef(null);
-	const { data } = useQuery(GET_STATUS_QUERY);
+	const pagerRef = useRef(null);
+	const scrollOffsetAnimatedValue = useRef(new Animated.Value(0)).current;
+	const positionAnimatedValue = useRef(new Animated.Value(0)).current;
+	const [activePage, setActivePage] = useState(0);
+	const isLastPage = activePage + 1 === ONBOARDING_VIEWS.length;
 
 	useEffect(() => {
-		setSwiper(swiperRef);
-		const guideUser = () => {
-			// if the user has completed all onboardingtasks, current tasks should be null
-			// we send the user to the notification decisionscreen
-			if (!data?.getStatus.currentTask) {
-				navigation.navigate(routes.onboardingStack.screens.notificationDecisionScreen);
-			}
-			// if the user has already completed an onboarding tasks we do not have
-			// to show the user the onboarding again, we send this user to the question screen
-			if (data?.getStatus.previousTask && data.getStatus.currentTask) {
-				navigation.navigate(routes.onboardingStack.screens.questionScreen);
+		const checkOnboardingStatus = async () => {
+			const onboardingStatus = await getFromAsyncStorage('@pingpingNative_onboardingStatus');
+
+			switch (onboardingStatus) {
+				case ONBOARDING_STATES.onboardingSwiperCompleted:
+					navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen, {
+						fromOnboarding: true,
+					});
+					break;
+				case ONBOARDING_STATES.onboardingQuestionsStarted:
+					navigation.navigate(routes.onboardingStack.screens.questionScreen);
+					break;
+				case ONBOARDING_STATES.onboardingQuestionsFinished:
+					navigation.navigate(routes.onboardingStack.screens.notificationDecisionScreen);
+					break;
+				default:
+					break;
 			}
 		};
-		if (data) {
-			guideUser();
+		checkOnboardingStatus();
+	}, [navigation]);
+
+	const handlePageSelected = ({ nativeEvent: { position } }) => {
+		setActivePage(position);
+	};
+
+	const handlePageChange = async (value) => {
+		if (isLastPage && value === 1) {
+			await setAsyncStorage(
+				'@pingpingNative_onboardingStatus',
+				ONBOARDING_STATES.onboardingSwiperCompleted
+			);
+			return navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen, {
+				fromOnboarding: true,
+			});
 		}
-	}, [swiper, data, navigation]);
+		return pagerRef.current.setPage(activePage + value);
+	};
 
 	return (
 		<Container testID={testIDs.ONBOARDING.SCREEN} safeArea>
@@ -82,31 +80,45 @@ function OnboardingScreen({ navigation }) {
 					/>
 				}
 			/>
-			<Header />
-			{debugMode && <Body variant="b3" align="center">{`${version} beta`}</Body>}
-
-			<Swiper
-				loop={false}
-				dotColor={theme.colors.greyedOut}
-				activeDotColor={theme.colors.primary}
-				ref={swiperRef}
+			{__DEV__ && <Body variant="b3" align="center">{`${version} beta`}</Body>}
+			<AnimatedPagerView
+				style={styles.pagerView}
+				initialPage={0}
+				ref={pagerRef}
+				onPageSelected={handlePageSelected}
+				onPageScroll={Animated.event(
+					[
+						{
+							nativeEvent: {
+								offset: scrollOffsetAnimatedValue,
+								position: positionAnimatedValue,
+							},
+						},
+					],
+					{
+						useNativeDriver: true,
+					}
+				)}
 			>
-				{onboardingViews.map((view, index) => (
-					<OnboardingItem
-						view={view}
-						key={view.title}
-						buttonAction={swiperRef?.current}
-						navigation={navigation}
-						isLastItem={onboardingViews.length - 1 === index}
-					/>
+				{ONBOARDING_VIEWS.map((page, index) => (
+					<OnboardingPage key={index} pageContent={page} />
 				))}
-			</Swiper>
+			</AnimatedPagerView>
+			<OnboardingFooter
+				handlePageChange={handlePageChange}
+				pages={ONBOARDING_VIEWS}
+				activePage={activePage}
+				positionAnimatedValue={positionAnimatedValue}
+				scrollOffsetAnimatedValue={scrollOffsetAnimatedValue}
+			/>
 		</Container>
 	);
 }
 
-OnboardingScreen.propTypes = {
-	navigation: PropTypes.object.isRequired,
-};
+const styles = StyleSheet.create({
+	pagerView: {
+		flex: 1,
+	},
+});
 
 export default OnboardingScreen;

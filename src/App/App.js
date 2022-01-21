@@ -10,25 +10,16 @@ import TabNavigator from './TabNavigator';
 import UpdateAppModal from '../components/modals/UpdateAppModal';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import Loading from '../components/shared/LoadingComponent';
-import { USER_STATES } from '../config/types';
+import { USER_STATES } from '../config/constants';
 import useAppContext from '../hooks/useAppContext';
 import PushNotifications from '../services/PushNotifications';
 
 export default function App() {
-	const {
-		bootIssue,
-		userState,
-		retry,
-	} = useAppContext();
+	const { bootIssue, userState, retry } = useAppContext();
 
 	const renderApp = () => {
 		if (bootIssue) {
-			return (
-				<ErrorComponent
-					functionToRetry={retry}
-					error={bootIssue}
-				/>
-			);
+			return <ErrorComponent functionToRetry={retry} error={bootIssue} />;
 		}
 		if (userState === USER_STATES.loggedIn) {
 			return (
@@ -46,12 +37,7 @@ export default function App() {
 	};
 
 	return (
-		<NavigationContainer
-			linking={linking}
-			onReady={() =>
-				RNBootSplash.hide({ fade: true })
-			}
-		>
+		<NavigationContainer linking={linking} onReady={() => RNBootSplash.hide({ fade: true })}>
 			{renderApp()}
 		</NavigationContainer>
 	);

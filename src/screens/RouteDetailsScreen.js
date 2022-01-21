@@ -2,13 +2,7 @@ import React from 'react';
 
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import {
-	Dimensions,
-	ScrollView,
-	StyleSheet,
-	View,
-	StatusBar,
-} from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, View, StatusBar } from 'react-native';
 
 import GET_ROUTE_QUERY from '../apollo/Query/getRoute';
 import routes from '../App/stacks/routes';
@@ -24,26 +18,18 @@ import RouteDetailSkeleton from '../components/skeleton/RouteDetailsSkeleton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
-import { ERROR_TYPES } from '../config/types';
+import { ERROR_TYPES } from '../config/constants';
 
-const screenHeight = Dimensions.get('window')
-	.height;
-function RouteDetailsScreen({
-	navigation,
-	route,
-}) {
+const screenHeight = Dimensions.get('window').height;
+function RouteDetailsScreen({ navigation, route }) {
 	const { routeId } = route.params;
-	const { data, error, refetch } = useQuery(
-		GET_ROUTE_QUERY,
-		{
-			variables: {
-				routeId,
-			},
+	const { data, error, refetch } = useQuery(GET_ROUTE_QUERY, {
+		variables: {
+			routeId,
 		},
-	);
+	});
 
-	const numberOfSteps =
-		data?.getRoute?.numberOfSteps;
+	const numberOfSteps = data?.getRoute?.numberOfSteps;
 
 	if (error) {
 		return (
@@ -56,88 +42,47 @@ function RouteDetailsScreen({
 	}
 
 	if (data && data.getRoute) {
-		const {
-			totalPoints,
-			targetAudience,
-			progress,
-			tips,
-			tasks,
-			title,
-			description,
-			cover,
-		} = data.getRoute;
+		const { totalPoints, targetAudience, progress, tips, tasks, title, description, cover } =
+			data.getRoute;
 
-		const tasksToDo = tasks.filter(
-			task => task.status !== 'Completed',
-		);
+		const tasksToDo = tasks.filter((task) => task.status !== 'Completed');
 
 		const startTasks = () => {
-			navigation.navigate(
-				routes.routeStack.screens.taskScreen,
-				{
-					routeId,
-					task: {
-						...tasksToDo[0].task,
-						status: tasksToDo[0].status,
-					},
+			navigation.navigate(routes.routeStack.screens.taskScreen, {
+				routeId,
+				task: {
+					...tasksToDo[0].task,
+					status: tasksToDo[0].status,
 				},
-			);
-
-			
+			});
 		};
 
 		return (
 			<Container>
-				<StatusBar
-					backgroundColor={cover.color}
-					barStyle="light-content"
-				/>
-				<ScrollView
-					showsVerticalScrollIndicator={false}
-				>
+				<StatusBar backgroundColor={cover.color} barStyle="light-content" />
+				<ScrollView showsVerticalScrollIndicator={false}>
 					<ImageOverlayHeader
-						navigate={() =>
-							navigation.navigate(
-								routes.routeStack.screens
-									.homeScreen,
-							)
-						}
+						navigate={() => navigation.navigate(routes.routeStack.screens.homeScreen)}
 						cityPings={totalPoints}
 						cover={cover}
 					/>
 					<ContentLayout>
-						<Body
-							variant="b3"
-							style={styles.label}
-						>
+						<Body variant="b3" style={styles.label}>
 							{targetAudience}
 						</Body>
-						<Title style={styles.title}>
-							{title}
-						</Title>
+						<Title style={styles.title}>{title}</Title>
 						<View style={styles.balanceContainer}>
 							<View style={styles.saldo}>
-								<Body
-									variant="b3"
-									style={styles.savings}
-								>
+								<Body variant="b3" style={styles.savings}>
 									{numberOfSteps} stappen
 								</Body>
 							</View>
-							<TrophyOrProgress
-								progress={progress}
-							/>
+							<TrophyOrProgress progress={progress} />
 						</View>
-						<Body
-							variant="b3"
-							style={styles.description}
-						>
+						<Body variant="b3" style={styles.description}>
 							{description}
 						</Body>
-						<Title
-							style={styles.subtitle}
-							variant="h3"
-						>
+						<Title style={styles.subtitle} variant="h3">
 							De Route
 						</Title>
 					</ContentLayout>
@@ -154,31 +99,21 @@ function RouteDetailsScreen({
 						))}
 					</View>
 					<View style={styles.tipsChip}>
-						<TipsChip
-							navigation={navigation}
-							tips={tips}
-						/>
+						<TipsChip navigation={navigation} tips={tips} />
 					</View>
 				</ScrollView>
 
 				<View style={styles.buttonContainer}>
 					{tasksToDo.length === 0 ? (
-						<Body variant="b3">
-							Je hebt alle taken afgerond
-						</Body>
+						<Body variant="b3">Je hebt alle taken afgerond</Body>
 					) : (
 						<>
 							<Body variant="b3">
-								{numberOfSteps ===
-								tasksToDo.length
+								{numberOfSteps === tasksToDo.length
 									? 'Begin bij het begin'
 									: 'Ga verder'}
 							</Body>
-							<Button
-								style={styles.button}
-								label="Let's Go"
-								onPress={startTasks}
-							/>
+							<Button style={styles.button} label="Let's Go" onPress={startTasks} />
 						</>
 					)}
 				</View>
@@ -199,9 +134,7 @@ const styles = StyleSheet.create({
 		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		marginTop: theme.spacing.m,
 		marginBottom: theme.spacing.m,
 		flexDirection: 'row',

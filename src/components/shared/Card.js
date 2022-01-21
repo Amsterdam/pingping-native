@@ -8,7 +8,7 @@ import CitypingsChip from './CitypingsChip';
 import ProgressiveImage from './ProgressiveImage';
 
 import commonStyles from '../../config/commonStyles';
-import { BASE_URL } from '../../config/initialSettings';
+import { BASE_URL } from '../../config/constants';
 import theme from '../../config/theme';
 
 function Card({

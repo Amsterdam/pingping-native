@@ -15,7 +15,7 @@ import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
-import { ERROR_TYPES } from '../config/types';
+import { ERROR_TYPES } from '../config/constants';
 
 const HEADER_HEIGHT = 200;
 

@@ -3,13 +3,7 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	ActivityIndicator,
-	Dimensions,
-	ScrollView,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import YouTube from 'react-native-youtube';
 
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
@@ -24,7 +18,7 @@ import Loading from '../components/shared/LoadingComponent';
 import ProgressiveImage from '../components/shared/ProgressiveImage';
 import Button from '../components/shared/RoundedButton';
 import Title from '../components/typography/Title';
-import { BASE_URL } from '../config/initialSettings';
+import { BASE_URL } from '../config/constants';
 import { YOUTUBE_API_KEY } from '../config/keys';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
@@ -58,8 +52,7 @@ function TaskScreen({ navigation, route }) {
 			if (routeDone) {
 				setLoading(false);
 				navigation.navigate(routes.citypingsStack.name, {
-					screen: routes.citypingsStack.screens
-						.completedRouteCelebrationModalScreen,
+					screen: routes.citypingsStack.screens.completedRouteCelebrationModalScreen,
 					params: {
 						pings: routeResponse.data.getRoute.totalPoints,
 					},
@@ -92,13 +85,8 @@ function TaskScreen({ navigation, route }) {
 							play={false} // control playback of video with true/false
 							loop={false} // control whether the video should loop when ended
 							apiKey={YOUTUBE_API_KEY}
-							style={[
-								styles.videoContainer,
-								!videoReady && styles.videoNotReady,
-							]}
-							onError={(error) =>
-								sentryHelper(error.message)
-							}
+							style={[styles.videoContainer, !videoReady && styles.videoNotReady]}
+							onError={(error) => sentryHelper(error.message)}
 							onReady={() => setVideoReady(true)}
 							resumePlayAndroid={false}
 							showFullscreenButton={false}
@@ -133,8 +121,7 @@ function TaskScreen({ navigation, route }) {
 		} catch (error) {
 			sentryHelper(error.message);
 			toast.show({
-				description:
-					'Het is op dit moment nog niet mogelijk om hulp te vragen',
+				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
 				textStyle: {
 					fontFamily: 'Raleway-Regular',
 				},
@@ -151,10 +138,7 @@ function TaskScreen({ navigation, route }) {
 
 	return (
 		<Container>
-			<FilledHeader
-				navigation={navigation}
-				title={task.headerTitle}
-			/>
+			<FilledHeader navigation={navigation} title={task.headerTitle} />
 			<ScrollView contentContainerStyle={styles.contentContainer}>
 				{task?.media && renderMedia(task.media)}
 				<ContentLayout>
@@ -168,22 +152,14 @@ function TaskScreen({ navigation, route }) {
 			</ScrollView>
 			{taskStatus ? (
 				<View style={styles.completedTagLineContainer}>
-					<Title
-						style={styles.completedTagLine}
-						variant="h6"
-						align="center"
-					>
+					<Title style={styles.completedTagLine} variant="h6" align="center">
 						Je {task.headerTitle} is gefikst
 					</Title>
 				</View>
 			) : (
 				<View style={styles.buttonContainer}>
 					<>
-						<Button
-							style={styles.buttonHelp}
-							label="Hulp nodig?"
-							onPress={needHelp}
-						/>
+						<Button style={styles.buttonHelp} label="Hulp nodig?" onPress={needHelp} />
 						<Button label="Gelukt!" onPress={doCompleteTask} />
 					</>
 				</View>

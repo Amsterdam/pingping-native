@@ -6,7 +6,7 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 
 import testIDs from '../../../e2e/modulesTestIDs';
 import commonStyles from '../../config/commonStyles';
-import { BASE_URL } from '../../config/initialSettings';
+import { BASE_URL } from '../../config/constants';
 import theme from '../../config/theme';
 import CitypingsChip from '../shared/CitypingsChip';
 import ProgressiveImage from '../shared/ProgressiveImage';

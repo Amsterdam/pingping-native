@@ -1,11 +1,11 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
 
-import { API_URL } from '../config/initialSettings';
+import { API_URL } from '../config/constants';
 import { SENTRY_DSN } from '../config/keys';
+import { getFromAsyncStorage } from '../helpers/asyncStorageHelpers';
 
 if (!__DEV__) {
 	Sentry.init({
@@ -17,7 +17,7 @@ const inMemoryCache = new InMemoryCache();
 
 const authLink = setContext(async (_, { headers }) => {
 	// get the authentication token from local storage if it exists
-	const token = await AsyncStorage.getItem('@access_token');
+	const token = await getFromAsyncStorage('@pingpingNative_accessToken');
 	// return the headers to the context so httpLink can read them
 	return {
 		headers: {

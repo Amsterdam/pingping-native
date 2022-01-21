@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
 import { StyleSheet, ScrollView, View } from 'react-native';
 
@@ -18,6 +17,8 @@ import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { ONBOARDING_STATES } from '../config/constants';
+import { getFromAsyncStorage, multiSetAsyncStorage } from '../helpers/asyncStorageHelpers';
 import { doRegisterDevice } from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
@@ -25,19 +26,9 @@ import sentryHelper from '../helpers/sentryHelper';
 // therefore we configure it based on if the user has accepted the privacy policy
 // we need to set the color accordingly
 
-function PrivacyPolicyScreen({ navigation }) {
-	useEffect(() => {
-		async function policyCheck() {
-			const acceptedPolicy = await AsyncStorage.getItem(
-				'@acceptedPolicy'
-			);
-			setPolicy(acceptedPolicy);
-		}
-		policyCheck();
-	}, []);
-
+function PrivacyPolicyScreen({ navigation, route }) {
+	const { fromOnboarding } = route.params || { fromOnboarding: false };
 	const [open, setOpen] = useState(false);
-	const [policyAccepted, setPolicy] = useState(false);
 	const [registerDevice] = useMutation(REGISTER_DEVICE_MUTATION);
 	const [loading, setLoading] = useState(false);
 
@@ -49,16 +40,14 @@ function PrivacyPolicyScreen({ navigation }) {
 		setLoading(true);
 		try {
 			await doRegisterDevice(registerDevice);
-			await AsyncStorage.setItem(
-				'@acceptedPolicy',
-				JSON.stringify(true)
-			);
-			const token = await AsyncStorage.getItem('@access_token');
+			await multiSetAsyncStorage([
+				['@pingpingNative_acceptedPolicy', JSON.stringify(true)],
+				['@pingpingNative_onboardingStatus', ONBOARDING_STATES.onboardingQuestionsStarted],
+			]);
+			const token = await getFromAsyncStorage('@pingpingNative_accessToken');
 			if (token) {
 				setLoading(false);
-				navigation.navigate(
-					routes.onboardingStack.screens.questionScreen
-				);
+				navigation.navigate(routes.onboardingStack.screens.questionScreen);
 			}
 		} catch (error) {
 			sentryHelper(error.message);
@@ -68,16 +57,12 @@ function PrivacyPolicyScreen({ navigation }) {
 	return (
 		<Container
 			testID={testIDs.PRIVACY.SCREEN}
-			statusBarColor={
-				policyAccepted
-					? theme.colors.headerColor
-					: theme.colors.white
-			}
+			statusBarColor={fromOnboarding ? theme.colors.white : theme.colors.headerColor}
 		>
-			{policyAccepted ? (
-				<FilledHeader navigation={navigation} title="Privacy" />
-			) : (
+			{fromOnboarding ? (
 				<Header title="Privacy" color="light" />
+			) : (
+				<FilledHeader navigation={navigation} title="Privacy" />
 			)}
 			<ScrollView contentContainerStyle={styles.content}>
 				<View style={styles.viewContainer}>
@@ -85,34 +70,20 @@ function PrivacyPolicyScreen({ navigation }) {
 						<FloppyDisk />
 					</View>
 					<View>
-						<Title
-							style={styles.title}
-							variant="h1"
-							align="center"
-						>
+						<Title style={styles.title} variant="h1" align="center">
 							PRIVACY
 						</Title>
-						<Body
-							variant="b3"
-							style={styles.onboardingText}
-							align="center"
-						>
-							Om Ping Ping optimaal te laten functioneren
-							verzamelen wij informatie. Klik hieronder om
-							meer hierover te lezen. Wij slaan zo min
-							mogelijk informatie op.
+						<Body variant="b3" style={styles.onboardingText} align="center">
+							Om Ping Ping optimaal te laten functioneren verzamelen wij informatie.
+							Klik hieronder om meer hierover te lezen. Wij slaan zo min mogelijk
+							informatie op.
 						</Body>
 					</View>
-					<PrivacyPolicyAccordion
-						open={open}
-						toggleOpen={toggleOpen}
-					/>
-					{!policyAccepted && (
+					<PrivacyPolicyAccordion open={open} toggleOpen={toggleOpen} />
+					{fromOnboarding && (
 						<View style={styles.buttonContainer}>
 							<Button
-								testid={
-									testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON
-								}
+								testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
 								onPress={doAcceptPolicy}
 								label="Accepteren"
 							/>
@@ -150,6 +121,7 @@ const styles = StyleSheet.create({
 
 PrivacyPolicyScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
+	route: PropTypes.object.isRequired,
 };
 
 export default PrivacyPolicyScreen;

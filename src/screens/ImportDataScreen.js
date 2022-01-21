@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { useLazyQuery, useMutation } from '@apollo/client';
-import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types';
 import { StyleSheet, ScrollView } from 'react-native';
 
@@ -16,6 +15,7 @@ import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import theme from '../config/theme';
+import { setAsyncStorage } from '../helpers/asyncStorageHelpers';
 import { doRegisterDevice } from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';
 
@@ -33,10 +33,7 @@ function ImportDataScreen({ navigation }) {
 		setLoading(true);
 		try {
 			await doRegisterDevice(registerDevice, exportToken);
-			await AsyncStorage.setItem(
-				'@acceptedPolicy',
-				JSON.stringify(true)
-			);
+			await setAsyncStorage('@pingpingNative_acceptedPolicy', JSON.stringify(true));
 			getStatus();
 		} catch (error) {
 			setLoading(false);
@@ -48,30 +45,20 @@ function ImportDataScreen({ navigation }) {
 	return (
 		<Container testID={testIDs.IMPORT_DATA.SCREEN}>
 			<Header
-				left={
-					<HeaderBackButton
-						onPressAction={() => navigation.goBack()}
-						color="dark"
-					/>
-				}
+				left={<HeaderBackButton onPressAction={() => navigation.goBack()} color="dark" />}
 				title="INLOGGEN"
 			/>
 			<ScrollView>
 				<ContentLayout>
-					<Title style={styles.margin}>
-						Gegevens Importeren
-					</Title>
+					<Title style={styles.margin}>Gegevens Importeren</Title>
 					<Body variant="b3" style={styles.margin}>
-						Als je van device switcht wil je natuurlijk niet
-						dat al jouw gegevens en prestaties op Ping Ping
-						verloren gaan!
+						Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en
+						prestaties op Ping Ping verloren gaan!
 					</Body>
 					<Body variant="b3" style={styles.margin}>
-						Het is heel simpel om jouw gegevens te importeren
-						van je oude naar je nieuwe device. Open de app op
-						je oude device en ga naar account, klik daar op
-						exporteer gegevens en scan de QR-code met je nieuwe
-						device.
+						Het is heel simpel om jouw gegevens te importeren van je oude naar je nieuwe
+						device. Open de app op je oude device en ga naar account, klik daar op
+						exporteer gegevens en scan de QR-code met je nieuwe device.
 					</Body>
 					<QrScanner
 						onSuccess={onSuccess}

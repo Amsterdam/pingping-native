@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Image, StyleSheet, View } from 'react-native';
 
-import { BASE_URL } from '../../../config/initialSettings';
+import { BASE_URL } from '../../../config/constants';
 import theme from '../../../config/theme';
 import ConfirmModal from '../../modals/ConfirmModal';
 import Button from '../../shared/RoundedButton';
