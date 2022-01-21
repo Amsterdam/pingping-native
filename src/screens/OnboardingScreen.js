@@ -46,9 +46,7 @@ function OnboardingScreen({ navigation }) {
 	const [swiper, setSwiper] = useState(null);
 	const debugMode = __DEV__;
 	const swiperRef = useRef(null);
-	const { data } = useQuery(GET_STATUS_QUERY, {
-		fetchPolicy: 'cache-only',
-	});
+	const { data } = useQuery(GET_STATUS_QUERY);
 
 	useEffect(() => {
 		setSwiper(swiperRef);
