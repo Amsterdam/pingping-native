@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import { setContext } from '@apollo/link-context';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
 import unfetch from 'unfetch';
