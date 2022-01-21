@@ -13,8 +13,7 @@ import OnboardingPage from '../components/onboarding/OnboardingPage';
 import Container from '../components/shared/Container';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
-import { ONBOARDING_STATES } from '../config/constants';
-import onboardingViews from '../config/onboardingContent';
+import { ONBOARDING_STATES, ONBOARDING_VIEWS } from '../config/constants';
 import { getFromAsyncStorage, setAsyncStorage } from '../helpers/asyncStorageHelpers';
 
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
@@ -24,7 +23,7 @@ function OnboardingScreen({ navigation }) {
 	const scrollOffsetAnimatedValue = useRef(new Animated.Value(0)).current;
 	const positionAnimatedValue = useRef(new Animated.Value(0)).current;
 	const [activePage, setActivePage] = useState(0);
-	const isLastPage = activePage + 1 === onboardingViews.length;
+	const isLastPage = activePage + 1 === ONBOARDING_VIEWS.length;
 
 	useEffect(() => {
 		const checkOnboardingStatus = async () => {
@@ -101,13 +100,13 @@ function OnboardingScreen({ navigation }) {
 					}
 				)}
 			>
-				{onboardingViews.map((page, index) => (
+				{ONBOARDING_VIEWS.map((page, index) => (
 					<OnboardingPage key={index} pageContent={page} />
 				))}
 			</AnimatedPagerView>
 			<OnboardingFooter
 				handlePageChange={handlePageChange}
-				pages={onboardingViews}
+				pages={ONBOARDING_VIEWS}
 				activePage={activePage}
 				positionAnimatedValue={positionAnimatedValue}
 				scrollOffsetAnimatedValue={scrollOffsetAnimatedValue}

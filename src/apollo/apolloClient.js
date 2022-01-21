@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import * as Sentry from '@sentry/react-native';
 
-import { API_URL } from '../config/initialSettings';
+import { API_URL } from '../config/constants';
 import { SENTRY_DSN } from '../config/keys';
 import { getFromAsyncStorage } from '../helpers/asyncStorageHelpers';
 

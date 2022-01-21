@@ -1,6 +1,6 @@
 import sentryHelper from './sentryHelper';
 
-import questionTypes from '../config/questionTypes';
+import { QUESTION_TYPES } from '../config/constants';
 
 // submits an answer and formats the variables for the mutation in order to save according to correct questiontype
 export const submitAnswer = async (
@@ -16,10 +16,10 @@ export const submitAnswer = async (
 	let answer = '';
 	answer = state.answerSelected;
 	switch (currentTask.type) {
-		case questionTypes.DATE_OF_BIRTH:
+		case QUESTION_TYPES.DATE_OF_BIRTH:
 			answer = `${state.year}-${state.month}-${state.day}`;
 			break;
-		case questionTypes.MULTIPLE_CHOICES:
+		case QUESTION_TYPES.MULTIPLE_CHOICES:
 			answer = state.choices.join();
 			break;
 		default:
@@ -97,7 +97,7 @@ export const revertTaskFunc = async (
 
 // sets the reverted questions answer value to the state - so the user can see what his previous answer was
 export function setRevertedQuestionValues(currentTask, answer, setState) {
-	if (currentTask.type === questionTypes.DATE_OF_BIRTH) {
+	if (currentTask.type === QUESTION_TYPES.DATE_OF_BIRTH) {
 		const splitDate = answer.split('-');
 		setState((state) => ({
 			...state,
@@ -106,13 +106,13 @@ export function setRevertedQuestionValues(currentTask, answer, setState) {
 			day: splitDate[2],
 		}));
 	}
-	if (currentTask.type === questionTypes.YES_OR_NO) {
+	if (currentTask.type === QUESTION_TYPES.YES_OR_NO) {
 		setState((state) => ({
 			...state,
 			answerSelected: answer,
 		}));
 	}
-	if (currentTask.type === questionTypes.MULTIPLE_CHOICES) {
+	if (currentTask.type === QUESTION_TYPES.MULTIPLE_CHOICES) {
 		setState((state) => ({
 			...state,
 			choices: answer.split(','),
@@ -123,9 +123,9 @@ export function setRevertedQuestionValues(currentTask, answer, setState) {
 // checks if the next button on the question screen should be disabled/enabled
 export const checkDisabled = (currentTask, state) => {
 	switch (currentTask.type) {
-		case questionTypes.DATE_OF_BIRTH:
+		case QUESTION_TYPES.DATE_OF_BIRTH:
 			return !state.day || !state.month || !state.year;
-		case questionTypes.MULTIPLE_CHOICES:
+		case QUESTION_TYPES.MULTIPLE_CHOICES:
 			return state.choices.length < 1;
 		default:
 			return !state.answerSelected;
