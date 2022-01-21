@@ -3,7 +3,6 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
-import unfetch from 'unfetch';
 
 import { API_URL } from '../config/initialSettings';
 import { SENTRY_DSN } from '../config/keys';
@@ -39,7 +38,6 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const httpLink = createHttpLink({
 	uri: API_URL,
-	fetch: unfetch,
 });
 
 const client = new ApolloClient({

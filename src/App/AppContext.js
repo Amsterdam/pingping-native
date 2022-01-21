@@ -19,7 +19,6 @@ export default function AppContextProvider({ children }) {
 	const netInfo = useNetInfo();
 	const { refetch } = useQuery(GET_STATUS_QUERY, {
 		fetchPolicy: 'network-only',
-		skip: 'true',
 	});
 
 	const [userState, setUserState] = useState(null);

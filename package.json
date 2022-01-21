@@ -54,8 +54,7 @@
 		"react-native-tab-view": "^3.1.1",
 		"react-native-version": "^4.0.0",
 		"react-native-webview": "^11.15.0",
-		"react-native-youtube": "^2.0.2",
-		"unfetch": "^4.2.0"
+		"react-native-youtube": "^2.0.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.5",
