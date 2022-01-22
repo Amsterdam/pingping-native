@@ -14,8 +14,8 @@ import Button from '../components/shared/RoundedButton';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import theme from '../config/theme';
 import { USER_STATES } from '../config/constants';
+import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 import useAppContext from '../hooks/useAppContext';
 
