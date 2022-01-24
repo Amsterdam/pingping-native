@@ -58,7 +58,7 @@ function ErrorComponent({ error, functionToRetry = () => {}, label = '', navigat
 
 	return (
 		<Container>
-			{navigation && (
+			{!!navigation && (
 				<Header
 					left={
 						<HeaderBackButton onPressAction={() => navigation.goBack()} color="dark" />
@@ -79,8 +79,8 @@ function ErrorComponent({ error, functionToRetry = () => {}, label = '', navigat
 				</View>
 
 				<Button label={label || errorType.label} onPress={retry} style={styles.button} />
-				{errorMessage && <MinimalErrorComponent />}
-				{loading && <LoadingComponent />}
+				{!!errorMessage && <MinimalErrorComponent />}
+				{!!loading && <LoadingComponent />}
 			</View>
 		</Container>
 	);

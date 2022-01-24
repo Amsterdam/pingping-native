@@ -2,11 +2,12 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Confirm from './answerTypes/Confirm';
-import DateOfBirth from './answerTypes/DateOfBirth';
-import GoBack from './answerTypes/GoBack';
-import MultipleChoice from './answerTypes/MultipleChoice';
-import YesOrNo from './answerTypes/YesOrNo';
+import Confirm from './questionTypes/Confirm';
+import DateOfBirth from './questionTypes/DateOfBirth';
+import DropDownSelect from './questionTypes/DropDownSelect';
+import GoBack from './questionTypes/GoBack';
+import MultipleChoice from './questionTypes/MultipleChoice';
+import YesOrNo from './questionTypes/YesOrNo';
 
 import { QUESTION_TYPES } from '../../config/constants';
 import UpdateApp from '../shared/UpdateApp';
@@ -23,6 +24,7 @@ const QuestionComponent = ({
 	doUpdateConfirmTask,
 }) => {
 	const renderQuestionType = () => {
+		return <DropDownSelect />;
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
 				return (
