@@ -15,7 +15,7 @@ import Title from '../../../typography/Title';
 
 function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 	const [selectedItem, setSelectedItem] = useState(null);
-	console.log(currentTask);
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.viewContainer}>
