@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
+import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
-import { TextInput, StyleSheet, ScrollView, View } from 'react-native';
+import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import ScrollViewListItem from './ScrollViewListItem';
 
@@ -14,12 +15,25 @@ function InputComponent({ dataSet = [] }) {
 	const [searchText, setSearchText] = useState('');
 	const [selectedItem, setSelectedItem] = useState(null);
 
+	const toggle = useCallback(() => {
+		setIsOpened(!isOpened);
+	}, [isOpened]);
+
 	const onSelectItem = useCallback((item) => {
 		setSelectedItem(item);
+		inputRef.current.blur();
+		setIsOpened(false);
 	}, []);
 
 	const onChangeText = useCallback((text) => {
 		setSearchText(text);
+	}, []);
+
+	const onClearPress = useCallback(() => {
+		setSearchText('');
+		setSelectedItem(null);
+		setIsOpened(false);
+		inputRef.current.blur();
 	}, []);
 
 	useEffect(() => {
@@ -90,7 +104,7 @@ function InputComponent({ dataSet = [] }) {
 
 	return (
 		<View style={{ width: '100%' }}>
-			<View>
+			<View style={styles.searchSection}>
 				<TextInput
 					ref={inputRef}
 					value={searchText}
@@ -103,6 +117,12 @@ function InputComponent({ dataSet = [] }) {
 					onBlur={() => setIsOpened(false)}
 					style={styles.input}
 				/>
+				<TouchableOpacity style={styles.clearButton} onPress={onClearPress}>
+					{!!searchText && <CloseIcon size="3" />}
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.chevronButton} onPress={toggle}>
+					{isOpened ? <ChevronUpIcon size="7" /> : <ChevronDownIcon size="7" />}
+				</TouchableOpacity>
 			</View>
 			{isOpened && (
 				<View style={styles.listContainer}>
@@ -126,14 +146,13 @@ function InputComponent({ dataSet = [] }) {
 
 const styles = StyleSheet.create({
 	input: {
-		height: 60,
-		borderColor: '#d0d4dc',
-		borderWidth: 1,
-		borderRadius: 5,
-		textAlign: 'center',
+		height: 30,
+		maxWidth: '70%',
+		minWidth: '70%',
+		textAlign: 'left',
 		fontFamily: 'Heavitas',
 		fontSize: 18,
-		width: '100%',
+		marginLeft: theme.spacing.xs,
 	},
 
 	listContainer: {
@@ -141,6 +160,25 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		marginTop: 10,
 		width: '100%',
+	},
+	searchSection: {
+		position: 'relative',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		backgroundColor: '#fff',
+		borderColor: '#d0d4dc',
+		borderWidth: 1,
+		borderRadius: 5,
+		minHeight: 60,
+	},
+	chevronButton: {
+		position: 'absolute',
+		right: 5,
+	},
+	clearButton: {
+		position: 'absolute',
+		right: 45,
 	},
 });
 

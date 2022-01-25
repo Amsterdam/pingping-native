@@ -42,6 +42,7 @@ function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 					<Button
 						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
 						onPress={() => {}}
+						disabled
 						label="Volgende"
 					/>
 				</View>
