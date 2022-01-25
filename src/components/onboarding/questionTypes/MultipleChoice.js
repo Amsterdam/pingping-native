@@ -13,7 +13,6 @@ import Button from '../AnswerButtonOnboarding';
 
 function MultipleChoice({
 	currentTask = {},
-	doRevertTask = () => {},
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
@@ -52,7 +51,6 @@ function MultipleChoice({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doRevertTask={doRevertTask}
 			doUpdateTask={doUpdateTask}
 		>
 			<View>
@@ -76,7 +74,6 @@ const styles = StyleSheet.create({
 
 MultipleChoice.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,

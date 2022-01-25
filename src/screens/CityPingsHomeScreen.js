@@ -14,8 +14,8 @@ import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import Title from '../components/typography/Title';
-import theme from '../config/theme';
 import { ERROR_TYPES } from '../config/constants';
+import theme from '../config/theme';
 
 function CityPingsHomeScreen({ navigation }) {
 	React.useEffect(() => {

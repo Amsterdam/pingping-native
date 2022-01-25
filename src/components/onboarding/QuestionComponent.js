@@ -12,38 +12,23 @@ import YesOrNo from './questionTypes/YesOrNo';
 import { QUESTION_TYPES } from '../../config/constants';
 import UpdateApp from '../shared/UpdateApp';
 
-const QuestionComponent = ({
-	currentTask,
-	refetch,
-	doRevertTask,
-	state,
-	setState,
-	doUpdateTask,
-	setLoadingQuestion,
-	animationRef,
-	doUpdateConfirmTask,
-}) => {
+const QuestionComponent = ({ currentTask, state, setState, doUpdateTask, doUpdateConfirmTask }) => {
 	const renderQuestionType = () => {
-		return <DropDownSelect />;
+		return (
+			<DropDownSelect currentTask={currentTask} doUpdateConfirmTask={doUpdateConfirmTask} />
+		);
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
 				return (
-					<Confirm
-						currentTask={currentTask}
-						doUpdateConfirmTask={doUpdateConfirmTask}
-						refetch={refetch}
-						setLoadingQuestion={setLoadingQuestion}
-						animationRef={animationRef}
-					/>
+					<Confirm currentTask={currentTask} doUpdateConfirmTask={doUpdateConfirmTask} />
 				);
 			case QUESTION_TYPES.GO_BACK:
-				return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
+				return <GoBack currentTask={currentTask} />;
 
 			case QUESTION_TYPES.YES_OR_NO:
 				return (
 					<YesOrNo
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
@@ -53,7 +38,6 @@ const QuestionComponent = ({
 				return (
 					<DateOfBirth
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
@@ -63,7 +47,6 @@ const QuestionComponent = ({
 				return (
 					<MultipleChoice
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
@@ -82,6 +65,10 @@ const QuestionComponent = ({
 
 QuestionComponent.propTypes = {
 	currentTask: PropTypes.object.isRequired,
+	state: PropTypes.object.isRequired,
+	setState: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
+	doUpdateConfirmTask: PropTypes.func.isRequired,
 };
 
 export default QuestionComponent;

@@ -32,7 +32,7 @@ const theme = {
 		xl: SPACING_UNIT * 6,
 		xxl: SPACING_UNIT * 7,
 	},
-	borderRadius: 5,
+	borderRadius: 10,
 	screenFadeDurationInMs: 400,
 };
 

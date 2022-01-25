@@ -5,8 +5,8 @@ import { TextInput, StyleSheet, ScrollView, View } from 'react-native';
 
 import ScrollViewListItem from './ScrollViewListItem';
 
-import theme from '../../../config/theme';
-import Body from '../../typography/Body';
+import theme from '../../../../config/theme';
+import Body from '../../../typography/Body';
 
 function InputComponent({ dataSet = [] }) {
 	const inputRef = useRef(null);
@@ -65,7 +65,7 @@ function InputComponent({ dataSet = [] }) {
 			const listItem = renderItem(item);
 			if (listItem) {
 				content.push(
-					<View key={item.id}>
+					<View key={item}>
 						{listItem}
 						{i < itemsCount && (
 							<View
@@ -73,6 +73,7 @@ function InputComponent({ dataSet = [] }) {
 									height: 2,
 									width: '100%',
 									backgroundColor: theme.colors.greyedOut,
+									borderRadius: theme.borderRadius,
 								}}
 							/>
 						)}
@@ -88,31 +89,36 @@ function InputComponent({ dataSet = [] }) {
 	};
 
 	return (
-		<View>
-			<TextInput
-				ref={inputRef}
-				value={searchText}
-				onChangeText={onChangeText}
-				placeholderTextColor="#d0d4dc"
-				placeholder="JOUW GEMEENTE"
-				autoCorrect={false}
-				onSubmitEditing={onSubmit}
-				onFocus={() => setIsOpened(true)}
-				onBlur={() => setIsOpened(false)}
-				style={styles.input}
-			/>
+		<View style={{ width: '100%' }}>
+			<View>
+				<TextInput
+					ref={inputRef}
+					value={searchText}
+					onChangeText={onChangeText}
+					placeholderTextColor="#d0d4dc"
+					placeholder="JOUW GEMEENTE"
+					autoCorrect={false}
+					onSubmitEditing={onSubmit}
+					onFocus={() => setIsOpened(true)}
+					onBlur={() => setIsOpened(false)}
+					style={styles.input}
+				/>
+			</View>
 			{isOpened && (
-				<ScrollView
-					keyboardDismissMode="on-drag"
-					keyboardShouldPersistTaps="handled"
-					nestedScrollEnabled
-				>
-					<View>
-						{scrollContent.length > 0
-							? scrollContent
-							: !!searchText && <Body>No results found</Body>}
-					</View>
-				</ScrollView>
+				<View style={styles.listContainer}>
+					<ScrollView
+						keyboardDismissMode="on-drag"
+						keyboardShouldPersistTaps="handled"
+						nestedScrollEnabled
+						contentContainerStyle={{ padding: theme.spacing.xxs }}
+					>
+						<View>
+							{scrollContent.length > 0
+								? scrollContent
+								: !!searchText && <Body variant="b4">No results found</Body>}
+						</View>
+					</ScrollView>
+				</View>
 			)}
 		</View>
 	);
@@ -125,9 +131,16 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 5,
 		textAlign: 'center',
-		margin: theme.spacing.xs,
 		fontFamily: 'Heavitas',
 		fontSize: 18,
+		width: '100%',
+	},
+
+	listContainer: {
+		maxHeight: 100,
+		backgroundColor: '#fff',
+		marginTop: 10,
+		width: '100%',
 	},
 });
 

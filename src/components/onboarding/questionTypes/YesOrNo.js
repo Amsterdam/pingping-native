@@ -8,13 +8,7 @@ import AnswerTemplate from './AnswerTemplate';
 import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
 import Button from '../AnswerButtonOnboarding';
 
-function YesOrNo({
-	currentTask = {},
-	doRevertTask = () => {},
-	doUpdateTask = () => {},
-	state = {},
-	setState = () => {},
-}) {
+function YesOrNo({ currentTask = {}, doUpdateTask = () => {}, state = {}, setState = () => {} }) {
 	const mapButtons = () => {
 		const buttonArray = [];
 		Object.entries(currentTask.choices).forEach(([key, value]) => {
@@ -41,7 +35,6 @@ function YesOrNo({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doRevertTask={doRevertTask}
 			doUpdateTask={doUpdateTask}
 		>
 			<View>{mapButtons()}</View>
@@ -51,7 +44,6 @@ function YesOrNo({
 
 YesOrNo.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,

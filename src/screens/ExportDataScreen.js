@@ -12,8 +12,8 @@ import ContentLayout from '../components/layout/ContentLayout';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import theme from '../config/theme';
 import { USER_STATES } from '../config/constants';
+import theme from '../config/theme';
 import { clearAsyncStorage } from '../helpers/asyncStorageHelpers';
 import useAppContext from '../hooks/useAppContext';
 
