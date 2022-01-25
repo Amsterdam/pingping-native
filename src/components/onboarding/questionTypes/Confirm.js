@@ -10,14 +10,14 @@ import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
-function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
+function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
 	const handleOnPress = (answer) => {
 		if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
 			return setConfirmModalOpen(true);
 		}
-		return doUpdateConfirmTask(answer);
+		return doUpdateTask(answer);
 	};
 
 	const mapButtons = () => {
@@ -62,7 +62,7 @@ function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 			<ConfirmModal
 				open={confirmModalOpen}
 				setOpen={setConfirmModalOpen}
-				doUpdateConfirmTask={doUpdateConfirmTask}
+				doUpdateTask={doUpdateTask}
 			/>
 		</View>
 	);
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 
 Confirm.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
 };
 
 export default Confirm;

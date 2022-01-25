@@ -19,16 +19,13 @@ import UpdateApp from '../shared/UpdateApp';
  * @param {Object} state - The state of the parent screen controls the state of the child component.
  * @param {Function} setState - The setState function of the parent screen controls the state of the child component.
  * @param {Function} doUpdateTask - The function to update the task.
- * @param {Function} doUpdateConfirmTask - The function to update the confirm task.
  */
 
-const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doUpdateConfirmTask }) => {
+const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask }) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
-				return (
-					<Confirm currentTask={currentTask} doUpdateConfirmTask={doUpdateConfirmTask} />
-				);
+				return <Confirm currentTask={currentTask} doUpdateTask={doUpdateTask} />;
 			case QUESTION_TYPES.GO_BACK:
 				return <GoBack currentTask={currentTask} />;
 
@@ -63,7 +60,9 @@ const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doUpdate
 				return (
 					<DropDownSelect
 						currentTask={currentTask}
-						doUpdateConfirmTask={doUpdateConfirmTask}
+						doUpdateTask={doUpdateTask}
+						state={state}
+						setState={setState}
 					/>
 				);
 			default:
@@ -82,7 +81,6 @@ QuestionRenderer.propTypes = {
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
 };
 
 export default QuestionRenderer;

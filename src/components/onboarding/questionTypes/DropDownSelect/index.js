@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
@@ -13,9 +13,16 @@ import Button from '../../../shared/RoundedButton';
 import Body from '../../../typography/Body';
 import Title from '../../../typography/Title';
 
-function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
-	const [selectedItem, setSelectedItem] = useState(null);
-
+function DropDownSelect({
+	currentTask = {},
+	doUpdateTask = () => {},
+	state = {},
+	setState = () => {},
+}) {
+	const selectedItem = state.answerSelected;
+	const setSelectedItem = (item) => {
+		setState({ ...state, answerSelected: item });
+	};
 	return (
 		<View style={styles.container}>
 			<View style={styles.viewContainer}>
@@ -52,7 +59,7 @@ function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 				<View style={styles.buttonContainer}>
 					<Button
 						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
-						onPress={() => doUpdateConfirmTask(selectedItem)}
+						onPress={doUpdateTask}
 						disabled={!selectedItem}
 						label="Volgende"
 					/>
@@ -90,7 +97,9 @@ const styles = StyleSheet.create({
 
 DropDownSelect.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
+	state: PropTypes.object.isRequired,
+	setState: PropTypes.func.isRequired,
 };
 
 export default DropDownSelect;

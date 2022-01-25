@@ -24,7 +24,6 @@ import {
 	revertTaskFunc,
 	setRevertedQuestionValues,
 	submitAnswer,
-	updateConfirmTask,
 } from '../helpers/questionAnswerHelpers';
 
 const INITIAL_STATE = {
@@ -90,7 +89,7 @@ function QuestionScreen({ navigation }) {
 		};
 
 		// @todo refactor doUpdateTask and doRevertTask to be one function
-		const doUpdateTask = () => {
+		const doUpdateTask = (answer) => {
 			submitAnswer(
 				currentTask,
 				state,
@@ -99,18 +98,8 @@ function QuestionScreen({ navigation }) {
 				setState,
 				refetch,
 				INITIAL_STATE,
-				animationRef
-			);
-		};
-
-		const doUpdateConfirmTask = (answer) => {
-			updateConfirmTask(
-				answer,
-				updateTask,
-				currentTask,
-				refetch,
 				animationRef,
-				setLoadingQuestion
+				answer
 			);
 		};
 
@@ -140,8 +129,6 @@ function QuestionScreen({ navigation }) {
 								state={state}
 								setState={setState}
 								doUpdateTask={doUpdateTask}
-								setLoadingQuestion={setLoadingQuestion}
-								doUpdateConfirmTask={doUpdateConfirmTask}
 							/>
 						</ContentLayout>
 					</Container>

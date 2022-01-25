@@ -12,7 +12,7 @@ import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
-function ConfirmModal({ open = false, setOpen = () => {}, doUpdateConfirmTask = () => {} }) {
+function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {} }) {
 	const closeModal = useCallback(() => {
 		setOpen(false);
 	}, [setOpen]);
@@ -37,7 +37,7 @@ function ConfirmModal({ open = false, setOpen = () => {}, doUpdateConfirmTask = 
 						<RoundedButton
 							label="Vragen Overslaan"
 							full
-							onPress={() => doUpdateConfirmTask('no')}
+							onPress={() => doUpdateTask('no')}
 							testid={testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON}
 						/>
 					</View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 ConfirmModal.propTypes = {
 	open: PropTypes.bool.isRequired,
 	setOpen: PropTypes.func.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
 };
 
 export default ConfirmModal;

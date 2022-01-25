@@ -11,26 +11,31 @@ export const submitAnswer = async (
 	setState,
 	refetch,
 	INITIAL_STATE,
-	animationRef
+	animationRef,
+	answer
 ) => {
-	let answer = '';
-	answer = state.answerSelected;
-	switch (currentTask.type) {
-		case QUESTION_TYPES.DATE_OF_BIRTH:
-			answer = `${state.year}-${state.month}-${state.day}`;
-			break;
-		case QUESTION_TYPES.MULTIPLE_CHOICES:
-			answer = state.choices.join();
-			break;
-		default:
-			answer = state.answerSelected;
-			break;
+	let answerToSubmit = answer;
+
+	if (typeof answerToSubmit !== 'string') {
+		console.log('answerToSubmit is not a string');
+		switch (currentTask.type) {
+			case QUESTION_TYPES.DATE_OF_BIRTH:
+				answerToSubmit = `${state.year}-${state.month}-${state.day}`;
+				break;
+			case QUESTION_TYPES.MULTIPLE_CHOICES:
+				answerToSubmit = state.choices.join();
+				break;
+			default:
+				answerToSubmit = state.answerSelected;
+				break;
+		}
 	}
+
 	setLoadingQuestion(true);
 	try {
 		await updateTask({
 			variables: {
-				answer,
+				answer: answerToSubmit,
 				taskId: currentTask.taskId,
 			},
 		});
@@ -41,31 +46,6 @@ export const submitAnswer = async (
 	} catch (error) {
 		sentryHelper(error.message);
 		setLoadingQuestion(false);
-	}
-};
-
-export const updateConfirmTask = async (
-	answer,
-	updateTask,
-	currentTask,
-	refetch,
-	animationRef,
-	setLoadingQuestion
-) => {
-	setLoadingQuestion(true);
-	try {
-		await updateTask({
-			variables: {
-				answer,
-				taskId: currentTask.taskId,
-			},
-		});
-		await refetch();
-		setLoadingQuestion(false);
-		animationRef.current?.slideInRight();
-	} catch (error) {
-		setLoadingQuestion(false);
-		sentryHelper(error.message);
 	}
 };
 
@@ -99,25 +79,23 @@ export const revertTaskFunc = async (
 export function setRevertedQuestionValues(currentTask, answer, setState) {
 	if (currentTask.type === QUESTION_TYPES.DATE_OF_BIRTH) {
 		const splitDate = answer.split('-');
-		setState((state) => ({
+		return setState((state) => ({
 			...state,
 			year: splitDate[0],
 			month: splitDate[1],
 			day: splitDate[2],
 		}));
 	}
-	if (currentTask.type === QUESTION_TYPES.YES_OR_NO) {
-		setState((state) => ({
-			...state,
-			answerSelected: answer,
-		}));
-	}
 	if (currentTask.type === QUESTION_TYPES.MULTIPLE_CHOICES) {
-		setState((state) => ({
+		return setState((state) => ({
 			...state,
 			choices: answer.split(','),
 		}));
 	}
+	return setState((state) => ({
+		...state,
+		answerSelected: answer,
+	}));
 }
 
 // checks if the next button on the question screen should be disabled/enabled
