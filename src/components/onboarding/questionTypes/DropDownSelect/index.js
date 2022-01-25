@@ -59,7 +59,7 @@ function DropDownSelect({
 				<View style={styles.buttonContainer}>
 					<Button
 						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
-						onPress={doUpdateTask}
+						onPress={() => doUpdateTask()}
 						disabled={!selectedItem}
 						label="Volgende"
 					/>

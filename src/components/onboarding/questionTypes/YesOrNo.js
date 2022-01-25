@@ -35,7 +35,7 @@ function YesOrNo({ currentTask = {}, doUpdateTask = () => {}, state = {}, setSta
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doUpdateTask={doUpdateTask}
+			doUpdateTask={() => doUpdateTask()}
 		>
 			<View>{mapButtons()}</View>
 		</AnswerTemplate>

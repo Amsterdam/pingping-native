@@ -51,7 +51,7 @@ function MultipleChoice({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doUpdateTask={doUpdateTask}
+			doUpdateTask={() => doUpdateTask()}
 		>
 			<View>
 				<Body vriant="b4" align="center" style={styles.bodyText}>

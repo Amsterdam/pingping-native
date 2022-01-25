@@ -24,7 +24,7 @@ function DateOfBirth({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doUpdateTask={doUpdateTask}
+			doUpdateTask={() => doUpdateTask()}
 		>
 			<View style={styles.container}>
 				<View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>

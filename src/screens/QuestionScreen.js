@@ -27,7 +27,7 @@ import {
 } from '../helpers/questionAnswerHelpers';
 
 const INITIAL_STATE = {
-	answerSelected: false,
+	answerSelected: '',
 	day: '',
 	month: '',
 	year: '',
@@ -88,7 +88,6 @@ function QuestionScreen({ navigation }) {
 			);
 		};
 
-		// @todo refactor doUpdateTask and doRevertTask to be one function
 		const doUpdateTask = (answer) => {
 			submitAnswer(
 				currentTask,
