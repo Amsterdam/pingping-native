@@ -14,9 +14,6 @@ import UpdateApp from '../shared/UpdateApp';
 
 const QuestionComponent = ({ currentTask, state, setState, doUpdateTask, doUpdateConfirmTask }) => {
 	const renderQuestionType = () => {
-		return (
-			<DropDownSelect currentTask={currentTask} doUpdateConfirmTask={doUpdateConfirmTask} />
-		);
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
 				return (
@@ -50,6 +47,13 @@ const QuestionComponent = ({ currentTask, state, setState, doUpdateTask, doUpdat
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
+					/>
+				);
+			case QUESTION_TYPES.DROPDOWN_SELECT:
+				return (
+					<DropDownSelect
+						currentTask={currentTask}
+						doUpdateConfirmTask={doUpdateConfirmTask}
 					/>
 				);
 			default:

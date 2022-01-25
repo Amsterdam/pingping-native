@@ -9,21 +9,23 @@ import ScrollViewListItem from './ScrollViewListItem';
 import theme from '../../../../config/theme';
 import Body from '../../../typography/Body';
 
-function InputComponent({ dataSet = [] }) {
+function InputComponent({ choices, placeholder, noResultLabel, selectedItem, setSelectedItem }) {
 	const inputRef = useRef(null);
 	const [isOpened, setIsOpened] = useState(false);
 	const [searchText, setSearchText] = useState('');
-	const [selectedItem, setSelectedItem] = useState(null);
 
 	const toggle = useCallback(() => {
 		setIsOpened(!isOpened);
 	}, [isOpened]);
 
-	const onSelectItem = useCallback((item) => {
-		setSelectedItem(item);
-		inputRef.current.blur();
-		setIsOpened(false);
-	}, []);
+	const onSelectItem = useCallback(
+		(item) => {
+			setSelectedItem(item);
+			inputRef.current.blur();
+			setIsOpened(false);
+		},
+		[setSelectedItem]
+	);
 
 	const onChangeText = useCallback((text) => {
 		setSearchText(text);
@@ -34,7 +36,7 @@ function InputComponent({ dataSet = [] }) {
 		setSelectedItem(null);
 		setIsOpened(false);
 		inputRef.current.blur();
-	}, []);
+	}, [setSelectedItem]);
 
 	useEffect(() => {
 		if (selectedItem) {
@@ -45,21 +47,21 @@ function InputComponent({ dataSet = [] }) {
 	}, [selectedItem]);
 
 	const renderItem = useCallback(
-		(item) => {
+		(key, value) => {
 			let titleHighlighted = '';
-			let titleStart = item;
+			let titleStart = value;
 			let titleEnd = '';
-			const substrIndex = item.toLowerCase().indexOf(searchText.toLowerCase());
+			const substrIndex = value.toLowerCase().indexOf(searchText.toLowerCase());
 			if (substrIndex !== -1) {
-				titleStart = item.slice(0, substrIndex);
-				titleHighlighted = item.slice(substrIndex, substrIndex + searchText.length);
-				titleEnd = item.slice(substrIndex + searchText.length);
+				titleStart = value.slice(0, substrIndex);
+				titleHighlighted = value.slice(substrIndex, substrIndex + searchText.length);
+				titleEnd = value.slice(substrIndex + searchText.length);
 				return (
 					<ScrollViewListItem
 						titleStart={titleStart}
 						titleHighlighted={titleHighlighted}
 						titleEnd={titleEnd}
-						onPress={() => onSelectItem(item)}
+						onPress={() => onSelectItem(key)}
 					/>
 				);
 			}
@@ -69,17 +71,17 @@ function InputComponent({ dataSet = [] }) {
 	);
 
 	const scrollContent = useMemo(() => {
+		const dataSet = Object.entries(choices);
 		if (!Array.isArray(dataSet)) {
 			return null;
 		}
-
 		const content = [];
-		const itemsCount = dataSet.length - 1;
-		dataSet.forEach((item, i) => {
-			const listItem = renderItem(item);
+		const itemsCount = choices.length - 1;
+		dataSet.forEach(([key, value], i) => {
+			const listItem = renderItem(key, value);
 			if (listItem) {
 				content.push(
-					<View key={item}>
+					<View key={key}>
 						{listItem}
 						{i < itemsCount && (
 							<View
@@ -96,21 +98,21 @@ function InputComponent({ dataSet = [] }) {
 			}
 		});
 		return content;
-	}, [dataSet, renderItem]);
+	}, [choices, renderItem]);
 
 	const onSubmit = () => {
 		inputRef.current.blur();
 	};
 
 	return (
-		<View style={{ width: '100%' }}>
+		<View style={styles.container}>
 			<View style={styles.searchSection}>
 				<TextInput
 					ref={inputRef}
 					value={searchText}
 					onChangeText={onChangeText}
 					placeholderTextColor="#d0d4dc"
-					placeholder="JOUW GEMEENTE"
+					placeholder={placeholder}
 					autoCorrect={false}
 					onSubmitEditing={onSubmit}
 					onFocus={() => setIsOpened(true)}
@@ -127,7 +129,6 @@ function InputComponent({ dataSet = [] }) {
 			{isOpened && (
 				<View style={styles.listContainer}>
 					<ScrollView
-						keyboardDismissMode="on-drag"
 						keyboardShouldPersistTaps="handled"
 						nestedScrollEnabled
 						contentContainerStyle={{ padding: theme.spacing.xxs }}
@@ -135,7 +136,7 @@ function InputComponent({ dataSet = [] }) {
 						<View>
 							{scrollContent.length > 0
 								? scrollContent
-								: !!searchText && <Body variant="b4">No results found</Body>}
+								: !!searchText && <Body variant="b4">{noResultLabel}</Body>}
 						</View>
 					</ScrollView>
 				</View>
@@ -145,6 +146,7 @@ function InputComponent({ dataSet = [] }) {
 }
 
 const styles = StyleSheet.create({
+	container: { width: '100%' },
 	input: {
 		height: 30,
 		maxWidth: '70%',
@@ -183,7 +185,17 @@ const styles = StyleSheet.create({
 });
 
 InputComponent.propTypes = {
-	dataSet: PropTypes.array.isRequired,
+	choices: PropTypes.object.isRequired,
+	placeholder: PropTypes.string,
+	noResultLabel: PropTypes.string,
+	setSelectedItem: PropTypes.func.isRequired,
+	selectedItem: PropTypes.string,
+};
+
+InputComponent.defaultProps = {
+	placeholder: 'Selecteer of type',
+	noResultLabel: 'Mijn optie staat er niet bij',
+	selectedItem: '',
 };
 
 export default InputComponent;

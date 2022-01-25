@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { View, StyleSheet, Image } from 'react-native';
@@ -13,7 +13,7 @@ import Body from '../../../typography/Body';
 import Title from '../../../typography/Title';
 
 function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
-	console.warn(doUpdateConfirmTask);
+	const [selectedItem, setSelectedItem] = useState(null);
 	return (
 		<View style={styles.container}>
 			<View style={styles.viewContainer}>
@@ -36,13 +36,17 @@ function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 					</Body>
 				</View>
 				<InputComponent
-					dataSet={['Amsterdam', 'Rotterdam', 'Alkmaar', 'Zaanstad', 'Groningen']}
+					placeholder={currentTask.meta?.dropdownSelectPlaceholder}
+					noResultLabel={currentTask.meta?.dropdownSelectNoResultLabel}
+					choices={currentTask.choices}
+					setSelectedItem={setSelectedItem}
+					selectedItem={selectedItem}
 				/>
 				<View style={styles.buttonContainer}>
 					<Button
 						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
-						onPress={() => {}}
-						disabled
+						onPress={() => doUpdateConfirmTask(selectedItem)}
+						disabled={!selectedItem}
 						label="Volgende"
 					/>
 				</View>
