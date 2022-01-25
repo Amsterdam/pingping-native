@@ -12,7 +12,7 @@ import routes from '../App/stacks/routes';
 import Header from '../components/header/Header';
 import HeaderBackButton from '../components/header/HeaderBackButton';
 import ContentLayout from '../components/layout/ContentLayout';
-import QuestionComponent from '../components/onboarding/QuestionComponent';
+import QuestionRenderer from '../components/onboarding/QuestionRenderer';
 import Container from '../components/shared/Container';
 import ErrorComponent from '../components/shared/ErrorComponent';
 import ProgressBar from '../components/shared/ProgressBar';
@@ -89,6 +89,7 @@ function QuestionScreen({ navigation }) {
 			);
 		};
 
+		// @todo refactor doUpdateTask and doRevertTask to be one function
 		const doUpdateTask = () => {
 			submitAnswer(
 				currentTask,
@@ -131,7 +132,7 @@ function QuestionScreen({ navigation }) {
 							title={currentTask.headerTitle}
 						/>
 						<ContentLayout>
-							<QuestionComponent
+							<QuestionRenderer
 								currentTask={currentTask}
 								updateTask={updateTask}
 								refetch={refetch}

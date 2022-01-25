@@ -12,7 +12,17 @@ import YesOrNo from './questionTypes/YesOrNo';
 import { QUESTION_TYPES } from '../../config/constants';
 import UpdateApp from '../shared/UpdateApp';
 
-const QuestionComponent = ({ currentTask, state, setState, doUpdateTask, doUpdateConfirmTask }) => {
+/**
+ * @component QuestionRenderer
+ * Component for rendering different types of questions.
+ * @param {Object} currentTask - The current task to be rendered.
+ * @param {Object} state - The state of the parent screen controls the state of the child component.
+ * @param {Function} setState - The setState function of the parent screen controls the state of the child component.
+ * @param {Function} doUpdateTask - The function to update the task.
+ * @param {Function} doUpdateConfirmTask - The function to update the confirm task.
+ */
+
+const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doUpdateConfirmTask }) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
@@ -67,7 +77,7 @@ const QuestionComponent = ({ currentTask, state, setState, doUpdateTask, doUpdat
 	return renderQuestionType();
 };
 
-QuestionComponent.propTypes = {
+QuestionRenderer.propTypes = {
 	currentTask: PropTypes.object.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,
@@ -75,4 +85,4 @@ QuestionComponent.propTypes = {
 	doUpdateConfirmTask: PropTypes.func.isRequired,
 };
 
-export default QuestionComponent;
+export default QuestionRenderer;
