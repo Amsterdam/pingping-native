@@ -21,8 +21,9 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 	const onSelectItem = useCallback(
 		(item) => {
 			setSelectedItem(item);
-			inputRef.current.blur();
 			setIsOpened(false);
+			setSearchText(item);
+			inputRef.current.blur();
 		},
 		[setSelectedItem]
 	);

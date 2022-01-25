@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import InputComponent from './InputComponent';
 
 import testIDs from '../../../../../e2e/modulesTestIDs';
 import { BASE_URL } from '../../../../config/constants';
 import theme from '../../../../config/theme';
+import ProgressiveImage from '../../../shared/ProgressiveImage';
 import Button from '../../../shared/RoundedButton';
 import Body from '../../../typography/Body';
 import Title from '../../../typography/Title';
 
 function DropDownSelect({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 	const [selectedItem, setSelectedItem] = useState(null);
+	console.log(currentTask);
 	return (
 		<View style={styles.container}>
 			<View style={styles.viewContainer}>
 				<View>
 					{currentTask.media?.value && (
-						<Image
+						<ProgressiveImage
 							source={{
-								uri: `${BASE_URL}${currentTask.media.value}`,
+								uri: `${BASE_URL}${currentTask.media?.value}`,
+							}}
+							thumbnailSource={{
+								uri: `${BASE_URL}${currentTask.media?.thumbnail}`,
 							}}
 							style={styles.image}
+							mainColor={theme.colors.white}
+							resizeMode="contain"
 						/>
 					)}
 				</View>
@@ -60,9 +67,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	image: {
-		width: 150,
-		height: 150,
-		alignSelf: 'center',
+		height: 200,
+		width: 200,
 	},
 	viewContainer: {
 		flex: 1,

@@ -30,6 +30,7 @@ const GET_STATUS_QUERY = gql`
 				task {
 					taskId
 					title
+					meta
 					description
 					choices
 					type

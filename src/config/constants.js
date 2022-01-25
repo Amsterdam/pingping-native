@@ -46,7 +46,7 @@ export const QUESTION_TYPES = {
 	GO_BACK: 'GoBack',
 	DATE_OF_BIRTH: 'DateOfBirth',
 	CONFIRM: 'Confirm',
-	DROPDOWN_SELECT: 'DropDownSelect',
+	DROPDOWN_SELECT: 'DropdownSelect',
 };
 
 export const ONBOARDING_VIEWS = [
