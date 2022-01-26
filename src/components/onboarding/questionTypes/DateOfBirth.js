@@ -13,7 +13,6 @@ import { checkDisabled } from '../../../helpers/questionAnswerHelpers';
 
 function DateOfBirth({
 	currentTask = {},
-	doRevertTask = () => {},
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
@@ -25,8 +24,7 @@ function DateOfBirth({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doRevertTask={doRevertTask}
-			doUpdateTask={doUpdateTask}
+			doUpdateTask={() => doUpdateTask()}
 		>
 			<View style={styles.container}>
 				<View style={[styles.pickerContainer, !isIos && styles.pickerAndroid]}>
@@ -99,7 +97,6 @@ const styles = StyleSheet.create({
 
 DateOfBirth.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,

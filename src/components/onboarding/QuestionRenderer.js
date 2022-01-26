@@ -2,38 +2,30 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Confirm from './answerTypes/Confirm';
-import DateOfBirth from './answerTypes/DateOfBirth';
-import GoBack from './answerTypes/GoBack';
-import MultipleChoice from './answerTypes/MultipleChoice';
-import YesOrNo from './answerTypes/YesOrNo';
+import Confirm from './questionTypes/Confirm';
+import DateOfBirth from './questionTypes/DateOfBirth';
+import DropDownSelect from './questionTypes/DropDownSelect';
+import GoBack from './questionTypes/GoBack';
+import MultipleChoice from './questionTypes/MultipleChoice';
+import YesOrNo from './questionTypes/YesOrNo';
 
 import { QUESTION_TYPES } from '../../config/constants';
 import UpdateApp from '../shared/UpdateApp';
 
-const QuestionComponent = ({
-	currentTask,
-	refetch,
-	doRevertTask,
-	state,
-	setState,
-	doUpdateTask,
-	setLoadingQuestion,
-	animationRef,
-	doUpdateConfirmTask,
-}) => {
+/**
+ * @component QuestionRenderer
+ * Component for rendering different types of questions.
+ * @param {Object} currentTask - The current task to be rendered.
+ * @param {Object} state - The state of the parent screen controls the state of the child component.
+ * @param {Function} setState - The setState function of the parent screen controls the state of the child component.
+ * @param {Function} doUpdateTask - The function to update the task.
+ */
+
+const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doRevertTask }) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
-				return (
-					<Confirm
-						currentTask={currentTask}
-						doUpdateConfirmTask={doUpdateConfirmTask}
-						refetch={refetch}
-						setLoadingQuestion={setLoadingQuestion}
-						animationRef={animationRef}
-					/>
-				);
+				return <Confirm currentTask={currentTask} doUpdateTask={doUpdateTask} />;
 			case QUESTION_TYPES.GO_BACK:
 				return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
 
@@ -41,7 +33,6 @@ const QuestionComponent = ({
 				return (
 					<YesOrNo
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
@@ -51,7 +42,6 @@ const QuestionComponent = ({
 				return (
 					<DateOfBirth
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
@@ -61,10 +51,18 @@ const QuestionComponent = ({
 				return (
 					<MultipleChoice
 						currentTask={currentTask}
-						doRevertTask={doRevertTask}
 						state={state}
 						setState={setState}
 						doUpdateTask={doUpdateTask}
+					/>
+				);
+			case QUESTION_TYPES.DROPDOWN_SELECT:
+				return (
+					<DropDownSelect
+						currentTask={currentTask}
+						doUpdateTask={doUpdateTask}
+						state={state}
+						setState={setState}
 					/>
 				);
 			default:
@@ -78,8 +76,12 @@ const QuestionComponent = ({
 	return renderQuestionType();
 };
 
-QuestionComponent.propTypes = {
+QuestionRenderer.propTypes = {
 	currentTask: PropTypes.object.isRequired,
+	state: PropTypes.object.isRequired,
+	setState: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
+	doRevertTask: PropTypes.func.isRequired,
 };
 
-export default QuestionComponent;
+export default QuestionRenderer;

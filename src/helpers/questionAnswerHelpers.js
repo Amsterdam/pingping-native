@@ -2,35 +2,53 @@ import sentryHelper from './sentryHelper';
 
 import { QUESTION_TYPES } from '../config/constants';
 
-// submits an answer and formats the variables for the mutation in order to save according to correct questiontype
+/**
+ * @async
+ * @function submitAnswer
+ * Submits an answer and formats the variables for the mutation in order to save according
+ * to correct questiontype. If it is called with an answer then it will submit the answer.
+ * if not then it will format the variables for the mutation.
+ * @param {Object} currentTask - The current task to be rendered.
+ * @param {Object} state - The state of the the QuestionScreen.
+ * @param {Callback} setLoadingQuestion - The function to set the loading state of the questionScreen.
+ * @param {Callback} updateTask - The function to update the task.
+ * @param {Callback} setState - The setState function of the QuestionScreen.
+ * @param {Callback} refetch - The refetch function of the QuestionScreen.
+ * @param {Object} INITIAL_STATE - The state initial of the the QuestionScreen.
+ * @param {Callback} animationRef - A reference to the animation, to simulate a page change.
+ * @param {String} answer - The answer to be submitted.
+ */
+
 export const submitAnswer = async (
-	currentTask,
-	state,
-	setLoadingQuestion,
-	updateTask,
-	setState,
-	refetch,
-	INITIAL_STATE,
-	animationRef
+	currentTask = {},
+	state = {},
+	setLoadingQuestion = () => {},
+	updateTask = () => {},
+	setState = () => {},
+	refetch = () => {},
+	INITIAL_STATE = {},
+	animationRef = () => {},
+	answer = ''
 ) => {
-	let answer = '';
-	answer = state.answerSelected;
-	switch (currentTask.type) {
-		case QUESTION_TYPES.DATE_OF_BIRTH:
-			answer = `${state.year}-${state.month}-${state.day}`;
-			break;
-		case QUESTION_TYPES.MULTIPLE_CHOICES:
-			answer = state.choices.join();
-			break;
-		default:
-			answer = state.answerSelected;
-			break;
+	let answerToSubmit = answer.value;
+	if (!answerToSubmit) {
+		switch (currentTask.type) {
+			case QUESTION_TYPES.DATE_OF_BIRTH:
+				answerToSubmit = `${state.year}-${state.month}-${state.day}`;
+				break;
+			case QUESTION_TYPES.MULTIPLE_CHOICES:
+				answerToSubmit = state.choices.join();
+				break;
+			default:
+				answerToSubmit = state.selectedChoice.value;
+				break;
+		}
 	}
 	setLoadingQuestion(true);
 	try {
 		await updateTask({
 			variables: {
-				answer,
+				answer: answerToSubmit,
 				taskId: currentTask.taskId,
 			},
 		});
@@ -44,39 +62,25 @@ export const submitAnswer = async (
 	}
 };
 
-export const updateConfirmTask = async (
-	answer,
-	updateTask,
-	currentTask,
-	refetch,
-	animationRef,
-	setLoadingQuestion
-) => {
-	setLoadingQuestion(true);
-	try {
-		await updateTask({
-			variables: {
-				answer,
-				taskId: currentTask.taskId,
-			},
-		});
-		await refetch();
-		setLoadingQuestion(false);
-		animationRef.current?.slideInRight();
-	} catch (error) {
-		setLoadingQuestion(false);
-		sentryHelper(error.message);
-	}
-};
+/**
+ * @async
+ * @function revertTaskFunc
+ * Calls the backend to revert the currentTask to the previous saved task in order.
+ * @param {Callback} setLoadingQuestion - The callback to set the loading state of the questionScreen.
+ * @param {Object} previousTask - The previous task in the order.
+ * @param {Object} navigation - Navigation object.
+ * @param {Callback} refetch - The refetch callback of the QuestionScreen.
+ * @param {Callback} revertTask - The mutation to revert to the previous task.n.
+ * @param {Callback} animationRef - The answer to be submitted.
+ */
 
-// revert a task and enables the user to go back within the questions flow
 export const revertTaskFunc = async (
-	setLoadingQuestion,
-	previousTask,
-	navigation,
-	refetch,
-	revertTask,
-	animationRef
+	setLoadingQuestion = () => {},
+	previousTask = {},
+	navigation = {},
+	refetch = () => {},
+	revertTask = () => {},
+	animationRef = () => {}
 ) => {
 	setLoadingQuestion(true);
 	if (!previousTask?.taskId) {
@@ -95,39 +99,81 @@ export const revertTaskFunc = async (
 	}
 };
 
-// sets the reverted questions answer value to the state - so the user can see what his previous answer was
-export function setRevertedQuestionValues(currentTask, answer, setState) {
-	if (currentTask.type === QUESTION_TYPES.DATE_OF_BIRTH) {
-		const splitDate = answer.split('-');
-		setState((state) => ({
-			...state,
-			year: splitDate[0],
-			month: splitDate[1],
-			day: splitDate[2],
-		}));
+/**
+ * @function setRevertedQuestionValues
+ * Sets the reverted questions answer value to the state,so the user can see what his previous answer was
+ * @param {Object} currentTask - The current task in the order.
+ * @param {String} answer - the answer of the previous task, that needs to be set to the current.
+ * @param {Callback} setState - The setState function of the QuestionScreen.
+ */
+
+export function setRevertedQuestionValues(current, setState = () => {}) {
+	const {
+		task: { choices, type, meta },
+		answer,
+	} = current;
+	let choice = { value: '', label: '' };
+	let splitDate = '';
+
+	// form the choice object to be set in the state
+	if (choices) {
+		Object.keys(choices).forEach((key) => {
+			if (key === answer) {
+				choice = { value: key, label: choices[key] };
+			}
+		});
 	}
-	if (currentTask.type === QUESTION_TYPES.YES_OR_NO) {
-		setState((state) => ({
-			...state,
-			answerSelected: answer,
-		}));
-	}
-	if (currentTask.type === QUESTION_TYPES.MULTIPLE_CHOICES) {
-		setState((state) => ({
-			...state,
-			choices: answer.split(','),
-		}));
+
+	switch (type) {
+		case QUESTION_TYPES.DATE_OF_BIRTH:
+			splitDate = answer.split('-');
+			setState((state) => ({
+				...state,
+				year: splitDate[0],
+				month: splitDate[1],
+				day: splitDate[2],
+			}));
+			break;
+		case QUESTION_TYPES.MULTIPLE_CHOICES:
+			setState((state) => ({
+				...state,
+				choices: answer.split(','),
+			}));
+			break;
+		case QUESTION_TYPES.DROPDOWN_SELECT:
+			if (answer === meta.dropdownSelectNoResultValue) {
+				choice = {
+					value: meta.dropdownSelectNoResultValue,
+					label: meta.dropdownSelectNoResultLabel,
+				};
+			}
+			setState((state) => ({
+				...state,
+				selectedChoice: choice,
+			}));
+			break;
+		default:
+			setState((state) => ({
+				...state,
+				selectedChoice: choice,
+			}));
+			break;
 	}
 }
 
-// checks if the next button on the question screen should be disabled/enabled
-export const checkDisabled = (currentTask, state) => {
+/**
+ * @function setRevertedQuestionValues
+ * Checks if the next button on the question screen should be disabled/enabled
+ * @param {Object} currentTask - The current task in the order.
+ * @param {Object} state - The state of the QuestionScreen.
+ */
+export const checkDisabled = (currentTask = {}, state = {}) => {
 	switch (currentTask.type) {
 		case QUESTION_TYPES.DATE_OF_BIRTH:
 			return !state.day || !state.month || !state.year;
 		case QUESTION_TYPES.MULTIPLE_CHOICES:
 			return state.choices.length < 1;
 		default:
-			return !state.answerSelected;
+			return !state.selectedChoice.value;
 	}
 };

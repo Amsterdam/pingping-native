@@ -6,8 +6,8 @@ import { Animated, StyleSheet, View } from 'react-native';
 
 import theme from '../../config/theme';
 
-const DOT_SIZE = 10;
-const MARGIN = 20;
+const DOT_SIZE = 12;
+const MARGIN = 15;
 
 function Pagination({ scrollOffsetAnimatedValue, positionAnimatedValue, pages }) {
 	const inputRange = [0, pages.length];
@@ -40,9 +40,10 @@ function Pagination({ scrollOffsetAnimatedValue, positionAnimatedValue, pages })
 const styles = StyleSheet.create({
 	container: {
 		marginLeft: MARGIN,
-		marginBottom: MARGIN,
 		justifyContent: 'center',
 		alignItems: 'center',
+		position: 'absolute',
+		bottom: 75,
 	},
 	pagination: {
 		flexDirection: 'row',

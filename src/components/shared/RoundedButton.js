@@ -27,7 +27,7 @@ function RoundedButton({
 			]}
 			testID={testid}
 			activeOpacity={0.1}
-			isDisabled={disabled}
+			disabled={disabled}
 			onPress={onPress}
 		>
 			<View style={styles.innerContainer}>

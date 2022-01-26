@@ -1066,14 +1066,14 @@ exports[`renders correctly 1`] = `
           },
           "defaultProps": Object {},
           "sizes": Object {
-            "2xl": 64,
-            "2xs": 6,
+            "2xl": "64",
+            "2xs": "6",
             "full": "100%",
-            "lg": 24,
-            "md": 20,
-            "sm": 16,
-            "xl": 32,
-            "xs": 10,
+            "lg": "24",
+            "md": "20",
+            "sm": "16",
+            "xl": "32",
+            "xs": "10",
           },
         },
         "Input": Object {
@@ -1409,17 +1409,9 @@ exports[`renders correctly 1`] = `
           "defaultProps": Object {},
         },
         "Select": Object {
-          "baseStyle": Object {
-            "_actionSheetContent": Object {},
-            "customDropdownIconProps": Object {
-              "color": "trueGray.400",
-              "p": "1",
-              "pl": "0",
-              "size": "6",
-            },
-          },
+          "baseStyle": [Function],
           "defaultProps": Object {
-            "variant": "outline",
+            "optimized": true,
           },
         },
         "SelectItem": Object {
@@ -1436,55 +1428,18 @@ exports[`renders correctly 1`] = `
         },
         "Skeleton": Object {
           "baseStyle": [Function],
-          "defaultProps": Object {
-            "isLoaded": false,
-          },
-        },
-        "SkeletonCircle": Object {
-          "baseStyle": [Function],
-          "defaultProps": Object {
-            "isLoaded": false,
-          },
         },
         "SkeletonText": Object {
           "baseStyle": [Function],
           "defaultProps": Object {
-            "isLoaded": false,
-            "lineHeight": 3,
-            "noOfLines": 1,
-          },
-          "fontSizes": Object {
-            "2xl": 24,
-            "2xs": 10,
-            "3xl": 30,
-            "4xl": 36,
-            "5xl": 48,
-            "6xl": 60,
-            "7xl": 72,
-            "8xl": 96,
-            "9xl": 128,
-            "lg": 18,
-            "md": 16,
-            "sm": 14,
-            "xl": 20,
-            "xs": 12,
-          },
-          "lineHeights": Object {
-            "2xl": "2em",
-            "2xs": "1em",
-            "3xl": "2.5em",
-            "4xl": "3em",
-            "5xl": "4em",
-            "lg": "1.5em",
-            "md": "1.375em",
-            "sm": "1.25em",
-            "xl": "1.75em",
-            "xs": "1.125em",
+            "lines": 3,
+            "space": 3,
           },
         },
         "Slide": Object {
           "defaultProps": Object {
             "duration": 500,
+            "overlay": true,
             "placement": "bottom",
           },
         },
@@ -1951,6 +1906,16 @@ exports[`renders correctly 1`] = `
           "shadowOpacity": 0.34,
           "shadowRadius": 6.27,
         },
+        "none": Object {
+          "elevation": 0,
+          "shadowColor": "transparent",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        },
       },
       "sizes": Object {
         "0": 0,
@@ -2064,35 +2029,39 @@ exports[`renders correctly 1`] = `
   <SafeAreaProvider
     initialMetrics={null}
   >
-    <HybridProvider
-      options={
-        Object {
-          "accessibleColors": false,
-          "initialColorMode": "light",
-          "useSystemColorMode": false,
-        }
-      }
+    <ResponsiveQueryProvider
+      disableCSSMediaQueries={true}
     >
-      <PortalProvider>
-        <ToastProvider>
-          <InitializeToastRef />
-          <SSRProvider>
-            <MockedProvider
-              addTypename={true}
-              mocks={Array []}
-            >
-              <ImportDataScreen
-                navigation={
-                  Object {
-                    "navigate": [MockFunction],
+      <HybridProvider
+        options={
+          Object {
+            "accessibleColors": false,
+            "initialColorMode": "light",
+            "useSystemColorMode": false,
+          }
+        }
+      >
+        <PortalProvider>
+          <ToastProvider>
+            <InitializeToastRef />
+            <SSRProvider>
+              <MockedProvider
+                addTypename={true}
+                mocks={Array []}
+              >
+                <ImportDataScreen
+                  navigation={
+                    Object {
+                      "navigate": [MockFunction],
+                    }
                   }
-                }
-              />
-            </MockedProvider>
-          </SSRProvider>
-        </ToastProvider>
-      </PortalProvider>
-    </HybridProvider>
+                />
+              </MockedProvider>
+            </SSRProvider>
+          </ToastProvider>
+        </PortalProvider>
+      </HybridProvider>
+    </ResponsiveQueryProvider>
   </SafeAreaProvider>
 </NativeBaseConfigProviderProvider>
 `;

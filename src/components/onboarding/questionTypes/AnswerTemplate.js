@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Title from '../../typography/Title';
 import NextButtonQuestionScreen from '../NextButtonQuestionScreen';
@@ -13,7 +13,7 @@ function AnswerTemplate({
 	currentTask = {},
 }) {
 	return (
-		<ScrollView contentContainerStyle={styles.content}>
+		<View style={styles.content}>
 			<Title variant="h2" align="center">
 				{currentTask.title}
 			</Title>
@@ -22,7 +22,7 @@ function AnswerTemplate({
 				nextButtonDisabled={nextButtonDisabled}
 				submitAnswer={doUpdateTask}
 			/>
-		</ScrollView>
+		</View>
 	);
 }
 

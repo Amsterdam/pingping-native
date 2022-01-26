@@ -13,7 +13,6 @@ import Button from '../AnswerButtonOnboarding';
 
 function MultipleChoice({
 	currentTask = {},
-	doRevertTask = () => {},
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
@@ -31,15 +30,15 @@ function MultipleChoice({
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		Object.entries(currentTask.choices).forEach(([key, value]) => {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					active={choices.includes(key)}
-					labelStyle={choices.includes(key) && styles.activeText}
+					label={label}
+					key={value}
+					active={choices.includes(value)}
+					labelStyle={choices.includes(value) && styles.activeText}
 					color="primary"
-					onPress={addChoice(key)}
+					onPress={addChoice(value)}
 					testid={testIDs.QUESTION.MULTIPLE_CHOICE_OPTION}
 				/>
 			);
@@ -52,8 +51,7 @@ function MultipleChoice({
 		<AnswerTemplate
 			currentTask={currentTask}
 			nextButtonDisabled={nextButtonDisabled}
-			doRevertTask={doRevertTask}
-			doUpdateTask={doUpdateTask}
+			doUpdateTask={() => doUpdateTask()}
 		>
 			<View>
 				<Body vriant="b4" align="center" style={styles.bodyText}>
@@ -76,7 +74,6 @@ const styles = StyleSheet.create({
 
 MultipleChoice.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doRevertTask: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,

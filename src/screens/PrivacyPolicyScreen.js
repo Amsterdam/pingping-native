@@ -16,8 +16,8 @@ import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion'
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import theme from '../config/theme';
 import { ONBOARDING_STATES } from '../config/constants';
+import theme from '../config/theme';
 import { getFromAsyncStorage, multiSetAsyncStorage } from '../helpers/asyncStorageHelpers';
 import { doRegisterDevice } from '../helpers/authHelper';
 import sentryHelper from '../helpers/sentryHelper';

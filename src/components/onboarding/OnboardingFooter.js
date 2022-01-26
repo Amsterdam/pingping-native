@@ -23,25 +23,23 @@ function Footer({
 					positionAnimatedValue={positionAnimatedValue}
 					scrollOffsetAnimatedValue={scrollOffsetAnimatedValue}
 				/>
+				<Button
+					style={styles.button}
+					onPress={() => handlePageChange(1)}
+					testid={pages[activePage].testid}
+					label={pages[activePage].buttonLabel}
+				/>
 			</View>
-
-			<Button
-				style={styles.button}
-				onPress={() => handlePageChange(1)}
-				testid={pages[activePage].testid}
-				label={pages[activePage].buttonLabel}
-			/>
 		</View>
 	);
 }
 
 const styles = {
 	footerContainer: {
-		marginBottom: theme.spacing.m,
+		marginBottom: theme.spacing.xl,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-
 	paginationContainer: {
 		position: 'relative',
 	},

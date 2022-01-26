@@ -10,27 +10,27 @@ import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
-function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
+function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
-	const handleOnPress = (answer) => {
-		if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
+	const handleOnPress = (choice) => {
+		if (currentTask.taskId === 'onboarding.welcome' && choice.value === 'no') {
 			return setConfirmModalOpen(true);
 		}
-		return doUpdateConfirmTask(answer);
+		return doUpdateTask(choice);
 	};
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		Object.entries(currentTask.choices).forEach(([key, value]) => {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					style={[styles.button, key === 'no' && styles.whiteButton]}
-					labelStyle={[key === 'no' && styles.label]}
-					onPress={() => handleOnPress(key)}
-					testid={`${key}_BUTTON`.toUpperCase()}
+					label={label}
+					key={value}
+					style={[styles.button, value === 'no' && styles.whiteButton]}
+					labelStyle={[value === 'no' && styles.label]}
+					onPress={() => handleOnPress({ value, label })}
+					testid={`${value}_BUTTON`.toUpperCase()}
 				/>
 			);
 		});
@@ -62,7 +62,7 @@ function Confirm({ currentTask = {}, doUpdateConfirmTask = () => {} }) {
 			<ConfirmModal
 				open={confirmModalOpen}
 				setOpen={setConfirmModalOpen}
-				doUpdateConfirmTask={doUpdateConfirmTask}
+				doUpdateTask={doUpdateTask}
 			/>
 		</View>
 	);
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 
 Confirm.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
 };
 
 export default Confirm;

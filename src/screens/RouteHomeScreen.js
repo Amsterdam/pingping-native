@@ -14,8 +14,8 @@ import ErrorComponent from '../components/shared/ErrorComponent';
 import FocusAwareStatusBar from '../components/shared/FocusAwareStatusBar';
 import CardSkeleton from '../components/skeleton/CardSkeleton';
 import Title from '../components/typography/Title';
-import theme from '../config/theme';
 import { ERROR_TYPES } from '../config/constants';
+import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
 
