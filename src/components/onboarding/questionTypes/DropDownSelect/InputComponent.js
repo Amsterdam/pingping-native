@@ -4,10 +4,10 @@ import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
 
+import NoResultListItem from './NoResultListItem';
 import RenderItem from './RenderItem';
 
 import theme from '../../../../config/theme';
-import Body from '../../../typography/Body';
 
 function InputComponent({ choices, placeholder, noResultLabel, selectedItem, setSelectedItem }) {
 	const inputRef = useRef(null);
@@ -55,16 +55,19 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 		const content = [];
 		const itemsCount = dataSet.length - 1;
 		dataSet.forEach(([value, label], i) => {
-			content.push(
-				<RenderItem
-					key={value}
-					label={label}
-					value={value}
-					searchText={searchText}
-					onSelectItem={onSelectItem}
-					showBorder={i < itemsCount}
-				/>
-			);
+			const isSubString = label.toLowerCase().includes(searchText.toLowerCase());
+			if (isSubString) {
+				content.push(
+					<RenderItem
+						key={value}
+						label={label}
+						value={value}
+						searchText={searchText}
+						onSelectItem={onSelectItem}
+						showBorder={i < itemsCount}
+					/>
+				);
+			}
 		});
 		return content;
 	}, [choices, searchText, onSelectItem]);
@@ -103,9 +106,21 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 						contentContainerStyle={{ padding: theme.spacing.xxs }}
 					>
 						<View>
+							{!searchText && (
+								<NoResultListItem
+									label={noResultLabel}
+									onSelectItem={onSelectItem}
+									showBorder
+								/>
+							)}
 							{scrollContent.length > 0
 								? scrollContent
-								: !!searchText && <Body variant="b4">{noResultLabel}</Body>}
+								: !!searchText && (
+										<NoResultListItem
+											label={noResultLabel}
+											onSelectItem={onSelectItem}
+										/>
+								  )}
 						</View>
 					</ScrollView>
 				</View>
@@ -122,7 +137,7 @@ const styles = StyleSheet.create({
 		minWidth: '70%',
 		textAlign: 'left',
 		fontFamily: 'Heavitas',
-		fontSize: 18,
+		fontSize: 16,
 		marginLeft: theme.spacing.xs,
 	},
 

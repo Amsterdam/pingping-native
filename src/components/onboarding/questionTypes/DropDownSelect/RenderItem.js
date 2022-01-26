@@ -2,11 +2,10 @@
 import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
+import ListItemSeperator from './ListItemSeperator';
 import ScrollViewListItem from './ScrollViewListItem';
-
-import theme from '../../../../config/theme';
 
 function RenderItem({
 	label = '',
@@ -31,21 +30,12 @@ function RenderItem({
 					titleEnd={titleEnd}
 					onPress={() => onSelectItem(value)}
 				/>
-				{showBorder && <View style={styles.seperator} />}
+				{showBorder && <ListItemSeperator />}
 			</View>
 		);
 	}
-	return <></>;
+	return null;
 }
-
-const styles = StyleSheet.create({
-	seperator: {
-		height: 2,
-		width: '100%',
-		backgroundColor: theme.colors.greyedOut,
-		borderRadius: theme.borderRadius,
-	},
-});
 
 RenderItem.propTypes = {
 	label: PropTypes.string.isRequired,

@@ -52,6 +52,7 @@ function DropDownSelect({
 				<InputComponent
 					placeholder={currentTask.meta?.dropdownSelectPlaceholder}
 					noResultLabel={currentTask.meta?.dropdownSelectNoResultLabel}
+					noResultChoice={currentTask.meta?.dropdownNoResultChoice}
 					choices={currentTask.choices}
 					setSelectedItem={setSelectedItem}
 					selectedItem={selectedItem}
