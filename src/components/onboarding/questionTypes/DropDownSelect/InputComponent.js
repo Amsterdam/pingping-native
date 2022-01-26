@@ -19,9 +19,8 @@ function InputComponent({
 	setIsOpened,
 }) {
 	const inputRef = useRef(null);
-
 	const [searchText, setSearchText] = useState('');
-
+	const dataSet = Object.entries(choices);
 	const toggle = useCallback(() => {
 		setIsOpened(!isOpened);
 	}, [isOpened, setIsOpened]);
@@ -56,7 +55,6 @@ function InputComponent({
 	}, [selectedItem]);
 
 	const scrollContent = useMemo(() => {
-		const dataSet = Object.entries(choices);
 		if (!Array.isArray(dataSet)) {
 			return null;
 		}
@@ -77,10 +75,20 @@ function InputComponent({
 			}
 		});
 		return content;
-	}, [choices, searchText, onSelectItem]);
+	}, [searchText, onSelectItem, dataSet]);
 
 	const onSubmit = () => {
 		inputRef.current.blur();
+	};
+
+	const onBlur = () => {
+		setIsOpened(false);
+		if (searchText) {
+			const found = dataSet.find(([, label]) => label === searchText);
+			if (found) {
+				setSelectedItem({ value: found[0], label: found[1] });
+			}
+		}
 	};
 
 	return (
@@ -95,7 +103,7 @@ function InputComponent({
 					autoCorrect={false}
 					onSubmitEditing={onSubmit}
 					onFocus={() => setIsOpened(true)}
-					onBlur={() => setIsOpened(false)}
+					onBlur={onBlur}
 					style={styles.input}
 				/>
 				<TouchableOpacity style={styles.clearButton} onPress={onClearPress}>

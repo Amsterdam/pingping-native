@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
 		marginBottom: MARGIN,
 		justifyContent: 'center',
 		alignItems: 'center',
+		position: 'absolute',
+		bottom: 50,
 	},
 	pagination: {
 		flexDirection: 'row',
