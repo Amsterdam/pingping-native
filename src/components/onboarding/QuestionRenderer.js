@@ -21,13 +21,13 @@ import UpdateApp from '../shared/UpdateApp';
  * @param {Function} doUpdateTask - The function to update the task.
  */
 
-const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask }) => {
+const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doRevertTask }) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
 				return <Confirm currentTask={currentTask} doUpdateTask={doUpdateTask} />;
 			case QUESTION_TYPES.GO_BACK:
-				return <GoBack currentTask={currentTask} />;
+				return <GoBack currentTask={currentTask} doRevertTask={doRevertTask} />;
 
 			case QUESTION_TYPES.YES_OR_NO:
 				return (
@@ -81,6 +81,7 @@ QuestionRenderer.propTypes = {
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
+	doRevertTask: PropTypes.func.isRequired,
 };
 
 export default QuestionRenderer;

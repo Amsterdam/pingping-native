@@ -30,7 +30,7 @@ export const submitAnswer = async (
 	animationRef = () => {},
 	answer = ''
 ) => {
-	let answerToSubmit = answer;
+	let answerToSubmit = answer.value;
 	if (!answerToSubmit) {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.DATE_OF_BIRTH:
@@ -40,7 +40,7 @@ export const submitAnswer = async (
 				answerToSubmit = state.choices.join();
 				break;
 			default:
-				answerToSubmit = state.answerSelected;
+				answerToSubmit = state.answerSelected.value;
 				break;
 		}
 	}
@@ -106,26 +106,42 @@ export const revertTaskFunc = async (
  * @param {String} answer - the answer of the previous task, that needs to be set to the current.
  * @param {Callback} setState - The setState function of the QuestionScreen.
  */
-export function setRevertedQuestionValues(currentTask = {}, answer = '', setState = () => {}) {
-	if (currentTask.type === QUESTION_TYPES.DATE_OF_BIRTH) {
-		const splitDate = answer.split('-');
-		return setState((state) => ({
-			...state,
-			year: splitDate[0],
-			month: splitDate[1],
-			day: splitDate[2],
-		}));
+export function setRevertedQuestionValues(current, setState = () => {}) {
+	const {
+		task: { choices, type },
+		answer,
+	} = current;
+	let choice = { value: '', label: '' };
+	let splitDate = '';
+	switch (type) {
+		case QUESTION_TYPES.DATE_OF_BIRTH:
+			splitDate = answer.split('-');
+			setState((state) => ({
+				...state,
+				year: splitDate[0],
+				month: splitDate[1],
+				day: splitDate[2],
+			}));
+			break;
+		case QUESTION_TYPES.MULTIPLE_CHOICES:
+			setState((state) => ({
+				...state,
+				choices: answer.split(','),
+			}));
+			break;
+		default:
+			// form the choice object to be set in the state
+			Object.keys(choices).forEach((key) => {
+				if (key === answer) {
+					choice = { value: key, label: choices[key] };
+				}
+			});
+			setState((state) => ({
+				...state,
+				answerSelected: choice,
+			}));
+			break;
 	}
-	if (currentTask.type === QUESTION_TYPES.MULTIPLE_CHOICES) {
-		return setState((state) => ({
-			...state,
-			choices: answer.split(','),
-		}));
-	}
-	return setState((state) => ({
-		...state,
-		answerSelected: answer,
-	}));
 }
 
 /**

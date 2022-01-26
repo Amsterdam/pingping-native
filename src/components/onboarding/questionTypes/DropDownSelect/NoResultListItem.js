@@ -8,11 +8,11 @@ import ListItemSeperator from './ListItemSeperator';
 import theme from '../../../../config/theme';
 import Title from '../../../typography/Title';
 
-function NoResultListItem({ label, onSelectItem = () => {}, showBorder = false }) {
+function NoResultListItem({ noResultChoice = {}, onSelectItem = () => {}, showBorder = false }) {
 	return (
-		<TouchableOpacity onPress={() => onSelectItem(label)}>
+		<TouchableOpacity onPress={() => onSelectItem(noResultChoice)}>
 			<View style={styles.container}>
-				<Title variant="h6">{label}</Title>
+				<Title variant="h6">{noResultChoice.label}</Title>
 			</View>
 			{showBorder && <ListItemSeperator />}
 		</TouchableOpacity>
@@ -34,9 +34,12 @@ const styles = StyleSheet.create({
 });
 
 NoResultListItem.propTypes = {
-	label: PropTypes.string.isRequired,
 	onSelectItem: PropTypes.func.isRequired,
 	showBorder: PropTypes.bool,
+	noResultChoice: PropTypes.shape({
+		value: PropTypes.string,
+		label: PropTypes.string,
+	}).isRequired,
 };
 
 NoResultListItem.defaultProps = {

@@ -9,7 +9,7 @@ import RenderItem from './RenderItem';
 
 import theme from '../../../../config/theme';
 
-function InputComponent({ choices, placeholder, noResultLabel, selectedItem, setSelectedItem }) {
+function InputComponent({ choices, placeholder, noResultChoice, selectedItem, setSelectedItem }) {
 	const inputRef = useRef(null);
 	const [isOpened, setIsOpened] = useState(false);
 	const [searchText, setSearchText] = useState('');
@@ -19,10 +19,10 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 	}, [isOpened]);
 
 	const onSelectItem = useCallback(
-		(item) => {
-			setSelectedItem(item);
+		(choice) => {
+			setSelectedItem(choice);
 			setIsOpened(false);
-			setSearchText(item);
+			setSearchText(choice.label);
 			inputRef.current.blur();
 		},
 		[setSelectedItem]
@@ -41,7 +41,7 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 
 	useEffect(() => {
 		if (selectedItem) {
-			setSearchText(selectedItem ?? '');
+			setSearchText(selectedItem.label ?? '');
 		} else {
 			setSearchText('');
 		}
@@ -60,8 +60,7 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 				content.push(
 					<RenderItem
 						key={value}
-						label={label}
-						value={value}
+						choice={{ value, label }}
 						searchText={searchText}
 						onSelectItem={onSelectItem}
 						showBorder={i < itemsCount}
@@ -108,7 +107,7 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 						<View>
 							{!searchText && (
 								<NoResultListItem
-									label={noResultLabel}
+									noResultChoice={noResultChoice}
 									onSelectItem={onSelectItem}
 									showBorder
 								/>
@@ -117,7 +116,7 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 								? scrollContent
 								: !!searchText && (
 										<NoResultListItem
-											label={noResultLabel}
+											noResultChoice={noResultChoice}
 											onSelectItem={onSelectItem}
 										/>
 								  )}
@@ -171,14 +170,23 @@ const styles = StyleSheet.create({
 InputComponent.propTypes = {
 	choices: PropTypes.object.isRequired,
 	placeholder: PropTypes.string,
-	noResultLabel: PropTypes.string,
+	noResultChoice: PropTypes.shape({
+		label: PropTypes.string,
+		value: PropTypes.string,
+	}),
 	setSelectedItem: PropTypes.func.isRequired,
-	selectedItem: PropTypes.string,
+	selectedItem: PropTypes.shape({
+		label: PropTypes.string,
+		value: PropTypes.string,
+	}),
 };
 
 InputComponent.defaultProps = {
 	placeholder: 'Selecteer of type',
-	noResultLabel: 'Mijn optie staat er niet bij',
+	noResultChoice: {
+		label: 'Mijn optie staat er niet bij',
+		value: 'no',
+	},
 	selectedItem: '',
 };
 

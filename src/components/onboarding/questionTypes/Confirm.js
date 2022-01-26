@@ -13,11 +13,11 @@ import Title from '../../typography/Title';
 function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
-	const handleOnPress = (answer) => {
-		if (currentTask.taskId === 'onboarding.welcome' && answer === 'no') {
+	const handleOnPress = (choice) => {
+		if (currentTask.taskId === 'onboarding.welcome' && choice.value === 'no') {
 			return setConfirmModalOpen(true);
 		}
-		return doUpdateTask(answer);
+		return doUpdateTask(choice);
 	};
 
 	const mapButtons = () => {
@@ -29,7 +29,7 @@ function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 					key={value}
 					style={[styles.button, value === 'no' && styles.whiteButton]}
 					labelStyle={[value === 'no' && styles.label]}
-					onPress={() => handleOnPress(value)}
+					onPress={() => handleOnPress({ value, label })}
 					testid={`${value}_BUTTON`.toUpperCase()}
 				/>
 			);

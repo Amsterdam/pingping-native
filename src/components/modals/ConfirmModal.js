@@ -12,7 +12,7 @@ import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
-function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {} }) {
+function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {}, choice = {} }) {
 	const closeModal = useCallback(() => {
 		setOpen(false);
 	}, [setOpen]);
@@ -35,9 +35,9 @@ function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {
 							volledige route te zien met alle stappen.
 						</Body>
 						<RoundedButton
-							label="Vragen Overslaan"
+							label={choice.label}
 							full
-							onPress={() => doUpdateTask('no')}
+							onPress={() => doUpdateTask(choice)}
 							testid={testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON}
 						/>
 					</View>
@@ -92,6 +92,14 @@ ConfirmModal.propTypes = {
 	open: PropTypes.bool.isRequired,
 	setOpen: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
+	choice: PropTypes.shape({
+		value: '',
+		label: '',
+	}),
+};
+
+ConfirmModal.defaultProps = {
+	choice: { value: 'no', label: 'Vragen Overslaan' },
 };
 
 export default ConfirmModal;

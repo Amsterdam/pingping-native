@@ -40,17 +40,16 @@ function QuestionScreen({ navigation }) {
 	const [revertTask] = useMutation(REVERT_TASK_MUTATION);
 	const [loadingQuestion, setLoadingQuestion] = useState(false);
 	const animationRef = useRef(null);
-	const current = data?.getStatus?.currentTask;
-	const answeredBefore = current?.answer;
-	const currentTask = current?.task;
+	const currentTaskBase = data?.getStatus?.currentTask;
+	const currentTask = currentTaskBase?.task;
 	const previousTask = data?.getStatus?.previousTask?.task;
 	const [state, setState] = useState(INITIAL_STATE);
 
 	useEffect(() => {
-		if (answeredBefore) {
-			setRevertedQuestionValues(currentTask, answeredBefore, setState);
+		if (currentTaskBase?.answer) {
+			setRevertedQuestionValues(currentTaskBase, setState);
 		}
-	}, [answeredBefore, currentTask, navigation]);
+	}, [currentTaskBase, setState]);
 
 	useEffect(() => {
 		if (data && !currentTask) {
