@@ -16,11 +16,11 @@ function YesOrNo({ currentTask = {}, doUpdateTask = () => {}, state = {}, setSta
 				<Button
 					label={label}
 					key={value}
-					active={value === state.answerSelected.value}
+					active={value === state.selectedChoice.value}
 					onPress={() =>
 						setState({
 							...state,
-							answerSelected: { value, label },
+							selectedChoice: { value, label },
 						})
 					}
 					testid={`${value}_BUTTON`.toUpperCase()}

@@ -93,8 +93,8 @@ ConfirmModal.propTypes = {
 	setOpen: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
 	choice: PropTypes.shape({
-		value: '',
-		label: '',
+		value: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
 	}),
 };
 

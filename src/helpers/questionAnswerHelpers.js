@@ -40,7 +40,7 @@ export const submitAnswer = async (
 				answerToSubmit = state.choices.join();
 				break;
 			default:
-				answerToSubmit = state.answerSelected.value;
+				answerToSubmit = state.selectedChoice.value;
 				break;
 		}
 	}
@@ -106,13 +106,24 @@ export const revertTaskFunc = async (
  * @param {String} answer - the answer of the previous task, that needs to be set to the current.
  * @param {Callback} setState - The setState function of the QuestionScreen.
  */
+
 export function setRevertedQuestionValues(current, setState = () => {}) {
 	const {
-		task: { choices, type },
+		task: { choices, type, meta },
 		answer,
 	} = current;
 	let choice = { value: '', label: '' };
 	let splitDate = '';
+
+	// form the choice object to be set in the state
+	if (choices) {
+		Object.keys(choices).forEach((key) => {
+			if (key === answer) {
+				choice = { value: key, label: choices[key] };
+			}
+		});
+	}
+
 	switch (type) {
 		case QUESTION_TYPES.DATE_OF_BIRTH:
 			splitDate = answer.split('-');
@@ -129,16 +140,22 @@ export function setRevertedQuestionValues(current, setState = () => {}) {
 				choices: answer.split(','),
 			}));
 			break;
-		default:
-			// form the choice object to be set in the state
-			Object.keys(choices).forEach((key) => {
-				if (key === answer) {
-					choice = { value: key, label: choices[key] };
-				}
-			});
+		case QUESTION_TYPES.DROPDOWN_SELECT:
+			if (answer === meta.dropdownSelectNoResultValue) {
+				choice = {
+					value: meta.dropdownSelectNoResultValue,
+					label: meta.dropdownSelectNoResultLabel,
+				};
+			}
 			setState((state) => ({
 				...state,
-				answerSelected: choice,
+				selectedChoice: choice,
+			}));
+			break;
+		default:
+			setState((state) => ({
+				...state,
+				selectedChoice: choice,
 			}));
 			break;
 	}
@@ -157,6 +174,6 @@ export const checkDisabled = (currentTask = {}, state = {}) => {
 		case QUESTION_TYPES.MULTIPLE_CHOICES:
 			return state.choices.length < 1;
 		default:
-			return !state.answerSelected;
+			return !state.selectedChoice.value;
 	}
 };

@@ -27,7 +27,7 @@ import {
 } from '../helpers/questionAnswerHelpers';
 
 const INITIAL_STATE = {
-	answerSelected: '',
+	selectedChoice: { label: '', value: '' },
 	day: '',
 	month: '',
 	year: '',
@@ -40,16 +40,15 @@ function QuestionScreen({ navigation }) {
 	const [revertTask] = useMutation(REVERT_TASK_MUTATION);
 	const [loadingQuestion, setLoadingQuestion] = useState(false);
 	const animationRef = useRef(null);
-	const currentTaskBase = data?.getStatus?.currentTask;
-	const currentTask = currentTaskBase?.task;
+	const currentTask = data?.getStatus?.currentTask;
 	const previousTask = data?.getStatus?.previousTask?.task;
 	const [state, setState] = useState(INITIAL_STATE);
 
 	useEffect(() => {
-		if (currentTaskBase?.answer) {
-			setRevertedQuestionValues(currentTaskBase, setState);
+		if (currentTask?.answer) {
+			setRevertedQuestionValues(currentTask, setState);
 		}
-	}, [currentTaskBase, setState]);
+	}, [currentTask, setState]);
 
 	useEffect(() => {
 		if (data && !currentTask) {
@@ -75,7 +74,7 @@ function QuestionScreen({ navigation }) {
 		return <QuestionSkeleton />;
 	}
 
-	if (data && currentTask) {
+	if (data && currentTask?.task) {
 		const doRevertTask = () => {
 			revertTaskFunc(
 				setLoadingQuestion,
@@ -89,7 +88,7 @@ function QuestionScreen({ navigation }) {
 
 		const doUpdateTask = (answer) => {
 			submitAnswer(
-				currentTask,
+				currentTask.task,
 				state,
 				setLoadingQuestion,
 				updateTask,
@@ -116,11 +115,11 @@ function QuestionScreen({ navigation }) {
 						<Header
 							left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
 							right={<ProgressBar progress={currentTask.progress} />}
-							title={currentTask.headerTitle}
+							title={currentTask.task.headerTitle}
 						/>
 						<ContentLayout>
 							<QuestionRenderer
-								currentTask={currentTask}
+								currentTask={currentTask.task}
 								updateTask={updateTask}
 								refetch={refetch}
 								doRevertTask={doRevertTask}

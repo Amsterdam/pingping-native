@@ -19,9 +19,9 @@ function DropDownSelect({
 	state = {},
 	setState = () => {},
 }) {
-	const selectedItem = state.answerSelected;
+	const selectedItem = state.selectedChoice;
 	const setSelectedItem = (item) => {
-		setState({ ...state, answerSelected: item });
+		setState({ ...state, selectedChoice: item });
 	};
 	return (
 		<View style={styles.container}>
@@ -64,7 +64,7 @@ function DropDownSelect({
 					<Button
 						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
 						onPress={() => doUpdateTask()}
-						disabled={!selectedItem}
+						disabled={!selectedItem.value}
 						label="Volgende"
 					/>
 				</View>

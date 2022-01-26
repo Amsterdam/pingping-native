@@ -34,7 +34,7 @@ function InputComponent({ choices, placeholder, noResultChoice, selectedItem, se
 
 	const onClearPress = useCallback(() => {
 		setSearchText('');
-		setSelectedItem(null);
+		setSelectedItem({ value: '', label: '' });
 		setIsOpened(false);
 		inputRef.current.blur();
 	}, [setSelectedItem]);
