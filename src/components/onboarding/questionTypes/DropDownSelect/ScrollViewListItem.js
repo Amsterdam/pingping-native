@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 		width: '100%',
 	},
 	text: { color: theme.colors.black },
-	textMatch: { color: theme.colors.primary, fontWeight: 'bold' },
+	textMatch: { color: theme.colors.primary },
 });
 
 ScrollViewListItem.propTypes = {

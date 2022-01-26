@@ -9,14 +9,22 @@ import RenderItem from './RenderItem';
 
 import theme from '../../../../config/theme';
 
-function InputComponent({ choices, placeholder, noResultChoice, selectedItem, setSelectedItem }) {
+function InputComponent({
+	choices,
+	placeholder,
+	noResultChoice,
+	selectedItem,
+	setSelectedItem,
+	isOpened,
+	setIsOpened,
+}) {
 	const inputRef = useRef(null);
-	const [isOpened, setIsOpened] = useState(false);
+
 	const [searchText, setSearchText] = useState('');
 
 	const toggle = useCallback(() => {
 		setIsOpened(!isOpened);
-	}, [isOpened]);
+	}, [isOpened, setIsOpened]);
 
 	const onSelectItem = useCallback(
 		(choice) => {
@@ -25,7 +33,7 @@ function InputComponent({ choices, placeholder, noResultChoice, selectedItem, se
 			setSearchText(choice.label);
 			inputRef.current.blur();
 		},
-		[setSelectedItem]
+		[setSelectedItem, setIsOpened]
 	);
 
 	const onChangeText = useCallback((text) => {
@@ -37,7 +45,7 @@ function InputComponent({ choices, placeholder, noResultChoice, selectedItem, se
 		setSelectedItem({ value: '', label: '' });
 		setIsOpened(false);
 		inputRef.current.blur();
-	}, [setSelectedItem]);
+	}, [setSelectedItem, setIsOpened]);
 
 	useEffect(() => {
 		if (selectedItem) {
@@ -131,7 +139,7 @@ function InputComponent({ choices, placeholder, noResultChoice, selectedItem, se
 const styles = StyleSheet.create({
 	container: { width: '100%' },
 	input: {
-		height: 30,
+		height: 60,
 		maxWidth: '70%',
 		minWidth: '70%',
 		textAlign: 'left',
@@ -141,7 +149,8 @@ const styles = StyleSheet.create({
 	},
 
 	listContainer: {
-		maxHeight: 100,
+		maxHeight: 150,
+		minHeight: 150,
 		backgroundColor: '#fff',
 		marginTop: 10,
 		width: '100%',
@@ -179,6 +188,8 @@ InputComponent.propTypes = {
 		label: PropTypes.string,
 		value: PropTypes.string,
 	}),
+	isOpened: PropTypes.bool.isRequired,
+	setIsOpened: PropTypes.func.isRequired,
 };
 
 InputComponent.defaultProps = {
