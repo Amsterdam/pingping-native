@@ -22,15 +22,15 @@ function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		Object.entries(currentTask.choices).forEach(([key, value]) => {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					style={[styles.button, key === 'no' && styles.whiteButton]}
-					labelStyle={[key === 'no' && styles.label]}
-					onPress={() => handleOnPress(key)}
-					testid={`${key}_BUTTON`.toUpperCase()}
+					label={label}
+					key={value}
+					style={[styles.button, value === 'no' && styles.whiteButton]}
+					labelStyle={[value === 'no' && styles.label]}
+					onPress={() => handleOnPress(value)}
+					testid={`${value}_BUTTON`.toUpperCase()}
 				/>
 			);
 		});

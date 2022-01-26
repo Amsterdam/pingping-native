@@ -30,15 +30,15 @@ function MultipleChoice({
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		Object.entries(currentTask.choices).forEach(([key, value]) => {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					active={choices.includes(key)}
-					labelStyle={choices.includes(key) && styles.activeText}
+					label={label}
+					key={value}
+					active={choices.includes(value)}
+					labelStyle={choices.includes(value) && styles.activeText}
 					color="primary"
-					onPress={addChoice(key)}
+					onPress={addChoice(value)}
 					testid={testIDs.QUESTION.MULTIPLE_CHOICE_OPTION}
 				/>
 			);

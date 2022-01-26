@@ -11,19 +11,19 @@ import Button from '../AnswerButtonOnboarding';
 function YesOrNo({ currentTask = {}, doUpdateTask = () => {}, state = {}, setState = () => {} }) {
 	const mapButtons = () => {
 		const buttonArray = [];
-		Object.entries(currentTask.choices).forEach(([key, value]) => {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					active={key === state.answerSelected}
+					label={label}
+					key={value}
+					active={value === state.answerSelected}
 					onPress={() =>
 						setState({
 							...state,
-							answerSelected: key,
+							answerSelected: value,
 						})
 					}
-					testid={`${key}_BUTTON`.toUpperCase()}
+					testid={`${value}_BUTTON`.toUpperCase()}
 				/>
 			);
 		});

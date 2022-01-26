@@ -4,7 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
 
-import ScrollViewListItem from './ScrollViewListItem';
+import RenderItem from './RenderItem';
 
 import theme from '../../../../config/theme';
 import Body from '../../../typography/Body';
@@ -47,59 +47,27 @@ function InputComponent({ choices, placeholder, noResultLabel, selectedItem, set
 		}
 	}, [selectedItem]);
 
-	const renderItem = useCallback(
-		(key, value) => {
-			let titleHighlighted = '';
-			let titleStart = value;
-			let titleEnd = '';
-			const substrIndex = value.toLowerCase().indexOf(searchText.toLowerCase());
-			if (substrIndex !== -1) {
-				titleStart = value.slice(0, substrIndex);
-				titleHighlighted = value.slice(substrIndex, substrIndex + searchText.length);
-				titleEnd = value.slice(substrIndex + searchText.length);
-				return (
-					<ScrollViewListItem
-						titleStart={titleStart}
-						titleHighlighted={titleHighlighted}
-						titleEnd={titleEnd}
-						onPress={() => onSelectItem(key)}
-					/>
-				);
-			}
-			return null;
-		},
-		[searchText, onSelectItem]
-	);
-
 	const scrollContent = useMemo(() => {
 		const dataSet = Object.entries(choices);
 		if (!Array.isArray(dataSet)) {
 			return null;
 		}
 		const content = [];
-		const itemsCount = choices.length - 1;
-		dataSet.forEach(([key, value], i) => {
-			const listItem = renderItem(key, value);
-			if (listItem) {
-				content.push(
-					<View key={key}>
-						{listItem}
-						{i < itemsCount && (
-							<View
-								style={{
-									height: 2,
-									width: '100%',
-									backgroundColor: theme.colors.greyedOut,
-									borderRadius: theme.borderRadius,
-								}}
-							/>
-						)}
-					</View>
-				);
-			}
+		const itemsCount = dataSet.length - 1;
+		dataSet.forEach(([value, label], i) => {
+			content.push(
+				<RenderItem
+					key={value}
+					label={label}
+					value={value}
+					searchText={searchText}
+					onSelectItem={onSelectItem}
+					showBorder={i < itemsCount}
+				/>
+			);
 		});
 		return content;
-	}, [choices, renderItem]);
+	}, [choices, searchText, onSelectItem]);
 
 	const onSubmit = () => {
 		inputRef.current.blur();
