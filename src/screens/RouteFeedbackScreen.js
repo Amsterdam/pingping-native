@@ -28,7 +28,7 @@ const INITIAL_STATE = {
 };
 
 function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
-	const { cover, routeId } = route.params;
+	const { cover, routeId, totalPoints } = route.params;
 	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
 	const [state, setState] = React.useState(INITIAL_STATE);
 	const [displayError, setDisplayError] = React.useState({
@@ -77,7 +77,11 @@ function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
 		>
 			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 			<ScrollView keyboardShouldPersistTaps="handled">
-				<ImageOverlayHeader navigate={() => navigation.goBack()} cover={cover} />
+				<ImageOverlayHeader
+					navigate={() => navigation.goBack()}
+					cover={cover}
+					cityPings={totalPoints}
+				/>
 				<View style={styles.contentContainer}>
 					{displayError.show && <MinimalErrorComponent message={displayError.message} />}
 					<Title variant="h2" style={styles.title}>

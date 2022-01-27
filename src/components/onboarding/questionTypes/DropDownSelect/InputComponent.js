@@ -17,6 +17,7 @@ function InputComponent({
 	setSelectedItem,
 	isOpened,
 	setIsOpened,
+	scrollToBottom,
 }) {
 	const inputRef = useRef(null);
 	const [searchText, setSearchText] = useState('');
@@ -59,8 +60,7 @@ function InputComponent({
 			return null;
 		}
 		const content = [];
-		const itemsCount = dataSet.length - 1;
-		dataSet.forEach(([value, label], i) => {
+		dataSet.forEach(([value, label]) => {
 			const isSubString = label.toLowerCase().includes(searchText.toLowerCase());
 			if (isSubString) {
 				content.push(
@@ -69,7 +69,6 @@ function InputComponent({
 						choice={{ value, label }}
 						searchText={searchText}
 						onSelectItem={onSelectItem}
-						showBorder={i < itemsCount}
 					/>
 				);
 			}
@@ -102,7 +101,12 @@ function InputComponent({
 					placeholder={placeholder}
 					autoCorrect={false}
 					onSubmitEditing={onSubmit}
-					onFocus={() => setIsOpened(true)}
+					onFocus={() => {
+						setIsOpened(true);
+						setTimeout(() => {
+							scrollToBottom();
+						}, 300);
+					}}
 					onBlur={onBlur}
 					style={styles.input}
 				/>
@@ -125,7 +129,6 @@ function InputComponent({
 								<NoResultListItem
 									noResultChoice={noResultChoice}
 									onSelectItem={onSelectItem}
-									showBorder
 								/>
 							)}
 							{scrollContent.length > 0
@@ -160,7 +163,10 @@ const styles = StyleSheet.create({
 		maxHeight: 150,
 		minHeight: 150,
 		backgroundColor: '#fff',
-		marginTop: 10,
+
+		borderWidth: 1,
+		borderColor: theme.colors.black,
+		padding: theme.spacing.xxs,
 		width: '100%',
 	},
 	searchSection: {
@@ -169,9 +175,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		backgroundColor: '#fff',
-		borderColor: '#d0d4dc',
+		borderColor: theme.colors.black,
 		borderWidth: 1,
-		borderRadius: 5,
 		minHeight: 60,
 	},
 	chevronButton: {
@@ -198,6 +203,7 @@ InputComponent.propTypes = {
 	}),
 	isOpened: PropTypes.bool.isRequired,
 	setIsOpened: PropTypes.func.isRequired,
+	scrollToBottom: PropTypes.func.isRequired,
 };
 
 InputComponent.defaultProps = {

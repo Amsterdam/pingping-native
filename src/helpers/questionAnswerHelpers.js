@@ -162,7 +162,7 @@ export function setRevertedQuestionValues(current, setState = () => {}) {
 }
 
 /**
- * @function setRevertedQuestionValues
+ * @function checkDisabled
  * Checks if the next button on the question screen should be disabled/enabled
  * @param {Object} currentTask - The current task in the order.
  * @param {Object} state - The state of the QuestionScreen.

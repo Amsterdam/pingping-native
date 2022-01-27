@@ -82,6 +82,19 @@
 		"setupFiles": [
 			"./jestSetupFile.js"
 		],
+		"coverageReporters": [
+			"json",
+			"lcov",
+			"text",
+			"clover",
+			"cobertura"
+		],
+		"coveragePathIgnorePatterns": [
+			"node_modules",
+			"assets",
+			"config",
+			"apollo"
+		],
 		"transformIgnorePatterns": [
 			"/node_modules/@react-native-community/async-storage/(?!(lib)) | node_modules/(?!(react-[a-z, -]*|react-native|native-base-[a-z, -]*|react-native-[a-z, -]*)/) "
 		]

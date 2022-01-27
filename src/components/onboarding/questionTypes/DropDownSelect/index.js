@@ -19,6 +19,7 @@ function DropDownSelect({
 	doUpdateTask = () => {},
 	state = {},
 	setState = () => {},
+	scrollToBottom = () => {},
 }) {
 	const [isOpened, setIsOpened] = React.useState(false);
 	const selectedItem = state.selectedChoice;
@@ -62,17 +63,17 @@ function DropDownSelect({
 				selectedItem={selectedItem}
 				isOpened={isOpened}
 				setIsOpened={setIsOpened}
+				scrollToBottom={scrollToBottom}
 			/>
-			{!isOpened && (
-				<View style={styles.buttonContainer}>
-					<Button
-						testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
-						onPress={() => doUpdateTask()}
-						disabled={!selectedItem.value}
-						label="Volgende"
-					/>
-				</View>
-			)}
+
+			<View style={styles.buttonContainer}>
+				<Button
+					testid={testIDs.PRIVACY.PRIVACY_ACCEPT_BUTTON}
+					onPress={() => doUpdateTask()}
+					disabled={!selectedItem.value}
+					label="Volgende"
+				/>
+			</View>
 		</View>
 	);
 }
@@ -105,6 +106,7 @@ DropDownSelect.propTypes = {
 	doUpdateTask: PropTypes.func.isRequired,
 	state: PropTypes.object.isRequired,
 	setState: PropTypes.func.isRequired,
+	scrollToBottom: PropTypes.func.isRequired,
 };
 
 export default DropDownSelect;

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, ScrollView, Dimensions, Platform } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
 
 import REVERT_TASK_MUTATION from '../apollo/Mutation/revertTaskMutation';
@@ -43,6 +43,8 @@ function QuestionScreen({ navigation }) {
 	const currentTask = data?.getStatus?.currentTask;
 	const previousTask = data?.getStatus?.previousTask?.task;
 	const [state, setState] = useState(INITIAL_STATE);
+	const scrollViewRef = useRef(null);
+	const isIos = Platform.OS === 'ios';
 
 	useEffect(() => {
 		if (currentTask?.answer) {
@@ -100,36 +102,47 @@ function QuestionScreen({ navigation }) {
 			);
 		};
 
+		const scrollToBottom = () => {
+			if (!isIos && scrollViewRef?.current) {
+				scrollViewRef.current.scrollToEnd();
+			}
+		};
 		return (
-			<KeyboardAvoidingView
-				behavior={Platform.OS === 'ios' ? 'position' : 'height'}
-				style={styles.container}
-			>
-				<AnimatableView
-					style={styles.flex}
-					duration={400}
-					ref={animationRef}
-					useNativeDriver
+			<KeyboardAvoidingView style={styles.container} behavior={isIos ? 'position' : ''}>
+				<ScrollView
+					keyboardShouldPersistTaps="handled"
+					contentContainerStyle={styles.scrollView}
+					ref={scrollViewRef}
 				>
-					<Container>
-						<Header
-							left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
-							right={<ProgressBar progress={currentTask.progress} />}
-							title={currentTask.task.headerTitle}
-						/>
-						<ContentLayout>
-							<QuestionRenderer
-								currentTask={currentTask.task}
-								updateTask={updateTask}
-								refetch={refetch}
-								doRevertTask={doRevertTask}
-								state={state}
-								setState={setState}
-								doUpdateTask={doUpdateTask}
+					<AnimatableView
+						style={styles.flex}
+						duration={400}
+						ref={animationRef}
+						useNativeDriver
+					>
+						<Container>
+							<Header
+								left={
+									<HeaderBackButton onPressAction={doRevertTask} color="dark" />
+								}
+								right={<ProgressBar progress={currentTask.task.progress} />}
+								title={currentTask.task.headerTitle}
 							/>
-						</ContentLayout>
-					</Container>
-				</AnimatableView>
+							<ContentLayout>
+								<QuestionRenderer
+									scrollToBottom={scrollToBottom}
+									currentTask={currentTask.task}
+									updateTask={updateTask}
+									refetch={refetch}
+									doRevertTask={doRevertTask}
+									state={state}
+									setState={setState}
+									doUpdateTask={doUpdateTask}
+								/>
+							</ContentLayout>
+						</Container>
+					</AnimatableView>
+				</ScrollView>
 			</KeyboardAvoidingView>
 		);
 	}
@@ -139,9 +152,13 @@ function QuestionScreen({ navigation }) {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: theme.colors.white,
+		height: '100%',
 		flex: 1,
 	},
-	flex: { height: '100%' },
+	scrollView: {
+		height: Dimensions.get('window').height,
+	},
+	flex: { flex: 1 },
 });
 
 QuestionScreen.propTypes = {
