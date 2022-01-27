@@ -60,8 +60,7 @@ function InputComponent({
 			return null;
 		}
 		const content = [];
-		const itemsCount = dataSet.length - 1;
-		dataSet.forEach(([value, label], i) => {
+		dataSet.forEach(([value, label]) => {
 			const isSubString = label.toLowerCase().includes(searchText.toLowerCase());
 			if (isSubString) {
 				content.push(
@@ -70,7 +69,6 @@ function InputComponent({
 						choice={{ value, label }}
 						searchText={searchText}
 						onSelectItem={onSelectItem}
-						showBorder={i < itemsCount}
 					/>
 				);
 			}
@@ -131,7 +129,6 @@ function InputComponent({
 								<NoResultListItem
 									noResultChoice={noResultChoice}
 									onSelectItem={onSelectItem}
-									showBorder
 								/>
 							)}
 							{scrollContent.length > 0
@@ -163,8 +160,8 @@ const styles = StyleSheet.create({
 	},
 
 	listContainer: {
-		maxHeight: 125,
-		minHeight: 100,
+		maxHeight: 150,
+		minHeight: 150,
 		backgroundColor: '#fff',
 
 		borderWidth: 1,
