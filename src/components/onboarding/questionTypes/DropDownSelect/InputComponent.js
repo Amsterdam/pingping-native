@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 
 import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
-import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View, Platform } from 'react-native';
+import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import NoResultListItem from './NoResultListItem';
 import RenderItem from './RenderItem';
@@ -17,6 +17,7 @@ function InputComponent({
 	setSelectedItem,
 	isOpened,
 	setIsOpened,
+	scrollToBottom,
 }) {
 	const inputRef = useRef(null);
 	const [searchText, setSearchText] = useState('');
@@ -24,7 +25,6 @@ function InputComponent({
 	const toggle = useCallback(() => {
 		setIsOpened(!isOpened);
 	}, [isOpened, setIsOpened]);
-	const isAndroid = Platform.OS === 'android';
 
 	const onSelectItem = useCallback(
 		(choice) => {
@@ -103,7 +103,12 @@ function InputComponent({
 					placeholder={placeholder}
 					autoCorrect={false}
 					onSubmitEditing={onSubmit}
-					onFocus={() => setIsOpened(true)}
+					onFocus={() => {
+						setIsOpened(true);
+						setTimeout(() => {
+							scrollToBottom();
+						}, 300);
+					}}
 					onBlur={onBlur}
 					style={styles.input}
 				/>
@@ -115,7 +120,7 @@ function InputComponent({
 				</TouchableOpacity>
 			</View>
 			{isOpened && (
-				<View style={[styles.listContainer, isAndroid && { marginBottom: 100 }]}>
+				<View style={styles.listContainer}>
 					<ScrollView
 						keyboardShouldPersistTaps="handled"
 						nestedScrollEnabled
@@ -201,6 +206,7 @@ InputComponent.propTypes = {
 	}),
 	isOpened: PropTypes.bool.isRequired,
 	setIsOpened: PropTypes.func.isRequired,
+	scrollToBottom: PropTypes.func.isRequired,
 };
 
 InputComponent.defaultProps = {

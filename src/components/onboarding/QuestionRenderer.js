@@ -21,7 +21,14 @@ import UpdateApp from '../shared/UpdateApp';
  * @param {Function} doUpdateTask - The function to update the task.
  */
 
-const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doRevertTask }) => {
+const QuestionRenderer = ({
+	currentTask,
+	state,
+	setState,
+	doUpdateTask,
+	doRevertTask,
+	scrollToBottom,
+}) => {
 	const renderQuestionType = () => {
 		switch (currentTask.type) {
 			case QUESTION_TYPES.CONFIRM:
@@ -63,6 +70,7 @@ const QuestionRenderer = ({ currentTask, state, setState, doUpdateTask, doRevert
 						doUpdateTask={doUpdateTask}
 						state={state}
 						setState={setState}
+						scrollToBottom={scrollToBottom}
 					/>
 				);
 			default:
