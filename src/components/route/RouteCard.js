@@ -31,6 +31,7 @@ function RouteCard({
 		navigation.navigate(route, {
 			routeId,
 			cover,
+			totalPoints,
 		});
 	};
 	const routeDisabled = numberOfSteps === 0;
@@ -38,9 +39,7 @@ function RouteCard({
 	return (
 		<>
 			<Card
-				onPress={doNavigation(
-					routes.routeStack.screens.routeDetailsScreen
-				)}
+				onPress={doNavigation(routes.routeStack.screens.routeDetailsScreen)}
 				pings={totalPoints}
 				cover={cover}
 				testID={testIDs.ROUTES.ROUTE_CARD}
@@ -72,9 +71,7 @@ function RouteCard({
 			</Card>
 			{progress === 1 && !hasSubmittedFeedback && (
 				<FeedbackCard
-					onPress={doNavigation(
-						routes.routeStack.screens.routeFeedbackScreen
-					)}
+					onPress={doNavigation(routes.routeStack.screens.routeFeedbackScreen)}
 				/>
 			)}
 		</>

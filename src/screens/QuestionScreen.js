@@ -114,7 +114,7 @@ function QuestionScreen({ navigation }) {
 					<Container>
 						<Header
 							left={<HeaderBackButton onPressAction={doRevertTask} color="dark" />}
-							right={<ProgressBar progress={currentTask.progress} />}
+							right={<ProgressBar progress={currentTask.task.progress} />}
 							title={currentTask.task.headerTitle}
 						/>
 						<ContentLayout>

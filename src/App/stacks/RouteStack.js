@@ -23,48 +23,26 @@ function RouteStack({ navigation, route }) {
 
 	return (
 		<Stack.Navigator
-			initialRouteName={
-				routes.routeStack.screens.homeScreen
-			}
+			initialRouteName={routes.routeStack.screens.homeScreen}
 			screenOptions={{ headerShown: false }}
 		>
 			<Stack.Group>
 				<Stack.Screen
-					name={
-						routes.routeStack.screens.homeScreen
-					}
+					name={routes.routeStack.screens.homeScreen}
 					component={RouteHomeScreen}
 				/>
 				<Stack.Screen
-					name={
-						routes.routeStack.screens
-							.routeFeedbackScreen
-					}
+					name={routes.routeStack.screens.routeFeedbackScreen}
 					component={RouteFeedbackScreen}
 				/>
 			</Stack.Group>
-			<Stack.Group
-				screenOptions={{ presentation: 'modal' }}
-			>
+			<Stack.Group screenOptions={{ presentation: 'modal' }}>
+				<Stack.Screen name={routes.routeStack.screens.taskScreen} component={TaskScreen} />
 				<Stack.Screen
-					name={
-						routes.routeStack.screens.taskScreen
-					}
-					component={TaskScreen}
-				/>
-				<Stack.Screen
-					name={
-						routes.routeStack.screens
-							.routeDetailsScreen
-					}
+					name={routes.routeStack.screens.routeDetailsScreen}
 					component={RouteDetailsScreen}
 				/>
-				<Stack.Screen
-					name={
-						routes.routeStack.screens.tipScreen
-					}
-					component={TipScreen}
-				/>
+				<Stack.Screen name={routes.routeStack.screens.tipScreen} component={TipScreen} />
 			</Stack.Group>
 		</Stack.Navigator>
 	);
