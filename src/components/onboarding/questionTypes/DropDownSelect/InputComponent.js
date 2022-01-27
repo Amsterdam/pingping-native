@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 
 import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
-import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
+import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View, Platform } from 'react-native';
 
 import NoResultListItem from './NoResultListItem';
 import RenderItem from './RenderItem';
@@ -24,6 +24,7 @@ function InputComponent({
 	const toggle = useCallback(() => {
 		setIsOpened(!isOpened);
 	}, [isOpened, setIsOpened]);
+	const isAndroid = Platform.OS === 'android';
 
 	const onSelectItem = useCallback(
 		(choice) => {
@@ -114,7 +115,7 @@ function InputComponent({
 				</TouchableOpacity>
 			</View>
 			{isOpened && (
-				<View style={styles.listContainer}>
+				<View style={[styles.listContainer, isAndroid && { marginBottom: 100 }]}>
 					<ScrollView
 						keyboardShouldPersistTaps="handled"
 						nestedScrollEnabled
@@ -157,10 +158,13 @@ const styles = StyleSheet.create({
 	},
 
 	listContainer: {
-		maxHeight: 150,
-		minHeight: 150,
+		maxHeight: 125,
+		minHeight: 100,
 		backgroundColor: '#fff',
-		marginTop: 10,
+
+		borderWidth: 1,
+		borderColor: theme.colors.black,
+		padding: theme.spacing.xxs,
 		width: '100%',
 	},
 	searchSection: {
@@ -169,9 +173,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		backgroundColor: '#fff',
-		borderColor: '#d0d4dc',
+		borderColor: theme.colors.black,
 		borderWidth: 1,
-		borderRadius: 5,
 		minHeight: 60,
 	},
 	chevronButton: {
