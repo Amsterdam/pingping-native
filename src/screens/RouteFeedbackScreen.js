@@ -27,30 +27,17 @@ const INITIAL_STATE = {
 	numberActive: 0,
 };
 
-function RouteFeedbackScreen({
-	navigation = () => {},
-	route = {},
-}) {
-	const { cover, routeId } = route.params;
-	const [submitFeedback] = useMutation(
-		SUBMIT_ROUTE_FEEDBACK_MUTATION,
-	);
-	const [state, setState] = React.useState(
-		INITIAL_STATE,
-	);
-	const [
-		displayError,
-		setDisplayError,
-	] = React.useState({
+function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
+	const { cover, routeId, totalPoints } = route.params;
+	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
+	const [state, setState] = React.useState(INITIAL_STATE);
+	const [displayError, setDisplayError] = React.useState({
 		show: false,
 		message: '',
 	});
-	const [
-		thankYouOpen,
-		setThankYouOpen,
-	] = React.useState(false);
+	const [thankYouOpen, setThankYouOpen] = React.useState(false);
 
-	const onRate = stars => () => {
+	const onRate = (stars) => () => {
 		setState({ ...state, numberActive: stars });
 	};
 
@@ -85,32 +72,19 @@ function RouteFeedbackScreen({
 
 	return (
 		<KeyboardAvoidingView
-			behavior={
-				Platform.OS === 'ios'
-					? 'position'
-					: 'height'
-			}
+			behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 			style={styles.container}
 		>
-			<StatusBar
-				backgroundColor={cover.color}
-				barStyle="light-content"
-			/>
+			<StatusBar backgroundColor={cover.color} barStyle="light-content" />
 			<ScrollView keyboardShouldPersistTaps="handled">
 				<ImageOverlayHeader
 					navigate={() => navigation.goBack()}
 					cover={cover}
+					cityPings={totalPoints}
 				/>
 				<View style={styles.contentContainer}>
-					{displayError.show && (
-						<MinimalErrorComponent
-							message={displayError.message}
-						/>
-					)}
-					<Title
-						variant="h2"
-						style={styles.title}
-					>
+					{displayError.show && <MinimalErrorComponent message={displayError.message} />}
+					<Title variant="h2" style={styles.title}>
 						Wat vond je van de route?
 					</Title>
 					<View style={styles.starContainer}>
@@ -121,18 +95,12 @@ function RouteFeedbackScreen({
 						/>
 					</View>
 					<View style={styles.inputContainer}>
-						<Title
-							style={styles.anyTips}
-							variant="h4"
-						>
-							Heb je nog tips om de app te
-							verbeteren?
+						<Title style={styles.anyTips} variant="h4">
+							Heb je nog tips om de app te verbeteren?
 						</Title>
 						<TextInput
-							style={
-								styles.inputContainerMultiline
-							}
-							onChangeText={text =>
+							style={styles.inputContainerMultiline}
+							onChangeText={(text) =>
 								setState({
 									...state,
 									feedback: text,
@@ -152,9 +120,7 @@ function RouteFeedbackScreen({
 						disabled={!state.numberActive > 0}
 					/>
 				</View>
-				<ThankYouFeedbackModal
-					open={thankYouOpen}
-				/>
+				<ThankYouFeedbackModal open={thankYouOpen} />
 			</ScrollView>
 		</KeyboardAvoidingView>
 	);
@@ -166,16 +132,19 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	contentContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		paddingVertical: theme.spacing.m,
 	},
 
 	title: {
 		marginTop: theme.spacing.l,
 	},
-
+	inputContainerMultiline: {
+		borderWidth: 1,
+		borderRadius: theme.borderRadius,
+		padding: theme.spacing.s,
+		minHeight: 100,
+	},
 	starContainer: {
 		flexDirection: 'row',
 		marginVertical: theme.spacing.l,
@@ -193,15 +162,6 @@ const styles = StyleSheet.create({
 RouteFeedbackScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
 	route: PropTypes.object.isRequired,
-	cover: PropTypes.object,
-};
-
-RouteFeedbackScreen.defaultProps = {
-	cover: {
-		value: '',
-		thumbnail: '',
-		color: '',
-	},
 };
 
 export default RouteFeedbackScreen;

@@ -1,28 +1,22 @@
 import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	ActivityIndicator,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 
 import theme from '../../config/theme';
 
-const QrCode = ({ exportToken = '' }) => {
+function QrCode({ exportToken = '' }) {
 	return (
 		<View style={styles.qrCode}>
 			{exportToken ? (
 				<QRCode value={exportToken} size={200} />
 			) : (
-				<ActivityIndicator
-					color={theme.colors.primary}
-				/>
+				<ActivityIndicator color={theme.colors.primary} />
 			)}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	qrCode: {
@@ -36,7 +30,8 @@ const styles = StyleSheet.create({
 QrCode.propTypes = {
 	exportToken: PropTypes.string,
 };
-QrCode.defaultprops = {
+
+QrCode.defaultProps = {
 	exportToken: '',
 };
 

@@ -140,8 +140,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 		missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 49
-        versionName "2.1.0"
+        versionCode 50
+        versionName "2.2.0"
 		multiDexEnabled true
     }
     splits {
@@ -209,7 +209,7 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation project(':react-native-notifications')
     implementation 'com.google.firebase:firebase-core:16.0.0'
-    implementation "androidx.core:core-splashscreen:1.0.0-alpha02"
+    implementation "androidx.core:core-splashscreen:1.0.0-beta01"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
     	exclude group:'com.facebook.fbjni'

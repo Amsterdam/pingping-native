@@ -1,26 +1,19 @@
-import React, {
-	useEffect,
-	useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {
-	ActivityIndicator,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import theme from '../../config/theme';
 import Body from '../typography/Body';
 
-const Loading = () => {
+function Loading() {
 	const [loading, setLoading] = useState(false);
 	const [showText, setShowText] = useState(false);
 
 	useEffect(() => {
-		var timer1 = setTimeout(() => {
+		const timer1 = setTimeout(() => {
 			setLoading(true);
 		}, 250);
-		var timer2 = setTimeout(() => {
+		const timer2 = setTimeout(() => {
 			setShowText(true);
 		}, 3000);
 		return () => {
@@ -30,27 +23,20 @@ const Loading = () => {
 	}, []);
 
 	if (!loading) {
-		return <></>;
+		return false;
 	}
 	return (
 		<View style={styles.acitivityContainer}>
-			<ActivityIndicator
-				size="large"
-				color={theme.colors.primary}
-			/>
+			<ActivityIndicator size="large" color={theme.colors.primary} />
 			{showText && (
-				<React.Fragment>
-					<Body variant="b3">
-						Het laden duurt langer dan normaal
-					</Body>
-					<Body variant="b3">
-						Nog even wachten
-					</Body>
-				</React.Fragment>
+				<>
+					<Body variant="b3">Het laden duurt langer dan normaal</Body>
+					<Body variant="b3">Nog even wachten</Body>
+				</>
 			)}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	acitivityContainer: {

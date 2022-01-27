@@ -14,8 +14,8 @@ const screenHeight = Dimensions.get('window')
 const screenWidth = Dimensions.get('window')
 	.width;
 
-const RouteDetailSkeleton = () => (
-	<View style={styles.container}>
+function RouteDetailSkeleton() {
+  return <View style={styles.container}>
 		<SkeletonPlaceholder>
 			<View style={styles.image} />
 			<View style={styles.content}>
@@ -50,7 +50,7 @@ const RouteDetailSkeleton = () => (
 			</View>
 		</SkeletonPlaceholder>
 	</View>
-);
+}
 
 const styles = StyleSheet.create({
 	container: {

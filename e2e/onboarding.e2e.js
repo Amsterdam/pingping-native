@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { testIDs } from './modulesTestIDs';
+import testIDs from './modulesTestIDs';
 import {
 	deleteAccount,
 	goBack,
@@ -23,15 +23,13 @@ describe('Onboarding Screen', () => {
 		await device.launchApp({
 			permissions: { camera: 'YES' },
 		});
-		await element(
-			by.id(testIDs.ONBOARDING.LOG_IN_BUTTON),
-		).tap();
+		await element(by.id(testIDs.ONBOARDING.LOG_IN_BUTTON)).tap();
 		await expect(
-			element(by.id(testIDs.IMPORT_DATA.SCREEN)),
+			element(by.id(testIDs.IMPORT_DATA.SCREEN))
 		).toBeVisible();
 		await goBack();
 		await expect(
-			element(by.id(testIDs.ONBOARDING.SCREEN)),
+			element(by.id(testIDs.ONBOARDING.SCREEN))
 		).toBeVisible();
 	});
 
@@ -43,26 +41,15 @@ describe('Onboarding Screen', () => {
 		await pressYes();
 		await pressNo();
 		await expect(
-			element(
-				by.id(
-					testIDs.QUESTION.SKIP_QUESTIONS_MODAL,
-				),
-			),
+			element(by.id(testIDs.QUESTION.SKIP_QUESTIONS_MODAL))
 		).toBeVisible();
 		await element(
-			by.id(
-				testIDs.QUESTION
-					.CONFIRM_SKIP_QUESTIONS_BUTTON,
-			),
+			by.id(testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON)
 		).tap();
 		await skipNotifications();
+		await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
 		await expect(
-			element(by.id(testIDs.ROUTES.SCREEN)),
-		).toBeVisible();
-		await expect(
-			element(
-				by.id(testIDs.ROUTES.FEEDBACK_CARD),
-			),
+			element(by.id(testIDs.ROUTES.FEEDBACK_CARD))
 		).toBeNotVisible();
 		await deleteAccount();
 	});
@@ -74,15 +61,9 @@ describe('Onboarding Screen', () => {
 		await walkthroughOnboarding();
 		await pressNo();
 		await expect(
-			element(
-				by.id(testIDs.GO_BACK_SCREEN.SCREEN),
-			),
+			element(by.id(testIDs.GO_BACK_SCREEN.SCREEN))
 		).toBeVisible();
-		await element(
-			by.id(
-				testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON,
-			),
-		).tap();
+		await element(by.id(testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON)).tap();
 		await pressYes();
 		await pressYes();
 		await setBirthDate('10', 'oktober', '2010');
@@ -108,9 +89,7 @@ describe('Onboarding Screen', () => {
 		await pressMultipleChoiceOption(1);
 		await pressYesAndNext();
 		await skipNotifications();
-		await expect(
-			element(by.id(testIDs.ROUTES.SCREEN)),
-		).toBeVisible();
+		await expect(element(by.id(testIDs.ROUTES.SCREEN))).toBeVisible();
 		await deleteAccount();
 	});
 });

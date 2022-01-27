@@ -1,40 +1,23 @@
-import React, {
-	useEffect,
-	useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import AsyncStorage from '@react-native-community/async-storage';
-import {
-	CloseIcon,
-	IconButton,
-} from 'native-base';
-import {
-	Dimensions,
-	Modal,
-	StyleSheet,
-	Platform,
-	Linking,
-	View,
-} from 'react-native';
+import { CloseIcon, IconButton } from 'native-base';
+import { Dimensions, Modal, StyleSheet, Platform, Linking, View } from 'react-native';
 import checkVersion from 'react-native-store-version';
 
 import { version } from '../../../package.json';
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import theme from '../../config/theme';
+import { getFromAsyncStorage, setAsyncStorage } from '../../helpers/asyncStorageHelpers';
 import sentryHelper from '../../helpers/sentryHelper';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window')
-	.width;
+const screenWidth = Dimensions.get('window').width;
 
 function UpdateAppModal() {
 	const [open, setOpen] = useState(false);
-	const [
-		versionResult,
-		setVersionResult,
-	] = useState(null);
+	const [versionResult, setVersionResult] = useState(null);
 
 	useEffect(() => {
 		//  init() checks the current version of the app with the remote version of the app
@@ -48,8 +31,7 @@ function UpdateAppModal() {
 			try {
 				const check = await checkVersion({
 					version,
-					iosStoreURL:
-						'https://apps.apple.com/app/id1531867912',
+					iosStoreURL: 'https://apps.apple.com/app/id1531867912',
 					androidStoreURL:
 						'https://play.google.com/store/apps/details?id=com.pingpingnative',
 					country: 'nl',
@@ -57,13 +39,10 @@ function UpdateAppModal() {
 
 				setVersionResult(check);
 				if (check.result === 'new') {
-					const dismissedUpdate = await AsyncStorage.getItem(
-						'@dismissedUpdate',
+					const dismissedUpdate = await getFromAsyncStorage(
+						'@pingpingNative_dismissedUpdate'
 					);
-					if (
-						dismissedUpdate ===
-						`${check.local}-${check.remote}`
-					) {
+					if (dismissedUpdate === `${check.local}-${check.remote}`) {
 						return;
 					}
 					setOpen(true);
@@ -76,9 +55,9 @@ function UpdateAppModal() {
 	}, []);
 
 	const closeModal = async () => {
-		await AsyncStorage.setItem(
-			'@dismissedUpdate',
-			`${versionResult.local}-${versionResult.remote}`,
+		await setAsyncStorage(
+			'@pingpingNative_dismissedUpdate',
+			`${versionResult.local}-${versionResult.remote}`
 		);
 		setOpen(false);
 	};
@@ -89,56 +68,36 @@ function UpdateAppModal() {
 				? 'itms-apps://apps.apple.com/nl/app/pingping/id1531867912?l=nl'
 				: 'market://details?id=com.pingpingnative';
 		Linking.canOpenURL(link).then(
-			supported => {
-				supported && Linking.openURL(link);
+			(supported) => {
+				if (supported) {
+					Linking.openURL(link);
+				}
 			},
-			error => sentryHelper(error.message),
+			(error) => sentryHelper(error.message)
 		);
 	};
 
 	return (
-		<Modal
-			animationType="fade"
-			transparent={true}
-			visible={open}
-			statusBarTranslucent
-		>
+		<Modal animationType="fade" transparent visible={open} statusBarTranslucent>
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
 							onPress={closeModal}
 							style={styles.closeButton}
-							icon={
-								<CloseIcon
-									style={styles.icon}
-									size="4"
-								/>
-							}
+							icon={<CloseIcon style={styles.icon} size="4" />}
 						/>
-						<Title
-							variant="h3"
-							style={styles.title}
-						>
+						<Title variant="h3" style={styles.title}>
 							Hey! Er is een nieuwe versie
 						</Title>
 						<View style={styles.svgContainer}>
 							<UpdateSvg width={91} height={94} />
 						</View>
-						<Body
-							variant="b3"
-							style={styles.body}
-							align="center"
-						>
-							Er is een nieuwe versie van de app
-							beschikbaar. Druk op de knop
+						<Body variant="b3" style={styles.body} align="center">
+							Er is een nieuwe versie van de app beschikbaar. Druk op de knop
 							hieronder om de update te starten.
 						</Body>
-						<RoundedButton
-							label="Start update"
-							full
-							onPress={openAppStore}
-						/>
+						<RoundedButton label="Start update" full onPress={openAppStore} />
 					</View>
 				</View>
 			</View>

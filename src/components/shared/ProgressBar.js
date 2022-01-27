@@ -5,7 +5,7 @@ import { Bar } from 'react-native-progress';
 
 import theme from '../../config/theme';
 
-const ProgressBar = ({ progress }) => {
+function ProgressBar({ progress }) {
 	return (
 		<Bar
 			progress={progress}
@@ -18,7 +18,7 @@ const ProgressBar = ({ progress }) => {
 			animationType="timing"
 		/>
 	);
-};
+}
 
 ProgressBar.propTypes = {
 	progress: PropTypes.number,

@@ -1,0 +1,58 @@
+{
+	"env": {
+		"es2021": true,
+		"node": true,
+		"react-native/react-native": true,
+		"jest": true
+	},
+	"plugins": ["react", "react-native", "import", "detox"],
+	"extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
+	"overrides": [
+		{
+			"files": ["*.e2e.js"],
+			"env": {
+				"detox/detox": true,
+				"jest": true
+			}
+		}
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-console": ["error", { "allow": ["warn", "error", "info"] }],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"no-use-before-define": 0,
+		"react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }],
+		"react/forbid-prop-types": 0,
+		"react/no-unused-prop-types": "error",
+		"react/jsx-props-no-spreading": 0,
+		"import/newline-after-import": "error",
+		"import/no-duplicates": "error",
+		"import/first": "error",
+		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+		"import/order": [
+			"error",
+			{
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				},
+				"newlines-between": "always",
+				"groups": ["builtin", "external", "sibling", "parent", "index"],
+				"pathGroups": [
+					{
+						"pattern": "react",
+						"group": "external",
+						"position": "before"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["builtin"]
+			}
+		]
+	}
+}

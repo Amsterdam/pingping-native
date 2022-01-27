@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 
-import {
-	useMutation,
-	useQuery,
-} from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	ScrollView,
-	StyleSheet,
-	View,
-	StatusBar,
-} from 'react-native';
+import { ScrollView, StyleSheet, View, StatusBar } from 'react-native';
 
 import CLAIM_REWARD_MUTATION from '../apollo/Mutation/claimRewardMutation';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
@@ -27,35 +19,17 @@ import Title from '../components/typography/Title';
 import theme from '../config/theme';
 import sentryHelper from '../helpers/sentryHelper';
 
-function RewardDetailModalScreen({
-	navigation = () => {},
-	route = {},
-}) {
-	const {
-		price,
-		title,
-		description,
-		rewardId,
-		cover,
-	} = route.params;
-	const [urlToVisit, setUrlToVisit] = useState(
-		'https://amsterdam.nl',
-	);
-	const [webViewOpen, setWebviewOpen] = useState(
-		false,
-	);
-	const [claimReward] = useMutation(
-		CLAIM_REWARD_MUTATION,
-	);
+function RewardDetailModalScreen({ navigation = () => {}, route = {} }) {
+	const { price, title, description, rewardId, cover } = route.params;
+	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
+	const [webViewOpen, setWebviewOpen] = useState(false);
+	const [claimReward] = useMutation(CLAIM_REWARD_MUTATION);
 	const toast = useToast();
 
 	const [loading, setLoading] = useState(false);
-	const { data, refetch } = useQuery(
-		GET_STATUS_QUERY,
-		{
-			fetchPolicy: 'cache-first',
-		},
-	);
+	const { data, refetch } = useQuery(GET_STATUS_QUERY, {
+		fetchPolicy: 'cache-first',
+	});
 
 	const closeModal = () => {
 		setWebviewOpen(false);
@@ -70,39 +44,23 @@ function RewardDetailModalScreen({
 				},
 			});
 			await refetch();
-			navigation.navigate(
-				routes.citypingsStack.screens
-					.claimedRewardModalScreen,
+			return navigation.navigate(
+				routes.citypingsStack.screens.claimedRewardModalScreen,
 				{
-					pin:
-						claimResponse.data.claimReward.data
-							?.pin,
-					code:
-						claimResponse.data.claimReward.data
-							?.code,
+					pin: claimResponse.data.claimReward.data?.pin,
+					code: claimResponse.data.claimReward.data?.code,
 					expiryDate:
-						claimResponse.data.claimReward.data
-							?.expiryDate,
-					title:
-						claimResponse.data.claimReward.reward
-							.title,
-					cover:
-						claimResponse.data.claimReward.reward
-							.cover,
+						claimResponse.data.claimReward.data?.expiryDate,
+					title: claimResponse.data.claimReward.reward.title,
+					cover: claimResponse.data.claimReward.reward.cover,
 					rewardId:
-						claimResponse.data.claimReward.reward
-							.rewardId,
+						claimResponse.data.claimReward.reward.rewardId,
 					description:
-						claimResponse.data.claimReward.reward
-							.description,
-				},
+						claimResponse.data.claimReward.reward.description,
+				}
 			);
 		} catch (error) {
-			if (
-				error.message.includes(
-					'reward_not_available',
-				)
-			) {
+			if (error.message.includes('reward_not_available')) {
 				sentryHelper(error.message);
 				return toast.show({
 					description:
@@ -117,7 +75,7 @@ function RewardDetailModalScreen({
 					duration: 2000,
 				});
 			}
-			toast.show({
+			return toast.show({
 				description:
 					'Er is iets misgegaan! Onze developers zijn op de hoogte gesteld',
 				textStyle: {
@@ -154,16 +112,10 @@ function RewardDetailModalScreen({
 					<Body variant="b3" style={styles.label}>
 						Rewards
 					</Body>
-					<Title
-						variant="h2"
-						style={styles.title}
-					>
+					<Title variant="h2" style={styles.title}>
 						{title}
 					</Title>
-					<CityPingsBalance
-						balance={balance}
-						price={price}
-					/>
+					<CityPingsBalance balance={balance} price={price} />
 					<View style={styles.description}>
 						<HTMLRenderer
 							html={description}
@@ -174,13 +126,8 @@ function RewardDetailModalScreen({
 				</View>
 			</ScrollView>
 			<View style={styles.buttonContainer}>
-				<Body
-					variant="b3"
-					stlye={styles.balanceIndicatorText}
-				>
-					{available
-						? 'Lets go!'
-						: 'Nog even doorsparen !'}
+				<Body variant="b3" stlye={styles.balanceIndicatorText}>
+					{available ? 'Lets go!' : 'Nog even doorsparen !'}
 				</Body>
 				<Button
 					style={styles.button}
@@ -202,9 +149,7 @@ function RewardDetailModalScreen({
 
 const styles = StyleSheet.create({
 	contentContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		paddingVertical: theme.spacing.m,
 	},
 	label: {
@@ -217,9 +162,7 @@ const styles = StyleSheet.create({
 		marginTop: theme.spacing.m,
 	},
 	buttonContainer: {
-		paddingHorizontal: theme.spacing.multiplier(
-			8,
-		),
+		paddingHorizontal: theme.spacing.multiplier(8),
 		marginTop: theme.spacing.m,
 		marginBottom: theme.spacing.m,
 		flexDirection: 'row',
@@ -231,14 +174,6 @@ const styles = StyleSheet.create({
 RewardDetailModalScreen.propTypes = {
 	navigation: PropTypes.object.isRequired,
 	route: PropTypes.object.isRequired,
-	cover: PropTypes.object,
-};
-RewardDetailModalScreen.defaultProps = {
-	cover: {
-		value: '',
-		thumbnail: '',
-		color: '',
-	},
 };
 
 export default RewardDetailModalScreen;

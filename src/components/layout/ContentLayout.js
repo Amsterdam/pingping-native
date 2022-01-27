@@ -9,10 +9,10 @@ import {
 
 import theme from '../../config/theme';
 
-const ContentLayout = ({
+function ContentLayout({
 	children = [],
 	style = {},
-}) => {
+}) {
 	return (
 		<View
 			style={{ ...styles.container, ...style }}
@@ -20,7 +20,7 @@ const ContentLayout = ({
 			{children}
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

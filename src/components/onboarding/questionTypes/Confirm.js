@@ -1,60 +1,39 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	Image,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
-import { BASE_URL } from '../../../config/initialSettings';
+import { BASE_URL } from '../../../config/constants';
 import theme from '../../../config/theme';
 import ConfirmModal from '../../modals/ConfirmModal';
 import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
-const Confirm = ({
-	currentTask = {},
-	doUpdateConfirmTask = () => {},
-}) => {
-	const [
-		confirmModalOpen,
-		setConfirmModalOpen,
-	] = useState(false);
+function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
+	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
-	const handleOnPress = answer => {
-		if (
-			currentTask.taskId ===
-				'onboarding.welcome' &&
-			answer === 'no'
-		) {
+	const handleOnPress = (choice) => {
+		if (currentTask.taskId === 'onboarding.welcome' && choice.value === 'no') {
 			return setConfirmModalOpen(true);
 		}
-		doUpdateConfirmTask(answer);
+		return doUpdateTask(choice);
 	};
 
 	const mapButtons = () => {
 		const buttonArray = [];
-		for (const [key, value] of Object.entries(
-			currentTask.choices,
-		)) {
+		Object.entries(currentTask.choices).forEach(([value, label]) => {
 			buttonArray.push(
 				<Button
-					label={value}
-					key={key}
-					style={[
-						styles.button,
-						key === 'no' && styles.whiteButton,
-					]}
-					labelStyle={[
-						key === 'no' && styles.label,
-					]}
-					onPress={() => handleOnPress(key)}
-					testid={`${key}_BUTTON`.toUpperCase()}
-				/>,
+					label={label}
+					key={value}
+					style={[styles.button, value === 'no' && styles.whiteButton]}
+					labelStyle={[value === 'no' && styles.label]}
+					onPress={() => handleOnPress({ value, label })}
+					testid={`${value}_BUTTON`.toUpperCase()}
+				/>
 			);
-		}
+		});
 		return buttonArray;
 	};
 
@@ -71,33 +50,23 @@ const Confirm = ({
 				)}
 			</View>
 			<View>
-				<Title
-					style={styles.title}
-					variant="h2"
-					align="center"
-				>
+				<Title style={styles.title} variant="h2" align="center">
 					{currentTask.title}
 				</Title>
-				<Body
-					variant="b4"
-					align="center"
-					style={styles.onboardingText}
-				>
+				<Body variant="b4" align="center" style={styles.onboardingText}>
 					{currentTask.description}
 				</Body>
 			</View>
 
-			<View style={styles.buttonContainer}>
-				{mapButtons()}
-			</View>
+			<View style={styles.buttonContainer}>{mapButtons()}</View>
 			<ConfirmModal
 				open={confirmModalOpen}
 				setOpen={setConfirmModalOpen}
-				doUpdateConfirmTask={doUpdateConfirmTask}
+				doUpdateTask={doUpdateTask}
 			/>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	image: {
@@ -140,7 +109,7 @@ const styles = StyleSheet.create({
 
 Confirm.propTypes = {
 	currentTask: PropTypes.object.isRequired,
-	doUpdateConfirmTask: PropTypes.func.isRequired,
+	doUpdateTask: PropTypes.func.isRequired,
 };
 
 export default Confirm;

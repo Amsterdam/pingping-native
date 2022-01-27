@@ -1,34 +1,32 @@
+// https://koprowski.it/2020/conditional-rendering-react-native-text-crash/
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 
 import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-import { commonStyles } from '../../config/commonStyles';
+import commonStyles from '../../config/commonStyles';
 import theme from '../../config/theme';
 
-const CardSkeleton = ({ withTitle = true }) => (
-	<SkeletonPlaceholder>
-		{withTitle ? (
-			<View style={styles.title} />
-		) : (
-			<></>
-		)}
-		<View
-			style={[styles.paper, styles.paperShadow]}
-		>
-			<View>
-				<View style={styles.image} />
-				<View style={styles.container}>
-					<View style={styles.text} />
-					<View style={styles.subText} />
-					<View style={styles.shortText} />
-					<View style={styles.progress} />
+function CardSkeleton({ withTitle = true }) {
+	return (
+		<SkeletonPlaceholder>
+			{withTitle ? <View style={styles.title} /> : <></>}
+			<View style={[styles.paper, styles.paperShadow]}>
+				<View>
+					<View style={styles.image} />
+					<View style={styles.container}>
+						<View style={styles.text} />
+						<View style={styles.subText} />
+						<View style={styles.shortText} />
+						<View style={styles.progress} />
+					</View>
 				</View>
 			</View>
-		</View>
-	</SkeletonPlaceholder>
-);
+		</SkeletonPlaceholder>
+	);
+}
 
 const styles = StyleSheet.create({
 	title: {

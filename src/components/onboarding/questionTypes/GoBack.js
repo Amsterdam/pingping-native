@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 
-import { testIDs } from '../../../../e2e/modulesTestIDs';
+import testIDs from '../../../../e2e/modulesTestIDs';
 import AmsterdamBuildings from '../../../assets/svg/AmsterdamBuildings';
 import theme from '../../../config/theme';
 import WebViewModal from '../../modals/WebViewModal';
@@ -11,16 +11,9 @@ import HTMLRenderer from '../../shared/HTMLRenderer';
 import Button from '../../shared/RoundedButton';
 import Title from '../../typography/Title';
 
-const GoBack = ({
-	currentTask,
-	doRevertTask,
-}) => {
-	const [urlToVisit, setUrlToVisit] = useState(
-		'https://amsterdam.nl',
-	);
-	const [webViewOpen, setWebviewOpen] = useState(
-		false,
-	);
+function GoBack({ currentTask, doRevertTask }) {
+	const [urlToVisit, setUrlToVisit] = useState('https://amsterdam.nl');
+	const [webViewOpen, setWebviewOpen] = useState(false);
 
 	const closeModal = () => {
 		setWebviewOpen(false);
@@ -33,9 +26,7 @@ const GoBack = ({
 		>
 			<AmsterdamBuildings />
 			<View style={styles.subContainer}>
-				<Title style={styles.title}>
-					{currentTask.title}
-				</Title>
+				<Title style={styles.title}>{currentTask.title}</Title>
 				<HTMLRenderer
 					html={currentTask.description}
 					setUrlToVisit={setUrlToVisit}
@@ -47,9 +38,7 @@ const GoBack = ({
 					style={styles.button}
 					onPress={doRevertTask}
 					label="TERUG"
-					testid={
-						testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON
-					}
+					testid={testIDs.GO_BACK_SCREEN.GO_BACK_BUTTON}
 				/>
 			</View>
 			<WebViewModal
@@ -60,7 +49,7 @@ const GoBack = ({
 			/>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

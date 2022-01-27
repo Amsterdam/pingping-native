@@ -16,9 +16,10 @@ test('renders correctly', () => {
 				<MockedProvider mocks={[]}>
 					<PrivacyPolicyScreen
 						navigation={navigation}
+						route={{ params: { fromOnboarding: true } }}
 					/>
 				</MockedProvider>
-			</NativeBaseProvider>,
+			</NativeBaseProvider>
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

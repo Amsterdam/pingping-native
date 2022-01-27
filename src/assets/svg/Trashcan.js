@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
 import Svg, { Path } from 'react-native-svg';
@@ -20,10 +21,7 @@ function Trashcan(props) {
 				d="M36.133 2.313v33.435c0 .87-.704 1.574-1.573 1.574h5.942c.869 0 1.573-.705 1.573-1.574V8.256l-5.942-5.943z"
 				fill="#E6E6F2"
 			/>
-			<Path
-				d="M34.64 7.504V.82l7.435 7.435h-6.684a.751.751 0 01-.75-.75z"
-				fill="#AAE1E7"
-			/>
+			<Path d="M34.64 7.504V.82l7.435 7.435h-6.684a.751.751 0 01-.75-.75z" fill="#AAE1E7" />
 			<Path
 				d="M39.07 55.18H16.916a4.173 4.173 0 01-4.15-3.743L8.964 14.769H47.02l-3.8 36.668a4.173 4.173 0 01-4.15 3.743z"
 				fill="#AFB7ED"
