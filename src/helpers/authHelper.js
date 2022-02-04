@@ -49,7 +49,7 @@ const userStatus = async (refetch, setUserState, setBootIssue) => {
 			await clearAsyncStorage(); // Token is not valid, clear all.
 			return setUserState(USER_STATES.onboarder);
 		}
-		if (error.message === 'undefined') {
+		if (error.message === 'undefined' || error.message.includes('Unrecognized token')) {
 			return setBootIssue(ERROR_TYPES.backendError);
 		}
 		return setBootIssue(ERROR_TYPES.networkError);
