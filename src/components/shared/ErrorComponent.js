@@ -52,7 +52,9 @@ function ErrorComponent({ error, functionToRetry = () => {}, label = '', navigat
 				setErrorMessage(e.message);
 			}
 		} finally {
-			setLoading(false);
+			setTimeout(() => {
+				setLoading(false);
+			}, 1500);
 		}
 	};
 
