@@ -11,7 +11,9 @@
 		"lint": "eslint .",
 		"detoxbuildandtest": "detox build --configuration ios && detox test -c ios",
 		"detoxtestios": "detox test -c ios  --debug-synchronization 200",
-		"clean": "react-native-clean-project"
+		"clean": "react-native-clean-project",
+		"storybook": "start-storybook -p 7007",
+		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.8",
@@ -58,8 +60,16 @@
 	"devDependencies": {
 		"@babel/core": "^7.17.2",
 		"@babel/runtime": "^7.17.2",
+		"@storybook/addon-actions": "^5.3",
+		"@storybook/addon-knobs": "^5.3",
+		"@storybook/addon-links": "^5.3",
+		"@storybook/addon-ondevice-actions": "^5.3.23",
+		"@storybook/addon-ondevice-knobs": "^5.3.25",
+		"@storybook/react-native": "^5.3.25",
+		"@storybook/react-native-server": "^5.3.23",
 		"@testing-library/react": "^12.1.2",
 		"babel-jest": "^27.5.1",
+		"babel-loader": "^8.2.3",
 		"detox": "^19.4.3",
 		"eslint": "^8.8.0",
 		"eslint-config-airbnb": "^19.0.4",
@@ -74,6 +84,7 @@
 		"jest-circus": "^27.5.1",
 		"jest-fetch-mock": "^3.0.3",
 		"metro-react-native-babel-preset": "^0.66.2",
+		"react-dom": "17.0.2",
 		"react-native-clean-project": "^4.0.0",
 		"react-test-renderer": "^17.0.2"
 	},
@@ -97,6 +108,9 @@
 		],
 		"transformIgnorePatterns": [
 			"/node_modules/@react-native-community/async-storage/(?!(lib)) | node_modules/(?!(react-[a-z, -]*|react-native|native-base-[a-z, -]*|react-native-[a-z, -]*)/) "
+		],
+		"setupFilesAfterEnv": [
+			"<rootDir>/__mocks__/globalMock.js"
 		]
 	}
 }

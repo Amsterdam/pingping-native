@@ -14,46 +14,31 @@ import Title from '../typography/Title';
 
 function RewardCard({
 	navigation,
-	reward: {
-		price,
-		description,
-		title,
-		rewardId,
-		cover,
-		status,
-	},
+	reward: { price, description, title, rewardId, cover, status },
 	data,
 	balance = 0,
 	claimed = false,
 }) {
 	const doNavigation = async () => {
 		if (claimed) {
-			return navigation.navigate(
-				routes.citypingsStack.screens
-					.claimedRewardModalScreen,
-				{
-					title,
-					cover,
-					rewardId,
-					description,
-					pin: data.pin,
-					code: data.code,
-					expiryDate: data.expiryDate,
-				},
-			);
-		}
-		return navigation.navigate(
-			routes.citypingsStack.screens
-				.rewardDetailModalScreen,
-			{
-				price,
-				balance,
-				description,
+			return navigation.navigate(routes.citypingsStack.screens.claimedRewardModalScreen, {
 				title,
 				cover,
 				rewardId,
-			},
-		);
+				description,
+				pin: data.pin,
+				code: data.code,
+				expiryDate: data.expiryDate,
+			});
+		}
+		return navigation.navigate(routes.citypingsStack.screens.rewardDetailModalScreen, {
+			price,
+			balance,
+			description,
+			title,
+			cover,
+			rewardId,
+		});
 	};
 
 	return (
@@ -65,17 +50,11 @@ function RewardCard({
 		>
 			<View style={styles.descriptionContainer}>
 				<View style={styles.typeContainer}>
-					<Body
-						variant="b3"
-						style={styles.rewardType}
-					>
+					<Body variant="b3" style={styles.rewardType}>
 						Reward
 					</Body>
-					{data?.expiryDate && (
-						<Body
-							variant="b3"
-							style={styles.expiryDate}
-						>
+					{!!data?.expiryDate && (
+						<Body variant="b3" style={styles.expiryDate}>
 							Geldig tot {data.expiryDate}
 						</Body>
 					)}
@@ -83,27 +62,16 @@ function RewardCard({
 				<Title variant="h3" style={styles.title}>
 					{title}
 				</Title>
-				<Body
-					variant="b3"
-					numberOfLines={3}
-					ellipsizeMode="tail"
-				>
+				<Body variant="b3" numberOfLines={3} ellipsizeMode="tail">
 					{description}
 				</Body>
 
 				{claimed ? (
-					<AnimatableView
-						animation="bounceIn"
-						delay={200}
-						style={styles.illustration}
-					>
+					<AnimatableView animation="bounceIn" delay={200} style={styles.illustration}>
 						<ClaimedTickets />
 					</AnimatableView>
 				) : (
-					<CityPingsBalance
-						price={price}
-						balance={balance}
-					/>
+					<CityPingsBalance price={price} balance={balance} />
 				)}
 			</View>
 		</Card>
