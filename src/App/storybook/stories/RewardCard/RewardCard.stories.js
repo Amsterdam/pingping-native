@@ -1,60 +1,53 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
-import { ScrollView } from 'react-native';
 
+import ContentLayout from '../../../../components/layout/ContentLayout';
 import RewardCard from '../../../../components/reward/RewardCard';
 import Container from '../../../../components/shared/Container';
-import CenterView from '../CenterView';
+
+const reward = {
+	price: 140,
+	description:
+		'Gefeliciteerd! Jij bent lekker bezig! Claim deze Pathé thuisbioscoopbon als welverdiende beloning!',
+	title: 'Pathe Thuis Film',
+	rewardId: 'pathe-thuis-film-rotterdam',
+	cover: {
+		__typename: 'Media',
+		color: '#F5C74D',
+		thumbnail: '/images/reward2Thumb.jpg',
+		type: 'Image',
+		value: '/images/reward2.jpg',
+	},
+	status: 'Available',
+};
+
+const data = { pin: '', code: '', expiryDate: '01-01-2021' };
 
 storiesOf('Rewardcard', module)
 	.addDecorator((getStory) => (
 		<Container>
-			<ScrollView>{getStory()}</ScrollView>
+			<ContentLayout>{getStory()}</ContentLayout>
 		</Container>
 	))
 	.add('Enabled Rewardcard', () => (
-		<>
-			<RewardCard
-				navigation={() => {}}
-				reward={{
-					price: 100,
-					description: 'none',
-					title: 'none',
-					rewardId: 'a rewrd',
-					cover: 'ada',
-					status: 'active',
-				}}
-				data={{ pin: '', code: '', expiryDate: '01-01-2021' }}
-				balance={0}
-				claimed={false}
-			/>
-			<RewardCard
-				navigation={() => {}}
-				reward={{
-					price: 100,
-					description: 'none',
-					title: 'none',
-					rewardId: 'a rewrd',
-					cover: 'ada',
-					status: 'active',
-				}}
-				data={{ pin: '', code: '', expiryDate: '01-01-2021' }}
-				balance={50}
-				claimed
-			/>
-			<RewardCard
-				navigation={() => {}}
-				reward={{
-					price: 150,
-					description: 'none',
-					title: 'none',
-					rewardId: 'a rewrd',
-					cover: 'ada',
-					status: 'NotAvailable',
-				}}
-				data={{ pin: '', code: '', expiryDate: '01-01-2021' }}
-				balance={100}
-			/>
-		</>
+		<RewardCard reward={reward} data={data} balance={0} navigation={() => {}} claimed={false} />
+	))
+	.add('Disabled RewardCard', () => (
+		<RewardCard
+			navigation={() => {}}
+			balance={100}
+			reward={{ ...reward, status: 'NotAvailable' }}
+			data={data}
+			claimed={false}
+		/>
+	))
+	.add('Claimed RewardCard', () => (
+		<RewardCard
+			navigation={() => {}}
+			balance={100}
+			reward={{ ...reward, status: 'Available' }}
+			data={data}
+			claimed
+		/>
 	));

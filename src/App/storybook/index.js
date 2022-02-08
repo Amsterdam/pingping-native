@@ -2,8 +2,11 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { AppRegistry } from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 
 import './rn-addons';
+
+RNBootSplash.hide();
 
 // enables knobs for all stories
 addDecorator(withKnobs);
