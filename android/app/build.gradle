@@ -131,10 +131,6 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
-
     defaultConfig {
         applicationId "com.pingpingnative"
         minSdkVersion rootProject.ext.minSdkVersion
