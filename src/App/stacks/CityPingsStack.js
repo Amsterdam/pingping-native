@@ -20,45 +20,27 @@ function RootStackScreen({ navigation, route }) {
 
 	return (
 		<RootStack.Navigator
-			initialRouteName={
-				routes.citypingsStack.screens.homeScreen
-			}
+			initialRouteName={routes.citypingsStack.screens.homeScreen}
 			screenOptions={{ headerShown: false }}
 		>
 			<RootStack.Group>
 				<RootStack.Screen
-					name={
-						routes.citypingsStack.screens
-							.homeScreen
-					}
+					name={routes.citypingsStack.screens.homeScreen}
 					component={CityPingsHomeScreen}
 				/>
 			</RootStack.Group>
-			<RootStack.Group
-				screenOptions={{ presentation: 'modal' }}
-			>
+			<RootStack.Group screenOptions={{ presentation: 'modal' }}>
 				<RootStack.Screen
-					name={
-						routes.citypingsStack.screens
-							.rewardDetailModalScreen
-					}
+					name={routes.citypingsStack.screens.rewardDetailModalScreen}
 					component={RewardDetailModalScreen}
 				/>
 				<RootStack.Screen
-					name={
-						routes.citypingsStack.screens
-							.claimedRewardModalScreen
-					}
+					name={routes.citypingsStack.screens.claimedRewardModalScreen}
 					component={ClaimedRewardModalScreen}
 				/>
 				<RootStack.Screen
-					name={
-						routes.citypingsStack.screens
-							.completedRouteCelebrationModalScreen
-					}
-					component={
-						CompletedRouteCelebrationModalScreen
-					}
+					name={routes.citypingsStack.screens.completedRouteCelebrationModalScreen}
+					component={CompletedRouteCelebrationModalScreen}
 				/>
 			</RootStack.Group>
 		</RootStack.Navigator>
