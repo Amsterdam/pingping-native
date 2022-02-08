@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	ActivityIndicator,
-	Modal,
-	StyleSheet,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { ActivityIndicator, Modal, StyleSheet, TouchableOpacity, View } from 'react-native';
 import WebView from 'react-native-webview';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-function WebViewModal({
-	closeModal,
-	urlToVisit,
-	webViewOpen,
-}) {
+function WebViewModal({ closeModal, urlToVisit, webViewOpen }) {
 	const [loading, setLoading] = useState(false);
 
-	const handleWebViewNavigationStateChange = newNavState => {
+	const handleWebViewNavigationStateChange = (newNavState) => {
 		setLoading(newNavState.loading);
 	};
 
@@ -34,20 +24,13 @@ function WebViewModal({
 		>
 			<View style={styles.centeredView}>
 				<View style={styles.modalView}>
-					<TouchableOpacity
-						onPress={closeModal}
-						style={styles.closeButton}
-					>
-						<Title style={styles.buttonLabel}>
-							SLUITEN
-						</Title>
+					<TouchableOpacity onPress={closeModal} style={styles.closeButton}>
+						<Title style={styles.buttonLabel}>SLUITEN</Title>
 					</TouchableOpacity>
 					<View style={styles.webView}>
 						<WebView
 							source={{ uri: urlToVisit }}
-							onNavigationStateChange={
-								handleWebViewNavigationStateChange
-							}
+							onNavigationStateChange={handleWebViewNavigationStateChange}
 						/>
 						{loading && (
 							<ActivityIndicator
@@ -91,7 +74,6 @@ const styles = StyleSheet.create({
 	},
 	webView: {
 		flex: 1,
-		padding: theme.spacing.xxs,
 	},
 	buttonLabel: {
 		marginTop: theme.spacing.xs,

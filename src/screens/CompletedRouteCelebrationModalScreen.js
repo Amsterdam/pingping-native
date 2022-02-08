@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useQuery } from '@apollo/client';
 import LottieView from 'lottie-react-native';
+import { CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { Animated, StatusBar, StyleSheet, View, ScrollView } from 'react-native';
 
@@ -16,7 +17,7 @@ import ChevronButton from '../components/reward/ChevronButton';
 import RewardCardMini from '../components/reward/RewardCardMini';
 import RouteCard from '../components/route/RouteCard';
 import CitypingsChip from '../components/shared/CitypingsChip';
-import Container from '../components/shared/Container';
+import IconButton from '../components/shared/IconButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
 import commonStyles from '../config/commonStyles';
@@ -48,8 +49,9 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 	balance = me.data?.getStatus?.user?.balance;
 
 	return (
-		<Container style={styles.container}>
+		<View style={styles.container}>
 			<StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
+			<View style={styles.underLayer} />
 
 			<Animated.View
 				style={[
@@ -59,7 +61,6 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 					},
 				]}
 			/>
-
 			<ScrollView
 				onScroll={(e) => {
 					scrollY.setValue(e.nativeEvent.contentOffset.y);
@@ -67,6 +68,12 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 				scrollEventThrottle={16}
 				contentContainerStyle={styles.content}
 			>
+				<IconButton
+					iconComponent={<CloseIcon size="5" color={theme.colors.white} />}
+					action={() => navigation.navigate(routes.citypingsStack.screens.homeScreen)}
+					backgroundColor={theme.colors.headerColor}
+					round
+				/>
 				<ContentLayout>
 					<View style={styles.headerContainer}>
 						<Title style={styles.title} variant="h3" align="left">
@@ -149,14 +156,14 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 					)}
 				</ContentLayout>
 			</ScrollView>
-			<View style={styles.underLayer} />
-		</Container>
+		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: theme.colors.almostNotBlue,
+		backgroundColor: theme.colors.primary,
+		position: 'relative',
 	},
 	header: {
 		flexDirection: 'column',
@@ -166,6 +173,10 @@ const styles = StyleSheet.create({
 		top: 0,
 		right: 0,
 		position: 'absolute',
+	},
+	iconButton: {
+		position: 'absolute',
+		zIndex: 2,
 	},
 	coinContainer: {
 		marginVertical: theme.spacing.s,
@@ -180,7 +191,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	content: {
-		position: 'absolute',
 		top: 25,
 		paddingBottom: theme.spacing.multiplier(15),
 	},
