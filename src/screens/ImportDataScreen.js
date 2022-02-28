@@ -14,6 +14,7 @@ import QrScanner from '../components/onboarding/QrScanner';
 import Container from '../components/shared/Container';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
+import { asyncStorageKeys } from '../config/constants';
 import theme from '../config/theme';
 import { setAsyncStorage } from '../helpers/asyncStorageHelpers';
 import { doRegisterDevice } from '../helpers/authHelper';
@@ -33,7 +34,7 @@ function ImportDataScreen({ navigation }) {
 		setLoading(true);
 		try {
 			await doRegisterDevice(registerDevice, exportToken);
-			await setAsyncStorage('@pingpingNative_acceptedPolicy', JSON.stringify(true));
+			await setAsyncStorage(asyncStorageKeys.acceptedPolicy, JSON.stringify(true));
 			getStatus();
 		} catch (error) {
 			setLoading(false);

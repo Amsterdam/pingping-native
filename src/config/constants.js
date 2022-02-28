@@ -10,6 +10,13 @@ export const BASE_URL = __DEV__ ? ACC_URL : PROD_URL;
 
 export const API_URL = `${BASE_URL}/api`;
 
+export const asyncStorageKeys = {
+	dismissedUpdate: '@pingpingNative_dismissedUpdate',
+	acceptedPolicy: '@pingpingNative_acceptedPolicy',
+	accessToken: '@pingpingNative_accessToken',
+	onboardingStatus: '@pingpingNative_onboardingStatus',
+};
+
 export const ERROR_TYPES = {
 	backendError: 'BACKEND_ERROR',
 	networkError: 'NETWORK_ERROR',
