@@ -16,7 +16,7 @@ import PrivacyPolicyAccordion from '../components/shared/PrivacyPolicyAccordion'
 import Button from '../components/shared/RoundedButton';
 import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import { ONBOARDING_STATES } from '../config/constants';
+import { ASYNC_STORAGE_KEYS, ONBOARDING_STATES } from '../config/constants';
 import theme from '../config/theme';
 import { getFromAsyncStorage, multiSetAsyncStorage } from '../helpers/asyncStorageHelpers';
 import { doRegisterDevice } from '../helpers/authHelper';
@@ -41,10 +41,10 @@ function PrivacyPolicyScreen({ navigation, route }) {
 		try {
 			await doRegisterDevice(registerDevice);
 			await multiSetAsyncStorage([
-				['@pingpingNative_acceptedPolicy', JSON.stringify(true)],
-				['@pingpingNative_onboardingStatus', ONBOARDING_STATES.onboardingQuestionsStarted],
+				[ASYNC_STORAGE_KEYS.acceptedPolicy, JSON.stringify(true)],
+				[ASYNC_STORAGE_KEYS.onboardingStatus, ONBOARDING_STATES.onboardingQuestionsStarted],
 			]);
-			const token = await getFromAsyncStorage('@pingpingNative_accessToken');
+			const token = await getFromAsyncStorage(ASYNC_STORAGE_KEYS.accessToken);
 			if (token) {
 				setLoading(false);
 				navigation.navigate(routes.onboardingStack.screens.questionScreen);

@@ -6,6 +6,7 @@ import checkVersion from 'react-native-store-version';
 
 import { version } from '../../../package.json';
 import UpdateSvg from '../../assets/svg/UpdateSvg';
+import { ASYNC_STORAGE_KEYS } from '../../config/constants';
 import theme from '../../config/theme';
 import { getFromAsyncStorage, setAsyncStorage } from '../../helpers/asyncStorageHelpers';
 import sentryHelper from '../../helpers/sentryHelper';
@@ -40,7 +41,7 @@ function UpdateAppModal() {
 				setVersionResult(check);
 				if (check.result === 'new') {
 					const dismissedUpdate = await getFromAsyncStorage(
-						'@pingpingNative_dismissedUpdate'
+						ASYNC_STORAGE_KEYS.dismissedUpdate
 					);
 					if (dismissedUpdate === `${check.local}-${check.remote}`) {
 						return;
