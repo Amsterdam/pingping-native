@@ -13,7 +13,7 @@ import OnboardingPage from '../components/onboarding/OnboardingPage';
 import Container from '../components/shared/Container';
 import TextButton from '../components/shared/TextButton';
 import Body from '../components/typography/Body';
-import { asyncStorageKeys, ONBOARDING_STATES, ONBOARDING_VIEWS } from '../config/constants';
+import { ASYNC_STORAGE_KEYS, ONBOARDING_STATES, ONBOARDING_VIEWS } from '../config/constants';
 import { getFromAsyncStorage, setAsyncStorage } from '../helpers/asyncStorageHelpers';
 
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
@@ -27,7 +27,7 @@ function OnboardingScreen({ navigation }) {
 
 	useEffect(() => {
 		const checkOnboardingStatus = async () => {
-			const onboardingStatus = await getFromAsyncStorage(asyncStorageKeys.onboardingStatus);
+			const onboardingStatus = await getFromAsyncStorage(ASYNC_STORAGE_KEYS.onboardingStatus);
 
 			switch (onboardingStatus) {
 				case ONBOARDING_STATES.onboardingSwiperCompleted:
@@ -55,7 +55,7 @@ function OnboardingScreen({ navigation }) {
 	const handlePageChange = async (value) => {
 		if (isLastPage && value === 1) {
 			await setAsyncStorage(
-				asyncStorageKeys.onboardingStatus,
+				ASYNC_STORAGE_KEYS.onboardingStatus,
 				ONBOARDING_STATES.onboardingSwiperCompleted
 			);
 			return navigation.navigate(routes.onboardingStack.screens.privacyPolicyScreen, {

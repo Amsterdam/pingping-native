@@ -10,7 +10,7 @@ export const BASE_URL = __DEV__ ? ACC_URL : PROD_URL;
 
 export const API_URL = `${BASE_URL}/api`;
 
-export const asyncStorageKeys = {
+export const ASYNC_STORAGE_KEYS = {
 	dismissedUpdate: '@pingpingNative_dismissedUpdate',
 	acceptedPolicy: '@pingpingNative_acceptedPolicy',
 	accessToken: '@pingpingNative_accessToken',
