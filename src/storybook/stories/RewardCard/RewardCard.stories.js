@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { withKnobs, object, number, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
 
-import ContentLayout from '../../../../components/layout/ContentLayout';
-import RewardCard from '../../../../components/reward/RewardCard';
-import Container from '../../../../components/shared/Container';
+import ContentLayout from '../../../components/layout/ContentLayout';
+import RewardCard from '../../../components/reward/RewardCard';
+import Container from '../../../components/shared/Container';
 
 const reward = {
 	price: 140,
@@ -25,29 +26,36 @@ const reward = {
 const data = { pin: '', code: '', expiryDate: '01-01-2021' };
 
 storiesOf('Rewardcard', module)
+	.addDecorator(withKnobs)
 	.addDecorator((getStory) => (
 		<Container>
 			<ContentLayout>{getStory()}</ContentLayout>
 		</Container>
 	))
 	.add('Enabled Rewardcard', () => (
-		<RewardCard reward={reward} data={data} balance={0} navigation={() => {}} claimed={false} />
-	))
-	.add('Disabled RewardCard', () => (
 		<RewardCard
-			navigation={() => {}}
-			balance={100}
-			reward={{ ...reward, status: 'NotAvailable' }}
-			data={data}
-			claimed={false}
+			reward={object('reward', reward)}
+			data={object('data', data)}
+			balance={number('balance', 25)}
+			navigation={{}}
+			claimed={boolean('claimed', false)}
 		/>
 	))
 	.add('Claimed RewardCard', () => (
 		<RewardCard
-			navigation={() => {}}
+			navigation={{}}
 			balance={100}
 			reward={{ ...reward, status: 'Available' }}
 			data={data}
 			claimed
+		/>
+	))
+	.add('Disabled RewardCard', () => (
+		<RewardCard
+			navigation={{}}
+			balance={100}
+			reward={{ ...reward, status: 'NotAvailable' }}
+			data={data}
+			claimed={false}
 		/>
 	));

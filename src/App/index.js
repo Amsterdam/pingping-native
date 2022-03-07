@@ -5,7 +5,6 @@ import RNBootSplash from 'react-native-bootsplash';
 
 import linking from './linking';
 import OnboardingStack from './stacks/OnboardingStack';
-import StorybookUI from './storybook';
 import TabNavigator from './TabNavigator';
 
 import UpdateAppModal from '../components/modals/UpdateAppModal';
@@ -14,6 +13,7 @@ import Loading from '../components/shared/LoadingComponent';
 import { USER_STATES } from '../config/constants';
 import useAppContext from '../hooks/useAppContext';
 import PushNotifications from '../services/PushNotifications';
+import StorybookUI from '../storybook';
 
 function App() {
 	const { bootIssue, userState, retry } = useAppContext();
