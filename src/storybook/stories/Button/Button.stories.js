@@ -15,9 +15,9 @@ import TextButton from '../../../components/shared/TextButton';
 import theme from '../../../config/theme';
 import CenterView from '../CenterView';
 
-storiesOf('Button', module)
+storiesOf('All Buttons', module)
 	.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-	.add('with text', () => (
+	.add('Buttons', () => (
 		<>
 			<View style={{ marginBottom: 10 }} />
 			<IconButton
@@ -28,7 +28,7 @@ storiesOf('Button', module)
 				testID="NAVIGATION.HEADER_BACK_BUTTON"
 			/>
 			<View style={{ marginBottom: 10 }} />
-			<HeaderBackButton onPressAction={action('navigate')} color={text('color', '#000')} />
+			<HeaderBackButton onPressAction={action('navigate')} color="#000" />
 			<View style={{ marginBottom: 10 }} />
 			<TextButton
 				onPress={action('clicked-button')}
