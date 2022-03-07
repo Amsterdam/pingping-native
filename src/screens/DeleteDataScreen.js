@@ -70,7 +70,6 @@ function DeleteDataScreen({ navigation }) {
 							label="Verwijder mijn gegevens"
 							onPress={() => setOpen(true)}
 							testid={testIDs.DELETE_DATA.DELETE_BUTTON}
-							full
 						/>
 					</View>
 				</ContentLayout>

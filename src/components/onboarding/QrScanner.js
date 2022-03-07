@@ -1,11 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	Dimensions,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
@@ -13,24 +9,15 @@ import theme from '../../config/theme';
 import Loading from '../shared/LoadingComponent';
 import Button from '../shared/RoundedButton';
 
-function QrScanner({
-	onSuccess,
-	scanning,
-	setScanning,
-	loading,
-}) {
+function QrScanner({ onSuccess, scanning, setScanning, loading }) {
 	return (
 		<View style={styles.mainContainer}>
 			{scanning ? (
 				<>
 					<QRCodeScanner
 						onRead={onSuccess}
-						flashMode={
-							RNCamera.Constants.FlashMode.off
-						}
-						containerStyle={
-							styles.cameraContainerStyle
-						}
+						flashMode={RNCamera.Constants.FlashMode.off}
+						containerStyle={styles.cameraContainerStyle}
 						showMarker
 						markerStyle={{
 							borderColor: theme.colors.danger,
@@ -39,11 +26,7 @@ function QrScanner({
 					{loading && <Loading />}
 				</>
 			) : (
-				<Button
-					full
-					onPress={() => setScanning(true)}
-					label="Opnieuw scannen"
-				/>
+				<Button onPress={() => setScanning(true)} label="Opnieuw scannen" />
 			)}
 		</View>
 	);

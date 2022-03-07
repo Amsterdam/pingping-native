@@ -33,6 +33,12 @@ function AccountStack() {
 				name={routes.accountStack.screens.exportDataScreen}
 				component={ExportDataScreen}
 			/>
+			{__DEV__ && (
+				<Stack.Screen
+					name="STORYBOOK_SCREEN"
+					component={require('../../storybook').default}
+				/>
+			)}
 		</Stack.Navigator>
 	);
 }

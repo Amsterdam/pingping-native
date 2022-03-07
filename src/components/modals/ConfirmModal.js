@@ -10,8 +10,7 @@ import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window')
-	.width;
+const screenWidth = Dimensions.get('window').width;
 
 function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {}, choice = {} }) {
 	const closeModal = useCallback(() => {
@@ -37,7 +36,6 @@ function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {
 						</Body>
 						<RoundedButton
 							label={choice.label}
-							full
 							onPress={() => doUpdateTask(choice)}
 							testid={testIDs.QUESTION.CONFIRM_SKIP_QUESTIONS_BUTTON}
 						/>

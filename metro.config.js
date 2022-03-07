@@ -12,7 +12,7 @@ module.exports = {
 		getTransformOptions: () => ({
 			transform: {
 				experimentalImportSupport: false,
-				inlineRequires: true,
+				inlineRequires: false,
 			},
 		}),
 	},

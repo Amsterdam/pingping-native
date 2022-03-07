@@ -34,6 +34,12 @@ function AccountHomeScreen({ navigation }) {
 			route: routes.accountStack.screens.deleteDataScreen,
 			testID: testIDs.ACCOUNT.DELETE_DATA_BLOCK_BUTTON,
 		},
+		__DEV__ && {
+			title: 'Storybook',
+			image: <Trashcan style={styles.image} />,
+			route: 'STORYBOOK_SCREEN',
+			testID: 'STORYBOOK_BLOCK_BUTTON',
+		},
 	];
 	return (
 		<Container
@@ -55,10 +61,7 @@ function AccountHomeScreen({ navigation }) {
 				contentContainerStyle={styles.flatList}
 				columnWrapperStyle={styles.flatListColumn}
 				renderItem={({ item }) => (
-					<AccountBlockButton
-						button={item}
-						navigation={navigation}
-					/>
+					<AccountBlockButton button={item} navigation={navigation} />
 				)}
 				numColumns={2}
 				keyExtractor={(item) => item.title}

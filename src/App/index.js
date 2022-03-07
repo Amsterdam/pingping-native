@@ -13,7 +13,6 @@ import Loading from '../components/shared/LoadingComponent';
 import { USER_STATES } from '../config/constants';
 import useAppContext from '../hooks/useAppContext';
 import PushNotifications from '../services/PushNotifications';
-import StorybookUI from '../storybook';
 
 function App() {
 	const { bootIssue, userState, retry } = useAppContext();
@@ -44,4 +43,4 @@ function App() {
 	);
 }
 
-export default StorybookUI;
+export default App;
