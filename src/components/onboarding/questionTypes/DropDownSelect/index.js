@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
@@ -21,7 +21,7 @@ function DropDownSelect({
 	setState = () => {},
 	scrollToBottom = () => {},
 }) {
-	const [isOpened, setIsOpened] = React.useState(false);
+	const [isOpened, setIsOpened] = useState(false);
 	const selectedItem = state.selectedChoice;
 	const setSelectedItem = (item) => {
 		setState({ ...state, selectedChoice: item });

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useLazyQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
@@ -18,7 +18,7 @@ import { ERROR_TYPES } from '../config/constants';
 import theme from '../config/theme';
 
 function CityPingsHomeScreen({ navigation }) {
-	React.useEffect(() => {
+	useEffect(() => {
 		const unsubscribe = navigation.addListener('focus', () => {
 			getAvailableRewards();
 			getStatus();
@@ -27,8 +27,8 @@ function CityPingsHomeScreen({ navigation }) {
 	}, [navigation, getAvailableRewards, getStatus]);
 	const layout = useWindowDimensions();
 
-	const [index, setIndex] = React.useState(0);
-	const [routes] = React.useState([
+	const [index, setIndex] = useState(0);
+	const [routes] = useState([
 		{ key: 'rewards', title: 'Rewards' },
 		{ key: 'geclaimed', title: 'Geclaimed' },
 	]);
@@ -37,7 +37,7 @@ function CityPingsHomeScreen({ navigation }) {
 	const [getStatus, me] = useLazyQuery(GET_STATUS_QUERY, {
 		fetchPolicy: 'cache-and-network',
 	});
-	const [refreshing, setRefreshing] = React.useState(false);
+	const [refreshing, setRefreshing] = useState(false);
 
 	const onRefresh = useCallback(() => {
 		setRefreshing(true);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
@@ -37,7 +37,7 @@ function RouteHomeScreen({ navigation }) {
 		fetchPolicy: 'cache-and-network',
 	});
 
-	const [refreshing, setRefreshing] = React.useState(false);
+	const [refreshing, setRefreshing] = useState(false);
 
 	if (error) {
 		return (
