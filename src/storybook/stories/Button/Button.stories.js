@@ -47,7 +47,7 @@ storiesOf('All Buttons', module)
 			<View style={{ marginBottom: 10 }} />
 			<AnswerButtonOnboarding
 				label={text('Button text', 'Text Button')}
-				active={boolean('Active', true)}
+				active={boolean('Active', false)}
 				action={action('onboarding')}
 				testid="AnswerButtonOnboarding"
 			/>
