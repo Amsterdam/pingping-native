@@ -25,7 +25,7 @@ const reward = {
 
 const data = { pin: '', code: '', expiryDate: '01-01-2021' };
 
-storiesOf('Rewardcard', module)
+storiesOf('Reward', module)
 	.addDecorator(withKnobs)
 	.addDecorator((getStory) => (
 		<Container>

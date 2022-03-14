@@ -5,17 +5,17 @@ import { Image, StyleSheet, View } from 'react-native';
 
 import { BASE_URL } from '../../../config/constants';
 import theme from '../../../config/theme';
-import ConfirmModal from '../../modals/ConfirmModal';
+import SkipQuestionsModal from '../../modals/SkipQuestionsModal';
 import Button from '../../shared/RoundedButton';
 import Body from '../../typography/Body';
 import Title from '../../typography/Title';
 
 function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
-	const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+	const [skipQuestionsModalOpen, setSkipQuestionsModalOpen] = useState(false);
 
 	const handleOnPress = (choice) => {
 		if (currentTask.taskId.includes('onboarding.welcome') && choice.value === 'no') {
-			return setConfirmModalOpen(true);
+			return setSkipQuestionsModalOpen(true);
 		}
 		return doUpdateTask(choice);
 	};
@@ -59,9 +59,9 @@ function Confirm({ currentTask = {}, doUpdateTask = () => {} }) {
 			</View>
 
 			<View style={styles.buttonContainer}>{mapButtons()}</View>
-			<ConfirmModal
-				open={confirmModalOpen}
-				setOpen={setConfirmModalOpen}
+			<SkipQuestionsModal
+				open={skipQuestionsModalOpen}
+				setOpen={setSkipQuestionsModalOpen}
 				doUpdateTask={doUpdateTask}
 			/>
 		</View>

@@ -12,7 +12,12 @@ import Title from '../typography/Title';
 
 const screenWidth = Dimensions.get('window').width;
 
-function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {}, choice = {} }) {
+function SkipQuestionModals({
+	open = false,
+	setOpen = () => {},
+	doUpdateTask = () => {},
+	choice = {},
+}) {
 	const closeModal = useCallback(() => {
 		setOpen(false);
 	}, [setOpen]);
@@ -87,7 +92,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-ConfirmModal.propTypes = {
+SkipQuestionModals.propTypes = {
 	open: PropTypes.bool.isRequired,
 	setOpen: PropTypes.func.isRequired,
 	doUpdateTask: PropTypes.func.isRequired,
@@ -97,8 +102,8 @@ ConfirmModal.propTypes = {
 	}),
 };
 
-ConfirmModal.defaultProps = {
+SkipQuestionModals.defaultProps = {
 	choice: { value: 'no', label: 'Vragen Overslaan' },
 };
 
-export default ConfirmModal;
+export default SkipQuestionModals;

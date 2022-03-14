@@ -53,6 +53,9 @@ const commonStyles = StyleSheet.create({
 		backgroundColor: theme.colors.headerColor,
 		borderRadius: 50,
 	},
+	spacingStoryBook: {
+		marginVertical: theme.spacing.xl,
+	},
 });
 
 export default commonStyles;

@@ -1,0 +1,185 @@
+{
+	"__typename": "RouteResponse",
+	"routeId": "financieleBasis",
+	"title": "Fiks je basis",
+	"description": "We gaan er samen voor zorgen dat jij je basis op orde hebt. Dan hoef jij je daar geen zorgen meer over te maken en heb je meer tijd voor leuke dingen.",
+	"isSuggested": true,
+	"numberOfSteps": 7,
+	"totalPoints": 140,
+	"targetAudience": "Jongvolwassenen",
+	"progress": 1,
+	"hasSubmittedFeedback": false,
+	"cover": {
+		"__typename": "Media",
+		"type": "Image",
+		"value": "/images/route1.png",
+		"thumbnail": "/images/route1Thumb.jpg",
+		"color": "#F5D6B1"
+	},
+	"tips": [
+		{
+			"__typename": "RouteTip",
+			"title": "Hoeveel abonnementen heb jij?",
+			"description": "Automatische afschrijvingen kunnen handig zijn, maar ook gevaarlijk! Als je niet gebruik maakt van abonnementen zoals de sportschool, swapfiets of zoiets, stop dan je abonnement. Zo loopt het niet door en bespaar je geld."
+		},
+		{
+			"__typename": "RouteTip",
+			"title": "Zet je eigen goal om te sparen!",
+			"description": "Een handige manier om te sparen; de 52 weken challenge! Spaar in de eerste week 1euro en spaar vervolgens elke week een euro meer.\nHou je dit 52 weken vol dan heb je op een makkelijke manier 1.378 euro gespaard in een jaar!"
+		},
+		{
+			"__typename": "RouteTip",
+			"title": "Spaar je eigen risico",
+			"description": "Ga bij je Zorgverzekeraar na of je je eigen risico verspreid over het jaar kunt betalen. Moet je gebruik maken van je verzekering omdat je ziektekosten hebt, dan sta je niet voor verassingen. Maak je geen gebruik van ziektekosten dan kun je je betaalde eigen risico over dat jaar terugkrijgen! Een fijn spaarpotje!"
+		}
+	],
+	"tasks": [
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.woonAdres",
+				"title": "Regel je adres",
+				"headerTitle": "woonadres",
+				"description": "<p>Je hebt eerst een adres nodig. Daarna kan je andere zaken regelen. Meestal is een adres de plek waar je woont. Heb je geen vast woonadres of heb je een inschrijfprobleem, dan kan je soms tijdelijk <a href=\"https://www.amsterdam.nl/veelgevraagd/?caseid=%7BB5E2584B-217C-489D-B346-42EE7511D445%7D\">een briefadres krijgen.</a></p><p>Verblijf je in Amsterdam, maar sta je niet ingeschreven of dreig je uitgeschreven te worden? Meld je dan bij het <a href=\"https://www.amsterdam.nl/werk-inkomen/jongerenpunt/\">Jongerenpunt van de gemeente Amsterdam.</a></p><p>Ben je dakloos en heb je hulp en steun nodig? Kijk dan op <a href=\"http://straatapp.nl/\">straatapp.nl</a></p>",
+				"media": {
+					"__typename": "Media",
+					"type": "Image",
+					"value": "/images/task1.jpg",
+					"thumbnail": "/images/task1Thumb.jpg",
+					"color": "#d8d8d5"
+				},
+				"choices": null,
+				"progress": 0.14
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Open",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.bankRekening",
+				"title": "Bankrekening Openen",
+				"headerTitle": "bankrekening",
+				"description": "<ul><li>Je hebt een bankrekening nodig om je geldzaken te regelen. Je kan zelf kiezen bij welke bank je een bankrekening neemt.</li><li>Op je bankrekening kan geld worden gestort en jij kunt het weer opnemen door te pinnen. Je kunt je eigen geld ook overmaken naar je spaarrekening.</li><li><strong>Rood staan</strong>: als er niks&nbsp;op je rekening staat, kun je er ook niks van afhalen. Je kan ervoor kiezen om &#39;rood&#39; te kunnen staan (geld uitgeven dat je niet hebt). Let op: het kan verleidelijk zijn om rood te kunnen staan. Maar er zijn ook nadelen,&nbsp;je betaalt rente over je geleende geld. Het is dus niet gratis.</li></ul>",
+				"media": {
+					"__typename": "Media",
+					"type": "Image",
+					"value": "/images/task2.jpg",
+					"thumbnail": "/images/task2Thumb.jpg",
+					"color": "#d8d8d5"
+				},
+				"choices": null,
+				"progress": 0.29
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.digiD",
+				"title": "Digid Aanmaken",
+				"headerTitle": "digid",
+				"description": "<p>Voor zaken die je regelt met de overheid hebt je een DigiD nodig.Met een DigiD laat je zien wie je bent. Net als met je ID of paspoort. Een DigiD heb je bijvoorbeeld nodig voor je belastingen.&nbsp;</p><ul><li><a href=\"https://digid.nl/aanvragen\">Hier </a>kan je jouw DigiD aanvragen.</li><li>Je krijgt binnen 5 dagen een brief op je adres.&nbsp;</li><li>In die brief staat een code. Dat is een tijdelijke code. Met die code kan je jouw eigen DigiD aanvragen.</li><li>In de brief staat hoe je dat moet doen. Doe dat snel. Als je lang wacht, is de code niet meer geldig.</li></ul>",
+				"media": {
+					"__typename": "Media",
+					"type": "YouTube",
+					"value": "jv68lO2uPUw",
+					"thumbnail": null,
+					"color": null
+				},
+				"choices": null,
+				"progress": 0.43
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.zorgverzekering",
+				"title": "Zorgverzekering regelen",
+				"headerTitle": "zorgverzekering",
+				"description": "<p>Iedereen moet&nbsp;verzekerd zijn voor ziekte. Dat heet een zorgverzekering. Een zorgverzekering regel je bij een zorgverzekeraar. &nbsp;Je kan zelf kiezen bij welke zorgverzekeraar.</p>Op deze site kun je verzekeraars vergelijken: <a href=\"https://www.zorgwijzer.nl\">klik hier</a><p></p><p><strong>Goed om te weten:</strong></p><ul><li>Een zorgverzekering kost geld. Dat betaal je aan de zorgverzekeraar.</li><li>Een basisverzekering &nbsp;is verplicht voor iedereen. Daarmee ben je voor een paar belangrijke dingen verzekerd. Bijvoorbeeld als je in het ziekenhuis moet blijven, maar ook voor de huisarts en apotheek.&nbsp;</li><li>Als je niet zelf je verzekering afsluit, kom je automatisch bij die van je ouders. Maak met hun goede afspraken of zij dit voor jou willen betalen of dat je het zelf moet gaan betalen.</li><li>Met een basisverzekering &nbsp; heb je een eigen risico van minimaal 385 euro per jaar. Dat betekent dat je eerst je rekeningen zelf betaalt. Tot je in totaal 385 euro hebt betaald. Daarna betaalt de zorgverzekeraar. Dit geldt niet voor de huisarts.</li><li>Als je vaak zorg nodig hebt, kan een aanvullende verzekering handig zijn. Maar het is ook voor bijvoorbeeld tandartskosten of fysiotherapie.</li><li>Sommige zorgverzekeraars geven korting aan studenten.</li></ul>",
+				"media": {
+					"__typename": "Media",
+					"type": "YouTube",
+					"value": "mstc5u40iyM",
+					"thumbnail": null,
+					"color": null
+				},
+				"choices": null,
+				"progress": 0.57
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.zorgtoeslag",
+				"title": "Zorgtoeslag aanvragen",
+				"headerTitle": "zorgtoeslag",
+				"description": "<p>De overheid helpt mensen met weinig geld om hun zorgverzekering te betalen. Dat heet zorgtoeslag. Kijk hier of je zorgtoeslag kan krijgen: <a href=\"https://www.toeslagen.nl\">www.toeslagen.nl</a></p><p><strong>Waarschuwing</strong>: Regel eerst je zorgverzekering. Als je zorgtoeslag krijgt zonder dat je verzekerd bent, moet je dat geld later terugbetalen. Dan heb je een schuld bij de belastingen.&nbsp;</p>",
+				"media": {
+					"__typename": "Media",
+					"type": "YouTube",
+					"value": "N3GzCO0CSoA",
+					"thumbnail": null,
+					"color": null
+				},
+				"choices": null,
+				"progress": 0.71
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.inkomen",
+				"title": "Regel je inkomen",
+				"headerTitle": "inkomen",
+				"description": "<p>Het is fijn om je eigen inkomen te hebben. Niet alleen om je vaste lasten te kunnen betalen, maar ook om leuke dingen te kunnen doen. Heb je geen inkomen en weet je niet goed waar je moet beginnen?&nbsp;</p><p><strong>Tips!</strong></p><ul><li>Schrijf je in bij uitzendbureaus.</li><li>Kijk of iemand in je eigen netwerk een baan voor je heeft.</li><li>Misschien ben jij wel ondernemend en begin je voor jezelf!</li></ul><p>Je kunt hier terecht voor advies en hulp: <a href=\"https://www.amsterdam.nl/werk-inkomen/jongerenpunt/geldzaken/\">amsterdam.nl/werk-inkomen/jongerenpunt/geldzaken/</a></p><p>En hier voor tegemoetkomingen op je inkomen vanuit de Gemeente:<br /><a href=\"https://www.amsterdam.nl/werk-inkomen/pak-je-kans/\">amsterdam.nl/werk-inkomen/pak-je-kans/&nbsp;</a><br />&nbsp;</p>",
+				"media": {
+					"__typename": "Media",
+					"type": "YouTube",
+					"value": "JBumC4H-NBw",
+					"thumbnail": null,
+					"color": null
+				},
+				"choices": null,
+				"progress": 0.86
+			}
+		},
+		{
+			"__typename": "UserTaskResponse",
+			"status": "Completed",
+			"answer": null,
+			"task": {
+				"__typename": "TaskResponse",
+				"taskId": "financieleBasis.ingeschrevenVoorWoning",
+				"title": "Inschrijving Woningnet",
+				"headerTitle": "woning",
+				"description": "<p>Schrijf je in bij Woningnet als je 18 bent of ouder. Je komt dan op een wachtlijst voor een woning.</p><p>Inschrijven kost 50 euro. En je betaalt elk jaar 8 euro. Kijk op:<a href=\"https://www.woningnet.nl\"> www.woningnet.nl</a></p><p>Ben je 16 en ga je (voltijd) studeren, dan kan je je hier inschrijven via de volgende links: <a href=\"https://www.studentenwoningweb.nl/Inschrijven\">studentenwoningweb.nl</a><br />&nbsp;</p>",
+				"media": {
+					"__typename": "Media",
+					"type": "Image",
+					"value": "/images/taskWoning.jpg",
+					"thumbnail": "/images/taskWoningThumb.jpg",
+					"color": "#d8d8d5"
+				},
+				"choices": null,
+				"progress": 1
+			}
+		}
+	]
+}
