@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import PropTypes from 'prop-types';
@@ -30,12 +30,12 @@ const INITIAL_STATE = {
 function RouteFeedbackScreen({ navigation = () => {}, route = {} }) {
 	const { cover, routeId, totalPoints } = route.params;
 	const [submitFeedback] = useMutation(SUBMIT_ROUTE_FEEDBACK_MUTATION);
-	const [state, setState] = React.useState(INITIAL_STATE);
-	const [displayError, setDisplayError] = React.useState({
+	const [state, setState] = useState(INITIAL_STATE);
+	const [displayError, setDisplayError] = useState({
 		show: false,
 		message: '',
 	});
-	const [thankYouOpen, setThankYouOpen] = React.useState(false);
+	const [thankYouOpen, setThankYouOpen] = useState(false);
 
 	const onRate = (stars) => () => {
 		setState({ ...state, numberActive: stars });

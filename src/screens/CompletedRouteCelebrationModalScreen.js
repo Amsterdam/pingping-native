@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useQuery } from '@apollo/client';
-import LottieView from 'lottie-react-native';
 import { CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { Animated, StatusBar, StyleSheet, View, ScrollView } from 'react-native';
@@ -10,17 +9,13 @@ import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
-import confettiCelebration from '../assets/lottieFiles/confetti-celebration.json';
-import CityPingsCoin from '../assets/svg/CityPingCoin';
 import ContentLayout from '../components/layout/ContentLayout';
 import ChevronButton from '../components/reward/ChevronButton';
+import LottieCelebration from '../components/reward/LottieCelebration';
 import RewardCardMini from '../components/reward/RewardCardMini';
 import RouteCard from '../components/route/RouteCard';
-import CitypingsChip from '../components/shared/CitypingsChip';
 import IconButton from '../components/shared/IconButton';
-import Body from '../components/typography/Body';
 import Title from '../components/typography/Title';
-import commonStyles from '../config/commonStyles';
 import theme from '../config/theme';
 
 const HEADER_HEIGHT = 200;
@@ -75,29 +70,7 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 					round
 				/>
 				<ContentLayout>
-					<View style={styles.headerContainer}>
-						<Title style={styles.title} variant="h3" align="left">
-							GOED BEZIG!
-						</Title>
-						<CitypingsChip value={balance} />
-					</View>
-					<View style={styles.paper}>
-						<LottieView
-							source={confettiCelebration}
-							autoPlay
-							loop
-							resizeMode="cover"
-							style={styles.lottieView}
-						/>
-						<Body variant="b3" align="center">
-							Je hebt weer een aantal CityPings verdiend!
-						</Body>
-						<View style={styles.coinContainer}>
-							<CityPingsCoin height={30} width={30} />
-						</View>
-						<Title>{pings}</Title>
-					</View>
-
+					<LottieCelebration balance={balance} pings={pings} />
 					{availableRewards?.length > 0 && (
 						<View style={styles.blockContainer}>
 							<View style={styles.rowFlex}>
@@ -178,18 +151,6 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		zIndex: 2,
 	},
-	coinContainer: {
-		marginVertical: theme.spacing.s,
-	},
-	paper: {
-		...commonStyles.shadow,
-		backgroundColor: theme.colors.background,
-		alignSelf: 'stretch',
-		borderRadius: theme.borderRadius,
-		marginVertical: theme.spacing.m,
-		padding: theme.spacing.s,
-		alignItems: 'center',
-	},
 	content: {
 		top: 25,
 		paddingBottom: theme.spacing.multiplier(15),
@@ -205,11 +166,6 @@ const styles = StyleSheet.create({
 		left: 0,
 		right: 0,
 	},
-	headerContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-	},
 	rowFlex: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -217,12 +173,6 @@ const styles = StyleSheet.create({
 	},
 	blockContainer: {
 		marginBottom: theme.spacing.m,
-	},
-	lottieView: {
-		margin: theme.spacing.xxs,
-	},
-	title: {
-		color: theme.colors.white,
 	},
 });
 

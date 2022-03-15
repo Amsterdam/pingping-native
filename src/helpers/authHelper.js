@@ -3,7 +3,7 @@ import DeviceInfo from 'react-native-device-info';
 import { clearAsyncStorage, getFromAsyncStorage, setAsyncStorage } from './asyncStorageHelpers';
 import sentryHelper from './sentryHelper';
 
-import { ERROR_TYPES, USER_STATES } from '../config/constants';
+import { ASYNC_STORAGE_KEYS, ERROR_TYPES, USER_STATES } from '../config/constants';
 
 export async function doRegisterDevice(registerDeviceCallback = () => {}, exportToken = '') {
 	try {
@@ -22,7 +22,7 @@ export async function doRegisterDevice(registerDeviceCallback = () => {}, export
 				exportToken,
 			},
 		});
-		await setAsyncStorage('@pingpingNative_accessToken', accessToken);
+		await setAsyncStorage(ASYNC_STORAGE_KEYS.accessToken, accessToken);
 	} catch (error) {
 		sentryHelper(error.message);
 	}
@@ -30,7 +30,7 @@ export async function doRegisterDevice(registerDeviceCallback = () => {}, export
 
 const userStatus = async (refetch, setUserState, setBootIssue) => {
 	try {
-		const token = await getFromAsyncStorage('@pingpingNative_accessToken');
+		const token = await getFromAsyncStorage(ASYNC_STORAGE_KEYS.accessToken);
 		if (token === null) {
 			return setUserState(USER_STATES.onboarder); // I AM A NEW USER
 		}
