@@ -17,7 +17,7 @@ test('renders correctly', () => {
 		.create(
 			<NativeBaseProvider>
 				<MockedProvider mocks={[]}>
-					<RouteFeedbackScreen navigation={navigation} />
+					<RouteFeedbackScreen route={{}} navigation={navigation} />
 				</MockedProvider>
 			</NativeBaseProvider>
 		)
