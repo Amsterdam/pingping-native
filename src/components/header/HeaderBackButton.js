@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ArrowBackIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 import testIDs from '../../../e2e/modulesTestIDs';
+import ArrowBackIcon from '../../assets/svg/icons/ArrowBackIcon';
 import theme from '../../config/theme';
 
 function HeaderBackButton({ onPressAction = () => {}, color = 'light' }) {

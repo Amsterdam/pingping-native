@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { MockedProvider } from '@apollo/client/testing';
-import { NativeBaseProvider } from 'native-base';
 import renderer from 'react-test-renderer';
 
 import ExportDataScreen from '../src/screens/ExportDataScreen';
@@ -12,13 +11,9 @@ const navigation = { navigate: jest.fn() };
 test('renders correctly', () => {
 	const tree = renderer
 		.create(
-			<NativeBaseProvider>
-				<MockedProvider mocks={[]}>
-					<ExportDataScreen
-						navigation={navigation}
-					/>
-				</MockedProvider>
-			</NativeBaseProvider>,
+			<MockedProvider mocks={[]}>
+				<ExportDataScreen navigation={navigation} />
+			</MockedProvider>
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

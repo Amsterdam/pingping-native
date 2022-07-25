@@ -1,15 +1,753 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
+<View
   style={
     Array [
       Object {
+        "backgroundColor": "#fff",
         "flex": 1,
       },
       undefined,
     ]
   }
-/>
+  testID="PRIVACY_SCREEN"
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 0,
+        },
+        Object {
+          "backgroundColor": "#fff",
+        },
+      ]
+    }
+  />
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginHorizontal": 10,
+          "marginTop": 15,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "left": 5,
+            "position": "absolute",
+          }
+        }
+      />
+      <Text
+        ellipsizeMode="tail"
+        numberOfLines={0}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Heavitas",
+            },
+            Object {
+              "fontSize": 26,
+            },
+            Object {
+              "textAlign": "center",
+            },
+            Array [
+              Object {
+                "color": "#fb9f00",
+              },
+              false,
+            ],
+          ]
+        }
+      >
+        Privacy
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 5,
+          }
+        }
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "flexGrow": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "flex": 1,
+            "justifyContent": "space-evenly",
+            "padding": 15,
+          }
+        }
+      >
+        <View>
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={160}
+            bbWidth={160}
+            fill="none"
+            focusable={false}
+            height={160}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                Object {
+                  "flex": 0,
+                  "height": 160,
+                  "width": 160,
+                },
+              ]
+            }
+            vbHeight={160}
+            vbWidth={160}
+            width={160}
+          >
+            <RNSVGGroup
+              fill={null}
+              propList={
+                Array [
+                  "fill",
+                ]
+              }
+            >
+              <RNSVGPath
+                d="M145.238 2H21.606c-1.524 0-3.047.61-4.114 1.727L3.727 17.492A5.81 5.81 0 002 21.606v123.632c0 5.029 4.114 9.143 9.143 9.143h134.095c5.029 0 9.143-4.114 9.143-9.143V11.143c0-5.029-4.114-9.143-9.143-9.143z"
+                fill={4285821304}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGCircle
+                cx={78.191}
+                cy={80.73}
+                fill={4283518549}
+                opacity={0.43}
+                propList={
+                  Array [
+                    "fill",
+                    "stroke",
+                    "strokeWidth",
+                  ]
+                }
+                r={64.356}
+                stroke={4282794825}
+                strokeWidth={2.032}
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M145.238 2H21.606c-1.524 0-3.047.61-4.114 1.727L3.727 17.492A5.81 5.81 0 002 21.606v123.632c0 5.029 4.114 9.143 9.143 9.143h134.095c5.029 0 9.143-4.114 9.143-9.143V11.143c0-5.029-4.114-9.143-9.143-9.143z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M145.238 2H21.606c-1.524 0-3.047.61-4.114 1.727L3.727 17.492A5.81 5.81 0 002 21.606v123.632c0 5.029 4.114 9.143 9.143 9.143h134.095c5.029 0 9.143-4.114 9.143-9.143V11.143c0-5.029-4.114-9.143-9.143-9.143z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGCircle
+                cx={78.191}
+                cy={80.73}
+                fill={4291414473}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                r={21.333}
+              />
+              <RNSVGCircle
+                cx={78.191}
+                cy={80.73}
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                r={21.333}
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M131.016 154.381H25.365v-12.698c0-5.029 4.114-9.143 9.143-9.143h87.365c5.028 0 9.143 4.114 9.143 9.143v12.698z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M131.016 154.381H25.365v-12.698c0-5.029 4.114-9.143 9.143-9.143h87.365c5.028 0 9.143 4.114 9.143 9.143v12.698z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M137.873 132.54h7.111v7.111h-7.111z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M137.873 132.54h7.111v7.111h-7.111z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M99.524 125.784h34.032"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={4.063}
+              />
+              <RNSVGPath
+                d="M75.397 77.683h4.571v4.571h-4.571z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M75.397 77.683h4.571v4.571h-4.571z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M78.608 88.907l9.587-3.362 1.68 4.794-9.586 3.362z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M78.608 88.907l9.587-3.362 1.68 4.794-9.586 3.362z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M154.381 33.492c-3.352 0-6.095-2.743-6.095-6.095 0-3.353 2.743-6.095 6.095-6.095v12.19z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M154.381 33.492c-3.352 0-6.095-2.743-6.095-6.095 0-3.353 2.743-6.095 6.095-6.095v12.19z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M2 33.492c3.352 0 6.095-2.743 6.095-6.095 0-3.353-2.743-6.095-6.095-6.095v12.19z"
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M2 33.492c3.352 0 6.095-2.743 6.095-6.095 0-3.353-2.743-6.095-6.095-6.095v12.19z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGCircle
+                cx={13.022}
+                cy={41.365}
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                r={4.317}
+              />
+              <RNSVGCircle
+                cx={140.26}
+                cy={41.365}
+                fill={4282465873}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                r={4.317}
+              />
+              <RNSVGPath
+                d="M124.413 48.73H54.317c-5.028 0-9.142-4.114-9.142-9.143V2h88.381v37.587c0 5.08-4.115 9.143-9.143 9.143z"
+                fill={4283518549}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M102.063 48.73H57.365c-5.029 0-9.143-4.114-9.143-9.143V2h62.984v37.587c0 5.08-4.114 9.143-9.143 9.143z"
+                opacity={0.48}
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M124.413 48.73H54.317c-5.028 0-9.142-4.114-9.142-9.143V2h88.381v37.587c0 5.08-4.115 9.143-9.143 9.143z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M108.159 8.603h17.016"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={4.063}
+              />
+              <RNSVGPath
+                d="M99.016 48.73H54.317c-5.028 0-9.142-4.114-9.142-9.143V2h62.984v37.587c0 5.08-4.115 9.143-9.143 9.143z"
+                fill={4290757056}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M82 48.73l26.159-36.114v-8.28L75.194 48.73H82zM55.994 48.578c.61.101-2.337.203-1.676.203h15.136L104.35 2.05H90.737L55.994 48.578z"
+                fill={4292730333}
+                opacity={0.52}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                clipRule={0}
+                d="M99.016 48.73H54.317c-5.028 0-9.142-4.114-9.142-9.143V2h62.984v37.587c0 5.08-4.115 9.143-9.143 9.143z"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+              <RNSVGPath
+                d="M56.654 7.587h12.191v29.46H56.654z"
+                fill={4283518549}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M56.654 7.587h6.806v29.46h-6.806z"
+                fill={4282465873}
+                opacity={0.48}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              />
+              <RNSVGPath
+                d="M56.654 7.587h12.191v29.46H56.654zM95.511 7.587h6.095v3.048h-6.095zM13.835 154.381V142.19"
+                propList={
+                  Array [
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={4282465873}
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={3.048}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+        <View>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Heavitas",
+                },
+                Object {
+                  "fontSize": 58,
+                },
+                Object {
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000",
+                  "marginBottom": 20,
+                },
+              ]
+            }
+          >
+            PRIVACY
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={0}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Raleway-Regular",
+                  "lineHeight": 46,
+                },
+                Object {
+                  "fontSize": 29,
+                },
+                Object {
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+          >
+            Om Ping Ping optimaal te laten functioneren verzamelen wij informatie. Klik hieronder om meer hierover te lezen. Wij slaan zo min mogelijk informatie op.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "#fff",
+              "borderColor": "#000",
+              "borderWidth": 1,
+              "margin": 15,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 10,
+              }
+            }
+          >
+            <Text
+              ellipsizeMode="tail"
+              numberOfLines={0}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Heavitas",
+                  },
+                  Object {
+                    "fontSize": 22,
+                  },
+                  Object {
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              Privacy Policy
+            </Text>
+            <RNSVGSvgView
+              bbHeight={24}
+              bbWidth={24}
+              fill="none"
+              focusable={false}
+              height={24}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderWidth": 0,
+                  },
+                  Object {
+                    "flex": 0,
+                    "height": 24,
+                    "width": 24,
+                  },
+                ]
+              }
+              width={24}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <RNSVGGroup
+                fill={null}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+              >
+                <RNSVGPath
+                  clipRule={0}
+                  d="m7 10 5 5 5-5H7Z"
+                  fill={4279050294}
+                  fillRule={0}
+                  propList={
+                    Array [
+                      "fill",
+                      "fillRule",
+                    ]
+                  }
+                />
+              </RNSVGGroup>
+            </RNSVGSvgView>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              Object {
+                "disabled": false,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#fb9f00",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+            testID="PRIVACY_ACCEPT_BUTTON"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "color": "#fff",
+                      "fontFamily": "Heavitas",
+                      "fontSize": 26,
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                Accepteren
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
 `;

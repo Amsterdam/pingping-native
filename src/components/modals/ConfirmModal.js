@@ -1,17 +1,17 @@
 import React, { useCallback } from 'react';
 
-import { CloseIcon, IconButton } from 'native-base';
 import PropTypes from 'prop-types';
 import { Dimensions, Modal, StyleSheet, View } from 'react-native';
 
 import testIDs from '../../../e2e/modulesTestIDs';
+import CloseIcon from '../../assets/svg/icons/CloseIcon';
 import theme from '../../config/theme';
+import IconButton from '../shared/IconButton';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window')
-	.width;
+const screenWidth = Dimensions.get('window').width;
 
 function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {}, choice = {} }) {
 	const closeModal = useCallback(() => {
@@ -24,9 +24,9 @@ function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
-							onPress={closeModal}
+							action={closeModal}
 							style={styles.closeButton}
-							icon={<CloseIcon style={styles.icon} size="5" />}
+							iconComponent={<CloseIcon style={styles.icon} />}
 						/>
 						<Title style={styles.title}>Vragen Overslaan</Title>
 

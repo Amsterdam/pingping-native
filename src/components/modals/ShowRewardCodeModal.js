@@ -1,15 +1,15 @@
 import React, { useCallback } from 'react';
 
-import { IconButton, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { Dimensions, Modal, StyleSheet, View } from 'react-native';
 
+import CloseIcon from '../../assets/svg/icons/CloseIcon';
 import theme from '../../config/theme';
+import IconButton from '../shared/IconButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
 
-const screenWidth = Dimensions.get('window')
-	.width;
+const screenWidth = Dimensions.get('window').width;
 
 function ShowRewardCodeModal({ open = false, setOpen = () => {}, expiryDate = '', code = '' }) {
 	const closeModal = useCallback(() => {
@@ -22,9 +22,9 @@ function ShowRewardCodeModal({ open = false, setOpen = () => {}, expiryDate = ''
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
-							onPress={closeModal}
+							action={closeModal}
 							style={styles.closeButton}
-							icon={<CloseIcon style={styles.icon} size="4" />}
+							iconComponent={<CloseIcon style={styles.icon} />}
 						/>
 
 						<Title style={styles.title}>Jouw Code</Title>

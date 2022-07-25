@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Box } from 'native-base';
 import PropTypes from 'prop-types';
 import { StatusBar, StyleSheet, View } from 'react-native';
 
@@ -9,7 +8,7 @@ import Title from '../typography/Title';
 
 function Header({ title = '', left, right, color = 'light' }) {
 	return (
-		<Box>
+		<View>
 			<View style={styles.header}>
 				<StatusBar
 					barStyle={color === 'light' ? 'dark-content' : 'light-content'}
@@ -34,7 +33,7 @@ function Header({ title = '', left, right, color = 'light' }) {
 
 				<View style={styles.right}>{right}</View>
 			</View>
-		</Box>
+		</View>
 	);
 }
 

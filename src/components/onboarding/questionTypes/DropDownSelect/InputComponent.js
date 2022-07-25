@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
-import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { TextInput, StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import NoResultListItem from './NoResultListItem';
 import RenderItem from './RenderItem';
 
+import ChevronDownIcon from '../../../../assets/svg/icons/ChevronDownIcon';
+import ChevronUpIcon from '../../../../assets/svg/icons/ChevronUpIcon';
+import CloseIcon from '../../../../assets/svg/icons/CloseIcon';
 import theme from '../../../../config/theme';
 
 function InputComponent({
@@ -111,10 +113,10 @@ function InputComponent({
 					style={styles.input}
 				/>
 				<TouchableOpacity style={styles.clearButton} onPress={onClearPress}>
-					{!!searchText && <CloseIcon size="3" />}
+					{!!searchText && <CloseIcon />}
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.chevronButton} onPress={toggle}>
-					{isOpened ? <ChevronUpIcon size="7" /> : <ChevronDownIcon size="7" />}
+					{isOpened ? <ChevronUpIcon /> : <ChevronDownIcon />}
 				</TouchableOpacity>
 			</View>
 			{isOpened && (
