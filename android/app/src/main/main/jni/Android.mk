@@ -8,7 +8,7 @@ include $(PROJECT_BUILD_DIR)/generated/rncli/src/main/jni/Android-rncli.mk
 include $(CLEAR_VARS)
 LOCAL_PATH := $(THIS_DIR)
 # You can customize the name of your application .so file here.
-LOCAL_MODULE := pingpingNative_appmodules
+LOCAL_MODULE := pingpingnative_appmodules
 # The generated/rncli/src/main/jni folder contains Autolinking support files.
 LOCAL_C_INCLUDES := $(LOCAL_PATH) $(PROJECT_BUILD_DIR)/generated/rncli/src/main/jni
 LOCAL_SRC_FILES := $(wildcard $(LOCAL_PATH)/*.cpp) $(wildcard $(PROJECT_BUILD_DIR)/generated/rncli/src/main/jni/*.cpp)

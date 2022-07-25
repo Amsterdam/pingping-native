@@ -1,4 +1,4 @@
-package com.pingpingNative.newarchitecture;
+package com.pingpingnative.newarchitecture;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import com.facebook.react.PackageList;
@@ -18,9 +18,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.pingpingNative.BuildConfig;
-import com.pingpingNative.newarchitecture.components.MainComponentsRegistry;
-import com.pingpingNative.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.pingpingnative.BuildConfig;
+import com.pingpingnative.newarchitecture.components.MainComponentsRegistry;
+import com.pingpingnative.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 /**

@@ -10,7 +10,7 @@ class MainComponentsRegistry
  public:
   // Adapt it to the package you used for your Java class.
   constexpr static auto kJavaDescriptor =
-      "Lcom/pingpingNative/newarchitecture/components/MainComponentsRegistry;";
+      "Lcom/pingpingnative/newarchitecture/components/MainComponentsRegistry;";
   static void registerNatives();
   MainComponentsRegistry(ComponentFactory *delegate);
  private:
