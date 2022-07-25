@@ -1,24 +1,16 @@
 import React from 'react';
 
-import { ChevronRightIcon } from 'native-base';
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
+import ChevronRightIcon from '../../assets/svg/icons/ChevronRightIcon';
 import Body from '../typography/Body';
 
-function ChevronButton({
-	onPress = () => {},
-}) {
+function ChevronButton({ onPress = () => {} }) {
 	return (
-		<TouchableOpacity
-			style={styles.rowFlex}
-			onPress={onPress}
-		>
+		<TouchableOpacity style={styles.rowFlex} onPress={onPress}>
 			<Body variant="b4">Alles</Body>
-			<ChevronRightIcon size="4" />
+			<ChevronRightIcon />
 		</TouchableOpacity>
 	);
 }

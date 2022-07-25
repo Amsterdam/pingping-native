@@ -1,8 +1,8 @@
 {
-  "git.ignoreLimitWarning": true,
-  "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "red",
-    "titleBar.inactiveBackground": "gray",
-    "editor.formatOnSave": true
-  }
+	"git.ignoreLimitWarning": true,
+	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "red",
+		"titleBar.inactiveBackground": "gray",
+		"editor.formatOnSave": true
+	}
 }

@@ -7,7 +7,7 @@ import { ASYNC_STORAGE_KEYS, ERROR_TYPES, USER_STATES } from '../config/constant
 
 export async function doRegisterDevice(registerDeviceCallback = () => {}, exportToken = '') {
 	try {
-		const deviceId = DeviceInfo.getUniqueId();
+		const deviceId = await DeviceInfo.getUniqueId();
 		const deviceType = DeviceInfo.getDeviceType();
 		const deviceOs = await DeviceInfo.getSystemName();
 		const {

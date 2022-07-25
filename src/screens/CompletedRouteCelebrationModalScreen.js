@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useQuery } from '@apollo/client';
-import { CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { Animated, StatusBar, StyleSheet, View, ScrollView } from 'react-native';
 
@@ -9,6 +8,7 @@ import GET_AVAILABLE_REWARDS from '../apollo/Query/getAvailableRewards';
 import GET_ROUTES from '../apollo/Query/getRoutes';
 import GET_STATUS_QUERY from '../apollo/Query/getStatusQuery';
 import routes from '../App/stacks/routes';
+import CloseIcon from '../assets/svg/icons/CloseIcon';
 import ContentLayout from '../components/layout/ContentLayout';
 import ChevronButton from '../components/reward/ChevronButton';
 import LottieCelebration from '../components/reward/LottieCelebration';
@@ -64,7 +64,7 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 				contentContainerStyle={styles.content}
 			>
 				<IconButton
-					iconComponent={<CloseIcon size="5" color={theme.colors.white} />}
+					iconComponent={<CloseIcon color={theme.colors.white} />}
 					action={() => navigation.navigate(routes.citypingsStack.screens.homeScreen)}
 					backgroundColor={theme.colors.headerColor}
 					round

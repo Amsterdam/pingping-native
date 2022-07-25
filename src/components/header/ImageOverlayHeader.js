@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { CloseIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
 import testIDs from '../../../e2e/modulesTestIDs';
+import CloseIcon from '../../assets/svg/icons/CloseIcon';
 import { BASE_URL } from '../../config/constants';
 import theme from '../../config/theme';
 import CitypingsChip from '../shared/CitypingsChip';
@@ -36,7 +36,7 @@ function ImageOverlayHeader({
 			/>
 			<View style={styles.imageOverlay}>
 				<IconButton
-					iconComponent={<CloseIcon size="5" color={theme.colors.white} />}
+					iconComponent={<CloseIcon color={theme.colors.white} />}
 					action={navigate}
 					backgroundColor={theme.colors.headerColor}
 					round
