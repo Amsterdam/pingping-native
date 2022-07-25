@@ -38,11 +38,13 @@ AnswerButtonOnboarding.defaultProps = {
 
 const styles = StyleSheet.create({
 	button: {
-		justifyContent: 'center',
+		alignItems: 'center',
+		padding: 10,
 		backgroundColor: theme.colors.background,
 		marginBottom: theme.spacing.m,
 		borderRadius: theme.borderRadius,
 		borderColor: theme.colors.primary,
+		borderWidth: 1,
 	},
 	activeButton: {
 		backgroundColor: theme.colors.primary,
