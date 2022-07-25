@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Button, Text } from 'native-base';
 import PropTypes from 'prop-types';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
@@ -14,24 +13,14 @@ function AnswerButtonOnboarding({
 	testid,
 }) {
 	return (
-		<Button
+		<TouchableOpacity
 			testID={testid}
-			style={[
-				styles.button,
-				active && styles.activeButton,
-			]}
+			style={[styles.button, active && styles.activeButton]}
 			variant="outline"
 			onPress={onPress}
 		>
-			<Text
-				style={[
-					styles.label,
-					active && styles.activeText,
-				]}
-			>
-				{label}
-			</Text>
-		</Button>
+			<Text style={[styles.label, active && styles.activeText]}>{label}</Text>
+		</TouchableOpacity>
 	);
 }
 

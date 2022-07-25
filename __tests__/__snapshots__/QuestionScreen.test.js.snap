@@ -1,15 +1,270 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
+<View
   style={
     Array [
       Object {
+        "backgroundColor": "#fff",
         "flex": 1,
       },
       undefined,
     ]
   }
-/>
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flex": 0,
+        },
+        Object {
+          "backgroundColor": "#fff",
+        },
+      ]
+    }
+  />
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+          "height": 1309,
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "padding": 15,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 10,
+                    "height": 30,
+                    "width": 30,
+                  },
+                  Object {
+                    "backgroundColor": "#E1E9EE",
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 10,
+                    "height": 30,
+                    "width": 100,
+                  },
+                  Object {
+                    "backgroundColor": "#E1E9EE",
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 10,
+                    "height": 20,
+                    "width": 70,
+                  },
+                  Object {
+                    "backgroundColor": "#E1E9EE",
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "padding": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 10,
+                    "height": 40,
+                    "marginBottom": 5,
+                    "width": 680,
+                  },
+                  Object {
+                    "backgroundColor": "#E1E9EE",
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 10,
+                    "height": 40,
+                    "width": 650,
+                  },
+                  Object {
+                    "backgroundColor": "#E1E9EE",
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "padding": 25,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderRadius": 10,
+                  "height": 50,
+                  "marginBottom": 15,
+                  "width": 700,
+                },
+                Object {
+                  "backgroundColor": "#E1E9EE",
+                  "overflow": "hidden",
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderRadius": 10,
+                  "height": 50,
+                  "width": 700,
+                },
+                Object {
+                  "backgroundColor": "#E1E9EE",
+                  "overflow": "hidden",
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "padding": 25,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignSelf": "flex-end",
+                  "borderRadius": 10,
+                  "height": 25,
+                  "width": 100,
+                },
+                Object {
+                  "backgroundColor": "#E1E9EE",
+                  "overflow": "hidden",
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
 `;

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-import { CloseIcon, IconButton } from 'native-base';
 import { Dimensions, Modal, StyleSheet, Platform, Linking, View } from 'react-native';
 import checkVersion from 'react-native-store-version';
 
 import { version } from '../../../package.json';
+import CloseIcon from '../../assets/svg/icons/CloseIcon';
 import UpdateSvg from '../../assets/svg/UpdateSvg';
 import { ASYNC_STORAGE_KEYS } from '../../config/constants';
 import theme from '../../config/theme';
 import { getFromAsyncStorage, setAsyncStorage } from '../../helpers/asyncStorageHelpers';
 import sentryHelper from '../../helpers/sentryHelper';
+import IconButton from '../shared/IconButton';
 import RoundedButton from '../shared/RoundedButton';
 import Body from '../typography/Body';
 import Title from '../typography/Title';
@@ -84,9 +85,9 @@ function UpdateAppModal() {
 				<View style={styles.modalView}>
 					<View style={styles.modalContainer}>
 						<IconButton
-							onPress={closeModal}
+							action={closeModal}
 							style={styles.closeButton}
-							icon={<CloseIcon style={styles.icon} size="4" />}
+							iconComponent={<CloseIcon style={styles.icon} />}
 						/>
 						<Title variant="h3" style={styles.title}>
 							Hey! Er is een nieuwe versie

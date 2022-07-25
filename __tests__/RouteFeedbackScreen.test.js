@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { MockedProvider } from '@apollo/client/testing';
-import { NativeBaseProvider } from 'native-base';
 import renderer from 'react-test-renderer';
 
 import RouteFeedbackScreen from '../src/screens/RouteFeedbackScreen';
@@ -15,11 +14,9 @@ const navigation = {
 test('renders correctly', () => {
 	const tree = renderer
 		.create(
-			<NativeBaseProvider>
-				<MockedProvider mocks={[]}>
-					<RouteFeedbackScreen route={{}} navigation={navigation} />
-				</MockedProvider>
-			</NativeBaseProvider>
+			<MockedProvider mocks={[]}>
+				<RouteFeedbackScreen route={{}} navigation={navigation} />
+			</MockedProvider>
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

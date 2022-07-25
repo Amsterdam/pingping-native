@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { ChevronDownIcon, ChevronUpIcon } from 'native-base';
 import PropTypes from 'prop-types';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 
+import ChevronDownIcon from '../../assets/svg/icons/ChevronDownIcon';
+import ChevronUpIcon from '../../assets/svg/icons/ChevronUpIcon';
 import theme from '../../config/theme';
 import faqItems from '../../helpers/faqItems';
 import Body from '../typography/Body';
@@ -18,7 +19,7 @@ function PrivacyPolicyAccordion({ open, toggleOpen }) {
 						Privacy Policy
 					</Title>
 
-					{open ? <ChevronUpIcon size="5" /> : <ChevronDownIcon size="5" />}
+					{open ? <ChevronUpIcon /> : <ChevronDownIcon />}
 				</View>
 			</TouchableWithoutFeedback>
 			{open && (

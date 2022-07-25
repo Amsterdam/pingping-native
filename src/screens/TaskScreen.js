@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { useMutation, useQuery } from '@apollo/client';
-import { useToast } from 'native-base';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, View } from 'react-native';
+import Toast from 'react-native-toast-message';
 import YouTube from 'react-native-youtube';
 
 import COMPLETE_TASK_MUTATION from '../apollo/Mutation/completeTaskMutation';
@@ -33,7 +33,6 @@ function TaskScreen({ navigation, route }) {
 	const [webViewOpen, setWebviewOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [videoReady, setVideoReady] = useState(false);
-	const toast = useToast();
 
 	const doCompleteTask = async () => {
 		setLoading(true);
@@ -120,17 +119,11 @@ function TaskScreen({ navigation, route }) {
 			throw new Error('Om Hulp Gevraagd');
 		} catch (error) {
 			sentryHelper(error.message);
-			toast.show({
-				description: 'Het is op dit moment nog niet mogelijk om hulp te vragen',
-				textStyle: {
-					fontFamily: 'Raleway-Regular',
-				},
-				style: {
-					backgroundColor: theme.colors.black,
-					borderRadius: 10,
-				},
-				duration: 2000,
-			}); // change the error message once complete
+			return Toast.show({
+				type: 'info',
+				text1: 'Helaas!',
+				text2: 'Het is op dit moment nog niet mogelijk om hulp te vragen.',
+			});
 		}
 	};
 
