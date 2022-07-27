@@ -28,17 +28,13 @@ target 'pingpingNative' do
     # Pods for testing
   end
 
-  # Enables Flipper.
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable the next line.
-	# use_flipper!()
-	# post_install do |installer|
-	#react_native_post_install(
-	#	installer,
-	# Set `mac_catalyst_enabled` to `true` in order to apply patches
-	# necessary for Mac Catalyst builds
-	#	:mac_catalyst_enabled => false
-	# )
-	#   __apply_Xcode_12_5_M1_post_install_workaround(installer)
-#   end
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      # Set `mac_catalyst_enabled` to `true` in order to apply patches
+      # necessary for Mac Catalyst builds
+      :mac_catalyst_enabled => false
+    )
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
 end

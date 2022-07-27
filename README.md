@@ -12,11 +12,12 @@ First read [contributing](CONTRIBUTING.md)
 
 :rotating_light:Make sure you have Xcode 13 installed !
 
-Before executing the steps listed in the list below, please checkout the [environment setup of react native](https://reactnative.dev/docs/environment-setup). Follow the steps under the React Native CLI Quickstart. Until you have installed the cocoapods for Xcode
+Before executing the steps listed in the list below, please checkout the [environment setup of react native](https://reactnative.dev/docs/environment-setup). Follow the steps under the React Native CLI Quickstart. Until you have installed the cocoapods for Xcode. Also get the correct config/keys.js and ios/sentry.properties + android/sentry.properties
 
 1. `Install the latest (LTS) version of [Nodejs](https://nodejs.org/en/download/)`
 1. `git clone https://github.com/Amsterdam/pingping-native`
 1. `yarn install`
+1. `yarn postinstall`
 1. `cd ios && pod install && cd ..`
 1. `npx react-native run-ios` a simulator should spin up and React-native should start
 
@@ -45,7 +46,7 @@ The PingPing app uses sentry to log client errors, the sentry dsn and tokens hav
 
 The following rules apply:
 
-- A component can define nested components or services. It cannot use or define screens.
-- A screen can define nested components or services.
-- A service can define nested services. It cannot use or define components or screens.
-- Read the contributing file and stick to the rules for branching/file and folder structures.
+-   A component can define nested components or services. It cannot use or define screens.
+-   A screen can define nested components or services.
+-   A service can define nested services. It cannot use or define components or screens.
+-   Read the contributing file and stick to the rules for branching/file and folder structures.
