@@ -14,7 +14,6 @@ exports[`renders correctly 1`] = `
   testID="PRIVACY_SCREEN"
 >
   <RCTSafeAreaView
-    emulateUnlessSupported={true}
     style={
       Array [
         Object {
@@ -700,7 +699,6 @@ exports[`renders correctly 1`] = `
             accessible={true}
             collapsable={false}
             focusable={true}
-            nativeID="animatedComponent"
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
