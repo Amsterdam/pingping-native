@@ -37,6 +37,8 @@ function DateOfBirth({
 								day: itemValue,
 							})
 						}
+						accessible
+						accessibilityLabel="Kies een dag"
 					>
 						<Picker.Item label="Dag" value="" />
 						{getDays()}

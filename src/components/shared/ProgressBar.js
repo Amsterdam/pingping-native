@@ -16,6 +16,9 @@ function ProgressBar({ progress }) {
 			unfilledColor={theme.colors.subtleGrey}
 			useNativeDriver
 			animationType="timing"
+			accessible
+			accessibilityLabel={`Progress bar - voortgang ${(progress * 100).toFixed(0)}%`}
+			accessibliltyRole="progressbar"
 		/>
 	);
 }
