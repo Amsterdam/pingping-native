@@ -21,7 +21,7 @@ function OnboardingItem({ pageContent: { svg, title, text } }) {
 
 	return (
 		<View style={styles.viewContainer}>
-			<View>
+			<View accessibilityRole="image">
 				<SvgIllustration />
 			</View>
 			<View>

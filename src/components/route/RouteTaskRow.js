@@ -1,11 +1,7 @@
 import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
 
 import routes from '../../App/stacks/routes';
@@ -15,36 +11,20 @@ import Title from '../typography/Title';
 
 const CIRCLE_RADIUS = 30;
 
-function RouteTaskRow({
-	task: { task, status },
-	index,
-	navigation,
-	routeId,
-	tasksToDo,
-}) {
+function RouteTaskRow({ task: { task, status }, index, navigation, routeId, tasksToDo }) {
 	const isCompleted = status === 'Completed';
-	const isCurrentTask =
-		tasksToDo.length > 0 &&
-		tasksToDo[0].task.taskId === task.taskId;
+	const isCurrentTask = tasksToDo.length > 0 && tasksToDo[0].task.taskId === task.taskId;
 
 	const doNavigate = () => {
-		navigation.navigate(
-			routes.routeStack.screens.taskScreen,
-			{
-				routeId,
-				task: { ...task, status },
-			},
-		);
+		navigation.navigate(routes.routeStack.screens.taskScreen, {
+			routeId,
+			task: { ...task, status },
+		});
 	};
 
 	return (
-		<TouchableOpacity onPress={doNavigate}>
-			<View
-				style={[
-					styles.container,
-					index % 2 === 0 && styles.background,
-				]}
-			>
+		<TouchableOpacity onPress={doNavigate} accessible accessibilityRole="button">
+			<View style={[styles.container, index % 2 === 0 && styles.background]}>
 				<View
 					style={[
 						styles.circleStepIndicator,
@@ -52,27 +32,15 @@ function RouteTaskRow({
 						isCompleted && styles.circleDisabled,
 					]}
 				>
-					<Title
-						variant="h6"
-						style={styles.label}
-					>
+					<Title variant="h6" style={styles.label}>
 						{index}
 					</Title>
 				</View>
-				<Title
-					style={[
-						styles.title,
-						isCompleted && styles.disabled,
-					]}
-					variant="h5"
-				>
+				<Title style={[styles.title, isCompleted && styles.disabled]} variant="h5">
 					{task.title}
 				</Title>
 				{isCompleted && (
-					<AnimatableView
-						animation="bounceIn"
-						delay={200}
-					>
+					<AnimatableView animation="bounceIn" delay={200}>
 						<Badge style={styles.badge} />
 					</AnimatableView>
 				)}
@@ -118,8 +86,7 @@ const styles = StyleSheet.create({
 		marginLeft: theme.spacing.xxs,
 	},
 	background: {
-		backgroundColor:
-			theme.colors.taskRowBackground,
+		backgroundColor: theme.colors.taskRowBackground,
 	},
 });
 

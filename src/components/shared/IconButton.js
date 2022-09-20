@@ -16,6 +16,8 @@ function IconButton({ style, iconComponent, action, round, backgroundColor }) {
 				backgroundColor && { backgroundColor },
 				style,
 			]}
+			accessible
+			accessibilityRole="button"
 		>
 			{iconComponent}
 		</TouchableOpacity>

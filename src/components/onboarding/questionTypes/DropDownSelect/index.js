@@ -72,6 +72,8 @@ function DropDownSelect({
 					onPress={() => doUpdateTask()}
 					disabled={!selectedItem.value}
 					label="Volgende"
+					accessible
+					accessibilityRole="button"
 				/>
 			</View>
 		</View>

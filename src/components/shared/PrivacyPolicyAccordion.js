@@ -13,7 +13,7 @@ import Title from '../typography/Title';
 function PrivacyPolicyAccordion({ open, toggleOpen }) {
 	return (
 		<View style={styles.policyContainer}>
-			<TouchableWithoutFeedback onPress={toggleOpen}>
+			<TouchableWithoutFeedback onPress={toggleOpen} accessible accessibilityRole="button">
 				<View style={styles.iconButton}>
 					<Title style={styles.title} variant="h7" align="center">
 						Privacy Policy
