@@ -74,6 +74,7 @@ function DropDownSelect({
 					label="Volgende"
 					accessible
 					accessibilityRole="button"
+					accessibilityState={{ disabled: true }}
 				/>
 			</View>
 		</View>

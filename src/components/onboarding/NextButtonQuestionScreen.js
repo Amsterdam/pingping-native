@@ -15,6 +15,9 @@ function NextButtonQuestionScreen({ nextButtonDisabled, submitAnswer }) {
 			variant="text"
 			disabled={nextButtonDisabled}
 			style={styles.nextButton}
+			accessible
+			accessibilityState={{ disabled: nextButtonDisabled }}
+			accessibilityRole="button"
 		>
 			<Text
 				style={[

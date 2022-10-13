@@ -31,6 +31,7 @@ function RoundedButton({
 			onPress={onPress}
 			accessible
 			accessibilityRole="button"
+			accessibilityState={{ disabled }}
 		>
 			<View style={styles.innerContainer}>
 				{loading ? (

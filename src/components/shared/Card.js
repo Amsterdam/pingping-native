@@ -30,6 +30,7 @@ function Card({
 				accessibilityLabel={`${
 					disabled ? 'Deze route is nog niet beschikbaar' : 'Route card'
 				}`}
+				accessibilityState={{ disabled }}
 			>
 				<View>
 					<View style={styles.imageContainer}>
