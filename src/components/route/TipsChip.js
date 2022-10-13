@@ -1,10 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import routes from '../../App/stacks/routes';
 import LightBulb from '../../assets/svg/icons/LightBulb';
@@ -16,13 +13,12 @@ function TipsChip({ navigation, tips }) {
 		<TouchableOpacity
 			style={styles.container}
 			onPress={() =>
-				navigation.navigate(
-					routes.routeStack.screens.tipScreen,
-					{
-						tips,
-					},
-				)
+				navigation.navigate(routes.routeStack.screens.tipScreen, {
+					tips,
+				})
 			}
+			accessible
+			accessibilityRole="button"
 		>
 			<LightBulb />
 			<Title style={styles.title} variant="h5">

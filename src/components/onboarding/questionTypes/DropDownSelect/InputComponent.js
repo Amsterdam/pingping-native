@@ -112,10 +112,20 @@ function InputComponent({
 					onBlur={onBlur}
 					style={styles.input}
 				/>
-				<TouchableOpacity style={styles.clearButton} onPress={onClearPress}>
+				<TouchableOpacity
+					style={styles.clearButton}
+					onPress={onClearPress}
+					accessible
+					accessibilityRole="button"
+				>
 					{!!searchText && <CloseIcon />}
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.chevronButton} onPress={toggle}>
+				<TouchableOpacity
+					style={styles.chevronButton}
+					onPress={toggle}
+					accessible
+					accessibilityRole="button"
+				>
 					{isOpened ? <ChevronUpIcon /> : <ChevronDownIcon />}
 				</TouchableOpacity>
 			</View>

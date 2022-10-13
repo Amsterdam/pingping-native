@@ -41,6 +41,7 @@ function ImageOverlayHeader({
 					backgroundColor={theme.colors.headerColor}
 					round
 					testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
+					accessibilityLabel="Sluiten"
 				/>
 				<CitypingsChip value={cityPings} />
 			</View>

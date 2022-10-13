@@ -18,6 +18,9 @@ function AnswerButtonOnboarding({
 			style={[styles.button, active && styles.activeButton]}
 			variant="outline"
 			onPress={onPress}
+			accessibilityRole="button"
+			accessibilityLabel={label}
+			accessible
 		>
 			<Text style={[styles.label, active && styles.activeText]}>{label}</Text>
 		</TouchableOpacity>

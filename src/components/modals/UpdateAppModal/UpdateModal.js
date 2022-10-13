@@ -23,6 +23,7 @@ function UpdateAppModal({ closeModal, openAppStore, open }) {
 							action={closeModal}
 							style={styles.closeButton}
 							iconComponent={<CloseIcon style={styles.icon} />}
+							accessibilityLabel="Sluiten"
 						/>
 						<Title variant="h3" style={styles.title}>
 							Hey! Er is een nieuwe versie

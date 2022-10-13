@@ -1,10 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	TouchableOpacity,
-	StyleSheet,
-} from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
@@ -14,11 +11,11 @@ function TextButton({ onPress, testID, label }) {
 		<TouchableOpacity
 			onPress={onPress}
 			testID={testID}
+			accessibilityLabel={label}
+			accessible
+			accessibilityRole="button"
 		>
-			<Title
-				style={styles.buttonLabel}
-				variant="h7"
-			>
+			<Title style={styles.buttonLabel} variant="h7">
 				{label}
 			</Title>
 		</TouchableOpacity>

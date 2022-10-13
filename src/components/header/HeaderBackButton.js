@@ -9,7 +9,12 @@ import theme from '../../config/theme';
 
 function HeaderBackButton({ onPressAction = () => {}, color = 'light' }) {
 	return (
-		<TouchableOpacity onPress={onPressAction} testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}>
+		<TouchableOpacity
+			onPress={onPressAction}
+			testID={testIDs.NAVIGATION.HEADER_BACK_BUTTON}
+			accessible
+			accessibilityRole="button"
+		>
 			<ArrowBackIcon color={color === 'light' ? theme.colors.white : theme.colors.text} />
 		</TouchableOpacity>
 	);

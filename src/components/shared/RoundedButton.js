@@ -29,6 +29,9 @@ function RoundedButton({
 			activeOpacity={0.1}
 			disabled={disabled}
 			onPress={onPress}
+			accessible
+			accessibilityRole="button"
+			accessibilityState={{ disabled }}
 		>
 			<View style={styles.innerContainer}>
 				{loading ? (

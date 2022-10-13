@@ -49,6 +49,7 @@ function Title({
 			numberOfLines={numberOfLines}
 			ellipsizeMode={ellipsizeMode}
 			selectable={selectable}
+			accessibilityRole="header"
 		>
 			{children}
 		</Text>

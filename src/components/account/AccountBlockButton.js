@@ -1,25 +1,20 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import {
-	StyleSheet,
-	TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import theme from '../../config/theme';
 import Title from '../typography/Title';
 
-function AccountBlockButton({
-	button,
-	navigation,
-}) {
+function AccountBlockButton({ button, navigation }) {
 	return (
 		<TouchableOpacity
 			testID={button.testID}
 			style={styles.accountMainButton}
-			onPress={() =>
-				navigation.navigate(button.route)
-			}
+			onPress={() => navigation.navigate(button.route)}
+			accessibilityRole="button"
+			accessibilityLabel={button.title}
+			accessible
 		>
 			{button.image}
 			<Title variant="h6" align="center">
