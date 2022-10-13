@@ -27,6 +27,7 @@ function ConfirmModal({ open = false, setOpen = () => {}, doUpdateTask = () => {
 							action={closeModal}
 							style={styles.closeButton}
 							iconComponent={<CloseIcon style={styles.icon} />}
+							accessibilityLabel="Sluiten"
 						/>
 						<Title style={styles.title}>Vragen Overslaan</Title>
 

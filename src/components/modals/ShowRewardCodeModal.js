@@ -25,6 +25,7 @@ function ShowRewardCodeModal({ open = false, setOpen = () => {}, expiryDate = ''
 							action={closeModal}
 							style={styles.closeButton}
 							iconComponent={<CloseIcon style={styles.icon} />}
+							accessibilityLabel="Sluiten"
 						/>
 
 						<Title style={styles.title}>Jouw Code</Title>

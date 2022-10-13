@@ -32,6 +32,7 @@ function DeleteDataModal({
 							action={closeModal}
 							style={styles.closeButton}
 							iconComponent={<CloseIcon style={styles.icon} />}
+							accessibilityLabel="Sluiten"
 						/>
 						<Title style={styles.title}>Gegevens Verwijderen</Title>
 						<Body variant="b3" style={styles.body}>

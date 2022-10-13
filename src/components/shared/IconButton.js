@@ -6,10 +6,11 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import theme from '../../config/theme';
 import normalizeValue from '../../helpers/normalizeValue';
 
-function IconButton({ style, iconComponent, action, round, backgroundColor }) {
+function IconButton({ style, iconComponent, action, round, backgroundColor, accessibilityLabel }) {
 	return (
 		<TouchableOpacity
 			onPress={action}
+			accessibilityLabel={accessibilityLabel}
 			style={[
 				styles.container,
 				round && { borderRadius: 100 },
@@ -37,8 +38,9 @@ const styles = StyleSheet.create({
 IconButton.propTypes = {
 	iconComponent: PropTypes.element.isRequired,
 	action: PropTypes.func.isRequired,
-	round: PropTypes.bool,
+	accessibilityLabel: PropTypes.string.isRequired,
 	backgroundColor: PropTypes.string,
+	round: PropTypes.bool,
 	style: PropTypes.object,
 };
 

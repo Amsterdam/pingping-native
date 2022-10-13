@@ -68,6 +68,7 @@ function CompletedRouteCelebrationModalScreen({ navigation, route }) {
 					action={() => navigation.navigate(routes.citypingsStack.screens.homeScreen)}
 					backgroundColor={theme.colors.headerColor}
 					round
+					accessibilityLabel="Sluiten"
 				/>
 				<ContentLayout>
 					<LottieCelebration balance={balance} pings={pings} />
